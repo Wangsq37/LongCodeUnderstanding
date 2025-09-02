@@ -1,0 +1,44 @@
+[
+  {
+    "command": "ls python/",
+    "success": true,
+    "stdout": "CMakeLists.txt\nREADME.md\nbuild-requirements.txt\ndemo\ndoc\ndolfinx\npyproject.toml\ntest\nvcpkg.json\n",
+    "stderr": "",
+    "execution_time": 0.0025815963745117188
+  },
+  {
+    "command": "ls python/dolfinx/",
+    "success": true,
+    "stdout": "__init__.py\ncommon.py\nfem\ngeometry.py\ngraph.py\nio\njit.py\nla\nlog.py\nmesh.py\nnls\npkgconfig.py\nplot.py\npy.typed\npyproject.toml\nutils.py\nwrappers\n",
+    "stderr": "",
+    "execution_time": 0.0011823177337646484
+  },
+  {
+    "command": "ls python/demo/",
+    "success": true,
+    "stdout": "__pycache__\nconftest.py\ndata\ndemo_axis.py\ndemo_biharmonic.py\ndemo_cahn-hilliard.py\ndemo_comm-pattern.py\ndemo_elasticity.py\ndemo_gmsh.py\ndemo_half_loaded_waveguide.py\ndemo_hdg.py\ndemo_helmholtz.py\ndemo_interpolation-io.py\ndemo_lagrange_variants.py\ndemo_mixed-poisson.py\ndemo_mixed-topology.py\ndemo_navier-stokes.py\ndemo_pml.py\ndemo_poisson.py\ndemo_poisson_matrix_free.py\ndemo_pyamg.py\ndemo_pyvista.py\ndemo_scattering_boundary_conditions.py\ndemo_static-condensation.py\ndemo_stokes.py\ndemo_tnt-elements.py\ndemo_types.py\npyproject.toml\npytest.ini\ntest.py\n",
+    "stderr": "",
+    "execution_time": 0.0012366771697998047
+  },
+  {
+    "command": "cat python/pyproject.toml",
+    "success": true,
+    "stdout": "# NOTE: The DOLFINx Python interface must be built without build\n# isolation (PEP517) due to its runtime and build time dependency on\n# system built petsc4py and mpi4py.\n# NOTE: petsc4py is an optional build dependency, therefore we don't\n# list it here.\n# pip install -r build-requirements.txt\n[build-system]\nrequires = [\"scikit-build-core[pyproject]>=0.10\", \"nanobind>=2.5.0\", \"mpi4py\"]\nbuild-backend = \"scikit_build_core.build\"\n\n[project]\nname = \"fenics-dolfinx\"\nversion = \"0.10.0.dev0\"\ndescription = \"DOLFINx Python interface\"\nreadme = \"../README.md\"\nrequires-python = \">=3.9.0\"\nlicense = { file = \"../COPYING.LESSER\" }\nauthors = [\n      { email = \"fenics-steering-council@googlegroups.com\" },\n      { name = \"FEniCS Steering Council\" },\n]\ndependencies = [\n      \"numpy>=1.21\",\n      \"cffi\",\n      \"mpi4py\",\n      \"fenics-basix>=0.10.0.dev0\",\n      \"fenics-ffcx>=0.10.0.dev0\",\n      \"fenics-ufl>=2025.2.0.dev0\",\n]\n\n[project.optional-dependencies]\ndocs = [\n      \"breathe\",\n      \"jupytext\",\n      \"markdown\",\n      \"matplotlib\",\n      \"myst_parser\",\n      \"pyyaml\",\n      \"sphinx\",\n      \"sphinx_rtd_theme\",\n]\nlint = [\"ruff>=0.2.0\"]\noptional = [\"numba\", \"pyamg\"]\npetsc4py = [\"petsc4py\"]\ntest = [\n      \"matplotlib\",\n      \"networkx\",\n      \"pytest\",\n      \"scipy<1.16.0\",             # pyamg not compatible\n      \"fenics-dolfinx[optional]\",\n]\nci = [\n      \"mypy\",\n      \"pytest-xdist\",\n      \"types-setuptools\",\n      \"fenics-dolfinx[build]\",\n      \"fenics-dolfinx[docs]\",\n      \"fenics-dolfinx[lint]\",\n      \"fenics-dolfinx[optional]\",\n      \"fenics-dolfinx[test]\",\n]\n\n[tool.scikit-build]\nwheel.packages = [\"dolfinx\"]\nsdist.exclude = [\"*.cpp\"]\ncmake.build-type = \"Release\"\nwheel.license-files = [\"../COPYING*\"]\n\n[tool.pytest]\njunit_family = \"xunit2\"\n\n[tool.pytest.ini_options]\nmarkers = [\n      \"skip_in_parallel: marks tests that should be run in serial only.\",\n      \"petsc4py: tests that require PETSc/petsc4py (deselect with '-m \\\"not petsc4py\\\"').\",\n      \"adios2: tests that require Adios2 (deselect with '-m \\\"not adios2\\\"').\",\n      \"xfail_win32_complex: expected failures for complex numbers in Win32.\",\n]\n\n\n[tool.mypy]\n# Suggested at https://blog.wolt.com/engineering/2021/09/30/professional-grade-mypy-configuration/\n# Goal would be to make all of the below True long-term\ndisallow_untyped_defs = false\ndisallow_any_unimported = false\nno_implicit_optional = false\ncheck_untyped_defs = false\nwarn_return_any = false\nwarn_unused_ignores = false\nshow_error_codes = true\nignore_missing_imports = true\n\n\n[tool.ruff]\nline-length = 100\nindent-width = 4\n\n[tool.ruff.lint]\nselect = [\n      \"E\",      # pycodestyle\n      \"W\",      # pycodestyle\n      \"F\",      # pyflakes\n      \"I\",      # isort - use standalone isort\n      \"RUF\",    # Ruff-specific rules\n      \"UP\",     # pyupgrade\n      \"ICN\",    # flake8-import-conventions\n      \"NPY\",    # numpy-specific rules\n      \"FLY\",    # use f-string not static joins\n      \"NPY201\", # numpy 2.x ruleset\n]\nignore = [\n      \"UP007\",\n      \"RUF012\",\n      \"UP045\",  # Ractivate once Python 3.9 EoL\n]\nallowed-confusables = [\"σ\"]\n\n[tool.ruff.lint.isort]\nknown-first-party = [\"basix\", \"dolfinx\", \"ffcx\", \"ufl\"]\nknown-third-party = [\"gmsh\", \"numba\", \"numpy\", \"pytest\", \"pyvista\", \"pyamg\"]\nsection-order = [\n      \"future\",\n      \"standard-library\",\n      \"mpi\",\n      \"third-party\",\n      \"first-party\",\n      \"local-folder\",\n]\n\n[tool.ruff.lint.isort.sections]\n\"mpi\" = [\"mpi4py\", \"petsc4py\"]\n",
+    "stderr": "",
+    "execution_time": 0.0012767314910888672
+  },
+  {
+    "command": "cat python/requirements.txt  # if exists",
+    "success": false,
+    "stdout": "",
+    "stderr": "cat: python/requirements.txt: No such file or directory\n",
+    "execution_time": 0.0011279582977294922
+  },
+  {
+    "command": "pip install fenics-dolfinx",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\n",
+    "stderr": "ERROR: Could not find a version that satisfies the requirement fenics-dolfinx (from versions: none)\nERROR: No matching distribution found for fenics-dolfinx\n",
+    "execution_time": 1.2067103385925293
+  }
+]

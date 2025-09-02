@@ -1,0 +1,9 @@
+[
+  {
+    "command": "python setup.py build_ext --inplace",
+    "success": false,
+    "stdout": "running build_ext\n",
+    "stderr": "/app/repo_to_process/setup.py:5: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives\n  from distutils.ccompiler import get_default_compiler\nUsing OpenMP to compile parallel extensions\nTraceback (most recent call last):\n  File \"/app/repo_to_process/setup.py\", line 124, in <module>\n    setup(\n  File \"/usr/lib/python3/dist-packages/setuptools/__init__.py\", line 153, in setup\n    return distutils.core.setup(**attrs)\n  File \"/usr/lib/python3.10/distutils/core.py\", line 148, in setup\n    dist.run_commands()\n  File \"/usr/lib/python3.10/distutils/dist.py\", line 966, in run_commands\n    self.run_command(cmd)\n  File \"/usr/lib/python3.10/distutils/dist.py\", line 984, in run_command\n    cmd_obj.ensure_finalized()\n  File \"/usr/lib/python3.10/distutils/cmd.py\", line 107, in ensure_finalized\n    self.finalize_options()\n  File \"/app/repo_to_process/setupext.py\", line 422, in finalize_options\n    from Cython.Build import cythonize\nModuleNotFoundError: No module named 'Cython'\n",
+    "execution_time": 0.40335917472839355
+  }
+]

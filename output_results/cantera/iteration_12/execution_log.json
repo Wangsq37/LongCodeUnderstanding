@@ -1,0 +1,16 @@
+[
+  {
+    "command": "scons build python",
+    "success": false,
+    "stdout": "scons: Reading SConscript files ...\n",
+    "stderr": "ERROR: Unrecognized command line target: 'python'\n",
+    "execution_time": 0.18707680702209473
+  },
+  {
+    "command": "scons build python",
+    "success": false,
+    "stdout": "scons: Reading SConscript files ...\n",
+    "stderr": "ERROR: Unrecognized command line target: 'python'\n",
+    "execution_time": 0.20189285278320312
+  }
+]

@@ -1,0 +1,5 @@
+```bash
+pip install -r requirements/pypi-core.txt
+pip install .
+pytest
+```

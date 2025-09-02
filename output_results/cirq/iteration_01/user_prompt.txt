@@ -1,0 +1,1419 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── design_discussion.md
+│   │   ├── feature_request.md
+│   │   ├── project_health.md
+│   │   └── task.md
+│   ├── workflows/
+│   │   ├── ci-daily.yml
+│   │   ├── ci-weekly.yml
+│   │   ├── ci.yml
+│   │   ├── ossf-scorecard.yaml
+│   │   ├── pr-labeler.yaml
+│   │   ├── release-main.yml
+│   │   └── stale.yml
+│   │       └── ... (2 more files)
+│   ├── CODEOWNERS
+│   ├── dependabot.yml
+│   └── SECURITY.md
+├── benchmarks/
+│   ├── transformers/
+│   │   ├── __init__.py
+│   │   ├── routing.py
+│   │   └── transformer_primitives.py
+│   ├── __init__.py
+│   ├── bench_linalg_decompositions.py
+│   ├── circuit_construction.py
+│   ├── parameter_resolution.py
+│   ├── randomized_benchmarking.py
+│   ├── README.md
+│   └── serialization.py
+│       └── ... (2 more files)
+├── check/
+│   ├── all
+│   ├── asv_run
+│   ├── doctest
+│   ├── format-incremental
+│   ├── misc
+│   ├── mypy
+│   ├── nbformat
+│   ├── npm
+│   ├── npx
+│   ├── protos-up-to-date
+│   ├── pylint
+│   ├── pylint-changed-files
+│   ├── pytest
+│   ├── pytest-and-incremental-coverage
+│   ├── pytest-changed-files
+│   ├── pytest-changed-files-and-incremental-coverage
+│   ├── shellcheck
+│   ├── ts-build
+│   ├── ts-build-current
+│   ├── ts-coverage
+│   ├── ts-lint
+│   ├── ts-lint-and-format
+│   ├── ts-test
+│   └── ts-test-e2e
+│       └── ... (19 more files)
+├── cirq-aqt/
+│   ├── cirq_aqt/
+│   │   ├── json_test_data/
+│   │   │   ├── __init__.py
+│   │   │   └── spec.py
+│   │   ├── __init__.py
+│   │   ├── _version.py
+│   │   ├── _version_test.py
+│   │   ├── aqt_device.py
+│   │   ├── aqt_device_metadata.py
+│   │   ├── aqt_device_metadata_test.py
+│   │   ├── aqt_device_test.py
+│   │   ├── aqt_sampler.py
+│   │   ├── aqt_sampler_test.py
+│   │   ├── aqt_simulator_test.py
+│   │   ├── aqt_target_gateset.py
+│   │   ├── aqt_target_gateset_test.py
+│   │   ├── conftest.py
+│   │   └── json_resolver_cache.py
+│   │       └── ... (9 more files)
+│   ├── LICENSE
+│   ├── README.md
+│   ├── requirements.txt
+│   └── setup.py
+├── cirq-core/
+│   ├── cirq/
+│   │   ├── circuits/
+│   │   │   ├── __init__.py
+│   │   │   ├── _block_diagram_drawer.py
+│   │   │   ├── _block_diagram_drawer_test.py
+│   │   │   ├── _box_drawing_character_data.py
+│   │   │   ├── _box_drawing_character_data_test.py
+│   │   │   ├── _bucket_priority_queue.py
+│   │   │   ├── _bucket_priority_queue_test.py
+│   │   │   ├── circuit.py
+│   │   │   ├── circuit_operation.py
+│   │   │   ├── circuit_operation_test.py
+│   │   │   ├── circuit_test.py
+│   │   │   ├── frozen_circuit.py
+│   │   │   ├── frozen_circuit_test.py
+│   │   │   ├── insert_strategy.py
+│   │   │   ├── insert_strategy_test.py
+│   │   │   ├── moment.py
+│   │   │   ├── moment_test.py
+│   │   │   ├── optimization_pass.py
+│   │   │   ├── optimization_pass_test.py
+│   │   │   ├── qasm_output.py
+│   │   │   ├── qasm_output_test.py
+│   │   │   ├── text_diagram_drawer.py
+│   │   │   └── text_diagram_drawer_test.py
+│   │   │       └── ... (18 more files)
+│   │   ├── contrib/
+│   │   │   ├── acquaintance/
+│   │   │   ├── bayesian_network/
+│   │   │   ├── circuitdag/
+│   │   │   ├── custom_simulators/
+│   │   │   ├── graph_device/
+│   │   │   ├── hacks/
+│   │   │   ├── json_test_data/
+│   │   │   ├── noise_models/
+│   │   │   ├── paulistring/
+│   │   │   ├── qasm_import/
+│   │   │   ├── qcircuit/
+│   │   │   ├── quantum_volume/
+│   │   │   ├── quimb/
+│   │   │   ├── quirk/
+│   │   │   ├── routing/
+│   │   │   ├── shuffle_circuits/
+│   │   │   ├── svg/
+│   │   │   ├── __init__.py
+│   │   │   ├── json.py
+│   │   │   ├── json_test.py
+│   │   │   └── requirements.txt
+│   │   ├── devices/
+│   │   │   ├── __init__.py
+│   │   │   ├── device.py
+│   │   │   ├── device_test.py
+│   │   │   ├── grid_device_metadata.py
+│   │   │   ├── grid_device_metadata_test.py
+│   │   │   ├── grid_qubit.py
+│   │   │   ├── grid_qubit_test.py
+│   │   │   ├── insertion_noise_model.py
+│   │   │   ├── insertion_noise_model_test.py
+│   │   │   ├── line_qubit.py
+│   │   │   ├── line_qubit_test.py
+│   │   │   ├── named_topologies.py
+│   │   │   ├── named_topologies_test.py
+│   │   │   ├── noise_model.py
+│   │   │   ├── noise_model_test.py
+│   │   │   ├── noise_properties.py
+│   │   │   ├── noise_properties_test.py
+│   │   │   ├── noise_utils.py
+│   │   │   ├── noise_utils_test.py
+│   │   │   ├── superconducting_qubits_noise_properties.py
+│   │   │   ├── superconducting_qubits_noise_properties_test.py
+│   │   │   ├── thermal_noise_model.py
+│   │   │   ├── thermal_noise_model_test.py
+│   │   │   ├── unconstrained_device.py
+│   │   │   └── unconstrained_device_test.py
+│   │   │       └── ... (20 more files)
+│   │   ├── experiments/
+│   │   │   ├── benchmarking/
+│   │   │   ├── __init__.py
+│   │   │   ├── fidelity_estimation.py
+│   │   │   ├── fidelity_estimation_test.py
+│   │   │   ├── n_qubit_tomography.py
+│   │   │   ├── n_qubit_tomography_test.py
+│   │   │   ├── purity_estimation.py
+│   │   │   ├── purity_estimation_test.py
+│   │   │   ├── qubit_characterizations.py
+│   │   │   ├── qubit_characterizations_test.py
+│   │   │   ├── random_quantum_circuit_generation.py
+│   │   │   ├── random_quantum_circuit_generation_test.py
+│   │   │   ├── readout_confusion_matrix.py
+│   │   │   ├── readout_confusion_matrix_test.py
+│   │   │   ├── single_qubit_readout_calibration.py
+│   │   │   ├── single_qubit_readout_calibration_test.py
+│   │   │   ├── t1_decay_experiment.py
+│   │   │   ├── t1_decay_experiment_test.py
+│   │   │   ├── t2_decay_experiment.py
+│   │   │   ├── t2_decay_experiment_test.py
+│   │   │   ├── two_qubit_xeb.py
+│   │   │   ├── two_qubit_xeb_test.py
+│   │   │   ├── xeb_fitting.py
+│   │   │   ├── xeb_fitting_test.py
+│   │   │   ├── xeb_sampling.py
+│   │   │   ├── xeb_sampling_test.py
+│   │   │   ├── xeb_simulation.py
+│   │   │   ├── xeb_simulation_test.py
+│   │   │   ├── z_phase_calibration.py
+│   │   │   └── z_phase_calibration_test.py
+│   │   │       └── ... (24 more files)
+│   │   ├── interop/
+│   │   │   ├── quirk/
+│   │   │   └── __init__.py
+│   │   ├── ion/
+│   │   │   └── __init__.py
+│   │   ├── linalg/
+│   │   │   ├── __init__.py
+│   │   │   ├── combinators.py
+│   │   │   ├── combinators_test.py
+│   │   │   ├── decompositions.py
+│   │   │   ├── decompositions_test.py
+│   │   │   ├── diagonalize.py
+│   │   │   ├── diagonalize_test.py
+│   │   │   ├── operator_spaces.py
+│   │   │   ├── operator_spaces_test.py
+│   │   │   ├── predicates.py
+│   │   │   ├── predicates_test.py
+│   │   │   ├── tolerance.py
+│   │   │   ├── tolerance_test.py
+│   │   │   ├── transformations.py
+│   │   │   └── transformations_test.py
+│   │   │       └── ... (10 more files)
+│   │   ├── neutral_atoms/
+│   │   │   ├── __init__.py
+│   │   │   ├── convert_to_neutral_atom_gates.py
+│   │   │   ├── convert_to_neutral_atom_gates_test.py
+│   │   │   └── neutral_atom_devices.py
+│   │   ├── ops/
+│   │   │   ├── __init__.py
+│   │   │   ├── arithmetic_operation.py
+│   │   │   ├── arithmetic_operation_test.py
+│   │   │   ├── boolean_hamiltonian.py
+│   │   │   ├── boolean_hamiltonian_test.py
+│   │   │   ├── classically_controlled_operation.py
+│   │   │   ├── classically_controlled_operation_test.py
+│   │   │   ├── clifford_gate.py
+│   │   │   ├── clifford_gate_test.py
+│   │   │   ├── common_channels.py
+│   │   │   ├── common_channels_test.py
+│   │   │   ├── common_gate_families.py
+│   │   │   ├── common_gate_families_test.py
+│   │   │   ├── common_gates.py
+│   │   │   ├── common_gates_test.py
+│   │   │   ├── control_values.py
+│   │   │   ├── control_values_test.py
+│   │   │   ├── controlled_gate.py
+│   │   │   ├── controlled_gate_test.py
+│   │   │   ├── controlled_operation.py
+│   │   │   ├── controlled_operation_test.py
+│   │   │   ├── dense_pauli_string.py
+│   │   │   ├── dense_pauli_string_test.py
+│   │   │   ├── diagonal_gate.py
+│   │   │   ├── diagonal_gate_test.py
+│   │   │   ├── eigen_gate.py
+│   │   │   ├── eigen_gate_test.py
+│   │   │   ├── fourier_transform.py
+│   │   │   ├── fourier_transform_test.py
+│   │   │   ├── fsim_gate.py
+│   │   │   ├── fsim_gate_test.py
+│   │   │   ├── gate_features.py
+│   │   │   ├── gate_features_test.py
+│   │   │   ├── gate_operation.py
+│   │   │   ├── gate_operation_test.py
+│   │   │   ├── gateset.py
+│   │   │   ├── gateset_test.py
+│   │   │   ├── global_phase_op.py
+│   │   │   ├── global_phase_op_test.py
+│   │   │   ├── greedy_qubit_manager.py
+│   │   │   ├── greedy_qubit_manager_test.py
+│   │   │   ├── identity.py
+│   │   │   ├── identity_test.py
+│   │   │   ├── kraus_channel.py
+│   │   │   ├── kraus_channel_test.py
+│   │   │   ├── linear_combinations.py
+│   │   │   ├── linear_combinations_test.py
+│   │   │   ├── matrix_gates.py
+│   │   │   ├── matrix_gates_test.py
+│   │   │   ├── measure_util.py
+│   │   │   ├── measure_util_test.py
+│   │   │   ├── measurement_gate.py
+│   │   │   ├── measurement_gate_test.py
+│   │   │   ├── mixed_unitary_channel.py
+│   │   │   ├── mixed_unitary_channel_test.py
+│   │   │   ├── named_qubit.py
+│   │   │   ├── named_qubit_test.py
+│   │   │   ├── op_tree.py
+│   │   │   ├── op_tree_test.py
+│   │   │   ├── parallel_gate.py
+│   │   │   ├── parallel_gate_test.py
+│   │   │   ├── parity_gates.py
+│   │   │   ├── parity_gates_test.py
+│   │   │   ├── pauli_gates.py
+│   │   │   ├── pauli_gates_test.py
+│   │   │   ├── pauli_interaction_gate.py
+│   │   │   ├── pauli_interaction_gate_test.py
+│   │   │   ├── pauli_measurement_gate.py
+│   │   │   ├── pauli_measurement_gate_test.py
+│   │   │   ├── pauli_string.py
+│   │   │   ├── pauli_string_phasor.py
+│   │   │   ├── pauli_string_phasor_test.py
+│   │   │   ├── pauli_string_raw_types.py
+│   │   │   ├── pauli_string_raw_types_test.py
+│   │   │   ├── pauli_string_test.py
+│   │   │   ├── pauli_sum_exponential.py
+│   │   │   ├── pauli_sum_exponential_test.py
+│   │   │   ├── permutation_gate.py
+│   │   │   ├── permutation_gate_test.py
+│   │   │   ├── phased_iswap_gate.py
+│   │   │   ├── phased_iswap_gate_test.py
+│   │   │   ├── phased_x_gate.py
+│   │   │   ├── phased_x_gate_test.py
+│   │   │   ├── phased_x_z_gate.py
+│   │   │   ├── phased_x_z_gate_test.py
+│   │   │   ├── projector.py
+│   │   │   ├── projector_test.py
+│   │   │   ├── qid_util.py
+│   │   │   ├── qid_util_test.py
+│   │   │   ├── qubit_manager.py
+│   │   │   ├── qubit_manager_test.py
+│   │   │   ├── qubit_order.py
+│   │   │   ├── qubit_order_or_list.py
+│   │   │   ├── qubit_order_test.py
+│   │   │   ├── random_gate_channel.py
+│   │   │   ├── random_gate_channel_test.py
+│   │   │   ├── raw_types.py
+│   │   │   ├── raw_types_test.py
+│   │   │   ├── state_preparation_channel.py
+│   │   │   ├── state_preparation_channel_test.py
+│   │   │   ├── swap_gates.py
+│   │   │   ├── swap_gates_test.py
+│   │   │   ├── tags.py
+│   │   │   ├── tags_test.py
+│   │   │   ├── three_qubit_gates.py
+│   │   │   ├── three_qubit_gates_test.py
+│   │   │   ├── two_qubit_diagonal_gate.py
+│   │   │   ├── two_qubit_diagonal_gate_test.py
+│   │   │   ├── uniform_superposition_gate.py
+│   │   │   ├── uniform_superposition_gate_test.py
+│   │   │   ├── wait_gate.py
+│   │   │   └── wait_gate_test.py
+│   │   │       └── ... (107 more files)
+│   │   ├── protocols/
+│   │   │   ├── json_test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── act_on_protocol.py
+│   │   │   ├── act_on_protocol_test.py
+│   │   │   ├── apply_channel_protocol.py
+│   │   │   ├── apply_channel_protocol_test.py
+│   │   │   ├── apply_mixture_protocol.py
+│   │   │   ├── apply_mixture_protocol_test.py
+│   │   │   ├── apply_unitary_protocol.py
+│   │   │   ├── apply_unitary_protocol_test.py
+│   │   │   ├── approximate_equality_protocol.py
+│   │   │   ├── approximate_equality_protocol_test.py
+│   │   │   ├── circuit_diagram_info_protocol.py
+│   │   │   ├── circuit_diagram_info_protocol_test.py
+│   │   │   ├── commutes_protocol.py
+│   │   │   ├── commutes_protocol_test.py
+│   │   │   ├── control_key_protocol.py
+│   │   │   ├── control_key_protocol_test.py
+│   │   │   ├── decompose_protocol.py
+│   │   │   ├── decompose_protocol_test.py
+│   │   │   ├── equal_up_to_global_phase_protocol.py
+│   │   │   ├── equal_up_to_global_phase_protocol_test.py
+│   │   │   ├── has_stabilizer_effect_protocol.py
+│   │   │   ├── has_stabilizer_effect_protocol_test.py
+│   │   │   ├── has_unitary_protocol.py
+│   │   │   ├── has_unitary_protocol_test.py
+│   │   │   ├── hash_from_pickle_test.py
+│   │   │   ├── inverse_protocol.py
+│   │   │   ├── inverse_protocol_test.py
+│   │   │   ├── json_serialization.py
+│   │   │   ├── json_serialization_test.py
+│   │   │   ├── kraus_protocol.py
+│   │   │   ├── kraus_protocol_test.py
+│   │   │   ├── measurement_key_protocol.py
+│   │   │   ├── measurement_key_protocol_test.py
+│   │   │   ├── mixture_protocol.py
+│   │   │   ├── mixture_protocol_test.py
+│   │   │   ├── mul_protocol.py
+│   │   │   ├── mul_protocol_test.py
+│   │   │   ├── pauli_expansion_protocol.py
+│   │   │   ├── pauli_expansion_protocol_test.py
+│   │   │   ├── phase_protocol.py
+│   │   │   ├── phase_protocol_test.py
+│   │   │   ├── pow_protocol.py
+│   │   │   ├── pow_protocol_test.py
+│   │   │   ├── qasm.py
+│   │   │   ├── qasm_test.py
+│   │   │   ├── qid_shape_protocol.py
+│   │   │   ├── qid_shape_protocol_test.py
+│   │   │   ├── resolve_parameters.py
+│   │   │   ├── resolve_parameters_test.py
+│   │   │   ├── trace_distance_bound.py
+│   │   │   ├── trace_distance_bound_test.py
+│   │   │   ├── unitary_protocol.py
+│   │   │   └── unitary_protocol_test.py
+│   │   │       └── ... (49 more files)
+│   │   ├── qis/
+│   │   │   ├── __init__.py
+│   │   │   ├── channels.py
+│   │   │   ├── channels_test.py
+│   │   │   ├── clifford_tableau.py
+│   │   │   ├── clifford_tableau_test.py
+│   │   │   ├── entropy.py
+│   │   │   ├── entropy_test.py
+│   │   │   ├── measures.py
+│   │   │   ├── measures_test.py
+│   │   │   ├── noise_utils.py
+│   │   │   ├── noise_utils_test.py
+│   │   │   ├── quantum_state_representation.py
+│   │   │   ├── states.py
+│   │   │   └── states_test.py
+│   │   │       └── ... (9 more files)
+│   │   ├── sim/
+│   │   │   ├── clifford/
+│   │   │   ├── __init__.py
+│   │   │   ├── classical_simulator.py
+│   │   │   ├── classical_simulator_test.py
+│   │   │   ├── density_matrix_simulation_state.py
+│   │   │   ├── density_matrix_simulation_state_test.py
+│   │   │   ├── density_matrix_simulator.py
+│   │   │   ├── density_matrix_simulator_test.py
+│   │   │   ├── density_matrix_utils.py
+│   │   │   ├── density_matrix_utils_test.py
+│   │   │   ├── mux.py
+│   │   │   ├── mux_test.py
+│   │   │   ├── simulation_product_state.py
+│   │   │   ├── simulation_product_state_test.py
+│   │   │   ├── simulation_state.py
+│   │   │   ├── simulation_state_base.py
+│   │   │   ├── simulation_state_test.py
+│   │   │   ├── simulation_utils.py
+│   │   │   ├── simulation_utils_test.py
+│   │   │   ├── simulator.py
+│   │   │   ├── simulator_base.py
+│   │   │   ├── simulator_base_test.py
+│   │   │   ├── simulator_test.py
+│   │   │   ├── sparse_simulator.py
+│   │   │   ├── sparse_simulator_test.py
+│   │   │   ├── state_vector.py
+│   │   │   ├── state_vector_simulation_state.py
+│   │   │   ├── state_vector_simulation_state_test.py
+│   │   │   ├── state_vector_simulator.py
+│   │   │   ├── state_vector_simulator_test.py
+│   │   │   └── state_vector_test.py
+│   │   │       └── ... (25 more files)
+│   │   ├── study/
+│   │   │   ├── __init__.py
+│   │   │   ├── flatten_expressions.py
+│   │   │   ├── flatten_expressions_test.py
+│   │   │   ├── resolver.py
+│   │   │   ├── resolver_test.py
+│   │   │   ├── result.py
+│   │   │   ├── result_test.py
+│   │   │   ├── sweepable.py
+│   │   │   ├── sweepable_test.py
+│   │   │   ├── sweeps.py
+│   │   │   └── sweeps_test.py
+│   │   │       └── ... (6 more files)
+│   │   ├── testing/
+│   │   │   ├── _compat_test_data/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── circuit_compare.py
+│   │   │   ├── circuit_compare_test.py
+│   │   │   ├── consistent_act_on.py
+│   │   │   ├── consistent_act_on_test.py
+│   │   │   ├── consistent_channels.py
+│   │   │   ├── consistent_channels_test.py
+│   │   │   ├── consistent_controlled_gate_op.py
+│   │   │   ├── consistent_controlled_gate_op_test.py
+│   │   │   ├── consistent_decomposition.py
+│   │   │   ├── consistent_decomposition_test.py
+│   │   │   ├── consistent_pauli_expansion.py
+│   │   │   ├── consistent_pauli_expansion_test.py
+│   │   │   ├── consistent_phase_by.py
+│   │   │   ├── consistent_phase_by_test.py
+│   │   │   ├── consistent_protocols.py
+│   │   │   ├── consistent_protocols_test.py
+│   │   │   ├── consistent_qasm.py
+│   │   │   ├── consistent_qasm_test.py
+│   │   │   ├── consistent_resolve_parameters.py
+│   │   │   ├── consistent_specified_has_unitary.py
+│   │   │   ├── consistent_specified_has_unitary_test.py
+│   │   │   ├── consistent_unitary.py
+│   │   │   ├── consistent_unitary_test.py
+│   │   │   ├── deprecation.py
+│   │   │   ├── deprecation_test.py
+│   │   │   ├── devices.py
+│   │   │   ├── devices_test.py
+│   │   │   ├── equals_tester.py
+│   │   │   ├── equals_tester_test.py
+│   │   │   ├── equivalent_basis_map.py
+│   │   │   ├── equivalent_basis_map_test.py
+│   │   │   ├── equivalent_repr_eval.py
+│   │   │   ├── equivalent_repr_eval_test.py
+│   │   │   ├── gate_features.py
+│   │   │   ├── gate_features_test.py
+│   │   │   ├── json.py
+│   │   │   ├── json_test.py
+│   │   │   ├── lin_alg_utils.py
+│   │   │   ├── lin_alg_utils_test.py
+│   │   │   ├── logs.py
+│   │   │   ├── logs_test.py
+│   │   │   ├── no_identifier_qubit.py
+│   │   │   ├── no_identifier_qubit_test.py
+│   │   │   ├── op_tree.py
+│   │   │   ├── op_tree_test.py
+│   │   │   ├── order_tester.py
+│   │   │   ├── order_tester_test.py
+│   │   │   ├── pytest_utils.py
+│   │   │   ├── pytest_utils_test.py
+│   │   │   ├── random_circuit.py
+│   │   │   ├── random_circuit_test.py
+│   │   │   ├── repr_pretty_tester.py
+│   │   │   ├── repr_pretty_tester_test.py
+│   │   │   ├── routing_devices.py
+│   │   │   ├── routing_devices_test.py
+│   │   │   ├── sample_circuits.py
+│   │   │   ├── sample_circuits_test.py
+│   │   │   ├── sample_gates.py
+│   │   │   └── sample_gates_test.py
+│   │   │       └── ... (55 more files)
+│   │   ├── transformers/
+│   │   │   ├── analytical_decompositions/
+│   │   │   ├── gauge_compiling/
+│   │   │   ├── heuristic_decompositions/
+│   │   │   ├── routing/
+│   │   │   ├── target_gatesets/
+│   │   │   ├── __init__.py
+│   │   │   ├── align.py
+│   │   │   ├── align_test.py
+│   │   │   ├── drop_empty_moments.py
+│   │   │   ├── drop_empty_moments_test.py
+│   │   │   ├── drop_negligible_operations.py
+│   │   │   ├── drop_negligible_operations_test.py
+│   │   │   ├── dynamical_decoupling.py
+│   │   │   ├── dynamical_decoupling_test.py
+│   │   │   ├── eject_phased_paulis.py
+│   │   │   ├── eject_phased_paulis_test.py
+│   │   │   ├── eject_z.py
+│   │   │   ├── eject_z_test.py
+│   │   │   ├── expand_composite.py
+│   │   │   ├── expand_composite_test.py
+│   │   │   ├── insertion_sort.py
+│   │   │   ├── insertion_sort_test.py
+│   │   │   ├── measurement_transformers.py
+│   │   │   ├── measurement_transformers_test.py
+│   │   │   ├── merge_k_qubit_gates.py
+│   │   │   ├── merge_k_qubit_gates_test.py
+│   │   │   ├── merge_single_qubit_gates.py
+│   │   │   ├── merge_single_qubit_gates_test.py
+│   │   │   ├── noise_adding.py
+│   │   │   ├── noise_adding_test.py
+│   │   │   ├── optimize_for_target_gateset.py
+│   │   │   ├── optimize_for_target_gateset_test.py
+│   │   │   ├── qubit_management_transformers.py
+│   │   │   ├── qubit_management_transformers_test.py
+│   │   │   ├── randomized_measurements.py
+│   │   │   ├── randomized_measurements_test.py
+│   │   │   ├── stratify.py
+│   │   │   ├── stratify_test.py
+│   │   │   ├── symbolize.py
+│   │   │   ├── symbolize_test.py
+│   │   │   ├── synchronize_terminal_measurements.py
+│   │   │   ├── synchronize_terminal_measurements_test.py
+│   │   │   ├── tag_transformers.py
+│   │   │   ├── tag_transformers_test.py
+│   │   │   ├── transformer_api.py
+│   │   │   ├── transformer_api_test.py
+│   │   │   ├── transformer_primitives.py
+│   │   │   └── transformer_primitives_test.py
+│   │   │       └── ... (38 more files)
+│   │   ├── value/
+│   │   │   ├── __init__.py
+│   │   │   ├── abc_alt.py
+│   │   │   ├── abc_alt_test.py
+│   │   │   ├── angle.py
+│   │   │   ├── angle_test.py
+│   │   │   ├── classical_data.py
+│   │   │   ├── classical_data_test.py
+│   │   │   ├── condition.py
+│   │   │   ├── condition_test.py
+│   │   │   ├── digits.py
+│   │   │   ├── digits_test.py
+│   │   │   ├── duration.py
+│   │   │   ├── duration_test.py
+│   │   │   ├── linear_dict.py
+│   │   │   ├── linear_dict_test.py
+│   │   │   ├── measurement_key.py
+│   │   │   ├── measurement_key_test.py
+│   │   │   ├── periodic_value.py
+│   │   │   ├── periodic_value_test.py
+│   │   │   ├── probability.py
+│   │   │   ├── probability_test.py
+│   │   │   ├── product_state.py
+│   │   │   ├── product_state_test.py
+│   │   │   ├── random_state.py
+│   │   │   ├── random_state_test.py
+│   │   │   ├── timestamp.py
+│   │   │   ├── timestamp_test.py
+│   │   │   ├── type_alias.py
+│   │   │   ├── value_equality_attr.py
+│   │   │   └── value_equality_attr_test.py
+│   │   │       └── ... (25 more files)
+│   │   ├── vis/
+│   │   │   ├── __init__.py
+│   │   │   ├── density_matrix.py
+│   │   │   ├── density_matrix_test.py
+│   │   │   ├── heatmap.py
+│   │   │   ├── heatmap_test.py
+│   │   │   ├── histogram.py
+│   │   │   ├── histogram_test.py
+│   │   │   ├── state_histogram.py
+│   │   │   ├── state_histogram_test.py
+│   │   │   ├── vis_utils.py
+│   │   │   └── vis_utils_test.py
+│   │   │       └── ... (6 more files)
+│   │   ├── work/
+│   │   │   ├── __init__.py
+│   │   │   ├── collector.py
+│   │   │   ├── collector_test.py
+│   │   │   ├── observable_grouping.py
+│   │   │   ├── observable_grouping_test.py
+│   │   │   ├── observable_measurement.py
+│   │   │   ├── observable_measurement_data.py
+│   │   │   ├── observable_measurement_data_test.py
+│   │   │   ├── observable_measurement_test.py
+│   │   │   ├── observable_readout_calibration.py
+│   │   │   ├── observable_readout_calibration_test.py
+│   │   │   ├── observable_settings.py
+│   │   │   ├── observable_settings_test.py
+│   │   │   ├── pauli_sum_collector.py
+│   │   │   ├── pauli_sum_collector_test.py
+│   │   │   ├── sampler.py
+│   │   │   ├── sampler_test.py
+│   │   │   ├── zeros_sampler.py
+│   │   │   └── zeros_sampler_test.py
+│   │   │       └── ... (14 more files)
+│   │   ├── __init__.py
+│   │   ├── _compat.py
+│   │   ├── _compat_test.py
+│   │   ├── _doc.py
+│   │   ├── _import.py
+│   │   ├── _import_test.py
+│   │   ├── _version.py
+│   │   ├── _version_test.py
+│   │   ├── conftest.py
+│   │   ├── json_resolver_cache.py
+│   │   └── py.typed
+│   │       └── ... (6 more files)
+│   ├── LICENSE
+│   ├── README.md
+│   ├── requirements.txt
+│   └── setup.py
+├── cirq-google/
+│   ├── cirq_google/
+│   │   ├── api/
+│   │   │   ├── v1/
+│   │   │   ├── v2/
+│   │   │   └── __init__.py
+│   │   ├── cloud/
+│   │   │   ├── quantum/
+│   │   │   ├── quantum_v1alpha1/
+│   │   │   └── __init__.py
+│   │   ├── devices/
+│   │   │   ├── calibrations/
+│   │   │   ├── specifications/
+│   │   │   ├── __init__.py
+│   │   │   ├── google_noise_properties.py
+│   │   │   ├── google_noise_properties_test.py
+│   │   │   ├── grid_device.py
+│   │   │   ├── grid_device_test.py
+│   │   │   ├── known_devices.py
+│   │   │   └── known_devices_test.py
+│   │   │       └── ... (2 more files)
+│   │   ├── engine/
+│   │   │   ├── __init__.py
+│   │   │   ├── abstract_engine.py
+│   │   │   ├── abstract_job.py
+│   │   │   ├── abstract_job_test.py
+│   │   │   ├── abstract_local_engine.py
+│   │   │   ├── abstract_local_engine_test.py
+│   │   │   ├── abstract_local_job.py
+│   │   │   ├── abstract_local_job_test.py
+│   │   │   ├── abstract_local_processor.py
+│   │   │   ├── abstract_local_processor_test.py
+│   │   │   ├── abstract_local_program.py
+│   │   │   ├── abstract_local_program_test.py
+│   │   │   ├── abstract_processor.py
+│   │   │   ├── abstract_program.py
+│   │   │   ├── asyncio_executor.py
+│   │   │   ├── calibration.py
+│   │   │   ├── calibration_layer.py
+│   │   │   ├── calibration_result.py
+│   │   │   ├── calibration_test.py
+│   │   │   ├── calibration_to_noise_properties.py
+│   │   │   ├── calibration_to_noise_properties_test.py
+│   │   │   ├── engine.py
+│   │   │   ├── engine_client.py
+│   │   │   ├── engine_client_test.py
+│   │   │   ├── engine_job.py
+│   │   │   ├── engine_job_test.py
+│   │   │   ├── engine_processor.py
+│   │   │   ├── engine_processor_test.py
+│   │   │   ├── engine_program.py
+│   │   │   ├── engine_program_test.py
+│   │   │   ├── engine_result.py
+│   │   │   ├── engine_result_test.py
+│   │   │   ├── engine_test.py
+│   │   │   ├── engine_validator.py
+│   │   │   ├── engine_validator_test.py
+│   │   │   ├── local_simulation_type.py
+│   │   │   ├── processor_sampler.py
+│   │   │   ├── processor_sampler_test.py
+│   │   │   ├── qcs_notebook.py
+│   │   │   ├── qcs_notebook_test.py
+│   │   │   ├── runtime_estimator.py
+│   │   │   ├── runtime_estimator_test.py
+│   │   │   ├── simulated_local_engine.py
+│   │   │   ├── simulated_local_engine_test.py
+│   │   │   ├── simulated_local_job.py
+│   │   │   ├── simulated_local_job_test.py
+│   │   │   ├── simulated_local_processor.py
+│   │   │   ├── simulated_local_processor_test.py
+│   │   │   ├── simulated_local_program.py
+│   │   │   ├── simulated_local_program_test.py
+│   │   │   ├── stream_manager.py
+│   │   │   ├── stream_manager_test.py
+│   │   │   ├── util.py
+│   │   │   ├── validating_sampler.py
+│   │   │   ├── validating_sampler_test.py
+│   │   │   ├── virtual_engine_factory.py
+│   │   │   └── virtual_engine_factory_test.py
+│   │   │       └── ... (52 more files)
+│   │   ├── experimental/
+│   │   │   ├── analog_experiments/
+│   │   │   ├── noise_models/
+│   │   │   ├── ops/
+│   │   │   └── __init__.py
+│   │   ├── json_test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── AnalogDetuneCouplerOnly.json
+│   │   │   ├── AnalogDetuneCouplerOnly.repr
+│   │   │   ├── AnalogDetuneQubit.json
+│   │   │   ├── AnalogDetuneQubit.repr
+│   │   │   ├── Calibration.json
+│   │   │   ├── Calibration.json_inward
+│   │   │   ├── Calibration.repr
+│   │   │   ├── Calibration.repr_inward
+│   │   │   ├── CalibrationLayer.json
+│   │   │   ├── CalibrationLayer.json_inward
+│   │   │   ├── CalibrationLayer.repr
+│   │   │   ├── CalibrationLayer.repr_inward
+│   │   │   ├── CalibrationTag.json
+│   │   │   ├── CalibrationTag.json_inward
+│   │   │   ├── CalibrationTag.repr
+│   │   │   ├── CalibrationTag.repr_inward
+│   │   │   ├── cirq.google.BitstringsMeasurement.json
+│   │   │   ├── cirq.google.BitstringsMeasurement.repr
+│   │   │   ├── cirq.google.DeviceParameter.json
+│   │   │   ├── cirq.google.DeviceParameter.repr
+│   │   │   ├── cirq.google.EngineProcessorRecord.json
+│   │   │   ├── cirq.google.EngineProcessorRecord.repr
+│   │   │   ├── cirq.google.EngineResult.json
+│   │   │   ├── cirq.google.EngineResult.repr
+│   │   │   ├── cirq.google.ExecutableGroupResult.json
+│   │   │   ├── cirq.google.ExecutableGroupResult.repr
+│   │   │   ├── cirq.google.ExecutableGroupResultFilesystemRecord.json
+│   │   │   ├── cirq.google.ExecutableGroupResultFilesystemRecord.repr
+│   │   │   ├── cirq.google.ExecutableResult.json
+│   │   │   ├── cirq.google.ExecutableResult.repr
+│   │   │   ├── cirq.google.GoogleCZTargetGateset.json
+│   │   │   ├── cirq.google.GoogleCZTargetGateset.repr
+│   │   │   ├── cirq.google.GridDevice.json
+│   │   │   ├── cirq.google.GridDevice.repr
+│   │   │   ├── cirq.google.HardcodedQubitPlacer.json
+│   │   │   ├── cirq.google.HardcodedQubitPlacer.repr
+│   │   │   ├── cirq.google.KeyValueExecutableSpec.json
+│   │   │   ├── cirq.google.KeyValueExecutableSpec.repr
+│   │   │   ├── cirq.google.Metadata.json
+│   │   │   ├── cirq.google.Metadata.repr
+│   │   │   ├── cirq.google.NaiveQubitPlacer.json
+│   │   │   ├── cirq.google.NaiveQubitPlacer.repr
+│   │   │   ├── cirq.google.QuantumExecutable.json
+│   │   │   ├── cirq.google.QuantumExecutable.json_inward
+│   │   │   ├── cirq.google.QuantumExecutable.repr
+│   │   │   ├── cirq.google.QuantumExecutable.repr_inward
+│   │   │   ├── cirq.google.QuantumExecutableGroup.json
+│   │   │   ├── cirq.google.QuantumExecutableGroup.json_inward
+│   │   │   ├── cirq.google.QuantumExecutableGroup.repr
+│   │   │   ├── cirq.google.QuantumExecutableGroup.repr_inward
+│   │   │   ├── cirq.google.QuantumRuntimeConfiguration.json
+│   │   │   ├── cirq.google.QuantumRuntimeConfiguration.repr
+│   │   │   ├── cirq.google.RandomDevicePlacer.json
+│   │   │   ├── cirq.google.RandomDevicePlacer.repr
+│   │   │   ├── cirq.google.RuntimeInfo.json
+│   │   │   ├── cirq.google.RuntimeInfo.repr
+│   │   │   ├── cirq.google.SharedRuntimeInfo.json
+│   │   │   ├── cirq.google.SharedRuntimeInfo.repr
+│   │   │   ├── cirq.google.SimulatedProcessorRecord.json
+│   │   │   ├── cirq.google.SimulatedProcessorRecord.repr
+│   │   │   ├── cirq.google.SimulatedProcessorWithLocalDeviceRecord.json
+│   │   │   ├── cirq.google.SimulatedProcessorWithLocalDeviceRecord.repr
+│   │   │   ├── CompressDurationTag.json
+│   │   │   ├── CompressDurationTag.repr
+│   │   │   ├── Coupler.json
+│   │   │   ├── Coupler.repr
+│   │   │   ├── CouplerPulse.json
+│   │   │   ├── CouplerPulse.repr
+│   │   │   ├── FSimGateFamily.json
+│   │   │   ├── FSimGateFamily.repr
+│   │   │   ├── FSimViaModelTag.json
+│   │   │   ├── FSimViaModelTag.repr
+│   │   │   ├── GateTabulation.json_inward
+│   │   │   ├── GateTabulation.repr_inward
+│   │   │   ├── GoogleNoiseProperties.json
+│   │   │   ├── GoogleNoiseProperties.repr
+│   │   │   ├── InternalGate.json
+│   │   │   ├── InternalGate.repr
+│   │   │   ├── InternalTag.json
+│   │   │   ├── InternalTag.repr
+│   │   │   ├── PerQubitDepolarizingWithDampedReadoutNoiseModel.json
+│   │   │   ├── PerQubitDepolarizingWithDampedReadoutNoiseModel.repr
+│   │   │   ├── PhysicalZTag.json
+│   │   │   ├── PhysicalZTag.json_inward
+│   │   │   ├── PhysicalZTag.repr
+│   │   │   ├── PhysicalZTag.repr_inward
+│   │   │   ├── spec.py
+│   │   │   ├── SYC.json
+│   │   │   ├── SYC.json_inward
+│   │   │   ├── SYC.repr
+│   │   │   ├── SYC.repr_inward
+│   │   │   ├── SycamoreGate.json
+│   │   │   ├── SycamoreGate.json_inward
+│   │   │   ├── SycamoreGate.repr
+│   │   │   ├── SycamoreGate.repr_inward
+│   │   │   ├── SycamoreTargetGateset.json
+│   │   │   ├── SycamoreTargetGateset.repr
+│   │   │   ├── WaitGateWithUnit.json
+│   │   │   ├── WaitGateWithUnit.repr
+│   │   │   ├── WILLOW.json
+│   │   │   ├── WILLOW.repr
+│   │   │   ├── WillowGate.json
+│   │   │   └── WillowGate.repr
+│   │   │       └── ... (99 more files)
+│   │   ├── line/
+│   │   │   ├── placement/
+│   │   │   └── __init__.py
+│   │   ├── ops/
+│   │   │   ├── __init__.py
+│   │   │   ├── analog_detune_gates.py
+│   │   │   ├── analog_detune_gates_test.py
+│   │   │   ├── calibration_tag.py
+│   │   │   ├── calibration_tag_test.py
+│   │   │   ├── compress_duration_tag.py
+│   │   │   ├── compress_duration_tag_test.py
+│   │   │   ├── coupler.py
+│   │   │   ├── coupler_test.py
+│   │   │   ├── dynamical_decoupling_tag.py
+│   │   │   ├── dynamical_decoupling_tag_test.py
+│   │   │   ├── fsim_gate_family.py
+│   │   │   ├── fsim_gate_family_test.py
+│   │   │   ├── fsim_via_model_tag.py
+│   │   │   ├── fsim_via_model_tag_test.py
+│   │   │   ├── internal_gate.py
+│   │   │   ├── internal_gate_test.py
+│   │   │   ├── internal_tag.py
+│   │   │   ├── internal_tag_test.py
+│   │   │   ├── physical_z_tag.py
+│   │   │   ├── physical_z_tag_test.py
+│   │   │   ├── sycamore_gate.py
+│   │   │   ├── sycamore_gate_test.py
+│   │   │   ├── wait_gate.py
+│   │   │   ├── wait_gate_test.py
+│   │   │   ├── willow_gate.py
+│   │   │   └── willow_gate_test.py
+│   │   │       └── ... (22 more files)
+│   │   ├── serialization/
+│   │   │   ├── __init__.py
+│   │   │   ├── arg_func_langs.py
+│   │   │   ├── arg_func_langs_test.py
+│   │   │   ├── circuit_serializer.py
+│   │   │   ├── circuit_serializer_test.py
+│   │   │   ├── op_deserializer.py
+│   │   │   ├── op_deserializer_test.py
+│   │   │   ├── op_serializer.py
+│   │   │   ├── op_serializer_test.py
+│   │   │   ├── serializer.py
+│   │   │   ├── stimcirq_deserializer.py
+│   │   │   ├── stimcirq_deserializer_test.py
+│   │   │   ├── stimcirq_serializer.py
+│   │   │   ├── stimcirq_serializer_test.py
+│   │   │   ├── tag_deserializer.py
+│   │   │   └── tag_serializer.py
+│   │   │       └── ... (11 more files)
+│   │   ├── study/
+│   │   │   ├── __init__.py
+│   │   │   ├── device_parameter.py
+│   │   │   ├── device_parameter_test.py
+│   │   │   ├── symbol_util.py
+│   │   │   └── symbol_util_test.py
+│   │   ├── transformers/
+│   │   │   ├── analytical_decompositions/
+│   │   │   ├── target_gatesets/
+│   │   │   ├── __init__.py
+│   │   │   ├── sycamore_gauge.py
+│   │   │   └── sycamore_gauge_test.py
+│   │   ├── workflow/
+│   │   │   ├── __init__.py
+│   │   │   ├── _device_shim.py
+│   │   │   ├── io.py
+│   │   │   ├── io_test.py
+│   │   │   ├── processor_record.py
+│   │   │   ├── processor_record_test.py
+│   │   │   ├── progress.py
+│   │   │   ├── progress_test.py
+│   │   │   ├── quantum_executable.py
+│   │   │   ├── quantum_executable_test.py
+│   │   │   ├── quantum_runtime.py
+│   │   │   ├── quantum_runtime_test.py
+│   │   │   ├── qubit_placement.py
+│   │   │   └── qubit_placement_test.py
+│   │   │       └── ... (9 more files)
+│   │   ├── __init__.py
+│   │   ├── _version.py
+│   │   ├── _version_test.py
+│   │   ├── conftest.py
+│   │   ├── json_resolver_cache.py
+│   │   └── py.typed
+│   │       └── ... (1 more files)
+│   ├── LICENSE
+│   ├── README.md
+│   ├── requirements.txt
+│   ├── setup.py
+│   └── version_policy.md
+├── cirq-ionq/
+│   ├── cirq_ionq/
+│   │   ├── json_test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── AriaNativeGateset.json
+│   │   │   ├── AriaNativeGateset.repr
+│   │   │   ├── ForteNativeGateset.json
+│   │   │   ├── ForteNativeGateset.repr
+│   │   │   ├── GPI2Gate.json
+│   │   │   ├── GPI2Gate.repr
+│   │   │   ├── GPIGate.json
+│   │   │   ├── GPIGate.repr
+│   │   │   ├── IonQTargetGateset.json
+│   │   │   ├── IonQTargetGateset.repr
+│   │   │   ├── MSGate.json
+│   │   │   ├── MSGate.repr
+│   │   │   ├── spec.py
+│   │   │   ├── ZZGate.json
+│   │   │   └── ZZGate.repr
+│   │   │       └── ... (11 more files)
+│   │   ├── __init__.py
+│   │   ├── _version.py
+│   │   ├── _version_test.py
+│   │   ├── calibration.py
+│   │   ├── calibration_test.py
+│   │   ├── conftest.py
+│   │   ├── ionq_client.py
+│   │   ├── ionq_client_test.py
+│   │   ├── ionq_devices.py
+│   │   ├── ionq_devices_test.py
+│   │   ├── ionq_exceptions.py
+│   │   ├── ionq_exceptions_test.py
+│   │   ├── ionq_gateset.py
+│   │   ├── ionq_gateset_test.py
+│   │   ├── ionq_native_gates.py
+│   │   ├── ionq_native_gates_test.py
+│   │   ├── ionq_native_target_gateset.py
+│   │   ├── ionq_native_target_gateset_test.py
+│   │   ├── job.py
+│   │   ├── job_test.py
+│   │   ├── json_resolver_cache.py
+│   │   ├── results.py
+│   │   ├── results_test.py
+│   │   ├── sampler.py
+│   │   ├── sampler_test.py
+│   │   ├── serializer.py
+│   │   ├── serializer_test.py
+│   │   ├── service.py
+│   │   └── service_test.py
+│   │       └── ... (24 more files)
+│   ├── LICENSE
+│   ├── README.md
+│   ├── requirements.txt
+│   └── setup.py
+├── cirq-pasqal/
+│   ├── cirq_pasqal/
+│   │   ├── json_test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── PasqalDevice.json
+│   │   │   ├── PasqalDevice.json_inward
+│   │   │   ├── PasqalDevice.repr
+│   │   │   ├── PasqalDevice.repr_inward
+│   │   │   ├── PasqalGateset.json
+│   │   │   ├── PasqalGateset.repr
+│   │   │   ├── PasqalVirtualDevice.json
+│   │   │   ├── PasqalVirtualDevice.json_inward
+│   │   │   ├── PasqalVirtualDevice.repr
+│   │   │   ├── PasqalVirtualDevice.repr_inward
+│   │   │   ├── spec.py
+│   │   │   ├── ThreeDQubit.json
+│   │   │   ├── ThreeDQubit.json_inward
+│   │   │   ├── ThreeDQubit.repr
+│   │   │   ├── ThreeDQubit.repr_inward
+│   │   │   ├── TwoDQubit.json
+│   │   │   ├── TwoDQubit.json_inward
+│   │   │   ├── TwoDQubit.repr
+│   │   │   └── TwoDQubit.repr_inward
+│   │   │       └── ... (15 more files)
+│   │   ├── __init__.py
+│   │   ├── _version.py
+│   │   ├── _version_test.py
+│   │   ├── conftest.py
+│   │   ├── json_resolver_cache.py
+│   │   ├── pasqal_device.py
+│   │   ├── pasqal_device_test.py
+│   │   ├── pasqal_gateset.py
+│   │   ├── pasqal_gateset_test.py
+│   │   ├── pasqal_noise_model.py
+│   │   ├── pasqal_noise_model_test.py
+│   │   ├── pasqal_qubits.py
+│   │   ├── pasqal_qubits_test.py
+│   │   ├── pasqal_sampler.py
+│   │   └── pasqal_sampler_test.py
+│   │       └── ... (10 more files)
+│   ├── LICENSE
+│   ├── README.md
+│   ├── requirements.txt
+│   └── setup.py
+├── cirq-web/
+│   ├── cirq_web/
+│   │   ├── bloch_sphere/
+│   │   │   ├── __init__.py
+│   │   │   ├── bloch_sphere.py
+│   │   │   └── bloch_sphere_test.py
+│   │   ├── circuits/
+│   │   │   ├── __init__.py
+│   │   │   ├── circuit.py
+│   │   │   ├── circuit_test.py
+│   │   │   ├── symbols.py
+│   │   │   └── symbols_test.py
+│   │   ├── e2e/
+│   │   │   ├── bloch_sphere/
+│   │   │   └── circuit/
+│   │   ├── src/
+│   │   │   ├── bloch_sphere/
+│   │   │   └── circuit/
+│   │   ├── .eslintignore
+│   │   ├── .eslintrc.json
+│   │   ├── .nycrc.json
+│   │   ├── .prettierrc.js
+│   │   ├── __init__.py
+│   │   ├── _version.py
+│   │   ├── _version_test.py
+│   │   ├── conftest.py
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── tsconfig.json
+│   │   ├── webpack.config.js
+│   │   ├── widget.py
+│   │   └── widget_test.py
+│   │       └── ... (10 more files)
+│   ├── .gitignore
+│   ├── bloch_sphere_example.ipynb
+│   ├── circuit_example.ipynb
+│   ├── LICENSE
+│   ├── README.md
+│   ├── requirements.txt
+│   └── setup.py
+│       └── ... (2 more files)
+├── dev_tools/
+│   ├── ci/
+│   │   ├── README.md
+│   │   └── size-labeler.sh
+│   ├── cirq-infra/
+│   │   └── README.md
+│   ├── conf/
+│   │   ├── .pylintrc
+│   │   ├── apt-list-dev-tools.txt
+│   │   ├── mypy.ini
+│   │   └── pip-install-minimal-for-pytest-changed-files.sh
+│   ├── docs/
+│   │   ├── build_api_docs.py
+│   │   └── run_doctest.py
+│   ├── modules_test_data/
+│   │   ├── mod1/
+│   │   │   ├── pack1/
+│   │   │   ├── requirements.txt
+│   │   │   └── setup.py
+│   │   ├── mod2/
+│   │   │   ├── pack2/
+│   │   │   └── setup.py
+│   │   └── setup.py
+│   ├── notebooks/
+│   │   ├── __init__.py
+│   │   ├── isolated_notebook_test.py
+│   │   ├── notebook_test.py
+│   │   ├── utils.py
+│   │   └── utils_test.py
+│   ├── packaging/
+│   │   ├── generate-dev-version-id.sh
+│   │   ├── isolated_packages_test.py
+│   │   ├── packaging_test.sh
+│   │   ├── produce-package.sh
+│   │   ├── publish-dev-package.sh
+│   │   ├── pypirc_template
+│   │   └── verify-published-package.sh
+│   │       └── ... (2 more files)
+│   ├── profiling/
+│   │   ├── __init__.py
+│   │   ├── benchmark_serializers.py
+│   │   ├── benchmark_serializers_test.py
+│   │   ├── benchmark_simulators.py
+│   │   ├── benchmark_simulators_test.py
+│   │   └── live_plot_collector.py
+│   │       └── ... (1 more files)
+│   ├── requirements/
+│   │   ├── deps/
+│   │   │   ├── cirq-all-no-contrib.txt
+│   │   │   ├── cirq-all.txt
+│   │   │   ├── dev-tools.txt
+│   │   │   ├── format.txt
+│   │   │   ├── ipython.txt
+│   │   │   ├── mypy.txt
+│   │   │   ├── notebook.txt
+│   │   │   ├── packaging.txt
+│   │   │   ├── protos.txt
+│   │   │   ├── pylint.txt
+│   │   │   ├── pytest.txt
+│   │   │   ├── ruff.txt
+│   │   │   └── tensorflow-docs.txt
+│   │   │       └── ... (8 more files)
+│   │   ├── test_data/
+│   │   │   ├── sub/
+│   │   │   ├── a.req.txt
+│   │   │   └── b.req.txt
+│   │   ├── __init__.py
+│   │   ├── dev.env.txt
+│   │   ├── isolated-base.env.txt
+│   │   ├── lint.env.txt
+│   │   ├── mypy.env.txt
+│   │   ├── no-contrib.env.txt
+│   │   ├── notebooks.env.txt
+│   │   ├── pytest-minimal.env.txt
+│   │   ├── reqs.py
+│   │   └── reqs_test.py
+│   │       └── ... (5 more files)
+│   ├── triage-party/
+│   │   ├── kubernetes/
+│   │   │   ├── 01_ns/
+│   │   │   ├── 02_deployment/
+│   │   │   └── 03_svc/
+│   │   ├── cloudbuild-deploy.yaml
+│   │   ├── README.md
+│   │   └── skaffold.yaml
+│   ├── __init__.py
+│   ├── bash_scripts_test.py
+│   ├── build-protos.sh
+│   ├── check.py
+│   ├── check_incremental_coverage_annotations.py
+│   ├── cloned_env_test.py
+│   ├── codeowners_test.py
+│   ├── conftest.py
+│   ├── env_tools.py
+│   ├── git_env_tools.py
+│   ├── github_repository.py
+│   ├── import_test.py
+│   ├── incremental_coverage.py
+│   ├── incremental_coverage_test.py
+│   ├── modules.py
+│   ├── modules_test.py
+│   ├── output_capture.py
+│   ├── prepared_env.py
+│   ├── pylint_copyright_checker.py
+│   ├── pylint_copyright_checker_test.py
+│   ├── pypath
+│   ├── shell_tools.py
+│   ├── shell_tools_test.py
+│   ├── snippets_test.py
+│   ├── test_utils.py
+│   └── version_test.py
+│       └── ... (21 more files)
+├── docs/
+│   ├── dev/
+│   │   ├── development.md
+│   │   ├── gates.md
+│   │   ├── modules.md
+│   │   ├── nomenclature.md
+│   │   ├── notebooks.md
+│   │   ├── plotting.md
+│   │   ├── rfc_process.md
+│   │   ├── serialization.md
+│   │   ├── style.md
+│   │   ├── support.md
+│   │   ├── triage.md
+│   │   └── versions.md
+│   │       └── ... (7 more files)
+│   ├── experiments/
+│   │   ├── _index.yaml
+│   │   ├── fourier_checking.ipynb
+│   │   ├── fourier_checking.tst
+│   │   ├── hidden_linear_function.ipynb
+│   │   ├── hidden_linear_function.tst
+│   │   ├── quantum_walks.ipynb
+│   │   ├── quantum_walks.tst
+│   │   ├── shor.ipynb
+│   │   ├── textbook_algorithms.ipynb
+│   │   ├── textbook_algorithms.tst
+│   │   ├── variational_algorithm.ipynb
+│   │   └── variational_algorithm.tst
+│   │       └── ... (7 more files)
+│   ├── google/
+│   │   ├── access.md
+│   │   ├── best_practices.ipynb
+│   │   ├── calibration.md
+│   │   ├── concepts.ipynb
+│   │   ├── devices.md
+│   │   ├── engine.md
+│   │   ├── internal_gates.ipynb
+│   │   ├── linear_chain_with_calibration_example_results.png
+│   │   ├── loschmidt_echo_with_calibration_example_results.png
+│   │   ├── merge_subsets.png
+│   │   ├── qubit-placement.ipynb
+│   │   └── specification.md
+│   │       └── ... (7 more files)
+│   ├── hardware/
+│   │   ├── aqt/
+│   │   │   ├── access.md
+│   │   │   └── getting_started.ipynb
+│   │   ├── azure-quantum/
+│   │   │   ├── access.md
+│   │   │   ├── azure-quantum-resource-id.png
+│   │   │   ├── getting_started_honeywell.ipynb
+│   │   │   └── getting_started_ionq.ipynb
+│   │   ├── ionq/
+│   │   │   ├── access.md
+│   │   │   ├── calibrations.md
+│   │   │   ├── circuits.md
+│   │   │   ├── getting_started.ipynb
+│   │   │   ├── jobs.md
+│   │   │   └── service.md
+│   │   │       └── ... (1 more files)
+│   │   ├── pasqal/
+│   │   │   ├── access.md
+│   │   │   ├── devices.md
+│   │   │   ├── getting_started.ipynb
+│   │   │   └── sampler.md
+│   │   ├── _index.yaml
+│   │   ├── devices.ipynb
+│   │   └── qubit_picking.ipynb
+│   ├── images/
+│   │   ├── pasqal/
+│   │   │   ├── Cirq_pasqal.png
+│   │   │   ├── eiffel_tower.png
+│   │   │   ├── grid_atoms.png
+│   │   │   ├── Grover_circuit.png
+│   │   │   └── r_radius.001.png
+│   │   ├── circ2.png
+│   │   ├── CircuitMomentOperation.png
+│   │   ├── Cirq_logo_color.png
+│   │   ├── Cirq_logo_color.svg
+│   │   ├── Cirq_logo_notext.png
+│   │   ├── Cirq_logo_notext.svg
+│   │   ├── colab_github.png
+│   │   ├── colab_upload.png
+│   │   ├── console-landing.png
+│   │   ├── console-project-id.png
+│   │   ├── cycle.png
+│   │   ├── ecosystem.png
+│   │   ├── engine_cloud.png
+│   │   ├── engine_diagram.png
+│   │   ├── engine_job.png
+│   │   ├── engine_program.png
+│   │   ├── engine_result.png
+│   │   ├── InsertStrategy.png
+│   │   ├── moments.png
+│   │   ├── notebook_header.png
+│   │   ├── quantum-ai-vertical.svg
+│   │   └── run-code-block.png
+│   │       └── ... (17 more files)
+│   ├── noise/
+│   │   ├── qcvv/
+│   │   │   ├── coherent_vs_incoherent_xeb.ipynb
+│   │   │   ├── coherent_vs_incoherent_xeb.tst
+│   │   │   ├── isolated_xeb.ipynb
+│   │   │   ├── isolated_xeb.tst
+│   │   │   ├── parallel_xeb.ipynb
+│   │   │   ├── parallel_xeb.tst
+│   │   │   ├── xeb_theory.ipynb
+│   │   │   └── xeb_theory.tst
+│   │   │       └── ... (3 more files)
+│   │   ├── _index.yaml
+│   │   ├── heatmaps.ipynb
+│   │   └── representing_noise.ipynb
+│   ├── simulate/
+│   │   ├── _index.yaml
+│   │   ├── noisy_simulation.ipynb
+│   │   ├── params.ipynb
+│   │   ├── quantum_virtual_machine.ipynb
+│   │   ├── qvm_basic_example.ipynb
+│   │   ├── qvm_builder_code.ipynb
+│   │   ├── qvm_stabilizer_example.ipynb
+│   │   ├── simulation.ipynb
+│   │   ├── state_histograms.ipynb
+│   │   └── virtual_engine_interface.ipynb
+│   │       └── ... (5 more files)
+│   ├── start/
+│   │   ├── basics.ipynb
+│   │   ├── best_practices.md
+│   │   ├── install.md
+│   │   ├── intro.ipynb
+│   │   ├── intro.tst
+│   │   └── start.ipynb
+│   │       └── ... (1 more files)
+│   ├── transform/
+│   │   ├── _index.yaml
+│   │   ├── custom_transformers.ipynb
+│   │   ├── routing_transformer.ipynb
+│   │   └── transformers.ipynb
+│   ├── tutorials/
+│   │   └── google/
+│   │       ├── colab.ipynb
+│   │       ├── echoes.ipynb
+│   │       ├── identifying_hardware_changes.ipynb
+│   │       ├── spin_echoes.ipynb
+│   │       ├── start.ipynb
+│   │       └── visualizing_calibration_metrics.ipynb
+│   │           └── ... (1 more files)
+│   ├── _book.yaml
+│   ├── _template.ipynb
+│   ├── citation.md
+│   ├── gatezoo.ipynb
+│   └── named_topologies.ipynb
+├── examples/
+│   ├── advanced/
+│   │   ├── __init__.py
+│   │   ├── quantum_utility_sim_4a.ipynb
+│   │   ├── quantum_utility_sim_4b.ipynb
+│   │   ├── quantum_volume.ipynb
+│   │   ├── quantum_volume.py
+│   │   ├── quantum_volume.tst
+│   │   ├── quantum_volume_errors.ipynb
+│   │   ├── quantum_volume_errors.tst
+│   │   ├── quantum_volume_routing.ipynb
+│   │   ├── quantum_volume_routing.tst
+│   │   └── quantum_volume_test.py
+│   │       └── ... (6 more files)
+│   ├── __init__.py
+│   ├── basic_arithmetic.py
+│   ├── bb84.py
+│   ├── bcs_mean_field.py
+│   ├── bell_inequality.py
+│   ├── bernstein_vazirani.py
+│   ├── conftest.py
+│   ├── deutsch.py
+│   ├── direct_fidelity_estimation.ipynb
+│   ├── direct_fidelity_estimation.py
+│   ├── direct_fidelity_estimation_test.py
+│   ├── examples_test.py
+│   ├── grover.py
+│   ├── heatmaps.py
+│   ├── hello_qubit.py
+│   ├── hhl.py
+│   ├── hidden_shift_algorithm.py
+│   ├── magic_square.py
+│   ├── magic_square_test.py
+│   ├── noisy_simulation_example.py
+│   ├── phase_estimator.py
+│   ├── qaoa.py
+│   ├── quantum_fourier_transform.py
+│   ├── quantum_teleportation.py
+│   ├── qubit_characterizations_example.py
+│   ├── README.md
+│   ├── shor.py
+│   ├── shors_code.py
+│   ├── simon_algorithm.py
+│   ├── single_qubit_heatmap_example.png
+│   ├── stabilizer_code.ipynb
+│   ├── stabilizer_code.py
+│   ├── stabilizer_code_test.py
+│   ├── superdense_coding.py
+│   ├── swap_networks.py
+│   ├── two_qubit_gate_compilation.py
+│   └── two_qubit_interaction_heatmap_example.png
+│       └── ... (32 more files)
+├── .codecov.yaml
+├── .editorconfig
+├── .git-blame-ignore-revs
+├── .gitattributes
+├── .gitignore
+├── .markdownlintrc
+├── .yamllint.yaml
+├── apt-system-requirements.txt
+├── asv.conf.json
+├── AUTHORS
+├── CITATION.cff
+├── CODE_OF_CONDUCT.md
+├── conftest.py
+├── CONTRIBUTING.md
+├── LICENSE
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+├── release.md
+├── setup.py
+└── SUPPORT.md
+    └── ... (16 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

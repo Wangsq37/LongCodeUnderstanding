@@ -1,0 +1,52 @@
+import pytest
+from _plotly_utils.basevalidators import SubplotidValidator
+from ...test_optional.test_utils.test_utils import np_nan, np_inf
+
+
+# Fixtures
+
+
+@pytest.fixture()
+def validator():
+    return SubplotidValidator("prop", "parent", dflt="geo")
+
+
+# Tests
+
+
+# Acceptance
+@pytest.mark.parametrize("val", [
+    "geo",                   # original default
+    "geo2", "geo3", "geo10", # larger allowed indices
+    "geo99999",              # very large allowed index
+    "geo1234567890",         # extremely large integer
+    "geo7",                  # arbitrary allowed index
+    "geo345",                # mid-sized number
+])
+def test_acceptance(val, validator):
+    assert validator.validate_coerce(val) == val
+
+
+# Rejection by type
+@pytest.mark.parametrize("val", [23, [], {}, set(), np_inf(), np_nan()])
+def test_rejection_type(val, validator):
+    with pytest.raises(ValueError) as validation_failure:
+        validator.validate_coerce(val)
+
+    assert "Invalid value" in str(validation_failure.value)
+
+
+# Rejection by value
+@pytest.mark.parametrize(
+    "val",
+    [
+        "",  # Cannot be empty
+        "bogus",  # Must begin with 'geo'
+        "geo0",  # If followed by a number the number must be > 1
+    ],
+)
+def test_rejection_value(val, validator):
+    with pytest.raises(ValueError) as validation_failure:
+        validator.validate_coerce(val)
+
+    assert "Invalid value" in str(validation_failure.value)

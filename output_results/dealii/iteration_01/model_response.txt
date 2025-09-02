@@ -1,0 +1,17 @@
+```bash
+# Step 1: Find obvious dependency declaration files
+ls -l requirements.txt
+ls -l setup.py
+ls -l pyproject.toml
+
+# Step 2: Search for requirements files inside the repo (may be in subdirs)
+find . -iname "requirements.txt"
+
+# Step 3: Identify python test directories/code (to determine if there are pytest-based python tests)
+find . -iname "*.py" | grep -i test
+
+# Step 4: Try running pytest directly (see if there are any import errors, maybe tests/py in subdirs)
+pytest
+
+# Step 5: Install common scientific/test dependencies if pytest fails due to missing packages (will be inferred based on error output after first run)
+```

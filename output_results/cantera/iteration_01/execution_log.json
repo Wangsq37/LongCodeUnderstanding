@@ -1,0 +1,79 @@
+[
+  {
+    "command": "ls interfaces/cython/",
+    "success": true,
+    "stdout": "SConscript\ncantera\npyproject.toml\nsetup.cfg.in\nsetup.py\n",
+    "stderr": "",
+    "execution_time": 0.0015461444854736328
+  },
+  {
+    "command": "ls interfaces/cython/pyproject.toml",
+    "success": true,
+    "stdout": "interfaces/cython/pyproject.toml\n",
+    "stderr": "",
+    "execution_time": 0.0011827945709228516
+  },
+  {
+    "command": "ls interfaces/cython/requirements.txt",
+    "success": false,
+    "stdout": "",
+    "stderr": "ls: cannot access 'interfaces/cython/requirements.txt': No such file or directory\n",
+    "execution_time": 0.0011534690856933594
+  },
+  {
+    "command": "ls interfaces/cython/setup.py",
+    "success": true,
+    "stdout": "interfaces/cython/setup.py\n",
+    "stderr": "",
+    "execution_time": 0.0014162063598632812
+  },
+  {
+    "command": "ls requirements.txt",
+    "success": false,
+    "stdout": "",
+    "stderr": "ls: cannot access 'requirements.txt': No such file or directory\n",
+    "execution_time": 0.0015645027160644531
+  },
+  {
+    "command": "ls pyproject.toml",
+    "success": false,
+    "stdout": "",
+    "stderr": "ls: cannot access 'pyproject.toml': No such file or directory\n",
+    "execution_time": 0.0014352798461914062
+  },
+  {
+    "command": "ls setup.py",
+    "success": false,
+    "stdout": "",
+    "stderr": "ls: cannot access 'setup.py': No such file or directory\n",
+    "execution_time": 0.001247406005859375
+  },
+  {
+    "command": "ls test/python/",
+    "success": true,
+    "stdout": "__init__.py\nconftest.py\ncoverage.ini\npytest.ini\ntest_composite.py\ntest_convert.py\ntest_equilibrium.py\ntest_func1.py\ntest_jacobian.py\ntest_kinetics.py\ntest_mixture.py\ntest_onedim.py\ntest_purefluid.py\ntest_reaction.py\ntest_reactor.py\ntest_thermo.py\ntest_transport.py\ntest_units.py\ntest_utils.py\nuser_ext.py\nuser_ext_invalid.py\nutilities.py\n",
+    "stderr": "",
+    "execution_time": 0.0012006759643554688
+  },
+  {
+    "command": "pip install -e interfaces/cython",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nObtaining file:///app/repo_to_process/interfaces/cython\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: cantera\n  Building editable for cantera (pyproject.toml): started\n  Building editable for cantera (pyproject.toml): finished with status 'done'\n  Created wheel for cantera: filename=cantera-0.0.0-0.editable-cp310-cp310-linux_x86_64.whl size=2641 sha256=6d172e08afb71f3426cf1b2d39e793c870929f2473f8692c9a856e92ba6e736e\n  Stored in directory: /tmp/pip-ephem-wheel-cache-298i5u1s/wheels/37/b3/dd/ec25e170ff9a36ef49370eeedecd82f8da40ee17f168be2f5c\nSuccessfully built cantera\nInstalling collected packages: cantera\nSuccessfully installed cantera-0.0.0\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 4.868806838989258
+  },
+  {
+    "command": "if [ -f interfaces/cython/requirements.txt ]; then pip install -r interfaces/cython/requirements.txt; fi",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0012860298156738281
+  },
+  {
+    "command": "pytest test/python",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/test/python/conftest.py'.\ntest/python/conftest.py:1: in <module>\n    import cantera\ninterfaces/cython/cantera/__init__.py:4: in <module>\n    from ._cantera import *\nE   ModuleNotFoundError: No module named 'cantera._cantera'\n",
+    "execution_time": 0.16673064231872559
+  }
+]

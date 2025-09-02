@@ -1,0 +1,11 @@
+There are still missing dependencies according to the latest pytest output:
+
+- `ModuleNotFoundError: No module named 'scipy.spatial'`
+- `ModuleNotFoundError: No module named 'xarray'`
+
+The proper next step is to install both scipy and xarray.
+
+```bash
+pip install scipy xarray
+pytest
+```

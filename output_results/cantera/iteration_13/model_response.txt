@@ -1,0 +1,12 @@
+The error from SCons is `ERROR: Unrecognized command line target: 'python'`, indicating that either the target name is different, or additional configuration is required for Python support. 
+
+Let's do the following:
+1. Try to build with the common Cantera SCons invocation for Python: the typical command is just `scons build`, or sometimes `scons python_package`, or even `scons`. Sometimes a `--help` or just running `scons` alone displays available targets.
+2. If building still doesn't work, we can look for available targets or specific instructions in `INSTALL.md` or `README.rst`.
+
+Let's start by running a plain `scons` to list available default targets (if any):
+
+```bash
+scons
+```
+If that doesn't show targets or build the Python module, we will inspect `INSTALL.md` for exact Cantera build instructions or targets.

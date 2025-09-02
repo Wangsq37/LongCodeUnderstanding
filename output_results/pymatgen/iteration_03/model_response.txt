@@ -1,0 +1,15 @@
+The error is `ModuleNotFoundError: No module named 'pymatgen'` in many tests.
+
+Given the layout:
+- Source code is under `src/pymatgen/`
+- Tests are in `tests/` and in `dev_scripts/chemenv/`
+
+This means the editable install for `pymatgen` (from `src/`) is not working, likely because the installation step `pip install .` failed previously. The error in the install log above was due to a build or setup issue, possibly related to Cython extensions or other build dependencies.
+
+Since the source is in `src/`, let's try a direct editable install, which works even if the wheel build fails:
+
+```bash
+pip install -e .
+pytest
+```
+If this does not resolve the issue, I will investigate the specific wheel build or extension errors.

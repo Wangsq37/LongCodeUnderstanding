@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip install cython",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nCollecting cython\n  Using cached https://repo.huaweicloud.com/repository/pypi/packages/b4/eb/8c47ba21177929f9122e7aceca9fe1f9f5a037e705226f8a5a9113fb53ba/cython-3.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)\nInstalling collected packages: cython\nSuccessfully installed cython-3.1.2\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 2.031700372695923
+  },
+  {
+    "command": "python setup.py build_ext --inplace",
+    "success": false,
+    "stdout": "",
+    "stderr": "igakit (optional) is missing; you may get run-time errors\npetsc4py (optional) is missing; you may get run-time errors\nmpi4py (optional) is missing; you may get run-time errors\nslepc4py (optional) is missing; you may get run-time errors\npymetis (optional) is missing; you may get run-time errors\nscikits.umfpack (optional) is missing; you may get run-time errors\npsutil (optional) is missing; you may get run-time errors\nopt_einsum (optional) is missing; you may get run-time errors\njax (optional) is missing; you may get run-time errors\ndask (optional) is missing; you may get run-time errors\nprimme (optional) is missing; you may get run-time errors\noct2py (optional) is missing; you may get run-time errors\nmumpspy (optional) is missing; you may get run-time errors\nmumps (optional) is missing; you may get run-time errors\nipctk (optional) is missing; you may get run-time errors\npypardiso (optional) is missing; you may get run-time errors\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.10/dist-packages/skbuild/setuptools_wrap.py\", line 639, in setup\n    cmkr = cmaker.CMaker(cmake_executable)\n  File \"/usr/local/lib/python3.10/dist-packages/skbuild/cmaker.py\", line 145, in __init__\n    self.cmake_version = get_cmake_version(self.cmake_executable)\n  File \"/usr/local/lib/python3.10/dist-packages/skbuild/cmaker.py\", line 102, in get_cmake_version\n    raise SKBuildError(msg) from err\n\nProblem with the CMake installation, aborting build. CMake executable is cmake\n",
+    "execution_time": 1.2194836139678955
+  }
+]

@@ -1,0 +1,285 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── pre-commit.yml
+│   │   ├── release.yml
+│   │   └── tests.yml
+│   └── dependabot.yml
+├── benchmarks/
+│   ├── __init__.py
+│   └── benchmarks.py
+├── ci/
+│   ├── wheelbuilder/
+│   │   ├── LICENSE_GEOS
+│   │   └── LICENSE_win32
+│   ├── Dockerfile
+│   ├── install_geos.cmd
+│   └── install_geos.sh
+├── docker/
+│   ├── Dockerfile.arm64
+│   └── Dockerfile.valgrind
+├── docs/
+│   ├── _templates/
+│   │   └── autosummary/
+│   │       └── class.rst
+│   ├── code/
+│   │   ├── buffer.py
+│   │   ├── buffer_single_side.py
+│   │   ├── convex_hull.py
+│   │   ├── coverage_simplify.py
+│   │   ├── difference.py
+│   │   ├── figures.py
+│   │   ├── geometrycollection.py
+│   │   ├── intersection-sym-difference.py
+│   │   ├── linearring.py
+│   │   ├── linestring.py
+│   │   ├── make_valid_geometrycollection.py
+│   │   ├── make_valid_methods.py
+│   │   ├── make_valid_multipolygon.py
+│   │   ├── minimum_rotated_rectangle.py
+│   │   ├── multilinestring.py
+│   │   ├── multipolygon.py
+│   │   ├── parallel_offset.py
+│   │   ├── parallel_offset_mitre.py
+│   │   ├── polygon.py
+│   │   ├── polygon2.py
+│   │   ├── rotate.py
+│   │   ├── scale.py
+│   │   ├── simplify.py
+│   │   ├── skew.py
+│   │   ├── triangulate.py
+│   │   ├── unary_union.py
+│   │   ├── union.py
+│   │   └── voronoi_diagram.py
+│   │       └── ... (23 more files)
+│   ├── release/
+│   │   ├── 1.x.rst
+│   │   └── 2.x.rst
+│   ├── conf.py
+│   ├── constructive.rst
+│   ├── coordinates.rst
+│   ├── coverage.rst
+│   ├── creation.rst
+│   ├── design.rst
+│   ├── environment.yml
+│   ├── geometry.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── io.rst
+│   ├── linear.rst
+│   ├── Makefile
+│   ├── manual.rst
+│   ├── measurement.rst
+│   ├── migration.rst
+│   ├── migration_pygeos.rst
+│   ├── plotting.rst
+│   ├── predicates.rst
+│   ├── properties.rst
+│   ├── release.rst
+│   ├── set_operations.rst
+│   ├── strtree.rst
+│   └── testing.rst
+│       └── ... (19 more files)
+├── shapely/
+│   ├── algorithms/
+│   │   ├── __init__.py
+│   │   ├── _oriented_envelope.py
+│   │   ├── cga.py
+│   │   └── polylabel.py
+│   ├── geometry/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── collection.py
+│   │   ├── geo.py
+│   │   ├── linestring.py
+│   │   ├── multilinestring.py
+│   │   ├── multipoint.py
+│   │   ├── multipolygon.py
+│   │   ├── point.py
+│   │   └── polygon.py
+│   │       └── ... (5 more files)
+│   ├── tests/
+│   │   ├── geometry/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_collection.py
+│   │   │   ├── test_coords.py
+│   │   │   ├── test_decimal.py
+│   │   │   ├── test_emptiness.py
+│   │   │   ├── test_equality.py
+│   │   │   ├── test_format.py
+│   │   │   ├── test_geometry_base.py
+│   │   │   ├── test_hash.py
+│   │   │   ├── test_linestring.py
+│   │   │   ├── test_multi.py
+│   │   │   ├── test_multilinestring.py
+│   │   │   ├── test_multipoint.py
+│   │   │   ├── test_multipolygon.py
+│   │   │   ├── test_point.py
+│   │   │   └── test_polygon.py
+│   │   │       └── ... (11 more files)
+│   │   ├── legacy/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── rungrind.dist
+│   │   │   ├── test_affinity.py
+│   │   │   ├── test_box.py
+│   │   │   ├── test_buffer.py
+│   │   │   ├── test_cga.py
+│   │   │   ├── test_clip_by_rect.py
+│   │   │   ├── test_create_inconsistent_dimensionality.py
+│   │   │   ├── test_delaunay.py
+│   │   │   ├── test_empty_polygons.py
+│   │   │   ├── test_equality.py
+│   │   │   ├── test_geointerface.py
+│   │   │   ├── test_invalid_geometries.py
+│   │   │   ├── test_linear_referencing.py
+│   │   │   ├── test_linemerge.py
+│   │   │   ├── test_locale.py
+│   │   │   ├── test_make_valid.py
+│   │   │   ├── test_mapping.py
+│   │   │   ├── test_minimum_clearance.py
+│   │   │   ├── test_ndarrays.py
+│   │   │   ├── test_nearest.py
+│   │   │   ├── test_operations.py
+│   │   │   ├── test_operators.py
+│   │   │   ├── test_orient.py
+│   │   │   ├── test_parallel_offset.py
+│   │   │   ├── test_persist.py
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_polygonize.py
+│   │   │   ├── test_polylabel.py
+│   │   │   ├── test_predicates.py
+│   │   │   ├── test_prepared.py
+│   │   │   ├── test_products_z.py
+│   │   │   ├── test_shape.py
+│   │   │   ├── test_shared_paths.py
+│   │   │   ├── test_singularity.py
+│   │   │   ├── test_snap.py
+│   │   │   ├── test_split.py
+│   │   │   ├── test_substring.py
+│   │   │   ├── test_svg.py
+│   │   │   ├── test_transform.py
+│   │   │   ├── test_union.py
+│   │   │   ├── test_validation.py
+│   │   │   ├── test_vectorized.py
+│   │   │   ├── test_voronoi_diagram.py
+│   │   │   ├── test_wkb.py
+│   │   │   ├── test_wkt.py
+│   │   │   ├── threading_test.py
+│   │   │   └── valgrind-python.supp
+│   │   │       └── ... (44 more files)
+│   │   ├── __init__.py
+│   │   ├── common.py
+│   │   ├── test_constructive.py
+│   │   ├── test_coordinates.py
+│   │   ├── test_coverage.py
+│   │   ├── test_creation.py
+│   │   ├── test_creation_indices.py
+│   │   ├── test_decorators.py
+│   │   ├── test_geometry.py
+│   │   ├── test_io.py
+│   │   ├── test_linear.py
+│   │   ├── test_measurement.py
+│   │   ├── test_misc.py
+│   │   ├── test_plotting.py
+│   │   ├── test_predicates.py
+│   │   ├── test_ragged_array.py
+│   │   ├── test_set_operations.py
+│   │   ├── test_strtree.py
+│   │   └── test_testing.py
+│   │       └── ... (14 more files)
+│   ├── vectorized/
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── _coverage.py
+│   ├── _enum.py
+│   ├── _geometry.py
+│   ├── _geometry_helpers.pyx
+│   ├── _geos.pxd
+│   ├── _geos.pyx
+│   ├── _pygeos_api.pxd
+│   ├── _ragged_array.py
+│   ├── _version.py
+│   ├── affinity.py
+│   ├── conftest.py
+│   ├── constructive.py
+│   ├── coordinates.py
+│   ├── coords.py
+│   ├── creation.py
+│   ├── decorators.py
+│   ├── errors.py
+│   ├── geos.py
+│   ├── io.py
+│   ├── linear.py
+│   ├── measurement.py
+│   ├── ops.py
+│   ├── plotting.py
+│   ├── predicates.py
+│   ├── prepared.py
+│   ├── set_operations.py
+│   ├── speedups.py
+│   ├── strtree.py
+│   ├── testing.py
+│   ├── validation.py
+│   ├── wkb.py
+│   └── wkt.py
+│       └── ... (28 more files)
+├── src/
+│   ├── c_api.c
+│   ├── c_api.h
+│   ├── coords.c
+│   ├── coords.h
+│   ├── fast_loop_macros.h
+│   ├── geos.c
+│   ├── geos.h
+│   ├── kvec.h
+│   ├── lib.c
+│   ├── pygeom.c
+│   ├── pygeom.h
+│   ├── pygeos.c
+│   ├── pygeos.h
+│   ├── strtree.c
+│   ├── strtree.h
+│   ├── ufuncs.c
+│   ├── ufuncs.h
+│   ├── vector.c
+│   └── vector.h
+│       └── ... (14 more files)
+├── .clang-format
+├── .dockerignore
+├── .gitattributes
+├── .gitignore
+├── .mailmap
+├── .pre-commit-config.yaml
+├── .readthedocs.yml
+├── asv.conf.json
+├── CHANGES.txt
+├── CITATION.cff
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── CREDITS.txt
+├── FAQ.rst
+├── ISSUE_TEMPLATE.md
+├── LICENSE.txt
+├── MANIFEST.in
+├── pyproject.toml
+├── README.rst
+├── setup.cfg
+├── setup.py
+└── versioneer.py
+    └── ... (17 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

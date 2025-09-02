@@ -1,0 +1,7 @@
+```bash
+# The editable install of ./python repeatedly fails because the version of fenics-basix available (0.9.0) does not satisfy the requirement >=0.10.0.dev0 imposed by fenics-dolfinx==0.10.0.dev0.
+# The python/dolfinx directory contains the Python source code. Try installing it directly in editable mode.
+pip install -e ./python/dolfinx
+# Then run pytest again.
+pytest
+```

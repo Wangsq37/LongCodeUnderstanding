@@ -1,0 +1,11 @@
+The repeated `ModuleNotFoundError: No module named 'MDAnalysis'` means the core package is not being built or installed, due to repeated errors during compilation (likely C code compilation). This is a compiled/scientific Python package; such packages require native build tools, particularly a C compiler and Python dev headers.
+
+**Action:**  
+Install essential build tools and Python development headers, which are required to compile Cython/C-extensions.
+
+```bash
+apt-get update
+apt-get install -y build-essential python3-dev
+pip install ./package
+pytest
+```

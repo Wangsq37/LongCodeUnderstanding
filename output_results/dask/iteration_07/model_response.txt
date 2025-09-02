@@ -1,0 +1,9 @@
+The error indicates that pytest cannot find the `dask.tests.warning_aliases.RemovedIn20Warning` warning class, because `dask.tests` is not importable as a module. This typically happens when the source directory (here, `dask/`) isn't in `PYTHONPATH`.
+
+To resolve this, set the `PYTHONPATH` environment variable to include the project root (so that `dask` is importable) and run pytest.
+
+```bash
+PYTHONPATH=. pytest dask
+```
+
+If this command fails with the same error, try installing any obvious dependencies listed in `requirements.txt` or `setup.py`. But first, test `PYTHONPATH=. pytest dask`.

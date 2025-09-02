@@ -1,0 +1,16 @@
+The directory listing of `yt/geometry/` shows that there is no `selection_routines.py` file, but there are files like `selection_routines.pyx`, `selection_routines.c`, and `selection_routines.pxd`. This indicates that `selection_routines` is a Cython module that likely should have been built to produce a `selection_routines.cpython-<ver>-<platform>.so` shared object or at minimum a `selection_routines.py` shim.
+
+### Root cause:
+- The import fails because the Cython extension has not been built, so Python cannot find `yt.geometry.selection_routines`.
+
+### Next Steps:
+- Check for a build system: `setup.py` or `pyproject.toml`.
+- Check for any existing build instructions (usually in `README`, `INSTALL`, or possibly in `tests/ci_install.sh`).
+- Try to build the Cython extensions in-place.
+
+First, let's look for a top-level `setup.py` or `pyproject.toml` to attempt a proper build.
+
+```bash
+ls -l
+```
+If a `setup.py` is found, I will run a build command; if not, I'll look for instructions in possible documentation files.

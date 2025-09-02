@@ -1,0 +1,32 @@
+First, let's analyze the relevant dependency files and target the main test suite.
+
+## 1. Locate Dependency Files
+
+Observing the structure, the main Python code and tests reside in `python/prophet` and its subdirectories. There are two key subprojects:
+- `python/prophet` with tests in `python/prophet/tests`
+- `python_shim/fbprophet` (older? shim) with tests in `python_shim/fbprophet/tests`
+
+Dependency management files for these:
+- `python/pyproject.toml`
+- `python/setup.py`
+- `python_shim/requirements.txt`
+- `python_shim/setup.py`
+
+To focus, we'll use the standard install method for the main package (`python` directory) which hosts the primary Prophet implementation.
+
+## 2. Install Dependencies
+
+I will install with the following priority:
+- If `pyproject.toml` exists, attempt PEP 517 build dependencies (`pip install .`)
+- Fall back to `setup.py` (`pip install .`)
+- Install extras if necessary.
+- If any `ModuleNotFoundError` occurs, install missing packages with `pip install <package>`.
+
+Let's proceed:
+
+```bash
+pip install -e python
+pytest python/prophet/tests
+```
+
+If any import errors occur, I will install missing packages explicitly and re-try until test collection succeeds.

@@ -1,0 +1,28 @@
+Based on the project structure, it appears that there are no actual Python source files in `src/`, only Fortran and header files. The real location for Python code (if any) must be elsewhere.
+
+The most promising candidate for Python source is the `docs/docs/parameters/` directory, which contains at least one Python file: `generate-parameter-tables.py`. There may also be tests targeting this script.
+
+It's possible that the test discovery is not working because:
+- There are no Python test files present (e.g., `test_*.py` or in a `tests/`/`test-suite/` directory).
+- The provided test-suite contains only non-Python artifacts for regression or input-data tests.
+
+Given that, let's try tracking the most probable Python-containing directory:  
+- `docs/docs/parameters`
+
+So I will set up tracing for that:
+
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['docs/docs/parameters']
+```
+```bash
+pytest
+```
+
+If the test count remains zero, it likely means there are truly no pytest-compatible Python tests in this project.
+If so, this repo is probably Fortran-based, with only minor auxiliary Python scripts.
+
+If after this final attempt there are still zero tests and zero call chain reports, the correct status is:
+
+```status
+failed
+```

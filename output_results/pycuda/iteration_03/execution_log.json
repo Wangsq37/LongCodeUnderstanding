@@ -1,0 +1,16 @@
+[
+  {
+    "command": "export PYTHONPATH=\"$PYTHONPATH:/app/repo_to_process/pycuda\"",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0009646415710449219
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\nconfigfile: pyproject.toml\ncollected 0 items / 4 errors\n\n==================================== ERRORS ====================================\n___________ ERROR collecting examples/from-wiki/simple_speed_test.py ___________\nImportError while importing test module '/app/repo_to_process/examples/from-wiki/simple_speed_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nexamples/from-wiki/simple_speed_test.py:48: in <module>\n    import pycuda.autoinit\nE   ModuleNotFoundError: No module named 'pycuda'\n_____________________ ERROR collecting test/test_cumath.py _____________________\nImportError while importing test module '/app/repo_to_process/test/test_cumath.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntest/test_cumath.py:7: in <module>\n    import pycuda.cumath as cumath\nE   ModuleNotFoundError: No module named 'pycuda'\n_____________________ ERROR collecting test/test_driver.py _____________________\nImportError while importing test module '/app/repo_to_process/test/test_driver.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntest/test_driver.py:13: in <module>\n    import pycuda.driver as drv\nE   ModuleNotFoundError: No module named 'pycuda'\n____________________ ERROR collecting test/test_gpuarray.py ____________________\nImportError while importing test module '/app/repo_to_process/test/test_gpuarray.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntest/test_gpuarray.py:11: in <module>\n    import pycuda.driver as drv\nE   ModuleNotFoundError: No module named 'pycuda'\n=========================== short test summary info ============================\nERROR examples/from-wiki/simple_speed_test.py\nERROR test/test_cumath.py\nERROR test/test_driver.py\nERROR test/test_gpuarray.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 4 errors in 0.74s ===============================\n",
+    "stderr": "",
+    "execution_time": 0.9515440464019775
+  }
+]

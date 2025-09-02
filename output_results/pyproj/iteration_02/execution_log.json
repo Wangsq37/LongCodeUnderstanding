@@ -1,0 +1,30 @@
+[
+  {
+    "command": "apt-get update",
+    "success": false,
+    "stdout": "Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]\nErr:2 http://archive.ubuntu.com/ubuntu jammy InRelease\n  502  Bad Gateway [IP: 185.125.190.81 80]\nGet:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]\nGet:4 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3207 kB]\nGet:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]\nGet:6 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [48.5 kB]\nGet:7 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1575 kB]\nGet:8 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1270 kB]\nGet:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3518 kB]\nGet:10 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [5103 kB]\nGet:11 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [5290 kB]\nGet:12 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [75.9 kB]\nGet:13 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]\nGet:14 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]\nReading package lists...\n",
+    "stderr": "E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/jammy/InRelease  502  Bad Gateway [IP: 185.125.190.81 80]\nE: The repository 'http://archive.ubuntu.com/ubuntu jammy InRelease' is not signed.\n",
+    "execution_time": 20.76580309867859
+  },
+  {
+    "command": "apt-get install -y proj-bin proj-data libproj-dev",
+    "success": false,
+    "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\n",
+    "stderr": "E: Unable to locate package proj-bin\nE: Unable to locate package proj-data\nE: Unable to locate package libproj-dev\n",
+    "execution_time": 0.3810231685638428
+  },
+  {
+    "command": "pip install .",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nProcessing /app/repo_to_process\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'error'\n",
+    "stderr": "  error: subprocess-exited-with-error\n  \n  × Getting requirements to build wheel did not run successfully.\n  │ exit code: 1\n  ╰─> [1 lines of output]\n      proj executable not found. Please set the PROJ_DIR variable. For more information see: https://pyproj4.github.io/pyproj/stable/installation.html\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: subprocess-exited-with-error\n\n× Getting requirements to build wheel did not run successfully.\n│ exit code: 1\n╰─> See above for output.\n\nnote: This error originates from a subprocess, and is likely not a problem with pip.\n",
+    "execution_time": 2.9853129386901855
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/test/conftest.py'.\ntest/conftest.py:10: in <module>\n    import pyproj\npyproj/__init__.py:34: in <module>\n    import pyproj.network\npyproj/network.py:10: in <module>\n    from pyproj._context import _set_context_ca_bundle_path\nE   ModuleNotFoundError: No module named 'pyproj._context'\n",
+    "execution_time": 0.3024444580078125
+  }
+]

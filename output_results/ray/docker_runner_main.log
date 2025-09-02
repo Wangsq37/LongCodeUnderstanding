@@ -1,0 +1,63 @@
+08/11/2025 07:32:25 - INFO - __main__ - --- Processing repository: ray ---
+08/11/2025 07:32:25 - INFO - __main__ - No existing container found. Creating new container 'agent-run-ray'...
+08/11/2025 07:32:26 - INFO - __main__ - Copying 'python_repos\ray' to new container 'agent-run-ray:/app/repo_to_process'...
+08/11/2025 07:32:53 - INFO - __main__ - Executing agent inside the container...
+08/11/2025 07:32:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:32:54 - INFO - __main__ - --- Starting Agent inside Container ---
+08/11/2025 07:32:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:32:54 - INFO - __main__ - Repository Name: ray
+08/11/2025 07:32:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:32:54 - INFO - __main__ - Repository: /app/repo_to_process
+08/11/2025 07:32:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:32:54 - INFO - __main__ - Language: Python
+08/11/2025 07:32:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:32:54 - INFO - __main__ - Model: gpt-4.1
+08/11/2025 07:32:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:32:54 - INFO - __main__ - Max Iterations: 15
+08/11/2025 07:32:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:32:54 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/11/2025 07:32:57 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:32:57 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/11/2025 07:32:57 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:32:57 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 07:32:57 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:32:57 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 07:33:02 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:33:02 - INFO - __main__ - Executing 3 command(s)...
+08/11/2025 07:33:02 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:33:02 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r python/requirements/test-requirements.txt
+08/11/2025 07:43:02 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:43:02 - WARNING - __main__ - Command timed out after 600 seconds
+08/11/2025 07:43:02 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:43:02 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r python/requirements.txt
+08/11/2025 07:44:12 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:12 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 07:44:12 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:12 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 07:44:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:21 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 07:44:22 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:22 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/11/2025 07:44:22 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:22 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 07:44:22 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:22 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 07:44:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:28 - INFO - __main__ - Executing 3 command(s)...
+08/11/2025 07:44:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:28 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install runfiles
+08/11/2025 07:44:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:29 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install botocore
+08/11/2025 07:44:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:33 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 07:44:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:33 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 07:44:40 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:40 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 07:44:40 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:40 - INFO - __main__ - === Starting Iteration 3/15 [Phase: SETUP] ===
+08/11/2025 07:44:40 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:40 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 07:44:40 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:40 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 07:44:48 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:48 - INFO - __main__ - Executing 2 command(s)...
+08/11/2025 07:44:48 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:48 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install python-runfiles
+08/11/2025 07:44:49 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:49 - INFO - __main__ - Using PYTEST timeout (3600s) for command: PYTHONPATH=. pytest
+08/11/2025 07:44:49 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:49 - INFO - __main__ - Executing command in '/app/repo_to_process': PYTHONPATH=. pytest
+08/11/2025 07:44:56 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:56 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 07:44:56 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:56 - INFO - __main__ - === Starting Iteration 4/15 [Phase: SETUP] ===
+08/11/2025 07:44:56 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:56 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 07:44:56 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:44:56 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 07:45:14 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:45:14 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 07:45:14 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:45:14 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install boto3 pybuildkite sphinx
+08/11/2025 07:45:25 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:45:25 - INFO - __main__ - === Starting Iteration 5/15 [Phase: SETUP] ===
+08/11/2025 07:45:25 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:45:25 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 07:45:25 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:45:25 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 07:45:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:45:32 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 07:45:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:45:32 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 07:45:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:45:39 - ERROR - __main__ - Failed to get response from model. Stopping.
+08/11/2025 07:45:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:45:39 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed_model_response
+08/11/2025 07:45:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 23:45:39 - INFO - __main__ - ❌ Agent finished with non-success status: failed_model_response
+08/11/2025 07:45:39 - INFO - __main__ - Agent finished with exit code: 1
+08/11/2025 07:45:39 - INFO - __main__ - Copying all generated files from container 'agent-run-ray:/app/new_test_detection_logs/ray'...
+08/11/2025 07:45:40 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\ray'.
+08/11/2025 07:45:40 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-ray:/app/repo_to_process'...
+08/11/2025 07:45:40 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 07:45:40 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 07:45:40 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/11/2025 07:45:40 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/11/2025 07:45:40 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/11/2025 07:45:40 - INFO - __main__ - Deleting container 'agent-run-ray' due to failure or missing required files.
+08/11/2025 07:45:52 - INFO - __main__ - --- Finished processing repository: ray ---
+

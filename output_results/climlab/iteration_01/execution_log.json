@@ -1,0 +1,16 @@
+[
+  {
+    "command": "head -40 setup.py",
+    "success": true,
+    "stdout": "import setuptools, os\n\nVERSION = '0.8.2.dev0'\n\n# BEFORE importing setuptools, remove MANIFEST. Otherwise it may not be\n# properly updated when the contents of directories change (true for distutils,\n# not sure about setuptools).\nif os.path.exists('MANIFEST'):\n    os.remove('MANIFEST')\n\ndef readme():\n    with open('README.rst') as f:\n        return f.read()\n\nsetuptools.setup(\n    name='climlab',\n    version=VERSION,\n    description='Package for process-oriented climate modeling',\n    long_description=readme(),\n    classifiers=[\n      'License :: OSI Approved :: MIT License',\n      'Programming Language :: Python',\n      'Intended Audience :: Education',\n      'Intended Audience :: Science/Research',\n      'Topic :: Scientific/Engineering :: Atmospheric Science',\n    ],\n    keywords='climate modeling modelling model ebm radiation radiative-convective earth',\n    url='http://github.com/climlab/climlab',\n    author='Brian E. J. Rose',\n    author_email='brose@albany.edu',\n    setup_requires=['numpy'],\n    install_requires=['numpy','xarray','scipy'],\n    license='MIT',\n    packages=setuptools.find_packages(),\n)\n",
+    "stderr": "",
+    "execution_time": 0.0019648075103759766
+  },
+  {
+    "command": "head -40 pyproject.toml",
+    "success": true,
+    "stdout": "[build-system]\nrequires = [\n    \"wheel\",\n    \"setuptools\",\n    \"numpy\",\n]\n[tool.pytest.ini_options]\nmarkers = [\n    \"slow: marks tests as slow (deselect with '-m \\\"not slow\\\"')\",\n    \"fast: marks tests as fast (select these only with '-m fast')\",\n    \"compiled: marks tests as requiring compiled components (deselect with '-m \\\"not compiled\\\"')\",\n]\n",
+    "stderr": "",
+    "execution_time": 0.0012285709381103516
+  }
+]

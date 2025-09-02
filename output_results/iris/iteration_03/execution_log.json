@@ -1,0 +1,9 @@
+[
+  {
+    "command": "find . -name \"std_names*\"",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.005698680877685547
+  }
+]

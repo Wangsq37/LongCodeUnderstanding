@@ -1,0 +1,21 @@
+The errors have changed: the package now builds successfully, but tests still cannot be collected. Pytest reports many `ImportError: cannot import name '_bbox' from 'mahotas'`, and similar messages for other C/C++ extension modules (such as `_morph`, `_center_of_mass`, etc).
+
+However, `pip install .` succeeded, meaning the compiled extensions should be available, unless something about the environment is causing python to import from `mahotas/` (the source tree) rather than the installed package.
+
+From the error details and the hint in the pytest output:
+
+> There are many reasons for this error the most common one is that you have either not built the packages [...] and then proceeded to test mahotas **without changing the current directory**.
+
+This suggests that pytest, when executed in the root of the source tree, will import from `mahotas/` **source directory**, not the installed package, so the compiled extension modules (`mahotas/_*.so`) are not found (they are not in the source directory).
+
+**Resolution:**
+- Change to a directory OUTSIDE the project root (e.g., `/tmp`) before running pytest. This will force Python to use the installed `mahotas`, not the in-tree source.
+- Use `pytest --pyargs mahotas.tests` so pytest looks for tests in the installed package instead of in the source tree directly.
+
+Let's try these steps.
+
+```bash
+cd /tmp
+pytest --pyargs mahotas.tests
+```
+If there are still missing requirements (other than the mahotas C extensions), those should show up as `ModuleNotFoundError` (which we would then pip install).

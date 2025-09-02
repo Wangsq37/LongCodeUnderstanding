@@ -1,0 +1,473 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .azure-pipelines/
+│   ├── linux_build.yml
+│   ├── linux_build_cartridge.yml
+│   ├── linux_build_fuzzer.yml
+│   ├── linux_build_java.yml
+│   ├── linux_build_limitexternal.yml
+│   ├── linux_build_py311.yml
+│   ├── mac_build.yml
+│   ├── mac_build_java.yml
+│   ├── vs_build.yml
+│   ├── vs_build_dll.yml
+│   └── vs_build_swig.yml
+│       └── ... (6 more files)
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   ├── workflows/
+│   │   ├── close_stale_issues.yml
+│   │   └── templates_updater.yml
+│   ├── ISSUE_TEMPLATE.md
+│   └── PULL_REQUEST_TEMPLATE.md
+├── build_support/
+│   └── pkg_version.py
+├── Code/
+│   ├── Catalogs/
+│   │   ├── Catalog.cpp
+│   │   ├── Catalog.h
+│   │   ├── CatalogEntry.cpp
+│   │   ├── CatalogEntry.h
+│   │   ├── CatalogParams.cpp
+│   │   ├── CatalogParams.h
+│   │   └── CMakeLists.txt
+│   │       └── ... (2 more files)
+│   ├── ChemicalFeatures/
+│   │   ├── Wrap/
+│   │   │   ├── testData/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── FreeChemicalFeature.cpp
+│   │   │   ├── rdChemicalFeatures.cpp
+│   │   │   └── testFeatures.py
+│   │   ├── ChemicalFeature.h
+│   │   ├── CMakeLists.txt
+│   │   ├── FreeChemicalFeature.cpp
+│   │   ├── FreeChemicalFeature.h
+│   │   └── testChemicalFeatures.cpp
+│   ├── cmake/
+│   │   ├── Modules/
+│   │   │   ├── BoostUtils.cmake
+│   │   │   ├── CodeCoverage.cmake
+│   │   │   ├── FindCairo.cmake
+│   │   │   ├── FindEigen3.cmake
+│   │   │   ├── FindInchi.cmake
+│   │   │   ├── FindNumPy.cmake
+│   │   │   ├── fixup_coverage.py
+│   │   │   └── RDKitUtils.cmake
+│   │   │       └── ... (3 more files)
+│   │   └── rdkit_valgrind.suppressions
+│   ├── DataManip/
+│   │   ├── MetricMatrixCalc/
+│   │   │   ├── testExecs/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── MetricFuncs.h
+│   │   │   ├── MetricMatrixCalc.h
+│   │   │   └── testMatCalc.cpp
+│   │   └── CMakeLists.txt
+│   ├── DataStructs/
+│   │   ├── testData/
+│   │   │   ├── test1.bin
+│   │   │   ├── zim.head100.fpb
+│   │   │   ├── zinc_all_clean.100.patt1k.fpb
+│   │   │   ├── zinc_random200.1.patt.fpb
+│   │   │   ├── zinc_random200.2.patt.fpb
+│   │   │   ├── zinc_random200.3.patt.fpb
+│   │   │   └── zinc_random200.4.patt.fpb
+│   │   │       └── ... (2 more files)
+│   │   ├── Wrap/
+│   │   │   ├── testData/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── DataStructs.cpp
+│   │   │   ├── DiscreteValueVect.cpp
+│   │   │   ├── RealValueVect.cpp
+│   │   │   ├── SparseIntVect.cpp
+│   │   │   ├── testBV.py
+│   │   │   ├── testDiscreteValueVect.py
+│   │   │   ├── testFPB.py
+│   │   │   ├── testRealValueVect.py
+│   │   │   ├── testSparseIntVect.py
+│   │   │   ├── wrap_BitOps.cpp
+│   │   │   ├── wrap_ExplicitBV.cpp
+│   │   │   ├── wrap_FPB.cpp
+│   │   │   ├── wrap_helpers.h
+│   │   │   ├── wrap_SparseBV.cpp
+│   │   │   └── wrap_Utils.cpp
+│   │   │       └── ... (11 more files)
+│   │   ├── base64.cpp
+│   │   ├── base64.h
+│   │   ├── BitOps.cpp
+│   │   ├── BitOps.h
+│   │   ├── BitVect.cpp
+│   │   ├── BitVect.h
+│   │   ├── BitVects.h
+│   │   ├── BitVectUtils.h
+│   │   ├── catch_tests.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── DatastructsException.h
+│   │   ├── DatastructsStreamOps.h
+│   │   ├── DiscreteDistMat.cpp
+│   │   ├── DiscreteDistMat.h
+│   │   ├── DiscreteValueVect.cpp
+│   │   ├── DiscreteValueVect.h
+│   │   ├── ExplicitBitVect.cpp
+│   │   ├── ExplicitBitVect.h
+│   │   ├── FPBReader.cpp
+│   │   ├── FPBReader.h
+│   │   ├── MultiFPBReader.cpp
+│   │   ├── MultiFPBReader.h
+│   │   ├── RealValueVect.cpp
+│   │   ├── RealValueVect.h
+│   │   ├── SparseBitVect.cpp
+│   │   ├── SparseBitVect.h
+│   │   ├── SparseIntVect.h
+│   │   ├── testDatastructs.cpp
+│   │   ├── testFPB.cpp
+│   │   ├── testMultiFPB.cpp
+│   │   └── Utils.cpp
+│   │       └── ... (26 more files)
+│   ├── Demos/
+│   │   ├── boost/
+│   │   │   ├── cross_mod_err/
+│   │   │   ├── cross_module/
+│   │   │   ├── EBV_err/
+│   │   │   ├── numpy/
+│   │   │   ├── overloads/
+│   │   │   ├── python_objs/
+│   │   │   └── smartPtrsAndIters/
+│   │   ├── nacl/
+│   │   │   ├── DataStructs/
+│   │   │   ├── Geometry/
+│   │   │   ├── GraphMol/
+│   │   │   └── RDGeneral/
+│   │   ├── RDKit/
+│   │   │   ├── Basement/
+│   │   │   ├── Draw/
+│   │   │   ├── GettingStarted/
+│   │   │   └── MPI/
+│   │   └── sqlite/
+│   │       └── rdk_funcs.cpp
+│   ├── DistGeom/
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── DistGeom.cpp
+│   │   │   └── rough_test.py
+│   │   ├── BoundsMatrix.h
+│   │   ├── ChiralSet.h
+│   │   ├── ChiralViolationContribs.cpp
+│   │   ├── ChiralViolationContribs.h
+│   │   ├── CMakeLists.txt
+│   │   ├── DistGeomUtils.cpp
+│   │   ├── DistGeomUtils.h
+│   │   ├── DistViolationContribs.cpp
+│   │   ├── DistViolationContribs.h
+│   │   ├── FourthDimContribs.h
+│   │   ├── testDistGeom.cpp
+│   │   ├── TriangleSmooth.cpp
+│   │   └── TriangleSmooth.h
+│   │       └── ... (8 more files)
+│   ├── doxygen/
+│   │   └── doxygen.config
+│   ├── Features/
+│   │   ├── CMakeLists.txt
+│   │   ├── Feature.cpp
+│   │   ├── Feature.h
+│   │   └── testFeatures.cpp
+│   ├── ForceField/
+│   │   ├── MMFF/
+│   │   │   ├── test_data/
+│   │   │   ├── AngleBend.cpp
+│   │   │   ├── AngleBend.h
+│   │   │   ├── AngleConstraint.h
+│   │   │   ├── BondStretch.cpp
+│   │   │   ├── BondStretch.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Contribs.h
+│   │   │   ├── DistanceConstraint.h
+│   │   │   ├── Nonbonded.cpp
+│   │   │   ├── Nonbonded.h
+│   │   │   ├── OopBend.cpp
+│   │   │   ├── OopBend.h
+│   │   │   ├── Params.cpp
+│   │   │   ├── Params.h
+│   │   │   ├── PositionConstraint.h
+│   │   │   ├── StretchBend.cpp
+│   │   │   ├── StretchBend.h
+│   │   │   ├── testMMFFForceField.cpp
+│   │   │   ├── testMMFFForceField.h
+│   │   │   ├── TorsionAngle.cpp
+│   │   │   ├── TorsionAngle.h
+│   │   │   └── TorsionConstraint.h
+│   │   │       └── ... (17 more files)
+│   │   ├── UFF/
+│   │   │   ├── AngleBend.cpp
+│   │   │   ├── AngleBend.h
+│   │   │   ├── AngleConstraint.h
+│   │   │   ├── BondStretch.cpp
+│   │   │   ├── BondStretch.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Contribs.h
+│   │   │   ├── DistanceConstraint.h
+│   │   │   ├── Inversion.cpp
+│   │   │   ├── Inversion.h
+│   │   │   ├── Inversions.cpp
+│   │   │   ├── Inversions.h
+│   │   │   ├── Nonbonded.cpp
+│   │   │   ├── Nonbonded.h
+│   │   │   ├── Params.cpp
+│   │   │   ├── Params.h
+│   │   │   ├── PositionConstraint.h
+│   │   │   ├── testUFFForceField.cpp
+│   │   │   ├── TorsionAngle.cpp
+│   │   │   ├── TorsionAngle.h
+│   │   │   ├── TorsionConstraint.h
+│   │   │   ├── Utils.cpp
+│   │   │   └── Utils.h
+│   │   │       └── ... (18 more files)
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── ForceField.cpp
+│   │   │   ├── PyForceField.h
+│   │   │   └── testConstraints.py
+│   │   ├── AngleConstraint.cpp
+│   │   ├── AngleConstraint.h
+│   │   ├── AngleConstraints.cpp
+│   │   ├── AngleConstraints.h
+│   │   ├── catch_tests.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── Contrib.h
+│   │   ├── DistanceConstraint.cpp
+│   │   ├── DistanceConstraint.h
+│   │   ├── DistanceConstraints.cpp
+│   │   ├── DistanceConstraints.h
+│   │   ├── ForceField.cpp
+│   │   ├── ForceField.h
+│   │   ├── PositionConstraint.cpp
+│   │   ├── PositionConstraint.h
+│   │   ├── TorsionConstraint.cpp
+│   │   └── TorsionConstraint.h
+│   │       └── ... (12 more files)
+│   ├── Fuzz/
+│   │   ├── include/
+│   │   │   └── fuzzer/
+│   │   ├── mol_data_stream_to_mol_fuzzer/
+│   │   │   ├── 04f5add57012f57e86f82f2f7cb690a5d31eefdf
+│   │   │   ├── 0ab43f8c7f6332e13436357912fb4d679cc109aa
+│   │   │   ├── 144a1cfb752c71ab81622a745bb1ed71a63d6a8e
+│   │   │   ├── 158b04a448fc1613775a059f8d6e64dbe6ed1683
+│   │   │   ├── 16b38b8df09e069005676732a9c2df157f5f1f6a
+│   │   │   ├── 1a4671989d278a6ecc1e07294176c8a983c94eea
+│   │   │   ├── 2e80c5718e2ab2c8b4e4b199ccb584e524c10d97
+│   │   │   ├── 40e2130653710a7aad2b0185726ba672ccb76f0f
+│   │   │   ├── 489e22dbe4511e5ffe0cdf6ffa943e6072ca2103
+│   │   │   ├── 4dfc0dabbec9f51198e6404196902ac2c53a2baa
+│   │   │   ├── 504f5bdb06fdc72140a15f413006621e95ed906e
+│   │   │   ├── 51d2b3fe2f4fbf099fe33598e57e89af23c4a43b
+│   │   │   ├── 5786d05453bb20fc380a54f73152bdffe7a0fb98
+│   │   │   ├── 5d5999ab9cb6a461f00f62e9dbb46878a88c8ce7
+│   │   │   ├── 703d443451e2fa15e84c41363c720b752cae8e6f
+│   │   │   ├── 76069abd0f1309fab9bb19da157d2a305964d63e
+│   │   │   ├── 79f4b19c30ec227d29840ee45efeb9a407a6daf2
+│   │   │   ├── 862e31a9a3f8bf168bd30dca36541b64be95d079
+│   │   │   ├── 8aa03f60029ecb2acb40ebca162351e9b2994558
+│   │   │   ├── 8aefb06c426e07a0a671a1e2488b4858d694a730
+│   │   │   ├── 92401f3f745f72fb368a53191f2941442629616f
+│   │   │   ├── 94c6ef4aa7e03ec400a2a9414c571110c537944f
+│   │   │   ├── 956b78ef187e77c7056b8d259d832b9efaf24a6b
+│   │   │   ├── 981560171c27431e7172df6f8eb10ff127a7d4bb
+│   │   │   ├── 995555f6824db24a9264a21fc3bbd290b061d15c
+│   │   │   ├── 99d7754cadcc543f063a953f39495c32340e959f
+│   │   │   ├── 9fe7717002d3e6b3525137938be072f287bdbcad
+│   │   │   ├── a4328b217171f6149e2e596f8a92f08682b5e1f0
+│   │   │   ├── b196a7682111437bdd3cced1bcf105d126f3baf4
+│   │   │   ├── b619358d2028ee9f1196a27352d06e579ba169a0
+│   │   │   ├── bb8bf94759a96215d28bac4eb3359059fe06c688
+│   │   │   ├── c01df6792c48728390796b4b356286c8bc5fa8cf
+│   │   │   ├── c6e1c6ca1a556df88dc4738811b2415d2eef1f01
+│   │   │   ├── dfca0e07572de29e2c7ef4d18e9c768f9826c2c3
+│   │   │   ├── dff7ba6c3ecae59fb174cc3bf2d9753ba125e52c
+│   │   │   ├── e46302937257facc42ff08377ad11c1a35e61f58
+│   │   │   ├── e7d06319071537098d19bc94a211f2c719a2c101
+│   │   │   ├── ee7feb5b405cdd6200a4b633b897d0272135bf44
+│   │   │   ├── f65468eeb8396a643646a8d547263ff9107ff2fa
+│   │   │   └── fedb0385a967ced48c19011d3af6c20579ec6177
+│   │   │       └── ... (35 more files)
+│   │   ├── smiles_string_to_mol_fuzzer/
+│   │   │   ├── 04a39bc1b58f00e261e2d30a787b1febc
+... (3181 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: apt-get install -y libxext6 ---
+SUCCESS: True
+STDOUT:
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  libxext6
+0 upgraded, 1 newly installed, 0 to remove and 8 not upgraded.
+Need to get 31.8 kB of archives.
+After this operation, 113 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxext6 amd64 2:1.3.4-1build1 [31.8 kB]
+Fetched 31.8 kB in 1s (28.9 kB/s)
+Selecting previously unselected package libxext6:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 13804 files and directories currently installed.)
+Preparing to unpack .../libxext6_2%3a1.3.4-1build1_amd64.deb ...
+Unpacking libxext6:amd64 (2:1.3.4-1build1) ...
+Setting up libxext6:amd64 (2:1.3.4-1build1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.10) ...
+
+STDERR:
+debconf: delaying package configuration, since apt-utils is not installed
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 28 items / 13 errors
+
+==================================== ERRORS ====================================
+_________ ERROR collecting Code/GraphMol/Deprotect/Wrap/rough_test.py __________
+import file mismatch:
+imported module 'rough_test' has this __file__ attribute:
+  /app/repo_to_process/Code/DistGeom/Wrap/rough_test.py
+which is not the same as the test file we want to collect:
+  /app/repo_to_process/Code/GraphMol/Deprotect/Wrap/rough_test.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_______ ERROR collecting Code/GraphMol/FilterCatalog/Wrap/rough_test.py ________
+import file mismatch:
+imported module 'rough_test' has this __file__ attribute:
+  /app/repo_to_process/Code/DistGeom/Wrap/rough_test.py
+which is not the same as the test file we want to collect:
+  /app/repo_to_process/Code/GraphMol/FilterCatalog/Wrap/rough_test.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+________ ERROR collecting Code/GraphMol/FragCatalog/Wrap/rough_test.py _________
+import file mismatch:
+imported module 'rough_test' has this __file__ attribute:
+  /app/repo_to_process/Code/DistGeom/Wrap/rough_test.py
+which is not the same as the test file we want to collect:
+  /app/repo_to_process/Code/GraphMol/FragCatalog/Wrap/rough_test.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_________ ERROR collecting Code/GraphMol/MolCatalog/Wrap/rough_test.py _________
+import file mismatch:
+imported module 'rough_test' has this __file__ attribute:
+  /app/repo_to_process/Code/DistGeom/Wrap/rough_test.py
+which is not the same as the test file we want to collect:
+  /app/repo_to_process/Code/GraphMol/MolCatalog/Wrap/rough_test.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_____ ERROR collecting Code/GraphMol/MolDraw2D/test_dir/test_rdkit_draw.py _____
+Code/GraphMol/MolDraw2D/test_dir/test_rdkit_draw.py:11: in <module>
+    if sys.argv[1].endswith('.sdf'):
+E   IndexError: list index out of range
+_______ ERROR collecting Code/GraphMol/MolEnumerator/Wrap/rough_test.py ________
+import file mismatch:
+imported module 'rough_test' has this __file__ attribute:
+  /app/repo_to_process/Code/DistGeom/Wrap/rough_test.py
+which is not the same as the test file we want to collect:
+  /app/repo_to_process/Code/GraphMol/MolEnumerator/Wrap/rough_test.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_______ ERROR collecting Code/GraphMol/StructChecker/Wrap/rough_test.py ________
+import file mismatch:
+imported module 'rough_test' has this __file__ attribute:
+  /app/repo_to_process/Code/DistGeom/Wrap/rough_test.py
+which is not the same as the test file we want to collect:
+  /app/repo_to_process/Code/GraphMol/StructChecker/Wrap/rough_test.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+______ ERROR collecting Code/GraphMol/SubstructLibrary/Wrap/rough_test.py ______
+import file mismatch:
+imported module 'rough_test' has this __file__ attribute:
+  /app/repo_to_process/Code/DistGeom/Wrap/rough_test.py
+which is not the same as the test file we want to collect:
+  /app/repo_to_process/Code/GraphMol/SubstructLibrary/Wrap/rough_test.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_______ ERROR collecting Code/GraphMol/TautomerQuery/Wrap/rough_test.py ________
+import file mismatch:
+imported module 'rough_test' has this __file__ attribute:
+  /app/repo_to_process/Code/DistGeom/Wrap/rough_test.py
+which is not the same as the test file we want to collect:
+  /app/repo_to_process/Code/GraphMol/TautomerQuery/Wrap/rough_test.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+______________ ERROR collecting Code/GraphMol/Wrap/rough_test.py _______________
+import file mismatch:
+imported module 'rough_test' has this __file__ attribute:
+  /app/repo_to_process/Code/DistGeom/Wrap/rough_test.py
+which is not the same as the test file we want to collect:
+  /app/repo_to_process/Code/GraphMol/Wrap/rough_test.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_________ ERROR collecting Contrib/FreeWilson/test/test_freewilson.py __________
+ImportError while importing test module '/app/repo_to_process/Contrib/FreeWilson/test/test_freewilson.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Contrib/FreeWilson/test/test_freewilson.py:6: in <module>
+    import freewilson as fw
+E   ModuleNotFoundError: No module named 'freewilson'
+______ ERROR collecting External/pubchem_shape/Wrap/test_rdshapealign.py _______
+External/pubchem_shape/Wrap/test_rdshapealign.py:6: in <module>
+    datadir = RDConfig.RDBaseDir + '/External/pubchem_shape/test_data'
+E   AttributeError: module 'rdkit.RDConfig' has no attribute 'RDBaseDir'. Did you mean: 'RDCodeDir'?
+____________________________ ERROR collecting rdkit ____________________________
+/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py:712: in _importconftest
+    mod = import_path(
+/usr/local/lib/python3.10/dist-packages/_pytest/pathlib.py:610: in import_path
+    raise ImportPathMismatchError(module_name, module_file, path)
+E   _pytest.pathlib.ImportPathMismatchError: ('rdkit.conftest', '/usr/local/lib/python3.10/dist-packages/rdkit/conftest.py', PosixPath('/app/repo_to_process/rdkit/conftest.py'))
+=========================== short test summary info ============================
+ERROR Code/GraphMol/Deprotect/Wrap/rough_test.py
+ERROR Code/GraphMol/FilterCatalog/Wrap/rough_test.py
+ERROR Code/GraphMol/FragCatalog/Wrap/rough_test.py
+ERROR Code/GraphMol/MolCatalog/Wrap/rough_test.py
+ERROR Code/GraphMol/MolDraw2D/test_dir/test_rdkit_draw.py - IndexError: list ...
+ERROR Code/GraphMol/MolEnumerator/Wrap/rough_test.py
+ERROR Code/GraphMol/StructChecker/Wrap/rough_test.py
+ERROR Code/GraphMol/SubstructLibrary/Wrap/rough_test.py
+ERROR Code/GraphMol/TautomerQuery/Wrap/rough_test.py
+ERROR Code/GraphMol/Wrap/rough_test.py
+ERROR Contrib/FreeWilson/test/test_freewilson.py
+ERROR External/pubchem_shape/Wrap/test_rdshapealign.py - AttributeError: modu...
+ERROR rdkit - _pytest.pathlib.ImportPathMismatchError: ('rdkit.conftest', '/u...
+!!!!!!!!!!!!!!!!!!! Interrupted: 13 errors during collection !!!!!!!!!!!!!!!!!!!
+============================== 13 errors in 0.99s ==============================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

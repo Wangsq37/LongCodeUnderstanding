@@ -1,0 +1,13 @@
+The failure persists: `ModuleNotFoundError: No module named 'cantera._cantera'`.
+
+- The build step `python interfaces/cython/setup.py build_ext --inplace` ran successfully, but did not actually build `cantera/_cantera.*.so`. This usually means required C++/C dependencies, headers, or other prerequisites are missing—likely because this is just the Python interface to a much larger C++ project (Cantera is like this).
+- Typically, you must run the full project build system (SCons for Cantera) at the root before the Python interface is usable, so the C++ core and shared library are built and then the Cython extension wraps those.
+
+Let's check for a top-level SCons build script (SConstruct) and try to run it.
+
+```bash
+ls -l SConstruct
+ls -l interfaces/cython/cantera/_cantera*
+ls -l interfaces/cython/cantera/
+```
+(A quick directory/file check before attempting a build or further debugging.)

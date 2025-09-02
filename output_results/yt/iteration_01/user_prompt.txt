@@ -1,0 +1,1269 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── bleeding-edge.yaml
+│   │   ├── build-test.yaml
+│   │   ├── type-checking.yaml
+│   │   └── wheels.yaml
+│   ├── config.yml
+│   ├── dependabot.yml
+│   ├── ISSUE_TEMPLATE.md
+│   ├── mergeable.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── .tours/
+│   └── particle-indexing.tour
+├── answer-store/
+├── doc/
+│   ├── extensions/
+│   │   ├── config_help.py
+│   │   ├── pythonscript_sphinxext.py
+│   │   ├── README
+│   │   ├── yt_colormaps.py
+│   │   ├── yt_cookbook.py
+│   │   └── yt_showfields.py
+│   │       └── ... (1 more files)
+│   ├── helper_scripts/
+│   │   ├── code_support.py
+│   │   ├── parse_cb_list.py
+│   │   ├── parse_dq_list.py
+│   │   ├── parse_object_list.py
+│   │   ├── run_recipes.py
+│   │   ├── show_fields.py
+│   │   ├── split_auto.py
+│   │   └── table.py
+│   │       └── ... (3 more files)
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── apiKey01.jpg
+│   │   │   ├── apiKey02.jpg
+│   │   │   ├── apiKey03.jpg
+│   │   │   ├── apiKey04.jpg
+│   │   │   ├── custom.css
+│   │   │   ├── yt_icon.png
+│   │   │   ├── yt_logo.png
+│   │   │   └── yt_logo.svg
+│   │   │       └── ... (3 more files)
+│   │   ├── _templates/
+│   │   │   ├── autosummary/
+│   │   │   └── layout.html
+│   │   ├── about/
+│   │   │   └── index.rst
+│   │   ├── analyzing/
+│   │   │   ├── _images/
+│   │   │   ├── _static/
+│   │   │   ├── domain_analysis/
+│   │   │   ├── astropy_integrations.rst
+│   │   │   ├── fields.rst
+│   │   │   ├── filtering.rst
+│   │   │   ├── generating_processed_data.rst
+│   │   │   ├── index.rst
+│   │   │   ├── ionization_cube.py
+│   │   │   ├── mesh_filter.ipynb
+│   │   │   ├── objects.rst
+│   │   │   ├── parallel_computation.rst
+│   │   │   ├── particle_filter.ipynb
+│   │   │   ├── Particle_Trajectories.ipynb
+│   │   │   ├── saving_data.rst
+│   │   │   ├── time_series_analysis.rst
+│   │   │   └── units.rst
+│   │   │       └── ... (9 more files)
+│   │   ├── cookbook/
+│   │   │   ├── tests/
+│   │   │   ├── amrkdtree_downsampling.py
+│   │   │   ├── annotate_timestamp_and_scale.py
+│   │   │   ├── annotations.py
+│   │   │   ├── average_value.py
+│   │   │   ├── calculating_information.rst
+│   │   │   ├── camera_movement.py
+│   │   │   ├── changing_label_formats.py
+│   │   │   ├── colormaps.py
+│   │   │   ├── complex_plots.rst
+│   │   │   ├── constructing_data_objects.rst
+│   │   │   ├── contours_on_slice.py
+│   │   │   ├── count.sh
+│   │   │   ├── custom_camera_volume_rendering.py
+│   │   │   ├── custom_colorbar_tickmarks.ipynb
+│   │   │   ├── custom_transfer_function_volume_rendering.py
+│   │   │   ├── customized_phase_plot.py
+│   │   │   ├── customized_profile_plot.py
+│   │   │   ├── derived_field.py
+│   │   │   ├── downsampling_amr.py
+│   │   │   ├── extract_fixed_resolution_data.py
+│   │   │   ├── find_clumps.py
+│   │   │   ├── fits_radio_cubes.ipynb
+│   │   │   ├── fits_xray_images.ipynb
+│   │   │   ├── geographic_xforms_and_projections.ipynb
+│   │   │   ├── global_phase_plots.py
+│   │   │   ├── hse_field.py
+│   │   │   ├── image_background_colors.py
+│   │   │   ├── image_resolution.py
+│   │   │   ├── index.rst
+│   │   │   ├── matplotlib-animation.py
+│   │   │   ├── multi_plot_3x2_FRB.py
+│   │   │   ├── multi_plot_slice_and_proj.py
+│   │   │   ├── multi_width_image.py
+│   │   │   ├── multiplot_2x2.py
+│   │   │   ├── multiplot_2x2_coordaxes_slice.py
+│   │   │   ├── multiplot_2x2_time_series.py
+│   │   │   ├── multiplot_export_to_mpl.py
+│   │   │   ├── multiplot_phaseplot.py
+│   │   │   ├── notebook_tutorial.rst
+│   │   │   ├── offaxis_projection.py
+│   │   │   ├── offaxis_projection_colorbar.py
+│   │   │   ├── opaque_rendering.py
+│   │   │   ├── overplot_grids.py
+│   │   │   ├── overplot_particles.py
+│   │   │   ├── particle_filter.py
+│   │   │   ├── particle_filter_sfr.py
+│   │   │   ├── particle_one_color_plot.py
+│   │   │   ├── particle_xvz_plot.py
+│   │   │   ├── particle_xy_plot.py
+│   │   │   ├── power_spectrum_example.py
+│   │   │   ├── profile_with_standard_deviation.py
+│   │   │   ├── rad_velocity.py
+│   │   │   ├── radial_profile_styles.py
+│   │   │   ├── render_two_fields.py
+│   │   │   ├── render_two_fields_tf.py
+│   │   │   ├── rendering_with_box_and_grids.py
+│   │   │   ├── show_hide_axes_colorbar.py
+│   │   │   ├── sigma_clip.py
+│   │   │   ├── simple_1d_line_plot.py
+│   │   │   ├── simple_contour_in_slice.py
+│   │   │   ├── simple_off_axis_projection.py
+│   │   │   ├── simple_off_axis_slice.py
+│   │   │   ├── simple_pdf.py
+│   │   │   ├── simple_phase.py
+│   │   │   ├── simple_plots.rst
+│   │   │   ├── simple_profile.py
+│   │   │   ├── simple_projection.py
+│   │   │   ├── simple_projection_methods.py
+│   │   │   ├── simple_projection_stddev.py
+│   │   │   ├── simple_projection_weighted.py
+│   │   │   ├── simple_radial_profile.py
+│   │   │   ├── simple_slice.py
+│   │   │   ├── simple_slice_matplotlib_example.py
+│   │   │   ├── simple_slice_with_multiple_fields.py
+│   │   │   ├── simple_volume_rendering.py
+│   │   │   ├── simulation_analysis.py
+│   │   │   ├── streamlines.py
+│   │   │   ├── streamlines_isocontour.py
+│   │   │   ├── sum_mass_in_sphere.py
+│   │   │   ├── surface_plot.py
+│   │   │   ├── thin_slice_projection.py
+│   │   │   ├── time_series.py
+│   │   │   ├── time_series_profiles.py
+│   │   │   ├── tipsy_and_yt.ipynb
+│   │   │   ├── various_lens.py
+│   │   │   ├── velocity_vectors_on_slice.py
+│   │   │   ├── vol-annotated.py
+│   │   │   ├── vol-lines.py
+│   │   │   ├── vol-points.py
+│   │   │   ├── yt_gadget_analysis.ipynb
+│   │   │   ├── yt_gadget_owls_analysis.ipynb
+│   │   │   └── zoomin_frames.py
+│   │   │       └── ... (87 more files)
+│   │   ├── developing/
+│   │   │   ├── building_the_docs.rst
+│   │   │   ├── creating_datatypes.rst
+│   │   │   ├── creating_derived_fields.rst
+│   │   │   ├── creating_frontend.rst
+│   │   │   ├── debugdrive.rst
+│   │   │   ├── deprecating_features.rst
+│   │   │   ├── developing.rst
+│   │   │   ├── extensions.rst
+│   │   │   ├── external_analysis.rst
+│   │   │   ├── index.rst
+│   │   │   ├── releasing.rst
+│   │   │   └── testing.rst
+│   │   │       └── ... (7 more files)
+│   │   ├── examining/
+│   │   │   ├── index.rst
+│   │   │   ├── loading_data.rst
+│   │   │   ├── Loading_Data_via_Functions.ipynb
+│   │   │   ├── Loading_Generic_Array_Data.ipynb
+│   │   │   ├── Loading_Generic_Particle_Data.ipynb
+│   │   │   ├── Loading_Spherical_Data.ipynb
+│   │   │   └── low_level_inspection.rst
+│   │   │       └── ... (2 more files)
+│   │   ├── faq/
+│   │   │   └── index.rst
+│   │   ├── help/
+│   │   │   └── index.rst
+│   │   ├── intro/
+│   │   │   └── index.rst
+│   │   ├── quickstart/
+│   │   │   ├── 1)_Introduction.ipynb
+│   │   │   ├── 2)_Data_Inspection.ipynb
+│   │   │   ├── 3)_Simple_Visualization.ipynb
+│   │   │   ├── 4)_Data_Objects_and_Time_Series.ipynb
+│   │   │   ├── 5)_Derived_Fields_and_Profiles.ipynb
+│   │   │   ├── 6)_Volume_Rendering.ipynb
+│   │   │   └── index.rst
+│   │   │       └── ... (2 more files)
+│   │   ├── reference/
+│   │   │   ├── _images/
+│   │   │   ├── api/
+│   │   │   ├── changelog.rst
+│   │   │   ├── code_support.rst
+│   │   │   ├── command-line.rst
+│   │   │   ├── configuration.rst
+│   │   │   ├── demeshening.rst
+│   │   │   ├── field_list.rst
+│   │   │   ├── index.rst
+│   │   │   └── python_introduction.rst
+│   │   │       └── ... (3 more files)
+│   │   ├── visualizing/
+│   │   │   ├── _images/
+│   │   │   ├── colormaps/
+│   │   │   ├── callbacks.rst
+│   │   │   ├── FITSImageData.ipynb
+│   │   │   ├── geographic_projections_and_transforms.rst
+│   │   │   ├── index.rst
+│   │   │   ├── interactive_data_visualization.rst
+│   │   │   ├── manual_plotting.rst
+│   │   │   ├── mapserver.rst
+│   │   │   ├── plots.rst
+│   │   │   ├── sketchfab.rst
+│   │   │   ├── streamlines.rst
+│   │   │   ├── TransferFunctionHelper_Tutorial.ipynb
+│   │   │   ├── unstructured_mesh_rendering.rst
+│   │   │   ├── visualizing_particle_datasets_with_firefly.rst
+│   │   │   ├── volume_rendering.rst
+│   │   │   └── Volume_Rendering_Tutorial.ipynb
+│   │   │       └── ... (10 more files)
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── installing.rst
+│   │   ├── yt3differences.rst
+│   │   └── yt4differences.rst
+│   ├── activate
+│   ├── activate.csh
+│   ├── cheatsheet.tex
+│   ├── docstring_idioms.txt
+│   ├── Makefile
+│   └── README
+│       └── ... (1 more files)
+├── requirements/
+│   ├── docs.txt
+│   └── typecheck.txt
+├── tests/
+│   ├── DD0000/
+│   │   ├── moving7_0000
+│   │   ├── moving7_0000.boundary
+│   │   ├── moving7_0000.boundary.hdf
+│   │   ├── moving7_0000.grid0001
+│   │   ├── moving7_0000.grid0002
+│   │   ├── moving7_0000.grid0003
+│   │   └── moving7_0000.hierarchy
+│   │       └── ... (2 more files)
+│   ├── DD0010/
+│   │   ├── moving7_0010
+│   │   ├── moving7_0010.boundary
+│   │   ├── moving7_0010.boundary.hdf
+│   │   ├── moving7_0010.cpu0000
+│   │   ├── moving7_0010.hierarchy
+│   │   └── moving7_0010.procmap
+│   │       └── ... (1 more files)
+│   ├── pytest_mpl_baseline/
+│   ├── ci_install.sh
+│   ├── local001.bak
+│   ├── local001.dat
+│   ├── local001.dir
+│   ├── matplotlibrc
+│   ├── nose_runner.py
+│   ├── pytest_runner.py
+│   ├── README
+│   ├── report_failed_answers.py
+│   ├── tests.yaml
+│   └── unpin_requirements.py
+│       └── ... (6 more files)
+├── yt/
+│   ├── _maintenance/
+│   │   ├── __init__.py
+│   │   ├── backports.py
+│   │   ├── deprecation.py
+│   │   ├── ipython_compat.py
+│   │   └── numpy2_compat.py
+│   ├── analysis_modules/
+│   │   ├── absorption_spectrum/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── cosmological_observation/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── halo_analysis/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── halo_finding/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── halo_mass_function/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── level_sets/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── particle_trajectories/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── photon_simulator/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── ppv_cube/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── radmc3d_export/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── spectral_integrator/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── star_analysis/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── sunrise_export/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── sunyaev_zeldovich/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── two_point_functions/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   └── __init__.py
+│   ├── data_objects/
+│   │   ├── index_subobjects/
+│   │   │   ├── __init__.py
+│   │   │   ├── grid_patch.py
+│   │   │   ├── octree_subset.py
+│   │   │   ├── particle_container.py
+│   │   │   ├── stretched_grid.py
+│   │   │   └── unstructured_mesh.py
+│   │   │       └── ... (1 more files)
+│   │   ├── level_sets/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── clump_handling.py
+│   │   │   ├── clump_info_items.py
+│   │   │   ├── clump_tools.py
+│   │   │   ├── clump_validators.py
+│   │   │   └── contour_finder.py
+│   │   │       └── ... (2 more files)
+│   │   ├── selection_objects/
+│   │   │   ├── __init__.py
+│   │   │   ├── boolean_operations.py
+│   │   │   ├── cut_region.py
+│   │   │   ├── data_selection_objects.py
+│   │   │   ├── disk.py
+│   │   │   ├── object_collection.py
+│   │   │   ├── point.py
+│   │   │   ├── ray.py
+│   │   │   ├── region.py
+│   │   │   ├── slices.py
+│   │   │   └── spheroids.py
+│   │   │       └── ... (6 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_add_field.py
+│   │   │   ├── test_bbox.py
+│   │   │   ├── test_boolean_regions.py
+│   │   │   ├── test_center_squeeze.py
+│   │   │   ├── test_chunking.py
+│   │   │   ├── test_clone.py
+│   │   │   ├── test_compose.py
+│   │   │   ├── test_connected_sets.py
+│   │   │   ├── test_covering_grid.py
+│   │   │   ├── test_cutting_plane.py
+│   │   │   ├── test_data_collection.py
+│   │   │   ├── test_data_containers.py
+│   │   │   ├── test_dataset_access.py
+│   │   │   ├── test_derived_quantities.py
+│   │   │   ├── test_disks.py
+│   │   │   ├── test_ellipsoid.py
+│   │   │   ├── test_exclude_functions.py
+│   │   │   ├── test_extract_regions.py
+│   │   │   ├── test_firefly.py
+│   │   │   ├── test_fluxes.py
+│   │   │   ├── test_glue.py
+│   │   │   ├── test_image_array.py
+│   │   │   ├── test_io_geometry.py
+│   │   │   ├── test_numpy_ops.py
+│   │   │   ├── test_octree.py
+│   │   │   ├── test_ortho_rays.py
+│   │   │   ├── test_particle_filter.py
+│   │   │   ├── test_particle_trajectories.py
+│   │   │   ├── test_particle_trajectories_pytest.py
+│   │   │   ├── test_pickling.py
+│   │   │   ├── test_points.py
+│   │   │   ├── test_profiles.py
+│   │   │   ├── test_projection.py
+│   │   │   ├── test_rays.py
+│   │   │   ├── test_refinement.py
+│   │   │   ├── test_regions.py
+│   │   │   ├── test_registration.py
+│   │   │   ├── test_slice.py
+│   │   │   ├── test_sph_data_objects.py
+│   │   │   ├── test_spheres.py
+│   │   │   ├── test_time_series.py
+│   │   │   └── test_units_override.py
+│   │   │       └── ... (38 more files)
+│   │   ├── __init__.py
+│   │   ├── analyzer_objects.py
+│   │   ├── api.py
+│   │   ├── construction_data_containers.py
+│   │   ├── data_containers.py
+│   │   ├── derived_quantities.py
+│   │   ├── field_data.py
+│   │   ├── image_array.py
+│   │   ├── particle_filters.py
+│   │   ├── particle_trajectories.py
+│   │   ├── particle_unions.py
+│   │   ├── profiles.py
+│   │   ├── region_expression.py
+│   │   ├── static_output.py
+│   │   ├── time_series.py
+│   │   └── unions.py
+│   │       └── ... (11 more files)
+│   ├── extensions/
+│   │   └── __init__.py
+│   ├── fields/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_ambiguous_fields.py
+│   │   │   ├── test_angular_momentum.py
+│   │   │   ├── test_field_access.py
+│   │   │   ├── test_field_access_pytest.py
+│   │   │   ├── test_field_name_container.py
+│   │   │   ├── test_fields.py
+│   │   │   ├── test_fields_plugins.py
+│   │   │   ├── test_magnetic_fields.py
+│   │   │   ├── test_particle_fields.py
+│   │   │   ├── test_species_fields.py
+│   │   │   ├── test_sph_fields.py
+│   │   │   ├── test_vector_fields.py
+│   │   │   └── test_xray_fields.py
+│   │   │       └── ... (9 more files)
+│   │   ├── __init__.py
+│   │   ├── angular_momentum.py
+│   │   ├── api.py
+│   │   ├── astro_fields.py
+│   │   ├── astro_simulations.py
+│   │   ├── cosmology_fields.py
+│   │   ├── derived_field.py
+│   │   ├── domain_context.py
+│   │   ├── field_aliases.py
+│   │   ├── field_detector.py
+│   │   ├── field_exceptions.py
+│   │   ├── field_functions.py
+│   │   ├── field_info_container.py
+│   │   ├── field_plugin_registry.py
+│   │   ├── field_type_container.py
+│   │   ├── fluid_fields.py
+│   │   ├── fluid_vector_fields.py
+│   │   ├── geometric_fields.py
+│   │   ├── interpolated_fields.py
+│   │   ├── local_fields.py
+│   │   ├── magnetic_field.py
+│   │   ├── my_plugin_fields.py
+│   │   ├── particle_fields.py
+│   │   ├── species_fields.py
+│   │   ├── tensor_fields.py
+│   │   ├── vector_operations.py
+│   │   └── xray_emission_fields.py
+│   │       └── ... (22 more files)
+│   ├── frontends/
+│   │   ├── _skeleton/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── adaptahop/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   │       └── ... (1 more files)
+│   │   ├── ahf/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   ├── amrex/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── amrvac/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── datfile_utils.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   │       └── ... (2 more files)
+│   │   ├── arepo/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   ├── art/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   │       └── ... (1 more files)
+│   │   ├── artio/
+│   │   │   ├── artio_headers/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _artio_caller.pyx
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   │       └── ... (2 more files)
+│   │   ├── athena/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── athena_pp/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── boxlib/
+│   │   │   ├── data_structures/
+│   │   │   ├── fields/
+│   │   │   ├── io/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _deprecation.py
+│   │   │   └── api.py
+│   │   ├── cf_radial/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   ├── chimera/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── cholla/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── chombo/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── eagle/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   │       └── ... (1 more files)
+│   │   ├── enzo/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── answer_testing_support.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   ├── misc.py
+│   │   │   └── simulation_handling.py
+│   │   │       └── ... (4 more files)
+│   │   ├── enzo_e/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── exodus_ii/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   ├── misc.py
+│   │   │   ├── simulation_handling.py
+│   │   │   └── util.py
+│   │   │       └── ... (4 more files)
+│   │   ├── fits/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── flash/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── gadget/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   ├── simulation_handling.py
+│   │   │   └── testing.py
+│   │   │       └── ... (3 more files)
+│   │   ├── gadget_fof/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   ├── gamer/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── cfields.pyx
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (3 more files)
+│   │   ├── gdf/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── gizmo/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   └── fields.py
+│   │   ├── halo_catalog/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   ├── http_stream/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   └── io.py
+│   │   ├── moab/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── nc4_cm1/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   ├── open_pmd/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── owls/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   ├── owls_ion_tables.py
+│   │   │   └── simulation_handling.py
+│   │   │       └── ... (2 more files)
+│   │   ├── owls_subfind/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   ├── parthenon/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── ramses/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── field_handlers.py
+│   │   │   ├── fields.py
+│   │   │   ├── hilbert.py
+│   │   │   ├── io.py
+│   │   │   ├── io_utils.pyx
+│   │   │   └── particle_handlers.py
+│   │   │       └── ... (5 more files)
+│   │   ├── rockstar/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   │       └── ... (1 more files)
+│   │   ├── sdf/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── sph/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   ├── stream/
+│   │   │   ├── sample_data/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── misc.py
+│   │   │       └── ... (2 more files)
+│   │   ├── swift/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   ├── tipsy/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── definitions.py
+│   │   │   ├── fields.py
+│   │   │   └── io.py
+│   │   │       └── ... (1 more files)
+│   │   ├── ytdata/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── data_structures.py
+│   │   │   ├── fields.py
+│   │   │   ├── io.py
+│   │   │   └── utilities.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   └── api.py
+│   ├── geometry/
+│   │   ├── _selection_routines/
+│   │   │   ├── always_selector.pxi
+│   │   │   ├── boolean_selectors.pxi
+│   │   │   ├── compose_selector.pxi
+│   │   │   ├── cut_region_selector.pxi
+│   │   │   ├── cutting_plane_selector.pxi
+│   │   │   ├── data_collection_selector.pxi
+│   │   │   ├── disk_selector.pxi
+│   │   │   ├── ellipsoid_selector.pxi
+│   │   │   ├── grid_selector.pxi
+│   │   │   ├── halo_particles_selector.pxi
+│   │   │   ├── indexed_octree_subset_selector.pxi
+│   │   │   ├── octree_subset_selector.pxi
+│   │   │   ├── ortho_ray_selector.pxi
+│   │   │   ├── point_selector.pxi
+│   │   │   ├── ray_selector.pxi
+│   │   │   ├── region_selector.pxi
+│   │   │   ├── selector_object.pxi
+│   │   │   ├── slice_selector.pxi
+│   │   │   └── sphere_selector.pxi
+│   │   │       └── ... (14 more files)
+│   │   ├── coordinates/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── cartesian_coordinates.py
+│   │   │   ├── coordinate_handler.py
+│   │   │   ├── cylindrical_coordinates.py
+│   │   │   ├── geographic_coordinates.py
+│   │   │   ├── polar_coordinates.py
+│   │   │   ├── spec_cube_coordinates.py
+│   │   │   └── spherical_coordinates.py
+│   │   │       └── ... (4 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── fake_octree.py
+│   │   │   ├── test_ewah_write_load.py
+│   │   │   ├── test_geometries.py
+│   │   │   ├── test_grid_container.py
+│   │   │   ├── test_grid_index.py
+│   │   │   ├── test_particle_deposit.py
+│   │   │   ├── test_particle_octree.py
+│   │   │   └── test_pickleable_selections.py
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── api.py
+│   │   ├── fake_octree.pyx
+│   │   ├── geometry_enum.py
+│   │   ├── geometry_handler.py
+│   │   ├── grid_container.pxd
+│   │   ├── grid_container.pyx
+│   │   ├── grid_geometry_handler.py
+│   │   ├── grid_visitors.pxd
+│   │   ├── grid_visitors.pyx
+│   │   ├── oct_container.pxd
+│   │   ├── oct_container.pyx
+│   │   ├── oct_geometry_handler.py
+│   │   ├── oct_visitors.pxd
+│   │   ├── oct_visitors.pyx
+│   │   ├── particle_deposit.pxd
+│   │   ├── particle_deposit.pyx
+│   │   ├── particle_geometry_handler.py
+│   │   ├── particle_oct_container.pyx
+│   │   ├── particle_smooth.pxd
+│   │   ├── particle_smooth.pyx
+│   │   ├── selection_routines.pxd
+│   │   ├── selection_routines.pyx
+│   │   ├── unstructured_mesh_handler.py
+│   │   └── vectorized_ops.h
+│   │       └── ... (20 more files)
+│   ├── sample_data/
+│   │   ├── __init__.py
+│   │   └── api.py
+│   ├── tests/
+│   │   ├── __init__.py
+│   │   ├── test_external_frontends.py
+│   │   ├── test_funcs.py
+│   │   ├── test_load_archive.py
+│   │   ├── test_load_errors.py
+│   │   ├── test_load_sample.py
+│   │   ├── test_testing.py
+│   │   └── test_version.py
+│   │       └── ... (3 more files)
+│   ├── units/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_magnetic_code_units.py
+│   │   ├── __init__.py
+│   │   ├── _numpy_wrapper_functions.py
+│   │   ├── dimensions.py
+│   │   ├── equivalencies.py
+│   │   ├── physical_constants.py
+│   │   ├── unit_lookup_table.py
+│   │   ├── unit_object.py
+│   │   ├── unit_registry.py
+│   │   ├── unit_symbols.py
+│   │   ├── unit_systems.py
+│   │   └── yt_array.py
+│   │       └── ... (6 more files)
+│   ├── utilities/
+│   │   ├── amr_kdtree/
+│   │   │   ├── __init__.py
+│   │   │   ├── amr_kdtools.py
+│   │   │   ├── amr_kdtree.py
+│   │   │   └── api.py
+│   │   ├── answer_testing/
+│   │   │   ├── __init__.py
+│   │   │   ├── answer_tests.py
+│   │   │   ├── api.py
+│   │   │   ├── framework.py
+│   │   │   ├── level_sets_tests.py
+│   │   │   └── testing_utilities.py
+│   │   │       └── ... (1 more files)
+│   │   ├── grid_data_format/
+│   │   │   ├── conversion/
+│   │   │   ├── docs/
+│   │   │   ├── scripts/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── writer.py
+│   │   ├── lib/
+│   │   │   ├── cykdtree/
+│   │   │   ├── embree_mesh/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _octree_raytracing.hpp
+│   │   │   ├── _octree_raytracing.pxd
+│   │   │   ├── _octree_raytracing.pyx
+│   │   │   ├── allocation_container.pxd
+│   │   │   ├── allocation_container.pyx
+│   │   │   ├── alt_ray_tracers.pyx
+│   │   │   ├── amr_kdtools.pxd
+│   │   │   ├── amr_kdtools.pyx
+│   │   │   ├── api.py
+│   │   │   ├── autogenerated_element_samplers.pxd
+│   │   │   ├── autogenerated_element_samplers.pyx
+│   │   │   ├── basic_octree.pyx
+│   │   │   ├── bitarray.pxd
+│   │   │   ├── bitarray.pyx
+│   │   │   ├── bounded_priority_queue.pxd
+│   │   │   ├── bounded_priority_queue.pyx
+│   │   │   ├── bounding_volume_hierarchy.pxd
+│   │   │   ├── bounding_volume_hierarchy.pyx
+│   │   │   ├── contour_finding.pxd
+│   │   │   ├── contour_finding.pyx
+│   │   │   ├── cosmology_time.pyx
+│   │   │   ├── cyoctree.pyx
+│   │   │   ├── depth_first_octree.pyx
+│   │   │   ├── distance_queue.pxd
+│   │   │   ├── distance_queue.pyx
+│   │   │   ├── element_mappings.pxd
+│   │   │   ├── element_mappings.pyx
+│   │   │   ├── endian_swap.h
+│   │   │   ├── field_interpolation_tables.pxd
+│   │   │   ├── fixed_interpolator.cpp
+│   │   │   ├── fixed_interpolator.hpp
+│   │   │   ├── fixed_interpolator.pxd
+│   │   │   ├── fnv_hash.pxd
+│   │   │   ├── fnv_hash.pyx
+│   │   │   ├── fortran_reader.pyx
+│   │   │   ├── fp_utils.pxd
+│   │   │   ├── geometry_utils.pxd
+│   │   │   ├── geometry_utils.pyx
+│   │   │   ├── grid_traversal.pxd
+│   │   │   ├── grid_traversal.pyx
+│   │   │   ├── healpix_interface.pxd
+│   │   │   ├── image_samplers.pxd
+│   │   │   ├── image_samplers.pyx
+│   │   │   ├── image_utilities.pyx
+│   │   │   ├── interpolators.pyx
+│   │   │   ├── lenses.pxd
+│   │   │   ├── lenses.pyx
+│   │   │   ├── marching_cubes.h
+│   │   │   ├── marching_cubes.pyx
+│   │   │   ├── mesh_triangulation.h
+│   │   │   ├── mesh_triangulation.pyx
+│   │   │   ├── mesh_utilities.pyx
+│   │   │   ├── misc_utilities.pyx
+│   │   │   ├── octree_raytracing.py
+│   │   │   ├── origami.pyx
+│   │   │   ├── origami_tags.c
+│   │   │   ├── origami_tags.h
+│   │   │   ├── particle_kdtree_tools.pxd
+│   │   │   ├── particle_kdtree_tools.pyx
+│   │   │   ├── particle_mesh_operations.pyx
+│   │   │   ├── partitioned_grid.pxd
+│   │   │   ├── partitioned_grid.pyx
+│   │   │   ├── pixelization_constants.cpp
+│   │   │   ├── pixelization_constants.hpp
+│   │   │   ├── pixelization_routines.pyx
+│   │   │   ├── platform_dep.h
+│   │   │   ├── platform_dep_math.hpp
+│   │   │   ├── points_in_volume.pyx
+│   │   │   ├── primitives.pxd
+│   │   │   ├── primitives.pyx
+│   │   │   ├── quad_tree.pyx
+│   │   │   ├── ragged_arrays.pyx
+│   │   │   ├── tsearch.c
+│   │   │   ├── tsearch.h
+│   │   │   ├── vec3_ops.pxd
+│   │   │   ├── volume_container.pxd
+│   │   │   └── write_array.pyx
+│   │   │       └── ... (73 more files)
+│   │   ├── parallel_tools/
+│   │   │   ├── __init__.py
+│   │   │   ├── controller_system.py
+│   │   │   ├── io_runner.py
+│   │   │   ├── parallel_analysis_interface.py
+│   │   │   └── task_queue.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── cosmology_answers.yml
+│   │   │   ├── test_amr_kdtree.py
+│   │   │   ├── test_chemical_formulas.py
+│   │   │   ├── test_config.py
+│   │   │   ├── test_coordinate_conversions.py
+│   │   │   ├── test_cosmology.py
+│   │   │   ├── test_cython_fortran_utils.py
+│   │   │   ├── test_decompose.py
+│   │   │   ├── test_flagging_methods.py
+│   │   │   ├── test_hierarchy_inspection.py
+│   │   │   ├── test_interpolators.py
+│   │   │   ├── test_minimal_representation.py
+│   │   │   ├── test_on_demand_imports.py
+│   │   │   ├── test_particle_generator.py
+│   │   │   ├── test_periodic_table.py
+│   │   │   ├── test_periodicity.py
+│   │   │   ├── test_selectors.py
+│   │   │   └── test_set_log_level.py
+│   │   │       └── ... (14 more files)
+│   │   ├── __init__.py
+│   │   ├── api.py
+│   │   ├── chemical_formulas.py
+│   │   ├── command_line.py
+│   │   ├── configuration_tree.py
+│   │   ├── configure.py
+│   │   ├── cosmology.py
+│   │   ├── cython_fortran_utils.pxd
+│   │   ├── cython_fortran_utils.pyx
+│   │   ├── decompose.py
+│   │   ├── definitions.py
+│   │   ├── exceptions.py
+│   │   ├── file_handler.py
+│   │   ├── flagging_methods.py
+│   │   ├── fortran_utils.py
+│   │   ├── hierarchy_inspection.py
+│   │   ├── initial_conditions.py
+│   │   ├── io_handler.py
+│   │   ├── linear_interpolators.py
+│   │   ├── lodgeit.py
+│   │   ├── logger.py
+│   │   ├── math_utils.py
+│   │   ├── mesh_code_generation.py
+│   │   ├── mesh_types.yaml
+│   │   ├── metadata.py
+│   │   ├── minimal_representation.py
+│   │   ├── nodal_data_utils.py
+│   │   ├── object_registries.py
+│   │   ├── on_demand_imports.py
+│   │   ├── operator_registry.py
+│   │   ├── orientation.py
+│   │   ├── parameter_file_storage.py
+│   │   ├── particle_generator.py
+│   │   ├── performance_counters.py
+│   │   ├── periodic_table.py
+│   │   ├── physical_constants.py
+│   │   ├── physical_ratios.py
+│   │   ├── png_writer.py
+│   │   ├── rpdb.py
+│   │   ├── sdf.py
+│   │   ├── tree_container.py
+│   │   └── voropp.pyx
+│   │       └── ... (37 more files)
+│   ├── visualization/
+│   │   ├── mapserver/
+│   │   │   ├── html/
+│   │   │   ├── __init__.py
+│   │   │   └── pannable_map.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_base_plot_types.py
+│   │   │   ├── test_callbacks.py
+│   │   │   ├── test_callbacks_geographic.py
+│   │   │   ├── test_color_maps.py
+│   │   │   ├── test_commons.py
+│   │   │   ├── test_eps_writer.py
+│   │   │   ├── test_export_frb.py
+│   │   │   ├── test_filters.py
+│   │   │   ├── test_fits_image.py
+│   │   │   ├── test_geo_projections.py
+│   │   │   ├── test_image_comp_2D_plots.py
+│   │   │   ├── test_image_comp_geo.py
+│   │   │   ├── test_image_writer.py
+│   │   │   ├── test_invalid_origin.py
+│   │   │   ├── test_line_annotation_unit.py
+│   │   │   ├── test_line_plots.py
+│   │   │   ├── test_mesh_slices.py
+│   │   │   ├── test_normal_plot_api.py
+│   │   │   ├── test_offaxisprojection.py
+│   │   │   ├── test_offaxisprojection_pytestonly.py
+│   │   │   ├── test_particle_plot.py
+│   │   │   ├── test_plot_modifications.py
+│   │   │   ├── test_plotwindow.py
+│   │   │   ├── test_profile_plots.py
+│   │   │   ├── test_raw_field_slices.py
+│   │   │   ├── test_save.py
+│   │   │   ├── test_set_zlim.py
+│   │   │   └── test_splat.py
+│   │   │       └── ... (24 more files)
+│   │   ├── volume_rendering/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _cuda_caster.cu
+│   │   │   ├── api.py
+│   │   │   ├── blenders.py
+│   │   │   ├── camera.py
+│   │   │   ├── camera_path.py
+│   │   │   ├── create_spline.py
+│   │   │   ├── image_handling.py
+│   │   │   ├── lens.py
+│   │   │   ├── off_axis_projection.py
+│   │   │   ├── old_camera.py
+│   │   │   ├── render_source.py
+│   │   │   ├── scene.py
+│   │   │   ├── transfer_function_helper.py
+│   │   │   ├── transfer_functions.py
+│   │   │   ├── UBVRI.py
+│   │   │   ├── utils.py
+│   │   │   ├── volume_rendering.py
+│   │   │   └── zbuffer_array.py
+│   │   │       └── ... (14 more files)
+│   │   ├── __init__.py
+│   │   ├── _colormap_data.py
+│   │   ├── _commons.py
+│   │   ├── _handlers.py
+│   │   ├── api.py
+│   │   ├── base_plot_types.py
+│   │   ├── color_maps.py
+│   │   ├── eps_writer.py
+│   │   ├── fits_image.py
+│   │   ├── fixed_resolution.py
+│   │   ├── fixed_resolution_filters.py
+│   │   ├── geo_plot_utils.py
+│   │   ├── image_writer.py
+│   │   ├── line_plot.py
+│   │   ├── particle_plots.py
+│   │   ├── plot_container.py
+│   │   ├── plot_modifications.py
+│   │   ├── plot_window.py
+│   │   ├── profile_plotter.py
+│   │   └── streamlines.py
+│   │       └── ... (15 more files)
+│   ├── __init__.py
+│   ├── _typing.py
+│   ├── _version.py
+│   ├── api.py
+│   ├── arraytypes.py
+│   ├── config.py
+│   ├── default.mplstyle
+│   ├── exthook.py
+│   ├── funcs.py
+│   ├── loaders.py
+│   ├── py.typed
+│   ├── sample_data_registry.json
+│   ├── startup_tasks.py
+│   └── testing.py
+│       └── ... (9 more files)
+├── .codecov.yml
+├── .coveragerc
+├── .git-blame-ignore-revs
+├── .gitignore
+├── .gitmodules
+├── .hgchurn
+├── .hgtags
+├── .mailmap
+├── .pre-commit-config.yaml
+├── CITATION
+├── clean.sh
+├── conftest.py
+├── CONTRIBUTING.rst
+├── COPYING.txt
+├── CREDITS
+├── MANIFEST.in
+├── minimal_requirements.txt
+├── nose_answer.cfg
+├── nose_ignores.txt
+├── nose_requirements.txt
+├── nose_unit.cfg
+├── pyproject.toml
+├── README.md
+├── setup.py
+└── setupext.py
+    └── ... (20 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

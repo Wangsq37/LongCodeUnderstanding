@@ -1,0 +1,37 @@
+[
+  {
+    "command": "ls interfaces/cython",
+    "success": true,
+    "stdout": "SConscript\ncantera\ncantera.egg-info\npyproject.toml\nsetup.cfg.in\nsetup.py\n",
+    "stderr": "",
+    "execution_time": 0.0017101764678955078
+  },
+  {
+    "command": "cd interfaces/cython",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0009047985076904297
+  },
+  {
+    "command": "python setup.py build_ext --inplace",
+    "success": false,
+    "stdout": "",
+    "stderr": "python: can't open file '/app/repo_to_process/setup.py': [Errno 2] No such file or directory\n",
+    "execution_time": 0.03711867332458496
+  },
+  {
+    "command": "cd ../..",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0011506080627441406
+  },
+  {
+    "command": "pytest test/python",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/test/python/conftest.py'.\ntest/python/conftest.py:1: in <module>\n    import cantera\ninterfaces/cython/cantera/__init__.py:4: in <module>\n    from ._cantera import *\nE   ModuleNotFoundError: No module named 'cantera._cantera'\n",
+    "execution_time": 0.16864538192749023
+  }
+]

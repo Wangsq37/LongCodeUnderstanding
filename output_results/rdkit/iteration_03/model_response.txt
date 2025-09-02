@@ -1,0 +1,6 @@
+```bash
+pip install freewilson
+apt-get update && apt-get install -y libxrender1
+find . -type d -name __pycache__ -exec rm -rf {} +
+pytest
+```

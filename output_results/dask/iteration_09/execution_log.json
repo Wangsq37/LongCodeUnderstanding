@@ -1,0 +1,9 @@
+[
+  {
+    "command": "PYTHONPATH=. pytest dask",
+    "success": false,
+    "stdout": "",
+    "stderr": "Command timed out after 3600 seconds",
+    "execution_time": 3599.8896675109863
+  }
+]

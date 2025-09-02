@@ -1,0 +1,14 @@
+```bash
+# Inspect dependencies in pyproject.toml and setup.cfg
+cat pyproject.toml
+cat setup.cfg
+
+# Look for requirements.txt as well (not listed, but just in case)
+if [ -f requirements.txt ]; then cat requirements.txt; fi
+
+# Install base dependencies that are likely needed from code structure and common conventions.
+pip install numpy scipy matplotlib scikit-learn
+
+# Run pytest to check for missing dependencies and error output.
+pytest
+```

@@ -1,0 +1,20 @@
+The new error is not a missing dependency, but an ImportError inside the project: 
+
+```
+ImportError: cannot import name '_typeconv' from 'numba.core.typeconv' (/app/repo_to_process/numba/core/typeconv/__init__.py)
+...
+raise ImportError(msg)
+E   ImportError: Numba could not be imported.
+E   --------------------------------------------------------------------------------
+E   If you are seeing this message and are undertaking Numba development work, you may need to rebuild Numba.
+E   Please see the development set up guide:
+E   
+E   https://numba.readthedocs.io/en/stable/developer/contributing.html.
+```
+
+This is a typical "Numba development install" scenario. For Numba, you must run a build step to create extension modules (likely `python setup.py build_ext --inplace`). Let me try that step, and then re-run pytest.
+
+```bash
+python setup.py build_ext --inplace
+pytest
+```

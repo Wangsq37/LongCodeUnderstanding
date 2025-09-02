@@ -1,0 +1,529 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug-report.yml
+│   │   ├── config.yml
+│   │   ├── developer.yml
+│   │   ├── documentation.yml
+│   │   └── feature-request.yml
+│   ├── workflows/
+│   │   ├── devcontainer-docker-image.yml
+│   │   ├── docker-image.yml
+│   │   ├── mypy.yml
+│   │   ├── pr-auto-label.yml
+│   │   ├── publish-release-notes-to-discourse.yml
+│   │   ├── release.yml
+│   │   ├── rtd-link-preview.yml
+│   │   ├── slash_dispatch.yml
+│   │   ├── tests.yml
+│   │   └── zizmor.yml
+│   │       └── ... (5 more files)
+│   ├── config.yml
+│   ├── dependabot.yml
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── release.yml
+├── benchmarks/
+│   ├── benchmarks/
+│   │   ├── __init__.py
+│   │   └── benchmarks.py
+│   └── asv.conf.json
+├── binder/
+│   ├── apt.txt
+│   ├── requirements.txt
+│   └── trigger_binder.sh
+├── conda-envs/
+│   ├── environment-alternative-backends.yml
+│   ├── environment-dev.yml
+│   ├── environment-docs.yml
+│   ├── environment-test.yml
+│   ├── windows-environment-dev.yml
+│   └── windows-environment-test.yml
+│       └── ... (1 more files)
+├── docs/
+│   ├── logos/
+│   │   ├── sponsors/
+│   │   │   ├── numfocus.png
+│   │   │   ├── odsc.png
+│   │   │   └── pymc-labs.png
+│   │   ├── svg/
+│   │   │   ├── PyMC_banner.svg
+│   │   │   ├── PyMC_circle.svg
+│   │   │   └── PyMC_square.svg
+│   │   ├── PyMC.ai
+│   │   ├── PyMC.eps
+│   │   ├── PyMC.ico
+│   │   ├── PyMC.jpg
+│   │   ├── PyMC.pdf
+│   │   └── PyMC.png
+│   │       └── ... (1 more files)
+│   ├── source/
+│   │   ├── _templates/
+│   │   │   ├── autosummary/
+│   │   │   └── distribution.rst
+│   │   ├── api/
+│   │   │   ├── dims/
+│   │   │   ├── distributions/
+│   │   │   ├── gp/
+│   │   │   ├── model/
+│   │   │   ├── backends.rst
+│   │   │   ├── data.rst
+│   │   │   ├── dims.rst
+│   │   │   ├── distributions.rst
+│   │   │   ├── gp.rst
+│   │   │   ├── logprob.rst
+│   │   │   ├── math.rst
+│   │   │   ├── misc.rst
+│   │   │   ├── model.rst
+│   │   │   ├── ode.rst
+│   │   │   ├── pytensorf.rst
+│   │   │   ├── samplers.rst
+│   │   │   ├── shape_utils.rst
+│   │   │   ├── smc.rst
+│   │   │   ├── testing.rst
+│   │   │   ├── tuning.rst
+│   │   │   └── vi.rst
+│   │   │       └── ... (12 more files)
+│   │   ├── contributing/
+│   │   │   ├── gitpod/
+│   │   │   ├── build_docs.md
+│   │   │   ├── developer_guide.md
+│   │   │   ├── docker_container.md
+│   │   │   ├── implementing_distribution.md
+│   │   │   ├── index.md
+│   │   │   ├── jupyter_style.md
+│   │   │   ├── pr_checklist.md
+│   │   │   ├── pr_tutorial.md
+│   │   │   ├── python_style.md
+│   │   │   ├── release_checklist.md
+│   │   │   ├── review_pr_pymc_examples.md
+│   │   │   ├── running_the_test_suite.md
+│   │   │   ├── using_gitpod.md
+│   │   │   └── versioning_schemes_explanation.md
+│   │   │       └── ... (9 more files)
+│   │   ├── guides/
+│   │   │   ├── Gaussian_Processes.rst
+│   │   │   └── Probability_Distributions.rst
+│   │   ├── images/
+│   │   │   ├── forestplot.png
+│   │   │   └── model_to_graphviz.png
+│   │   ├── learn/
+│   │   │   ├── core_notebooks/
+│   │   │   ├── books.md
+│   │   │   ├── consulting.md
+│   │   │   ├── usage_overview.rst
+│   │   │   └── videos_and_podcasts.md
+│   │   ├── 404.md
+│   │   ├── api.rst
+│   │   ├── conf.py
+│   │   ├── glossary.md
+│   │   ├── index.md
+│   │   ├── installation.md
+│   │   └── learn.md
+│   │       └── ... (2 more files)
+│   ├── Architecture.png
+│   └── community_diagram.png
+├── pymc/
+│   ├── backends/
+│   │   ├── __init__.py
+│   │   ├── arviz.py
+│   │   ├── base.py
+│   │   ├── mcbackend.py
+│   │   ├── ndarray.py
+│   │   ├── report.py
+│   │   └── zarr.py
+│   │       └── ... (2 more files)
+│   ├── dims/
+│   │   ├── distributions/
+│   │   │   ├── __init__.py
+│   │   │   ├── core.py
+│   │   │   ├── scalar.py
+│   │   │   ├── transforms.py
+│   │   │   └── vector.py
+│   │   ├── __init__.py
+│   │   ├── math.py
+│   │   └── model.py
+│   ├── distributions/
+│   │   ├── moments/
+│   │   │   ├── __init__.py
+│   │   │   └── means.py
+│   │   ├── __init__.py
+│   │   ├── censored.py
+│   │   ├── continuous.py
+│   │   ├── custom.py
+│   │   ├── discrete.py
+│   │   ├── dist_math.py
+│   │   ├── distribution.py
+│   │   ├── mixture.py
+│   │   ├── multivariate.py
+│   │   ├── shape_utils.py
+│   │   ├── simulator.py
+│   │   ├── timeseries.py
+│   │   ├── transforms.py
+│   │   └── truncated.py
+│   │       └── ... (9 more files)
+│   ├── gp/
+│   │   ├── __init__.py
+│   │   ├── cov.py
+│   │   ├── gp.py
+│   │   ├── hsgp_approx.py
+│   │   ├── mean.py
+│   │   └── util.py
+│   │       └── ... (1 more files)
+│   ├── logprob/
+│   │   ├── __init__.py
+│   │   ├── abstract.py
+│   │   ├── basic.py
+│   │   ├── binary.py
+│   │   ├── censoring.py
+│   │   ├── checks.py
+│   │   ├── cumsum.py
+│   │   ├── LICENSE_AEPPL.txt
+│   │   ├── linalg.py
+│   │   ├── mixture.py
+│   │   ├── order.py
+│   │   ├── rewriting.py
+│   │   ├── scan.py
+│   │   ├── tensor.py
+│   │   ├── transform_value.py
+│   │   ├── transforms.py
+│   │   └── utils.py
+│   │       └── ... (12 more files)
+│   ├── model/
+│   │   ├── transform/
+│   │   │   ├── __init__.py
+│   │   │   ├── basic.py
+│   │   │   ├── conditioning.py
+│   │   │   └── optimization.py
+│   │   ├── __init__.py
+│   │   ├── core.py
+│   │   └── fgraph.py
+│   ├── ode/
+│   │   ├── __init__.py
+│   │   ├── ode.py
+│   │   └── utils.py
+│   ├── plots/
+│   │   └── __init__.py
+│   ├── sampling/
+│   │   ├── __init__.py
+│   │   ├── deterministic.py
+│   │   ├── forward.py
+│   │   ├── jax.py
+│   │   ├── mcmc.py
+│   │   ├── parallel.py
+│   │   └── population.py
+│   │       └── ... (2 more files)
+│   ├── smc/
+│   │   ├── __init__.py
+│   │   ├── kernels.py
+│   │   └── sampling.py
+│   ├── stats/
+│   │   ├── __init__.py
+│   │   ├── convergence.py
+│   │   └── log_density.py
+│   ├── step_methods/
+│   │   ├── hmc/
+│   │   │   ├── __init__.py
+│   │   │   ├── base_hmc.py
+│   │   │   ├── hmc.py
+│   │   │   ├── integration.py
+│   │   │   ├── nuts.py
+│   │   │   └── quadpotential.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── arraystep.py
+│   │   ├── compound.py
+│   │   ├── metropolis.py
+│   │   ├── slicer.py
+│   │   ├── state.py
+│   │   └── step_sizes.py
+│   │       └── ... (2 more files)
+│   ├── tuning/
+│   │   ├── __init__.py
+│   │   ├── scaling.py
+│   │   └── starting.py
+│   ├── variational/
+│   │   ├── __init__.py
+│   │   ├── approximations.py
+│   │   ├── callbacks.py
+│   │   ├── inference.py
+│   │   ├── minibatch_rv.py
+│   │   ├── operators.py
+│   │   ├── opvi.py
+│   │   ├── stein.py
+│   │   ├── test_functions.py
+│   │   └── updates.py
+│   │       └── ... (5 more files)
+│   ├── __init__.py
+│   ├── _version.py
+│   ├── blocking.py
+│   ├── data.py
+│   ├── exceptions.py
+│   ├── func_utils.py
+│   ├── initial_point.py
+│   ├── math.py
+│   ├── model_graph.py
+│   ├── printing.py
+│   ├── progress_bar.py
+│   ├── pytensorf.py
+│   ├── testing.py
+│   ├── util.py
+│   └── vartypes.py
+│       └── ... (10 more files)
+├── scripts/
+│   ├── slowest_tests/
+│   │   ├── extract-slow-tests.py
+│   │   └── update-slowest-times-issue.sh
+│   ├── check_all_tests_are_covered.py
+│   ├── dev.Dockerfile
+│   ├── docker_container.sh
+│   ├── Dockerfile
+│   ├── generate_pip_deps_from_conda.py
+│   ├── publish_release_notes_to_discourse.py
+│   ├── run_mypy.py
+│   └── test.sh
+│       └── ... (3 more files)
+├── tests/
+│   ├── backends/
+│   │   ├── __init__.py
+│   │   ├── fixtures.py
+│   │   ├── test_arviz.py
+│   │   ├── test_base.py
+│   │   ├── test_mcbackend.py
+│   │   ├── test_ndarray.py
+│   │   └── test_zarr.py
+│   │       └── ... (2 more files)
+│   ├── dims/
+│   │   ├── distributions/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_core.py
+│   │   │   ├── test_scalar.py
+│   │   │   └── test_vector.py
+│   │   ├── __init__.py
+│   │   ├── test_model.py
+│   │   └── utils.py
+│   ├── distributions/
+│   │   ├── moments/
+│   │   │   ├── __init__.py
+│   │   │   └── test_means.py
+│   │   ├── __init__.py
+│   │   ├── test_censored.py
+│   │   ├── test_continuous.py
+│   │   ├── test_custom.py
+│   │   ├── test_discrete.py
+│   │   ├── test_dist_math.py
+│   │   ├── test_distribution.py
+│   │   ├── test_mixture.py
+│   │   ├── test_multivariate.py
+│   │   ├── test_random_alternative_backends.py
+│   │   ├── test_shape_utils.py
+│   │   ├── test_simulator.py
+│   │   ├── test_timeseries.py
+│   │   ├── test_transform.py
+│   │   └── test_truncated.py
+│   │       └── ... (10 more files)
+│   ├── gp/
+│   │   ├── __init__.py
+│   │   ├── test_cov.py
+│   │   ├── test_gp.py
+│   │   ├── test_hsgp_approx.py
+│   │   ├── test_mean.py
+│   │   └── test_util.py
+│   │       └── ... (1 more files)
+│   ├── logprob/
+│   │   ├── __init__.py
+│   │   ├── test_abstract.py
+│   │   ├── test_basic.py
+│   │   ├── test_binary.py
+│   │   ├── test_censoring.py
+│   │   ├── test_checks.py
+│   │   ├── test_composite_logprob.py
+│   │   ├── test_cumsum.py
+│   │   ├── test_linalg.py
+│   │   ├── test_mixture.py
+│   │   ├── test_order.py
+│   │   ├── test_rewriting.py
+│   │   ├── test_scan.py
+│   │   ├── test_tensor.py
+│   │   ├── test_transform_value.py
+│   │   ├── test_transforms.py
+│   │   ├── test_utils.py
+│   │   └── utils.py
+│   │       └── ... (13 more files)
+│   ├── model/
+│   │   ├── transform/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_basic.py
+│   │   │   ├── test_conditioning.py
+│   │   │   └── test_optimization.py
+│   │   ├── __init__.py
+│   │   ├── test_core.py
+│   │   └── test_fgraph.py
+│   ├── ode/
+│   │   ├── __init__.py
+│   │   ├── test_ode.py
+│   │   └── test_utils.py
+│   ├── sampling/
+│   │   ├── __init__.py
+│   │   ├── test_deterministic.py
+│   │   ├── test_forward.py
+│   │   ├── test_jax.py
+│   │   ├── test_mcmc.py
+│   │   ├── test_mcmc_external.py
+│   │   ├── test_parallel.py
+│   │   └── test_population.py
+│   │       └── ... (3 more files)
+│   ├── smc/
+│   │   ├── __init__.py
+│   │   └── test_smc.py
+│   ├── stats/
+│   │   ├── __init__.py
+│   │   ├── test_convergence.py
+│   │   └── test_log_density.py
+│   ├── step_methods/
+│   │   ├── hmc/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_hmc.py
+│   │   │   ├── test_nuts.py
+│   │   │   └── test_quadpotential.py
+│   │   ├── __init__.py
+│   │   ├── test_compound.py
+│   │   ├── test_metropolis.py
+│   │   ├── test_slicer.py
+│   │   └── test_state.py
+│   ├── tuning/
+│   │   ├── __init__.py
+│   │   ├── test_scaling.py
+│   │   └── test_starting.py
+│   ├── variational/
+│   │   ├── __init__.py
+│   │   ├── test_approximations.py
+│   │   ├── test_callbacks.py
+│   │   ├── test_inference.py
+│   │   ├── test_minibatch_rv.py
+│   │   ├── test_opvi.py
+│   │   └── test_updates.py
+│   │       └── ... (2 more files)
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── helpers.py
+│   ├── models.py
+│   ├── sampler_fixtures.py
+│   ├── test_data.py
+│   ├── test_func_utils.py
+│   ├── test_initial_point.py
+│   ├── test_math.py
+│   ├── test_model_graph.py
+│   ├── test_printing.py
+│   ├── test_progress_bar.py
+│   ├── test_pytensorf.py
+│   ├── test_testing.py
+│   └── test_util.py
+│       └── ... (10 more files)
+├── .dockerignore
+├── .git-blame-ignore-revs
+├── .gitattributes
+�
+... (18 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: which g++ ---
+SUCCESS: True
+STDOUT:
+/usr/bin/g++
+
+
+--- Command: apt-get update ---
+SUCCESS: True
+STDOUT:
+Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:4 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1270 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:6 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [48.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+Get:9 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3207 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
+Get:11 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [5103 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1575 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3518 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [5290 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [75.9 kB]
+Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
+Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
+Fetched 40.6 MB in 27s (1503 kB/s)
+Reading package lists...
+
+
+--- Command: apt-get install -y build-essential ---
+SUCCESS: True
+STDOUT:
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.9ubuntu3).
+0 upgraded, 0 newly installed, 0 to remove and 8 not upgraded.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+testpaths: tests
+plugins: cov-6.2.1
+collected 3064 items / 5 errors
+
+==================================== ERRORS ====================================
+[31m[1m___________ ERROR collecting tests/distributions/test_continuous.py ____________[0m
+[1m[31m/usr/local/lib/python3.10/dist-packages/pytensor/link/vm.py[0m:1230: in make_all
+    [0mnode.op.make_thunk(node, storage_map, compute_map, [], impl=impl)[90m[39;49;00m
+[1m[31m/usr/local/lib/python3.10/dist-packages/pytensor/link/c/op.py[0m:125: in make_thunk
+    [0m[94mreturn[39;49;00m [96mself[39;49;00m.make_c_thunk(node, storage_map, compute_map, no_recycling)[90m[39;49;00m
+[1m[31m/usr/local/lib/python3.10/dist-packages/pytensor/link/c/op.py[0m:84: in make_c_thunk
+    [0moutputs = cl.make_thunk([90m[39;49;00m
+[1m[31m/usr/local/lib/python3.10/dist-packages/pytensor/link/c/basic.py[0m:1185: in make_thunk
+    [0mcthunk, module, in_storage, out_storage, error_storage = [96mself[39;49;00m.__compile__([90m[39;49;00m
+[1m[31m/usr/local/lib/python3.10/dist-packages/pytensor/link/c/basic.py[0m:1102: in __compile__
+    [0mthunk, module = [96mself[39;49;00m.cthunk_factory([90m[39;49;00m
+[1m[31m/usr/local/lib/python3.10/dist-packages/pytensor/link/c/basic.py[0m:1626: in cthunk_factory
+    [0mmodule = cache.module_from_key(key=key, lnk=[96mself[39;49;00m)[90m[39;49;00m
+[1m[31m/usr/local/lib/python3.10/dist-packages/pytensor/link/c/cmodule.py[0m:1251: in module_from_key
+    [0mmodule = lnk.compile_cmodule(location)[90m[39;49;00m
+[1m[31m/usr/local/lib/python3.10/dist-packages/pytensor/link/c/basic.py[0m:1527: in compile_cmodule
+    [0mmodule = c_compiler.compile_str([90m[39;49;00m
+[1m[31m/usr/local/lib/python3.10/dist-packages/pytensor/link/c/cmodule.py[0m:2678: in compile_str
+    [0m[94mraise[39;49;00m CompileError([90m[39;49;00m
+[1m[31mE   pytensor.link.c.exceptions.CompileError: Compilation failed (return status=1):[0m
+[1m[31mE   /usr/bin/g++ -shared -g -O3 -fno-math-errno -Wno-unused-label -Wno-unused-variable -Wno-write-strings -Wno-c++11-narrowing -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables -march=skylake -mmmx -mpopcnt -msse -msse2 -msse3 -mssse3 -msse4.1 -msse4.2 -mavx -mavx2 -mno-sse4a -mno-fma4 -mno-xop -mfma -mno-avx512f -mbmi -mbmi2 -maes -mpclmul -mno-avx512vl -mno-avx512bw -mno-avx512dq -mno-avx512cd -mno-avx512er -mno-avx512pf -mno-avx512vbmi -mno-avx512ifma -mno-avx5124vnniw -mno-avx5124fmaps -mno-avx512vpopcntdq -mno-avx512vbmi2 -mno-gfni -mno-vpclmulqdq -mno-avx512vnni -mno-avx512bitalg -mno-avx512bf16 -mno-avx512vp2intersect -mno-3dnow -madx -mabm -mno-cldemote -mclflushopt -mno-clwb -mno-clzero -mcx16 -mno-enqcmd -mf16c -mfsgsbase -mfxsr -mno-hle -msahf -mno-lwp -mlzcnt -mmovbe -mno-movdir64b -mno-movdiri -mno-mwaitx -mno-pconfig -mno-pku -mno-prefetchwt1 -mprfchw -mno-ptwrite -mno-rdpid -mrdrnd -mrdseed -mno-rtm -mno-serialize -mno-sgx -mno-sha -mno-shstk -mno-tbm -mno-tsxldtrk -mno-vaes -mno-waitpkg -mno-wbnoinvd -mxsave -mxsavec -mxsaveopt -mxsaves -mno-amx-tile -mno-amx-int8 -mno-amx-bf16 -mno-uintr -mno-hreset -mno-kl -mno-widekl -mno-avxvnni --param l1-cache-size=32 --param l1-cache-line-size=64 --param l2-cache-size=12288 -mtune=skylake -DNPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION -m64 -fPIC -I/usr/local/lib/python3.10/dist-packages/numpy/_core/include -I/usr/include/python3.10 -I/usr/local/lib/python3.10/dist-packages/pytensor/link/c/c_code -L/usr/lib/x86_64-linux-gnu -L/usr/lib -fvisibility=hidden -o /root/.pytensor/compiledir_Linux-5.15-microsoft-standard-WSL2-x86_64-with-glibc2.35-x86_64-3.10.12-64/tmp3oseikfr/me0410f3ac90aa92851061f170530427154827a280cb637024f9e242d64d786d6.so /root/.pytensor/compiledir_Linux-5.15-microsoft-standard-WSL2-x86_64-with-glibc2.35-x86_64-3.10.12-64/tmp3oseikfr/mod.cpp -lpython3.10[0m
+[1m[31mE   /root/.pytensor/compiledir_Linux-5.15-microsoft-standard-WSL2-x86_64-with-glibc2.35-x86_64-3.10.12-64/tmp3oseikfr/mod.cpp:1:10: fatal error: Python.h: No such file or directory[0m
+[1m[31mE       1 | #include <Python.h>[0m
+[1m[31mE         |          ^~~~~~~~~~[0m
+[1m[31mE   compilation terminated.[0m
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+[1m[31mtests/distributions/test_continuous.py[0m:2129: in <module>
+    [0m[94mclass[39;49;00m[90m [39;49;00m[04m[92mTestStudentTLam[39;49;00m(BaseTestDistributionRandom):[90m[39;49;00m
+[1m[31mtests/distributions/test_continuous.py[0m:2134: in TestStudentTLam
+    [0mreference_dist_params = {[33m"[39;49;00m[33mdf[39;49;00m[33m"[39;49;00m: [94m5.0[39;49;00m, [33m"[39;49;00m[33mloc[39;49;00m[33m"[39;49;00m: -[94m1.0[39;49;00m, [33m"[39;49;00m[33mscale[39;49;00m[33m"[39
+... (343 lines omitted)
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

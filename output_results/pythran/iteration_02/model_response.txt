@@ -1,0 +1,4 @@
+```bash
+pip install ply setuptools gast==0.6.0 numpy beniget==0.4.0 ipython nbval cython wheel packaging ninja meson nbsphinx scipy guzzle_sphinx_theme
+pytest
+```

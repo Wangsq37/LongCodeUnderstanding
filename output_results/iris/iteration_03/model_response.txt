@@ -1,0 +1,23 @@
+The error shown is:
+
+```
+ModuleNotFoundError: No module named 'iris.std_names'
+```
+
+Looking at the directory structure under `lib/iris/`, there is no `std_names.py` file present. This is not a missing dependency to install via pip; it is a missing source file.
+
+**Root Causes:**
+- The package expected to find `iris/std_names.py`, but it does not exist, or possibly a file such as `std_names.py` was removed or misplaced.
+
+**What to try:**
+- Check if there is a file named something like `std_names.py` or `std_names` in the repository but in the wrong location, for example, in an `etc/` or `data/` directory.
+- See if there is a generation step or script that should create this file (e.g., as part of a build, or from data in `etc/cf-standard-name-table.xml`).
+- Check for submodules, documentation, or manifest files referencing it.
+
+If none of these exist, and the source simply isn't there, this can't be fixed in this environment without source modification or instructions from upstream.
+
+**Let me check for a likely file or pointer before declaring failure.**
+
+```bash
+find . -name "std_names*"
+```

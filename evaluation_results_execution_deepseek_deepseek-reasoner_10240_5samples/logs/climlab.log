@@ -1,0 +1,319 @@
+08/27/2025 22:15:17 - INFO - [climlab] - 正在为仓库 'climlab' 启动并准备容器 'agent-run-climlab'...
+08/27/2025 22:15:20 - INFO - [climlab] - 容器 'agent-run-climlab' 已就绪。
+08/27/2025 22:15:20 - INFO - [climlab] - --- 开始评估组合: ORIGINAL / ORACLE for repo climlab ---
+08/27/2025 22:15:20 - INFO - [climlab] - --- 正在处理任务 1/13: climlab_0 ---
+08/27/2025 22:15:23 - WARNING - [climlab] -   [失败] 任务 climlab_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:15:26 - WARNING - [climlab] -   [失败] 任务 climlab_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:15:28 - WARNING - [climlab] -   [失败] 任务 climlab_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:15:31 - WARNING - [climlab] -   [失败] 任务 climlab_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:15:34 - WARNING - [climlab] -   [失败] 任务 climlab_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:15:34 - INFO - [climlab] - --- 正在处理任务 2/13: climlab_14 ---
+08/27/2025 22:15:37 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:15:40 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:15:43 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:15:46 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:15:49 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:15:49 - INFO - [climlab] - --- 正在处理任务 3/13: climlab_18 ---
+08/27/2025 22:15:52 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:15:54 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:15:56 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:15:58 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:16:01 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:16:01 - INFO - [climlab] - --- 正在处理任务 4/13: climlab_19 ---
+08/27/2025 22:16:03 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:16:05 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:16:07 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:16:09 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:16:12 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:16:12 - INFO - [climlab] - --- 正在处理任务 5/13: climlab_2 ---
+08/27/2025 22:16:13 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:16:15 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:16:16 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:16:18 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:16:20 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:16:20 - INFO - [climlab] - --- 正在处理任务 6/13: climlab_20 ---
+08/27/2025 22:16:22 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:16:24 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:16:26 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:16:29 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:16:31 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:16:31 - INFO - [climlab] - --- 正在处理任务 7/13: climlab_21 ---
+08/27/2025 22:16:33 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:16:35 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:16:37 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:16:40 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:16:42 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:16:42 - INFO - [climlab] - --- 正在处理任务 8/13: climlab_3 ---
+08/27/2025 22:16:45 - WARNING - [climlab] -   [失败] 任务 climlab_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:16:47 - WARNING - [climlab] -   [失败] 任务 climlab_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:16:49 - WARNING - [climlab] -   [失败] 任务 climlab_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:16:52 - WARNING - [climlab] -   [失败] 任务 climlab_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:16:54 - WARNING - [climlab] -   [失败] 任务 climlab_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:16:54 - INFO - [climlab] - --- 正在处理任务 9/13: climlab_4 ---
+08/27/2025 22:16:56 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:16:59 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:02 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:04 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:07 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:07 - INFO - [climlab] - --- 正在处理任务 10/13: climlab_5 ---
+08/27/2025 22:17:09 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:11 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:14 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:16 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:18 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:18 - INFO - [climlab] - --- 正在处理任务 11/13: climlab_6 ---
+08/27/2025 22:17:20 - INFO - [climlab] -   [成功] 任务 climlab_6 测试通过。
+08/27/2025 22:17:22 - INFO - [climlab] -   [成功] 任务 climlab_6 测试通过。
+08/27/2025 22:17:24 - INFO - [climlab] -   [成功] 任务 climlab_6 测试通过。
+08/27/2025 22:17:25 - INFO - [climlab] -   [成功] 任务 climlab_6 测试通过。
+08/27/2025 22:17:27 - INFO - [climlab] -   [成功] 任务 climlab_6 测试通过。
+08/27/2025 22:17:27 - INFO - [climlab] - --- 正在处理任务 12/13: climlab_7 ---
+08/27/2025 22:17:29 - INFO - [climlab] -   [成功] 任务 climlab_7 测试通过。
+08/27/2025 22:17:31 - INFO - [climlab] -   [成功] 任务 climlab_7 测试通过。
+08/27/2025 22:17:33 - INFO - [climlab] -   [成功] 任务 climlab_7 测试通过。
+08/27/2025 22:17:35 - INFO - [climlab] -   [成功] 任务 climlab_7 测试通过。
+08/27/2025 22:17:37 - INFO - [climlab] -   [成功] 任务 climlab_7 测试通过。
+08/27/2025 22:17:37 - INFO - [climlab] - --- 正在处理任务 13/13: climlab_8 ---
+08/27/2025 22:17:38 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:17:40 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:17:42 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:17:44 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:17:45 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:17:46 - INFO - [climlab] - --- 开始评估组合: ORIGINAL / RETRIEVAL for repo climlab ---
+08/27/2025 22:17:46 - INFO - [climlab] - --- 正在处理任务 1/13: climlab_0 ---
+08/27/2025 22:17:47 - WARNING - [climlab] -   [失败] 任务 climlab_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:50 - WARNING - [climlab] -   [失败] 任务 climlab_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:52 - WARNING - [climlab] -   [失败] 任务 climlab_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:54 - WARNING - [climlab] -   [失败] 任务 climlab_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:56 - WARNING - [climlab] -   [失败] 任务 climlab_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:17:56 - INFO - [climlab] - --- 正在处理任务 2/13: climlab_14 ---
+08/27/2025 22:17:58 - WARNING - [climlab] -   [失败] 任务 climlab_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:18:01 - WARNING - [climlab] -   [失败] 任务 climlab_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:18:03 - WARNING - [climlab] -   [失败] 任务 climlab_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:18:05 - WARNING - [climlab] -   [失败] 任务 climlab_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:18:08 - WARNING - [climlab] -   [失败] 任务 climlab_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:18:08 - INFO - [climlab] - --- 正在处理任务 3/13: climlab_18 ---
+08/27/2025 22:18:10 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:18:12 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:18:14 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:18:16 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:18:18 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:18:18 - INFO - [climlab] - --- 正在处理任务 4/13: climlab_19 ---
+08/27/2025 22:18:20 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:18:22 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:18:24 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:18:26 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:18:28 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:18:28 - INFO - [climlab] - --- 正在处理任务 5/13: climlab_2 ---
+08/27/2025 22:18:30 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:18:31 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:18:33 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:18:34 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:18:36 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:18:36 - INFO - [climlab] - --- 正在处理任务 6/13: climlab_20 ---
+08/27/2025 22:18:38 - WARNING - [climlab] -   [失败] 任务 climlab_20 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:18:41 - WARNING - [climlab] -   [失败] 任务 climlab_20 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:18:43 - WARNING - [climlab] -   [失败] 任务 climlab_20 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:18:46 - WARNING - [climlab] -   [失败] 任务 climlab_20 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:18:49 - WARNING - [climlab] -   [失败] 任务 climlab_20 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:18:49 - INFO - [climlab] - --- 正在处理任务 7/13: climlab_21 ---
+08/27/2025 22:18:51 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:18:53 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:18:55 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:18:57 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:18:59 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:18:59 - INFO - [climlab] - --- 正在处理任务 8/13: climlab_3 ---
+08/27/2025 22:19:01 - WARNING - [climlab] -   [失败] 任务 climlab_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:03 - WARNING - [climlab] -   [失败] 任务 climlab_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:05 - WARNING - [climlab] -   [失败] 任务 climlab_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:07 - WARNING - [climlab] -   [失败] 任务 climlab_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:09 - WARNING - [climlab] -   [失败] 任务 climlab_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:09 - INFO - [climlab] - --- 正在处理任务 9/13: climlab_4 ---
+08/27/2025 22:19:11 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:14 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:16 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:19 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:21 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:21 - INFO - [climlab] - --- 正在处理任务 10/13: climlab_5 ---
+08/27/2025 22:19:23 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:26 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:28 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:30 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:32 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:32 - INFO - [climlab] - --- 正在处理任务 11/13: climlab_6 ---
+08/27/2025 22:19:35 - WARNING - [climlab] -   [失败] 任务 climlab_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:35 - WARNING - [climlab] -   任务 climlab_6 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:19:37 - WARNING - [climlab] -   [失败] 任务 climlab_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:40 - WARNING - [climlab] -   [失败] 任务 climlab_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:43 - WARNING - [climlab] -   [失败] 任务 climlab_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:43 - INFO - [climlab] - --- 正在处理任务 12/13: climlab_7 ---
+08/27/2025 22:19:45 - WARNING - [climlab] -   [失败] 任务 climlab_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:48 - WARNING - [climlab] -   [失败] 任务 climlab_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:50 - WARNING - [climlab] -   [失败] 任务 climlab_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:53 - WARNING - [climlab] -   [失败] 任务 climlab_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:55 - WARNING - [climlab] -   [失败] 任务 climlab_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:19:56 - INFO - [climlab] - --- 正在处理任务 13/13: climlab_8 ---
+08/27/2025 22:19:57 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:19:59 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:20:01 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:20:02 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:20:04 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:20:04 - INFO - [climlab] - --- 开始评估组合: REWRITE / ORACLE for repo climlab ---
+08/27/2025 22:20:04 - INFO - [climlab] - --- 正在处理任务 1/13: climlab_0 ---
+08/27/2025 22:20:06 - INFO - [climlab] -   [成功] 任务 climlab_0 测试通过。
+08/27/2025 22:20:07 - INFO - [climlab] -   [成功] 任务 climlab_0 测试通过。
+08/27/2025 22:20:09 - INFO - [climlab] -   [成功] 任务 climlab_0 测试通过。
+08/27/2025 22:20:10 - INFO - [climlab] -   [成功] 任务 climlab_0 测试通过。
+08/27/2025 22:20:12 - INFO - [climlab] -   [成功] 任务 climlab_0 测试通过。
+08/27/2025 22:20:12 - INFO - [climlab] - --- 正在处理任务 2/13: climlab_14 ---
+08/27/2025 22:20:14 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:20:17 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:20:19 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:20:22 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:20:24 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:20:24 - INFO - [climlab] - --- 正在处理任务 3/13: climlab_18 ---
+08/27/2025 22:20:26 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:20:28 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:20:30 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:20:33 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:20:35 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:20:35 - INFO - [climlab] - --- 正在处理任务 4/13: climlab_19 ---
+08/27/2025 22:20:37 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:20:38 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:20:41 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:20:43 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:20:45 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:20:45 - INFO - [climlab] - --- 正在处理任务 5/13: climlab_2 ---
+08/27/2025 22:20:46 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:20:48 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:20:49 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:20:51 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:20:52 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:20:52 - INFO - [climlab] - --- 正在处理任务 6/13: climlab_20 ---
+08/27/2025 22:20:54 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:20:56 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:20:58 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:21:00 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:21:02 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:21:02 - INFO - [climlab] - --- 正在处理任务 7/13: climlab_21 ---
+08/27/2025 22:21:04 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:21:06 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:21:08 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:21:10 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:21:13 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:21:13 - INFO - [climlab] - --- 正在处理任务 8/13: climlab_3 ---
+08/27/2025 22:21:14 - INFO - [climlab] -   [成功] 任务 climlab_3 测试通过。
+08/27/2025 22:21:16 - INFO - [climlab] -   [成功] 任务 climlab_3 测试通过。
+08/27/2025 22:21:17 - INFO - [climlab] -   [成功] 任务 climlab_3 测试通过。
+08/27/2025 22:21:19 - INFO - [climlab] -   [成功] 任务 climlab_3 测试通过。
+08/27/2025 22:21:20 - INFO - [climlab] -   [成功] 任务 climlab_3 测试通过。
+08/27/2025 22:21:20 - INFO - [climlab] - --- 正在处理任务 9/13: climlab_4 ---
+08/27/2025 22:21:22 - INFO - [climlab] -   [成功] 任务 climlab_4 测试通过。
+08/27/2025 22:21:24 - INFO - [climlab] -   [成功] 任务 climlab_4 测试通过。
+08/27/2025 22:21:26 - INFO - [climlab] -   [成功] 任务 climlab_4 测试通过。
+08/27/2025 22:21:28 - INFO - [climlab] -   [成功] 任务 climlab_4 测试通过。
+08/27/2025 22:21:30 - INFO - [climlab] -   [成功] 任务 climlab_4 测试通过。
+08/27/2025 22:21:30 - INFO - [climlab] - --- 正在处理任务 10/13: climlab_5 ---
+08/27/2025 22:21:32 - INFO - [climlab] -   [成功] 任务 climlab_5 测试通过。
+08/27/2025 22:21:34 - INFO - [climlab] -   [成功] 任务 climlab_5 测试通过。
+08/27/2025 22:21:35 - INFO - [climlab] -   [成功] 任务 climlab_5 测试通过。
+08/27/2025 22:21:37 - INFO - [climlab] -   [成功] 任务 climlab_5 测试通过。
+08/27/2025 22:21:39 - INFO - [climlab] -   [成功] 任务 climlab_5 测试通过。
+08/27/2025 22:21:39 - INFO - [climlab] - --- 正在处理任务 11/13: climlab_6 ---
+08/27/2025 22:21:41 - INFO - [climlab] -   [成功] 任务 climlab_6 测试通过。
+08/27/2025 22:21:43 - INFO - [climlab] -   [成功] 任务 climlab_6 测试通过。
+08/27/2025 22:21:45 - INFO - [climlab] -   [成功] 任务 climlab_6 测试通过。
+08/27/2025 22:21:46 - INFO - [climlab] -   [成功] 任务 climlab_6 测试通过。
+08/27/2025 22:21:48 - INFO - [climlab] -   [成功] 任务 climlab_6 测试通过。
+08/27/2025 22:21:48 - INFO - [climlab] - --- 正在处理任务 12/13: climlab_7 ---
+08/27/2025 22:21:50 - INFO - [climlab] -   [成功] 任务 climlab_7 测试通过。
+08/27/2025 22:21:52 - INFO - [climlab] -   [成功] 任务 climlab_7 测试通过。
+08/27/2025 22:21:54 - INFO - [climlab] -   [成功] 任务 climlab_7 测试通过。
+08/27/2025 22:21:56 - INFO - [climlab] -   [成功] 任务 climlab_7 测试通过。
+08/27/2025 22:21:58 - INFO - [climlab] -   [成功] 任务 climlab_7 测试通过。
+08/27/2025 22:21:58 - INFO - [climlab] - --- 正在处理任务 13/13: climlab_8 ---
+08/27/2025 22:22:01 - WARNING - [climlab] -   [失败] 任务 climlab_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:22:02 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:22:04 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:22:06 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:22:07 - INFO - [climlab] -   [成功] 任务 climlab_8 测试通过。
+08/27/2025 22:22:08 - INFO - [climlab] - --- 开始评估组合: REWRITE / RETRIEVAL for repo climlab ---
+08/27/2025 22:22:08 - INFO - [climlab] - --- 正在处理任务 1/13: climlab_0 ---
+08/27/2025 22:22:09 - INFO - [climlab] -   [成功] 任务 climlab_0 测试通过。
+08/27/2025 22:22:11 - INFO - [climlab] -   [成功] 任务 climlab_0 测试通过。
+08/27/2025 22:22:12 - INFO - [climlab] -   [成功] 任务 climlab_0 测试通过。
+08/27/2025 22:22:14 - INFO - [climlab] -   [成功] 任务 climlab_0 测试通过。
+08/27/2025 22:22:15 - INFO - [climlab] -   [成功] 任务 climlab_0 测试通过。
+08/27/2025 22:22:15 - INFO - [climlab] - --- 正在处理任务 2/13: climlab_14 ---
+08/27/2025 22:22:18 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:22:20 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:22:23 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:22:25 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:22:28 - INFO - [climlab] -   [成功] 任务 climlab_14 测试通过。
+08/27/2025 22:22:28 - INFO - [climlab] - --- 正在处理任务 3/13: climlab_18 ---
+08/27/2025 22:22:30 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:22:32 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:22:34 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:22:36 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:22:38 - INFO - [climlab] -   [成功] 任务 climlab_18 测试通过。
+08/27/2025 22:22:38 - INFO - [climlab] - --- 正在处理任务 4/13: climlab_19 ---
+08/27/2025 22:22:40 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:22:42 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:22:44 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:22:46 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:22:48 - INFO - [climlab] -   [成功] 任务 climlab_19 测试通过。
+08/27/2025 22:22:48 - INFO - [climlab] - --- 正在处理任务 5/13: climlab_2 ---
+08/27/2025 22:22:50 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:22:51 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:22:53 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:22:54 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:22:56 - INFO - [climlab] -   [成功] 任务 climlab_2 测试通过。
+08/27/2025 22:22:56 - INFO - [climlab] - --- 正在处理任务 6/13: climlab_20 ---
+08/27/2025 22:22:58 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:23:00 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:23:02 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:23:04 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:23:06 - INFO - [climlab] -   [成功] 任务 climlab_20 测试通过。
+08/27/2025 22:23:06 - INFO - [climlab] - --- 正在处理任务 7/13: climlab_21 ---
+08/27/2025 22:23:08 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:23:10 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:23:12 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:23:14 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:23:16 - INFO - [climlab] -   [成功] 任务 climlab_21 测试通过。
+08/27/2025 22:23:16 - INFO - [climlab] - --- 正在处理任务 8/13: climlab_3 ---
+08/27/2025 22:23:18 - INFO - [climlab] -   [成功] 任务 climlab_3 测试通过。
+08/27/2025 22:23:19 - INFO - [climlab] -   [成功] 任务 climlab_3 测试通过。
+08/27/2025 22:23:21 - INFO - [climlab] -   [成功] 任务 climlab_3 测试通过。
+08/27/2025 22:23:22 - INFO - [climlab] -   [成功] 任务 climlab_3 测试通过。
+08/27/2025 22:23:24 - INFO - [climlab] -   [成功] 任务 climlab_3 测试通过。
+08/27/2025 22:23:24 - INFO - [climlab] - --- 正在处理任务 9/13: climlab_4 ---
+08/27/2025 22:23:26 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:29 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:31 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:34 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:36 - WARNING - [climlab] -   [失败] 任务 climlab_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:36 - INFO - [climlab] - --- 正在处理任务 10/13: climlab_5 ---
+08/27/2025 22:23:38 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:41 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:43 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:45 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:47 - WARNING - [climlab] -   [失败] 任务 climlab_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:47 - INFO - [climlab] - --- 正在处理任务 11/13: climlab_6 ---
+08/27/2025 22:23:50 - WARNING - [climlab] -   [失败] 任务 climlab_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:52 - WARNING - [climlab] -   [失败] 任务 climlab_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:55 - WARNING - [climlab] -   [失败] 任务 climlab_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:23:57 - WARNING - [climlab] -   [失败] 任务 climlab_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:00 - WARNING - [climlab] -   [失败] 任务 climlab_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:00 - INFO - [climlab] - --- 正在处理任务 12/13: climlab_7 ---
+08/27/2025 22:24:03 - WARNING - [climlab] -   [失败] 任务 climlab_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:05 - WARNING - [climlab] -   [失败] 任务 climlab_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:08 - WARNING - [climlab] -   [失败] 任务 climlab_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:10 - WARNING - [climlab] -   [失败] 任务 climlab_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:13 - WARNING - [climlab] -   [失败] 任务 climlab_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:13 - INFO - [climlab] - --- 正在处理任务 13/13: climlab_8 ---
+08/27/2025 22:24:15 - WARNING - [climlab] -   [失败] 任务 climlab_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:17 - WARNING - [climlab] -   [失败] 任务 climlab_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:20 - WARNING - [climlab] -   [失败] 任务 climlab_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:22 - WARNING - [climlab] -   [失败] 任务 climlab_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:24 - WARNING - [climlab] -   [失败] 任务 climlab_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:24 - INFO - [climlab] - 仓库 'climlab' 处理完毕，正在停止容器 'agent-run-climlab'...

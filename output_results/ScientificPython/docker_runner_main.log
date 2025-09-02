@@ -1,0 +1,176 @@
+08/10/2025 22:43:53 - INFO - __main__ - --- Processing repository: ScientificPython ---
+08/10/2025 22:43:53 - INFO - __main__ - No existing container found. Creating new container 'agent-run-ScientificPython'...
+08/10/2025 22:43:54 - INFO - __main__ - Copying 'python_repos\ScientificPython' to new container 'agent-run-ScientificPython:/app/repo_to_process'...
+08/10/2025 22:43:55 - INFO - __main__ - Executing agent inside the container...
+08/10/2025 22:43:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:43:55 - INFO - __main__ - --- Starting Agent inside Container ---
+08/10/2025 22:43:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:43:55 - INFO - __main__ - Repository Name: ScientificPython
+08/10/2025 22:43:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:43:55 - INFO - __main__ - Repository: /app/repo_to_process
+08/10/2025 22:43:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:43:55 - INFO - __main__ - Language: Python
+08/10/2025 22:43:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:43:55 - INFO - __main__ - Model: gpt-4.1
+08/10/2025 22:43:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:43:55 - INFO - __main__ - Max Iterations: 15
+08/10/2025 22:43:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:43:55 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/10/2025 22:43:58 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:43:58 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/10/2025 22:43:58 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:43:58 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:43:58 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:43:58 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:44:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:01 - INFO - __main__ - Executing 3 command(s)...
+08/10/2025 22:44:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:01 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e .
+08/10/2025 22:44:02 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:02 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r requirements-build.txt
+08/10/2025 22:44:06 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:06 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:44:06 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:06 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:44:07 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:07 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:44:07 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:07 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/10/2025 22:44:07 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:07 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:44:07 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:07 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:44:13 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:13 - INFO - __main__ - Executing 2 command(s)...
+08/10/2025 22:44:13 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:13 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e .
+08/10/2025 22:44:14 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:14 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:44:14 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:14 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:44:14 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:14 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:44:14 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:14 - INFO - __main__ - === Starting Iteration 3/15 [Phase: SETUP] ===
+08/10/2025 22:44:14 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:14 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:44:14 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:14 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:44:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:17 - INFO - __main__ - Executing 2 command(s)...
+08/10/2025 22:44:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:17 - INFO - __main__ - Executing command in '/app/repo_to_process': export PYTHONPATH=$PYTHONPATH:/app/repo_to_process
+08/10/2025 22:44:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:17 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:44:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:17 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:44:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:18 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:44:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:18 - INFO - __main__ - === Starting Iteration 4/15 [Phase: SETUP] ===
+08/10/2025 22:44:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:18 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:44:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:18 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:44:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:21 - INFO - __main__ - Executing 2 command(s)...
+08/10/2025 22:44:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:21 - INFO - __main__ - Executing command in '/app/repo_to_process': export PYTHONPATH=/app/repo_to_process
+08/10/2025 22:44:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:21 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:44:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:21 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:44:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:21 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:44:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:21 - INFO - __main__ - === Starting Iteration 5/15 [Phase: SETUP] ===
+08/10/2025 22:44:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:21 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:44:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:21 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:44:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:29 - INFO - __main__ - Executing 2 command(s)...
+08/10/2025 22:44:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:29 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e .
+08/10/2025 22:44:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:29 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:44:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:29 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:44:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:30 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:44:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:30 - INFO - __main__ - === Starting Iteration 6/15 [Phase: SETUP] ===
+08/10/2025 22:44:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:30 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:44:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:30 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:44:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:32 - INFO - __main__ - Executing 3 command(s)...
+08/10/2025 22:44:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:32 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install wheel
+08/10/2025 22:44:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:33 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e .
+08/10/2025 22:44:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:33 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:44:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:33 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:44:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:33 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:44:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:33 - INFO - __main__ - === Starting Iteration 7/15 [Phase: SETUP] ===
+08/10/2025 22:44:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:33 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:44:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:33 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:44:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:37 - INFO - __main__ - Executing 1 command(s)...
+08/10/2025 22:44:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:37 - INFO - __main__ - Using PYTEST timeout (3600s) for command: PYTHONPATH=. pytest
+08/10/2025 22:44:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:37 - INFO - __main__ - Executing command in '/app/repo_to_process': PYTHONPATH=. pytest
+08/10/2025 22:44:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:37 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:44:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:37 - INFO - __main__ - === Starting Iteration 8/15 [Phase: SETUP] ===
+08/10/2025 22:44:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:37 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:44:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:37 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:44:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:42 - INFO - __main__ - Found file block: Scientific/__init__.py
+08/10/2025 22:44:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:42 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/__init__.py
+08/10/2025 22:44:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:42 - INFO - __main__ - Executing 1 command(s)...
+08/10/2025 22:44:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:42 - INFO - __main__ - Using PYTEST timeout (3600s) for command: PYTHONPATH=. pytest
+08/10/2025 22:44:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:42 - INFO - __main__ - Executing command in '/app/repo_to_process': PYTHONPATH=. pytest
+08/10/2025 22:44:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:42 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:44:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:42 - INFO - __main__ - === Starting Iteration 9/15 [Phase: SETUP] ===
+08/10/2025 22:44:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:42 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:44:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:42 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:44:53 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:53 - INFO - __main__ - Found file block: Scientific/Clustering/AffinityPropagation.py
+08/10/2025 22:44:53 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:53 - INFO - __main__ - Found file block: Scientific/Signals/Models.py
+08/10/2025 22:44:53 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:53 - INFO - __main__ - Found file block: Scientific/Functions/Interpolation.py
+08/10/2025 22:44:53 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:53 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Clustering/AffinityPropagation.py
+08/10/2025 22:44:53 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:53 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Signals/Models.py
+08/10/2025 22:44:53 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:53 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Functions/Interpolation.py
+08/10/2025 22:44:53 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:53 - INFO - __main__ - Executing 2 command(s)...
+08/10/2025 22:44:53 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:53 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install numpy
+08/10/2025 22:44:53 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:53 - INFO - __main__ - Using PYTEST timeout (3600s) for command: PYTHONPATH=. pytest
+08/10/2025 22:44:53 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:53 - INFO - __main__ - Executing command in '/app/repo_to_process': PYTHONPATH=. pytest
+08/10/2025 22:44:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:54 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:44:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:54 - INFO - __main__ - === Starting Iteration 10/15 [Phase: SETUP] ===
+08/10/2025 22:44:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:54 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:44:54 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:44:54 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Found file block: Scientific/Clustering/AffinityPropagation.py
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Found file block: Scientific/Signals/Models.py
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Found file block: Scientific/Functions/Interpolation.py
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Found file block: Scientific/N.py
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Clustering/AffinityPropagation.py
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Signals/Models.py
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Functions/Interpolation.py
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/N.py
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Executing 1 command(s)...
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Using PYTEST timeout (3600s) for command: PYTHONPATH=. pytest
+08/10/2025 22:45:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:03 - INFO - __main__ - Executing command in '/app/repo_to_process': PYTHONPATH=. pytest
+08/10/2025 22:45:04 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:04 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:45:04 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:04 - INFO - __main__ - === Starting Iteration 11/15 [Phase: SETUP] ===
+08/10/2025 22:45:04 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:04 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:45:04 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:04 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Found file block: Scientific/Clustering/AffinityPropagation.py
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Found file block: Scientific/Functions/Interpolation.py
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Found file block: Scientific/Signals/Models.py
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Found file block: /usr/local/lib/python3.10/dist-packages/oldnumeric/__init__.py
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Clustering/AffinityPropagation.py
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Functions/Interpolation.py
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Signals/Models.py
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Created file: /usr/local/lib/python3.10/dist-packages/oldnumeric/__init__.py
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Executing 1 command(s)...
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Using PYTEST timeout (3600s) for command: PYTHONPATH=. pytest
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Executing command in '/app/repo_to_process': PYTHONPATH=. pytest
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - === Starting Iteration 12/15 [Phase: SETUP] ===
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:45:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:10 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Found file block: Scientific/Signals/Models.py
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Found file block: Scientific/_vector.py
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Found file block: Scientific/Geometry/__init__.py
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Signals/Models.py
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/_vector.py
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Geometry/__init__.py
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Executing 1 command(s)...
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Using PYTEST timeout (3600s) for command: PYTHONPATH=. pytest
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Executing command in '/app/repo_to_process': PYTHONPATH=. pytest
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - === Starting Iteration 13/15 [Phase: SETUP] ===
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:45:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:16 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:45:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:23 - INFO - __main__ - Found file block: Scientific/Geometry/VectorModule.py
+08/10/2025 22:45:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:23 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Geometry/VectorModule.py
+08/10/2025 22:45:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:23 - INFO - __main__ - Executing 1 command(s)...
+08/10/2025 22:45:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:23 - INFO - __main__ - Using PYTEST timeout (3600s) for command: PYTHONPATH=. pytest
+08/10/2025 22:45:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:23 - INFO - __main__ - Executing command in '/app/repo_to_process': PYTHONPATH=. pytest
+08/10/2025 22:45:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:23 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:45:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:23 - INFO - __main__ - === Starting Iteration 14/15 [Phase: SETUP] ===
+08/10/2025 22:45:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:23 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:45:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:23 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:45:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:27 - INFO - __main__ - Found file block: Scientific/Geometry/VectorModule.py
+08/10/2025 22:45:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:27 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Geometry/VectorModule.py
+08/10/2025 22:45:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:27 - INFO - __main__ - Executing 1 command(s)...
+08/10/2025 22:45:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:27 - INFO - __main__ - Using PYTEST timeout (3600s) for command: PYTHONPATH=. pytest
+08/10/2025 22:45:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:27 - INFO - __main__ - Executing command in '/app/repo_to_process': PYTHONPATH=. pytest
+08/10/2025 22:45:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:28 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:45:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:28 - INFO - __main__ - === Starting Iteration 15/15 [Phase: SETUP] ===
+08/10/2025 22:45:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:28 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:45:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:28 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:45:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:33 - INFO - __main__ - Found file block: Scientific/Geometry/VectorModule.py
+08/10/2025 22:45:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:33 - INFO - __main__ - Created file: /app/repo_to_process/Scientific/Geometry/VectorModule.py
+08/10/2025 22:45:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:33 - INFO - __main__ - Executing 1 command(s)...
+08/10/2025 22:45:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:33 - INFO - __main__ - Using PYTEST timeout (3600s) for command: PYTHONPATH=. pytest
+08/10/2025 22:45:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:33 - INFO - __main__ - Executing command in '/app/repo_to_process': PYTHONPATH=. pytest
+08/10/2025 22:45:34 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:34 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:45:34 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:34 - WARNING - __main__ - Reached maximum iterations (15).
+08/10/2025 22:45:34 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:34 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: max_iterations_reached
+08/10/2025 22:45:34 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:45:34 - INFO - __main__ - ❌ Agent finished with non-success status: max_iterations_reached
+08/10/2025 22:45:34 - INFO - __main__ - Agent finished with exit code: 1
+08/10/2025 22:45:34 - INFO - __main__ - Copying all generated files from container 'agent-run-ScientificPython:/app/new_test_detection_logs/ScientificPython'...
+08/10/2025 22:45:34 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\ScientificPython'.
+08/10/2025 22:45:34 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-ScientificPython:/app/repo_to_process'...
+08/10/2025 22:45:34 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/10/2025 22:45:34 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/10/2025 22:45:34 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/10/2025 22:45:34 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/10/2025 22:45:34 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/10/2025 22:45:34 - INFO - __main__ - Deleting container 'agent-run-ScientificPython' due to failure or missing required files.
+08/10/2025 22:45:45 - INFO - __main__ - --- Finished processing repository: ScientificPython ---
+

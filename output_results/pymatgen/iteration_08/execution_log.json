@@ -1,0 +1,9 @@
+[
+  {
+    "command": "pytest --ignore=tests/io/jdftx",
+    "success": false,
+    "stdout": "",
+    "stderr": "Command timed out after 3600 seconds",
+    "execution_time": 3599.909264087677
+  }
+]

@@ -1,0 +1,377 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── bleeding-edge.yaml
+│   │   ├── build-test.yaml
+│   │   ├── type-checking.yaml
+│   │   └── wheels.yaml
+│   ├── config.yml
+│   ├── dependabot.yml
+│   ├── ISSUE_TEMPLATE.md
+│   ├── mergeable.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── .tours/
+│   └── particle-indexing.tour
+├── answer-store/
+├── doc/
+│   ├── extensions/
+│   │   ├── config_help.py
+│   │   ├── pythonscript_sphinxext.py
+│   │   ├── README
+│   │   ├── yt_colormaps.py
+│   │   ├── yt_cookbook.py
+│   │   └── yt_showfields.py
+│   │       └── ... (1 more files)
+│   ├── helper_scripts/
+│   │   ├── code_support.py
+│   │   ├── parse_cb_list.py
+│   │   ├── parse_dq_list.py
+│   │   ├── parse_object_list.py
+│   │   ├── run_recipes.py
+│   │   ├── show_fields.py
+│   │   ├── split_auto.py
+│   │   └── table.py
+│   │       └── ... (3 more files)
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── apiKey01.jpg
+│   │   │   ├── apiKey02.jpg
+│   │   │   ├── apiKey03.jpg
+│   │   │   ├── apiKey04.jpg
+│   │   │   ├── custom.css
+│   │   │   ├── yt_icon.png
+│   │   │   ├── yt_logo.png
+│   │   │   └── yt_logo.svg
+│   │   │       └── ... (3 more files)
+│   │   ├── _templates/
+│   │   │   ├── autosummary/
+│   │   │   └── layout.html
+│   │   ├── about/
+│   │   │   └── index.rst
+│   │   ├── analyzing/
+│   │   │   ├── _images/
+│   │   │   ├── _static/
+│   │   │   ├── domain_analysis/
+│   │   │   ├── astropy_integrations.rst
+│   │   │   ├── fields.rst
+│   │   │   ├── filtering.rst
+│   │   │   ├── generating_processed_data.rst
+│   │   │   ├── index.rst
+│   │   │   ├── ionization_cube.py
+│   │   │   ├── mesh_filter.ipynb
+│   │   │   ├── objects.rst
+│   │   │   ├── parallel_computation.rst
+│   │   │   ├── particle_filter.ipynb
+│   │   │   ├── Particle_Trajectories.ipynb
+│   │   │   ├── saving_data.rst
+│   │   │   ├── time_series_analysis.rst
+│   │   │   └── units.rst
+│   │   │       └── ... (9 more files)
+│   │   ├── cookbook/
+│   │   │   ├── tests/
+│   │   │   ├── amrkdtree_downsampling.py
+│   │   │   ├── annotate_timestamp_and_scale.py
+│   │   │   ├── annotations.py
+│   │   │   ├── average_value.py
+│   │   │   ├── calculating_information.rst
+│   │   │   ├── camera_movement.py
+│   │   │   ├── changing_label_formats.py
+│   │   │   ├── colormaps.py
+│   │   │   ├── complex_plots.rst
+│   │   │   ├── constructing_data_objects.rst
+│   │   │   ├── contours_on_slice.py
+│   │   │   ├── count.sh
+│   │   │   ├── custom_camera_volume_rendering.py
+│   │   │   ├── custom_colorbar_tickmarks.ipynb
+│   │   │   ├── custom_transfer_function_volume_rendering.py
+│   │   │   ├── customized_phase_plot.py
+│   │   │   ├── customized_profile_plot.py
+│   │   │   ├── derived_field.py
+│   │   │   ├── downsampling_amr.py
+│   │   │   ├── extract_fixed_resolution_data.py
+│   │   │   ├── find_clumps.py
+│   │   │   ├── fits_radio_cubes.ipynb
+│   │   │   ├── fits_xray_images.ipynb
+│   │   │   ├── geographic_xforms_and_projections.ipynb
+│   │   │   ├── global_phase_plots.py
+│   │   │   ├── hse_field.py
+│   │   │   ├── image_background_colors.py
+│   │   │   ├── image_resolution.py
+│   │   │   ├── index.rst
+│   │   │   ├── matplotlib-animation.py
+│   │   │   ├── multi_plot_3x2_FRB.py
+│   │   │   ├── multi_plot_slice_and_proj.py
+│   │   │   ├── multi_width_image.py
+│   │   │   ├── multiplot_2x2.py
+│   │   │   ├── multiplot_2x2_coordaxes_slice.py
+│   │   │   ├── multiplot_2x2_time_series.py
+│   │   │   ├── multiplot_export_to_mpl.py
+│   │   │   ├── multiplot_phaseplot.py
+│   │   │   ├── notebook_tutorial.rst
+│   │   │   ├── offaxis_projection.py
+│   │   │   ├── offaxis_projection_colorbar.py
+│   │   │   ├── opaque_rendering.py
+│   │   │   ├── overplot_grids.py
+│   │   │   ├── overplot_particles.py
+│   │   │   ├── particle_filter.py
+│   │   │   ├── particle_filter_sfr.py
+│   │   │   ├── particle_one_color_plot.py
+│   │   │   ├── particle_xvz_plot.py
+│   │   │   ├── particle_xy_plot.py
+│   │   │   ├── power_spectrum_example.py
+│   │   │   ├── profile_with_standard_deviation.py
+│   │   │   ├── rad_velocity.py
+│   │   │   ├── radial_profile_styles.py
+│   │   │   ├── render_two_fields.py
+│   │   │   ├── render_two_fields_tf.py
+│   │   │   ├── rendering_with_box_and_grids.py
+│   │   │   ├── show_hide_axes_colorbar.py
+│   │   │   ├── sigma_clip.py
+│   │   │   ├── simple_1d_line_plot.py
+│   │   │   ├── simple_contour_in_slice.py
+│   │   │   ├── simple_off_axis_projection.py
+│   │   │   ├── simple_off_axis_slice.py
+│   │   │   ├── simple_pdf.py
+│   │   │   ├── simple_phase.py
+│   │   │   ├── simple_plots.rst
+│   │   │   ├── simple_profile.py
+│   │   │   ├── simple_projection.py
+│   │   │   ├── simple_projection_methods.py
+│   │   │   ├── simple_projection_stddev.py
+│   │   │   ├── simple_projection_weighted.py
+│   │   │   ├── simple_radial_profile.py
+│   │   │   ├── simple_slice.py
+│   │   │   ├── simple_slice_matplotlib_example.py
+│   │   │   ├── simple_slice_with_multiple_fields.py
+│   │   │   ├── simple_volume_rendering.py
+│   │   │   ├── simulation_analysis.py
+│   │   │   ├── streamlines.py
+│   │   │   ├── streamlines_isocontour.py
+│   │   │   ├── sum_mass_in_sphere.py
+│   │   │   ├── surface_plot.py
+│   │   │   ├── thin_slice_projection.py
+│   │   │   ├── time_series.py
+│   │   │   ├── time_series_profiles.py
+│   │   │   ├── tipsy_and_yt.ipynb
+│   │   │   ├── various_lens.py
+│   │   │   ├── velocity_vectors_on_slice.py
+│   │   │   ├── vol-annotated.py
+│   │   │   ├── vol-lines.py
+│   │   │   ├── vol-points.py
+│   │   │   ├── yt_gadget_analysis.ipynb
+│   │   │   ├── yt_gadget_owls_analysis.ipynb
+│   │   │   └── zoomin_frames.py
+│   │   │       └── ... (87 more files)
+│   │   ├── developing/
+│   │   │   ├── building_the_docs.rst
+│   │   │   ├── creating_datatypes.rst
+│   │   │   ├── creating_derived_fields.rst
+│   │   │   ├── creating_frontend.rst
+│   │   │   ├── debugdrive.rst
+│   │   │   ├── deprecating_features.rst
+│   │   │   ├── developing.rst
+│   │   │   ├── extensions.rst
+│   │   │   ├── external_analysis.rst
+│   │   │   ├── index.rst
+│   │   │   ├── releasing.rst
+│   │   │   └── testing.rst
+│   │   │       └── ... (7 more files)
+│   │   ├── examining/
+│   │   │   ├── index.rst
+│   │   │   ├── loading_data.rst
+│   │   │   ├── Loading_Data_via_Functions.ipynb
+│   │   │   ├── Loading_Generic_Array_Data.ipynb
+│   │   │   ├── Loading_Generic_Particle_Data.ipynb
+│   │   │   ├── Loading_Spherical_Data.ipynb
+│   │   │   └── low_level_inspection.rst
+│   │   │       └── ... (2 more files)
+│   │   ├── faq/
+│   │   │   └── index.rst
+│   │   ├── help/
+│   │   │   └── index.rst
+│   │   ├── intro/
+│   │   │   └── index.rst
+│   │   ├── quickstart/
+│   │   │   ├── 1)_Introduction.ipynb
+│   │   │   ├── 2)_Data_Inspection.ipynb
+│   │   │   ├── 3)_Simple_Visualization.ipynb
+│   │   │   ├── 4)_Data_Objects_and_Time_Series.ipynb
+│   │   │   ├── 5)_Derived_Fields_and_Profiles.ipynb
+│   │   │   ├── 6)_Volume_Rendering.ipynb
+│   │   │   └── index.rst
+│   │   │       └── ... (2 more files)
+│   │   ├── reference/
+│   │   │   ├── _images/
+│   │   │   ├── api/
+│   │   │   ├── changelog.rst
+│   │   │   ├── code_support.rst
+│   │   │   ├── command-line.rst
+│   │   │   ├── configuration.rst
+│   │   │   ├── demeshening.rst
+│   │   │   ├── field_list.rst
+│   │   │   ├── index.rst
+│   │   │   └── python_introduction.rst
+│   │   │       └── ... (3 more files)
+│   │   ├── visualizing/
+│   │   │   ├── _images/
+│   │   │   ├── colormaps/
+│   │   │   ├── callbacks.rst
+│   │   │   ├── FITSImageData.ipynb
+│   │   │   ├── geographic_projections_and_transforms.rst
+│   │   │   ├── index.rst
+│   │   │   ├── interactive_data_visualization.rst
+│   │   │   ├── manual_plotting.rst
+│   │   │   ├── mapserver.rst
+│   │   │   ├── plots.rst
+│   │   │   ├── sketchfab.rst
+│   │   │   ├── streamlines.rst
+│   │   │   ├── TransferFunctionHelper_Tutorial.ipynb
+│   │   │   ├── unstructured_mesh_rendering.rst
+│   │   │   ├── visualizing_particle_datasets_with_firefly.rst
+│   │   │   ├── volume_rendering.rst
+│   │   │   └── Volume_Rendering_Tutorial.ipynb
+│   │   │       └── ... (10 more files)
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── installing.rst
+│   │   ├── yt3differences.rst
+│   │   └── yt4differences.rst
+│   ├── activate
+│   ├── activate.csh
+│   ├── cheatsheet.tex
+│   ├── docstring_idioms.txt
+│   ├── Makefile
+│   └── README
+│       └── ... (1 more files)
+├── requirements/
+│   ├── docs.txt
+│   └── typecheck.txt
+├── tests/
+│   ├── DD0000/
+│   │   ├── moving7_0000
+│   │   ├── moving7_0000.boundary
+│   │   ├── moving7_0000.boundary.hdf
+│   │   ├── moving7_0000.grid0001
+│   │   ├── moving7_0000.grid0002
+│   │   ├── moving7_0000.grid0003
+│   │   └── moving7_0000.hierarchy
+│   │       └── ... (2 more files)
+│   ├── DD0010/
+│   │   ├── moving7_0010
+│   │   ├── moving7_0010.boundary
+│   │   ├── moving7_0010.boundary.hdf
+│   │   ├── moving7_0010.cpu0000
+│   │   ├── moving7_0010.hierarchy
+│   │   └── moving7_0010.procmap
+│   │       └── ... (1 more files)
+│   ├── pytest_mpl_baseline/
+│   ├── ci_install.sh
+│   ├── local001.bak
+│   ├── local001.dat
+│   ├── local001.dir
+│   ├── matplotlibrc
+│   ├── nose_runner.py
+│   ├── pytest_runner.py
+│   ├── README
+│   ├── report_failed_answers.py
+│   ├── tests.yaml
+│   └── unpin_requirements.py
+│       └── ... (6 more files)
+├── yt/
+│   ├── _maintenance/
+│   │   ├── __init__.py
+│   │   ├── backports.py
+│   │   ├── deprecation.py
+│   │   ├── ipython_compat.py
+│   │   └── numpy2_compat.py
+│   ├── analysis_modules/
+│   │   ├── absorption_spectrum/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── cosmological_observation/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── halo_analysis/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── halo_finding/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── halo_mass_function/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── level_sets/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── particle_trajectories/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── photon_simulator/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── ppv_cube/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── radmc3d_export/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── spectral_integrator/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── star_analysis/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── sunrise_export/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── sunyaev_zeldovich/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   ├── two_point_functions/
+│   │   │   ├── __init__.py
+│   │   │   └── api.py
+│   │   └── __init__.py
+│   ├── data_objects/
+│   │   ├── index_subobjects/
+│   │   │   ├── __init__.py
+│   │   │   ├── grid_patch.py
+│   │   │   ├── octree_subset.py
+│   │   │   ├── particle_container.py
+│   │   │   ├── stretched_grid.py
+│   │   │   └── unstructured_mesh.py
+│   │   │       └── ... (1 more files)
+│   │   ├── level_sets/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── clump_handling.py
+│   │   │   ├── clump_info_items.py
+│   │   │   ├── clump_tools.py
+│   │   │   ├── clump_validators
+... (955 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pytest ---
+SUCCESS: False
+STDERR:
+ImportError while loading conftest '/app/repo_to_process/conftest.py'.
+conftest.py:10: in <module>
+    import yaml
+E   ModuleNotFoundError: No module named 'yaml'
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

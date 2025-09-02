@@ -1,0 +1,8 @@
+```bash
+# 1. Install dependencies from pyproject.toml, setup.py, and requirements.txt if exist.
+# pyproject.toml is present; try pip install with editable mode to ensure all dependencies (esp. for C extensions).
+pip install -e .
+
+# 2. Run pytest and watch for missing dependencies or collection errors.
+pytest
+```

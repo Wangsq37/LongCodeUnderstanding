@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip install pytest-mock",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nCollecting pytest-mock\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b2/05/77b60e520511c53d1c1ca75f1930c7dd8e971d0c4379b7f4b3f9644685ba/pytest_mock-3.14.1-py3-none-any.whl (9.9 kB)\nRequirement already satisfied: pytest>=6.2.5 in /usr/local/lib/python3.10/dist-packages (from pytest-mock) (8.4.1)\nRequirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (1.3.0)\nRequirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (2.1.0)\nRequirement already satisfied: packaging>=20 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (25.0)\nRequirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (1.6.0)\nRequirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (2.19.2)\nRequirement already satisfied: tomli>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (2.2.1)\nRequirement already satisfied: typing-extensions>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from exceptiongroup>=1->pytest>=6.2.5->pytest-mock) (4.14.1)\nInstalling collected packages: pytest-mock\nSuccessfully installed pytest-mock-3.14.1\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 0.79736328125
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/lib/iris/tests/conftest.py'.\nlib/iris/__init__.py:109: in <module>\n    from iris.loading import (\nlib/iris/loading.py:14: in <module>\n    from iris.common import CFVariableMixin\nlib/iris/common/__init__.py:9: in <module>\n    from .mixin import *\nlib/iris/common/mixin.py:18: in <module>\n    import iris.std_names\nE   ModuleNotFoundError: No module named 'iris.std_names'\n",
+    "execution_time": 0.3785429000854492
+  }
+]

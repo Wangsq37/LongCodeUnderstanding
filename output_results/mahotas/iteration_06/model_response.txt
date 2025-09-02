@@ -1,0 +1,12 @@
+It appears placing the new `conftest.py` in the project root and running `pytest --pyargs mahotas.tests` from `/tmp` changed the test environment. The original, successful run likely occurred from the repo root. For C-API extension imports, running tests from the correct directory is crucial. 
+
+Let’s retry:
+- Run `pytest` from the project root (where `mahotas` and `.so/.pyd` extension files are present after build),
+- Do not use `--pyargs`, simply use: `pytest`.
+
+This matches the original successful Phase 1 method and should let the built extension modules resolve properly.
+
+```bash
+pytest
+```
+If the call chain reports are generated, I will declare success.

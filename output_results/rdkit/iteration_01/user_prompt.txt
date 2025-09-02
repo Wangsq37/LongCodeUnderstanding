@@ -1,0 +1,3491 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .azure-pipelines/
+│   ├── linux_build.yml
+│   ├── linux_build_cartridge.yml
+│   ├── linux_build_fuzzer.yml
+│   ├── linux_build_java.yml
+│   ├── linux_build_limitexternal.yml
+│   ├── linux_build_py311.yml
+│   ├── mac_build.yml
+│   ├── mac_build_java.yml
+│   ├── vs_build.yml
+│   ├── vs_build_dll.yml
+│   └── vs_build_swig.yml
+│       └── ... (6 more files)
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   ├── workflows/
+│   │   ├── close_stale_issues.yml
+│   │   └── templates_updater.yml
+│   ├── ISSUE_TEMPLATE.md
+│   └── PULL_REQUEST_TEMPLATE.md
+├── build_support/
+│   └── pkg_version.py
+├── Code/
+│   ├── Catalogs/
+│   │   ├── Catalog.cpp
+│   │   ├── Catalog.h
+│   │   ├── CatalogEntry.cpp
+│   │   ├── CatalogEntry.h
+│   │   ├── CatalogParams.cpp
+│   │   ├── CatalogParams.h
+│   │   └── CMakeLists.txt
+│   │       └── ... (2 more files)
+│   ├── ChemicalFeatures/
+│   │   ├── Wrap/
+│   │   │   ├── testData/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── FreeChemicalFeature.cpp
+│   │   │   ├── rdChemicalFeatures.cpp
+│   │   │   └── testFeatures.py
+│   │   ├── ChemicalFeature.h
+│   │   ├── CMakeLists.txt
+│   │   ├── FreeChemicalFeature.cpp
+│   │   ├── FreeChemicalFeature.h
+│   │   └── testChemicalFeatures.cpp
+│   ├── cmake/
+│   │   ├── Modules/
+│   │   │   ├── BoostUtils.cmake
+│   │   │   ├── CodeCoverage.cmake
+│   │   │   ├── FindCairo.cmake
+│   │   │   ├── FindEigen3.cmake
+│   │   │   ├── FindInchi.cmake
+│   │   │   ├── FindNumPy.cmake
+│   │   │   ├── fixup_coverage.py
+│   │   │   └── RDKitUtils.cmake
+│   │   │       └── ... (3 more files)
+│   │   └── rdkit_valgrind.suppressions
+│   ├── DataManip/
+│   │   ├── MetricMatrixCalc/
+│   │   │   ├── testExecs/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── MetricFuncs.h
+│   │   │   ├── MetricMatrixCalc.h
+│   │   │   └── testMatCalc.cpp
+│   │   └── CMakeLists.txt
+│   ├── DataStructs/
+│   │   ├── testData/
+│   │   │   ├── test1.bin
+│   │   │   ├── zim.head100.fpb
+│   │   │   ├── zinc_all_clean.100.patt1k.fpb
+│   │   │   ├── zinc_random200.1.patt.fpb
+│   │   │   ├── zinc_random200.2.patt.fpb
+│   │   │   ├── zinc_random200.3.patt.fpb
+│   │   │   └── zinc_random200.4.patt.fpb
+│   │   │       └── ... (2 more files)
+│   │   ├── Wrap/
+│   │   │   ├── testData/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── DataStructs.cpp
+│   │   │   ├── DiscreteValueVect.cpp
+│   │   │   ├── RealValueVect.cpp
+│   │   │   ├── SparseIntVect.cpp
+│   │   │   ├── testBV.py
+│   │   │   ├── testDiscreteValueVect.py
+│   │   │   ├── testFPB.py
+│   │   │   ├── testRealValueVect.py
+│   │   │   ├── testSparseIntVect.py
+│   │   │   ├── wrap_BitOps.cpp
+│   │   │   ├── wrap_ExplicitBV.cpp
+│   │   │   ├── wrap_FPB.cpp
+│   │   │   ├── wrap_helpers.h
+│   │   │   ├── wrap_SparseBV.cpp
+│   │   │   └── wrap_Utils.cpp
+│   │   │       └── ... (11 more files)
+│   │   ├── base64.cpp
+│   │   ├── base64.h
+│   │   ├── BitOps.cpp
+│   │   ├── BitOps.h
+│   │   ├── BitVect.cpp
+│   │   ├── BitVect.h
+│   │   ├── BitVects.h
+│   │   ├── BitVectUtils.h
+│   │   ├── catch_tests.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── DatastructsException.h
+│   │   ├── DatastructsStreamOps.h
+│   │   ├── DiscreteDistMat.cpp
+│   │   ├── DiscreteDistMat.h
+│   │   ├── DiscreteValueVect.cpp
+│   │   ├── DiscreteValueVect.h
+│   │   ├── ExplicitBitVect.cpp
+│   │   ├── ExplicitBitVect.h
+│   │   ├── FPBReader.cpp
+│   │   ├── FPBReader.h
+│   │   ├── MultiFPBReader.cpp
+│   │   ├── MultiFPBReader.h
+│   │   ├── RealValueVect.cpp
+│   │   ├── RealValueVect.h
+│   │   ├── SparseBitVect.cpp
+│   │   ├── SparseBitVect.h
+│   │   ├── SparseIntVect.h
+│   │   ├── testDatastructs.cpp
+│   │   ├── testFPB.cpp
+│   │   ├── testMultiFPB.cpp
+│   │   └── Utils.cpp
+│   │       └── ... (26 more files)
+│   ├── Demos/
+│   │   ├── boost/
+│   │   │   ├── cross_mod_err/
+│   │   │   ├── cross_module/
+│   │   │   ├── EBV_err/
+│   │   │   ├── numpy/
+│   │   │   ├── overloads/
+│   │   │   ├── python_objs/
+│   │   │   └── smartPtrsAndIters/
+│   │   ├── nacl/
+│   │   │   ├── DataStructs/
+│   │   │   ├── Geometry/
+│   │   │   ├── GraphMol/
+│   │   │   └── RDGeneral/
+│   │   ├── RDKit/
+│   │   │   ├── Basement/
+│   │   │   ├── Draw/
+│   │   │   ├── GettingStarted/
+│   │   │   └── MPI/
+│   │   └── sqlite/
+│   │       └── rdk_funcs.cpp
+│   ├── DistGeom/
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── DistGeom.cpp
+│   │   │   └── rough_test.py
+│   │   ├── BoundsMatrix.h
+│   │   ├── ChiralSet.h
+│   │   ├── ChiralViolationContribs.cpp
+│   │   ├── ChiralViolationContribs.h
+│   │   ├── CMakeLists.txt
+│   │   ├── DistGeomUtils.cpp
+│   │   ├── DistGeomUtils.h
+│   │   ├── DistViolationContribs.cpp
+│   │   ├── DistViolationContribs.h
+│   │   ├── FourthDimContribs.h
+│   │   ├── testDistGeom.cpp
+│   │   ├── TriangleSmooth.cpp
+│   │   └── TriangleSmooth.h
+│   │       └── ... (8 more files)
+│   ├── doxygen/
+│   │   └── doxygen.config
+│   ├── Features/
+│   │   ├── CMakeLists.txt
+│   │   ├── Feature.cpp
+│   │   ├── Feature.h
+│   │   └── testFeatures.cpp
+│   ├── ForceField/
+│   │   ├── MMFF/
+│   │   │   ├── test_data/
+│   │   │   ├── AngleBend.cpp
+│   │   │   ├── AngleBend.h
+│   │   │   ├── AngleConstraint.h
+│   │   │   ├── BondStretch.cpp
+│   │   │   ├── BondStretch.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Contribs.h
+│   │   │   ├── DistanceConstraint.h
+│   │   │   ├── Nonbonded.cpp
+│   │   │   ├── Nonbonded.h
+│   │   │   ├── OopBend.cpp
+│   │   │   ├── OopBend.h
+│   │   │   ├── Params.cpp
+│   │   │   ├── Params.h
+│   │   │   ├── PositionConstraint.h
+│   │   │   ├── StretchBend.cpp
+│   │   │   ├── StretchBend.h
+│   │   │   ├── testMMFFForceField.cpp
+│   │   │   ├── testMMFFForceField.h
+│   │   │   ├── TorsionAngle.cpp
+│   │   │   ├── TorsionAngle.h
+│   │   │   └── TorsionConstraint.h
+│   │   │       └── ... (17 more files)
+│   │   ├── UFF/
+│   │   │   ├── AngleBend.cpp
+│   │   │   ├── AngleBend.h
+│   │   │   ├── AngleConstraint.h
+│   │   │   ├── BondStretch.cpp
+│   │   │   ├── BondStretch.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Contribs.h
+│   │   │   ├── DistanceConstraint.h
+│   │   │   ├── Inversion.cpp
+│   │   │   ├── Inversion.h
+│   │   │   ├── Inversions.cpp
+│   │   │   ├── Inversions.h
+│   │   │   ├── Nonbonded.cpp
+│   │   │   ├── Nonbonded.h
+│   │   │   ├── Params.cpp
+│   │   │   ├── Params.h
+│   │   │   ├── PositionConstraint.h
+│   │   │   ├── testUFFForceField.cpp
+│   │   │   ├── TorsionAngle.cpp
+│   │   │   ├── TorsionAngle.h
+│   │   │   ├── TorsionConstraint.h
+│   │   │   ├── Utils.cpp
+│   │   │   └── Utils.h
+│   │   │       └── ... (18 more files)
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── ForceField.cpp
+│   │   │   ├── PyForceField.h
+│   │   │   └── testConstraints.py
+│   │   ├── AngleConstraint.cpp
+│   │   ├── AngleConstraint.h
+│   │   ├── AngleConstraints.cpp
+│   │   ├── AngleConstraints.h
+│   │   ├── catch_tests.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── Contrib.h
+│   │   ├── DistanceConstraint.cpp
+│   │   ├── DistanceConstraint.h
+│   │   ├── DistanceConstraints.cpp
+│   │   ├── DistanceConstraints.h
+│   │   ├── ForceField.cpp
+│   │   ├── ForceField.h
+│   │   ├── PositionConstraint.cpp
+│   │   ├── PositionConstraint.h
+│   │   ├── TorsionConstraint.cpp
+│   │   └── TorsionConstraint.h
+│   │       └── ... (12 more files)
+│   ├── Fuzz/
+│   │   ├── include/
+│   │   │   └── fuzzer/
+│   │   ├── mol_data_stream_to_mol_fuzzer/
+│   │   │   ├── 04f5add57012f57e86f82f2f7cb690a5d31eefdf
+│   │   │   ├── 0ab43f8c7f6332e13436357912fb4d679cc109aa
+│   │   │   ├── 144a1cfb752c71ab81622a745bb1ed71a63d6a8e
+│   │   │   ├── 158b04a448fc1613775a059f8d6e64dbe6ed1683
+│   │   │   ├── 16b38b8df09e069005676732a9c2df157f5f1f6a
+│   │   │   ├── 1a4671989d278a6ecc1e07294176c8a983c94eea
+│   │   │   ├── 2e80c5718e2ab2c8b4e4b199ccb584e524c10d97
+│   │   │   ├── 40e2130653710a7aad2b0185726ba672ccb76f0f
+│   │   │   ├── 489e22dbe4511e5ffe0cdf6ffa943e6072ca2103
+│   │   │   ├── 4dfc0dabbec9f51198e6404196902ac2c53a2baa
+│   │   │   ├── 504f5bdb06fdc72140a15f413006621e95ed906e
+│   │   │   ├── 51d2b3fe2f4fbf099fe33598e57e89af23c4a43b
+│   │   │   ├── 5786d05453bb20fc380a54f73152bdffe7a0fb98
+│   │   │   ├── 5d5999ab9cb6a461f00f62e9dbb46878a88c8ce7
+│   │   │   ├── 703d443451e2fa15e84c41363c720b752cae8e6f
+│   │   │   ├── 76069abd0f1309fab9bb19da157d2a305964d63e
+│   │   │   ├── 79f4b19c30ec227d29840ee45efeb9a407a6daf2
+│   │   │   ├── 862e31a9a3f8bf168bd30dca36541b64be95d079
+│   │   │   ├── 8aa03f60029ecb2acb40ebca162351e9b2994558
+│   │   │   ├── 8aefb06c426e07a0a671a1e2488b4858d694a730
+│   │   │   ├── 92401f3f745f72fb368a53191f2941442629616f
+│   │   │   ├── 94c6ef4aa7e03ec400a2a9414c571110c537944f
+│   │   │   ├── 956b78ef187e77c7056b8d259d832b9efaf24a6b
+│   │   │   ├── 981560171c27431e7172df6f8eb10ff127a7d4bb
+│   │   │   ├── 995555f6824db24a9264a21fc3bbd290b061d15c
+│   │   │   ├── 99d7754cadcc543f063a953f39495c32340e959f
+│   │   │   ├── 9fe7717002d3e6b3525137938be072f287bdbcad
+│   │   │   ├── a4328b217171f6149e2e596f8a92f08682b5e1f0
+│   │   │   ├── b196a7682111437bdd3cced1bcf105d126f3baf4
+│   │   │   ├── b619358d2028ee9f1196a27352d06e579ba169a0
+│   │   │   ├── bb8bf94759a96215d28bac4eb3359059fe06c688
+│   │   │   ├── c01df6792c48728390796b4b356286c8bc5fa8cf
+│   │   │   ├── c6e1c6ca1a556df88dc4738811b2415d2eef1f01
+│   │   │   ├── dfca0e07572de29e2c7ef4d18e9c768f9826c2c3
+│   │   │   ├── dff7ba6c3ecae59fb174cc3bf2d9753ba125e52c
+│   │   │   ├── e46302937257facc42ff08377ad11c1a35e61f58
+│   │   │   ├── e7d06319071537098d19bc94a211f2c719a2c101
+│   │   │   ├── ee7feb5b405cdd6200a4b633b897d0272135bf44
+│   │   │   ├── f65468eeb8396a643646a8d547263ff9107ff2fa
+│   │   │   └── fedb0385a967ced48c19011d3af6c20579ec6177
+│   │   │       └── ... (35 more files)
+│   │   ├── smiles_string_to_mol_fuzzer/
+│   │   │   ├── 04a39bc1b58f00e261e2d30a787b1febcf2c7015
+│   │   │   ├── 08e99f4e457a7c95fc482ee350edec559efa0e32
+│   │   │   ├── 0a09ee77c55b03b431236899df64c05b650c22e0
+│   │   │   ├── 0aa8a7cafd21627dc703fbe28c702d4b23b9395b
+│   │   │   ├── 0bdd04a7e245016965f19d6a77c5895d86290014
+│   │   │   ├── 0d13e6e1d4575b916e83897523404e467e7f0d12
+│   │   │   ├── 0ebcd4c8c580c11fbb753d6e76b6e4a489f2c118
+│   │   │   ├── 1136e3b08963525ed66ab8a3766758e2aaedd682
+│   │   │   ├── 11743b06ca3515587033653dcb7c9b5b1aed26d7
+│   │   │   ├── 118261563b31282a7302b2c4df9e028d359404d6
+│   │   │   ├── 12d8e9f23936d3888b86351cb9cd1bb554d5ac5f
+│   │   │   ├── 15edb317a2d0279585a8902875c6a006816115ba
+│   │   │   ├── 1c89596489606b98b1e652f9a0698d830b4929ce
+│   │   │   ├── 1e3969625e45cdfb12ce9c47993ccab23f40cd97
+│   │   │   ├── 21f0781d56f29555e49df158c038041868435f70
+│   │   │   ├── 27fae0f588d3aa356556e86200178c67670a5033
+│   │   │   ├── 2d891f555addfe3a12a3eed990211098c1d72781
+│   │   │   ├── 322918820e4b658856c7bd7772c68511b241dc57
+│   │   │   ├── 35a66766e4b5f0864d7d96e9e9ab2cc3d8f57984
+│   │   │   ├── 3804c228c255e345245fe6a34edf2d7406129c43
+│   │   │   ├── 3909d2204f607b305ae5a096c16ada22d0d5f1f5
+│   │   │   ├── 45c98bed8b37d1e76655e4b7b26b59fb8954484a
+│   │   │   ├── 48e7fdf4ca3eab15934e2f4b5e5cc2288856493d
+│   │   │   ├── 49b8e15f96c37ba31cad7712a3a7def99fe1f0ff
+│   │   │   ├── 4b63bdc8321e5c815f535fec596af8d1215990fa
+│   │   │   ├── 4bb9794d2ac62ca2f2dd4215c8051b3a59356044
+│   │   │   ├── 4e2afce2c0eda6b40f61e04e4300c91c3fffef81
+│   │   │   ├── 5192026615c8e0dad1b5975e1db86afa3b048fc6
+│   │   │   ├── 5c1b4a15aab69fe3e02c7849c65912c1e8c6323f
+│   │   │   ├── 682341f68f6d3f68fbd80d87316b9ca62d1c737b
+│   │   │   ├── 68264000ec5b79f37c515bb0b1778ffb53295bc3
+│   │   │   ├── 6906074af288f89ec1a89c56ea90fa8e49464e4b
+│   │   │   ├── 6b2b7a49862dac837e5874bbe7939847eb85f58c
+│   │   │   ├── 6b54496cef3cb453831089908b8ab741f6973cf3
+│   │   │   ├── 6c06f85289aad9666cef87eeef810b52c95f61fa
+│   │   │   ├── 6f13e4a6e4b65a73f0a318954b236c09dc2bac44
+│   │   │   ├── 7140fe08a48689b07a70eb762e23c5825c211085
+│   │   │   ├── 718e2df91550f82261f2151e980d8847572bb4e0
+│   │   │   ├── 72fd5e8e8d657c80d470a70d14c998471f41152d
+│   │   │   ├── 774840b467f4b4f20c108ff4cca19c613c7f2ea2
+│   │   │   ├── 7953c015fefa8de02f605e15afb2e61a8f0e389e
+│   │   │   ├── 82ec89c915b6c2270a35d51fbca655c53f550e4f
+│   │   │   ├── 8a4cc2206756bf262d29aeb47616916c49a9d719
+│   │   │   ├── 8c752aa51146af17b1ef4e4f4b0530d7bedcea82
+│   │   │   ├── 8e3879e645f80a41c8dcc1374c1f748137bf1051
+│   │   │   ├── 943989b064ba925c6379a55aa98ca5e0b14f1e67
+│   │   │   ├── a34f2b54fce04f5fb72fb31b92d56b50ce3668c2
+│   │   │   ├── a44e9f9a6daf59bf49bab9686466125efaac7398
+│   │   │   ├── a4ff9f4a26cb2cab60ae84c30643e8fd3daf882b
+│   │   │   ├── a8f0adb9f0221a1b92b20791fb25160adf8a75b3
+│   │   │   ├── aea2459244c75dc328eda4562ff7bd03521f6123
+│   │   │   ├── b03425beb4a3e9256834d5a38d0e760c43ebc16d
+│   │   │   ├── b1b9fc9a2182b360b4af5e9844a7fea5b21ad29d
+│   │   │   ├── b224e0acd9079ea776e2b8b6c09fd819064806ef
+│   │   │   ├── b7045cbc64e2d49dc348e0f2b2b6719151bed34f
+│   │   │   ├── b8ee82145289bd011a6994824e3759615852f202
+│   │   │   ├── b9f663a420842717eda82e41efcf38507bbc7fb6
+│   │   │   ├── ba4733fe0fe6f15e36d6fe39f3bec7c93d734aae
+│   │   │   ├── bd508b5a34351f15a2290ee50ba71387a7273f55
+│   │   │   ├── be054885fbf7f53083f57d3c92173392fe6a0e67
+│   │   │   ├── cbae035361f15242d792549df66c6ff7c1338de1
+│   │   │   ├── cd53c7ea7d19c73d9ebc487c269409912b1d3998
+│   │   │   ├── d1eb7fa1e899cdbc69d199291d444dc294ed2661
+│   │   │   ├── d4e09a0cae64939daf8852da43d30a7506e09543
+│   │   │   ├── d4e186b8bc212f64e62a9037f64185f51773b696
+│   │   │   ├── d6093eaeeec0cca9e78ce375bd474bf954252bfd
+│   │   │   ├── d71970103d9080315ba90545962a2d5c457e7da7
+│   │   │   ├── db5d4b8b0108b9527f0dc2f0322c26f5d9d58702
+│   │   │   ├── de7247d4ba3fb271f1a963e7b8bdf9452ef3396a
+│   │   │   ├── e35fcb1fb1a9ab6604e136a8c212c9e3cd7f3afc
+│   │   │   ├── e51be355016945e79c83d57617c7ebe9f65b59b7
+│   │   │   ├── e5771c543bc58b06bbf3ef0f3c91fccc8d1bf0b7
+│   │   │   ├── e65241413d9633b3f735dcb532359c3e733e71e3
+│   │   │   ├── e704b4cfa169ee8d2ee8267c98c65dfdc64dadc1
+│   │   │   ├── e825ae6fbe77477125c1be6601013205eeefb3dd
+│   │   │   ├── ea344f7237e1799164c150e596782f55b66ab900
+│   │   │   ├── eab066e514797df4204cd7cf6a87d2d57a332094
+│   │   │   ├── f2e111693954459af313528d163ce364aced2378
+│   │   │   ├── fa501ef4a6ae230d82780bb3d3a266cba21b39de
+│   │   │   └── fdc8da9d953829740439b85926d8ee0f5aca83ef
+│   │   │       └── ... (75 more files)
+│   │   ├── CMakeLists.txt
+│   │   ├── mol_data_stream_to_mol_fuzzer.cc
+│   │   ├── mol_data_stream_to_mol_fuzzer.dict
+│   │   ├── mol_deserialization_fuzzer.cc
+│   │   ├── README.md
+│   │   ├── smiles_string_to_mol_fuzzer.cc
+│   │   ├── smiles_string_to_mol_fuzzer.dict
+│   │   └── standalone_fuzz_target_runner.cpp
+│   │       └── ... (3 more files)
+│   ├── Geometry/
+│   │   ├── testData/
+│   │   │   └── grid1.bin
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Point.cpp
+│   │   │   ├── rdGeometry.cpp
+│   │   │   ├── testGeometry.py
+│   │   │   ├── UniformGrid3D.cpp
+│   │   │   └── UniformRealValueGrid3D.cpp
+│   │   │       └── ... (1 more files)
+│   │   ├── catch_tests.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── Grid3D.h
+│   │   ├── GridUtils.cpp
+│   │   ├── GridUtils.h
+│   │   ├── point.cpp
+│   │   ├── point.h
+│   │   ├── testGrid.cpp
+│   │   ├── testRealValueGrid.cpp
+│   │   ├── testTransforms.cpp
+│   │   ├── Transform.h
+│   │   ├── Transform2D.cpp
+│   │   ├── Transform2D.h
+│   │   ├── Transform3D.cpp
+│   │   ├── Transform3D.h
+│   │   ├── UniformGrid3D.cpp
+│   │   ├── UniformGrid3D.h
+│   │   ├── UniformRealValueGrid3D.cpp
+│   │   ├── UniformRealValueGrid3D.h
+│   │   └── Utils.h
+│   │       └── ... (15 more files)
+│   ├── GraphMol/
+│   │   ├── Abbreviations/
+│   │   │   ├── Wrap/
+│   │   │   ├── Abbreviations.cpp
+│   │   │   ├── Abbreviations.h
+│   │   │   ├── AbbreviationsUtils.cpp
+│   │   │   ├── catch_tests.cpp
+│   │   │   └── CMakeLists.txt
+│   │   ├── Basement/
+│   │   │   └── FeatTrees/
+│   │   ├── ChemReactions/
+│   │   │   ├── Enumerate/
+│   │   │   ├── testData/
+│   │   │   ├── tutorial/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CDXMLParser.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── DaylightParser.cpp
+│   │   │   ├── license.txt
+│   │   │   ├── MDLParser.cpp
+│   │   │   ├── MoleculeParser.cpp
+│   │   │   ├── PNGParser.cpp
+│   │   │   ├── PreprocessRxn.cpp
+│   │   │   ├── PreprocessRxn.h
+│   │   │   ├── Reaction.cpp
+│   │   │   ├── Reaction.h
+│   │   │   ├── ReactionDepict.cpp
+│   │   │   ├── ReactionFingerprints.cpp
+│   │   │   ├── ReactionFingerprints.h
+│   │   │   ├── ReactionParser.h
+│   │   │   ├── ReactionPickler.cpp
+│   │   │   ├── ReactionPickler.h
+│   │   │   ├── ReactionRunner.cpp
+│   │   │   ├── ReactionRunner.h
+│   │   │   ├── ReactionUtils.cpp
+│   │   │   ├── ReactionUtils.h
+│   │   │   ├── ReactionWriter.cpp
+│   │   │   ├── SanitizeRxn.cpp
+│   │   │   ├── SanitizeRxn.h
+│   │   │   ├── testReaction.cpp
+│   │   │   └── testReactionFingerprints.cpp
+│   │   │       └── ... (22 more files)
+│   │   ├── ChemTransforms/
+│   │   │   ├── testData/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── ChemTransforms.cpp
+│   │   │   ├── ChemTransforms.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── MolFragmenter.cpp
+│   │   │   ├── MolFragmenter.h
+│   │   │   ├── MolFragmenterJSONParser.cpp
+│   │   │   ├── MolFragmenterJSONParser.h
+│   │   │   └── testChemTransforms.cpp
+│   │   │       └── ... (4 more files)
+│   │   ├── CIPLabeler/
+│   │   │   ├── configs/
+│   │   │   ├── rules/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CIPLabeler.cpp
+│   │   │   ├── CIPLabeler.h
+│   │   │   ├── CIPMol.cpp
+│   │   │   ├── CIPMol.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Descriptor.h
+│   │   │   ├── Digraph.cpp
+│   │   │   ├── Digraph.h
+│   │   │   ├── Edge.cpp
+│   │   │   ├── Edge.h
+│   │   │   ├── Mancude.cpp
+│   │   │   ├── Mancude.h
+│   │   │   ├── Node.cpp
+│   │   │   ├── Node.h
+│   │   │   ├── Priority.h
+│   │   │   ├── Sort.cpp
+│   │   │   ├── Sort.h
+│   │   │   └── TooManyNodesException.h
+│   │   │       └── ... (14 more files)
+│   │   ├── Depictor/
+│   │   │   ├── Basement/
+│   │   │   ├── test_data/
+│   │   │   ├── testExecs/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── DepictUtils.cpp
+│   │   │   ├── DepictUtils.h
+│   │   │   ├── EmbeddedFrag.cpp
+│   │   │   ├── EmbeddedFrag.h
+│   │   │   ├── RDDepictor.cpp
+│   │   │   ├── RDDepictor.h
+│   │   │   ├── Templates.cpp
+│   │   │   ├── Templates.h
+│   │   │   ├── TemplateSmiles.h
+│   │   │   └── testDepictor.cpp
+│   │   │       └── ... (7 more files)
+│   │   ├── Deprotect/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Deprotect.cpp
+│   │   │   ├── Deprotect.h
+│   │   │   └── deprotectTest.cpp
+│   │   ├── Descriptors/
+│   │   │   ├── test_data/
+│   │   │   ├── Wrap/
+│   │   │   ├── AtomFeat.cpp
+│   │   │   ├── AtomFeat.h
+│   │   │   ├── AUTOCORR2D.cpp
+│   │   │   ├── AUTOCORR2D.h
+│   │   │   ├── AUTOCORR3D.cpp
+│   │   │   ├── AUTOCORR3D.h
+│   │   │   ├── BCUT.cpp
+│   │   │   ├── BCUT.h
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── ConnectivityDescriptors.cpp
+│   │   │   ├── ConnectivityDescriptors.h
+│   │   │   ├── CoulombMat.cpp
+│   │   │   ├── CoulombMat.h
+│   │   │   ├── Crippen.cpp
+│   │   │   ├── Crippen.h
+│   │   │   ├── Data3Ddescriptors.cpp
+│   │   │   ├── Data3Ddescriptors.h
+│   │   │   ├── datas.cpp
+│   │   │   ├── DCLV.cpp
+│   │   │   ├── DCLV.h
+│   │   │   ├── EEM.cpp
+│   │   │   ├── EEM.h
+│   │   │   ├── GETAWAY.cpp
+│   │   │   ├── GETAWAY.h
+│   │   │   ├── Lipinski.cpp
+│   │   │   ├── Lipinski.h
+│   │   │   ├── MolData3Ddescriptors.cpp
+│   │   │   ├── MolData3Ddescriptors.h
+│   │   │   ├── MolDescriptors.cpp
+│   │   │   ├── MolDescriptors.h
+│   │   │   ├── MolDescriptors3D.h
+│   │   │   ├── MolSurf.cpp
+│   │   │   ├── MolSurf.h
+│   │   │   ├── MORSE.cpp
+│   │   │   ├── MORSE.h
+│   │   │   ├── MQN.cpp
+│   │   │   ├── MQN.h
+│   │   │   ├── OxidationNumbers.cpp
+│   │   │   ├── OxidationNumbers.h
+│   │   │   ├── PBF.cpp
+│   │   │   ├── PBF.h
+│   │   │   ├── PMI.cpp
+│   │   │   ├── PMI.h
+│   │   │   ├── Property.cpp
+│   │   │   ├── Property.h
+│   │   │   ├── RDF.cpp
+│   │   │   ├── RDF.h
+│   │   │   ├── RegisterDescriptor.h
+│   │   │   ├── test.cpp
+│   │   │   ├── test3D.cpp
+│   │   │   ├── test3D.py
+│   │   │   ├── test3D_old.py
+│   │   │   ├── testATF.cpp
+│   │   │   ├── testAUTOCORR2D.cpp
+│   │   │   ├── testAUTOCORR3D.cpp
+│   │   │   ├── testBCUT.cpp
+│   │   │   ├── testCoulombMat.cpp
+│   │   │   ├── testEEM.cpp
+│   │   │   ├── testGETAWAY.cpp
+│   │   │   ├── testMORSE.cpp
+│   │   │   ├── testPBF.cpp
+│   │   │   ├── testRDF.cpp
+│   │   │   ├── testRDFcustom.cpp
+│   │   │   ├── testSMWHIM.txt
+│   │   │   ├── testWHIM.cpp
+│   │   │   ├── USRDescriptor.cpp
+│   │   │   ├── USRDescriptor.h
+│   │   │   ├── WHIM.cpp
+│   │   │   └── WHIM.h
+│   │   │       └── ... (65 more files)
+│   │   ├── DetermineBonds/
+│   │   │   ├── test_data/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── DetermineBonds.cpp
+│   │   │   ├── DetermineBonds.h
+│   │   │   └── README.md
+│   │   ├── DistGeomHelpers/
+│   │   │   ├── test_data/
+│   │   │   ├── Wrap/
+│   │   │   ├── BoundsMatrixBuilder.cpp
+│   │   │   ├── BoundsMatrixBuilder.h
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Embedder.cpp
+│   │   │   ├── Embedder.h
+│   │   │   ├── EmbedderUtils.cpp
+│   │   │   └── testDgeomHelpers.cpp
+│   │   │       └── ... (3 more files)
+│   │   ├── EnumerateStereoisomers/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── EnumerateStereoisomers.cpp
+│   │   │   ├── EnumerateStereoisomers.h
+│   │   │   ├── Flippers.cpp
+│   │   │   └── Flippers.h
+│   │   │       └── ... (1 more files)
+│   │   ├── FileParsers/
+│   │   │   ├── sgroup_test_data/
+│   │   │   ├── test_data/
+│   │   │   ├── testExecs/
+│   │   │   ├── atropisomers_catch.cpp
+│   │   │   ├── cdxml_parser_catch.cpp
+│   │   │   ├── CDXMLParser.cpp
+│   │   │   ├── CDXMLParser.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── CMLWriter.cpp
+│   │   │   ├── connectTheDots_catch.cpp
+│   │   │   ├── file_parsers_catch.cpp
+│   │   │   ├── FileParsers.h
+│   │   │   ├── FileParserUtils.h
+│   │   │   ├── FileWriters.h
+│   │   │   ├── ForwardSDMolSupplier.cpp
+│   │   │   ├── GeneralFileReader.h
+│   │   │   ├── macromols_catch.cpp
+│   │   │   ├── MaeMolSupplier.cpp
+│   │   │   ├── MaestroProperties.h
+│   │   │   ├── MaeWriter.cpp
+│   │   │   ├── mol.py
+│   │   │   ├── mol1.cdxml
+│   │   │   ├── Mol2FileParser.cpp
+│   │   │   ├── molfile_stereo_catch.cpp
+│   │   │   ├── MolFileParser.cpp
+│   │   │   ├── MolFileStereochem.cpp
+│   │   │   ├── MolFileStereochem.h
+│   │   │   ├── MolFileWriter.cpp
+│   │   │   ├── MolSGroupParsing.cpp
+│   │   │   ├── MolSGroupParsing.h
+│   │   │   ├── MolSGroupWriting.cpp
+│   │   │   ├── MolSGroupWriting.h
+│   │   │   ├── MolSupplier.h
+│   │   │   ├── MolSupplier.v1API.h
+│   │   │   ├── MolWriters.h
+│   │   │   ├── multithreaded_supplier_catch.cpp
+│   │   │   ├── MultithreadedMolSupplier.cpp
+│   │   │   ├── MultithreadedMolSupplier.h
+│   │   │   ├── MultithreadedSDMolSupplier.cpp
+│   │   │   ├── MultithreadedSDMolSupplier.h
+│   │   │   ├── MultithreadedSmilesMolSupplier.cpp
+│   │   │   ├── MultithreadedSmilesMolSupplier.h
+│   │   │   ├── PDBParser.cpp
+│   │   │   ├── PDBWriter.cpp
+│   │   │   ├── PNGParser.cpp
+│   │   │   ├── PNGParser.h
+│   │   │   ├── ProximityBonds.cpp
+│   │   │   ├── ProximityBonds.h
+│   │   │   ├── SCSRMolFileParser.cpp
+│   │   │   ├── SDMolSupplier.cpp
+│   │   │   ├── SDWriter.cpp
+│   │   │   ├── SequenceParsers.cpp
+│   │   │   ├── SequenceParsers.h
+│   │   │   ├── SequenceWriters.cpp
+│   │   │   ├── SequenceWriters.h
+│   │   │   ├── SmilesMolSupplier.cpp
+│   │   │   ├── SmilesWriter.cpp
+│   │   │   ├── SVGParser.cpp
+│   │   │   ├── TDTMolSupplier.cpp
+│   │   │   ├── TDTWriter.cpp
+│   │   │   ├── test1.cpp
+│   │   │   ├── testAtropisomers.cpp
+│   │   │   ├── testExtendedStereoParsing.cpp
+│   │   │   ├── testGeneralFileReader.cpp
+│   │   │   ├── testMol2ToMol.cpp
+│   │   │   ├── testMolSupplier.cpp
+│   │   │   ├── testMolWriter.cpp
+│   │   │   ├── testMultithreadedMolSupplier.cpp
+│   │   │   ├── testPropertyLists.cpp
+│   │   │   ├── testSequence.cpp
+│   │   │   ├── testSquiggleDoubleBonds.cpp
+│   │   │   ├── testTpls.cpp
+│   │   │   ├── TplFileParser.cpp
+│   │   │   ├── TplFileWriter.cpp
+│   │   │   ├── v2_file_parsers_catch.cpp
+│   │   │   ├── v2_suppliers_catch.cpp
+│   │   │   ├── XYZFileParser.cpp
+│   │   │   ├── XYZFileParserCatchTest.cpp
+│   │   │   └── XYZFileWriter.cpp
+│   │   │       └── ... (71 more files)
+│   │   ├── FilterCatalog/
+│   │   │   ├── Wrap/
+│   │   │   ├── brenk.in
+│   │   │   ├── chembl_bms.in
+│   │   │   ├── chembl_dundee.in
+│   │   │   ├── chembl_glaxo.in
+│   │   │   ├── chembl_inpharmatica.in
+│   │   │   ├── chembl_lint.in
+│   │   │   ├── chembl_mlsmr.in
+│   │   │   ├── chembl_surechembl.in
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── FilterCatalog.cpp
+│   │   │   ├── FilterCatalog.h
+│   │   │   ├── FilterCatalogEntry.cpp
+│   │   │   ├── FilterCatalogEntry.h
+│   │   │   ├── FilterCatalogRunner.cpp
+│   │   │   ├── filtercatalogtest.cpp
+│   │   │   ├── FilterMatcherBase.h
+│   │   │   ├── FilterMatchers.cpp
+│   │   │   ├── FilterMatchers.h
+│   │   │   ├── Filters.cpp
+│   │   │   ├── Filters.h
+│   │   │   ├── FunctionalGroupHierarchy.cpp
+│   │   │   ├── FunctionalGroupHierarchy.h
+│   │   │   ├── nih.in
+│   │   │   ├── pains_a.in
+│   │   │   ├── pains_b.in
+│   │   │   ├── pains_c.in
+│   │   │   ├── README
+│   │   │   ├── update_pains.py
+│   │   │   └── zinc.in
+│   │   │       └── ... (24 more files)
+│   │   ├── Fingerprints/
+│   │   │   ├── testData/
+│   │   │   ├── testExecs/
+│   │   │   ├── Wrap/
+│   │   │   ├── AtomPairGenerator.cpp
+│   │   │   ├── AtomPairGenerator.h
+│   │   │   ├── AtomPairs.cpp
+│   │   │   ├── AtomPairs.h
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── FingerprintGenerator.cpp
+│   │   │   ├── FingerprintGenerator.h
+│   │   │   ├── Fingerprints.cpp
+│   │   │   ├── Fingerprints.h
+│   │   │   ├── FingerprintUtil.cpp
+│   │   │   ├── FingerprintUtil.h
+│   │   │   ├── fpgen_catch_tests.cpp
+│   │   │   ├── MACCS.cpp
+│   │   │   ├── MACCS.h
+│   │   │   ├── MHFP.cpp
+│   │   │   ├── MHFP.h
+│   │   │   ├── MorganFingerprints.cpp
+│   │   │   ├── MorganFingerprints.h
+│   │   │   ├── MorganGenerator.cpp
+│   │   │   ├── MorganGenerator.h
+│   │   │   ├── PatternFingerprints.cpp
+│   │   │   ├── RDKitFPGenerator.cpp
+│   │   │   ├── RDKitFPGenerator.h
+│   │   │   ├── test1.cpp
+│   │   │   ├── testFingerprintGenerators.cpp
+│   │   │   ├── testMHFPFingerprint.cpp
+│   │   │   ├── TopologicalTorsionGenerator.cpp
+│   │   │   └── TopologicalTorsionGenerator.h
+│   │   │       └── ... (24 more files)
+│   │   ├── FMCS/
+│   │   │   ├── Test/
+│   │   │   ├── testData/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Composition2N.h
+│   │   │   ├── DebugTrace.h
+│   │   │   ├── DuplicatedSeedCache.h
+│   │   │   ├── FMCS.cpp
+│   │   │   ├── FMCS.h
+│   │   │   ├── Graph.h
+│   │   │   ├── MatchTable.h
+│   │   │   ├── MaximumCommonSubgraph.cpp
+│   │   │   ├── MaximumCommonSubgraph.h
+│   │   │   ├── Seed.cpp
+│   │   │   ├── Seed.h
+│   │   │   ├── SeedSet.h
+│   │   │   ├── SubstructMatchCustom.cpp
+│   │   │   ├── SubstructMatchCustom.h
+│   │   │   ├── SubstructureCache.h
+│   │   │   ├── Target.h
+│   │   │   ├── TargetMatch.cpp
+│   │   │   ├── TargetMatch.h
+│   │   │   └── testFMCS_Unit.cpp
+│   │   │       └── ... (15 more files)
+│   │   ├── ForceFieldHelpers/
+│   │   │   ├── CrystalFF/
+│   │   │   ├── MMFF/
+│   │   │   ├── UFF/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── FFConvenience.h
+│   │   ├── FragCatalog/
+│   │   │   ├── test_data/
+│   │   │   ├── testExecs/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── FragCatalogEntry.cpp
+│   │   │   ├── FragCatalogEntry.h
+│   │   │   ├── FragCatalogUtils.cpp
+│   │   │   ├── FragCatalogUtils.h
+│   │   │   ├── FragCatGenerator.cpp
+│   │   │   ├── FragCatGenerator.h
+│   │   │   ├── FragCatParams.cpp
+│   │   │   ├── FragCatParams.h
+│   │   │   ├── FragFPGenerator.cpp
+│   │   │   ├── FragFPGenerator.h
+│   │   │   └── test1.cpp
+│   │   │       └── ... (7 more files)
+│   │   ├── GeneralizedSubstruct/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── TextIO.cpp
+│   │   │   ├── XQMol.cpp
+│   │   │   └── XQMol.h
+│   │   ├── GenericGroups/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── generic_tests.cpp
+│   │   │   ├── GenericGroups.cpp
+│   │   │   └── GenericGroups.h
+│   │   ├── libs/
+│   │   │   └── .cvskeep
+│   │   ├── MarvinParse/
+│   │   │   ├── test_data/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── MarvinDefs.cpp
+│   │   │   ├── MarvinDefs.h
+│   │   │   ├── MarvinParser.cpp
+│   │   │   ├── MarvinParser.h
+│   │   │   ├── MarvinWriter.cpp
+│   │   │   └── testMrvToMol.cpp
+│   │   │       └── ... (2 more files)
+│   │   ├── MMPA/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── MMPA.cpp
+│   │   │   ├── MMPA.h
+│   │   │   └── MMPA_UnitTest.cpp
+│   │   ├── MolAlign/
+│   │   │   ├── test_data/
+│   │   │   ├── Wrap/
+│   │   │   ├── AlignMolecules.cpp
+│   │   │   ├── AlignMolecules.h
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── O3AAlignMolecules.cpp
+│   │   │   ├── O3AAlignMolecules.h
+│   │   │   ├── testMolAlign.cpp
+│   │   │   └── testO3AAlign.cpp
+│   │   │       └── ... (3 more files)
+│   │   ├── MolCatalog/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── MolCatalog.h
+│   │   │   ├── MolCatalogEntry.cpp
+│   │   │   ├── MolCatalogEntry.h
+│   │   │   ├── MolCatalogParams.cpp
+│   │   │   ├── MolCatalogParams.h
+│   │   │   └── test1.cpp
+│   │   │       └── ... (2 more files)
+│   │   ├── MolChemicalFeatures/
+│   │   │   ├── test_data/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── FeatureParser.cpp
+│   │   │   ├── FeatureParser.h
+│   │   │   ├── MolChemicalFeature.cpp
+│   │   │   ├── MolChemicalFeature.h
+│   │   │   ├── MolChemicalFeatureDef.cpp
+│   │   │   ├── MolChemicalFeatureDef.h
+│   │   │   ├── MolChemicalFeatureFactory.cpp
+│   │   │   ├── MolChemicalFeatureFactory.h
+│   │   │   └── testFeatures.cpp
+│   │   │       └── ... (5 more files)
+│   │   ├── MolDraw2D/
+│   │   │   ├── Fonts/
+│   │   │   ├── Qt/
+│   │   │   ├── test_dir/
+│   │   │   ├── Wrap/
+│   │   │   ├── AtomSymbol.cpp
+│   │   │   ├── AtomSymbol.h
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── DrawAnnotation.cpp
+│   │   │   ├── DrawAnnotation.h
+│   │   │   ├── DrawMol.cpp
+│   │   │   ├── DrawMol.h
+│   │   │   ├── DrawMolMCH.cpp
+│   │   │   ├── DrawMolMCH.h
+│   │   │   ├── DrawMolMCHCircleAndLine.cpp
+│   │   │   ├── DrawMolMCHCircleAndLine.h
+│   │   │   ├── DrawMolMCHLasso.cpp
+│   │   │   ├── DrawMolMCHLasso.h
+│   │   │   ├── DrawShape.cpp
+│   │   │   ├── DrawShape.h
+│   │   │   ├── DrawText.cpp
+│   │   │   ├── DrawText.h
+│   │   │   ├── DrawTextCairo.cpp
+│   │   │   ├── DrawTextCairo.h
+│   │   │   ├── DrawTextFT.cpp
+│   │   │   ├── DrawTextFT.h
+│   │   │   ├── DrawTextFTCairo.cpp
+│   │   │   ├── DrawTextFTCairo.h
+│   │   │   ├── DrawTextFTJS.cpp
+│   │   │   ├── DrawTextFTJS.h
+│   │   │   ├── DrawTextFTSVG.cpp
+│   │   │   ├── DrawTextFTSVG.h
+│   │   │   ├── DrawTextJS.cpp
+│   │   │   ├── DrawTextJS.h
+│   │   │   ├── DrawTextNotFT.cpp
+│   │   │   ├── DrawTextNotFT.h
+│   │   │   ├── DrawTextSVG.cpp
+│   │   │   ├── DrawTextSVG.h
+│   │   │   ├── MolDraw2D.cpp
+│   │   │   ├── MolDraw2D.h
+│   │   │   ├── MolDraw2DCairo.cpp
+│   │   │   ├── MolDraw2DCairo.h
+│   │   │   ├── MolDraw2DDetails.cpp
+│   │   │   ├── MolDraw2DDetails.h
+│   │   │   ├── MolDraw2DHelpers.h
+│   │   │   ├── MolDraw2DJS.cpp
+│   │   │   ├── MolDraw2DJS.h
+│   │   │   ├── MolDraw2DSVG.cpp
+│   │   │   ├── MolDraw2DSVG.h
+│   │   │   ├── MolDraw2DUtils.cpp
+│   │   │   ├── MolDraw2DUtils.h
+│   │   │   ├── MolDraw2Dwx.h
+│   │   │   ├── MoleculeDrawingClasses.docx
+│   │   │   ├── rxn_test1.cpp
+│   │   │   ├── side_by_side_images.py
+│   │   │   ├── StringRect.h
+│   │   │   ├── test1.cpp
+│   │   │   └── update_hash_codes.py
+│   │   │       └── ... (49 more files)
+│   │   ├── MolEnumerator/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── enumerator_catch.cpp
+│   │   │   ├── LinkNode.cpp
+│   │   │   ├── LinkNode.h
+│   │   │   ├── MolEnumerator.cpp
+│   │   │   ├── MolEnumerator.h
+│   │   │   ├── PositionVariation.cpp
+│   │   │   └── RepeatUnit.cpp
+│   │   │       └── ... (3 more files)
+│   │   ├── MolHash/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── hashfunctions.cpp
+│   │   │   ├── mf.h
+│   │   │   ├── MolHash.h
+│   │   │   ├── nmmolhash.h
+│   │   │   └── normalize.cpp
+│   │   │       └── ... (2 more files)
+│   │   ├── MolInteractionFields/
+│   │   │   ├── test_data/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── MIFDescriptors.cpp
+│   │   │   ├── MIFDescriptors.h
+│   │   │   └── testMIF.cpp
+│   │   ├── MolInterchange/
+│   │   │   ├── test_data/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── details.h
+│   │   │   ├── MolInterchange.h
+│   │   │   ├── molinterchange_catch.cpp
+│   │   │   ├── Parser.cpp
+│   │   │   ├── test1.cpp
+│   │   │   └── Writer.cpp
+│   │   │       └── ... (2 more files)
+│   │   ├── MolProcessing/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── MolProcessing.cpp
+│   │   │   ├── MolProcessing.h
+│   │   │   └── processing_tests.cpp
+│   │   ├── MolStandardize/
+│   │   │   ├── AcidBaseCatalog/
+│   │   │   ├── FragmentCatalog/
+│   │   │   ├── TautomerCatalog/
+│   │   │   ├── test_data/
+│   │   │   ├── TransformCatalog/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── Charge.cpp
+│   │   │   ├── Charge.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Fragment.cpp
+│   │   │   ├── Fragment.h
+│   │   │   ├── Metal.cpp
+│   │   │   ├── Metal.h
+│   │   │   ├── MolStandardize.cpp
+│   │   │   ├── MolStandardize.h
+│   │   │   ├── Normalize.cpp
+│   │   │   ├── Normalize.h
+│   │   │   ├── Pipeline.cpp
+│   │   │   ├── Pipeline.h
+│   │   │   ├── Tautomer.cpp
+│   │   │   ├── Tautomer.h
+│   │   │   ├── test1.cpp
+│   │   │   ├── test2.cpp
+│   │   │   ├── testCharge.cpp
+│   │   │   ├── testFragment.cpp
+│   │   │   ├── testNormalize.cpp
+│   │   │   ├── testPCS.cpp
+│   │   │   ├── testPipeline.cpp
+│   │   │   ├── testTautomer.cpp
+│   │   │   ├── testValidate.cpp
+│   │   │   ├── Validate.cpp
+│   │   │   └── Validate.h
+│   │   │       └── ... (22 more files)
+│   │   ├── MolTransforms/
+│   │   │   ├── test_data/
+│   │   │   ├── testExecs/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── MolTransforms.cpp
+│   │   │   ├── MolTransforms.h
+│   │   │   ├── ReadMe
+│   │   │   └── test1.cpp
+│   │   │       └── ... (1 more files)
+│   │   ├── PartialCharges/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── GasteigerCharges.cpp
+│   │   │   ├── GasteigerCharges.h
+│   │   │   ├── GasteigerParams.cpp
+│   │   │   ├── GasteigerParams.h
+│   │   │   └── test1.cpp
+│   │   │       └── ... (1 more files)
+│   │   ├── RascalMCES/
+│   │   │   ├── data/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── lap_a_la_scipy.cpp
+│   │   │   ├── LONG_TEST_mces_catch.cpp
+│   │   │   ├── mces_catch.cpp
+│   │   │   ├── mces_cluster_catch.cpp
+│   │   │   ├── PartitionSet.cpp
+│   │   │   ├── PartitionSet.h
+│   │   │   ├── RascalButinaCluster.cpp
+│   │   │   ├── RascalCluster.cpp
+│   │   │   ├── RascalClusterOptions.h
+│   │   │   ├── RascalDetails.h
+│   │   │   ├── RascalMCES.cpp
+│   │   │   ├── RascalMCES.h
+│   │   │   ├── RascalOptions.h
+│   │   │   ├── RascalResult.cpp
+│   │   │   └── RascalResult.h
+│   │   │       └── ... (11 more files)
+│   │   ├── ReducedGraphs/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── ReducedGraphs.cpp
+│   │   │   ├── ReducedGraphs.h
+│   │   │   └── test1.cpp
+│   │   ├── RGroupDecomposition/
+│   │   │   ├── test_data/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_rgd.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── GaExample.cpp
+│   │   │   ├── RGroupCore.cpp
+│   │   │   ├── RGroupCore.h
+│   │   │   ├── RGroupData.cpp
+│   │   │   ├── RGroupData.h
+│   │   │   ├── RGroupDecomp.cpp
+│   │   │   ├── RGroupDecomp.h
+│   │   │   ├── RGroupDecompData.cpp
+│   │   │   ├── RGroupDecompData.h
+│   │   │   ├── RGroupDecompJSONParsers.cpp
+│   │   │   ├── RGroupDecompJSONParsers.h
+│   │   │   ├── RGroupDecompParams.cpp
+│   │   │   ├── RGroupDecompParams.h
+│   │   │   ├── RGroupFingerprintScore.cpp
+│   │   │   ├── RGroupFingerprintScore.h
+│   │   │   ├── RGroupGa.cpp
+│   │   │   ├── RGroupGa.h
+│   │   │   ├── RGroupMatch.h
+│   │   │   ├── RGroupScore.cpp
+│   │   │   ├── RGroupScore.h
+│   │   │   ├── RGroupUtils.cpp
+│   │   │   ├── RGroupUtils.h
+│   │   │   ├── testRGroupDecomp.cpp
+│   │   │   └── testRGroupInternals.cpp
+│   │   │       └── ... (21 more files)
+│   │   ├── ScaffoldNetwork/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── detail.h
+│   │   │   ├── ScaffoldNetwork.cpp
+│   │   │   └── ScaffoldNetwork.h
+│   │   ├── ShapeHelpers/
+│   │   │   ├── test_data/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── ShapeEncoder.cpp
+│   │   │   ├── ShapeEncoder.h
+│   │   │   ├── ShapeUtils.cpp
+│   │   │   ├── ShapeUtils.h
+│   │   │   └── testShapeHelpers.cpp
+│   │   │       └── ... (1 more files)
+│   │   ├── SLNParse/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── lex.yysln.cpp.cmake
+│   │   │   ├── sln.ll
+│   │   │   ├── sln.tab.cpp.cmake
+│   │   │   ├── sln.tab.hpp.cmake
+│   │   │   ├── sln.yy
+│   │   │   ├── SLNAttribs.cpp
+│   │   │   ├── SLNAttribs.h
+│   │   │   ├── SLNParse.cpp
+│   │   │   ├── SLNParse.h
+│   │   │   ├── SLNParseOps.h
+│   │   │   └── test.cpp
+│   │   │       └── ... (7 more files)
+│   │   ├── SmilesParse/
+│   │   │   ├── test_data/
+│   │   │   ├── testExecs/
+│   │   │   ├── CanonicalizeStereoGroups.cpp
+│   │   │   ├── CanonicalizeStereoGroups.h
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── cxsmiles_test.cpp
+│   │   │   ├── CXSmilesOps.cpp
+│   │   │   ├── lex.yysmarts.cpp.cmake
+│   │   │   ├── lex.yysmiles.cpp.cmake
+│   │   │   ├── nontetrahedral_tests.cpp
+│   │   │   ├── smarts.ll
+│   │   │   ├── smarts.tab.cpp.cmake
+│   │   │   ├── smarts.tab.hpp.cmake
+│   │   │   ├── smarts.yy
+│   │   │   ├── smarts_catch_tests.cpp
+│   │   │   ├── SmartsWrite.cpp
+│   │   │   ├── SmartsWrite.h
+│   │   │   ├── smatest.cpp
+│   │   │   ├── smiles.ll
+│   │   │   ├── smiles.tab.cpp.cmake
+│   │   │   ├── smiles.tab.hpp.cmake
+│   │   │   ├── smiles.yy
+│   │   │   ├── SmilesJSONParsers.cpp
+│   │   │   ├── SmilesJSONParsers.h
+│   │   │   ├── SmilesParse.cpp
+│   │   │   ├── SmilesParse.h
+│   │   │   ├── SmilesParseOps.cpp
+│   │   │   ├── SmilesParseOps.h
+│   │   │   ├── SmilesWrite.cpp
+│   │   │   ├── SmilesWrite.h
+│   │   │   ├── test.cpp
+│   │   │   ├── test2.cpp
+│   │   │   └── v2catch_tests.cpp
+│   │   │       └── ... (27 more files)
+│   │   ├── StructChecker/
+│   │   │   ├── test/
+│   │   │   ├── Wrap/
+│   │   │   ├── AtomSymbolMatch.cpp
+│   │   │   ├── AugmentedAtomData.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Pattern.cpp
+│   │   │   ├── Pattern.h
+│   │   │   ├── ReCharge.cpp
+│   │   │   ├── ReCharge.h
+│   │   │   ├── Stereo.cpp
+│   │   │   ├── Stereo.h
+│   │   │   ├── StripSmallFragments.cpp
+│   │   │   ├── StripSmallFragments.h
+│   │   │   ├── StructChecker.cpp
+│   │   │   ├── StructChecker.h
+│   │   │   ├── StructCheckerOptions.cpp
+│   │   │   ├── StructCheckerOptions.h
+│   │   │   ├── StructureFlags.cpp
+│   │   │   ├── Tautomer.cpp
+│   │   │   ├── Tautomer.h
+│   │   │   ├── testStructChecker.cpp
+│   │   │   ├── Utilites.cpp
+│   │   │   └── Utilites.h
+│   │   │       └── ... (16 more files)
+│   │   ├── Subgraphs/
+│   │   │   ├── testExecs/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Subgraphs.cpp
+│   │   │   ├── Subgraphs.h
+│   │   │   ├── SubgraphUtils.cpp
+│   │   │   ├── SubgraphUtils.h
+│   │   │   ├── test1.cpp
+│   │   │   └── test2.cpp
+│   │   │       └── ... (3 more files)
+│   │   ├── Substruct/
+│   │   │   ├── testExecs/
+│   │   │   ├── bench.cpp
+│   │   │   ├── bond-query.cdxml
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── cmd_match.cpp
+│   │   │   ├── list-query.cdxml
+│   │   │   ├── regress.txt
+│   │   │   ├── SubstructMatch.cpp
+│   │   │   ├── SubstructMatch.h
+│   │   │   ├── SubstructUtils.cpp
+│   │   │   ├── SubstructUtils.h
+│   │   │   ├── test1.cpp
+│   │   │   ├── ullmann.hpp
+│   │   │   ├── UnitTestSubstruct.py
+│   │   │   └── vf2.hpp
+│   │   │       └── ... (10 more files)
+│   │   ├── SubstructLibrary/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── PatternFactory.cpp
+│   │   │   ├── PatternFactory.h
+│   │   │   ├── SubstructLibrary.cpp
+│   │   │   ├── SubstructLibrary.h
+│   │   │   ├── SubstructLibrarySerialization.h
+│   │   │   └── substructLibraryTest.cpp
+│   │   │       └── ... (3 more files)
+│   │   ├── SynthonSpaceSearch/
+│   │   │   ├── data/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fingerprint_search_catch_tests.cpp
+│   │   │   ├── LONG_TEST_catch_tests.cpp
+│   │   │   ├── MemoryMappedFileReader.cpp
+│   │   │   ├── MemoryMappedFileReader.h
+│   │   │   ├── rascal_search_catch_tests.cpp
+│   │   │   ├── SearchResults.cpp
+│   │   │   ├── SearchResults.h
+│   │   │   ├── substructure_search_catch_tests.cpp
+│   │   │   ├── Synthon.cpp
+│   │   │   ├── Synthon.h
+│   │   │   ├── SynthonSet.cpp
+│   │   │   ├── SynthonSet.h
+│   │   │   ├── SynthonSpace.cpp
+│   │   │   ├── SynthonSpace.h
+│   │   │   ├── SynthonSpaceFingerprintSearcher.cpp
+│   │   │   ├── SynthonSpaceFingerprintSearcher.h
+│   │   │   ├── SynthonSpaceHitSet.cpp
+│   │   │   ├── SynthonSpaceHitSet.h
+│   │   │   ├── SynthonSpaceRascalSearcher.cpp
+│   │   │   ├── SynthonSpaceRascalSearcher.h
+│   │   │   ├── SynthonSpaceSearch_details.cpp
+│   │   │   ├── SynthonSpaceSearch_details.h
+│   │   │   ├── SynthonSpaceSearcher.cpp
+│   │   │   ├── SynthonSpaceSearcher.h
+│   │   │   ├── SynthonSpaceSubstructureSearcher.cpp
+│   │   │   └── SynthonSpaceSubstructureSearcher.h
+│   │   │       └── ... (22 more files)
+│   │   ├── TautomerQuery/
+│   │   │   ├── Wrap/
+│   │   │   ├── catch_tests.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── TautomerQuery.cpp
+│   │   │   └── TautomerQuery.h
+│   │   ├── test_data/
+│   │   │   ├── CDXML/
+│   │   │   ├── 1a9u.sdf
+│   │   │   ├── 1a9u.zwitterion.sdf
+│   │   │   ├── adjustqueryprops_fivering_1.mol
+│   │   │   ├── adjustqueryprops_fivering_2.mol
+│   │   │   ├── adjustqueryprops_fivering_3.mol
+│   │   │   ├── adjustqueryprops_fivering_4.mol
+│   │   │   ├── adjustqueryprops_fivering_5.mol
+│   │   │   ├── adjustqueryprops_fivering_6.mol
+│   │   │   ├── adjustqueryprops_MDLfivering_1.mol
+│   │   │   ├── adjustqueryprops_MDLfivering_2.mol
+│   │   │   ├── adjustqueryprops_MDLfivering_3.mol
+│   │   │   ├── adjustqueryprops_MDLfivering_4.mol
+│   │   │   ├── canon_reorder1.mol
+│   │   │   ├── canon_reorder2.mol
+│   │   │   ├── canonSmiles.long.smi
+│   │   │   ├── canonSmiles.past_problems.smi
+│   │   │   ├── canonSmiles.smi
+│   │   │   ├── canonSmiles.v1.pkl
+│   │   │   ├── canonSmiles.v2.pkl
+│   │   │   ├── ChEBI_50252.mol
+│   │   │   ├── chembl1203199.mol
+│   │   │   ├── CHEMBL501674.mol
+│   │   │   ├── CHEMBL501674_3D.mol
+│   │   │   ├── chi3d_r1.mol
+│   │   │   ├── chi3d_r1_bad.mol
+│   │   │   ├── chi3d_r2.mol
+│   │   │   ├── chi3d_s1.mol
+│   │   │   ├── chi3d_s2.mol
+│   │   │   ├── compounds.smi
+│   │   │   ├── cyclohexene_3D.mol
+│   │   │   ├── dummyArom.mol
+│   │   │   ├── github1936.mol
+│   │   │   ├── github2224_1.mol
+│   │   │   ├── github443.min.mol
+│   │   │   ├── github443.mol
+│   │   │   ├── github72.2.mol
+│   │   │   ├── github72.3.mol
+│   │   │   ├── github72.mol
+│   │   │   ├── Github8323.sdf
+│   │   │   ├── github87.2.mol
+│   │   │   ├── github87.mol
+│   │   │   ├── iChi1a.mol
+│   │   │   ├── iChi1b.mol
+│   │   │   ├── iChi1c.mol
+│   │   │   ├── iChi1d.mol
+│   │   │   ├── iChi1e.mol
+│   │   │   ├── iChi2a.mol
+│   │   │   ├── iChi2b.mol
+│   │   │   ├── iChi2c.mol
+│   │   │   ├── iChi2d.mol
+│   │   │   ├── iChi2e.mol
+│   │   │   ├── iChi3a.mol
+│   │   │   ├── iChi3b.mol
+│   │   │   ├── iChi3c.mol
+│   │   │   ├── iChi4a.mol
+│   │   │   ├── iChi4b.mol
+│   │   │   ├── iChi4c.mol
+│   │   │   ├── iChi4d.mol
+│   │   │   ├── Issue2313979.sdf
+│   │   │   ├── Issue2316677.mol
+│   │   │   ├── Issue266.mol
+│   │   │   ├── Issue2705543.1.mol
+│   │   │   ├── Issue2705543.1h.mol
+│   │   │   ├── Issue2705543.2.mol
+│   │   │   ├── Issue2705543.2h.mol
+│   │   │   ├── Issue2788233.mol
+│   │   │   ├── Issue2951221.1.mol
+│   │   │   ├── Issue2951221.2.mol
+│   │   │   ├── Issue2951221.3.mol
+│   │   │   ├── Issue3185548.2.mol
+│   │   │   ├── Issue3185548.mol
+│   │   │   ├── Issue3480481.mol
+│   │   │   ├── Issue3525076.sdf
+│   │   │   ├── Issue3549146.mol
+│   │   │   ├── mol_with_confs.pkl
+│   │   │   ├── mol_with_double_confs.pkl
+│   │   │   ├── mol_with_pickle_error.mol
+│   │   │   ├── mol_with_sgroups_and_stereo.pkl
+│   │   │   ├── nontetrahedral_3d.sdf
+│   │   │   ├── pains.smi
+│   │   │   ├── perchlorate1.mol
+│   │   │   ├── pubchem_87396055.sdf
+│   │   │   ├── sgroups_and_marvin_metal.mol
+│   │   │   ├── sgroups_and_remove_atoms_1.mol
+│   │   │   ├── sgroups_and_remove_atoms_2.mol
+│   │   │   ├── sgroups_and_remove_atoms_3.mol
+│   │   │   ├── sgroups_and_remove_atoms_4.mol
+│   │   │   ├── sgroups_and_remove_atoms_5.mol
+│   │   │   ├── sgroups_and_remove_atoms_6.mol
+│   │   │   ├── sgroups_and_remove_atoms_7.mol
+│   │   │   ├── sgroups_and_remove_Hs_1.mol
+│   │   │   ├── sgroups_copolymer.mol
+│   │   │   ├── sgroups_copolymer2.mol
+│   │   │   ├── stereochem.sdf
+│   │   │   ├── stereoOrder1.mol
+│   │   │   ├── substructLibV1.pkl
+│   │   │   ├── water_coords.trc
+│   │   │   ├── water_coords.trx
+│   │   │   ├── water_coords2.trc
+│   │   │   ├── water_coords2.trx
+│   │   │   ├── water_coords_bad.trc
+│   │   │   ├── water_coords_bad.trx
+│   │   │   ├── water_coords_bad2.trc
+│   │   │   ├── water_coords_bad2.trx
+│   │   │   ├── wedging_problems1.mol
+│   │   │   ├── wedging_problems2.mol
+│   │   │   ├── zinc13403961piece.mol
+│   │   │   ├── zinc3850436.mol
+│   │   │   ├── zinc3850436piece.mol
+│   │   │   ├── zinc4235774.mol
+│   │   │   ├── zinc4235774a.mol
+│   │   │   ├── zinc6624278.mol
+│   │   │   └── zinc8221201.mol
+│   │   │       └── ... (108 more files)
+│   │   ├── testExecs/
+│   │   │   └── .cvskeep
+│   │   ├── Trajectory/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Snapshot.h
+│   │   │   ├── Trajectory.cpp
+│   │   │   ├── Trajectory.h
+│   │   │   └── trajectoryTest.cpp
+│   │   ├── Wrap/
+│   │   │   ├── test_data/
+│   │   │   ├── Testing/
+│   │   │   ├── Atom.cpp
+│   │   │   ├── Bond.cpp
+│   │   │   ├── Chirality.cpp
+│   │   │   ├── ChiralityOps.cpp
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── CompressedSDMolSupplier.cpp
+│   │   │   ├── Conformer.cpp
+│   │   │   ├── ContextManagers.h
+│   │   │   ├── EditableMol.cpp
+│   │   │   ├── ForwardSDMolSupplier.cpp
+│   │   │   ├── MaeMolSupplier.cpp
+│   │   │   ├── MaeWriter.cpp
+│   │   │   ├── Mol.cpp
+│   │   │   ├── MolBundle.cpp
+│   │   │   ├── MolOps.cpp
+│   │   │   ├── MolSupplier.h
+│   │   │   ├── MonomerInfo.cpp
+│   │   │   ├── MultithreadedMolSupplier.h
+│   │   │   ├── MultithreadedSDMolSupplier.cpp
+│   │   │   ├── MultithreadedSmilesMolSupplier.cpp
+│   │   │   ├── PDBWriter.cpp
+│   │   │   ├── props.hpp
+│   │   │   ├── Queries.cpp
+│   │   │   ├── rdchem.cpp
+│   │   │   ├── rdchem.h
+│   │   │   ├── rdmolfiles.cpp
+│   │   │   ├── rdmolfiles.h
+│   │   │   ├── rdmolops.cpp
+│   │   │   ├── rdmolops.h
+│   │   │   ├── rdqueries.cpp
+│   │   │   ├── rdTrajectory.cpp
+│   │   │   ├── ResonanceMolSupplier.cpp
+│   │   │   ├── RingInfo.cpp
+│   │   │   ├── rough_test.py
+│   │   │   ├── SDMolSupplier.cpp
+│   │   │   ├── SDWriter.cpp
+│   │   │   ├── seqs.hpp
+│   │   │   ├── SmilesMolSupplier.cpp
+│   │   │   ├── SmilesWriter.cpp
+│   │   │   ├── StereoGroup.cpp
+│   │   │   ├── SubstanceGroup.cpp
+│   │   │   ├── substructmethods.h
+│   │   │   ├── Table.cpp
+│   │   │   ├── TDTMolSupplier.cpp
+│   │   │   ├── TDTWriter.cpp
+│   │   │   ├── test_cdxml.py
+│   │   │   ├── testConformer.py
+│   │   │   ├── testMultithreadedMolSupplier.py
+│   │   │   ├── testPropertyLists.py
+│   │   │   ├── testSCSR.py
+│   │   │   ├── testSGroups.py
+│   │   │   ├── testThreads.py
+│   │   │   ├── testTrajectory.py
+│   │   │   └── Trajectory.cpp
+│   │   │       └── ... (49 more files)
+│   │   ├── AddHs.cpp
+│   │   ├── AdjustQuery.cpp
+│   │   ├── Aromaticity.cpp
+│   │   ├── Atom.cpp
+│   │   ├── Atom.h
+│   │   ├── atomic_data.cpp
+│   │   ├── atomic_data.h
+│   │   ├── AtomIterators.cpp
+│   │   ├── AtomIterators.h
+│   │   ├── Atropisomers.cpp
+│   │   ├── Atropisomers.h
+│   │   ├── Bond.cpp
+│   │   ├── Bond.h
+│   │   ├── BondIterators.cpp
+│   │   ├── BondIterators.h
+│   │   ├── bulktest.cpp
+│   │   ├── Canon.cpp
+│   │   ├── Canon.h
+│   │   ├── catch_adjustquery.cpp
+│   │   ├── catch_canon.cpp
+│   │   ├── catch_chirality.cpp
+│   │   ├── catch_graphmol.cpp
+│   │   ├── catch_molbundle.cpp
+│   │   ├── catch_moliterators.cpp
+│   │   ├── catch_molops.cpp
+│   │   ├── catch_organometallics.cpp
+│   │   ├── catch_periodictable.cpp
+│   │   ├── catch_pickles.cpp
+│   │   ├── catch_queries.cpp
+│   │   ├── catch_sgroups.cpp
+│   │   ├── Chirality.cpp
+│   │   ├── Chirality.h
+│   │   ├── CMakeLists.txt
+│   │   ├── Conformer.cpp
+│   │   ├── Conformer.h
+│   │   ├── ConjugHybrid.cpp
+│   │   ├── cptest.cpp
+│   │   ├── details.h
+│   │   ├── FindRings.cpp
+│   │   ├── FindStereo.cpp
+│   │   ├── GraphMol.cpp
+│   │   ├── GraphMol.h
+│   │   ├── hanoitest.cpp
+│   │   ├── itertest.cpp
+│   │   ├── Kekulize.cpp
+│   │   ├── Matrices.cpp
+│   │   ├── memtest1.cpp
+│   │   ├── MolBundle.h
+│   │   ├── MolOps.cpp
+│   │   ├── MolOps.h
+│   │   ├── molopstest.cpp
+│   │   ├── MolPickler.cpp
+│   │   ├── MolPickler.h
+│   │   ├── MolProps.cpp
+│   │   ├── MonomerInfo.cpp
+│   │   ├── MonomerInfo.h
+│   │   ├── new_canon.cpp
+│   │   ├── new_canon.h
+│   │   ├── NontetrahedralStereo.cpp
+│   │   ├── PeriodicTable.cpp
+│   │   ├── PeriodicTable.h
+│   │   ├── QueryAtom.cpp
+│   │   ├── QueryAtom.h
+│   │   ├── QueryBond.cpp
+│   │   ├── QueryBond.h
+│   │   ├── QueryOps.cpp
+│   │   ├── QueryOps.h
+│   │   ├── querytest.cpp
+│   │   ├── RDKitBase.h
+│   │   ├── RDKitQueries.h
+│   │   ├── regress.txt
+│   │   ├── Renumber.cpp
+│   │   ├── resMolSupplierTest.cpp
+│   │   ├── Resonance.cpp
+│   │   ├── Resonance.h
+│   │   ├── RingInfo.cpp
+│   │   ├── RingInfo.h
+│   │   ├── Rings.h
+│   │   ├── ROMol.cpp
+│   │   ├── ROMol.h
+│   │   ├── RWMol.cpp
+│   │   ├── RWMol.h
+│   │   ├── SanitException.h
+│   │   ├── sanitTest.cpp
+│   │   ├── StereoGroup.cpp
+│   │   ├── StereoGroup.h
+│   │   ├── SubstanceGroup.cpp
+│   │   ├── SubstanceGroup.h
+│   │   ├── test-valgrind.cpp
+│   │   ├── test1.cpp
+│   │   ├── test_fixtures.h
+│   │   ├── testChirality.cpp
+│   │   ├── testMolBundle.cpp
+│   │   ├── testPickler.cpp
+│   │   ├── testPicklerGlobalSettings.cpp
+│   │   ├── testSGroup.cpp
+│   │   ├── UnitTestQueryMol.py
+│   │   └── WedgeBonds.cpp
+│   │       └── ... (93 more files)
+│   ├── JavaWrappers/
+│   │   ├── csharp_wrapper/
+│   │   │   ├── Properties/
+│   │   │   ├── RDKitCSharpTest/
+│   │   │   ├── RdkitTests/
+│   │   │   ├── swig_csharp/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── GraphMolCSharp.i
+│   │   │   ├── RDKit2DotNet.csproj
+│   │   │   ├── RDKitDotNetCore.sln
+│   │   │   ├── README
+│   │   │   ├── std_list.i
+│   │   │   └── test.cs
+│   │   │       └── ... (2 more files)
+│   │   ├── gmwrapper/
+│   │   │   ├── src/
+│   │   │   ├── src-test/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── GraphMolJava.i
+│   │   │   ├── std_list.i
+│   │   │   ├── std_map.i
+│   │   │   └── std_vector.i
+│   │   ├── Abbreviations.i
+│   │   ├── AddHs.i
+│   │   ├── Atom.i
+│   │   ├── Atom_doc.i
+│   │   ├── AtomIterators.i
+│   │   ├── AtomPairs.i
+│   │   ├── AvalonLib.i
+│   │   ├── BitOps.i
+│   │   ├── Bond.i
+│   │   ├── Bond_doc.i
+│   │   ├── BondIterators.i
+│   │   ├── BondIterators_doc.i
+│   │   ├── build_docs.sh
+│   │   ├── Canon.i
+│   │   ├── ChemReactions.i
+│   │   ├── ChemReactions_doc.i
+│   │   ├── ChemTransforms.i
+│   │   ├── CMakeLists.txt
+│   │   ├── Conformer.i
+│   │   ├── Conformer_doc.i
+│   │   ├── Descriptors.i
+│   │   ├── Dict.i
+│   │   ├── DistGeom.i
+│   │   ├── DiversityPick.h
+│   │   ├── DiversityPick.i
+│   │   ├── ErrorGenerator.i
+│   │   ├── ExplicitBitVect.i
+│   │   ├── ExplicitBitVect_doc.i
+│   │   ├── extend_std_vector.i
+│   │   ├── FilterCatalog.i
+│   │   ├── FilterCatalog_doc.i
+│   │   ├── FilterCatalogParams_doc.i
+│   │   ├── FilterCatalogs_doc.i
+│   │   ├── Fingerprints.i
+│   │   ├── FMCS.i
+│   │   ├── ForceField.i
+│   │   ├── GeneralizedSubstruct.i
+│   │   ├── GenericRDKitException.h
+│   │   ├── Inchi.i
+│   │   ├── make_templates.py
+│   │   ├── MolBundle.i
+│   │   ├── MolDraw2D.i
+│   │   ├── MolEnumerator.i
+│   │   ├── MolHash.i
+│   │   ├── MolOps.i
+│   │   ├── MolStandardize.i
+│   │   ├── MolSupplier.i
+│   │   ├── MolTransforms.i
+│   │   ├── MolWriters.i
+│   │   ├── MonomerInfo.i
+│   │   ├── MorganFingerprints.h
+│   │   ├── MorganFingerprints.i
+│   │   ├── msvc_stdint.i
+│   │   ├── parse_doxy_html.py
+│   │   ├── PeriodicTable.i
+│   │   ├── PeriodicTable_doc.i
+│   │   ├── point.i
+│   │   ├── Point3D_doc.i
+│   │   ├── Queries.i
+│   │   ├── QueryAtom.i
+│   │   ├── QueryAtom_doc.i
+│   │   ├── QueryBond.i
+│   │   ├── QueryBond_doc.i
+│   │   ├── QueryOps.i
+│   │   ├── RascalMCES.i
+│   │   ├── RDKFuncs_doc.i
+│   │   ├── RDKitExceptions.i
+│   │   ├── RDLogger.i
+│   │   ├── RDProps.i
+│   │   ├── ReactionFingerprints.i
+│   │   ├── RGroupDecomposition.i
+│   │   ├── RingInfo.i
+│   │   ├── RingInfo_doc.i
+│   │   ├── Rings.i
+│   │   ├── ROMol.i
+│   │   ├── ROMol_doc.i
+│   │   ├── RWMol.i
+│   │   ├── RWMol_doc.i
+│   │   ├── SanitException.i
+│   │   ├── ScaffoldNetwork.i
+│   │   ├── SDMolSupplier_doc.i
+│   │   ├── SmartsWrite.i
+│   │   ├── SmilesMolSupplier_doc.i
+│   │   ├── SmilesParse.i
+│   │   ├── SmilesWrite.i
+│   │   ├── SmilesWriter_doc.i
+│   │   ├── std_tuple.i
+│   │   ├── StereoGroup.i
+│   │   ├── Streams.i
+│   │   ├── Subgraphs.i
+│   │   ├── SubstanceGroup.i
+│   │   ├── SubstructLibrary.i
+│   │   ├── TautomerQuery.i
+│   │   ├── TDTMolSupplier_doc.i
+│   │   ├── TDTWriter_doc.i
+│   │   ├── Trajectory.i
+│   │   ├── Transform2D_doc.i
+│   │   ├── Transform3D_doc.i
+│   │   ├── transforms.i
+│   │   └── types.i
+│   │       └── ... (95 more files)
+│   ├── MinimalLib/
+│   │   ├── demo/
+│   │   │   ├── demo.html
+│   │   │   └── rgd_demo.html
+│   │   ├── docker/
+│   │   │   ├── certs/
+│   │   │   ├── docker_compose_build_minimallib.yml
+│   │   │   ├── Dockerfile_1_deps
+│   │   │   ├── Dockerfile_2_rdkit_clone_from_github
+│   │   │   ├── Dockerfile_2_rdkit_copy_from_local
+│   │   │   ├── Dockerfile_3_rdkit_build
+│   │   │   └── Dockerfile_4_rdkit_export
+│   │   │       └── ... (1 more files)
+│   │   ├── docs/
+│   │   │   └── GettingStartedInJS.html
+│   │   ├── scripts/
+│   │   │   └── build_rdkitjs.sh
+│   │   ├── tests/
+│   │   │   └── tests.js
+│   │   ├── cffi_test.c
+│   │   ├── cffiwrapper.cpp
+│   │   ├── cffiwrapper.h
+│   │   ├── CMakeLists.txt
+│   │   ├── common.h
+│   │   ├── common_defs.h
+│   │   ├── JSONParsers.cpp
+│   │   ├── JSONParsers.h
+│   │   ├── jswrapper.cpp
+│   │   ├── minilib.cpp
+│   │   ├── minilib.h
+│   │   ├── README.md
+│   │   ├── simple.py
+│   │   └── testMinilib.cpp
+│   │       └── ... (9 more files)
+│   ├── ML/
+│   │   ├── Cluster/
+│   │   │   ├── Murtagh/
+│   │   │   └── CMakeLists.txt
+│   │   ├── Data/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── cQuantize.cpp
+│   │   ├── InfoTheory/
+│   │   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── CorrMatGenerator.h
+│   │   │   ├── InfoBitRanker.cpp
+│   │   │   ├── InfoBitRanker.h
+│   │   │   └── InfoGainFuncs.h
+│   │   └── CMakeLists.txt
+│   ├── Numerics/
+│   │   ├── Alignment/
+│   │   │   ├── Wrap/
+│   │   │   ├── AlignPoints.cpp
+│   │   │   ├── AlignPoints.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── testAlignment.cpp
+│   │   ├── EigenSolvers/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── PowerEigenSolver.cpp
+│   │   │   ├── PowerEigenSolver.h
+│   │   │   └── testEigenSolvers.cpp
+│   │   ├── Optimizer/
+│   │   │   ├── BFGSOpt.cpp
+│   │   │   ├── BFGSOpt.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── LinearSearch.cpp
+│   │   │   └── testOptimizer.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── Conrec.h
+│   │   ├── Matrix.h
+│   │   ├── SquareMatrix.h
+│   │   ├── SymmMatrix.h
+│   │   ├── testConrec.cpp
+│   │   ├── testMatrices.cpp
+│   │   └── Vector.h
+│   │       └── ... (3 more files)
+│   ├── PgSQL/
+│   │   └── rdkit/
+│   │       ├── data/
+│   │       ├── expected/
+│   │       ├── sql/
+│   │       ├── update_sql/
+│   │       ├── adapter.cpp
+│   │       ├── bfp_gin.c
+│   │       ├── bfp_gist.c
+│   │       ├── bfp_op.c
+│   │       ├── bitstring.c
+│   │       ├── bitstring.h
+│   │       ├── cache.c
+│   │       ├── cache.h
+│   │       ├── CMakeLists.txt
+│   │       ├── guc.c
+│   │       ├── guc.h
+│   │       ├── InstallPgSql.cmake.in
+│   │       ├── low_gist.c
+│   │       ├── Makefile
+│   │       ├── mol_op.c
+│   │       ├── rdkit.control
+│   │       ├── rdkit.h
+│   │       ├── rdkit.sql.in
+│   │       ├── rdkit_gist.c
+│   │       ├── rdkit_io.c
+│   │       ├── README.md
+│   │       ├── rxn_op.c
+│   │       └── sfp_op.c
+│   │           └── ... (18 more files)
+│   ├── Query/
+│   │   ├── AndQuery.h
+│   │   ├── CMakeLists.txt
+│   │   ├── EqualityQuery.h
+│   │   ├── GreaterEqualQuery.h
+│   │   ├── GreaterQuery.h
+│   │   ├── LessEqualQuery.h
+│   │   ├── LessQuery.h
+│   │   ├── NullQueryAlgebra.h
+│   │   ├── OrQuery.h
+│   │   ├── Query.h
+│   │   ├── QueryObjects.h
+│   │   ├── RangeQuery.h
+│   │   ├── SetQuery.h
+│   │   ├── test.cpp
+│   │   └── XOrQuery.h
+│   │       └── ... (10 more files)
+│   ├── RDBoost/
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── RDBase.cpp
+│   │   ├── boost_numpy.h
+│   │   ├── CMakeLists.txt
+│   │   ├── import_array.h
+│   │   ├── list_indexing_suite.hpp
+│   │   ├── pyint_api.h
+│   │   ├── PySequenceHolder.h
+│   │   ├── python.h
+│   │   ├── python_streambuf.h
+│   │   ├── Wrap.cpp
+│   │   └── Wrap.h
+│   │       └── ... (5 more files)
+│   ├── RDGeneral/
+│   │   ├── hash/
+│   │   │   ├── detail/
+│   │   │   ├── extensions.hpp
+│   │   │   ├── hash.hpp
+│   │   │   └── hash_fwd.hpp
+│   │   ├── testExecs/
+│   │   │   └── .cvskeep
+│   │   ├── BadFileException.h
+│   │   ├── BetterEnums.h
+│   │   ├── BoostEndInclude.h
+│   │   ├── BoostStartInclude.h
+│   │   ├── catch_dict.cpp
+│   │   ├── catch_logs.cpp
+│   │   ├── catch_main.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── ConcurrentQueue.h
+│   │   ├── ControlCHandler.h
+│   │   ├── Dict.h
+│   │   ├── Exceptions.h
+│   │   ├── FileParseException.h
+│   │   ├── hanoiSort.h
+│   │   ├── Invariant.cpp
+│   │   ├── Invariant.h
+│   │   ├── LocaleSwitcher.cpp
+│   │   ├── LocaleSwitcher.h
+│   │   ├── Ranking.h
+│   │   ├── RDAny.h
+│   │   ├── RDConfig.h.cmake
+│   │   ├── RDExportMacros.h
+│   │   ├── RDGeneralExceptions.cpp
+│   │   ├── RDLog.cpp
+│   │   ├── RDLog.h
+│   │   ├── RDProps.h
+│   │   ├── RDThreads.h
+│   │   ├── RDValue-doublemagic.h
+│   │   ├── RDValue-taggedunion.h
+│   │   ├── RDValue.h
+│   │   ├── StreamOps.h
+│   │   ├── testConcurrentQueue.cpp
+│   │   ├── testDict.cpp
+│   │   ├── testRDValue.cpp
+│   │   ├── types.cpp
+│   │   ├── types.h
+│   │   ├── utils.cpp
+│   │   ├── utils.h
+│   │   ├── versions.cpp.cmake
+│   │   └── versions.h.cmake
+│   │       └── ... (35 more files)
+│   ├── RDStreams/
+│   │   ├── CMakeLists.txt
+│   │   ├── streams.cpp
+│   │   └── streams.h
+│   ├── SimDivPickers/
+│   │   ├── Wrap/
+│   │   │   ├── test_data/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── HierarchicalClusterPicker.cpp
+│   │   │   ├── LeaderPicker.cpp
+│   │   │   ├── MaxMinPicker.cpp
+│   │   │   ├── PickerHelpers.h
+│   │   │   ├── rdSimDivPickers.cpp
+│   │   │   ├── testMaxMin.py
+│   │   │   └── testPickers.py
+│   │   │       └── ... (3 more files)
+│   │   ├── catch_tests.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── DistPicker.cpp
+│   │   ├── DistPicker.h
+│   │   ├── HierarchicalClusterPicker.cpp
+│   │   ├── HierarchicalClusterPicker.h
+│   │   ├── LeaderPicker.h
+│   │   ├── MaxMinPicker.cpp
+│   │   ├── MaxMinPicker.h
+│   │   ├── pickersCLI.cpp
+│   │   └── testPickers.cpp
+│   │       └── ... (6 more files)
+│   ├── CMakeLists.txt
+│   └── notes.txt
+├── Contrib/
+│   ├── AtomAtomSimilarity/
+│   │   └── AtomAtomPathSimilarity.py
+│   ├── CalcLigRMSD/
+│   │   ├── data/
+│   │   ├── figures/
+│   │   │   ├── 1C9.png
+│   │   │   ├── 5dpv_complex.png
+│   │   │   ├── 6c83_complex.png
+│   │   │   ├── AKI.png
+│   │   │   ├── BEG.png
+│   │   │   ├── JVE.png
+│   │   │   └── N15.png
+│   │   │       └── ... (2 more files)
+│   │   ├── CalcLigRMSD.py
+│   │   ├── Examples_CalcLigRMSD.ipynb
+│   │   └── README.md
+│   ├── ChiralPairs/
+│   │   ├── ChiralDescriptors.py
+│   │   └── README.txt
+│   ├── ConformerParser/
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── rdConformerParser.cpp
+│   │   │   └── testConformerParser.py
+│   │   ├── CMakeLists.txt
+│   │   ├── ConformerParser.cpp
+│   │   ├── ConformerParser.h
+│   │   └── test.cpp
+│   ├── efgs/
+│   │   ├── ch33query.sql
+│   │   ├── efgs.py
+│   │   ├── README.md
+│   │   └── try_efgs.py
+│   ├── Fastcluster/
+│   │   ├── testdata/
+│   │   │   ├── cdk2.sdf
+│   │   │   ├── converted.smi
+│   │   │   └── sdf2smi.py
+│   │   ├── cdk2.smi
+│   │   ├── centroid.tsv
+│   │   ├── clustered.tsv
+│   │   ├── clustered_parse.tsv
+│   │   ├── fastcluster.py
+│   │   ├── fp.tsv
+│   │   └── README.md
+│   │       └── ... (2 more files)
+│   ├── fraggle/
+│   │   ├── data/
+│   │   │   ├── ChEMBL_11265_actives.smi
+│   │   │   ├── final_fraggle_results.csv
+│   │   │   ├── fragmentation_tversky_out
+│   │   │   ├── query.smi
+│   │   │   └── query_fragmentation.csv
+│   │   ├── atomcontrib.py
+│   │   ├── cxn_tversky.py
+│   │   ├── fraggle.py
+│   │   ├── rdkit_tversky.py
+│   │   └── readme.txt
+│   ├── FreeWilson/
+│   │   ├── data/
+│   │   │   ├── CHEMBL2321810.smi
+│   │   │   ├── CHEMBL2321810_act.csv
+│   │   │   └── CHEMBL2321810_scaffold.mol
+│   │   ├── test/
+│   │   │   └── test_freewilson.py
+│   │   ├── freewilson.py
+│   │   ├── pytest.ini
+│   │   ├── README.md
+│   │   ├── requirements.txt
+│   │   └── setup.py
+│   ├── Glare/
+│   │   ├── glare.py
+│   │   └── README.txt
+│   ├── IFG/
+│   │   ├── ifg.py
+│   │   └── README
+│   ├── LEF/
+│   │   ├── AddLabels.py
+│   │   ├── ClusterFps.py
+│   │   ├── CreateFps.py
+│   │   ├── DistancePlot.py
+│   │   ├── DistancePredict.py
+│   │   └── README.txt
+│   │       └── ... (1 more files)
+│   ├── M_Kossner/
+│   │   ├── BaseFeatures_DIP2_NoMicrospecies.fdef
+│   │   ├── Frames.py
+│   │   └── README
+│   ├── mmpa/
+│   │   ├── data/
+│   │   │   ├── sample.smi
+│   │   │   ├── sample_cansmirks.txt
+│   │   │   ├── sample_db_input_smi.txt
+│   │   │   ├── sample_db_input_subs.txt
+│   │   │   ├── sample_db_input_subs_smarts.txt
+│   │   │   ├── sample_db_input_trans.txt
+│   │   │   ├── sample_db_input_trans_smarts.txt
+│   │   │   ├── sample_db_search_smi_output.txt
+│   │   │   ├── sample_db_search_subs_output.txt
+│   │   │   ├── sample_db_search_subs_smart_output.txt
+│   │   │   ├── sample_db_search_trans_output.txt
+│   │   │   ├── sample_db_search_trans_smarts_output.txt
+│   │   │   ├── sample_fragmented.txt
+│   │   │   ├── sample_mmps_default.csv
+│   │   │   ├── sample_mmps_maxheavy.csv
+│   │   │   ├── sample_mmps_maxratio.csv
+│   │   │   ├── sample_mmps_sym.csv
+│   │   │   ├── sample_mmps_sym_maxheavy.csv
+│   │   │   ├── sample_mol_trans_output.txt
+│   │   │   ├── sample_smiles_mol_trans.smi
+│   │   │   ├── sample_smirks.txt
+│   │   │   ├── sample_smirks_mol_trans.txt
+│   │   │   ├── sample_transfroms.txt
+│   │   │   └── simple.smi
+│   │   │       └── ... (19 more files)
+│   │   ├── cansmirk.py
+│   │   ├── create_mmp_db.py
+│   │   ├── indexing.py
+│   │   ├── mol_transform.py
+│   │   ├── README.txt
+│   │   ├── rfrag.py
+│   │   ├── search_mmp_db.py
+│   │   └── test_rfrag.py
+│   │       └── ... (3 more files)
+│   ├── MolVS/
+│   │   └── molvs_cli.py
+│   ├── NIBRSubstructureFilters/
+│   │   ├── examples/
+│   │   │   ├── chembl24_structs_randomtestSample_100.csv
+│   │   │   └── chembl24_structs_randomtestSample_100_out.csv
+│   │   ├── assignSubstructureFilters.py
+│   │   ├── filterExamples.png
+│   │   ├── FilterSet_NIBR2019_wPubChemExamples.html
+│   │   ├── README.md
+│   │   └── SubstructureFilter_HitTriaging_wPubChemExamples.csv
+│   ├── NP_Score/
+│   │   ├── npscorer.py
+│   │   ├── publicnp.model.gz
+│   │   └── README
+│   ├── PBF/
+│   │   ├── testData/
+│   │   │   ├── egfr.out
+│   │   │   └── egfr.sdf
+│   │   ├── demo.cpp
+│   │   ├── Makefile
+│   │   ├── pbf.py
+│   │   ├── PBFRDKit.cpp
+│   │   ├── PBFRDKit.h
+│   │   └── README
+│   │       └── ... (1 more files)
+│   ├── pzc/
+│   │   ├── p_con.html
+│   │   ├── p_con.py
+│   │   └── readme.md
+│   ├── RxnRoleAssignment/
+│   │   ├── __init__.py
+│   │   ├── identifyReactants.py
+│   │   ├── README.txt
+│   │   └── utils.py
+│   ├── SA_Score/
+│   │   ├── data/
+│   │   │   └── zim.100.txt
+│   │   ├── build_sascore_db.py
+│   │   ├── fpscores.pkl.gz
+│   │   ├── README
+│   │   ├── sascorer.py
+│   │   └── UnitTestSAScore.py
+│   └── CMakeLists.txt
+├── Data/
+│   ├── DTDs/
+│   │   ├── RD_Dataset.dtd
+│   │   ├── RD_Model.dtd
+│   │   └── validate.py
+│   ├── Fonts/
+│   │   ├── Amadeus.ttf
+│   │   ├── amadeus_font_license.txt
+│   │   ├── font_dumper.py
+│   │   ├── roboto_regular_license.txt
+│   │   ├── Telex-Regular.ttf
+│   │   └── telex_font_license.txt
+│   │       └── ... (1 more files)
+│   ├── NCI/
+│   │   ├── first_200.props.sdf
+│   │   ├── first_200.tpsa.csv
+│   │   ├── first_5K.smi
+│   │   └── first_5k.tpsa.csv
+│   ├── Pains/
+│   │   ├── test_data/
+│   │   │   ├── run_tests.py
+│   │   │   ├── test_set3.txt
+│   │   │   └── wehi_mols.csv
+│   │   ├── README.md
+│   │   └── wehi_pains.csv
+│   ├── SmartsLib/
+│   │   ├── tests/
+│   │   │   ├── bench2.py
+│   │   │   ├── fps.1000.counts.pkl.gz
+│   │   │   └── mols.1000.pkl.gz
+│   │   ├── patty_rules.txt
+│   │   └── RLewis_smarts.txt
+│   ├── struchk/
+│   │   ├── checkfgs.chk
+│   │   ├── checkfgs.opt
+│   │   └── checkfgs.trn
+│   ├── BaseFeatures.fdef
+│   ├── Crippen.txt
+│   ├── FragmentDescriptors.csv
+│   ├── Functional_Group_Hierarchy.txt
+│   ├── FunctionalGroups.txt
+│   ├── rddata.sql
+│   ├── RDData.sqlt
+│   ├── RDTests.sqlt
+│   └── Salts.txt
+│       └── ... (4 more files)
+├── Docs/
+│   ├── Analysis/
+│   │   ├── Descriptors/
+│   │   │   └── Correlations/
+│   │   └── ForceField/
+│   │       ├── ForceFieldTerms.new.odt
+│   │       └── UFF Parameters.ods
+│   ├── Book/
+│   │   ├── C++Examples/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── example1.cpp
+│   │   │   ├── example10.cpp
+│   │   │   ├── example11.cpp
+│   │   │   ├── example12.cpp
+│   │   │   ├── example13.cpp
+│   │   │   ├── example14.cpp
+│   │   │   ├── example15.cpp
+│   │   │   ├── example16.cpp
+│   │   │   ├── example17.cpp
+│   │   │   ├── example2.cpp
+│   │   │   ├── example3.cpp
+│   │   │   ├── example4.cpp
+│   │   │   ├── example5.cpp
+│   │   │   ├── example6.cpp
+│   │   │   ├── example7.cpp
+│   │   │   ├── example8.cpp
+│   │   │   ├── example9.cpp
+│   │   │   └── FindMyRDKit.cmake
+│   │   │       └── ... (14 more files)
+│   │   ├── data/
+│   │   │   ├── 5ht3ligs.sdf
+│   │   │   ├── actives_5ht3.sdf
+│   │   │   ├── actives_5ht3.sdf.gz
+│   │   │   ├── AmideBond.rxn
+│   │   │   ├── bzr.sdf
+│   │   │   ├── bzr.smi
+│   │   │   ├── cdk2.sdf
+│   │   │   ├── chiral.mol
+│   │   │   ├── CrossLink.mol
+│   │   │   ├── DnaTest3.mol
+│   │   │   ├── input.mol
+│   │   │   ├── invalid.mol
+│   │   │   ├── MinimalFeatures.fdef
+│   │   │   ├── README.md
+│   │   │   ├── s1p_chembldoc89753.txt
+│   │   │   ├── solubility.test.sdf
+│   │   │   ├── solubility.train.sdf
+│   │   │   └── test_multi_colours.py
+│   │   │       └── ... (13 more files)
+│   │   ├── exts/
+│   │   │   └── extapi.py
+│   │   ├── images/
+│   │   │   ├── ary_group.png
+│   │   │   ├── atom_annotation_1.png
+│   │   │   ├── atom_highlights_1.png
+│   │   │   ├── atom_highlights_2.png
+│   │   │   ├── atom_highlights_3.png
+│   │   │   ├── atom_labels_1.png
+│   │   │   ├── atom_labels_2.png
+│   │   │   ├── atom_labels_3.png
+│   │   │   ├── atrop_example1.png
+│   │   │   ├── atrop_example2.png
+│   │   │   ├── atrop_example3.png
+│   │   │   ├── atrop_example4.png
+│   │   │   ├── atrop_example5.png
+│   │   │   ├── atrop_representation1.png
+│   │   │   ├── atrop_representation2.png
+│   │   │   ├── Cc1ccccc1.png
+│   │   │   ├── cdk2_mol1.png
+│   │   │   ├── cdk2_mol2.png
+│   │   │   ├── cdk2_molgrid.png
+│   │   │   ├── cdk2_molgrid_aligned.png
+│   │   │   ├── DnaDoubleStrand.png
+│   │   │   ├── EnhancedStereoSSS_molA.png
+│   │   │   ├── EnhancedStereoSSS_molB.png
+│   │   │   ├── EnhancedStereoSSS_molC.png
+│   │   │   ├── EnhancedStereoSSS_molD.png
+│   │   │   ├── EnhancedStereoSSS_molE.png
+│   │   │   ├── EnhancedStereoSSS_molF.png
+│   │   │   ├── EnhancedStereoSSS_molG.png
+│   │   │   ├── indole1.png
+│   │   │   ├── mcs_example_1.png
+│   │   │   ├── mcs_example_2.png
+│   │   │   ├── mcs_example_3.png
+│   │   │   ├── mcs_example_4.png
+│   │   │   ├── mcs_example_5.png
+│   │   │   ├── mcs_example_6.png
+│   │   │   ├── mfp2_bit872.svg
+│   │   │   ├── mol_metadata1.png
+│   │   │   ├── nontetstereo_ex1.png
+│   │   │   ├── nontetstereo_ex2.png
+│   │   │   ├── nontetstereo_missing1.png
+│   │   │   ├── nontetstereo_oh1.png
+│   │   │   ├── nontetstereo_oh2.png
+│   │   │   ├── nontetstereo_sp1.png
+│   │   │   ├── nontetstereo_sp2.png
+│   │   │   ├── nontetstereo_sp3.png
+│   │   │   ├── nontetstereo_sp4.png
+│   │   │   ├── nontetstereo_tb1.png
+│   │   │   ├── nontetstereo_tb2.png
+│   │   │   ├── parastereo_1.png
+│   │   │   ├── parastereo_2.png
+│   │   │   ├── PeptideConversion.png
+│   │   │   ├── picture_0.png
+│   │   │   ├── picture_1.png
+│   │   │   ├── picture_10.jpg
+│   │   │   ├── picture_10.png
+│   │   │   ├── picture_11.png
+│   │   │   ├── picture_12.png
+│   │   │   ├── picture_2.png
+│   │   │   ├── picture_3.png
+│   │   │   ├── picture_4.png
+│   │   │   ├── picture_5.png
+│   │   │   ├── picture_6.png
+│   │   │   ├── picture_7.png
+│   │   │   ├── picture_8.png
+│   │   │   ├── picture_9.png
+│   │   │   ├── potential_stereo_double_bond1.png
+│   │   │   ├── potential_stereo_double_bond2.png
+│   │   │   ├── potential_stereo_double_bond3.png
+│   │   │   ├── pull_req1.png
+│   │   │   ├── pull_req2.png
+│   │   │   ├── query_atoms.png
+│   │   │   ├── query_bonds.2.png
+│   │   │   ├── query_bonds.png
+│   │   │   ├── rdk_bit1553.svg
+│   │   │   ├── rdk_bit1553_2.svg
+│   │   │   ├── rdkit_fork_clone.png
+│   │   │   ├── RDKitCB_0_im0.png
+│   │   │   ├── RDKitCB_0_im1.png
+│   │   │   ├── RDKitCB_0_im2.png
+│   │   │   ├── RDKitCB_13_im0.png
+│   │   │   ├── RDKitCB_13_im1.png
+│   │   │   ├── RDKitCB_15_im0.png
+│   │   │   ├── RDKitCB_15_im1.png
+│   │   │   ├── RDKitCB_17_im0.png
+│   │   │   ├── RDKitCB_17_im1.png
+│   │   │   ├── RDKitCB_19_im0.png
+│   │   │   ├── RDKitCB_1_im0.png
+│   │   │   ├── RDKitCB_1_im1.png
+│   │   │   ├── RDKitCB_1_im2.png
+│   │   │   ├── RDKitCB_1_im3.png
+│   │   │   ├── RDKitCB_20_im0.png
+│   │   │   ├── RDKitCB_20_im1.png
+│   │   │   ├── RDKitCB_21_im0.png
+│   │   │   ├── RDKitCB_21_im1.png
+│   │   │   ├── RDKitCB_21_im2.png
+│   │   │   ├── RDKitCB_21_im3.png
+│   │   │   ├── RDKitCB_21_im4.png
+│   │   │   ├── RDKitCB_21_im5.png
+│   │   │   ├── RDKitCB_22_im0.png
+│   │   │   ├── RDKitCB_22_im1.png
+│   │   │   ├── RDKitCB_23_im0.png
+│   │   │   ├── RDKitCB_23_im1.png
+│   │   │   ├── RDKitCB_28_im0.png
+│   │   │   ├── RDKitCB_28_im1.png
+│   │   │   ├── RDKitCB_29_im0.png
+│   │   │   ├── RDKitCB_2_im0.png
+│   │   │   ├── RDKitCB_2_im1.png
+│   │   │   ├── RDKitCB_30_im0.png
+│   │   │   ├── RDKitCB_30_im1.png
+│   │   │   ├── RDKitCB_32_im0.png
+│   │   │   ├── RDKitCB_32_im1.png
+│   │   │   ├── RDKitCB_33_im0.png
+│   │   │   ├── RDKitCB_33_im1.png
+│   │   │   ├── RDKitCB_33_im2.png
+│   │   │   ├── RDKitCB_34_im0.png
+│   │   │   ├── RDKitCB_34_im1.png
+│   │   │   ├── RDKitCB_34_im2.png
+│   │   │   ├── RDKitCB_35_im0.png
+│   │   │   ├── RDKitCB_36_im0.png
+│   │   │   ├── RDKitCB_36_im1.png
+│   │   │   ├── RDKitCB_37_im0.png
+│   │   │   ├── RDKitCB_37_im1.png
+│   │   │   ├── RDKitCB_37_im2.svg
+│   │   │   ├── RDKitCB_38_im0.png
+│   │   │   ├── RDKitCB_39_im0.png
+│   │   │   ├── RDKitCB_3_im0.png
+│   │   │   ├── RDKitCB_40_im0.png
+│   │   │   ├── RDKitCB_40_im1.png
+│   │   │   ├── RDKitCB_6_im0.png
+│   │   │   ├── RDKitCB_6_im1.png
+│   │   │   ├── RDKitCB_6_im2.png
+│   │   │   ├── RDKitCB_7_im0.png
+│   │   │   ├── RDKitCB_7_im1.png
+│   │   │   ├── RDKitCB_7_im2.png
+│   │   │   ├── RDKitCB_7_im3.png
+│   │   │   ├── RDKitCB_7_im4.png
+│   │   │   ├── RDKitCB_7_im5.png
+│   │   │   ├── RDKitCB_7_im6.png
+│   │   │   ├── RDKitCB_8_im0.png
+│   │   │   ├── reaction1.png
+│   │   │   ├── reaction1_highlight.png
+│   │   │   ├── similarity_map_charges.png
+│   │   │   ├── similarity_map_crippen.png
+│   │   │   ├── similarity_map_fp1.png
+│   │   │   ├── similarity_map_fp2.png
+│   │   │   ├── similarity_map_fp3.png
+│   │   │   ├── similarity_map_rf.png
+│   │   │   ├── stereo_annotation.png
+│   │   │   ├── style.png
+│   │   │   ├── substruct_search_parameters1.png
+│   │   │   └── WobbleRna.png
+│   │   │       └── ... (146 more files)
+│   │   ├── source/
+│   │   │   ├── rdkit.Avalon.pyAvalonTools.rst
+│   │   │   ├── rdkit.Avalon.rst
+│   │   │   ├── rdkit.Chem.AllChem.rst
+│   │   │   ├── rdkit.Chem.AtomPairs.Pairs.rst
+│   │   │   ├── rdkit.Chem.AtomPairs.rst
+│   │   │   ├── rdkit.Chem.AtomPairs.Sheridan.rst
+│   │   │   ├── rdkit.Chem.AtomPairs.Torsions.rst
+│   │   │   ├── rdkit.Chem.AtomPairs.Utils.rst
+│   │   │   ├── rdkit.Chem.BRICS.rst
+│   │   │   ├── rdkit.Chem.BuildFragmentCatalog.rst
+│   │   │   ├── rdkit.Chem.ChemicalFeatures.rst
+│   │   │   ├── rdkit.Chem.ChemicalForceFields.rst
+│   │   │   ├── rdkit.Chem.ChemUtils.AlignDepict.rst
+│   │   │   ├── rdkit.Chem.ChemUtils.BulkTester.rst
+│   │   │   ├── rdkit.Chem.ChemUtils.DescriptorUtilities.rst
+│   │   │   ├── rdkit.Chem.ChemUtils.rst
+│   │   │   ├── rdkit.Chem.ChemUtils.SDFToCSV.rst
+│   │   │   ├── rdkit.Chem.ChemUtils.TemplateExpand.rst
+│   │   │   ├── rdkit.Chem.Crippen.rst
+│   │   │   ├── rdkit.Chem.Descriptors.rst
+│   │   │   ├── rdkit.Chem.Descriptors3D.rst
+│   │   │   ├── rdkit.Chem.Draw.IPythonConsole.rst
+│   │   │   ├── rdkit.Chem.Draw.MolDrawing.rst
+│   │   │   ├── rdkit.Chem.Draw.rdMolDraw2D.rst
+│   │   │   ├── rdkit.Chem.Draw.rdMolDraw2DQt.rst
+│   │   │   ├── rdkit.Chem.Draw.rst
+│   │   │   ├── rdkit.Chem.Draw.SimilarityMaps.rst
+│   │   │   ├── rdkit.Chem.EnumerateHeterocycles.rst
+│   │   │   ├── rdkit.Chem.EnumerateStereoisomers.rst
+│   │   │   ├── rdkit.Chem.EState.AtomTypes.rst
+│   │   │   ├── rdkit.Chem.EState.EState.rst
+│   │   │   ├── rdkit.Chem.EState.EState_VSA.rst
+│   │   │   ├── rdkit.Chem.EState.Fingerprinter.rst
+│   │   │   ├── rdkit.Chem.EState.rst
+│   │   │   ├── rdkit.Chem.FastSDMolSupplier.rst
+│   │   │   ├── rdkit.Chem.FeatFinderCLI.rst
+│   │   │   ├── rdkit.Chem.FeatMaps.FeatMapParser.rst
+│   │   │   ├── rdkit.Chem.FeatMaps.FeatMapPoint.rst
+│   │   │   ├── rdkit.Chem.FeatMaps.FeatMaps.rst
+│   │   │   ├── rdkit.Chem.FeatMaps.FeatMapUtils.rst
+│   │   │   ├── rdkit.Chem.FeatMaps.rst
+│   │   │   ├── rdkit.Chem.Features.FeatDirUtilsRD.rst
+│   │   │   ├── rdkit.Chem.Features.rst
+│   │   │   ├── rdkit.Chem.Features.ShowFeats.rst
+│   │   │   ├── rdkit.Chem.FilterCatalog.rst
+│   │   │   ├── rdkit.Chem.Fingerprints.ClusterMols.rst
+│   │   │   ├── rdkit.Chem.Fingerprints.DbFpSupplier.rst
+│   │   │   ├── rdkit.Chem.Fingerprints.FingerprintMols.rst
+│   │   │   ├── rdkit.Chem.Fingerprints.MolSimilarity.rst
+│   │   │   ├── rdkit.Chem.Fingerprints.rst
+│   │   │   ├── rdkit.Chem.Fingerprints.SimilarityScreener.rst
+│   │   │   ├── rdkit.Chem.fmcs.fmcs.rst
+│   │   │   ├── rdkit.Chem.fmcs.rst
+│   │   │   ├── rdkit.Chem.Fraggle.FraggleSim.rst
+│   │   │   ├── rdkit.Chem.Fraggle.rst
+│   │   │   ├── rdkit.Chem.FragmentCatalog.rst
+│   │   │   ├── rdkit.Chem.FragmentMatcher.rst
+│   │   │   ├── rdkit.Chem.Fragments.rst
+│   │   │   ├── rdkit.Chem.FunctionalGroups.rst
+│   │   │   ├── rdkit.Chem.GraphDescriptors.rst
+│   │   │   ├── rdkit.Chem.Graphs.rst
+│   │   │   ├── rdkit.Chem.inchi.rst
+│   │   │   ├── rdkit.Chem.Lipinski.rst
+│   │   │   ├── rdkit.Chem.MACCSkeys.rst
+│   │   │   ├── rdkit.Chem.MolCatalog.rst
+│   │   │   ├── rdkit.Chem.MolDb.FingerprintUtils.rst
+│   │   │   ├── rdkit.Chem.MolDb.Loader.rst
+│   │   │   ├── rdkit.Chem.MolDb.Loader_orig.rst
+│   │   │   ├── rdkit.Chem.MolDb.Loader_sa.rst
+│   │   │   ├── rdkit.Chem.MolDb.rst
+│   │   │   ├── rdkit.Chem.MolKey.InchiInfo.rst
+│   │   │   ├── rdkit.Chem.MolKey.MolKey.rst
+│   │   │   ├── rdkit.Chem.MolKey.rst
+│   │   │   ├── rdkit.Chem.MolStandardize.rdMolStandardize.rst
+│   │   │   ├── rdkit.Chem.MolStandardize.rst
+│   │   │   ├── rdkit.Chem.MolSurf.rst
+│   │   │   ├── rdkit.Chem.PandasTools.rst
+│   │   │   ├── rdkit.Chem.PeriodicTable.rst
+│   │   │   ├── rdkit.Chem.Pharm2D.Generate.rst
+│   │   │   ├── rdkit.Chem.Pharm2D.Gobbi_Pharm2D.rst
+│   │   │   ├── rdkit.Chem.Pharm2D.Matcher.rst
+│   │   │   ├── rdkit.Chem.Pharm2D.rst
+│   │   │   ├── rdkit.Chem.Pharm2D.SigFactory.rst
+│   │   │   ├── rdkit.Chem.Pharm2D.Utils.rst
+│   │   │   ├── rdkit.Chem.Pharm3D.EmbedLib.rst
+│   │   │   ├── rdkit.Chem.Pharm3D.ExcludedVolume.rst
+│   │   │   ├── rdkit.Chem.Pharm3D.Pharmacophore.rst
+│   │   │   ├── rdkit.Chem.Pharm3D.rst
+│   │   │   ├── rdkit.Chem.PropertyMol.rst
+│   │   │   ├── rdkit.Chem.PyMol.rst
+│   │   │   ├── rdkit.Chem.QED.rst
+│   │   │   ├── rdkit.Chem.Randomize.rst
+│   │   │   ├── rdkit.Chem.rdAbbreviations.rst
+│   │   │   ├── rdkit.Chem.rdchem.rst
+│   │   │   ├── rdkit.Chem.rdChemicalFeatures.rst
+│   │   │   ├── rdkit.Chem.rdChemReactions.rst
+│   │   │   ├── rdkit.Chem.rdCIPLabeler.rst
+│   │   │   ├── rdkit.Chem.rdCoordGen.rst
+│   │   │   ├── rdkit.Chem.rdDepictor.rst
+│   │   │   ├── rdkit.Chem.rdDeprotect.rst
+│   │   │   ├── rdkit.Chem.rdDetermineBonds.rst
+│   │   │   ├── rdkit.Chem.rdDistGeom.rst
+│   │   │   ├── rdkit.Chem.rdEHTTools.rst
+│   │   │   ├── rdkit.Chem.rdEnumerateStereoisomers.rst
+│   │   │   ├── rdkit.Chem.rdfiltercatalog.rst
+│   │   │   ├── rdkit.Chem.rdFingerprintGenerator.rst
+│   │   │   ├── rdkit.Chem.rdFMCS.rst
+│   │   │   ├── rdkit.Chem.rdForceFieldHelpers.rst
+│   │   │   ├── rdkit.Chem.rdfragcatalog.rst
+│   │   │   ├── rdkit.Chem.rdFreeSASA.rst
+│   │   │   ├── rdkit.Chem.rdGeneralizedSubstruct.rst
+│   │   │   ├── rdkit.Chem.rdinchi.rst
+│   │   │   ├── rdkit.Chem.rdMHFPFingerprint.rst
+│   │   │   ├── rdkit.Chem.rdMIF.rst
+│   │   │   ├── rdkit.Chem.rdMMPA.rst
+│   │   │   ├── rdkit.Chem.rdMolAlign.rst
+│   │   │   ├── rdkit.Chem.rdMolCatalog.rst
+│   │   │   ├── rdkit.Chem.rdMolChemicalFeatures.rst
+│   │   │   ├── rdkit.Chem.rdMolDescriptors.rst
+│   │   │   ├── rdkit.Chem.rdMolEnumerator.rst
+│   │   │   ├── rdkit.Chem.rdmolfiles.rst
+│   │   │   ├── rdkit.Chem.rdMolHash.rst
+│   │   │   ├── rdkit.Chem.rdMolInterchange.rst
+│   │   │   ├── rdkit.Chem.rdmolops.rst
+│   │   │   ├── rdkit.Chem.rdMolProcessing.rst
+│   │   │   ├── rdkit.Chem.rdMolTransforms.rst
+│   │   │   ├── rdkit.Chem.rdPartialCharges.rst
+│   │   │   ├── rdkit.Chem.rdqueries.rst
+│   │   │   ├── rdkit.Chem.rdRascalMCES.rst
+│   │   │   ├── rdkit.Chem.rdReducedGraphs.rst
+│   │   │   ├── rdkit.Chem.rdRGroupDecomposition.rst
+│   │   │   ├── rdkit.Chem.rdShapeAlign.rst
+│   │   │   ├── rdkit.Chem.rdShapeHelpers.rst
+│   │   │   ├── rdkit.Chem.rdSLNParse.rst
+│   │   │   ├── rdkit.Chem.rdSubstructLibrary.rst
+│   │   │   ├── rdkit.Chem.rdSynthonSpaceSearch.rst
+│   │   │   ├── rdkit.Chem.rdTautomerQuery.rst
+│   │   │   ├── rdkit.Chem.rdtrajectory.rst
+│   │   │   ├── rdkit.Chem.Recap.rst
+│   │   │   ├── rdkit.Chem.ReducedGraphs.rst
+│   │   │   ├── rdkit.Chem.RegistrationHash.rst
+│   │   │   ├── rdkit.Chem.rst
+│   │   │   ├── rdkit.Chem.SaltRemover.rst
+│   │   │   ├── rdkit.Chem.SATIS.rst
+│   │   │   ├── rdkit.Chem.Scaffolds.MurckoScaffold.rst
+│   │   │   ├── rdkit.Chem.Scaffolds.rdScaffoldNetwork.rst
+│   │   │   ├── rdkit.Chem.Scaffolds.rst
+│   │   │   ├── rdkit.Chem.ShowMols.rst
+│   │   │   ├── rdkit.Chem.SimpleEnum.Enumerator.rst
+│   │   │   ├── rdkit.Chem.SimpleEnum.rst
+│   │   │   ├── rdkit.Chem.SpacialScore.rst
+│   │   │   ├── rdkit.Chem.Subshape.BuilderUtils.rst
+│   │   │   ├── rdkit.Chem.Subshape.rst
+│   │   │   ├── rdkit.Chem.Subshape.SubshapeAligner.rst
+│   │   │   ├── rdkit.Chem.Subshape.SubshapeBuilder.rst
+│   │   │   ├── rdkit.Chem.Subshape.SubshapeObjects.rst
+│   │   │   ├── rdkit.Chem.Suppliers.DbMolSupplier.rst
+│   │   │   ├── rdkit.Chem.Suppliers.MolSupplier.rst
+│   │   │   ├── rdkit.Chem.Suppliers.rst
+│   │   │   ├── rdkit.Chem.TemplateAlign.rst
+│   │   │   ├── rdkit.Chem.TorsionFingerprints.rst
+│   │   │   ├── rdkit.DataManip.Metric.rdMetricMatrixCalc.rst
+│   │   │   ├── rdkit.DataManip.Metric.rst
+│   │   │   ├── rdkit.DataManip.rst
+│   │   │   ├── rdkit.DataStructs.BitEnsemble.rst
+│   │   │   ├── rdkit.DataStructs.BitEnsembleDb.rst
+│   │   │   ├── rdkit.DataStructs.BitUtils.rst
+│   │   │   ├── rdkit.DataStructs.cDataStructs.rst
+│   │   │   ├── rdkit.DataStructs.LazySignature.rst
+│   │   │   ├── rdkit.DataStructs.rst
+│   │   │   ├── rdkit.DataStructs.TopNContainer.rst
+│   │   │   ├── rdkit.DataStructs.VectCollection.rst
+│   │   │   ├── rdkit.Dbase.DbConnection.rst
+│   │   │   ├── rdkit.Dbase.DbInfo.rst
+│   │   │   ├── rdkit.Dbase.DbModule.rst
+│   │   │   ├── rdkit.Dbase.DbResultSet.rst
+│   │   │   ├── rdkit.Dbase.DbUtils.rst
+│   │   │   ├── rdkit.Dbase.rst
+│   │   │   ├── rdkit.Dbase.StorageUtils.rst
+│   │   │   ├── rdkit.DistanceGeometry.DistGeom.rst
+│   │   │   ├── rdkit.DistanceGeometry.rst
+│   │   │   ├── rdkit.ForceField.rdForceField.rst
+│   │   │   ├── rdkit.ForceField.rst
+│   │   │   ├── rdkit.Geometry.rdGeometry.rst
+│   │   │   ├── rdkit.Geometry.rst
+│   │   │   ├── rdkit.ML.Cluster.Butina.rst
+│   │   │   ├── rdkit.ML.Cluster.Clustering.rst
+│   │   │   ├── rdkit.ML.Cluster.Clusters.rst
+│   │   │   ├── rdkit.ML.Cluster.ClusterUtils.rst
+│   │   │   ├── rdkit.ML.Cluster.ClusterVis.rst
+│   │   │   ├── rdkit.ML.Cluster.Murtagh.rst
+│   │   │   ├── rdkit.ML.Cluster.Resemblance.rst
+│   │   │   ├── rdkit.ML.Cluster.rst
+│   │   │   ├── rdkit.ML.Cluster.Standardize.rst
+│   │   │   ├── rdkit.ML.Data.cQuantize.rst
+│   │   │   ├── rdkit.ML.Data.DataUtils.rst
+│   │   │   ├── rdkit.ML.Data.FindQuantBounds.rst
+│   │   │   ├── rdkit.ML.Data.MLData.rst
+│   │   │   ├── rdkit.ML.Data.Quantize.rst
+│   │   │   ├── rdkit.ML.Data.rst
+│   │   │   ├── rdkit.ML.Data.SplitData.rst
+│   │   │   ├── rdkit.ML.Data.Stats.rst
+│   │   │   ├── rdkit.ML.Data.Transforms.rst
+│   │   │   ├── rdkit.ML.Descriptors.CompoundDescriptors.rst
+│   │   │   ├── rdkit.ML.Descriptors.Descriptors.rst
+│   │   │   ├── rdkit.ML.Descriptors.MoleculeDescriptors.rst
+│   │   │   ├── rdkit.ML.Descriptors.Parser.rst
+│   │   │   ├── rdkit.ML.Descriptors.rst
+│   │   │   ├── rdkit.ML.files.rst
+│   │   │   ├── rdkit.ML.InfoTheory.BitClusterer.rst
+│   │   │   ├── rdkit.ML.InfoTheory.BitRank.rst
+│   │   │   ├── rdkit.ML.InfoTheory.entropy.rst
+│   │   │   ├── rdkit.ML.InfoTheory.rdInfoTheory.rst
+│   │   │   ├── rdkit.ML.InfoTheory.rst
+│   │   │   ├── rdkit.ML.MatOps.rst
+│   │   │   ├── rdkit.ML.MLUtils.rst
+│   │   │   ├── rdkit.ML.MLUtils.VoteImg.rst
+│   │   │   ├── rdkit.ML.rst
+│   │   │   ├── rdkit.ML.Scoring.rst
+│   │   │   ├── rdkit.ML.Scoring.Scoring.rst
+│   │   │   ├── rdkit.ML.SLT.Risk.rst
+│   │   │   ├── rdkit.ML.SLT.rst
+│   │   │   ├── rdkit.Numerics.rdAlignment.rst
+│   │   │   ├── rdkit.Numerics.rst
+│   │   │   ├── rdkit.rdBase.rst
+│   │   │   ├── rdkit.RDConfig.rst
+│   │   │   ├── rdkit.RDLogger.rst
+│   │   │   ├── rdkit.RDPaths.rst
+│   │   │   ├── rdkit.RDRandom.rst
+│   │   │   ├── rdkit.rst
+│   │   │   ├── rdkit.SimDivFilters.rdSimDivPickers.rst
+│   │   │   ├── rdkit.SimDivFilters.rst
+│   │   │   ├── rdkit.SimDivFilters.SimilarityPickers.rst
+│   │   │   ├── rdkit.TestRunner.rst
+│   │   │   ├── rdkit.utils.cactvs.rst
+│   │   │   ├── rdkit.utils.chemutils.rst
+│   │   │   ├── rdkit.utils.fileutils.rst
+│   │   │   ├── rdkit.utils.listutils.rst
+│   │   │   ├── rdkit.utils.rst
+│   │   │   ├── rdkit.utils.spiral.rst
+│   │   │   ├── rdkit.VLib.Filter.rst
+│   │   │   ├── rdkit.VLib.Node.rst
+│   │   │   ├── rdkit.VLib.NodeLib.DbMolSupply.rst
+│   │   │   ├── rdkit.VLib.NodeLib.DbPickleSupplier.rst
+│   │   │   ├── rdkit.VLib.NodeLib.rst
+│   │   │   ├── rdkit.VLib.NodeLib.SDSupply.rst
+│   │   │   ├── rdkit.VLib.NodeLib.SmartsMolFilter.rst
+│   │   │   ├── rdkit.VLib.NodeLib.SmartsRemover.rst
+│   │   │   ├── rdkit.VLib.NodeLib.SmilesDupeFilter.rst
+│   │   │   ├── rdkit.VLib.NodeLib.SmilesOutput.rst
+│   │   │   ├── rdkit.VLib.NodeLib.SmilesSupply.rst
+│   │   │   ├── rdkit.VLib.Output.rst
+│   │   │   ├── rdkit.VLib.rst
+│   │   │   ├── rdkit.VLib.Supply.rst
+│   │   │   └── rdkit.VLib.Transform.rst
+│   │   │       └── ... (250 more files)
+│   │   ├── api-docs.rst
+│   │   ├── BackwardsIncompatibleChanges.md
+│   │   ├── Cartridge.md
+│   │   ├── conf.py
+│   │   ├── Cookbook.rst
+│   │   ├── GettingStartedInC++.md
+│   │   ├── GettingStartedInPython.rst
+│   │   ├── GettingStartedWithContributing.md
+│   │   ├── index.rst
+│   │   ├── Install.md
+│   │   ├── Makefile
+│   │   ├── Overview.md
+│   │   └── RDKit_Book.rst
+│   │       └── ... (8 more files)
+│   ├── Book_jp/
+│   │   ├── supple_images/
+│   │   │   ├── jp_supple_1.png
+│   │   │   ├── jp_supple_10.png
+│   │   │   ├── jp_supple_11.png
+│   │   │   ├── jp_supple_12.png
+│   │   │   ├── jp_supple_13.png
+│   │   │   ├── jp_supple_14.png
+│   │   │   ├── jp_supple_15.png
+│   │   │   ├── jp_supple_16.png
+│   │   │   ├── jp_supple_17.png
+│   │   │   ├── jp_supple_18.png
+│   │   │   ├── jp_supple_19.png
+│   │   │   ├── jp_supple_2.png
+│   │   │   ├── jp_supple_20.png
+│   │   │   ├── jp_supple_21.png
+│   │   │   ├── jp_supple_22.png
+│   │   │   ├── jp_supple_23.png
+│   │   │   ├── jp_supple_24.png
+│   │   │   ├── jp_supple_25.png
+│   │   │   ├── jp_supple_26.png
+│   │   │   ├── jp_supple_27.png
+│   │   │   ├── jp_supple_28.png
+│   │   │   ├── jp_supple_29.png
+│   │   │   ├── jp_supple_3.png
+│   │   │   ├── jp_supple_30.png
+│   │   │   ├── jp_supple_31.png
+│   │   │   ├── jp_supple_32.png
+│   │   │   ├── jp_supple_33.png
+│   │   │   ├── jp_supple_34.png
+│   │   │   ├── jp_supple_35.png
+│   │   │   ├── jp_supple_36.png
+│   │   │   ├── jp_supple_37.png
+│   │   │   ├── jp_supple_38.png
+│   │   │   ├── jp_supple_39.png
+│   │   │   ├── jp_supple_4.png
+│   │   │   ├── jp_supple_40.png
+│   │   │   ├── jp_supple_41.png
+│   │   │   ├── jp_supple_42.png
+│   │   │   ├── jp_supple_43.png
+│   │   │   ├── jp_supple_44.png
+│   │   │   ├── jp_supple_45.png
+│   │   │   ├── jp_supple_46.png
+│   │   │   ├── jp_supple_47.png
+│   │   │   ├── jp_supple_48.png
+│   │   │   ├── jp_supple_49.png
+│   │   │   ├── jp_supple_5.png
+│   │   │   ├── jp_supple_50.png
+│   │   │   ├── jp_supple_51.png
+│   │   │   ├── jp_supple_52.png
+│   │   │   ├── jp_supple_53.png
+│   │   │   ├── jp_supple_54.png
+│   │   │   ├── jp_supple_55.png
+│   │   │   ├── jp_supple_56.png
+│   │   │   ├── jp_supple_57.png
+│   │   │   ├── jp_supple_58.png
+│   │   │   ├── jp_supple_59.png
+│   │   │   ├── jp_supple_6.png
+│   │   │   ├── jp_supple_60.png
+│   │   │   ├── jp_supple_61.png
+│   │   │   ├── jp_supple_62.png
+│   │   │   ├── jp_supple_7.png
+│   │   │   ├── jp_supple_8.png
+│   │   │   └── jp_supple_9.png
+│   │   │       └── ... (57 more files)
+│   │   ├── An_overview_of_the_RDKit_jp.rst
+│   │   ├── Backwards_incompatible_changes_jp.rst
+│   │   ├── conf.py
+│   │   ├── Getting_Started_with_RDKit_in_Python_jp.rst
+│   │   ├── index.rst
+│   │   ├── Installation_jp.rst
+│   │   ├── introduction_jp.rst
+│   │   ├── Makefile
+│   │   ├── RDKit_cookbook_jp.rst
+│   │   ├── Supplementary_Text_jp.rst
+│   │   ├── terminology_jp.rst
+│   │   ├── The_RDKit_Book_jp.rst
+│   │   └── The_RDKit_database_cartridge_jp.rst
+│   │       └── ... (8 more files)
+│   ├── Code/
+│   │   ├── Chem/
+│   │   │   ├── FragmentCatalogs.html
+│   │   │   ├── Pharm2D.signatures.ai
+│   │   │   ├── Pharm2D.signatures.jpg
+│   │   │   ├── Pharm2D.triangles.ai
+│   │   │   └── Pharm2D.triangles.jpg
+│   │   ├── images/
+│   │   │   ├── enhanced_stereo_abs_and_base.png
+│   │   │   ├── enhanced_stereo_abs_and_expand.png
+│   │   │   ├── enhanced_stereo_abs_or_base.png
+│   │   │   ├── enhanced_stereo_and1_and2_base.png
+│   │   │   ├── enhanced_stereo_and1_and2_expand.png
+│   │   │   ├── enhanced_stereo_and1_cis_base.png
+│   │   │   ├── enhanced_stereo_and1_cis_expand.png
+│   │   │   ├── enhanced_stereo_and1_trans_base.png
+│   │   │   ├── enhanced_stereo_and1_trans_expand.png
+│   │   │   ├── enhanced_stereo_or1_cis_base.png
+│   │   │   ├── enhanced_stereo_or1_or2_base.png
+│   │   │   └── enhanced_stereo_or1_trans_base.png
+│   │   │       └── ... (7 more files)
+│   │   ├── CIPLabeling.md
+│   │   ├── EnhancedStereo.md
+│   │   ├── gsocGeneralFileReader.md
+│   │   └── SGroups.md
+│   ├── Images/
+│   │   ├── wiki/
+│   │   │   └── morganfp_atomenv1.png
+│   │   ├── logo.ai
+│   │   ├── logo.inkscape.svg
+│   │   ├── logo.lrg.png
+│   │   ├── logo.png
+│   │   ├── logo_plain.inkscape.svg
+│   │   └── logo_plain.png
+│   │       └── ... (1 more files)
+│   ├── Notebooks/
+│   │   ├── compounds.txt
+│   │   ├── FingerprintGenerators.ipynb
+│   │   ├── MolStandardize.ipynb
+│   │   ├── RGroupDecomposition-DummyCores.ipynb
+│   │   ├── RGroupDecomposition-example-lactam.ipynb
+│   │   ├── RGroupDecomposition-GA.ipynb
+│   │   ├── RGroupDecomposition-GenericCores.ipynb
+│   │   ├── RGroupDecomposition-MutipleCores.ipynb
+│   │   ├── RGroupDecomposition-RingSubstitution.ipynb
+│   │   ├── RGroupDecomposition-StereoChemTest.ipynb
+│   │   └── RGroupDecomposition-Tests.ipynb
+│   │       └── ... (6 more files)
+│   └── RD.css
+├── External/
+│   ├── AvalonTools/
+│   │   ├── test_data/
+│   │   │   ├── EZ_test.2.sdf
+│   │   │   ├── heterocycle.mol
+│   │   │   └── heterocycle2.mol
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── pyAvalonTools.cpp
+│   │   │   └── testAvalonTools.py
+│   │   ├── AvalonTools.cpp
+│   │   ├── AvalonTools.h
+│   │   ├── CMakeLists.txt
+│   │   ├── README
+│   │   └── test1.cpp
+│   ├── ChemDraw/
+│   │   ├── test_data/
+│   │   │   ├── atom-to-fragment.cdxml
+│   │   │   ├── geometry-tetrahedral-2.cdxml
+│   │   │   ├── geometry-tetrahedral-3.cdxml
+│   │   │   ├── geometry-tetrahedral-4.cdxml
+│   │   │   └── geometry-tetrahedral.cdxml
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── rdChemDraw.cpp
+│   │   │   └── testChemDraw.py
+│   │   ├── bond.cpp
+│   │   ├── bond.h
+│   │   ├── bracket.cpp
+│   │   ├── bracket.h
+│   │   ├── chemdraw.cpp
+│   │   ├── chemdraw.h
+│   │   ├── chemdraw_doc.h
+│   │   ├── ChemDrawEndInclude.h
+│   │   ├── chemdrawreaction.cpp
+│   │   ├── chemdrawreaction.h
+│   │   ├── ChemDrawStartInclude.h
+│   │   ├── CMakeLists.txt
+│   │   ├── fragment.cpp
+│   │   ├── fragment.h
+│   │   ├── node.cpp
+│   │   ├── node.h
+│   │   ├── reaction.cpp
+│   │   ├── reaction.h
+│   │   ├── test-chiral.cpp
+│   │   ├── test-reactions.cpp
+│   │   ├── test.cpp
+│   │   ├── test_3d.cpp
+│   │   ├── test_6k.cpp
+│   │   ├── utils.cpp
+│   │   ├── utils.h
+│   │   └── writer.cpp
+│   │       └── ... (21 more files)
+│   ├── CoordGen/
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── rdCoordGen.cpp
+│   │   │   └── testCoordGen.py
+│   │   ├── CMakeLists.txt
+│   │   ├── CoordGen.h
+│   │   └── test.cpp
+│   ├── Eigen/
+│   │   └── CMakeLists.txt
+│   ├── FreeSASA/
+│   │   ├── test_data/
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── rdFreeSASA.cpp
+│   │   │   └── testFreeSASA.py
+│   │   ├── CMakeLists.txt
+│   │   ├── freesasa2.c
+│   │   ├── getline.c
+│   │   ├── RDFreeSASA.cpp
+│   │   ├── RDFreeSASA.h
+│   │   └── testFreeSASA.cpp
+│   │       └── ... (1 more files)
+│   ├── GA/
+│   │   ├── ga/
+│   │   │   ├── BinaryStringChromosomePolicy.cpp
+│   │   │   ├── BinaryStringChromosomePolicy.h
+│   │   │   ├── Chromosome.cpp
+│   │   │   ├── Chromosome.h
+│   │   │   ├── GaBase.h
+│   │   │   ├── GaOperation.h
+│   │   │   ├── IntegerStringChromosomePolicy.cpp
+│   │   │   ├── IntegerStringChromosomePolicy.h
+│   │   │   ├── LinkedPopLinearSel.h
+│   │   │   ├── StringChromosome.cpp
+│   │   │   ├── StringChromosome.h
+│   │   │   └── StringChromosomeBase.h
+│   │   │       └── ... (7 more files)
+│   │   ├── util/
+│   │   │   ├── export.h
+│   │   │   ├── RandomUtil.cpp
+│   │   │   ├── RandomUtil.h
+│   │   │   ├── Util.cpp
+│   │   │   └── Util.h
+│   │   └── CMakeLists.txt
+│   ├── INCHI-API/
+│   │   ├── python/
+│   │   │   ├── inchi.py
+│   │   │   └── noinchi.py
+│   │   ├── test_data/
+│   │   │   ├── github296.mol
+│   │   │   ├── github3.mol
+│   │   │   └── github8_extra.mol
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── pyInchi.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── download-inchi.sh
+│   │   ├── inchi.cpp
+│   │   ├── inchi.h
+│   │   ├── README
+│   │   └── test.cpp
+│   │       └── ... (1 more files)
+│   ├── pubchem_shape/
+│   │   ├── test_data/
+│   │   │   ├── align_with_hs.sdf
+│   │   │   ├── bulk.pubchem.sdf
+│   │   │   ├── P17612.sdf
+│   │   │   └── test1.sdf
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── cshapealign.cpp
+│   │   │   └── test_rdshapealign.py
+│   │   ├── CMakeLists.txt
+│   │   ├── PubChemShape.cpp
+│   │   ├── PubChemShape.hpp
+│   │   ├── README.md
+│   │   ├── sdf_align.cpp
+│   │   └── test.cpp
+│   │       └── ... (1 more files)
+│   ├── pymol/
+│   │   └── modules/
+│   │       └── pymol/
+│   ├── RingFamilies/
+│   │   ├── .gitignore
+│   │   ├── CMakeLists.txt
+│   │   └── test.cpp
+│   ├── YAeHMOP/
+│   │   ├── test_data/
+│   │   │   ├── benzene.b
+│   │   │   ├── benzene.b.out
+│   │   │   ├── benzene.mol
+│   │   │   ├── methanol.mol
+│   │   │   └── phenol.mol
+│   │   ├── Wrap/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── rdEHTTools.cpp
+│   │   │   └── testEHTTools.py
+│   │   ├── CMakeLists.txt
+│   │   ├── EHTTools.cpp
+│   │   ├── EHTTools.h
+│   │   └── test1.cpp
+│   └── CMakeLists.txt
+├── Projects/
+│   ├── DbCLI/
+│   │   ├── testData/
+│   │   │   ├── bzr.2.smi
+│   │   │   ├── bzr.sdf
+│   │   │   ├── bzr.smi
+│   │   │   ├── bzr_q1.mol
+│   │   │   ├── pubchem.200.sdf
+│   │   │   └── README
+│   │   │       └── ... (1 more files)
+│   │   ├── CreateDb.py
+│   │   ├── moe_like.dsc
+│   │   ├── SearchDb.py
+│   │   └── UnitTestDbCLI.py
+│   ├── CMakeLists.txt
+│   └── pytest.ini
+├── rdkit/
+│   ├── Avalon/
+│   │   └── __init__.py
+│   ├── Chem/
+│   │   ├── AtomPairs/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── Pairs.py
+│   │   │   ├── Sheridan.py
+│   │   │   ├── Torsions.py
+│   │   │   ├── UnitTestDescriptors.py
+│   │   │   └── Utils.py
+│   │   │       └── ... (1 more files)
+│   │   ├── ChemUtils/
+│   │   │   ├── __init__.py
+│   │   │   ├── AlignDepict.py
+│   │   │   ├── BulkTester.py
+│   │   │   ├── DescriptorUtilities.py
+│   │   │   ├── SDFToCSV.py
+│   │   │   ├── TemplateExpand.py
+│   │   │   ├── UnitTestAlignDepict.py
+│   │   │   └── UnitTestSDFToCSV.py
+│   │   │       └── ... (3 more files)
+│   │   ├── Draw/
+│   │   │   ├── __init__.py
+│   │   │   ├── FreeSans.ttf
+│   │   │   ├── InteractiveRenderer.py
+│   │   │   ├── IPythonConsole.py
+│   │   │   ├── MolDrawing.py
+│   │   │   ├── SimilarityMaps.py
+│   │   │   ├── UnitTestDraw.py
+│   │   │   ├── UnitTestIPython.py
+│   │   │   └── UnitTestSimilarityMaps.py
+│   │   │       └── ... (4 more files)
+│   │   ├── EState/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── AtomTypes.py
+│   │   │   ├── EState.py
+│   │   │   ├── EState_VSA.py
+│   │   │   ├── Fingerprinter.py
+│   │   │   ├── UnitTestEState.py
+│   │   │   ├── UnitTestFingerprints.py
+│   │   │   ├── UnitTestTypes.py
+│   │   │   └── UnitTestVSA.py
+│   │   │       └── ... (4 more files)
+│   │   ├── FeatMaps/
+│   │   │   ├── __init__.py
+│   │   │   ├── FeatMapParser.py
+│   │   │   ├── FeatMapPoint.py
+│   │   │   ├── FeatMaps.py
+│   │   │   ├── FeatMapUtils.py
+│   │   │   ├── UnitTestFeatMap.py
+│   │   │   ├── UnitTestFeatMapParser.py
+│   │   │   ├── UnitTestFeatMapPoint.py
+│   │   │   └── UnitTestFeatMapUtils.py
+│   │   │       └── ... (4 more files)
+│   │   ├── Features/
+│   │   │   ├── __init__.py
+│   │   │   ├── FeatDirUtilsRD.py
+│   │   │   ├── ShowFeats.py
+│   │   │   └── UnitTestFeatDirUtilsRD.py
+│   │   ├── Fingerprints/
+│   │   │   ├── __init__.py
+│   │   │   ├── ClusterMols.py
+│   │   │   ├── DbFpSupplier.py
+│   │   │   ├── FingerprintMols.py
+│   │   │   ├── MolSimilarity.py
+│   │   │   ├── SimilarityScreener.py
+│   │   │   ├── UnitTestDbFpSupplier.py
+│   │   │   ├── UnitTestFingerprints.py
+│   │   │   └── UnitTestSimScreener.py
+│   │   │       └── ... (4 more files)
+│   │   ├── fmcs/
+│   │   │   ├── __init__.py
+│   │   │   ├── fmcs
+│   │   │   └── fmcs.py
+│   │   ├── Fraggle/
+│   │   │   ├── __init__.py
+│   │   │   ├── FraggleSim.py
+│   │   │   └── UnitTestFraggle.py
+│   │   ├── MolDb/
+│   │   │   ├── __init__.py
+│   │   │   ├── FingerprintUtils.py
+│   │   │   ├── Loader.py
+│   │   │   ├── Loader_orig.py
+│   │   │   └── Loader_sa.py
+│   │   ├── MolKey/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── InchiInfo.py
+│   │   │   ├── MolKey.py
+│   │   │   └── UnitTestMolKey.py
+│   │   ├── MolStandardize/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   └── UnitTestMolStandardize.py
+│   │   ├── nbtests/
+│   │   │   ├── ChEMBL_quinolones.tsv
+│   │   │   ├── github4823.ipynb
+│   │   │   └── rdkit-structure-renderer.ipynb
+│   │   ├── Pharm2D/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── Generate.py
+│   │   │   ├── Gobbi_Pharm2D.py
+│   │   │   ├── LazyGenerator.py
+│   │   │   ├── Matcher.py
+│   │   │   ├── SigFactory.py
+│   │   │   ├── UnitTestGenerate.py
+│   │   │   ├── UnitTestGobbi.py
+│   │   │   ├── UnitTestLazyGenerator.py
+│   │   │   ├── UnitTestMatcher.py
+│   │   │   ├── UnitTestSignature.py
+│   │   │   ├── UnitTestUtils.py
+│   │   │   └── Utils.py
+│   │   │       └── ... (8 more files)
+│   │   ├── Pharm3D/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── EmbedLib.py
+│   │   │   ├── ExcludedVolume.py
+│   │   │   ├── Pharmacophore.py
+│   │   │   ├── UnitTestEmbed.py
+│   │   │   ├── UnitTestExcludedVolume.py
+│   │   │   └── UnitTestPharmacophore.py
+│   │   │       └── ... (2 more files)
+│   │   ├── Scaffolds/
+│   │   │   ├── __init__.py
+│   │   │   ├── MurckoScaffold.py
+│   │   │   ├── ScaffoldNetwork.ipynb
+│   │   │   └── UnitTestMurckoScaffold.py
+│   │   ├── SimpleEnum/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── Enumerator.py
+│   │   │   └── UnitTestEnumerator.py
+│   │   ├── Subshape/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── BuilderUtils.py
+│   │   │   ├── demoCombined.py
+│   │   │   ├── SubshapeAligner.py
+│   │   │   ├── SubshapeBuilder.py
+│   │   │   ├── SubshapeObjects.py
+│   │   │   └── UnitTestSubshape.py
+│   │   │       └── ... (2 more files)
+│   │   ├── Suppliers/
+│   │   │   ├── __init__.py
+│   │   │   ├── DbMolSupplier.py
+│   │   │   ├── MolSupplier.py
+│   │   │   ├── UnitTestDbMolSupplier.py
+│   │   │   ├── UnitTestSDMolSupplier.py
+│   │   │   └── UnitTestSmilesMolSupplier.py
+│   │   │       └── ... (1 more files)
+│   │   ├── test_data/
+│   │   │   ├── QED/
+│   │   │   ├── 4FTR_lig.mol
+│   │   │   ├── anthracene.cdxml
+│   │   │   ├── aromat_regress.txt
+│   │   │   ├── atom-query.cdxml
+│   │   │   ├── benzene.cdxml
+│   │   │   ├── benzene.mol
+│   │   │   ├── Block_regress.Lip.csv
+│   │   │   ├── bond-query.cdxml
+│   │   │   ├── BuildCrippenTestSet.py
+│   │   │   ├── BuildDescrsTestSet.Crippen.py
+│   │   │   ├── BuildDescrsTestSet.py
+│   │   │   ├── buildingblocks.smi.gz
+│   │   │   ├── c6h6-cdk.smi
+│   │   │   ├── cis.sdf
+│   │   │   ├── Cp-.cdxml
+│   │   │   ├── Crippen.csv
+│   │   │   ├── Crippen_contribs_regress.2.pkl
+│   │   │   ├── Crippen_contribs_regress.pkl
+│   │   │   ├── cubane.cdxml
+│   │   │   ├── dative.cdxml
+│   │   │   ├── dative.mol
+│   │   │   ├── Fe-multi-center.cdxml
+│   │   │   ├── ferrocene.cdxml
+│   │   │   ├── fragments.csv
+│   │   │   ├── fused-fours.cdxml
+│   │   │   ├── github112_qry.mol
+│   │   │   ├── github112_tgt.mol
+│   │   │   ├── lin.xml
+│   │   │   ├── linear.cdxml
+│   │   │   ├── linear.mol
+│   │   │   ├── monomer.mol
+│   │   │   ├── MQNs_non_strict_regress.pkl
+│   │   │   ├── MQNs_regress.pkl
+│   │   │   ├── multi-center.cdxml
+│   │   │   ├── multi-ring.cdxml
+│   │   │   ├── napthalene.cdxml
+│   │   │   ├── napthalene.mol
+│   │   │   ├── NCI_5K_TPSA.csv
+│   │   │   ├── NCI_aromat_regress.txt
+│   │   │   ├── NCI_regress.Lip.csv
+│   │   │   ├── pandas_load.sdf.gz
+│   │   │   ├── PP_descrs_regress.2.csv
+│   │   │   ├── PP_descrs_regress.csv
+│   │   │   ├── PP_descrs_regress.rest.2.csv
+│   │   │   ├── PP_descrs_regress.VSA.2.csv
+│   │   │   ├── PP_descrs_regress.VSA.csv
+│   │   │   ├── pubchem-hard-set.inchi
+│   │   │   ├── pubchem-hard-set.sdf.gz
+│   │   │   ├── quilt.cdxml
+│   │   │   ├── quilt.sm.cdxml
+│   │   │   ├── quinone.mol
+│   │   │   ├── sandwich.cdxml
+│   │   │   ├── simple_catalog.pkl
+│   │   │   ├── t.xml
+│   │   │   ├── Ti-sandwich.cdxml
+│   │   │   ├── tpsa_regr.csv
+│   │   │   ├── trans.sdf
+│   │   │   └── witch-salts.sdf
+│   │   │       └── ... (53 more files)
+│   │   ├── __init__.py
+│   │   ├── AllChem.py
+│   │   ├── BRICS.py
+│   │   ├── BuildFragmentCatalog.py
+│   │   ├── ChemicalFeatures.py
+│   │   ├── ChemicalForceFields.py
+│   │   ├── CMakeLists.txt
+│   │   ├── Crippen.py
+│   │   ├── Descriptors.py
+│   │   ├── Descriptors3D.py
+│   │   ├── DSViewer.py
+│   │   ├── EnumerateHeterocycles.py
+│   │   ├── EnumerateStereoisomers.py
+│   │   ├── FastSDMolSupplier.py
+│   │   ├── FeatFinderCLI.py
+│   │   ├── FilterCatalog.py
+│   │   ├── FragmentCatalog.py
+│   │   ├── FragmentMatcher.py
+│   │   ├── Fragments.py
+│   │   ├── FunctionalGroups.py
+│   │   ├── GraphDescriptors.py
+│   │   ├── Graphs.py
+│   │   ├── Lipinski.py
+│   │   ├── MACCSkeys.py
+│   │   ├── MCS.py
+│   │   ├── MolCatalog.py
+│   │   ├── MolSurf.py
+│   │   ├── PandasPatcher.py
+│   │   ├── PandasTools.py
+│   │   ├── PropertyMol.py
+│   │   ├── PyMol.py
+│   │   ├── QED.py
+│   │   ├── Randomize.py
+│   │   ├── Recap.py
+│   │   ├── ReducedGraphs.py
+│   │   ├── RegistrationHash.py
+│   │   ├── SaltRemover.py
+│   │   ├── SATIS.py
+│   │   ├── ShowMols.py
+│   │   ├── SpacialScore.py
+│   │   ├── TemplateAlign.py
+│   │   ├── TorsionFingerprints.py
+│   │   ├── UnitTestCatalog.py
+│   │   ├── UnitTestChem.py
+│   │   ├── UnitTestChemAtom.py
+│   │   ├── UnitTestChemBond.py
+│   │   ├── UnitTestChemSmarts.py
+│   │   ├── UnitTestChemv2.py
+│   │   ├── UnitTestCrippen.py
+│   │   ├── UnitTestDescriptors.py
+│   │   ├── UnitTestDocTestsChem.py
+│   │   ├── UnitTestEnumerateHeterocycles.py
+│   │   ├── UnitTestFeatFinderCLI.py
+│   │   ├── UnitTestFragmentDescriptors.py
+│   │   ├── UnitTestFunctionalGroups.py
+│   │   ├── UnitTestGraphDescriptors_2.py
+│   │   ├── UnitTestInchi.py
+│   │   ├── UnitTestLipinski.py
+│   │   ├── UnitTestMCS.py
+│   │   ├── UnitTestMol3D.py
+│   │   ├── UnitTestOldBugs.py
+│   │   ├── UnitTestPandasTools.py
+│   │   ├── UnitTestQED.py
+│   │   ├── UnitTestRandomize.py
+│   │   ├── UnitTestRegistrationHash.py
+│   │   ├── UnitTestSaltRemover.py
+│   │   ├── UnitTestSATIS.py
+│   │   ├── UnitTestSmiles.py
+│   │   ├── UnitTestSpacialScore.py
+│   │   ├── UnitTestSuppliers.py
+│   │   └── UnitTestSurf.py
+│   │       └── ... (66 more files)
+│   ├── DataManip/
+│   │   ├── Metric/
+│   │   │   └── __init__.py
+│   │   └── __init__.py
+│   ├── DataStructs/
+│   │   ├── test_data/
+│   │   │   ├── pubchem_fps.dm.pkl
+│   │   │   └── pubchem_fps.pkl
+│   │   ├── __init__.py
+│   │   ├── BitEnsemble.py
+│   │   ├── BitEnsembleDb.py
+│   │   ├── BitUtils.py
+│   │   ├── HierarchyVis.py
+│   │   ├── LazySignature.py
+│   │   ├── TopNContainer.py
+│   │   ├── UnitTestBitEnsemble.py
+│   │   ├── UnitTestcBitVect.py
+│   │   ├── UnitTestDocTests.py
+│   │   ├── UnitTestTopNContainer.py
+│   │   └── VectCollection.py
+│   │       └── ... (7 more files)
+│   ├── Dbase/
+│   │   ├── test_data/
+│   │   │   ├── dbtest.csv
+│   │   │   ├── dbtest.nulls.csv
+│   │   │   ├── dbtest.nulls.xls
+│   │   │   ├── dbtest.xls
+│   │   │   ├── RDData.psql
+│   │   │   ├── RDData.sqlite
+│   │   │   ├── rdtest.sql
+│   │   │   ├── RDTests.psql
+│   │   │   └── RDTests.sqlite
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── DbConnection.py
+│   │   ├── DbInfo.py
+│   │   ├── DbModule.py
+│   │   ├── DbResultSet.py
+│   │   ├── DbUtils.py
+│   │   ├── StorageUtils.py
+│   │   ├── UnitTestDbConnect.py
+│   │   ├── UnitTestDbInfo.py
+│   │   ├── UnitTestDbResultSet.py
+│   │   ├── UnitTestDbUtils.py
+│   │   └── UnitTestStorageUtils.py
+│   │       └── ... (7 more files)
+│   ├── DistanceGeometry/
+│   │   └── __init__.py
+│   ├── ForceField/
+│   │   └── __init__.py
+│   ├── Geometry/
+│   │   └── __init__.py
+│   ├── ML/
+│   │   ├── Cluster/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── Butina.py
+│   │   │   ├── Clusters.py
+│   │   │   ├── ClusterUtils.py
+│   │   │   ├── ClusterVis.py
+│   │   │   ├── Murtagh.py
+│   │   │   ├── murtagh_test.py
+│   │   │   ├── Resemblance.py
+│   │   │   ├── Standardize.py
+│   │   │   ├── UnitTestButina.py
+│   │   │   └── UnitTestCluster.py
+│   │   │       └── ... (6 more files)
+│   │   ├── Data/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── DataUtils.py
+│   │   │   ├── FindQuantBounds.py
+│   │   │   ├── MLData.py
+│   │   │   ├── Quantize.py
+│   │   │   ├── SplitData.py
+│   │   │   ├── Stats.py
+│   │   │   ├── Transforms.py
+│   │   │   ├── UnitTestDoctests.py
+│   │   │   ├── UnitTestFilter.py
+│   │   │   ├── UnitTestMLData.py
+│   │   │   ├── UnitTestQuantize.py
+│   │   │   └── UnitTestStats.py
+│   │   │       └── ... (8 more files)
+│   │   ├── Descriptors/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── CompoundDescriptors.py
+│   │   │   ├── Descriptors.py
+│   │   │   ├── MoleculeDescriptors.py
+│   │   │   ├── Parser.py
+│   │   │   ├── UnitTestDescriptors.py
+│   │   │   ├── UnitTestMolDescriptors.py
+│   │   │   └── UnitTestParser.py
+│   │   │       └── ... (3 more files)
+│   │   ├── InfoTheory/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── BitClusterer.py
+│   │   │   ├── BitRank.py
+│   │   │   ├── entropy.py
+│   │   │   ├── UnitTestBitRanker.py
+│   │   │   └── UnitTestCorrMatGen.py
+│   │   │       └── ... (1 more files)
+│   │   ├── MLUtils/
+│   │   │   ├── __init__.py
+│   │   │   └── VoteImg.py
+│   │   ├── Scoring/
+│   │   │   ├── __init__.py
+│   │   │   ├── Scoring.py
+│   │   │   └── UnitTestScoring.py
+│   │   ├── SLT/
+│   │   │   ├── __init__.py
+│   │   │   ├── Risk.py
+│   │   │   └── UnitTestRisk.py
+│   │   ├── test_data/
+│   │   │   ├── ferromag_auto_10_3.pkl
+│   │   │   ├── ferromag_filt_10_3.pkl
+│   │   │   ├── ferromag_NaiveBayes.pkl
+│   │   │   ├── ferromag_quant_10.pkl
+│   │   │   ├── ferromag_quant_10_3.pkl
+│   │   │   ├── ferromag_quant_10_3_lessgreedy.pkl
+│   │   │   ├── ferromag_quant_50_3.pkl
+│   │   │   ├── ferromag_shuffle_10_3.pkl
+│   │   │   ├── humanoral.1.pkl
+│   │   │   ├── humanoral.2.pkl
+│   │   │   └── populate.py
+│   │   │       └── ... (6 more files)
+│   │   ├── __init__.py
+│   │   ├── files.py
+│   │   └── MatOps.py
+│   ├── Numerics/
+│   │   └── __init__.py
+│   ├── SimDivFilters/
+│   │   ├── test_data/
+│   │   │   └── genfps.py
+│   │   ├── __init__.py
+│   │   ├── SimilarityPickers.py
+│   │   └── UnitTestSimilarityPickers.py
+│   ├── sping/
+│   │   ├── examples/
+│   │   │   ├── formatted-strings.py
+│   │   │   ├── tkCanvas-with-scrollbars.py
+│   │   │   └── tkCanvasPIL-with-scrollbars.py
+│   │   ├── patches/
+│   │   │   ├── Imaging-1.1-fixplugin-path
+│   │   │   └── Imaging-1.1.1.diff
+│   │   ├── PDF/
+│   │   │   ├── __init__.py
+│   │   │   ├── pdfdoc.py
+│   │   │   ├── pdfgen.py
+│   │   │   ├── pdfgeom.py
+│   │   │   ├── pdfmetrics.py
+│   │   │   ├── pdfutils.py
+│   │   │   └── pidPDF.py
+│   │   │       └── ... (2 more files)
+│   │   ├── PIL/
+│   │   │   ├── pilfonts/
+│   │   │   ├── __init__.py
+│   │   │   └── pidPIL.py
+│   │   ├── PS/
+│   │   │   ├── __init__.py
+│   │   │   ├── fontinfo.py
+│   │   │   ├── latin1MetricsCache.py
+│   │   │   ├── pidPS.py
+│   │   │   └── psmetrics.py
+│   │   ├── Pyart/
+│   │   │   ├── __init__.py
+│   │   │   ├── Fontmapping.py
+│   │   │   └── pidPyart.py
+│   │   ├── Qt/
+│   │   │   ├── __init__.py
+│   │   │   ├── pidQt.py
+│   │   │   └── pidQt4.py
+│   │   ├── ReportLab/
+│   │   │   ├── __init__.py
+│   │   │   └── pidReportLab.py
+│   │   ├── SVG/
+│   │   │   ├── __init__.py
+│   │   │   └── pidSVG.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── pidtest.py
+│   │   │   ├── pstests.py
+│   │   │   └── testallps.py
+│   │   ├── TK/
+│   │   │   ├── __init__.py
+│   │   │   └── pidTK.py
+│   │   ├── util/
+│   │   │   ├── __init__.py
+│   │   │   └── HTMLPiddler.py
+│   │   ├── WX/
+│   │   │   ├── __init__.py
+│   │   │   ├── pidWX.py
+│   │   │   └── pidWxDc.py
+│   │   ├── __init__.py
+│   │   ├── colors.py
+│   │   ├── pagesizes.py
+│   │   ├── pid.py
+│   │   ├── README
+│   │   ├── stringformat.py
+│   │   └── utils.py
+│   │       └── ... (2 more files)
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── cactvs.py
+│   │   ├── chemdraw.py
+│   │   ├── chemdraw_qax.py
+│   │   ├── chemutils.py
+│   │   ├── fileutils.py
+│   │   ├── listutils.py
+│   │   ├── retest.txt
+│   │   ├── spiral.py
+│   │   └── UnitTestUtils.py
+│   │       └── ... (5 more files)
+│   ├── VLib/
+│   │   ├── NodeLib/
+│   │   │   ├── test_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── DbMolSupply.py
+│   │   │   ├── DbPickleSupplier.py
+│   │   │   ├── demo.py
+│   │   │   ├── SDSupply.py
+│   │   │   ├── SmartsMolFilter.py
+│   │   │   ├── SmartsRemover.py
+│   │   │   ├── SmilesDupeFilter.py
+│   │   │   ├── SmilesOutput.py
+│   │   │   ├── SmilesSupply.py
+│   │   │   └── UnitTestNodeLib.py
+│   │   │       └── ... (6 more files)
+│   │   ├── __init__.py
+│   │   ├── Filter.py
+│   │   ├── Node.py
+│   │   ├── Output.py
+│   │   ├── Supply.py
+│   │   ├── Transform.py
+│   │   └── UnitTestVLib.py
+│   │       └── ... (2 more files)
+│   ├── __init__.py
+│   ├── CMakeLists.txt
+│   ├── conftest.py
+│   ├── pytest.ini
+│   ├── RDConfig.py
+│   ├── RDLogger.py
+│   ├── RDRandom.py
+│   ├── TestRunner.py
+│   └── UnitTestLogging.py
+│       └── ... (4 more files)
+├── rdkit-stubs/
+│   └── CMakeLists.txt
+├── Regress/
+│   ├── Data/
+│   │   ├── chembl_20_chiral.smi.gz
+│   │   ├── fptest.pgdump.gz
+│   │   ├── mols.1000.sdf.gz
+│   │   ├── mols.1000.txt.gz
+│   │   ├── queries.txt.gz
+│   │   ├── RLewis_smarts.txt
+│   │   ├── zinc.frags.500.q.smi
+│   │   ├── zinc.leads.500.q.smi
+│   │   └── znp.50k.smi.gz
+│   │       └── ... (4 more files)
+│   └── Scripts/
+│       ├── bench_cartridge.sql
+│       ├── chiral_embed.py
+│       ├── fingerprint_screenout.py
+│       ├── new_timings.py
+│       └── timings.py
+├── Scripts/
+│   ├── gen_rdkit_stubs/
+│   │   ├── __init__.py
+│   │   ├── __main__.py
+│   │   └── worker.py
+│   ├── patch_rdkit_docstrings/
+│   │   ├── __init__.py
+│   │   ├── __main__.py
+│   │   └── clang_worker.py
+│   ├── create_deb_packages.sh
+│   ├── FeatFinderCLI.py
+│   ├── PythonFormat.py
+│   ├── README.md
+│   ├── run_python_tests.py
+│   └── test.sh
+│       └── ... (1 more files)
+├── Web/
+│   └── RDExtras/
+│       ├── MolDepict.py
+│       └── MolImage.py
+├── .clang-format
+├── .clang-tidy
+├── .gitattributes
+├── .gitignore
+├── .travis.yml
+├── azure-pipelines.yml
+├── CMakeLists.txt
+├── CONTRIBUTING
+├── CTestConfig.cmake
+├── CTestCustom.ctest.in
+├── INSTALL
+├── license.txt
+├── rdkit-config.cmake.in
+├── rdkitpython-config.cmake.in
+├── README.md
+├── ReleaseNotes.md
+└── setup.cfg
+    └── ... (12 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

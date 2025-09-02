@@ -1,0 +1,21 @@
+The error message:
+```
+proj executable not found. Please set the PROJ_DIR variable. For more information see: https://pyproj4.github.io/pyproj/stable/installation.html
+```
+and
+```
+ModuleNotFoundError: No module named 'pyproj._context'
+```
+indicate that the build expects the `proj` (the PROJ library) system dependency to be available and possibly its headers/libraries for Cython extensions. The error from `pytest` relates to missing compiled Cython extension modules in `pyproj` (like `_context`), likely because the C extensions did not build due to the missing `proj` shared library/binaries.
+
+Since we are in a Docker container and can run commands as root, let's install the `proj` system package (the underlying C library), then re-install the Python package.
+
+On Ubuntu/Debian, the package is called `proj-bin`, `proj-data`, and `libproj-dev`. Let's try to install those, then re-run the build and test steps.
+
+```bash
+apt-get update
+apt-get install -y proj-bin proj-data libproj-dev
+pip install .
+pytest
+```
+If the build still fails, we'll need to analyze further.

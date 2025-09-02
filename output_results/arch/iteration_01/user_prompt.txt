@@ -1,0 +1,281 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── codeql.yml
+│   │   └── generate-documentation.yml
+│   └── codeql.yml
+├── arch/
+│   ├── __future__/
+│   │   ├── __init__.py
+│   │   └── reindexing.py
+│   ├── bootstrap/
+│   │   ├── __init__.py
+│   │   ├── _samplers.pyi
+│   │   ├── _samplers.pyx
+│   │   ├── _samplers_python.py
+│   │   ├── base.py
+│   │   └── multiple_comparison.py
+│   │       └── ... (1 more files)
+│   ├── compat/
+│   │   ├── __init__.py
+│   │   ├── numba.py
+│   │   ├── pandas.py
+│   │   └── statsmodels.py
+│   ├── covariance/
+│   │   ├── __init__.py
+│   │   └── kernel.py
+│   ├── data/
+│   │   ├── binary/
+│   │   │   ├── __init__.py
+│   │   │   └── binary.csv.gz
+│   │   ├── core_cpi/
+│   │   │   ├── __init__.py
+│   │   │   └── core-cpi.csv.gz
+│   │   ├── crude/
+│   │   │   ├── __init__.py
+│   │   │   └── crude.csv.gz
+│   │   ├── default/
+│   │   │   ├── __init__.py
+│   │   │   └── default.csv.gz
+│   │   ├── frenchdata/
+│   │   │   ├── __init__.py
+│   │   │   └── frenchdata.csv.gz
+│   │   ├── nasdaq/
+│   │   │   ├── __init__.py
+│   │   │   └── nasdaq.csv.gz
+│   │   ├── sp500/
+│   │   │   ├── __init__.py
+│   │   │   └── sp500.csv.gz
+│   │   ├── vix/
+│   │   │   ├── __init__.py
+│   │   │   └── vix.csv.gz
+│   │   ├── wti/
+│   │   │   ├── __init__.py
+│   │   │   └── wti.csv.gz
+│   │   ├── __init__.py
+│   │   └── utility.py
+│   ├── tests/
+│   │   ├── bootstrap/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_block_length.py
+│   │   │   ├── test_bootstrap.py
+│   │   │   └── test_multiple_comparison.py
+│   │   ├── covariance/
+│   │   │   ├── __init__.py
+│   │   │   └── test_covariance.py
+│   │   ├── unitroot/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── cointegration_data.py
+│   │   │   ├── test_dynamic_ols.py
+│   │   │   ├── test_engle_granger.py
+│   │   │   ├── test_fmols_ccr.py
+│   │   │   ├── test_phillips_ouliaris.py
+│   │   │   └── test_unitroot.py
+│   │   │       └── ... (2 more files)
+│   │   ├── univariate/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_arch_in_mean.py
+│   │   │   ├── test_base.py
+│   │   │   ├── test_distribution.py
+│   │   │   ├── test_forecast.py
+│   │   │   ├── test_mean.py
+│   │   │   ├── test_moment.py
+│   │   │   ├── test_recursions.py
+│   │   │   ├── test_rescale.py
+│   │   │   ├── test_variance_forecasting.py
+│   │   │   └── test_volatility.py
+│   │   │       └── ... (6 more files)
+│   │   ├── utility/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_array.py
+│   │   │   ├── test_cov.py
+│   │   │   ├── test_io.py
+│   │   │   ├── test_timeseries.py
+│   │   │   └── test_utility.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── test_compat.py
+│   │   ├── test_data.py
+│   │   ├── test_examples.py
+│   │   ├── test_tester.py
+│   │   └── test_vendor.py
+│   │       └── ... (1 more files)
+│   ├── unitroot/
+│   │   ├── critical_values/
+│   │   │   ├── simulation/
+│   │   │   ├── __init__.py
+│   │   │   ├── dfgls.py
+│   │   │   ├── dickey_fuller.py
+│   │   │   ├── engle_granger.py
+│   │   │   ├── kpss.py
+│   │   │   ├── phillips_ouliaris.py
+│   │   │   └── zivot_andrews.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── _engle_granger.py
+│   │   ├── _phillips_ouliaris.py
+│   │   ├── _shared.py
+│   │   ├── cointegration.py
+│   │   └── unitroot.py
+│   │       └── ... (1 more files)
+│   ├── univariate/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── distribution.py
+│   │   ├── mean.py
+│   │   ├── recursions.pyi
+│   │   ├── recursions.pyx
+│   │   ├── recursions_python.py
+│   │   └── volatility.py
+│   │       └── ... (3 more files)
+│   ├── utility/
+│   │   ├── __init__.py
+│   │   ├── array.py
+│   │   ├── cov.py
+│   │   ├── exceptions.py
+│   │   ├── io.py
+│   │   ├── testing.py
+│   │   └── timeseries.py
+│   │       └── ... (2 more files)
+│   ├── vendor/
+│   │   ├── __init__.py
+│   │   └── _decorators.py
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── py.typed
+│   └── typing.py
+├── ci/
+│   ├── azure/
+│   │   ├── azure_template_posix.yml
+│   │   ├── azure_template_windows.yml
+│   │   ├── install-posix.sh
+│   │   └── update_path.sh
+│   ├── github-actions/
+│   │   └── push-docs-gh-pages.sh
+│   ├── install-statsmodels-main.sh
+│   └── performance.py
+├── doc/
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── css/
+│   │   │   ├── images/
+│   │   │   └── .gitignore
+│   │   ├── _templates/
+│   │   │   ├── autosummary/
+│   │   │   └── layout.html
+│   │   ├── bootstrap/
+│   │   │   ├── background.rst
+│   │   │   ├── bootstrap.rst
+│   │   │   ├── bootstrap_histogram.png
+│   │   │   ├── confidence-intervals.rst
+│   │   │   ├── iid-bootstraps.rst
+│   │   │   ├── low-level-interface.rst
+│   │   │   ├── parameter-covariance-estimation.rst
+│   │   │   ├── semiparametric-parametric-bootstrap.rst
+│   │   │   └── timeseries-bootstraps.rst
+│   │   │       └── ... (4 more files)
+│   │   ├── changes/
+│   │   │   ├── 1.0.rst
+│   │   │   ├── 2.0.rst
+│   │   │   ├── 3.0.rst
+│   │   │   ├── 4.0.rst
+│   │   │   ├── 5.0.rst
+│   │   │   ├── 6.0.rst
+│   │   │   └── 7.0.rst
+│   │   │       └── ... (2 more files)
+│   │   ├── covariance/
+│   │   │   └── covariance.rst
+│   │   ├── images/
+│   │   │   ├── bw-logo.svg
+│   │   │   ├── color-logo-no-text.svg
+│   │   │   ├── color-logo-unprocessed.svg
+│   │   │   ├── color-logo.png
+│   │   │   ├── color-logo.svg
+│   │   │   ├── favicon.ico
+│   │   │   ├── favicon.png
+│   │   │   ├── favicon.py
+│   │   │   ├── favicon.svg
+│   │   │   ├── hero.png
+│   │   │   ├── hero.py
+│   │   │   ├── hero.svg
+│   │   │   └── logo.svg
+│   │   │       └── ... (8 more files)
+│   │   ├── multiple-comparison/
+│   │   │   ├── background.rst
+│   │   │   ├── multiple-comparison-reference.rst
+│   │   │   └── multiple-comparisons.rst
+│   │   ├── unitroot/
+│   │   │   ├── cointegration.rst
+│   │   │   ├── introduction.rst
+│   │   │   ├── tests.rst
+│   │   │   └── unitroot.rst
+│   │   ├── univariate/
+│   │   │   ├── background.rst
+│   │   │   ├── distribution.rst
+│   │   │   ├── forecasting.rst
+│   │   │   ├── introduction.rst
+│   │   │   ├── mean.rst
+│   │   │   ├── results.rst
+│   │   │   ├── univariate.rst
+│   │   │   ├── utility.rst
+│   │   │   └── volatility.rst
+│   │   │       └── ... (4 more files)
+│   │   ├── api.rst
+│   │   ├── changes.rst
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── names_wordlist.txt
+│   │   ├── spelling_wordlist.txt
+│   │   └── types.rst
+│   │       └── ... (2 more files)
+│   ├── make.bat
+│   ├── Makefile
+│   └── requirements.txt
+├── examples/
+│   ├── bootstrap_examples.ipynb
+│   ├── multiple-comparison_examples.ipynb
+│   ├── unitroot_cointegration_examples.ipynb
+│   ├── unitroot_examples.ipynb
+│   ├── univariate_forecasting_with_exogenous_variables.ipynb
+│   ├── univariate_using_fixed_variance.ipynb
+│   ├── univariate_volatility_forecasting.ipynb
+│   ├── univariate_volatility_modeling.ipynb
+│   └── univariate_volatility_scenarios.ipynb
+│       └── ... (4 more files)
+├── .codacy.yml
+├── .codebeatignore
+├── .coveragerc
+├── .gitattributes
+├── .gitignore
+├── .landscape.yml
+├── .pep8speaks.yml
+├── .readthedocs.yaml
+├── azure-pipelines.yml
+├── codecov.yml
+├── lgtm.yml
+├── LICENSE.md
+├── MANIFEST.in
+├── meson.build
+├── py.typed
+├── pyproject.toml
+├── README.md
+├── requirements-dev.txt
+├── requirements.txt
+├── setup.cfg
+└── setup.py
+    └── ... (16 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

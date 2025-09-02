@@ -1,0 +1,16 @@
+The root problem is that `pip install -e .` failed to build the package because of C extension build issues:
+- It could not find `Python.h`: this means Python development headers are missing.
+- It also warned about `geos-config` not being found: so the GEOS C library and headers are missing, but the immediate error is about Python headers.
+
+**Resolution:**  
+First, install the Python development headers (for Python 3.10).
+Then, install GEOS development headers (required by Shapely).
+
+```bash
+apt-get update
+apt-get install -y python3.10-dev libgeos-dev
+# Now retry editable install
+pip install -e .
+# And retry pytest
+pytest
+```

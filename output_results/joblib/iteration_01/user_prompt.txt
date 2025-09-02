@@ -1,0 +1,229 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── codespell.yml
+│       ├── publish-to-pypi.yml
+│       └── test.yml
+├── benchmarks/
+│   ├── bench_auto_batching.py
+│   ├── bench_compression.py
+│   ├── bench_grid_search_scaling.py
+│   ├── bench_pickle.py
+│   └── bench_sequential_fast_tasks.py
+├── continuous_integration/
+│   ├── install.sh
+│   └── run_tests.sh
+├── doc/
+│   ├── _static/
+│   │   ├── custom.css
+│   │   ├── favicon.ico
+│   │   ├── joblib_logo.svg
+│   │   └── joblib_logo_examples.png
+│   ├── _templates/
+│   │   ├── class.rst
+│   │   ├── function.rst
+│   │   ├── layout.html
+│   │   └── navigation.html
+│   ├── __init__.py
+│   ├── conf.py
+│   ├── conftest.py
+│   ├── custom_parallel_backend.rst
+│   ├── developing.rst
+│   ├── index.rst
+│   ├── installing.rst
+│   ├── Makefile
+│   ├── memory.rst
+│   ├── parallel.rst
+│   ├── parallel_numpy.rst
+│   ├── persistence.rst
+│   └── why.rst
+│       └── ... (8 more files)
+├── examples/
+│   ├── parallel/
+│   │   ├── distributed_backend_simple.py
+│   │   └── README.txt
+│   ├── compressors_comparison.py
+│   ├── memory_basic_usage.py
+│   ├── nested_parallel_memory.py
+│   ├── parallel_generator.py
+│   ├── parallel_memmap.py
+│   ├── parallel_random_state.py
+│   ├── README.txt
+│   └── serialization_and_wrappers.py
+│       └── ... (3 more files)
+├── joblib/
+│   ├── externals/
+│   │   ├── cloudpickle/
+│   │   │   ├── __init__.py
+│   │   │   ├── cloudpickle.py
+│   │   │   └── cloudpickle_fast.py
+│   │   ├── loky/
+│   │   │   ├── backend/
+│   │   │   ├── __init__.py
+│   │   │   ├── _base.py
+│   │   │   ├── cloudpickle_wrapper.py
+│   │   │   ├── initializers.py
+│   │   │   ├── process_executor.py
+│   │   │   └── reusable_executor.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── vendor_cloudpickle.sh
+│   │   └── vendor_loky.sh
+│   ├── test/
+│   │   ├── _openmp_test_helper/
+│   │   │   ├── .gitignore
+│   │   │   ├── __init__.py
+│   │   │   ├── parallel_sum.pyx
+│   │   │   └── setup.py
+│   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── create_numpy_pickle.py
+│   │   │   ├── generate_data.sh
+│   │   │   ├── joblib_0.10.0_compressed_pickle_py27_np16.gz
+│   │   │   ├── joblib_0.10.0_compressed_pickle_py27_np17.gz
+│   │   │   ├── joblib_0.10.0_compressed_pickle_py33_np18.gz
+│   │   │   ├── joblib_0.10.0_compressed_pickle_py34_np19.gz
+│   │   │   ├── joblib_0.10.0_compressed_pickle_py35_np19.gz
+│   │   │   ├── joblib_0.10.0_pickle_py27_np17.pkl
+│   │   │   ├── joblib_0.10.0_pickle_py27_np17.pkl.bz2
+│   │   │   ├── joblib_0.10.0_pickle_py27_np17.pkl.gzip
+│   │   │   ├── joblib_0.10.0_pickle_py27_np17.pkl.lzma
+│   │   │   ├── joblib_0.10.0_pickle_py27_np17.pkl.xz
+│   │   │   ├── joblib_0.10.0_pickle_py33_np18.pkl
+│   │   │   ├── joblib_0.10.0_pickle_py33_np18.pkl.bz2
+│   │   │   ├── joblib_0.10.0_pickle_py33_np18.pkl.gzip
+│   │   │   ├── joblib_0.10.0_pickle_py33_np18.pkl.lzma
+│   │   │   ├── joblib_0.10.0_pickle_py33_np18.pkl.xz
+│   │   │   ├── joblib_0.10.0_pickle_py34_np19.pkl
+│   │   │   ├── joblib_0.10.0_pickle_py34_np19.pkl.bz2
+│   │   │   ├── joblib_0.10.0_pickle_py34_np19.pkl.gzip
+│   │   │   ├── joblib_0.10.0_pickle_py34_np19.pkl.lzma
+│   │   │   ├── joblib_0.10.0_pickle_py34_np19.pkl.xz
+│   │   │   ├── joblib_0.10.0_pickle_py35_np19.pkl
+│   │   │   ├── joblib_0.10.0_pickle_py35_np19.pkl.bz2
+│   │   │   ├── joblib_0.10.0_pickle_py35_np19.pkl.gzip
+│   │   │   ├── joblib_0.10.0_pickle_py35_np19.pkl.lzma
+│   │   │   ├── joblib_0.10.0_pickle_py35_np19.pkl.xz
+│   │   │   ├── joblib_0.11.0_compressed_pickle_py36_np111.gz
+│   │   │   ├── joblib_0.11.0_pickle_py36_np111.pkl
+│   │   │   ├── joblib_0.11.0_pickle_py36_np111.pkl.bz2
+│   │   │   ├── joblib_0.11.0_pickle_py36_np111.pkl.gzip
+│   │   │   ├── joblib_0.11.0_pickle_py36_np111.pkl.lzma
+│   │   │   ├── joblib_0.11.0_pickle_py36_np111.pkl.xz
+│   │   │   ├── joblib_0.12.2_pickle_py36_np114.pkl.lz4
+│   │   │   ├── joblib_0.8.4_compressed_pickle_py27_np17.gz
+│   │   │   ├── joblib_0.9.2_compressed_pickle_py27_np16.gz
+│   │   │   ├── joblib_0.9.2_compressed_pickle_py27_np17.gz
+│   │   │   ├── joblib_0.9.2_compressed_pickle_py34_np19.gz
+│   │   │   ├── joblib_0.9.2_compressed_pickle_py35_np19.gz
+│   │   │   ├── joblib_0.9.2_pickle_py27_np16.pkl
+│   │   │   ├── joblib_0.9.2_pickle_py27_np16.pkl_01.npy
+│   │   │   ├── joblib_0.9.2_pickle_py27_np16.pkl_02.npy
+│   │   │   ├── joblib_0.9.2_pickle_py27_np16.pkl_03.npy
+│   │   │   ├── joblib_0.9.2_pickle_py27_np16.pkl_04.npy
+│   │   │   ├── joblib_0.9.2_pickle_py27_np17.pkl
+│   │   │   ├── joblib_0.9.2_pickle_py27_np17.pkl_01.npy
+│   │   │   ├── joblib_0.9.2_pickle_py27_np17.pkl_02.npy
+│   │   │   ├── joblib_0.9.2_pickle_py27_np17.pkl_03.npy
+│   │   │   ├── joblib_0.9.2_pickle_py27_np17.pkl_04.npy
+│   │   │   ├── joblib_0.9.2_pickle_py33_np18.pkl
+│   │   │   ├── joblib_0.9.2_pickle_py33_np18.pkl_01.npy
+│   │   │   ├── joblib_0.9.2_pickle_py33_np18.pkl_02.npy
+│   │   │   ├── joblib_0.9.2_pickle_py33_np18.pkl_03.npy
+│   │   │   ├── joblib_0.9.2_pickle_py33_np18.pkl_04.npy
+│   │   │   ├── joblib_0.9.2_pickle_py34_np19.pkl
+│   │   │   ├── joblib_0.9.2_pickle_py34_np19.pkl_01.npy
+│   │   │   ├── joblib_0.9.2_pickle_py34_np19.pkl_02.npy
+│   │   │   ├── joblib_0.9.2_pickle_py34_np19.pkl_03.npy
+│   │   │   ├── joblib_0.9.2_pickle_py34_np19.pkl_04.npy
+│   │   │   ├── joblib_0.9.2_pickle_py35_np19.pkl
+│   │   │   ├── joblib_0.9.2_pickle_py35_np19.pkl_01.npy
+│   │   │   ├── joblib_0.9.2_pickle_py35_np19.pkl_02.npy
+│   │   │   ├── joblib_0.9.2_pickle_py35_np19.pkl_03.npy
+│   │   │   ├── joblib_0.9.2_pickle_py35_np19.pkl_04.npy
+│   │   │   ├── joblib_0.9.4.dev0_compressed_cache_size_pickle_py35_np19.gz
+│   │   │   ├── joblib_0.9.4.dev0_compressed_cache_size_pickle_py35_np19.gz_01.npy.z
+│   │   │   ├── joblib_0.9.4.dev0_compressed_cache_size_pickle_py35_np19.gz_02.npy.z
+│   │   │   └── joblib_0.9.4.dev0_compressed_cache_size_pickle_py35_np19.gz_03.npy.z
+│   │   │       └── ... (64 more files)
+│   │   ├── __init__.py
+│   │   ├── common.py
+│   │   ├── test_backports.py
+│   │   ├── test_cloudpickle_wrapper.py
+│   │   ├── test_config.py
+│   │   ├── test_dask.py
+│   │   ├── test_disk.py
+│   │   ├── test_func_inspect.py
+│   │   ├── test_func_inspect_special_encoding.py
+│   │   ├── test_hashing.py
+│   │   ├── test_init.py
+│   │   ├── test_logger.py
+│   │   ├── test_memmapping.py
+│   │   ├── test_memory.py
+│   │   ├── test_memory_async.py
+│   │   ├── test_missing_multiprocessing.py
+│   │   ├── test_module.py
+│   │   ├── test_numpy_pickle.py
+│   │   ├── test_numpy_pickle_compat.py
+│   │   ├── test_numpy_pickle_utils.py
+│   │   ├── test_parallel.py
+│   │   ├── test_store_backends.py
+│   │   ├── test_testing.py
+│   │   ├── test_utils.py
+│   │   └── testutils.py
+│   │       └── ... (20 more files)
+│   ├── __init__.py
+│   ├── _cloudpickle_wrapper.py
+│   ├── _dask.py
+│   ├── _memmapping_reducer.py
+│   ├── _multiprocessing_helpers.py
+│   ├── _parallel_backends.py
+│   ├── _store_backends.py
+│   ├── _utils.py
+│   ├── backports.py
+│   ├── compressor.py
+│   ├── disk.py
+│   ├── executor.py
+│   ├── func_inspect.py
+│   ├── hashing.py
+│   ├── logger.py
+│   ├── memory.py
+│   ├── numpy_pickle.py
+│   ├── numpy_pickle_compat.py
+│   ├── numpy_pickle_utils.py
+│   ├── parallel.py
+│   ├── pool.py
+│   └── testing.py
+│       └── ... (17 more files)
+├── .codecov.yml
+├── .git-blame-ignore-revs
+├── .gitignore
+├── .mailmap
+├── .pre-commit-config.yaml
+├── .readthedocs-requirements.txt
+├── .readthedocs.yaml
+├── CHANGES.rst
+├── CITATION.cff
+├── conftest.py
+├── LICENSE.txt
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── README.rst
+├── SECURITY.md
+└── TODO.rst
+    └── ... (12 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

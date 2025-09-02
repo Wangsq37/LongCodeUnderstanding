@@ -1,0 +1,29 @@
+The core error persists:  
+`ModuleNotFoundError: No module named 'pyfftw.pyfftw'`  
+- This means the Cython extension `pyfftw/pyfftw.{so,pyd}` was NOT successfully built.  
+- After the build, `ls pyfftw/ | grep pyfftw` consistently shows only `.c`, `.pxd`, `.pyx` (NO `.so`).  
+- The extension is missing, so any import of `from .pyfftw import ...` fails.
+
+### Typical reasons for Cython extensions not being built:
+1. **Cython is not installed.**  
+2. Build errors are suppressed or redirected, or setup directives are incorrect for PEP 517 projects.
+3. Misconfigured setup or missing dependencies detected via `setup.py`, `setup.cfg`, or `pyproject.toml`.
+
+### Diagnostics
+- There is no `requirements.txt`, so that step failed.
+- The build log does NOT show explicit Cython usage (no `cythonizing`, no `.c` generation, only attempts to compile what’s already there).
+- The project directory contains `.pyx` files, which require Cython for compiling.
+- Most scientific packages with C extensions (especially a pyfftw fork) require `Cython` for in-place builds.
+
+### Next step:  
+Install `cython` via pip, then try build again!
+
+```bash
+pip install cython
+python setup.py clean --all
+python setup.py build_ext --inplace
+ls pyfftw/ | grep pyfftw
+pytest
+```
+
+This should trigger proper extension build and resolve the import errors.

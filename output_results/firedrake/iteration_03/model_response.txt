@@ -1,0 +1,4 @@
+```bash
+pip install firedrake pyop2 pytest_mpi loopy petsc4py
+pytest
+```

@@ -1,0 +1,508 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .benchmarks/
+├── .github/
+│   ├── durations/
+│   │   ├── core_tests_durations.json
+│   │   ├── jax_tests_durations.json
+│   │   └── tf_tests_durations.json
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   └── feature_request.yml
+│   ├── stable/
+│   │   ├── all_interfaces.txt
+│   │   ├── core.txt
+│   │   ├── doc.txt
+│   │   ├── external.txt
+│   │   ├── jax.txt
+│   │   ├── tf.txt
+│   │   └── torch.txt
+│   │       └── ... (2 more files)
+│   ├── workflows/
+│   │   ├── scripts/
+│   │   │   ├── benchmarks/
+│   │   │   ├── upload_reports/
+│   │   │   └── set_nightly_version.py
+│   │   ├── assign_bugs.yml
+│   │   ├── changelog_reminder.yml
+│   │   ├── check-external-contributor.yml
+│   │   ├── check_in_artifact.yml
+│   │   ├── code_security_scan.yml
+│   │   ├── determine-workflow-runner.yml
+│   │   ├── docker.yml
+│   │   ├── docs.yml
+│   │   ├── format.yml
+│   │   ├── interface-dependency-versions.yml
+│   │   ├── interface-unit-tests.yml
+│   │   ├── module-validation.yml
+│   │   ├── package_warnings_as_errors.yml
+│   │   ├── rc_sync.yml
+│   │   ├── rtd-check.yml
+│   │   ├── test_numpy_1_compat.yml
+│   │   ├── tests-gpu.yml
+│   │   ├── tests-labs.yml
+│   │   ├── tests.yml
+│   │   ├── trigger_benchmarks.yml
+│   │   ├── unit-test.yml
+│   │   ├── update-durations.yml
+│   │   ├── upload-nightly-release.yml
+│   │   └── upload.yml
+│   │       └── ... (19 more files)
+│   ├── CHANGELOG.md
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CODEOWNERS
+│   ├── CONTRIBUTING.md
+│   └── PULL_REQUEST_TEMPLATE.md
+├── doc/
+│   ├── _static/
+│   │   ├── draw_mpl/
+│   │   │   ├── black_white_style.png
+│   │   │   ├── ctrl_gphase.png
+│   │   │   ├── decimals.png
+│   │   │   ├── draw_mpl_examples.py
+│   │   │   ├── gphase_no_wires.png
+│   │   │   ├── gphase_one_wire.png
+│   │   │   ├── level_none.png
+│   │   │   ├── level_slice.png
+│   │   │   ├── level_top.png
+│   │   │   ├── level_user.png
+│   │   │   ├── main_example.png
+│   │   │   ├── max_length1.png
+│   │   │   ├── max_length2.png
+│   │   │   ├── mid_measure.png
+│   │   │   ├── per_wire_options.png
+│   │   │   ├── postprocessing.png
+│   │   │   ├── rcparams.png
+│   │   │   ├── show_all_wires.png
+│   │   │   ├── sketch_style.png
+│   │   │   ├── snapshot.png
+│   │   │   ├── wire_order.png
+│   │   │   └── wires_labels.png
+│   │   │       └── ... (17 more files)
+│   │   ├── drawer/
+│   │   │   ├── black_white_style.png
+│   │   │   ├── box_gates.png
+│   │   │   ├── box_gates_autosized.png
+│   │   │   ├── box_gates_formatted.png
+│   │   │   ├── cnot.png
+│   │   │   ├── cond.png
+│   │   │   ├── ctrl.png
+│   │   │   ├── example_basic.png
+│   │   │   ├── example_formatted.png
+│   │   │   ├── example_rcParams.png
+│   │   │   ├── example_release_notes.png
+│   │   │   ├── float_layer.png
+│   │   │   ├── just_wires.png
+│   │   │   ├── labels.png
+│   │   │   ├── labels_formatted.png
+│   │   │   ├── labels_test.png
+│   │   │   ├── measure.png
+│   │   │   ├── mpldrawer_examples.py
+│   │   │   └── SWAP.png
+│   │   │       └── ... (14 more files)
+│   │   ├── ops/
+│   │   │   ├── f.pdf
+│   │   │   ├── f.svg
+│   │   │   ├── f.tex
+│   │   │   ├── qmc.pdf
+│   │   │   ├── qmc.svg
+│   │   │   ├── qmc.tex
+│   │   │   ├── QubitCarry.pdf
+│   │   │   ├── QubitCarry.svg
+│   │   │   ├── QubitCarry.tex
+│   │   │   ├── QubitSum.pdf
+│   │   │   ├── QubitSum.svg
+│   │   │   └── QubitSum.tex
+│   │   │       └── ... (7 more files)
+│   │   ├── pulse/
+│   │   │   ├── make_pulse_images.py
+│   │   │   ├── parametrized_coefficients_example.png
+│   │   │   ├── pwc_example.png
+│   │   │   └── rect_example.png
+│   │   ├── qchem/
+│   │   │   ├── fig_mult_active_space.png
+│   │   │   ├── hf_references.png
+│   │   │   ├── orbital_rotation.jpeg
+│   │   │   ├── sd_excitations.png
+│   │   │   └── sketch_active_space.png
+│   │   ├── qcircuit/
+│   │   │   ├── main.tex
+│   │   │   ├── Qcircuit.tex
+│   │   │   └── var_circuit.tex
+│   │   ├── readme/
+│   │   │   ├── banner.png
+│   │   │   ├── banner2.png
+│   │   │   ├── code.gif
+│   │   │   ├── code.png
+│   │   │   ├── code2-numpy.png
+│   │   │   ├── code2-tf.png
+│   │   │   ├── code2-torch.png
+│   │   │   ├── code2.png
+│   │   │   ├── demos.png
+│   │   │   ├── dilution.png
+│   │   │   ├── getting-started.png
+│   │   │   ├── gpu_to_qpu.png
+│   │   │   ├── pl-logo-darkmode.png
+│   │   │   ├── pl-logo-lightmode.png
+│   │   │   ├── pl-logo.png
+│   │   │   ├── research.png
+│   │   │   └── videos.png
+│   │   │       └── ... (12 more files)
+│   │   ├── style/
+│   │   │   ├── black_white_dark_style.png
+│   │   │   ├── black_white_style.png
+│   │   │   ├── default_style.png
+│   │   │   ├── pennylane_sketch_style.png
+│   │   │   ├── pennylane_style.png
+│   │   │   ├── sketch_dark_style.png
+│   │   │   ├── sketch_style.png
+│   │   │   ├── solarized_dark_style.png
+│   │   │   ├── solarized_light_style.png
+│   │   │   └── style_examples.py
+│   │   │       └── ... (5 more files)
+│   │   ├── tape_mpl/
+│   │   │   ├── black_white_style.png
+│   │   │   ├── decimals.png
+│   │   │   ├── default.png
+│   │   │   ├── mid_measure.png
+│   │   │   ├── per_wire_options.png
+│   │   │   ├── postprocessing.png
+│   │   │   ├── rcparams.png
+│   │   │   ├── show_all_wires.png
+│   │   │   ├── sketch_style.png
+│   │   │   ├── Solarize_Light2.png
+│   │   │   ├── tape_mpl_examples.py
+│   │   │   ├── wire_order.png
+│   │   │   └── wires_labels.png
+│   │   │       └── ... (8 more files)
+│   │   ├── templates/
+│   │   │   ├── arithmetic/
+│   │   │   ├── embeddings/
+│   │   │   ├── layers/
+│   │   │   ├── prepselprep/
+│   │   │   ├── qrom/
+│   │   │   ├── qubitization/
+│   │   │   ├── state_preparations/
+│   │   │   ├── subroutines/
+│   │   │   ├── swap_networks/
+│   │   │   ├── tensornetworks/
+│   │   │   ├── broadcast_alltoall.png
+│   │   │   ├── broadcast_chain.png
+│   │   │   ├── broadcast_custom.png
+│   │   │   ├── broadcast_double.png
+│   │   │   ├── broadcast_double_odd.png
+│   │   │   ├── broadcast_pyramid.png
+│   │   │   ├── broadcast_ring.png
+│   │   │   └── broadcast_single.png
+│   │   │       └── ... (3 more files)
+│   │   ├── thumbs/
+│   │   │   └── code.png
+│   │   ├── building_blocks.svg
+│   │   ├── building_blocks2.png
+│   │   ├── building_blocks2.svg
+│   │   ├── circuit_embedding.svg
+│   │   ├── classical_quantum_info.svg
+│   │   ├── clements.png
+│   │   ├── code-intro.png
+│   │   ├── code.png
+│   │   ├── concepts.png
+│   │   ├── concepts.svg
+│   │   ├── cvqnn_layer.png
+│   │   ├── draw_mpl.png
+│   │   ├── fable.png
+│   │   ├── favicon.ico
+│   │   ├── fold_global_zne_by-hand.png
+│   │   ├── forest.png
+│   │   ├── fourier.png
+│   │   ├── fourier_vis_bar_plot.png
+│   │   ├── fourier_vis_bar_plot_2.png
+│   │   ├── fourier_vis_box.png
+│   │   ├── fourier_vis_panel.png
+│   │   ├── fourier_vis_radial_box.png
+│   │   ├── fourier_vis_violin.png
+│   │   ├── grad.png
+│   │   ├── grad.svg
+│   │   ├── hamiltonian_expval_h_plot.png
+│   │   ├── header-dark-mode.png
+│   │   ├── header-tall.png
+│   │   ├── header.png
+│   │   ├── hybrid_graph.png
+│   │   ├── hybrid_graph.svg
+│   │   ├── intro.svg
+│   │   ├── jax.png
+│   │   ├── jigsaw.png
+│   │   ├── jigsaw.svg
+│   │   ├── layer_cvqnn.png
+│   │   ├── layer_interferometer.png
+│   │   ├── layer_interferometerpng.png
+│   │   ├── layer_rnd.png
+│   │   ├── layer_sec.png
+│   │   ├── logo.png
+│   │   ├── logo_new.png
+│   │   ├── logo_new_small.png
+│   │   ├── microsoft.png
+│   │   ├── mid-circuit-measurement.png
+│   │   ├── new_return_types.png
+│   │   ├── numpy.png
+│   │   ├── opengraph.png
+│   │   ├── param_shift_broadcast_speedup.png
+│   │   ├── pennylane.svg
+│   │   ├── pl_wordmark.png
+│   │   ├── projectq_logo.png
+│   │   ├── pytorch.png
+│   │   ├── qaoa_layers.png
+│   │   ├── qaoa_layers.svg
+│   │   ├── qcut_graph.svg
+│   │   ├── qiskit_logo.png
+│   │   ├── qnode.png
+│   │   ├── qnode.svg
+│   │   ├── quantum_function.svg
+│   │   ├── quantum_gradient.svg
+│   │   ├── quantum_node.svg
+│   │   ├── quantumnode.png
+│   │   ├── quantumnode.svg
+│   │   ├── quantumnode_detail.png
+│   │   ├── quantumnode_detail.svg
+│   │   ├── reck.png
+│   │   ├── requires_grad.png
+│   │   ├── simple_hybrid_graph.png
+│   │   ├── simple_hybrid_graph.svg
+│   │   ├── sketch_pennylane_qchem.png
+│   │   ├── strawberryfields_logo.png
+│   │   ├── tensorflow.png
+│   │   ├── transforms_order.png
+│   │   ├── transforms_order.svg
+│   │   ├── two_qubit_decomposition_2_cnots.svg
+│   │   ├── two_qubit_decomposition_3_cnots.svg
+│   │   ├── var_circuit.svg
+│   │   ├── varcirc.png
+│   │   ├── varcirc.svg
+│   │   ├── variational_rough.png
+│   │   ├── variational_rough.svg
+│   │   ├── vc_aoa.svg
+│   │   ├── vc_cc.svg
+│   │   ├── vc_cvkernels.svg
+│   │   ├── vc_cvqnn.svg
+│   │   ├── vc_gatearchitecture.svg
+│   │   ├── vc_general.svg
+│   │   ├── vc_iqp.svg
+│   │   ├── vc_iqp_cv.svg
+│   │   ├── vc_mps.svg
+│   │   ├── vc_staticent.svg
+│   │   ├── vc_tree.svg
+│   │   ├── xanadu_gallery.css
+│   │   └── xanadu_x.png
+│   │       └── ... (90 more files)
+│   ├── _templates/
+│   │   ├── autosummary/
+│   │   │   ├── base.rst
+│   │   │   ├── class.rst
+│   │   │   ├── class_no_inherited.rst
+│   │   │   └── module.rst
+│   │   └── autosummary_core/
+│   │       ├── base.rst
+│   │       ├── class.rst
+│   │       └── module.rst
+│   ├── code/
+│   │   ├── qml.rst
+│   │   ├── qml_bose.rst
+│   │   ├── qml_capture.rst
+│   │   ├── qml_compiler.rst
+│   │   ├── qml_concurrency.rst
+│   │   ├── qml_data.rst
+│   │   ├── qml_debugging.rst
+│   │   ├── qml_decomposition.rst
+│   │   ├── qml_devices.rst
+│   │   ├── qml_drawer.rst
+│   │   ├── qml_exceptions.rst
+│   │   ├── qml_fermi.rst
+│   │   ├── qml_fourier.rst
+│   │   ├── qml_ftqc.rst
+│   │   ├── qml_gradients.rst
+│   │   ├── qml_io.rst
+│   │   ├── qml_kernels.rst
+│   │   ├── qml_labs.rst
+│   │   ├── qml_liealg.rst
+│   │   ├── qml_logging.rst
+│   │   ├── qml_math.rst
+│   │   ├── qml_measurements.rst
+│   │   ├── qml_noise.rst
+│   │   ├── qml_numpy.rst
+│   │   ├── qml_operation.rst
+│   │   ├── qml_ops_op_math.rst
+│   │   ├── qml_pauli.rst
+│   │   ├── qml_pulse.rst
+│   │   ├── qml_pytrees.rst
+│   │   ├── qml_qaoa.rst
+│   │   ├── qml_qchem.rst
+│   │   ├── qml_qcut.rst
+│   │   ├── qml_qnn.rst
+│   │   ├── qml_queuing.rst
+│   │   ├── qml_resource.rst
+│   │   ├── qml_shadows.rst
+│   │   ├── qml_spin.rst
+│   │   ├── qml_tape.rst
+│   │   ├── qml_transforms.rst
+│   │   ├── qml_wires.rst
+│   │   └── qml_workflow.rst
+│   │       └── ... (36 more files)
+│   ├── development/
+│   │   ├── guide/
+│   │   │   ├── adr.rst
+│   │   │   ├── architecture.rst
+│   │   │   ├── contributing.rst
+│   │   │   ├── deprecations_removals.rst
+│   │   │   ├── documentation.rst
+│   │   │   ├── example_module_autosummary.txt
+│   │   │   ├── example_module_rst.txt
+│   │   │   ├── example_package_rst.txt
+│   │   │   ├── installation.rst
+│   │   │   ├── logging.rst
+│   │   │   ├── pl_backprop_device.png
+│   │   │   ├── pl_overview.png
+│   │   │   ├── pl_overview.svg
+│   │   │   ├── pl_workflow.png
+│   │   │   ├── pl_workflow.svg
+│   │   │   ├── pullrequests.rst
+│   │   │   ├── tests.rst
+│   │   │   └── view_doc_build.jpeg
+│   │   │       └── ... (13 more files)
+│   │   ├── adding_operators.rst
+│   │   ├── autograph.rst
+│   │  
+... (1544 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+benchmark: 5.1.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+plugins: flaky-3.8.1, xdist-3.8.0, benchmark-5.1.0, rng-1.0.0, forked-1.6.0, mock-3.14.1, cov-6.2.1, split-0.10.0
+collected 40238 items / 72 errors / 92 skipped
+
+==================================== ERRORS ====================================
+___________________ ERROR collecting pennylane/devices/tests ___________________
+/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py:712: in _importconftest
+    mod = import_path(
+/usr/local/lib/python3.10/dist-packages/_pytest/pathlib.py:610: in import_path
+    raise ImportPathMismatchError(module_name, module_file, path)
+E   _pytest.pathlib.ImportPathMismatchError: ('pennylane.devices.tests.conftest', '/usr/local/lib/python3.10/dist-packages/pennylane/devices/tests/conftest.py', PosixPath('/app/repo_to_process/pennylane/devices/tests/conftest.py'))
+_ ERROR collecting pennylane/labs/tests/resource_estimation/templates/test_comparators.py _
+pennylane/labs/tests/resource_estimation/templates/test_comparators.py:187: in <module>
+    class TestRegisterComparator:
+pennylane/labs/tests/resource_estimation/templates/test_comparators.py:234: in TestRegisterComparator
+    GateCount(resource_rep(plre.ResourceTwoQubitComparator), 9),
+E   AttributeError: module 'pennylane.labs.resource_estimation' has no attribute 'ResourceTwoQubitComparator'
+_ ERROR collecting pennylane/labs/tests/resource_estimation/templates/test_stateprep.py _
+pennylane/labs/tests/resource_estimation/templates/test_stateprep.py:25: in <module>
+    class TestUniformStatePrep:
+pennylane/labs/tests/resource_estimation/templates/test_stateprep.py:57: in TestUniformStatePrep
+    plre.ResourceIntegerComparator, {"value": 5, "register_size": 3}
+E   AttributeError: module 'pennylane.labs.resource_estimation' has no attribute 'ResourceIntegerComparator'
+_ ERROR collecting pennylane/labs/tests/resource_estimation/templates/test_subroutines.py _
+pennylane/labs/tests/resource_estimation/templates/test_subroutines.py:701: in <module>
+    class TestResourceQubitUnitary:
+pennylane/labs/tests/resource_estimation/templates/test_subroutines.py:752: in TestResourceQubitUnitary
+    plre.ResourceSelectPauliRot,
+E   AttributeError: module 'pennylane.labs.resource_estimation' has no attribute 'ResourceSelectPauliRot'. Did you mean: 'ResourcePauliRot'?
+_ ERROR collecting pennylane/labs/tests/trotter_error/product_formulas/test_pt_integration.py _
+ImportError while importing test module '/app/repo_to_process/pennylane/labs/tests/trotter_error/product_formulas/test_pt_integration.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+pennylane/labs/tests/trotter_error/product_formulas/test_pt_integration.py:36: in <module>
+    _, two_body_cores, two_body_leaves = qml.qchem.factorize(
+/usr/local/lib/python3.10/dist-packages/pennylane/qchem/factorization.py:263: in factorize
+    raise ImportError(
+E   ImportError: Jax and Optax libraries are required for optimizing the factors. Install them via pip install jax~=0.6.0 optax
+__________ ERROR collecting pennylane/labs/tests/zxopt/test_zxopt.py ___________
+ImportError while importing test module '/app/repo_to_process/pennylane/labs/tests/zxopt/test_zxopt.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+pennylane/labs/tests/zxopt/test_zxopt.py:17: in <module>
+    import pyzx as zx
+E   ModuleNotFoundError: No module named 'pyzx'
+___________________ ERROR collecting tests/capture/autograph ___________________
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+/usr/local/lib/python3.10/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+tests/capture/autograph/conftest.py:21: in <module>
+    from pennylane.exceptions import AutoGraphWarning
+E   ImportError: cannot import name 'AutoGraphWarning' from 'pennylane.exceptions' (/usr/local/lib/python3.10/dist-packages/pennylane/exceptions.py)
+_____________ ERROR collecting tests/capture/test_capture_cond.py ______________
+ImportError while importing test module '/app/repo_to_process/tests/capture/test_capture_cond.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/capture/test_capture_cond.py:25: in <module>
+    from pennylane.exceptions import ConditionalTransformError
+E   ImportError: cannot import name 'ConditionalTransformError' from 'pennylane.exceptions' (/usr/local/lib/python3.10/dist-packages/pennylane/exceptions.py)
+______________ ERROR collecting tests/capture/test_make_plxpr.py _______________
+ImportError while importing test module '/app/repo_to_process/tests/capture/test_make_plxpr.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/capture/test_make_plxpr.py:25: in <module>
+    from pennylane.exceptions import AutoGraphWarning
+E   ImportError: cannot import name 'AutoGraphWarning' from 'pennylane.exceptions' (/usr/local/lib/python3.10/dist-packages/pennylane/exceptions.py)
+_______ ERROR collecting tests/decomposition/test_decomposition_graph.py _______
+ImportError while importing test module '/app/repo_to_process/tests/decomposition/test_decomposition_graph.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/decomposition/test_decomposition_graph.py:33: in <module>
+    from pennylane.exceptions import DecompositionError
+E   ImportError: cannot import name 'DecompositionError' from 'pennylane.exceptions' (/usr/local/lib/python3.10/dist-packages/pennylane/exceptions.py)
+_______ ERROR collecting tests/decomposition/test_decomposition_rule.py ________
+ImportError while importing test module '/app/repo_to_process/tests/decomposition/test_decomposition_rule.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/decomposition/test_decomposition_rule.py:22: in <module>
+    from pennylane.decomposition.decomposition_rule import (
+E   ImportError: cannot import name 'WorkWireSpec' from 'pennylane.decomposition.decomposition_rule' (/usr/local/lib/python3.10/dist-packages/pennylane/decomposition/decomposition_rule.py)
+_____ ERROR collecting tests/devices/default_tensor/test_default_tensor.py _____
+ImportError while importing test module '/app/repo_to_process/tests/devices/default_tensor/test_default_tensor.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/devices/default_tensor/test_default_tensor.py:27: in <module>
+    from pennylane.exceptions import DeviceError, WireError
+E   ImportError: cannot import name 'WireError' from 'pennylane.exceptions' (/usr/local/lib/python3.10/dist-packages/pennyl
+... (6904 lines omitted)
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

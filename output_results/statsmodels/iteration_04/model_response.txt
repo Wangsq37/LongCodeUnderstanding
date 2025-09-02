@@ -1,0 +1,13 @@
+Both `pip install -e .` and `pip install .` failed during the build process, so the core package `statsmodels` is not available for import, causing `ModuleNotFoundError` in pytest.
+
+This is a source build of `statsmodels`, which requires C/C++ compilers and potentially other build tools and Python dev headers to succeed.
+
+Let's install the typical build-essential tools needed for Python packages with native code:
+
+```bash
+apt-get update
+apt-get install -y build-essential python3-dev
+pip install -e .
+pytest
+```
+If the install succeeds, pytest should be able to import `statsmodels` and proceed with test collection. If not, we will check for new errors.

@@ -1,0 +1,31 @@
+08/11/2025 16:02:11 - INFO - __main__ - --- Processing repository: tslearn ---
+08/11/2025 16:02:11 - INFO - __main__ - No existing container found. Creating new container 'agent-run-tslearn'...
+08/11/2025 16:02:12 - INFO - __main__ - Copying 'python_repos\tslearn' to new container 'agent-run-tslearn:/app/repo_to_process'...
+08/11/2025 16:02:13 - INFO - __main__ - Executing agent inside the container...
+08/11/2025 16:02:14 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:14 - INFO - __main__ - --- Starting Agent inside Container ---
+08/11/2025 16:02:14 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:14 - INFO - __main__ - Repository Name: tslearn
+08/11/2025 16:02:14 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:14 - INFO - __main__ - Repository: /app/repo_to_process
+08/11/2025 16:02:14 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:14 - INFO - __main__ - Language: Python
+08/11/2025 16:02:14 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:14 - INFO - __main__ - Model: gpt-4.1
+08/11/2025 16:02:14 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:14 - INFO - __main__ - Max Iterations: 15
+08/11/2025 16:02:14 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:14 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/11/2025 16:02:21 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:21 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/11/2025 16:02:21 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:21 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 16:02:21 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:21 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 16:02:27 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:27 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 16:02:27 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:27 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 16:02:37 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:37 - ERROR - __main__ - Failed to get response from model. Stopping.
+08/11/2025 16:02:37 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:37 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed_model_response
+08/11/2025 16:02:37 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:02:37 - INFO - __main__ - ❌ Agent finished with non-success status: failed_model_response
+08/11/2025 16:02:37 - INFO - __main__ - Agent finished with exit code: 1
+08/11/2025 16:02:37 - INFO - __main__ - Copying all generated files from container 'agent-run-tslearn:/app/new_test_detection_logs/tslearn'...
+08/11/2025 16:02:37 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\tslearn'.
+08/11/2025 16:02:37 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-tslearn:/app/repo_to_process'...
+08/11/2025 16:02:37 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 16:02:37 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 16:02:37 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/11/2025 16:02:37 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/11/2025 16:02:37 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/11/2025 16:02:37 - INFO - __main__ - Deleting container 'agent-run-tslearn' due to failure or missing required files.
+08/11/2025 16:02:48 - INFO - __main__ - --- Finished processing repository: tslearn ---
+

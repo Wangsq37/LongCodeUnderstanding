@@ -1,0 +1,44 @@
+[
+  {
+    "command": "ls doc/requirements.txt",
+    "success": true,
+    "stdout": "doc/requirements.txt\n",
+    "stderr": "",
+    "execution_time": 0.0016160011291503906
+  },
+  {
+    "command": "ls requirements.txt",
+    "success": false,
+    "stdout": "",
+    "stderr": "ls: cannot access 'requirements.txt': No such file or directory\n",
+    "execution_time": 0.0013730525970458984
+  },
+  {
+    "command": "ls setup.py",
+    "success": false,
+    "stdout": "",
+    "stderr": "ls: cannot access 'setup.py': No such file or directory\n",
+    "execution_time": 0.0011339187622070312
+  },
+  {
+    "command": "ls pyproject.toml",
+    "success": false,
+    "stdout": "",
+    "stderr": "ls: cannot access 'pyproject.toml': No such file or directory\n",
+    "execution_time": 0.0010974407196044922
+  },
+  {
+    "command": "pip install -r doc/requirements.txt || true",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nCollecting python-markdown-math (from -r doc/requirements.txt (line 1))\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/eb/68/ecf3535c40845de2efd8ac2d092dd5fca0868219fa3684d9e58ef7abeece/python_markdown_math-0.9-py3-none-any.whl (6.0 kB)\nCollecting Markdown>=3.0 (from python-markdown-math->-r doc/requirements.txt (line 1))\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/96/2b/34cc11786bc00d0f04d0f5fdc3a2b1ae0b6239eef72d3d345805f9ad92a1/markdown-3.8.2-py3-none-any.whl (106 kB)\nInstalling collected packages: Markdown, python-markdown-math\n\nSuccessfully installed Markdown-3.8.2 python-markdown-math-0.9\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 1.586529016494751
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\ncollected 0 items\n\n============================ no tests ran in 0.03s =============================\n",
+    "stderr": "",
+    "execution_time": 0.20879530906677246
+  }
+]

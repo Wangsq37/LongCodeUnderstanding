@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip install scikit-build",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nCollecting scikit-build\n  Using cached https://repo.huaweicloud.com/repository/pypi/packages/c3/a3/21b519f58de90d684056c52ec4e45f744cfda7483f082dcc4dd18cc74a93/scikit_build-0.18.1-py3-none-any.whl (85 kB)\nCollecting distro (from scikit-build)\n  Using cached https://repo.huaweicloud.com/repository/pypi/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl (20 kB)\nRequirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from scikit-build) (25.0)\nRequirement already satisfied: setuptools>=42.0.0 in /usr/lib/python3/dist-packages (from scikit-build) (59.6.0)\nRequirement already satisfied: tomli in /usr/local/lib/python3.10/dist-packages (from scikit-build) (2.2.1)\nRequirement already satisfied: wheel>=0.32.0 in /usr/lib/python3/dist-packages (from scikit-build) (0.37.1)\nInstalling collected packages: distro, scikit-build\n\nSuccessfully installed distro-1.9.0 scikit-build-0.18.1\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 0.8821930885314941
+  },
+  {
+    "command": "python setup.py build_ext --inplace",
+    "success": false,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/app/repo_to_process/setup.py\", line 253, in <module>\n    check_versions()\n  File \"/app/repo_to_process/setup.py\", line 83, in check_versions\n    package_check('cython', INFO.CYTHON_MIN_VERSION,\n  File \"/app/repo_to_process/./tools/build_helpers.py\", line 253, in package_check\n    raise RuntimeError(msgs['missing'] % pkg_name)\nRuntimeError: cython is missing\n",
+    "execution_time": 0.42121028900146484
+  }
+]

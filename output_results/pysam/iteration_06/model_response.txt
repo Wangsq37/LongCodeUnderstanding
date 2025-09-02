@@ -1,0 +1,9 @@
+Based on the project structure, the main source code directory is `pysam`.
+
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['pysam']
+```
+
+```bash
+pytest
+```

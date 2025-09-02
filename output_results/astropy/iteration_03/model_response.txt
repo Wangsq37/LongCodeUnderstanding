@@ -1,0 +1,17 @@
+The error is:
+```
+ImportError: cannot import name 'Self' from 'typing' (/usr/lib/python3.10/typing.py)
+```
+The `Self` type was added to Python's `typing` module in version 3.11. Your environment uses Python 3.10, which is incompatible with this code.
+
+You previously attempted to install the project and hit:
+```
+ERROR: Package 'astropy' requires a different Python: 3.10.12 not in '>=3.11'
+```
+This confirms the project's code and dependencies require Python >=3.11, but the container has Python 3.10.
+
+**This environment cannot support this codebase.**
+
+```status
+failed
+```

@@ -1,0 +1,9 @@
+Based on the project structure, there is no obvious main Python source directory (like `src/`, `skimage/`, or a similarly-named package). The repository structure appears to be focused on C++ code, examples, tests (for C++), and auxiliary files. 
+
+The only directory that contains a Python file is `doxygen/` with `doxyblock.py`, but this looks like tooling, not source code to be tested.
+
+Since we have already run pytest and it did not discover any tests (`collected 0 items`), there is no meaningful location for call chain tracing in a Python plugin context.
+
+```status
+failed
+```

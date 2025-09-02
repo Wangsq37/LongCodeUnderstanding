@@ -1,0 +1,12 @@
+```bash
+# Inspect dependency sources
+cat requirements.txt || echo "requirements.txt missing"
+cat setup.py
+cat pyproject.toml
+
+# Install dependencies according to pyproject.toml and setup.py (there is no requirements.txt)
+pip install .[complete] || pip install .
+
+# Attempt initial pytest run
+pytest
+```

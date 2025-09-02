@@ -1,0 +1,22 @@
+The C extension `pyfftw.pyfftw` is not being built successfully.  
+The reason: linker failures due to missing system libraries for FFTW.
+
+**Build output shows:**
+- It finds headers (`fftw3.h` is in `include/win/`), but actually requires the real FFTW libraries (`fftw3`, `fftw3f`, `fftw3l`, `fftw3_omp`, `fftw3f_omp`) **installed system-wide** so that GCC can link.
+
+**What to do:**
+- Install system package(s) for FFTW: these are usually called `libfftw3-dev` (for headers + libraries), and if using OpenMP: `libfftw3-omp-dev` or similar.
+- Try the standard package name (`libfftw3-dev`). If build still fails for missing OpenMP libs, install `libfftw3-omp-dev` and/or `libfftw3-mpi-dev`.
+
+**Because you are root, you can use apt directly.**
+
+```bash
+apt-get update
+apt-get install -y libfftw3-dev libfftw3-omp-dev
+python setup.py clean --all
+python setup.py build_ext --inplace
+ls pyfftw/ | grep pyfftw
+pytest
+```
+
+This should resolve the linking and allow the C extension to build (`pyfftw/pyfftw.cpython-*.so` appears), and phase 1 can complete.

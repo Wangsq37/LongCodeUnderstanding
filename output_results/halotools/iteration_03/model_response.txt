@@ -1,0 +1,15 @@
+The error states:
+```
+ModuleNotFoundError: No module named 'halotools.utils.engines.conditional_rank_kernel'
+```
+This is a missing file/module rather than a missing dependency from PyPI. The `halotools/utils/engines/__init__.py` is trying to import `.conditional_rank_kernel`, but this file does not exist in your repo.
+
+**What to do next:**  
+- List the contents of `halotools/utils/engines/` and check if the file is present or missing.
+
+```bash
+ls halotools/utils/engines/
+```
+If it is missing and appears to be a compiled Cython extension (the repo uses Cython and extension_helpers for compilation), building extensions may be required. If it's present as a `.pyx`, `.c`, or similar, you may need to build/install the package in editable mode or compile extensions.
+
+**Do not proceed to Phase 2 until this is resolved.**

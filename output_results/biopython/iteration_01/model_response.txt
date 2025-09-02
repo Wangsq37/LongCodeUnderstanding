@@ -1,0 +1,37 @@
+### Step 1: Identify Dependency Files
+
+From the project structure, we have:
+
+- `setup.py` (root)
+- Possibly other requirements files such as `ci-dependencies.txt`
+- Potentially dependencies listed in `.circleci/requirements-sphinx.txt`
+
+Let's start by looking at the main ones for local/test/dev: `setup.py` and `ci-dependencies.txt`.
+
+Assuming `setup.py` is the canonical source, but it could be a library (`Bio`, `BioSQL`) - so also inspect `ci-dependencies.txt`.
+
+### Step 2: Install Dependencies
+
+We'll need to:
+
+- Install the package (likely `pip install .`)
+- Install anything extra from `ci-dependencies.txt`
+- If tests fail with `ModuleNotFoundError`, install those packages as needed
+
+### Step 3: Run `pytest` and Inspect
+
+Let's proceed stepwise.
+
+---
+
+```bash
+pip install --upgrade pip
+pip install .
+pip install -r ci-dependencies.txt
+pytest
+```
+(If pytest fails with import errors, we will install additional packages detected from the error output and rerun pytest.)
+
+---
+
+If the above completes with test collection, we continue to Phase 2. If errors remain, I will output additional commands to fix missing dependencies.

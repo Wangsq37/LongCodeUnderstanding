@@ -1,0 +1,5 @@
+```bash
+pip install -r python/requirements/test-requirements.txt
+pip install -r python/requirements.txt
+pytest
+```

@@ -1,0 +1,10 @@
+The error is still `ModuleNotFoundError: No module named 'pyfftw.pyfftw'`, indicating the C-extension has not been built. This is a Cython .pyx extension, so the build requires Cython to generate the C file from `pyfftw.pyfftw.pyx`. Even if `pyfftw.c` is present, Cython may need to be installed for a fresh build matching your Python version.
+
+Let’s install Cython and retry the build:
+
+```bash
+pip install cython
+python setup.py build_ext --inplace
+ls pyfftw/ | grep pyfftw
+pytest
+```

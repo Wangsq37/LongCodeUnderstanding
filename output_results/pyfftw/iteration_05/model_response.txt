@@ -1,0 +1,7 @@
+Cython is now installed. The previous build attempt failed because Cython was missing. Next, I need to build the package so that the Cython extension (`pyfftw.pyx` → `pyfftw.pyfftw`) is compiled and available to import during testing.
+
+I'll run the build command again:
+
+```bash
+python setup.py build_ext --inplace
+```

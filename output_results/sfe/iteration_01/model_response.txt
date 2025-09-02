@@ -1,0 +1,16 @@
+```bash
+# Inspect requirements.txt for dependencies
+cat requirements.txt
+
+# Inspect pyproject.toml for potential additional dependencies or build configuration
+cat pyproject.toml
+
+# Inspect setup.cfg for dependencies and package info
+cat setup.cfg
+
+# Install all dependencies listed in requirements.txt (main file for dependencies)
+pip install -r requirements.txt
+
+# Run pytest to attempt initial collection
+pytest
+```

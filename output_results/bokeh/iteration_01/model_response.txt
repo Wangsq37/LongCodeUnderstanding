@@ -1,0 +1,7 @@
+```bash
+# Step 1: Install dependencies with pip using requirements from pyproject.toml and setup.py
+pip install .  # This installs the repo itself and all its declared dependencies
+
+# Step 2: Run pytest and capture the output
+pytest
+```

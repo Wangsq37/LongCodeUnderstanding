@@ -1,0 +1,10 @@
+The file `conditional_rank_kernel.pyx` exists, but there is no corresponding `conditional_rank_kernel.py` or built extension `.so`/`.pyd`.  
+That means Cython extension modules have not been built yet.  
+This is a classic case: For the Python import to work, the Cython sources must be compiled to a shared object, by running a build step (usually `pip install .`, `python setup.py build_ext --inplace`, or more modern: `pip install -e .` with a functioning `setup.py` or `pyproject.toml`).
+
+Next, I need to check for a build system configuration (`setup.py`, `pyproject.toml`). I'll list the root directory to confirm.
+
+```bash
+ls -l
+```
+Once confirmed, I will run the standard build command (`pip install .` or `python setup.py build_ext --inplace`) so that Cython extension modules are built and importable. Only after that will pytest collection work.

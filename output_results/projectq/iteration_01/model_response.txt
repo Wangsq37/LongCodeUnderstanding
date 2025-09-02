@@ -1,0 +1,12 @@
+```bash
+# Inspect dependency files to determine install method
+cat requirements.txt
+cat setup.py
+cat pyproject.toml
+
+# Install dependencies via pip using setup.py if requirements.txt is missing or minimal
+pip install . --no-build-isolation
+
+# Try running pytest and observe output
+pytest
+```

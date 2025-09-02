@@ -1,0 +1,17 @@
+```bash
+# Examine dependencies in the main files
+cat requirements.txt
+cat pyproject.toml
+cat setup.py
+cat tox.ini
+cat util/readthedocs/requirements.txt
+
+# Install dependencies from pyproject.toml (PEP 621, may have [project] or [tool.poetry])
+pip install . || true
+
+# Ensure common testing dependencies installed
+pip install numpy scipy matplotlib pillow pytest pytest-cov
+
+# Run pytest and check collection status
+pytest
+```

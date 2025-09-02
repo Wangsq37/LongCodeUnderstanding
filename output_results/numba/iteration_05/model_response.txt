@@ -1,0 +1,14 @@
+The `pytest` output indicates:
+
+```
+ImportError: Numba requires at least version 0.45.0 of llvmlite.
+Installed version is 0.44.0.
+Please update llvmlite.
+```
+
+The installed version of `llvmlite` is too old. You must upgrade `llvmlite` (typically using pip).
+
+```bash
+pip install --upgrade 'llvmlite>=0.45.0'
+pytest
+```

@@ -1,0 +1,268 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   └── build-and-test.yml
+│   └── dependabot.yml
+├── climlab/
+│   ├── convection/
+│   │   ├── __init__.py
+│   │   ├── akmaev_adjustment.py
+│   │   ├── convadj.py
+│   │   └── emanuel_convection.py
+│   ├── domain/
+│   │   ├── __init__.py
+│   │   ├── axis.py
+│   │   ├── domain.py
+│   │   ├── field.py
+│   │   ├── initial.py
+│   │   └── xarray.py
+│   │       └── ... (1 more files)
+│   ├── dynamics/
+│   │   ├── __init__.py
+│   │   ├── adv_diff_numerics.py
+│   │   ├── advection_diffusion.py
+│   │   ├── budyko_transport.py
+│   │   ├── meridional_advection_diffusion.py
+│   │   ├── meridional_heat_diffusion.py
+│   │   └── meridional_moist_diffusion.py
+│   │       └── ... (2 more files)
+│   ├── model/
+│   │   ├── __init__.py
+│   │   ├── column.py
+│   │   ├── ebm.py
+│   │   └── stommelbox.py
+│   ├── process/
+│   │   ├── __init__.py
+│   │   ├── diagnostic.py
+│   │   ├── energy_budget.py
+│   │   ├── external_forcing.py
+│   │   ├── implicit.py
+│   │   ├── process.py
+│   │   └── time_dependent_process.py
+│   │       └── ... (2 more files)
+│   ├── radiation/
+│   │   ├── rrtm/
+│   │   │   ├── __init__.py
+│   │   │   ├── rrtmg.py
+│   │   │   ├── rrtmg_lw.py
+│   │   │   ├── rrtmg_sw.py
+│   │   │   ├── setup.py
+│   │   │   └── utils.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── absorbed_shorwave.py
+│   │   ├── aplusbt.py
+│   │   ├── boltzmann.py
+│   │   ├── cam3.py
+│   │   ├── greygas.py
+│   │   ├── insolation.py
+│   │   ├── nband.py
+│   │   ├── radiation.py
+│   │   ├── transmissivity.py
+│   │   └── water_vapor.py
+│   │       └── ... (6 more files)
+│   ├── solar/
+│   │   ├── orbital/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── long.py
+│   │   │   ├── setup.py
+│   │   │   └── table.py
+│   │   ├── __init__.py
+│   │   ├── insolation.py
+│   │   └── orbital_cycles.py
+│   ├── surface/
+│   │   ├── __init__.py
+│   │   ├── albedo.py
+│   │   ├── surface_radiation.py
+│   │   └── turbulent.py
+│   ├── tests/
+│   │   ├── __init__.py
+│   │   ├── test_advdiff_solver.py
+│   │   ├── test_bandrc.py
+│   │   ├── test_cam3rad.py
+│   │   ├── test_domain2D.py
+│   │   ├── test_ebm.py
+│   │   ├── test_emanuel_convection.py
+│   │   ├── test_grey_radiation.py
+│   │   ├── test_insolation.py
+│   │   ├── test_rcm.py
+│   │   ├── test_rrtm.py
+│   │   ├── test_thermo.py
+│   │   └── xarray_test.py
+│   │       └── ... (8 more files)
+│   ├── utils/
+│   │   ├── attrdict/
+│   │   │   ├── __init__.py
+│   │   │   ├── default.py
+│   │   │   ├── dictionary.py
+│   │   │   ├── mapping.py
+│   │   │   ├── merge.py
+│   │   │   └── mixins.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── constants.py
+│   │   ├── heat_capacity.py
+│   │   ├── legendre.py
+│   │   ├── thermo.py
+│   │   └── walk.py
+│   │       └── ... (1 more files)
+│   └── __init__.py
+├── courseware/
+│   ├── Boltzmann_EBM.ipynb
+│   ├── Budyko_Transport_EBM.ipynb
+│   ├── How to reset the time in climlab.ipynb
+│   ├── Insolation.ipynb
+│   ├── Latitude-dependent grey radiation.ipynb
+│   ├── PolarAmplification.ipynb
+│   ├── Preconfigured_EBM.ipynb
+│   ├── RCE with CAM3 radiation.ipynb
+│   ├── README.rst
+│   ├── Seasonal cycle and heat capacity.ipynb
+│   ├── Snowball Earth in the EBM.ipynb
+│   ├── Soundings from Observations and RCE Models.ipynb
+│   ├── Spectral_OLR_with_RRTMG.ipynb
+│   └── The spectral column model.ipynb
+│       └── ... (9 more files)
+├── docs/
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── logo.png
+│   │   │   └── logo_1.png
+│   │   ├── _templates/
+│   │   │   └── layout.html
+│   │   ├── api/
+│   │   │   ├── climlab.convection.convadj.rst
+│   │   │   ├── climlab.convection.EmanuelConvection.rst
+│   │   │   ├── climlab.convection.rst
+│   │   │   ├── climlab.domain.axis.rst
+│   │   │   ├── climlab.domain.domain.rst
+│   │   │   ├── climlab.domain.field.rst
+│   │   │   ├── climlab.domain.initial.rst
+│   │   │   ├── climlab.domain.rst
+│   │   │   ├── climlab.dynamics.adv_diff_numerics.rst
+│   │   │   ├── climlab.dynamics.AdvectionDiffusion.rst
+│   │   │   ├── climlab.dynamics.BudykoTransport.rst
+│   │   │   ├── climlab.dynamics.MeridionalAdvectionDiffusion.rst
+│   │   │   ├── climlab.dynamics.MeridionalHeatDiffusion.rst
+│   │   │   ├── climlab.dynamics.MeridionalMoistDiffusion.rst
+│   │   │   ├── climlab.dynamics.rst
+│   │   │   ├── climlab.model.column.rst
+│   │   │   ├── climlab.model.ebm.rst
+│   │   │   ├── climlab.model.rst
+│   │   │   ├── climlab.process.diagnostic.rst
+│   │   │   ├── climlab.process.energy_budget.rst
+│   │   │   ├── climlab.process.external_forcing.rst
+│   │   │   ├── climlab.process.implicit.rst
+│   │   │   ├── climlab.process.process.rst
+│   │   │   ├── climlab.process.rst
+│   │   │   ├── climlab.process.time_dependent_process.rst
+│   │   │   ├── climlab.radiation.AplusBT.rst
+│   │   │   ├── climlab.radiation.Boltzmann.rst
+│   │   │   ├── climlab.radiation.CAM3.rst
+│   │   │   ├── climlab.radiation.greygas.rst
+│   │   │   ├── climlab.radiation.insolation.rst
+│   │   │   ├── climlab.radiation.nband.rst
+│   │   │   ├── climlab.radiation.Radiation.rst
+│   │   │   ├── climlab.radiation.rrtm.RRTMG.rst
+│   │   │   ├── climlab.radiation.rrtm.RRTMG_LW.rst
+│   │   │   ├── climlab.radiation.rrtm.RRTMG_SW.rst
+│   │   │   ├── climlab.radiation.RRTMG.rst
+│   │   │   ├── climlab.radiation.rst
+│   │   │   ├── climlab.radiation.SimpleAbsorbedShortwave.rst
+│   │   │   ├── climlab.radiation.transmissivity.rst
+│   │   │   ├── climlab.radiation.water_vapor.rst
+│   │   │   ├── climlab.rst
+│   │   │   ├── climlab.solar.insolation.rst
+│   │   │   ├── climlab.solar.orbital.rst
+│   │   │   ├── climlab.solar.orbital_cycles.rst
+│   │   │   ├── climlab.solar.rst
+│   │   │   ├── climlab.surface.albedo.rst
+│   │   │   ├── climlab.surface.rst
+│   │   │   ├── climlab.surface.turbulent.rst
+│   │   │   ├── climlab.utils.constants.rst
+│   │   │   ├── climlab.utils.heat_capacity.rst
+│   │   │   ├── climlab.utils.legendre.rst
+│   │   │   ├── climlab.utils.rst
+│   │   │   ├── climlab.utils.thermo.rst
+│   │   │   └── climlab.utils.walk.rst
+│   │   │       └── ... (49 more files)
+│   │   ├── code_input_manual/
+│   │   │   ├── constants.py
+│   │   │   ├── example_budyko_transport.py
+│   │   │   ├── example_diffusion.py
+│   │   │   ├── example_EBM_heat_transport.py
+│   │   │   ├── example_EBM_heat_transport_convergence.py
+│   │   │   ├── example_EBM_inferred_heat_transport.py
+│   │   │   ├── example_EBM_seasonal.py
+│   │   │   └── example_meridional_diffusion.py
+│   │   │       └── ... (3 more files)
+│   │   ├── courseware/
+│   │   │   ├── Boltzmann_EBM.ipynb
+│   │   │   ├── Budyko_Transport_EBM.ipynb
+│   │   │   ├── Insolation.ipynb
+│   │   │   ├── Latitude-dependent_grey_radiation.ipynb
+│   │   │   ├── PolarAmplification.ipynb
+│   │   │   ├── Preconfigured_EBM.ipynb
+│   │   │   ├── RCE_with_CAM3_radiation.ipynb
+│   │   │   ├── README.rst
+│   │   │   ├── Reset-time.ipynb
+│   │   │   ├── Seasonal_cycle_and_heat_capacity.ipynb
+│   │   │   ├── Snowball_Earth_in_the_EBM.ipynb
+│   │   │   ├── Soundings_from_Observations_and_RCE_Models.ipynb
+│   │   │   ├── Spectral_OLR_with_RRTMG.ipynb
+│   │   │   └── The_spectral_column_model.ipynb
+│   │   │       └── ... (9 more files)
+│   │   ├── ext/
+│   │   │   ├── automodsumm.py
+│   │   │   └── automodsumm.pyc
+│   │   ├── architecture.rst
+│   │   ├── bibliography.bib
+│   │   ├── conf.py
+│   │   ├── contact.rst
+│   │   ├── contributing.rst
+│   │   ├── index.rst
+│   │   ├── installation.rst
+│   │   ├── intro.rst
+│   │   ├── license.rst
+│   │   ├── models.rst
+│   │   ├── quickstart.rst
+│   │   ├── references.rst
+│   │   ├── support.rst
+│   │   ├── tutorial.rst
+│   │   └── xarray.rst
+│   │       └── ... (10 more files)
+│   ├── environment.yml
+│   ├── Makefile
+│   └── README.rst
+├── licenses/
+│   └── NUMPY_LICENSE
+├── .coveragerc
+├── .f2py_f2cmap
+├── .gitignore
+├── .readthedocs.yaml
+├── clean.sh
+├── environment.yml
+├── LICENSE
+├── MANIFEST.in
+├── paper.bib
+├── paper.md
+├── pyproject.toml
+├── README.rst
+├── setup.cfg
+└── setup.py
+    └── ... (9 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

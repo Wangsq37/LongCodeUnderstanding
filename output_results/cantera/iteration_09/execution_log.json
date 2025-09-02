@@ -1,0 +1,23 @@
+[
+  {
+    "command": "scons build python",
+    "success": false,
+    "stdout": "scons: Reading SConscript files ...\n",
+    "stderr": "ERROR: Unrecognized command line target: 'python'\n",
+    "execution_time": 0.19942092895507812
+  },
+  {
+    "command": "scons",
+    "success": false,
+    "stdout": "scons: Reading SConscript files ...\n",
+    "stderr": "ERROR: Missing command argument: type 'scons help' for information.\n",
+    "execution_time": 0.20377898216247559
+  },
+  {
+    "command": "scons --help",
+    "success": false,
+    "stdout": "scons: Reading SConscript files ...\n",
+    "stderr": "ERROR: Missing command argument: type 'scons help' for information.\n",
+    "execution_time": 0.18936705589294434
+  }
+]

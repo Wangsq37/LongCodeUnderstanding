@@ -1,0 +1,307 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── python_tests.yml
+│   │   └── ruff.yml
+│   └── FUNDING.yml
+├── binder/
+│   └── requirements.txt
+├── docs/
+│   ├── _static/
+│   │   └── css/
+│   │       └── custom.css
+│   ├── pictures/
+│   │   ├── flowchart/
+│   │   │   ├── flowchart_correlations.svg
+│   │   │   ├── flowchart_nonparametric.svg
+│   │   │   └── flowchart_one_way_ANOVA.svg
+│   │   ├── github_build_artifacts.png
+│   │   ├── github_checks.png
+│   │   ├── github_watch_release.png
+│   │   ├── logo_pingouin.png
+│   │   ├── pingouin.png
+│   │   ├── pingouin.svg
+│   │   └── pingouin_blue.svg
+│   │       └── ... (2 more files)
+│   ├── .nojekyll
+│   ├── api.rst
+│   ├── changelog.rst
+│   ├── citing.rst
+│   ├── conf.py
+│   ├── contributing.rst
+│   ├── faq.rst
+│   ├── guidelines.rst
+│   ├── index.html
+│   ├── index.rst
+│   ├── make.bat
+│   └── Makefile
+│       └── ... (7 more files)
+├── JOSS/
+│   ├── paper.bib
+│   └── paper.md
+├── notebooks/
+│   ├── 00_QuickStart.ipynb
+│   ├── 01_ANOVA.ipynb
+│   ├── 02_BayesianTTests.ipynb
+│   ├── 03_EffectSizes.ipynb
+│   ├── 04_Correlations.ipynb
+│   ├── 05_CircularStatistics.ipynb
+│   └── 06_Rounding.ipynb
+│       └── ... (2 more files)
+├── src/
+│   └── pingouin/
+│       ├── datasets/
+│       │   ├── __init__.py
+│       │   ├── ancova.csv
+│       │   ├── anova.csv
+│       │   ├── anova2.csv
+│       │   ├── anova2_unbalanced.csv
+│       │   ├── anova3.csv
+│       │   ├── anova3_unbalanced.csv
+│       │   ├── blandaltman.csv
+│       │   ├── chi2_independence.csv
+│       │   ├── chi2_mcnemar.csv
+│       │   ├── circular.csv
+│       │   ├── cochran.csv
+│       │   ├── cronbach_alpha.csv
+│       │   ├── cronbach_wide_missing.csv
+│       │   ├── datasets.csv
+│       │   ├── icc.csv
+│       │   ├── mediation.csv
+│       │   ├── mixed_anova.csv
+│       │   ├── mixed_anova_unbalanced.csv
+│       │   ├── multivariate.csv
+│       │   ├── pairwise_corr.csv
+│       │   ├── pairwise_tests.csv
+│       │   ├── pairwise_tests_missing.csv
+│       │   ├── partial_corr.csv
+│       │   ├── penguins.csv
+│       │   ├── rm_anova.csv
+│       │   ├── rm_anova2.csv
+│       │   ├── rm_anova_wide.csv
+│       │   ├── rm_corr.csv
+│       │   ├── rm_missing.csv
+│       │   └── tips.csv
+│       │       └── ... (26 more files)
+│       ├── __init__.py
+│       ├── bayesian.py
+│       ├── circular.py
+│       ├── config.py
+│       ├── contingency.py
+│       ├── correlation.py
+│       ├── distribution.py
+│       ├── effsize.py
+│       ├── equivalence.py
+│       ├── multicomp.py
+│       ├── multivariate.py
+│       ├── nonparametric.py
+│       ├── pairwise.py
+│       ├── parametric.py
+│       ├── plotting.py
+│       ├── power.py
+│       ├── regression.py
+│       ├── reliability.py
+│       └── utils.py
+│           └── ... (14 more files)
+├── tests/
+│   ├── __init__.py
+│   ├── test_bayesian.py
+│   ├── test_circular.py
+│   ├── test_config.py
+│   ├── test_contingency.py
+│   ├── test_correlation.py
+│   ├── test_correlation.R
+│   ├── test_distribution.py
+│   ├── test_effsize.py
+│   ├── test_equivalence.py
+│   ├── test_multicomp.py
+│   ├── test_multivariate.py
+│   ├── test_nonparametric.py
+│   ├── test_pairwise.py
+│   ├── test_pandas.py
+│   ├── test_parametric.py
+│   ├── test_plotting.py
+│   ├── test_power.py
+│   ├── test_regression.py
+│   ├── test_reliability.py
+│   └── test_utils.py
+│       └── ... (16 more files)
+├── .gitattributes
+├── .gitignore
+├── CODE_OF_CONDUCT.md
+├── LICENSE
+├── MANIFEST.in
+├── pyproject.toml
+└── README.rst
+    └── ... (2 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install pytest-cov ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting pytest-cov
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/bc/16/4ea354101abb1287856baa4af2732be351c7bee728065aed451b678153fd/pytest_cov-6.2.1-py3-none-any.whl (24 kB)
+Requirement already satisfied: pytest>=6.2.5 in /usr/local/lib/python3.10/dist-packages (from pytest-cov) (8.4.1)
+Collecting coverage>=7.5 (from coverage[toml]>=7.5->pytest-cov)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b9/8e/5a8835fb0122a2e2a108bf3527931693c4625fdc4d953950a480b9625852/coverage-7.10.2-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (243 kB)
+Requirement already satisfied: pluggy>=1.2 in /usr/local/lib/python3.10/dist-packages (from pytest-cov) (1.6.0)
+Requirement already satisfied: tomli in /usr/local/lib/python3.10/dist-packages (from coverage[toml]>=7.5->pytest-cov) (2.2.1)
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-cov) (1.3.0)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-cov) (2.1.0)
+Requirement already satisfied: packaging>=20 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-cov) (25.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-cov) (2.19.2)
+Requirement already satisfied: typing-extensions>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from exceptiongroup>=1->pytest>=6.2.5->pytest-cov) (4.14.1)
+Installing collected packages: coverage, pytest-cov
+
+Successfully installed coverage-7.10.2 pytest-cov-6.2.1
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+plugins: cov-6.2.1
+collected 88 items
+
+tests/test_bayesian.py .F.                                               [  3%]
+tests/test_circular.py ........                                          [ 12%]
+tests/test_config.py .                                                   [ 13%]
+tests/test_contingency.py ....                                           [ 18%]
+tests/test_correlation.py F
+
+=================================== FAILURES ===================================
+____________________ TestBayesian.test_bayesfactor_pearson _____________________
+
+self = <tests.test_bayesian.TestBayesian testMethod=test_bayesfactor_pearson>
+
+    def test_bayesfactor_pearson(self):
+        """Test function bayesfactor_pearson."""
+        # Compare the analytical solution to JASP / R (method='ly')
+        # Similar to JASP with kappa=1, or correlationBF with rscale='wide'
+        # check for approximate equality with 1e-3 tolerance
+        # (as this is how we store the values here)
+        assert bfp(0.1, 83) == appr(0.204)
+        assert bfp(-0.1, 83) == appr(0.204)
+>       assert bfp(0.1, 83, alternative="greater") == appr(0.332)
+
+self       = <tests.test_bayesian.TestBayesian testMethod=test_bayesfactor_pearson>
+
+tests/test_bayesian.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.10/dist-packages/pingouin/bayesian.py:326: in bayesfactor_pearson
+    _is_mpmath_installed(raise_error=True)
+        _is_mpmath_installed = <function _is_mpmath_installed at 0x7f69fbe79000>
+        alternative = 'greater'
+        betaln     = <ufunc 'betaln'>
+        bf10       = 0.20410453126209943
+        gamma      = <ufunc 'gamma'>
+        hyp2f1     = <ufunc 'hyp2f1'>
+        k          = 1.0
+        kappa      = 1.0
+        lbeta      = np.float64(0.0)
+        log_hyperterm = 0.3975179183614662
+        method     = 'ly'
+        n          = 83
+        r          = 0.1
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+raise_error = True
+
+    def _is_mpmath_installed(raise_error=False):
+        """Check if mpmath is installed."""
+        try:
+>           import mpmath  # noqa
+E           ModuleNotFoundError: No module named 'mpmath'
+
+raise_error = True
+
+/usr/local/lib/python3.10/dist-packages/pingouin/utils.py:426: ModuleNotFoundError
+__________________________ TestCorrelation.test_corr ___________________________
+
+self = <tests.test_correlation.TestCorrelation testMethod=test_corr>
+
+    def test_corr(self):
+        """Test function corr
+    
+        Compare to R `correlation` package. See test_correlation.R file.
+        """
+        np.random.seed(123)
+        mean, cov = [4, 6], [(1, 0.6), (0.6, 1)]
+        x, y = np.random.multivariate_normal(mean, cov, 30).T
+        x2, y2 = x.copy(), y.copy()
+        x[3], y[5] = 12, -8
+        x2[3], y2[5] = 7, 2.6
+    
+        # Pearson correlation
+        stats = corr(x, y, method="pearson")
+        assert np.isclose(stats.loc["pearson", "r"], 0.1761221)
+        assert np.isclose(stats.loc["pearson", "p_val"], 0.3518659)
+        assert stats.loc["pearson", "CI95"][0] == round(-0.1966232, 2)
+        assert stats.loc["pearson", "CI95"][1] == round(0.5043872, 2)
+        # - One-sided: greater
+>       stats = corr(x, y, method="pearson", alternative="greater")
+
+cov        = [(1, 0.6), (0.6, 1)]
+mean       = [4, 6]
+self       = <tests.test_correlation.TestCorrelation testMethod=test_corr>
+stats      =           n         r         CI95     p_val   BF10     power
+pearson  30  0.176122  [-0.2, 0.5]  0.351866  0.343  0.154803
+x          = array([ 4.52499109,  4.42053181,  3.77897093, 12.        ,  3.25533028,
+        4.64956937,  2.95178623,  4.59135733, ...301762,  3.7024475 ,  1.67554352,  2.12366377,
+        5.62202531,  2.79728088,  3.49523787,  2.41851903,  2.18400827])
+x2         = array([4.52499109, 4.42053181, 3.77897093, 7.        , 3.25533028,
+       4.64956937, 2.95178623, 4.59135733, 1.048995...  , 4.09301762, 3.7024475 , 1.67554352, 2.12366377,
+       5.62202531, 2.79728088, 3.49523787, 2.41851903, 2.18400827])
+y          = array([ 7.41704397,  5.07326086,  7.25606067,  7.97867234,  4.4800941 ,
+       -8.        ,  4.38033491,  6.20286174, ...624519,  5.69186599,  4.04486339,  6.12552003,
+        6.69290489,  4.08347187,  6.45166315,  5.98813694,  5.14050216])
+y2         = array([7.41704397, 5.07326086, 7.25606067, 7.97867234, 4.4800941 ,
+       2.6       , 4.38033491, 6.20286174, 5.004916...43, 6.60624519, 5.69186599, 4.04486339, 6.12552003,
+       6.69290489, 4.08347187, 6.45166315, 5.98813694, 5.14050216])
+
+tests/test_correlation.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.10/dist-packages/pingouin/correlation.py:666: in corr
+    stats["BF10"] = bayesfactor_pearson(r, n_clean, alternative=alternative)
+        alternative = 'greater'
+        ci         = array([-0.137694,  1.      ])
+        kwargs     = {}
+        method     = 'pearson'
+        n          = 30
+        n_clean    = 30
+        n_outliers = 0
+        pr         = np.float64(0.24121921073456426)
+        pval       = np.float64(0.17593295791237318)
+        r          = np.float64(0.17612206752094678)
+        stats      = {'CI95': [array([-0.137694,  1.      ])], 'n': 30, 'p_val': np.float64(0.17593295791237318), 'power': np.float64(0.24121921073456426), ...}
+        x          = array([ 4.52499109,  4.42053181,  3.77897093, 12.        ,  3.25533028,
+        4.64956937,  2.95178623,  4.59135733, ...301762,  3.7024475 ,  1.675543
+... (46 lines omitted)
+
+
+## Your Task (Phase 2: Call Chain Tracing)
+`pytest` is now executable without collection errors. Your task is to set up call chain tracing.
+1.  **Identify the main source code directory/directories.** Based on the structure, this is likely `skimage`.
+2.  **Create a `conftest.py` file** in the project root to trace this directory.
+3.  **Run `pytest`** one last time to generate the reports.
+4.  If the reports are generated, declare success with ```status
+success
+```.
+
+**REMINDER:** When creating `conftest.py`, you only need to provide the line defining `SOURCE_DIRS_TO_TRACK`. For example:
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['skimage']
+```

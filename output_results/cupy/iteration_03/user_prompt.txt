@@ -1,0 +1,532 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug.yml
+│   │   ├── config.yml
+│   │   ├── documentation.yml
+│   │   └── feature.yml
+│   ├── workflows/
+│   │   ├── scripts/
+│   │   │   ├── backport_reminder.py
+│   │   │   ├── flexci_dispatcher.py
+│   │   │   └── pretest-rocm-test.sh
+│   │   ├── auto-cc.yml
+│   │   ├── backport-reminder.yml
+│   │   ├── backport.yml
+│   │   ├── docker.yml
+│   │   ├── flexci.yml
+│   │   ├── pr-project.yml
+│   │   ├── pr-updated.yml
+│   │   ├── pretest.yml
+│   │   ├── publish.yml
+│   │   └── self-hosted-ci.yml
+│   │       └── ... (5 more files)
+│   ├── CODEOWNERS
+│   └── CONTRIBUTING.md
+├── .pfnci/
+│   ├── linux/
+│   │   ├── tests/
+│   │   │   ├── actions/
+│   │   │   ├── setup/
+│   │   │   ├── array-api.Dockerfile
+│   │   │   ├── array-api.sh
+│   │   │   ├── benchmark.Dockerfile
+│   │   │   ├── benchmark.head.Dockerfile
+│   │   │   ├── benchmark.head.sh
+│   │   │   ├── benchmark.sh
+│   │   │   ├── cuda-build.Dockerfile
+│   │   │   ├── cuda-build.sh
+│   │   │   ├── cuda-doctest.Dockerfile
+│   │   │   ├── cuda-doctest.sh
+│   │   │   ├── cuda-example.Dockerfile
+│   │   │   ├── cuda-example.sh
+│   │   │   ├── cuda-head.Dockerfile
+│   │   │   ├── cuda-head.sh
+│   │   │   ├── cuda-rapids.Dockerfile
+│   │   │   ├── cuda-rapids.sh
+│   │   │   ├── cuda-slow.Dockerfile
+│   │   │   ├── cuda-slow.sh
+│   │   │   ├── cuda112.Dockerfile
+│   │   │   ├── cuda112.multi.Dockerfile
+│   │   │   ├── cuda112.multi.sh
+│   │   │   ├── cuda112.sh
+│   │   │   ├── cuda113.Dockerfile
+│   │   │   ├── cuda113.multi.Dockerfile
+│   │   │   ├── cuda113.multi.sh
+│   │   │   ├── cuda113.sh
+│   │   │   ├── cuda114.Dockerfile
+│   │   │   ├── cuda114.multi.Dockerfile
+│   │   │   ├── cuda114.multi.sh
+│   │   │   ├── cuda114.sh
+│   │   │   ├── cuda115.Dockerfile
+│   │   │   ├── cuda115.multi.Dockerfile
+│   │   │   ├── cuda115.multi.sh
+│   │   │   ├── cuda115.sh
+│   │   │   ├── cuda116.Dockerfile
+│   │   │   ├── cuda116.multi.Dockerfile
+│   │   │   ├── cuda116.multi.sh
+│   │   │   ├── cuda116.sh
+│   │   │   ├── cuda117.Dockerfile
+│   │   │   ├── cuda117.multi.Dockerfile
+│   │   │   ├── cuda117.multi.sh
+│   │   │   ├── cuda117.sh
+│   │   │   ├── cuda118.Dockerfile
+│   │   │   ├── cuda118.multi.Dockerfile
+│   │   │   ├── cuda118.multi.sh
+│   │   │   ├── cuda118.sh
+│   │   │   ├── cuda11x-cuda-python.Dockerfile
+│   │   │   ├── cuda11x-cuda-python.sh
+│   │   │   ├── cuda120.Dockerfile
+│   │   │   ├── cuda120.multi.Dockerfile
+│   │   │   ├── cuda120.multi.sh
+│   │   │   ├── cuda120.sh
+│   │   │   ├── cuda121.Dockerfile
+│   │   │   ├── cuda121.multi.Dockerfile
+│   │   │   ├── cuda121.multi.sh
+│   │   │   ├── cuda121.sh
+│   │   │   ├── cuda122.Dockerfile
+│   │   │   ├── cuda122.multi.Dockerfile
+│   │   │   ├── cuda122.multi.sh
+│   │   │   ├── cuda122.sh
+│   │   │   ├── cuda123.Dockerfile
+│   │   │   ├── cuda123.multi.Dockerfile
+│   │   │   ├── cuda123.multi.sh
+│   │   │   ├── cuda123.sh
+│   │   │   ├── cuda124.Dockerfile
+│   │   │   ├── cuda124.multi.Dockerfile
+│   │   │   ├── cuda124.multi.sh
+│   │   │   ├── cuda124.sh
+│   │   │   ├── cuda125.Dockerfile
+│   │   │   ├── cuda125.multi.Dockerfile
+│   │   │   ├── cuda125.multi.sh
+│   │   │   ├── cuda125.sh
+│   │   │   ├── cuda126.Dockerfile
+│   │   │   ├── cuda126.multi.Dockerfile
+│   │   │   ├── cuda126.multi.sh
+│   │   │   ├── cuda126.sh
+│   │   │   ├── cuda128.Dockerfile
+│   │   │   ├── cuda128.multi.Dockerfile
+│   │   │   ├── cuda128.multi.sh
+│   │   │   ├── cuda128.sh
+│   │   │   ├── cuda129.Dockerfile
+│   │   │   ├── cuda129.multi.Dockerfile
+│   │   │   ├── cuda129.multi.sh
+│   │   │   ├── cuda129.sh
+│   │   │   ├── rocm-4-0.sh
+│   │   │   ├── rocm-4-3.Dockerfile
+│   │   │   ├── rocm-4-3.sh
+│   │   │   ├── rocm-5-0.Dockerfile
+│   │   │   ├── rocm-5-0.sh
+│   │   │   ├── rocm-5-3.Dockerfile
+│   │   │   ├── rocm-5-3.sh
+│   │   │   ├── rocm-6-2.Dockerfile
+│   │   │   └── rocm-6-2.sh
+│   │   │       └── ... (88 more files)
+│   │   ├── main-flexci-prep.sh
+│   │   ├── main-flexci-stable.sh
+│   │   ├── main-flexci.sh
+│   │   ├── main-self-hosted-ci.sh
+│   │   ├── README.md
+│   │   ├── run.sh
+│   │   └── update-cuda-driver.sh
+│   │       └── ... (2 more files)
+│   ├── windows/
+│   │   ├── _error_handler.ps1
+│   │   ├── _flexci.ps1
+│   │   ├── run.bat
+│   │   └── test.ps1
+│   ├── BRANCH
+│   ├── BRANCH_STABLE
+│   ├── config.pbtxt
+│   ├── config.tags.json
+│   ├── coverage.rst
+│   ├── flexci_notify.py
+│   ├── generate.py
+│   ├── matrix.yaml
+│   ├── README.md
+│   ├── schema.yaml
+│   └── trim_cupy_kernel_cache.py
+│       └── ... (6 more files)
+├── cupy/
+│   ├── _binary/
+│   │   ├── __init__.py
+│   │   ├── elementwise.py
+│   │   └── packing.py
+│   ├── _core/
+│   │   ├── include/
+│   │   │   └── cupy/
+│   │   ├── __init__.pxd
+│   │   ├── __init__.py
+│   │   ├── _accelerator.pxd
+│   │   ├── _accelerator.pyx
+│   │   ├── _carray.pxd
+│   │   ├── _carray.pyx
+│   │   ├── _codeblock.py
+│   │   ├── _cub_reduction.pxd
+│   │   ├── _cub_reduction.pyx
+│   │   ├── _dtype.pxd
+│   │   ├── _dtype.pyx
+│   │   ├── _fusion_interface.py
+│   │   ├── _fusion_kernel.pyx
+│   │   ├── _fusion_op.py
+│   │   ├── _fusion_optimization.py
+│   │   ├── _fusion_thread_local.pyx
+│   │   ├── _fusion_trace.pyx
+│   │   ├── _fusion_variable.pxd
+│   │   ├── _fusion_variable.pyx
+│   │   ├── _gufuncs.py
+│   │   ├── _kernel.pxd
+│   │   ├── _kernel.pyx
+│   │   ├── _memory_range.pxd
+│   │   ├── _memory_range.pyx
+│   │   ├── _optimize_config.pxd
+│   │   ├── _optimize_config.pyx
+│   │   ├── _reduction.pxd
+│   │   ├── _reduction.pyx
+│   │   ├── _routines_binary.pxd
+│   │   ├── _routines_binary.pyx
+│   │   ├── _routines_indexing.pxd
+│   │   ├── _routines_indexing.pyx
+│   │   ├── _routines_linalg.pxd
+│   │   ├── _routines_linalg.pyx
+│   │   ├── _routines_logic.pxd
+│   │   ├── _routines_logic.pyx
+│   │   ├── _routines_manipulation.pxd
+│   │   ├── _routines_manipulation.pyx
+│   │   ├── _routines_math.pxd
+│   │   ├── _routines_math.pyx
+│   │   ├── _routines_sorting.pxd
+│   │   ├── _routines_sorting.pyx
+│   │   ├── _routines_statistics.pxd
+│   │   ├── _routines_statistics.pyx
+│   │   ├── _scalar.pxd
+│   │   ├── _scalar.pyx
+│   │   ├── _ufuncs.py
+│   │   ├── core.pxd
+│   │   ├── core.pyx
+│   │   ├── dlpack.pxd
+│   │   ├── dlpack.pyx
+│   │   ├── flags.pyx
+│   │   ├── fusion.pyx
+│   │   ├── halffloat.h
+│   │   ├── internal.pxd
+│   │   ├── internal.pyx
+│   │   ├── new_fusion.pyx
+│   │   ├── numpy_allocator.pyx
+│   │   ├── raw.pxd
+│   │   ├── raw.pyx
+│   │   └── syncdetect.py
+│   │       └── ... (56 more files)
+│   ├── _creation/
+│   │   ├── __init__.py
+│   │   ├── basic.py
+│   │   ├── from_data.py
+│   │   ├── matrix.py
+│   │   └── ranges.py
+│   ├── _functional/
+│   │   ├── __init__.py
+│   │   ├── piecewise.py
+│   │   └── vectorize.py
+│   ├── _indexing/
+│   │   ├── __init__.py
+│   │   ├── generate.py
+│   │   ├── indexing.py
+│   │   ├── insert.py
+│   │   └── iterate.py
+│   ├── _io/
+│   │   ├── __init__.py
+│   │   ├── formatting.py
+│   │   ├── npz.py
+│   │   └── text.py
+│   ├── _logic/
+│   │   ├── __init__.py
+│   │   ├── comparison.py
+│   │   ├── content.py
+│   │   ├── ops.py
+│   │   ├── truth.py
+│   │   └── type_testing.py
+│   │       └── ... (1 more files)
+│   ├── _manipulation/
+│   │   ├── __init__.py
+│   │   ├── add_remove.py
+│   │   ├── basic.py
+│   │   ├── dims.py
+│   │   ├── join.py
+│   │   ├── kind.py
+│   │   ├── rearrange.py
+│   │   ├── shape.py
+│   │   ├── split.py
+│   │   ├── tiling.py
+│   │   └── transpose.py
+│   │       └── ... (6 more files)
+│   ├── _math/
+│   │   ├── __init__.py
+│   │   ├── arithmetic.py
+│   │   ├── explog.py
+│   │   ├── floating.py
+│   │   ├── hyperbolic.py
+│   │   ├── misc.py
+│   │   ├── rational.py
+│   │   ├── rounding.py
+│   │   ├── special.py
+│   │   ├── sumprod.py
+│   │   ├── trigonometric.py
+│   │   ├── ufunc.py
+│   │   └── window.py
+│   │       └── ... (8 more files)
+│   ├── _misc/
+│   │   ├── __init__.py
+│   │   ├── byte_bounds.py
+│   │   ├── memory_ranges.py
+│   │   └── who.py
+│   ├── _padding/
+│   │   ├── __init__.py
+│   │   └── pad.py
+│   ├── _sorting/
+│   │   ├── __init__.py
+│   │   ├── count.py
+│   │   ├── search.py
+│   │   └── sort.py
+│   ├── _statistics/
+│   │   ├── __init__.py
+│   │   ├── correlation.py
+│   │   ├── histogram.py
+│   │   ├── meanvar.py
+│   │   └── order.py
+│   ├── array_api/
+│   │   ├── __init__.py
+│   │   ├── _array_object.py
+│   │   ├── _constants.py
+│   │   ├── _creation_functions.py
+│   │   ├── _data_type_functions.py
+│   │   ├── _dtypes.py
+│   │   ├── _elementwise_functions.py
+│   │   ├── _indexing_functions.py
+│   │   ├── _manipulation_functions.py
+│   │   ├── _searching_functions.py
+│   │   ├── _set_functions.py
+│   │   ├── _sorting_functions.py
+│   │   ├── _statistical_functions.py
+│   │   ├── _typing.py
+│   │   ├── _utility_functions.py
+│   │   └── linalg.py
+│   │       └── ... (11 more files)
+│   ├── cuda/
+│   │   ├── memory_hooks/
+│   │   │   ├── __init__.py
+│   │   │   ├── debug_print.py
+│   │   │   └── line_profile.py
+│   │   ├── __init__.pxd
+│   │   ├── __init__.py
+│   │   ├── common.pxd
+│   │   ├── common.pyx
+│   │   ├── compiler.py
+│   │   ├── cub.pxd
+│   │   ├── cub.pyx
+│   │   ├── cudnn.py
+│   │   ├── cufft.pxd
+│   │   ├── cufft.pyx
+│   │   ├── cupy_cub.cu
+│   │   ├── cupy_cub.h
+│   │   ├── cupy_cufft.h
+│   │   ├── cupy_cufftXt.cu
+│   │   ├── cupy_cufftXt.h
+│   │   ├── cupy_jitify.h
+│   │   ├── cupy_thrust.cu
+│   │   ├── cupy_thrust.h
+│   │   ├── cutensor.py
+│   │   ├── device.pxd
+│   │   ├── device.pyx
+│   │   ├── function.pxd
+│   │   ├── function.pyx
+│   │   ├── graph.pxd
+│   │   ├── graph.pyx
+│   │   ├── jitify.pyx
+│   │   ├── memory.pxd
+│   │   ├── memory.pyx
+│   │   ├── memory_hook.pxd
+│   │   ├── memory_hook.pyx
+│   │   ├── nccl.py
+│   │   ├── nvtx.py
+│   │   ├── pinned_memory.pxd
+│   │   ├── pinned_memory.pyx
+│   │   ├── profiler.py
+│   │   ├── runtime.py
+│   │   ├── stream.pxd
+│   │   ├── stream.pyx
+│   │   ├── texture.pxd
+│   │   ├── texture.pyx
+│   │   └── thrust.pyx
+│   │       └── ... (36 more files)
+│   ├── exceptions/
+│   │   └── __init__.py
+│   ├── fft/
+│   │   ├── __init__.pxd
+│   │   ├── __init__.py
+│   │   ├── _cache.pyx
+│   │   ├── _callback.pyx
+│   │   ├── _fft.py
+│   │   └── config.py
+│   │       └── ... (1 more files)
+│   ├── lib/
+│   │   ├── __init__.py
+│   │   ├── _polynomial.pyx
+│   │   ├── _routines_poly.py
+│   │   ├── _shape_base.py
+│   │   └── stride_tricks.py
+│   ├── linalg/
+│   │   ├── __init__.py
+│   │   ├── _decomposition.py
+│   │   ├── _eigenvalue.py
+│   │   ├── _einsum.py
+│   │   ├── _einsum_cutn.py
+│   │   ├── _einsum_opt.py
+│   │  
+... (876 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install cupy ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting cupy
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b1/2f/f07c3d5952c2abcc256d9a77f26f51a6e8f2e924cf52612f89b6e91de457/cupy-13.5.1.tar.gz (3.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 11.8 MB/s  0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy<2.6,>=1.22 in /usr/local/lib/python3.10/dist-packages (from cupy) (2.2.6)
+Collecting fastrlock>=0.5 (from cupy)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/15/a1/439962ed439ff6f00b7dce14927e7830e02618f26f4653424220a646cd1c/fastrlock-0.8.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_28_x86_64.whl (53 kB)
+Building wheels for collected packages: cupy
+  Building wheel for cupy (pyproject.toml): started
+  Building wheel for cupy (pyproject.toml): finished with status 'error'
+Failed to build cupy
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Building wheel for cupy (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [74 lines of output]
+      Clearing directory: /tmp/pip-install-xvn43pqb/cupy_e96edca39d954529a5fbf284d31fb1eb/cupy/.data
+      Generating CUPY_CACHE_KEY from header files...
+      CUPY_CACHE_KEY (1729 files matching /tmp/pip-install-xvn43pqb/cupy_e96edca39d954529a5fbf284d31fb1eb/cupy/_core/include/**): 689d0ce84be1f21385336456dfa877e7e48b2366
+      
+      -------- Configuring Module: cuda --------
+      /tmp/tmps80f2f72/a.cpp:1:10: fatal error: cublas_v2.h: No such file or directory
+          1 | #include <cublas_v2.h>
+            |          ^~~~~~~~~~~~~
+      compilation terminated.
+      command '/usr/bin/x86_64-linux-gnu-g++' failed with exit code 1
+      /tmp/tmpi_nsbj_n/a.cpp:2:18: fatal error: cuda_runtime_api.h: No such file or directory
+          2 |         #include <cuda_runtime_api.h>
+            |                  ^~~~~~~~~~~~~~~~~~~~
+      compilation terminated.
+      **************************************************
+      *** WARNING: Cannot check compute capability
+      command '/usr/bin/x86_64-linux-gnu-g++' failed with exit code 1
+      **************************************************
+      
+      ************************************************************
+      * CuPy Configuration Summary                               *
+      ************************************************************
+      
+      Build Environment:
+        Include directories: ['/tmp/pip-install-xvn43pqb/cupy_e96edca39d954529a5fbf284d31fb1eb/cupy/_core/include/cupy/_cccl/libcudacxx', '/tmp/pip-install-xvn43pqb/cupy_e96edca39d954529a5fbf284d31fb1eb/cupy/_core/include/cupy/_cccl/thrust', '/tmp/pip-install-xvn43pqb/cupy_e96edca39d954529a5fbf284d31fb1eb/cupy/_core/include/cupy/_cccl/cub', '/tmp/pip-install-xvn43pqb/cupy_e96edca39d954529a5fbf284d31fb1eb/cupy/_core/include']
+        Library directories: []
+        nvcc command       : (not found)
+        hipcc command      : (not found)
+      
+      Environment Variables:
+        CFLAGS          : (none)
+        LDFLAGS         : (none)
+        LIBRARY_PATH    : (none)
+        CUDA_PATH       : (none)
+        NVCC            : (none)
+        HIPCC           : (none)
+        ROCM_HOME       : (none)
+      
+      Modules:
+        cuda      : No
+          -> Include files not found: ['cublas_v2.h', 'cuda.h', 'cuda_profiler_api.h', 'cuda_runtime.h', 'cufft.h', 'curand.h', 'cusparse.h']
+          -> Check your CFLAGS environment variable.
+      
+      ERROR: CUDA could not be found on your system.
+      
+      HINT: You are trying to build CuPy from source, which is NOT recommended for general use.
+            Please consider using binary packages instead.
+      
+      Please refer to the Installation Guide for details:
+      https://docs.cupy.dev/en/stable/install.html
+      
+      ************************************************************
+      
+      Traceback (most recent call last):
+        File "/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 389, in <module>
+          main()
+        File "/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 373, in main
+          json_out["return_val"] = hook(**hook_input["kwargs"])
+        File "/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 280, in build_wheel
+          return _build_backend().build_wheel(
+        File "/tmp/pip-build-env-nlf8vvex/overlay/local/lib/python3.10/dist-packages/setuptools/build_meta.py", line 435, in build_wheel
+          return _build(['bdist_wheel', '--dist-info-dir', str(metadata_directory)])
+        File "/tmp/pip-build-env-nlf8vvex/overlay/local/lib/python3.10/dist-packages/setuptools/build_meta.py", line 423, in _build
+          return self._build_with_temp_dir(
+        File "/tmp/pip-build-env-nlf8vvex/overlay/local/lib/python3.10/dist-packages/setuptools/build_meta.py", line 404, in _build_with_temp_dir
+          self.run_setup()
+        File "/tmp/pip-build-env-nlf8vvex/overlay/local/lib/python3.10/dist-packages/setuptools/build_meta.py", line 317, in run_setup
+          exec(code, locals())
+        File "<string>", line 59, in <module>
+        File "/tmp/pip-install-xvn43pqb/cupy_e96edca39d954529a5fbf284d31fb1eb/install/cupy_builder/cupy_setup_build.py", line 562, in get_ext_modules
+          extensions = make_extensions(ctx, compiler, use_cython)
+        File "/tmp/pip-install-xvn43pqb/cupy_e96edca39d954529a5fbf284d31fb1eb/install/cupy_builder/cupy_setup_build.py", line 403, in make_extensions
+          raise Exception('Your CUDA environment is invalid. '
+      Exception: Your CUDA environment is invalid. Please check above error log.
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for cupy
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> cupy
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDERR:
+ERROR: while parsing the following warning configuration:
+
+  error::cupy.exceptions.VisibleDeprecationWarning
+
+This error occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py", line 1967, in parse_warning_filter
+    category: type[Warning] = _resolve_warning_category(category_)
+  File "/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py", line 2012, in _resolve_warning_category
+    m = __import__(module, None, None, [klass])
+ModuleNotFoundError: No module named 'cupy'
+
+
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

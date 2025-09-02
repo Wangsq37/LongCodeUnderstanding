@@ -1,0 +1,23 @@
+[
+  {
+    "command": "cat requirements.txt",
+    "success": true,
+    "stdout": "ply>=3.4\nsetuptools\ngast~=0.6.0\nnumpy\nbeniget~=0.4.0\n",
+    "stderr": "",
+    "execution_time": 0.001764059066772461
+  },
+  {
+    "command": "cat setup.py",
+    "success": true,
+    "stdout": "from setuptools import setup\nsetup()\n",
+    "stderr": "",
+    "execution_time": 0.001302957534790039
+  },
+  {
+    "command": "cat pyproject.toml",
+    "success": true,
+    "stdout": "[project]\nname = \"pythran\"\nauthors = [{name=\"Serge Guelton\", email=\"serge.guelton@telecom-bretagne.eu\"}]\nlicense = {file = \"LICENSE\"}\ndescription = \"Ahead of Time compiler for numeric kernels\"\nrequires-python = \">=3.7\"\nclassifiers=[\n  'Development Status :: 4 - Beta',\n  'Environment :: Console',\n  'Intended Audience :: Developers',\n  'License :: OSI Approved :: BSD License',\n  'Natural Language :: English',\n  'Operating System :: POSIX :: Linux',\n  'Operating System :: MacOS',\n  'Programming Language :: Python :: 3',\n  'Programming Language :: Python :: Implementation :: CPython',\n  'Programming Language :: C++',\n  'Topic :: Software Development :: Compilers',\n  'Topic :: Software Development :: Code Generators'\n]\ndynamic = [\"version\", \"readme\", \"dependencies\"]\n\n[project.urls]\nHomepage = \"https://github.com/serge-sans-paille/pythran\"\nDocumentation = \"https://pythran.readthedocs.io\"\nChangelog = \"https://pythran.readthedocs.io/en/latest/Changelog.html\"\n\n[project.optional-dependencies]\ndoc = [\"numpy\", \"nbsphinx\", \"scipy\", \"guzzle_sphinx_theme\"]\ntest = [\"ipython\", \"nbval\", \"cython\", \"wheel\", \"packaging\", \"ninja\", \"meson\"]\n\n[project.scripts]\npythran = \"pythran.run:run\"\npythran-config = \"pythran.config:run\"\n\n[build-system]\nbuild-backend = \"setuptools.build_meta\"\nrequires = [\"setuptools>=62\"]\n\n[tool.setuptools]\npackages = ['pythran', 'pythran.analyses', 'pythran.transformations',\n            'pythran.optimizations', 'omp', 'pythran.types']\n\n[tool.setuptools.dynamic]\nversion = {attr = \"pythran.version.__version__\"}\ndescription = {file = \"pythran.version.__descr__\"}\nreadme = {file = [\"README.rst\"]}\ndependencies = {file = [\"requirements.txt\"]}\n",
+    "stderr": "",
+    "execution_time": 0.0010821819305419922
+  }
+]

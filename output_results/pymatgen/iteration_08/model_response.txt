@@ -1,0 +1,7 @@
+There is no new `pytest` output following the creation of `conftest.py`. 
+
+To complete Phase 2 and generate the call chain reports, I must now re-run pytest to execute the tests with the new configuration.
+
+```bash
+pytest --ignore=tests/io/jdftx
+```

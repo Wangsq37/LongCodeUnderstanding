@@ -1,0 +1,14 @@
+First, let's analyze the dependency files present in the root of the project:
+
+- `setup.py` (present)
+- `pyproject.toml` (present)
+- `environment.yml` (present)
+
+To ensure coverage, let's check the content of `setup.py` and `pyproject.toml` to determine the dependencies specified. I'll look for runtime requirements (install_requires, etc.) in `setup.py` and `[build-system]/[project]/[tool.poetry]/[tool.flit]` etc. in `pyproject.toml`.
+
+Let's start by viewing relevant sections.
+
+```bash
+head -40 setup.py
+head -40 pyproject.toml
+```

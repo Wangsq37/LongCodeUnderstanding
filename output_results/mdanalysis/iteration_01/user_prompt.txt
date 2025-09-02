@@ -1,0 +1,680 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── actions/
+│   │   ├── build-src/
+│   │   │   └── action.yaml
+│   │   ├── setup-deps/
+│   │   │   └── action.yaml
+│   │   └── setup-os/
+│   │       └── action.yaml
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── feature_request.md
+│   │   └── questions.md
+│   ├── workflows/
+│   │   ├── deploy.yaml
+│   │   ├── gh-ci-cron.yaml
+│   │   ├── gh-ci.yaml
+│   │   ├── greetings.yaml
+│   │   ├── labels.yaml
+│   │   ├── linters.yaml
+│   │   └── rtd.yaml
+│   │       └── ... (2 more files)
+│   ├── CONTRIBUTING.md
+│   ├── dependabot.yaml
+│   ├── pr_path_labeler.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── benchmarks/
+│   ├── benchmarks/
+│   │   ├── analysis/
+│   │   │   ├── __init__.py
+│   │   │   ├── distances.py
+│   │   │   ├── leaflet.py
+│   │   │   ├── psa.py
+│   │   │   ├── rdf.py
+│   │   │   └── rms.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── ag_methods.py
+│   │   ├── GRO.py
+│   │   ├── import.py
+│   │   ├── selections.py
+│   │   ├── topology.py
+│   │   └── traj_reader.py
+│   │       └── ... (2 more files)
+│   ├── asv.conf.json
+│   └── README.rst
+├── maintainer/
+│   ├── ci/
+│   │   ├── cirrus-ci.yml
+│   │   └── cirrus-deploy.yml
+│   ├── conda/
+│   │   └── environment.yml
+│   ├── active_files.lst
+│   ├── adapt_sitemap.py
+│   ├── change_release.sh
+│   ├── install_all.sh
+│   ├── norm_version.py
+│   └── update_json_stubs_sitemap.py
+│       └── ... (1 more files)
+├── package/
+│   ├── doc/
+│   │   ├── sphinx/
+│   │   │   ├── source/
+│   │   │   └── Makefile
+│   │   └── README
+│   ├── MDAnalysis/
+│   │   ├── analysis/
+│   │   │   ├── data/
+│   │   │   ├── dssp/
+│   │   │   ├── encore/
+│   │   │   ├── hbonds/
+│   │   │   ├── hole2/
+│   │   │   ├── hydrogenbonds/
+│   │   │   ├── legacy/
+│   │   │   ├── __init__.py
+│   │   │   ├── align.py
+│   │   │   ├── atomicdistances.py
+│   │   │   ├── backends.py
+│   │   │   ├── base.py
+│   │   │   ├── bat.py
+│   │   │   ├── contacts.py
+│   │   │   ├── density.py
+│   │   │   ├── dielectric.py
+│   │   │   ├── diffusionmap.py
+│   │   │   ├── dihedrals.py
+│   │   │   ├── distances.py
+│   │   │   ├── gnm.py
+│   │   │   ├── helix_analysis.py
+│   │   │   ├── leaflet.py
+│   │   │   ├── lineardensity.py
+│   │   │   ├── msd.py
+│   │   │   ├── nucleicacids.py
+│   │   │   ├── nuclinfo.py
+│   │   │   ├── pca.py
+│   │   │   ├── polymer.py
+│   │   │   ├── psa.py
+│   │   │   ├── rdf.py
+│   │   │   ├── results.py
+│   │   │   ├── rms.py
+│   │   │   └── waterdynamics.py
+│   │   │       └── ... (21 more files)
+│   │   ├── auxiliary/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── core.py
+│   │   │   ├── EDR.py
+│   │   │   └── XVG.py
+│   │   ├── converters/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── OpenMM.py
+│   │   │   ├── OpenMMParser.py
+│   │   │   ├── ParmEd.py
+│   │   │   ├── ParmEdParser.py
+│   │   │   ├── RDKit.py
+│   │   │   ├── RDKitInferring.py
+│   │   │   └── RDKitParser.py
+│   │   │       └── ... (4 more files)
+│   │   ├── coordinates/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── chain.py
+│   │   │   ├── chemfiles.py
+│   │   │   ├── core.py
+│   │   │   ├── CRD.py
+│   │   │   ├── DCD.py
+│   │   │   ├── DLPoly.py
+│   │   │   ├── DMS.py
+│   │   │   ├── FHIAIMS.py
+│   │   │   ├── GMS.py
+│   │   │   ├── GRO.py
+│   │   │   ├── GSD.py
+│   │   │   ├── H5MD.py
+│   │   │   ├── INPCRD.py
+│   │   │   ├── LAMMPS.py
+│   │   │   ├── memory.py
+│   │   │   ├── MMTF.py
+│   │   │   ├── MOL2.py
+│   │   │   ├── NAMDBIN.py
+│   │   │   ├── null.py
+│   │   │   ├── ParmEd.py
+│   │   │   ├── PDB.py
+│   │   │   ├── PDBQT.py
+│   │   │   ├── PQR.py
+│   │   │   ├── timestep.pxd
+│   │   │   ├── timestep.pyx
+│   │   │   ├── TNG.py
+│   │   │   ├── TPR.py
+│   │   │   ├── TRC.py
+│   │   │   ├── TRJ.py
+│   │   │   ├── TRR.py
+│   │   │   ├── TRZ.py
+│   │   │   ├── TXYZ.py
+│   │   │   ├── XDR.py
+│   │   │   ├── XTC.py
+│   │   │   └── XYZ.py
+│   │   │       └── ... (32 more files)
+│   │   ├── core/
+│   │   │   ├── __init__.py
+│   │   │   ├── _get_readers.py
+│   │   │   ├── accessors.py
+│   │   │   ├── groups.py
+│   │   │   ├── selection.py
+│   │   │   ├── topology.py
+│   │   │   ├── topologyattrs.py
+│   │   │   ├── topologyobjects.py
+│   │   │   └── universe.py
+│   │   │       └── ... (4 more files)
+│   │   ├── guesser/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── default_guesser.py
+│   │   │   └── tables.py
+│   │   ├── lib/
+│   │   │   ├── formats/
+│   │   │   ├── include/
+│   │   │   ├── libmdanalysis/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── _augment.pyx
+│   │   │   ├── _cutil.pxd
+│   │   │   ├── _cutil.pyx
+│   │   │   ├── _distopia.py
+│   │   │   ├── c_distances.pxd
+│   │   │   ├── c_distances.pyx
+│   │   │   ├── c_distances_openmp.pyx
+│   │   │   ├── correlations.py
+│   │   │   ├── distances.py
+│   │   │   ├── log.py
+│   │   │   ├── mdamath.py
+│   │   │   ├── NeighborSearch.py
+│   │   │   ├── nsgrid.pyx
+│   │   │   ├── picklable_file_io.py
+│   │   │   ├── pkdtree.py
+│   │   │   ├── qcprot.pyx
+│   │   │   ├── transformations.py
+│   │   │   └── util.py
+│   │   │       └── ... (14 more files)
+│   │   ├── selections/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── charmm.py
+│   │   │   ├── gromacs.py
+│   │   │   ├── jmol.py
+│   │   │   ├── pymol.py
+│   │   │   └── vmd.py
+│   │   │       └── ... (2 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── datafiles.py
+│   │   ├── topology/
+│   │   │   ├── tpr/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── core.py
+│   │   │   ├── CRDParser.py
+│   │   │   ├── DLPolyParser.py
+│   │   │   ├── DMSParser.py
+│   │   │   ├── ExtendedPDBParser.py
+│   │   │   ├── FHIAIMSParser.py
+│   │   │   ├── GMSParser.py
+│   │   │   ├── GROParser.py
+│   │   │   ├── GSDParser.py
+│   │   │   ├── guessers.py
+│   │   │   ├── HoomdXMLParser.py
+│   │   │   ├── ITPParser.py
+│   │   │   ├── LAMMPSParser.py
+│   │   │   ├── MinimalParser.py
+│   │   │   ├── MMTFParser.py
+│   │   │   ├── MOL2Parser.py
+│   │   │   ├── ParmEdParser.py
+│   │   │   ├── PDBParser.py
+│   │   │   ├── PDBQTParser.py
+│   │   │   ├── PQRParser.py
+│   │   │   ├── PSFParser.py
+│   │   │   ├── tables.py
+│   │   │   ├── TOPParser.py
+│   │   │   ├── TPRParser.py
+│   │   │   ├── TXYZParser.py
+│   │   │   └── XYZParser.py
+│   │   │       └── ... (23 more files)
+│   │   ├── transformations/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── boxdimensions.py
+│   │   │   ├── fit.py
+│   │   │   ├── nojump.py
+│   │   │   ├── positionaveraging.py
+│   │   │   ├── rotate.py
+│   │   │   ├── translate.py
+│   │   │   └── wrap.py
+│   │   │       └── ... (4 more files)
+│   │   ├── visualization/
+│   │   │   ├── __init__.py
+│   │   │   ├── streamlines.py
+│   │   │   └── streamlines_3D.py
+│   │   ├── __init__.py
+│   │   ├── due.py
+│   │   ├── exceptions.py
+│   │   ├── units.py
+│   │   └── version.py
+│   ├── .pylintrc
+│   ├── AUTHORS
+│   ├── CHANGELOG
+│   ├── INSTALL
+│   ├── LICENSE
+│   ├── MANIFEST.in
+│   ├── pyproject.toml
+│   ├── README
+│   ├── requirements.txt
+│   ├── setup.cfg
+│   └── setup.py
+│       └── ... (6 more files)
+├── testsuite/
+│   ├── MDAnalysisTests/
+│   │   ├── analysis/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── test_align.py
+│   │   │   ├── test_atomicdistances.py
+│   │   │   ├── test_backends.py
+│   │   │   ├── test_base.py
+│   │   │   ├── test_bat.py
+│   │   │   ├── test_contacts.py
+│   │   │   ├── test_data.py
+│   │   │   ├── test_density.py
+│   │   │   ├── test_dielectric.py
+│   │   │   ├── test_diffusionmap.py
+│   │   │   ├── test_dihedrals.py
+│   │   │   ├── test_distances.py
+│   │   │   ├── test_dssp.py
+│   │   │   ├── test_encore.py
+│   │   │   ├── test_gnm.py
+│   │   │   ├── test_helix_analysis.py
+│   │   │   ├── test_hole2.py
+│   │   │   ├── test_hydrogenbondautocorrel.py
+│   │   │   ├── test_hydrogenbondautocorrel_deprecated.py
+│   │   │   ├── test_hydrogenbonds_analysis.py
+│   │   │   ├── test_leaflet.py
+│   │   │   ├── test_lineardensity.py
+│   │   │   ├── test_msd.py
+│   │   │   ├── test_nucleicacids.py
+│   │   │   ├── test_nuclinfo.py
+│   │   │   ├── test_pca.py
+│   │   │   ├── test_persistencelength.py
+│   │   │   ├── test_psa.py
+│   │   │   ├── test_rdf.py
+│   │   │   ├── test_rdf_s.py
+│   │   │   ├── test_results.py
+│   │   │   ├── test_rms.py
+│   │   │   ├── test_waterdynamics.py
+│   │   │   └── test_wbridge.py
+│   │   │       └── ... (31 more files)
+│   │   ├── auxiliary/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── test_core.py
+│   │   │   ├── test_edr.py
+│   │   │   └── test_xvg.py
+│   │   ├── converters/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_base.py
+│   │   │   ├── test_openmm.py
+│   │   │   ├── test_openmm_parser.py
+│   │   │   ├── test_parmed.py
+│   │   │   ├── test_parmed_parser.py
+│   │   │   ├── test_rdkit.py
+│   │   │   └── test_rdkit_parser.py
+│   │   │       └── ... (3 more files)
+│   │   ├── coordinates/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── reference.py
+│   │   │   ├── test_amber_inpcrd.py
+│   │   │   ├── test_chainreader.py
+│   │   │   ├── test_chemfiles.py
+│   │   │   ├── test_copying.py
+│   │   │   ├── test_crd.py
+│   │   │   ├── test_dcd.py
+│   │   │   ├── test_dlpoly.py
+│   │   │   ├── test_dms.py
+│   │   │   ├── test_fhiaims.py
+│   │   │   ├── test_gms.py
+│   │   │   ├── test_gro.py
+│   │   │   ├── test_gsd.py
+│   │   │   ├── test_h5md.py
+│   │   │   ├── test_lammps.py
+│   │   │   ├── test_memory.py
+│   │   │   ├── test_mmtf.py
+│   │   │   ├── test_mol2.py
+│   │   │   ├── test_namdbin.py
+│   │   │   ├── test_netcdf.py
+│   │   │   ├── test_null.py
+│   │   │   ├── test_pdb.py
+│   │   │   ├── test_pdbqt.py
+│   │   │   ├── test_pqr.py
+│   │   │   ├── test_reader_api.py
+│   │   │   ├── test_timestep_api.py
+│   │   │   ├── test_tng.py
+│   │   │   ├── test_tpr.py
+│   │   │   ├── test_trc.py
+│   │   │   ├── test_trj.py
+│   │   │   ├── test_trz.py
+│   │   │   ├── test_txyz.py
+│   │   │   ├── test_windows.py
+│   │   │   ├── test_writer_api.py
+│   │   │   ├── test_writer_registration.py
+│   │   │   ├── test_xdr.py
+│   │   │   └── test_xyz.py
+│   │   │       └── ... (34 more files)
+│   │   ├── core/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_accessors.py
+│   │   │   ├── test_accumulate.py
+│   │   │   ├── test_atom.py
+│   │   │   ├── test_atomgroup.py
+│   │   │   ├── test_atomselections.py
+│   │   │   ├── test_copying.py
+│   │   │   ├── test_fragments.py
+│   │   │   ├── test_group_traj_access.py
+│   │   │   ├── test_groups.py
+│   │   │   ├── test_index_dtype.py
+│   │   │   ├── test_requires.py
+│   │   │   ├── test_residue.py
+│   │   │   ├── test_residuegroup.py
+│   │   │   ├── test_segment.py
+│   │   │   ├── test_segmentgroup.py
+│   │   │   ├── test_topology.py
+│   │   │   ├── test_topologyattrs.py
+│   │   │   ├── test_topologyobjects.py
+│   │   │   ├── test_universe.py
+│   │   │   ├── test_unwrap.py
+│   │   │   ├── test_updating_atomgroup.py
+│   │   │   ├── test_wrap.py
+│   │   │   └── util.py
+│   │   │       └── ... (19 more files)
+│   │   ├── data/
+│   │   │   ├── Amber/
+│   │   │   ├── analysis/
+│   │   │   ├── capping/
+│   │   │   ├── contacts/
+│   │   │   ├── coordinates/
+│   │   │   ├── dlpoly/
+│   │   │   ├── dssp/
+│   │   │   ├── gms/
+│   │   │   ├── gromacs/
+│   │   │   ├── gromos11/
+│   │   │   ├── lammps/
+│   │   │   ├── merge/
+│   │   │   ├── mol2/
+│   │   │   ├── tprs/
+│   │   │   ├── windows/
+│   │   │   ├── 173D.mmtf
+│   │   │   ├── 19hc.pdb.gz
+│   │   │   ├── 1a28.pdb.gz
+│   │   │   ├── 1A2C.pqr
+│   │   │   ├── 1a2c_ins_code.psf
+│   │   │   ├── 1grm_elNemo_mode7.pdb.bz2
+│   │   │   ├── 1osm.pdb.gz
+│   │   │   ├── 1ubq-less-optional.mmtf
+│   │   │   ├── 2r9r-1b.psf
+│   │   │   ├── 2r9r-1b.xyz
+│   │   │   ├── 2r9r-1b.xyz.bz2
+│   │   │   ├── 3NJW-onlyrequired.mmtf
+│   │   │   ├── 4x8u.pdbx
+│   │   │   ├── 5KIH.mmtf.gz
+│   │   │   ├── 6msm.pdb.bz2
+│   │   │   ├── 6QYR.mmtf.gz
+│   │   │   ├── __init__.py
+│   │   │   ├── adk.psf
+│   │   │   ├── adk_closed.dms
+│   │   │   ├── adk_closed_domains.dms
+│   │   │   ├── adk_closed_NAMD.psf
+│   │   │   ├── adk_closed_no_segid.dms
+│   │   │   ├── adk_dims.dcd
+│   │   │   ├── adk_dims2.dcd
+│   │   │   ├── adk_gbis_tmd-fast1_NAMD.dcd
+│   │   │   ├── adk_notop.psf
+│   │   │   ├── adk_notop_BAD.psf
+│   │   │   ├── adk_open.coor
+│   │   │   ├── adk_open.crd
+│   │   │   ├── adk_open.pqr
+│   │   │   ├── adk_oplsaa.gro
+│   │   │   ├── adk_oplsaa.tpr
+│   │   │   ├── adk_oplsaa.trr
+│   │   │   ├── adk_oplsaa.xtc
+│   │   │   ├── adk_oplsaa_CA_rmsf.npy
+│   │   │   ├── adk_oplsaa_dihedral.npy
+│   │   │   ├── adk_oplsaa_dihedral_list.npy
+│   │   │   ├── adk_oplsaa_GLY_rama.npy
+│   │   │   ├── adk_oplsaa_janin.npy
+│   │   │   ├── adk_oplsaa_LYS_janin.npy
+│   │   │   ├── adk_oplsaa_rama.npy
+│   │   │   ├── argon_npt_compressed.gro.gz
+│   │   │   ├── argon_npt_compressed.tng
+│   │   │   ├── argon_npt_compressed_uneven.tng
+│   │   │   ├── argon_npt_compressed_vels_forces.tng
+│   │   │   ├── atomtypes.itp
+│   │   │   ├── atomtypes_charge.itp
+│   │   │   ├── aux_edr.tpr
+│   │   │   ├── aux_edr.xtc
+│   │   │   ├── aux_edr_raw.txt
+│   │   │   ├── bad_num_col.xvg
+│   │   │   ├── bad_top.top
+│   │   │   ├── bigbox.gro.bz2
+│   │   │   ├── C12x64.xml.bz2
+│   │   │   ├── chainIDnewres.pdb.gz
+│   │   │   ├── chainIDrepeat.pdb.gz
+│   │   │   ├── cobrotoxin.h5md
+│   │   │   ├── cobrotoxin.tpr
+│   │   │   ├── cobrotoxin.trr
+│   │   │   ├── cobrotoxin.xtc
+│   │   │   ├── cobrotoxin_2024_4.tpr
+│   │   │   ├── cobrotoxin_protein_forces.xvg.bz2
+│   │   │   ├── cryst_then_model.pdb.bz2
+│   │   │   ├── cryst_then_model.pdb.gz
+│   │   │   ├── cu.h5md
+│   │   │   ├── cu_malformed.h5md
+│   │   │   ├── dppc_vesicle_hg.gro
+│   │   │   ├── edited_itp.itp
+│   │   │   ├── empty.dcd
+│   │   │   ├── empty_atom.gro
+│   │   │   ├── example.gsd
+│   │   │   ├── example_bonds.gsd
+│   │   │   ├── example_longer.gsd
+│   │   │   ├── fhiaims.in
+│   │   │   ├── five.xyz
+│   │   │   ├── fullerene.pdb.gz
+│   │   │   ├── gromacs_ala10.itp
+│   │   │   ├── gromacs_ala10.top
+│   │   │   ├── grovels.gro
+│   │   │   ├── helanal_bending_matrix_AdK_DIMS_H8.dat
+│   │   │   ├── helanal_bending_matrix_AdK_DIMS_H8_frames10to79.dat
+│   │   │   ├── huge_box.gro
+│   │   │   ├── itp_nomass.itp
+│   │   │   ├── legacy_DCD_adk_coords.npy
+│   │   │   ├── legacy_DCD_c36_coords.npy
+│   │   │   ├── legacy_DCD_NAMD_coords.npy
+│   │   │   ├── make_whole.gro
+│   │   │   ├── martini_dppc_chol_bilayer.gro
+│   │   │   ├── mini.xyz
+│   │   │   ├── missing_atomname.gro
+│   │   │   ├── model_then_cryst.pdb.bz2
+│   │   │   ├── model_then_cryst.pdb.gz
+│   │   │   ├── mol2_comments_header_bat.npy
+│   │   │   ├── molecule.sdf
+│   │   │   ├── namd_cgenff.psf
+│   │   │   ├── no_endif_spc.itp
+│   │   │   ├── nosegid.psf
+│   │   │   ├── parmed_ala3.psf
+│   │   │   ├── pdbqt_inputpdbqt.pdbqt
+│   │   │   ├── plength.gro
+│   │   │   ├── residwrap.gro
+│   │   │   ├── residwrap_0base.gro
+│   │   │   ├── sameresid_diffresname.gro
+│   │   │   ├── sample_velocity_file.gro
+│   │   │   ├── SiN_tric_namd.dcd
+│   │   │   ├── SiN_tric_namd.psf
+│   │   │   ├── single_frame.edr
+│   │   │   ├── spce.itp
+│   │   │   ├── surface.pdb.bz2
+│   │   │   ├── surface.trr
+│   │   │   ├── test.edr
+│   │   │   ├── test.fasta
+│   │   │   ├── test.xvg
+│   │   │   ├── test_highf.xvg
+│   │   │   ├── test_lowf.xvg
+│   │   │   ├── testENT.ent
+│   │   │   ├── tip125_tric_C36.dcd
+│   │   │   ├── tip125_tric_C36.psf
+│   │   │   ├── tip5p.itp
+│   │   │   ├── trr_test_only_10_frame_10_atoms.trr
+│   │   │   ├── trz_psf.psf
+│   │   │   ├── trzfile.trz
+│   │   │   ├── two_water_gro.gro
+│   │   │   ├── two_water_gro_multiframe.gro
+│   │   │   ├── two_water_gro_nonames.gro
+│   │   │   ├── two_water_gro_widebox.gro
+│   │   │   ├── tyrosol.pdbqt.bz2
+│   │   │   ├── watdyn.dcd
+│   │   │   ├── watdyn.psf
+│   │   │   ├── xtc_test_only_10_frame_10_atoms.xtc
+│   │   │   └── xyz_random_walk.xtc
+│   │   │       └── ... (126 more files)
+│   │   ├── formats/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_libdcd.py
+│   │   │   └── test_libmdaxdr.py
+│   │   ├── guesser/
+│   │   │   ├── test_base.py
+│   │   │   └── test_default_guesser.py
+│   │   ├── import/
+│   │   │   ├── __init__.py
+│   │   │   ├── fork_called.py
+│   │   │   └── test_import.py
+│   │   ├── lib/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_augment.py
+│   │   │   ├── test_cutil.py
+│   │   │   ├── test_distances.py
+│   │   │   ├── test_log.py
+│   │   │   ├── test_neighborsearch.py
+│   │   │   ├── test_nsgrid.py
+│   │   │   ├── test_pkdtree.py
+│   │   │   ├── test_qcprot.py
+│   │   │   └── test_util.py
+│   │   │       └── ... (5 more files)
+│   │   ├── parallelism/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_multiprocessing.py
+│   │   │   └── test_pickle_transformation.py
+│   │   ├── topology/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── README
+│   │   │   ├── test_altloc.py
+│   │   │   ├── test_crd.py
+│   │   │   ├── test_dlpoly.py
+│   │   │   ├── test_dms.py
+│   │   │   ├── test_fhiaims.py
+│   │   │   ├── test_gms.py
+│   │   │   ├── test_gro.py
+│   │   │   ├── test_gsd.py
+│   │   │   ├── test_guessers.py
+│   │   │   ├── test_hoomdxml.py
+│   │   │   ├── test_itp.py
+│   │   │   ├── test_lammpsdata.py
+│   │   │   ├── test_minimal.py
+│   │   │   ├── test_mmtf.py
+│   │   │   ├── test_mol2.py
+│   │   │   ├── test_pdb.py
+│   │   │   ├── test_pdbqt.py
+│   │   │   ├── test_pqr.py
+│   │   │   ├── test_psf.py
+│   │   │   ├── test_tables.py
+│   │   │   ├── test_top.py
+│   │   │   ├── test_topology_base.py
+│   │   │   ├── test_topology_str_types.py
+│   │   │   ├── test_tprparser.py
+│   │   │   ├── test_txyz.py
+│   │   │   ├── test_xpdb.py
+│   │   │   └── test_xyz.py
+│   │   │       └── ... (25 more files)
+│   │   ├── transformations/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_base.py
+│   │   │   ├── test_boxdimensions.py
+│   │   │   ├── test_fit.py
+│   │   │   ├── test_nojump.py
+│   │   │   ├── test_positionaveraging.py
+│   │   │   ├── test_rotate.py
+│   │   │   ├── test_translate.py
+│   │   │   └── test_wrap.py
+│   │   │       └── ... (4 more files)
+│   │   ├── utils/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_authors.py
+│   │   │   ├── test_datafiles.py
+│   │   │   ├── test_duecredit.py
+│   │   │   ├── test_failure.py
+│   │   │   ├── test_imports.py
+│   │   │   ├── test_log.py
+│   │   │   ├── test_meta.py
+│   │   │   ├── test_modelling.py
+│   │   │   ├── test_persistence.py
+│   │   │   ├── test_pickleio.py
+│   │   │   ├── test_qcprot.py
+│   │   │   ├── test_selections.py
+│   │   │   ├── test_streamio.py
+│   │   │   ├── test_transformations.py
+│   │   │   └── test_units.py
+│   │   │       └── ... (11 more files)
+│   │   ├── visualization/
+│   │   │   ├── __init__.py
+│   │   │   └── test_streamlines.py
+│   │   ├── __init__.py
+│   │   ├── datafiles.py
+│   │   ├── dummy.py
+│   │   ├── test_api.py
+│   │   └── util.py
+│   ├── scripts/
+│   │   └── modeller_make_A6PA6_alpha.py
+│   ├── INSTALL
+│   ├── LICENSE
+│   ├── MANIFEST.in
+│   ├── pyproject.toml
+│   ├── README
+│   └── setup.py
+│       └── ... (1 more files)
+├── .cirrus.star
+├── .coveragerc
+├── .flake8
+├── .git-blame-ignore-revs
+├── .gitignore
+├── .nojekyll
+├── .pep8speaks.yml
+├── .readthedocs.yml
+├── azure-pipelines.yml
+├── CITATION.bib
+├── CODE_OF_CONDUCT.md
+├── GOVERNANCE.md
+├── LICENSE
+├── mypy.ini
+├── mypy_requirements.txt
+└── README.rst
+    └── ... (11 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

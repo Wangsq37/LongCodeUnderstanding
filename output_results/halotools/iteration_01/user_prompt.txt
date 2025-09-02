@@ -1,0 +1,488 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── ci_tests.yaml
+│   │   ├── cron_tests.yaml
+│   │   └── wheels.yaml
+│   └── dependabot.yml
+├── cextern/
+│   └── README.rst
+├── docs/
+│   ├── _static/
+│   │   ├── bijective_distribution_matching_demo.png
+│   │   ├── cam_example_assembias_clf.png
+│   │   ├── cam_example_bulge_disk_ratio.png
+│   │   ├── cam_example_complex_sfr.png
+│   │   ├── cam_example_complex_sfr_dmdt_correlation.png
+│   │   ├── cam_example_complex_sfr_recovery.png
+│   │   ├── color_correlation_pdf.png
+│   │   ├── dm-splatting-large.png
+│   │   ├── fuzzy_binning_example.png
+│   │   ├── halotools.css
+│   │   ├── matched_distributions.png
+│   │   ├── mbk10_nsat_up0_behavior.png
+│   │   ├── monte_carlo_example.png
+│   │   ├── monte_carlo_example2.png
+│   │   ├── noisy_percentile_demo.png
+│   │   ├── non_poisson_mc_realization.png
+│   │   ├── quenching_gradient_model_clustering.png
+│   │   ├── quenching_gradient_models.png
+│   │   └── spin_percentile.png
+│   │       └── ... (14 more files)
+│   ├── _templates/
+│   │   └── autosummary/
+│   │       ├── base.rst
+│   │       ├── class.rst
+│   │       └── module.rst
+│   ├── full_ref_api/
+│   │   └── halotools_full_api.rst
+│   ├── function_usage/
+│   │   ├── abundance_matching.rst
+│   │   ├── empirical_model_factory_functions.rst
+│   │   ├── hod_occupation_functions.rst
+│   │   ├── index.rst
+│   │   ├── mock_observables_functions.rst
+│   │   ├── phase_space_models_functions.rst
+│   │   ├── processing_simulation_data.rst
+│   │   └── utility_functions.rst
+│   │       └── ... (3 more files)
+│   ├── notebooks/
+│   │   ├── cam_modeling/
+│   │   │   ├── cam_complex_sfr_tutorial.ipynb
+│   │   │   ├── cam_decorated_clf.ipynb
+│   │   │   └── cam_disk_bulge_ratios_demo.ipynb
+│   │   ├── galcat_analysis/
+│   │   │   ├── basic_examples/
+│   │   │   └── intermediate_examples/
+│   │   ├── halocat_analysis/
+│   │   │   └── basic_examples/
+│   │   ├── hod_modeling/
+│   │   │   ├── hod_modeling_tutorial1.ipynb
+│   │   │   ├── hod_modeling_tutorial2.ipynb
+│   │   │   ├── hod_modeling_tutorial3.ipynb
+│   │   │   ├── hod_modeling_tutorial4.ipynb
+│   │   │   └── hod_modeling_tutorial5.ipynb
+│   │   ├── intrinsic_alignments/
+│   │   │   ├── hod_modeling_tutorial_with_alignments.ipynb
+│   │   │   └── measuring_correlations_tutorial.ipynb
+│   │   └── subhalo_modeling/
+│   │       ├── subhalo_modeling_tutorial1.ipynb
+│   │       ├── subhalo_modeling_tutorial2.ipynb
+│   │       ├── subhalo_modeling_tutorial3.ipynb
+│   │       ├── subhalo_modeling_tutorial4.ipynb
+│   │       └── subhalo_modeling_tutorial5.ipynb
+│   ├── quickstart_and_tutorials/
+│   │   ├── development/
+│   │   │   ├── bug_reports.rst
+│   │   │   ├── citing_halotools.rst
+│   │   │   ├── contributors.rst
+│   │   │   ├── getting_started.rst
+│   │   │   └── index.rst
+│   │   ├── managing_catalogs/
+│   │   │   └── supported_sim_list.rst
+│   │   ├── mock_observations/
+│   │   │   ├── calculating_counts_in_cells.rst
+│   │   │   └── mock_obs_pos_formatting.rst
+│   │   ├── quickstart_guides/
+│   │   │   ├── halo_catalog_analysis_quickstart.rst
+│   │   │   ├── working_with_alternative_catalogs.rst
+│   │   │   └── working_with_halotools_provided_catalogs.rst
+│   │   ├── tutorials/
+│   │   │   ├── catalog_analysis/
+│   │   │   ├── model_building/
+│   │   │   ├── merger_tree_analysis_example.rst
+│   │   │   ├── reducing_and_caching_a_new_rockstar_catalog.rst
+│   │   │   ├── user_supplied_halo_catalogs.rst
+│   │   │   └── working_with_alternative_particle_data.rst
+│   │   ├── getting_started_overview.rst
+│   │   └── index.rst
+│   ├── source_notes/
+│   │   ├── empirical_models/
+│   │   │   ├── assembias_models/
+│   │   │   ├── factories/
+│   │   │   └── phase_space_models/
+│   │   ├── mock_observables/
+│   │   │   └── zspace_distortions.rst
+│   │   ├── convert_tutorials.py
+│   │   └── index.rst
+│   ├── usage_tutorials/
+│   │   ├── cache_management/
+│   │   │   └── relocating_simulation_data.rst
+│   │   └── empirical_models/
+│   │       ├── assembias_models/
+│   │       └── subhalo_phase_space/
+│   ├── whats_new_history/
+│   │   ├── whats_new_0.5.rst
+│   │   ├── whats_new_0.6.rst
+│   │   ├── whats_new_0.7.rst
+│   │   ├── whats_new_0.8.rst
+│   │   └── whats_new_v0x_history.rst
+│   ├── changelog.rst
+│   ├── conf.py
+│   ├── index.rst
+│   ├── install.rst
+│   ├── installation_troubleshooting.rst
+│   ├── installing_halotools_with_virtualenv.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── overview.rst
+│   └── whats_new.rst
+│       └── ... (5 more files)
+├── halotools/
+│   ├── data/
+│   │   └── README.rst
+│   ├── empirical_models/
+│   │   ├── abunmatch/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── bin_free_cam.py
+│   │   │   ├── conditional_abunmatch_bin_based.py
+│   │   │   └── noisy_percentile.py
+│   │   ├── assembias_models/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── heaviside_assembias.py
+│   │   ├── component_model_templates/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── binary_galprop_models.py
+│   │   │   ├── prim_galprop_model.py
+│   │   │   └── scatter_models.py
+│   │   ├── composite_models/
+│   │   │   ├── hod_models/
+│   │   │   ├── sfr_models/
+│   │   │   ├── smhm_models/
+│   │   │   ├── tests/
+│   │   │   └── __init__.py
+│   │   ├── factories/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── hod_mock_factory.py
+│   │   │   ├── hod_model_factory.py
+│   │   │   ├── mock_factory_template.py
+│   │   │   ├── mock_helpers.py
+│   │   │   ├── model_factory_template.py
+│   │   │   ├── prebuilt_model_factory.py
+│   │   │   ├── subhalo_mock_factory.py
+│   │   │   └── subhalo_model_factory.py
+│   │   │       └── ... (4 more files)
+│   │   ├── ia_models/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── ia_model_components.py
+│   │   │   ├── ia_strength_models.py
+│   │   │   ├── README.md
+│   │   │   └── watson_distribution.py
+│   │   ├── occupation_models/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── cacciato09_components.py
+│   │   │   ├── leauthaud11_components.py
+│   │   │   ├── negative_binomial_sats.py
+│   │   │   ├── occupation_model_template.py
+│   │   │   ├── tinker13_components.py
+│   │   │   ├── zheng07_components.py
+│   │   │   └── zu_mandelbaum15_components.py
+│   │   │       └── ... (3 more files)
+│   │   ├── phase_space_models/
+│   │   │   ├── analytic_models/
+│   │   │   ├── subhalo_based_models/
+│   │   │   └── __init__.py
+│   │   ├── sfr_models/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── halo_mass_quenching.py
+│   │   │   └── zu_mandelbaum16.py
+│   │   ├── smhm_models/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── behroozi10.py
+│   │   │   ├── moster13.py
+│   │   │   ├── smhm_helpers.py
+│   │   │   └── zu_mandelbaum15.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_model_helpers.py
+│   │   ├── __init__.py
+│   │   ├── model_defaults.py
+│   │   └── model_helpers.py
+│   ├── extern/
+│   │   └── __init__.py
+│   ├── mock_observables/
+│   │   ├── counts_in_cells/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── counts_in_cylinders.py
+│   │   ├── group_identification/
+│   │   │   ├── test_groups/
+│   │   │   ├── __init__.py
+│   │   │   └── fof_groups.py
+│   │   ├── ia_correlations/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── alignment_helpers.py
+│   │   │   ├── ed_3d.py
+│   │   │   ├── ed_3d_one_two_halo_decomp.py
+│   │   │   ├── ed_projected.py
+│   │   │   ├── ee_3d.py
+│   │   │   ├── ee_3d_one_two_halo_decomp.py
+│   │   │   ├── ee_projected.py
+│   │   │   ├── gi_minus_3d.py
+│   │   │   ├── gi_minus_projected.py
+│   │   │   ├── gi_plus_3d.py
+│   │   │   ├── gi_plus_projected.py
+│   │   │   ├── ii_minus_3d.py
+│   │   │   ├── ii_minus_projected.py
+│   │   │   ├── ii_plus_3d.py
+│   │   │   └── ii_plus_projected.py
+│   │   │       └── ... (11 more files)
+│   │   ├── isolation_functions/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── conditional_cylindrical_isolation.py
+│   │   │   ├── conditional_spherical_isolation.py
+│   │   │   ├── cylindrical_isolation.py
+│   │   │   ├── isolation_functions_helpers.py
+│   │   │   └── spherical_isolation.py
+│   │   │       └── ... (1 more files)
+│   │   ├── large_scale_density/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── large_scale_density_spherical_annulus.py
+│   │   │   └── large_scale_density_spherical_volume.py
+│   │   ├── pair_counters/
+│   │   │   ├── cpairs/
+│   │   │   ├── marked_cpairs/
+│   │   │   ├── test_pair_counters/
+│   │   │   ├── __init__.py
+│   │   │   ├── marked_npairs_3d.py
+│   │   │   ├── marked_npairs_xy_z.py
+│   │   │   ├── mesh_helpers.py
+│   │   │   ├── npairs_3d.py
+│   │   │   ├── npairs_jackknife_3d.py
+│   │   │   ├── npairs_jackknife_xy_z.py
+│   │   │   ├── npairs_per_object_3d.py
+│   │   │   ├── npairs_projected.py
+│   │   │   ├── npairs_s_mu.py
+│   │   │   ├── npairs_xy_z.py
+│   │   │   ├── pairs.py
+│   │   │   ├── pairwise_distance_3d.py
+│   │   │   ├── pairwise_distance_xy_z.py
+│   │   │   ├── positional_marked_npairs_3d.py
+│   │   │   ├── positional_marked_npairs_xy_z.py
+│   │   │   ├── rectangular_mesh.py
+│   │   │   ├── rectangular_mesh_2d.py
+│   │   │   └── weighted_npairs_s_mu.py
+│   │   │       └── ... (14 more files)
+│   │   ├── pairwise_velocities/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── los_pvd_vs_rp.py
+│   │   │   ├── mean_los_velocity_vs_rp.py
+│   │   │   ├── mean_radial_velocity_vs_r.py
+│   │   │   ├── pairwise_velocities_helpers.py
+│   │   │   ├── radial_pvd_vs_r.py
+│   │   │   ├── velocity_marked_npairs_3d.py
+│   │   │   └── velocity_marked_npairs_xy_z.py
+│   │   │       └── ... (3 more files)
+│   │   ├── radial_profiles/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── radial_profile_3d.py
+│   │   │   └── radial_profiles_helpers.py
+│   │   ├── surface_density/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── mass_in_cylinders.py
+│   │   │   ├── mean_delta_sigma.py
+│   │   │   ├── surface_density.py
+│   │   │   ├── surface_density_helpers.py
+│   │   │   ├── weighted_npairs_per_object_xy.py
+│   │   │   └── weighted_npairs_xy.py
+│   │   │       └── ... (2 more files)
+│   │   ├── tensor_calculations/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── inertia_tensor.py
+│   │   │   └── tensor_derived_quantities.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── cf_helpers.py
+│   │   │   ├── test_catalog_analysis_helpers.py
+│   │   │   ├── test_mock_observables_helpers.py
+│   │   │   ├── test_mock_survey.py
+│   │   │   └── test_occupation_stats.py
+│   │   │       └── ... (1 more files)
+│   │   ├── two_point_clustering/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── angular_tpcf.py
+│   │   │   ├── clustering_helpers.py
+│   │   │   ├── marked_tpcf.py
+│   │   │   ├── rp_pi_tpcf.py
+│   │   │   ├── rp_pi_tpcf_jackknife.py
+│   │   │   ├── s_mu_tpcf.py
+│   │   │   ├── tpcf.py
+│   │   │   ├── tpcf_estimators.py
+│   │   │   ├── tpcf_jackknife.py
+│   │   │   ├── tpcf_multipole.py
+│   │   │   ├── tpcf_one_two_halo_decomp.py
+│   │   │   ├── wp.py
+│   │   │   └── wp_jackknife.py
+│   │   │       └── ... (9 more files)
+│   │   ├── velocity_decomposition/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── radial_velocity_decomposition.py
+│   │   ├── void_statistics/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── underdensity_prob_func.py
+│   │   │   └── void_prob_func.py
+│   │   ├── __init__.py
+│   │   ├── catalog_analysis_helpers.py
+│   │   ├── mock_observables_helpers.py
+│   │   ├── mock_survey.py
+│   │   └── occupation_stats.py
+│   ├── sim_manager/
+│   │   ├── tests/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── helper_functions.py
+│   │   │   ├── test_cached_halo_catalog.py
+│   │   │   ├── test_download_manager.py
+│   │   │   ├── test_fake_sim.py
+│   │   │   ├── test_halo_table_cache.py
+│   │   │   ├── test_halo_table_cache_log_entry.py
+│   │   │   ├── test_load_default_halocat.py
+│   │   │   ├── test_ptcl_table_cache.py
+│   │   │   ├── test_ptcl_table_cache_log_entry.py
+│   │   │   ├── test_rockstar_hlist_reader.py
+│   │   │   ├── test_supported_sims.py
+│   │   │   ├── test_tabular_ascii_reader.py
+│   │   │   ├── test_user_supplied_halo_catalog.py
+│   │   │   └── test_user_supplied_ptcl_catalog.py
+│   │   │       └── ... (10 more files)
+│   │   ├── __init__.py
+│   │   ├── cached_halo_catalog.py
+│   │   ├── download_manager.py
+│   │   ├── fake_sim.py
+│   │   ├── halo_table_cache.py
+│   │   ├── halo_table_cache_log_entry.py
+│   │   ├── ptcl_table_cache.py
+│   │   ├── ptcl_table_cache_log_entry.py
+│   │   ├── rockstar_hlist_reader.py
+│   │   ├── setup_package.py
+│   │   ├── sim_defaults.py
+│   │   ├── supported_sims.py
+│   │   ├── tabular_ascii_reader.py
+│   │   ├── user_supplied_halo_catalog.py
+│   │   └── user_supplied_ptcl_catalog.py
+│   │       └── ... (10 more files)
+│   ├── tests/
+│   │   ├── docs_code_block_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_hod_model_factory_tutorial.py
+│   │   │   └── test_preloaded_mockpop.py
+│   │   ├── __init__.py
+│   │   ├── coveragerc
+│   │   ├── ddc.py
+│   │   ├── setup_package.py
+│   │   ├── test_amurrica.py
+│   │   ├── test_seed.py
+│   │   ├── test_subpkg_imports.py
+│   │   └── usa.py
+│   │       └── ... (3 more files)
+│   ├── utils/
+│   │   ├── engines/
+│   │   │   ├── __init__.py
+│   │   │   ├── conditional_rank_kernel.pyx
+│   │   │   └── setup_package.py
+│   │   ├── tests/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── setup_package.py
+│   │   │   ├── test_2d_rotations.py
+│   │   │   ├── test_3d_rotations.py
+│   │   │   ├── test_array_indexing_manipulations.py
+│   │   │   ├── test_array_utils.py
+│   │   │   ├── test_compute_richness.py
+│   │   │   ├── test_conditional_percentile.py
+│   │   │   ├── test_crossmatch.py
+│   │   │   ├── test_distribution_matching.py
+│   │   │   ├── test_group_member_generator.py
+│   │   │   ├── test_io_utils.py
+│   │   │   ├── test_its.py
+│   │   │   ├── test_mcrotations.py
+│   │   │   ├── test_probabilistic_binning.py
+│   │   │   ├── test_python_string_comparisons.py
+│   │   │   ├── test_rotate_vector_collection.py
+│   │   │   ├── test_table_utils.py
+│   │   │   ├── test_value_added_halo_table_functions.py
+│   │   │   └── test_vector_utilities.py
+│   │   │       └── ... (15 more files)
+│   │   ├── __init__.py
+│   │   ├── array_indexing_manipulations.py
+│   │   ├── array_utils.py
+│   │   ├── conditional_percentile.py
+│   │   ├── crossmatch.py
+│   │   ├── distribution_matching.py
+│   │   ├── group_member_generator.py
+│   │   ├── inverse_transformation_sampling.py
+│   │   ├── io_utils.py
+│   │   ├── load_umachine_binaries.py
+│   │   ├── mcrotations.py
+│   │   ├── probabilistic_binning.py
+│   │   ├── python_string_comparisons.py
+│   │   ├── rotations2d.py
+│   │   ├── rotations3d.py
+│   │   ├── spherical_geometry.py
+│   │   ├── table_utils.py
+│   │   ├── value_added_halo_table_functions.py
+│   │   └── vector_utilities.py
+│   │       └── ... (14 more files)
+│   ├── __init__.py
+│   ├── _astropy_init.py
+│   ├── conftest.py
+│   └── custom_exceptions.py
+├── scripts/
+│   ├── convert_documentation_tutorials.py
+│   ├── download_additional_halocat.py
+│   ├── download_initial_halocat.py
+│   ├── README.rst
+│   ├── rebuild_halo_table_cache_log.py
+│   └── rebuild_ptcl_table_cache_log.py
+│       └── ... (1 more files)
+├── .gitignore
+├── .readthedocs.yaml
+├── CHANGES.rst
+├── LICENSE
+├── MANIFEST.in
+├── pyproject.toml
+├── README.rst
+├── requirements.txt
+├── setup.py
+└── tox.ini
+    └── ... (5 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

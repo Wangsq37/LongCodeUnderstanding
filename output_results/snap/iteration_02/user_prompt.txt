@@ -1,0 +1,453 @@
+## Current Project Structure
+```
+repo_to_process/
+├── contrib/
+│   ├── unict_univr-risnap/
+│   │   ├── RI-DSToSnap/
+│   │   │   ├── LICENSE
+│   │   │   ├── Makefile
+│   │   │   ├── rids.h
+│   │   │   ├── risnapds.cpp
+│   │   │   └── timer.h
+│   │   ├── RiToSnap/
+│   │   │   ├── LICENSE
+│   │   │   ├── Makefile
+│   │   │   ├── rinetmatch.h
+│   │   │   ├── risnap.cpp
+│   │   │   └── timer.h
+│   │   ├── Makefile
+│   │   ├── query.snap
+│   │   ├── ReadMe.txt
+│   │   └── reference.snap
+│   └── ReadMe.txt
+├── doxygen/
+│   ├── doxyblock.py
+│   ├── Doxyfile-dev
+│   ├── Doxyfile-user
+│   └── Makefile
+├── examples/
+│   ├── agmfit/
+│   │   ├── agmfit.vcxproj
+│   │   ├── agmfitmain.cpp
+│   │   ├── football.edgelist
+│   │   ├── football.labels
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── agmgen/
+│   │   ├── agmgen.cpp
+│   │   ├── agmgen.vcproj
+│   │   ├── agmgen.vcxproj
+│   │   ├── community_affiliations.txt
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── bigclam/
+│   │   ├── bigclam.cpp
+│   │   ├── bigclam.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (3 more files)
+│   ├── cascadegen/
+│   │   ├── cascadegen.cpp
+│   │   ├── cascadegen.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── reality.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── cascades/
+│   │   ├── cascades.cpp
+│   │   ├── cascades.vcproj
+│   │   ├── cascades.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── centrality/
+│   │   ├── centrality.cpp
+│   │   ├── centrality.vcproj
+│   │   ├── centrality.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── cesna/
+│   │   ├── 1912.edges
+│   │   ├── 1912.nodefeat
+│   │   ├── 1912.nodefeatnames
+│   │   ├── cesna.cpp
+│   │   ├── cesna.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (6 more files)
+│   ├── circles/
+│   │   ├── circles.cpp
+│   │   ├── circles.vcxproj
+│   │   ├── fb1.circles
+│   │   ├── fb1.edges
+│   │   ├── fb1.feat
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── cliques/
+│   │   ├── cliques.vcproj
+│   │   ├── cliques.vcxproj
+│   │   ├── cliquesmain.cpp
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── coda/
+│   │   ├── coda.cpp
+│   │   ├── coda.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (3 more files)
+│   ├── community/
+│   │   ├── community.cpp
+│   │   ├── community.vcproj
+│   │   ├── community.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── concomp/
+│   │   ├── concomp.cpp
+│   │   ├── concomp.vcproj
+│   │   ├── concomp.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── flows/
+│   │   ├── flows.cpp
+│   │   ├── flows.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── small_sample.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── forestfire/
+│   │   ├── forestfire.cpp
+│   │   ├── forestfire.vcproj
+│   │   ├── forestfire.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── graphgen/
+│   │   ├── graphgen.cpp
+│   │   ├── graphgen.vcproj
+│   │   ├── graphgen.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── graphhash/
+│   │   ├── graphhash.cpp
+│   │   ├── graphhash.vcproj
+│   │   ├── graphhash.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── hysgen/
+│   │   ├── synthetic_data/
+│   │   │   ├── ground_truth_comms.txt
+│   │   │   ├── synthetic.description
+│   │   │   ├── synthetic.edges
+│   │   │   └── synthetic.hyperedges
+│   │   ├── .gitignore
+│   │   ├── hysgen_main.cpp
+│   │   ├── LICENSE
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── README.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── infopath/
+│   │   ├── example-cascades.txt
+│   │   ├── example-network.txt
+│   │   ├── generate_nets.cpp
+│   │   ├── infopath.cpp
+│   │   ├── infopath.vcproj
+│   │   ├── infopath.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (7 more files)
+│   ├── kcores/
+│   │   ├── kcores.cpp
+│   │   ├── kcores.vcproj
+│   │   ├── kcores.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── knnjaccardsim/
+│   │   ├── knnjaccardsim.cpp
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── reality.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (3 more files)
+│   ├── kronem/
+│   │   ├── kronem.cpp
+│   │   ├── kronem.vcproj
+│   │   ├── kronem.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── kronfit/
+│   │   ├── kronfit.cpp
+│   │   ├── kronfit.vcproj
+│   │   ├── kronfit.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── krongen/
+│   │   ├── krongen.cpp
+│   │   ├── krongen.vcproj
+│   │   ├── krongen.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── localmotifcluster/
+│   │   ├── C-elegans-frontal.txt
+│   │   ├── localmotifclustermain.cpp
+│   │   ├── localmotifclustermain.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── lshtest/
+│   │   ├── lshtest.cpp
+│   │   ├── Makefile
+│   │   └── Makefile.ex
+│   ├── magfit/
+│   │   ├── init.config
+│   │   ├── magfit.cpp
+│   │   ├── magfit.vcproj
+│   │   ├── magfit.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── maggen/
+│   │   ├── mag.config
+│   │   ├── maggen.cpp
+│   │   ├── maggen.vcproj
+│   │   ├── maggen.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── mkdatasets/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── mkdatasets.cpp
+│   │   ├── mkdatasets.vcproj
+│   │   ├── mkdatasets.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── motifcluster/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── motifclustermain.cpp
+│   │   ├── motifclustermain.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (3 more files)
+│   ├── motifs/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── motifs.cpp
+│   │   ├── motifs.vcproj
+│   │   ├── motifs.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── ncpplot/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ncpplot.cpp
+│   │   ├── ncpplot.vcproj
+│   │   ├── ncpplot.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── netevol/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── netevol.cpp
+│   │   ├── netevol.vcproj
+│   │   ├── netevol.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── netinf/
+│   │   ├── example-cascades.txt
+│   │   ├── example-network.txt
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── netinf.cpp
+│   │   ├── netinf.vcproj
+│   │   ├── netinf.vcxproj
+│   │   ├── network-edge.info
+│   │   ├── network.txt
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (8 more files)
+│   ├── netstat/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── netstat.cpp
+│   │   ├── netstat.vcproj
+│   │   ├── netstat.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── node2vec/
+│   │   ├── emb/
+│   │   │   └── karate.emb
+│   │   ├── graph/
+│   │   │   └── karate.edgelist
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── node2vec.cpp
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx
+... (943 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 0 items
+
+============================ no tests ran in 0.14s =============================
+
+
+
+## Your Task (Phase 2: Call Chain Tracing)
+`pytest` is now executable without collection errors. Your task is to set up call chain tracing.
+1.  **Identify the main source code directory/directories.** Based on the structure, this is likely `skimage`.
+2.  **Create a `conftest.py` file** in the project root to trace this directory.
+3.  **Run `pytest`** one last time to generate the reports.
+4.  If the reports are generated, declare success with ```status
+success
+```.
+
+**REMINDER:** When creating `conftest.py`, you only need to provide the line defining `SOURCE_DIRS_TO_TRACK`. For example:
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['skimage']
+```

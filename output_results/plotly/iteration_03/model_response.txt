@@ -1,0 +1,20 @@
+The current error:
+```
+ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+```
+This is a classic ABI mismatch: incompatible versions of numpy and packages like pandas/scipy/numba compiled against a different numpy.
+
+This happened because installing matplotlib pulled a newer numpy (2.2.6), but other packages (like scipy, numba, pandas) require numpy <1.25 or were compiled against an older ABI.
+
+**Solution:** 
+1. Downgrade numpy to a compatible version (e.g. numpy==1.24.4).
+2. Reinstall all packages that depend on numpy (especially pandas, scipy, numba, xarray).
+
+Let's execute these recovery steps:
+
+```bash
+pip install "numpy==1.24.4"
+pip install --force-reinstall --no-cache-dir pandas==2.0.3 scipy numba xarray
+pytest
+```
+If errors persist after this, further recovery may require more targeted ABI rebuilds or conflict resolution.

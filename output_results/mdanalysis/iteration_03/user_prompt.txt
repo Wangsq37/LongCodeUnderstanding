@@ -1,0 +1,676 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── actions/
+│   │   ├── build-src/
+│   │   │   └── action.yaml
+│   │   ├── setup-deps/
+│   │   │   └── action.yaml
+│   │   └── setup-os/
+│   │       └── action.yaml
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── feature_request.md
+│   │   └── questions.md
+│   ├── workflows/
+│   │   ├── deploy.yaml
+│   │   ├── gh-ci-cron.yaml
+│   │   ├── gh-ci.yaml
+│   │   ├── greetings.yaml
+│   │   ├── labels.yaml
+│   │   ├── linters.yaml
+│   │   └── rtd.yaml
+│   │       └── ... (2 more files)
+│   ├── CONTRIBUTING.md
+│   ├── dependabot.yaml
+│   ├── pr_path_labeler.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── benchmarks/
+│   ├── benchmarks/
+│   │   ├── analysis/
+│   │   │   ├── __init__.py
+│   │   │   ├── distances.py
+│   │   │   ├── leaflet.py
+│   │   │   ├── psa.py
+│   │   │   ├── rdf.py
+│   │   │   └── rms.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── ag_methods.py
+│   │   ├── GRO.py
+│   │   ├── import.py
+│   │   ├── selections.py
+│   │   ├── topology.py
+│   │   └── traj_reader.py
+│   │       └── ... (2 more files)
+│   ├── asv.conf.json
+│   └── README.rst
+├── maintainer/
+│   ├── ci/
+│   │   ├── cirrus-ci.yml
+│   │   └── cirrus-deploy.yml
+│   ├── conda/
+│   │   └── environment.yml
+│   ├── active_files.lst
+│   ├── adapt_sitemap.py
+│   ├── change_release.sh
+│   ├── install_all.sh
+│   ├── norm_version.py
+│   └── update_json_stubs_sitemap.py
+│       └── ... (1 more files)
+├── package/
+│   ├── doc/
+│   │   ├── sphinx/
+│   │   │   ├── source/
+│   │   │   └── Makefile
+│   │   └── README
+│   ├── MDAnalysis/
+│   │   ├── analysis/
+│   │   │   ├── data/
+│   │   │   ├── dssp/
+│   │   │   ├── encore/
+│   │   │   ├── hbonds/
+│   │   │   ├── hole2/
+│   │   │   ├── hydrogenbonds/
+│   │   │   ├── legacy/
+│   │   │   ├── __init__.py
+│   │   │   ├── align.py
+│   │   │   ├── atomicdistances.py
+│   │   │   ├── backends.py
+│   │   │   ├── base.py
+│   │   │   ├── bat.py
+│   │   │   ├── contacts.py
+│   │   │   ├── density.py
+│   │   │   ├── dielectric.py
+│   │   │   ├── diffusionmap.py
+│   │   │   ├── dihedrals.py
+│   │   │   ├── distances.py
+│   │   │   ├── gnm.py
+│   │   │   ├── helix_analysis.py
+│   │   │   ├── leaflet.py
+│   │   │   ├── lineardensity.py
+│   │   │   ├── msd.py
+│   │   │   ├── nucleicacids.py
+│   │   │   ├── nuclinfo.py
+│   │   │   ├── pca.py
+│   │   │   ├── polymer.py
+│   │   │   ├── psa.py
+│   │   │   ├── rdf.py
+│   │   │   ├── results.py
+│   │   │   ├── rms.py
+│   │   │   └── waterdynamics.py
+│   │   │       └── ... (21 more files)
+│   │   ├── auxiliary/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── core.py
+│   │   │   ├── EDR.py
+│   │   │   └── XVG.py
+│   │   ├── converters/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── OpenMM.py
+│   │   │   ├── OpenMMParser.py
+│   │   │   ├── ParmEd.py
+│   │   │   ├── ParmEdParser.py
+│   │   │   ├── RDKit.py
+│   │   │   ├── RDKitInferring.py
+│   │   │   └── RDKitParser.py
+│   │   │       └── ... (4 more files)
+│   │   ├── coordinates/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── chain.py
+│   │   │   ├── chemfiles.py
+│   │   │   ├── core.py
+│   │   │   ├── CRD.py
+│   │   │   ├── DCD.py
+│   │   │   ├── DLPoly.py
+│   │   │   ├── DMS.py
+│   │   │   ├── FHIAIMS.py
+│   │   │   ├── GMS.py
+│   │   │   ├── GRO.py
+│   │   │   ├── GSD.py
+│   │   │   ├── H5MD.py
+│   │   │   ├── INPCRD.py
+│   │   │   ├── LAMMPS.py
+│   │   │   ├── memory.py
+│   │   │   ├── MMTF.py
+│   │   │   ├── MOL2.py
+│   │   │   ├── NAMDBIN.py
+│   │   │   ├── null.py
+│   │   │   ├── ParmEd.py
+│   │   │   ├── PDB.py
+│   │   │   ├── PDBQT.py
+│   │   │   ├── PQR.py
+│   │   │   ├── timestep.cpp
+│   │   │   ├── timestep.pxd
+│   │   │   ├── timestep.pyx
+│   │   │   ├── TNG.py
+│   │   │   ├── TPR.py
+│   │   │   ├── TRC.py
+│   │   │   ├── TRJ.py
+│   │   │   ├── TRR.py
+│   │   │   ├── TRZ.py
+│   │   │   ├── TXYZ.py
+│   │   │   ├── XDR.py
+│   │   │   ├── XTC.py
+│   │   │   └── XYZ.py
+│   │   │       └── ... (33 more files)
+│   │   ├── core/
+│   │   │   ├── __init__.py
+│   │   │   ├── _get_readers.py
+│   │   │   ├── accessors.py
+│   │   │   ├── groups.py
+│   │   │   ├── selection.py
+│   │   │   ├── topology.py
+│   │   │   ├── topologyattrs.py
+│   │   │   ├── topologyobjects.py
+│   │   │   └── universe.py
+│   │   │       └── ... (4 more files)
+│   │   ├── guesser/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── default_guesser.py
+│   │   │   └── tables.py
+│   │   ├── lib/
+│   │   │   ├── formats/
+│   │   │   ├── include/
+│   │   │   ├── libmdanalysis/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── _augment.cpp
+│   │   │   ├── _augment.pyx
+│   │   │   ├── _cutil.cpp
+│   │   │   ├── _cutil.pxd
+│   │   │   ├── _cutil.pyx
+│   │   │   ├── _distopia.py
+│   │   │   ├── c_distances.c
+│   │   │   ├── c_distances.pxd
+│   │   │   ├── c_distances.pyx
+│   │   │   ├── c_distances_openmp.c
+│   │   │   ├── c_distances_openmp.pyx
+│   │   │   ├── correlations.py
+│   │   │   ├── distances.py
+│   │   │   ├── log.py
+│   │   │   ├── mdamath.py
+│   │   │   ├── NeighborSearch.py
+│   │   │   ├── nsgrid.cpp
+│   │   │   ├── nsgrid.pyx
+│   │   │   ├── picklable_file_io.py
+│   │   │   ├── pkdtree.py
+│   │   │   ├── qcprot.c
+│   │   │   ├── qcprot.pyx
+│   │   │   ├── transformations.py
+│   │   │   └── util.py
+│   │   │       └── ... (20 more files)
+│   │   ├── selections/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── charmm.py
+│   │   │   ├── gromacs.py
+│   │   │   ├── jmol.py
+│   │   │   ├── pymol.py
+│   │   │   └── vmd.py
+│   │   │       └── ... (2 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── datafiles.py
+│   │   ├── topology/
+│   │   │   ├── tpr/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── core.py
+│   │   │   ├── CRDParser.py
+│   │   │   ├── DLPolyParser.py
+│   │   │   ├── DMSParser.py
+│   │   │   ├── ExtendedPDBParser.py
+│   │   │   ├── FHIAIMSParser.py
+│   │   │   ├── GMSParser.py
+│   │   │   ├── GROParser.py
+│   │   │   ├── GSDParser.py
+│   │   │   ├── guessers.py
+│   │   │   ├── HoomdXMLParser.py
+│   │   │   ├── ITPParser.py
+│   │   │   ├── LAMMPSParser.py
+│   │   │   ├── MinimalParser.py
+│   │   │   ├── MMTFParser.py
+│   │   │   ├── MOL2Parser.py
+│   │   │   ├── ParmEdParser.py
+│   │   │   ├── PDBParser.py
+│   │   │   ├── PDBQTParser.py
+│   │   │   ├── PQRParser.py
+│   │   │   ├── PSFParser.py
+│   │   │   ├── tables.py
+│   │   │   ├── TOPParser.py
+│   │   │   ├── TPRParser.py
+│   │   │   ├── TXYZParser.py
+│   │   │   └── XYZParser.py
+│   │   │       └── ... (23 more files)
+│   │   ├── transformations/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── boxdimensions.py
+│   │   │   ├── fit.py
+│   │   │   ├── nojump.py
+│   │   │   ├── positionaveraging.py
+│   │   │   ├── rotate.py
+│   │   │   ├── translate.py
+│   │   │   └── wrap.py
+│   │   │       └── ... (4 more files)
+│   │   ├── visualization/
+│   │   │   ├── __init__.py
+│   │   │   ├── streamlines.py
+│   │   │   └── streamlines_3D.py
+│   │   ├── __init__.py
+│   │   ├── authors.py
+│   │   ├── due.py
+│   │   ├── exceptions.py
+│   │   ├── units.py
+│   │   └── version.py
+│   │       └── ... (1 more files)
+│   ├── .pylintrc
+│   ├── AUTHORS
+│   ├── CHANGELOG
+│   ├── INSTALL
+│   ├── LICENSE
+│   ├── MANIFEST.in
+│   ├── pyproject.toml
+│   ├── README
+│   ├── requirements.txt
+│   ├── setup.cfg
+│   └── setup.py
+│       └── ... (6 more files)
+├── testsuite/
+│   ├── MDAnalysisTests/
+│   │   ├── analysis/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── test_align.py
+│   │   │   ├── test_atomicdistances.py
+│   │   │   ├── test_backends.py
+│   │   │   ├── test_base.py
+│   │   │   ├── test_bat.py
+│   │   │   ├── test_contacts.py
+│   │   │   ├── test_data.py
+│   │   │   ├── test_density.py
+│   │   │   ├── test_dielectric.py
+│   │   │   ├── test_diffusionmap.py
+│   │   │   ├── test_dihedrals.py
+│   │   │   ├── test_distances.py
+│   │   │   ├── test_dssp.py
+│   │   │   ├── test_encore.py
+│   │   │   ├── test_gnm.py
+│   │   │   ├── test_helix_analysis.py
+│   │   │   ├── test_hole2.py
+│   │   │   ├── test_hydrogenbondautocorrel.py
+│   │   │   ├── test_hydrogenbondautocorrel_deprecated.py
+│   │   │   ├── test_hydrogenbonds_analysis.py
+│   │   │   ├── test_leaflet.py
+│   │   │   ├── test_lineardensity.py
+│   │   │   ├── test_msd.py
+│   │   │   ├── test_nucleicacids.py
+│   │   │   ├── test_nuclinfo.py
+│   │   │   ├── test_pca.py
+│   │   │   ├── test_persistencelength.py
+│   │   │   ├── test_psa.py
+│   │   │   ├── test_rdf.py
+│   │   │   ├── test_rdf_s.py
+│   │   │   ├── test_results.py
+│   │   │   ├── test_rms.py
+│   │   │   ├── test_waterdynamics.py
+│   │   │   └── test_wbridge.py
+│   │   │       └── ... (31 more files)
+│   │   ├── auxiliary/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── test_core.py
+│   │   │   ├── test_edr.py
+│   │   │   └── test_xvg.py
+│   │   ├── converters/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_base.py
+│   │   │   ├── test_openmm.py
+│   │   │   ├── test_openmm_parser.py
+│   │   │   ├── test_parmed.py
+│   │   │   ├── test_parmed_parser.py
+│   │   │   ├── test_rdkit.py
+│   │   │   └── test_rdkit_parser.py
+│   │   │       └── ... (3 more files)
+│   │   ├── coordinates/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── reference.py
+│   │   │   ├── test_amber_inpcrd.py
+│   │   │   ├── test_chainreader.py
+│   │   │   ├── test_chemfiles.py
+│   │   │   ├── test_copying.py
+│   │   │   ├── test_crd.py
+│   │   │   ├── test_dcd.py
+│   │   │   ├── test_dlpoly.py
+│   │   │   ├── test_dms.py
+│   │   │   ├── test_fhiaims.py
+│   │   │   ├── test_gms.py
+│   │   │   ├── test_gro.py
+│   │   │   ├── test_gsd.py
+│   │   │   ├── test_h5md.py
+│   │   │   ├── test_lammps.py
+│   │   │   ├── test_memory.py
+│   │   │   ├── test_mmtf.py
+│   │   │   ├── test_mol2.py
+│   │   │   ├── test_namdbin.py
+│   │   │   ├── test_netcdf.py
+│   │   │   ├── test_null.py
+│   │   │   ├── test_pdb.py
+│   │   │   ├── test_pdbqt.py
+│   │   │   ├── test_pqr.py
+│   │   │   ├── test_reader_api.py
+│   │   │   ├── test_timestep_api.py
+│   │   │   ├── test_tng.py
+│  
+... (306 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install cython ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: cython in /usr/local/lib/python3.10/dist-packages (3.1.2)
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install ./package ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing ./package
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy>=1.23.2 in /usr/local/lib/python3.10/dist-packages (from MDAnalysis==2.10.0.dev0) (2.2.6)
+Requirement already satisfied: GridDataFormats>=0.4.0 in /usr/local/lib/python3.10/dist-packages (from MDAnalysis==2.10.0.dev0) (1.0.2)
+Requirement already satisfied: mmtf-python>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from MDAnalysis==2.10.0.dev0) (1.1.3)
+Requirement already satisfied: joblib>=0.12 in /usr/local/lib/python3.10/dist-packages (from MDAnalysis==2.10.0.dev0) (1.5.1)
+Requirement already satisfied: scipy>=1.5.0 in /usr/local/lib/python3.10/dist-packages (from MDAnalysis==2.10.0.dev0) (1.15.3)
+Requirement already satisfied: matplotlib>=1.5.1 in /usr/local/lib/python3.10/dist-packages (from MDAnalysis==2.10.0.dev0) (3.10.5)
+Requirement already satisfied: tqdm>=4.43.0 in /usr/local/lib/python3.10/dist-packages (from MDAnalysis==2.10.0.dev0) (4.67.1)
+Requirement already satisfied: threadpoolctl in /usr/local/lib/python3.10/dist-packages (from MDAnalysis==2.10.0.dev0) (3.6.0)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from MDAnalysis==2.10.0.dev0) (25.0)
+Requirement already satisfied: filelock in /usr/local/lib/python3.10/dist-packages (from MDAnalysis==2.10.0.dev0) (3.18.0)
+Collecting mda-xdrlib (from MDAnalysis==2.10.0.dev0)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/4f/4b/5fe3a00833a9f9775b3c237624a6212798167278ffe10fe0de04f58612d0/mda_xdrlib-0.2.0-py3-none-any.whl (14 kB)
+Requirement already satisfied: mrcfile in /usr/local/lib/python3.10/dist-packages (from GridDataFormats>=0.4.0->MDAnalysis==2.10.0.dev0) (1.5.4)
+Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=1.5.1->MDAnalysis==2.10.0.dev0) (1.3.2)
+Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=1.5.1->MDAnalysis==2.10.0.dev0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=1.5.1->MDAnalysis==2.10.0.dev0) (4.59.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=1.5.1->MDAnalysis==2.10.0.dev0) (1.4.8)
+Requirement already satisfied: pillow>=8 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=1.5.1->MDAnalysis==2.10.0.dev0) (11.3.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=1.5.1->MDAnalysis==2.10.0.dev0) (3.2.3)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=1.5.1->MDAnalysis==2.10.0.dev0) (2.9.0.post0)
+Requirement already satisfied: msgpack>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from mmtf-python>=1.0.0->MDAnalysis==2.10.0.dev0) (1.1.1)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.7->matplotlib>=1.5.1->MDAnalysis==2.10.0.dev0) (1.17.0)
+Building wheels for collected packages: MDAnalysis
+  Building wheel for MDAnalysis (pyproject.toml): started
+  Building wheel for MDAnalysis (pyproject.toml): finished with status 'error'
+Failed to build MDAnalysis
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Building wheel for MDAnalysis (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [696 lines of output]
+      performance hint: MDAnalysis/lib/c_distances.pyx:275:5: Exception check on '_minimum_image_orthogonal' will always require the GIL to be acquired.
+      Possible solutions:
+          1. Declare '_minimum_image_orthogonal' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+          2. Use an 'int' return type on '_minimum_image_orthogonal' to allow an error code to be returned.
+      performance hint: MDAnalysis/lib/c_distances.pyx:302:5: Exception check on '_minimum_image_triclinic' will always require the GIL to be acquired.
+      Possible solutions:
+          1. Declare '_minimum_image_triclinic' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+          2. Use an 'int' return type on '_minimum_image_triclinic' to allow an error code to be returned.
+      performance hint: MDAnalysis/lib/c_distances.pyx:390:37: Exception check after calling '__pyx_fuse_0_minimum_image_orthogonal' will always require the GIL to be acquired.
+      Possible solutions:
+          1. Declare '__pyx_fuse_0_minimum_image_orthogonal' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+          2. Use an 'int' return type on '__pyx_fuse_0_minimum_image_orthogonal' to allow an error code to be returned.
+      performance hint: MDAnalysis/lib/c_distances.pyx:390:37: Exception check after calling '__pyx_fuse_1_minimum_image_orthogonal' will always require the GIL to be acquired.
+      Possible solutions:
+          1. Declare '__pyx_fuse_1_minimum_image_orthogonal' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+          2. Use an 'int' return type on '__pyx_fuse_1_minimum_image_orthogonal' to allow an error code to be returned.
+      performance hint: MDAnalysis/lib/c_distances.pyx:414:36: Exception check after calling '__pyx_fuse_0_minimum_image_triclinic' will always require the GIL to be acquired.
+      Possible solutions:
+          1. Declare '__pyx_fuse_0_minimum_image_triclinic' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+          2. Use an 'int' return type on '__pyx_fuse_0_minimum_image_triclinic' to allow an error code to be returned.
+      performance hint: MDAnalysis/lib/c_distances.pyx:414:36: Exception check after calling '__pyx_fuse_1_minimum_image_triclinic' will always require the GIL to be acquired.
+      Possible solutions:
+          1. Declare '__pyx_fuse_1_minimum_image_triclinic' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+          2. Use an 'int' return type on '__pyx_fuse_1_minimum_image_triclinic' to allow an error code to be returned.
+      performance hint: MDAnalysis/lib/nsgrid.pyx:417:37: Exception check after calling 'coord2cellid' will always require the GIL to be acquired. Declare 'coord2cellid' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+      performance hint: MDAnalysis/lib/nsgrid.pyx:431:26: Exception check after calling 'coord2cellxyz' will always require the GIL to be acquired.
+      Possible solutions:
+          1. Declare 'coord2cellxyz' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+          2. Use an 'int' return type on 'coord2cellxyz' to allow an error code to be returned.
+      performance hint: MDAnalysis/lib/nsgrid.pyx:559:34: Exception check after calling 'coord2cellxyz' will always require the GIL to be acquired.
+      Possible solutions:
+          1. Declare 'coord2cellxyz' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+          2. Use an 'int' return type on 'coord2cellxyz' to allow an error code to be returned.
+      performance hint: MDAnalysis/lib/nsgrid.pyx:567:56: Exception check after calling 'cellxyz2cellid' will always require the GIL to be acquired. Declare 'cellxyz2cellid' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+      performance hint: MDAnalysis/lib/nsgrid.pyx:574:53: Exception check after calling 'calc_distsq' will always require the GIL to be acquired. Declare 'calc_distsq' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+      performance hint: MDAnalysis/lib/nsgrid.pyx:578:57: Exception check after calling 'add_neighbors' will always require the GIL to be acquired.
+      Possible solutions:
+          1. Declare 'add_neighbors' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+          2. Use an 'int' return type on 'add_neighbors' to allow an error code to be returned.
+      Attempting to autodetect OpenMP support... Compiler supports OpenMP
+      Will attempt to use Cython.
+      Compiling MDAnalysis/lib/formats/libdcd.pyx because it changed.
+      Compiling MDAnalysis/lib/c_distances.pyx because it changed.
+      Compiling MDAnalysis/lib/c_distances_openmp.pyx because it changed.
+      Compiling MDAnalysis/lib/qcprot.pyx because it changed.
+      Compiling MDAnalysis/lib/formats/libmdaxdr.pyx because it changed.
+      Compiling MDAnalysis/lib/formats/cython_util.pyx because it changed.
+      Compiling MDAnalysis/analysis/encore/cutils.pyx because it changed.
+      Compiling MDAnalysis/analysis/encore/clustering/affinityprop.pyx because it changed.
+      Compiling MDAnalysis/analysis/encore/dimensionality_reduction/stochasticproxembed.pyx because it changed.
+      Compiling MDAnalysis/lib/_cutil.pyx because it changed.
+      Compiling MDAnalysis/lib/_augment.pyx because it changed.
+      Compiling MDAnalysis/lib/nsgrid.pyx because it changed.
+      Compiling MDAnalysis/coordinates/timestep.pyx because it changed.
+      [ 1/13] Cythonizing MDAnalysis/analysis/encore/clustering/affinityprop.pyx
+      [ 2/13] Cythonizing MDAnalysis/analysis/encore/cutils.pyx
+      [ 3/13] Cythonizing MDAnalysis/analysis/encore/dimensionality_reduction/stochasticproxembed.pyx
+      [ 4/13] Cythonizing MDAnalysis/coordinates/timestep.pyx
+      [ 5/13] Cythonizing MDAnalysis/lib/_augment.pyx
+      [ 6/13] Cythonizing MDAnalysis/lib/_cutil.pyx
+      [ 7/13] Cythonizing MDAnalysis/lib/c_distances.pyx
+      [ 8/13] Cythonizing MDAnalysis/lib/c_distances_openmp.pyx
+      [ 9/13] Cythonizing MDAnalysis/lib/formats/cython_util.pyx
+      [10/13] Cythonizing MDAnalysis/lib/formats/libdcd.pyx
+      [11/13] Cythonizing MDAnalysis/lib/formats/libmdaxdr.pyx
+      [12/13] Cythonizing MDAnalysis/lib/nsgrid.pyx
+      [13/13] Cythonizing MDAnalysis/lib/qcprot.pyx
+      /tmp/pip-build-env-xf0i0ris/overlay/local/lib/python3.10/dist-packages/setuptools/_distutils/dist.py:289: UserWarning: Unknown distribution option: 'test_suite'
+        warnings.warn(msg)
+      /tmp/pip-build-env-xf0i0ris/overlay/local/lib/python3.10/dist-packages/setuptools/_distutils/dist.py:289: UserWarning: Unknown distribution option: 'tests_require'
+        warnings.warn(msg)
+      /tmp/pip-build-env-xf0i0ris/overlay/local/lib/python3.10/dist-packages/setuptools/dist.py:332: InformationOnly: Normalizing '2.10.0-dev0' to '2.10.0.dev0'
+        self.metadata.version = self._normalize_version(self.metadata.version)
+      /tmp/pip-build-env-xf0i0ris/overlay/local/lib/python3.10/dist-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+      !!
+      
+              ********************************************************************************
+              Please use a simple string containing a SPDX expression for `project.
+... (626 lines omitted)
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+plugins: hypothesis-6.137.1
+collected 0 items / 137 errors
+
+==================================== ERRORS ====================================
+_____________ ERROR collecting testsuite/MDAnalysisTests/analysis ______________
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:992: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:992: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:883: in exec_module
+    ???
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+    from MDAnalysisTests.util import (
+testsuite/MDAnalysisTests/util.py:41: in <module>
+    from MDAnalysis.lib.distances import HAS_DISTOPIA
+E   ModuleNotFoundError: No module named 'MDAnalysis'
+______ ERROR collecting testsuite/MDAnalysisTests/auxiliary/test_core.py _______
+ImportError while importing test module '/app/repo_to_process/testsuite/MDAnalysisTests/auxiliary/test_core.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+    from MDAnalysisTests.util import (
+testsuite/MDAnalysisTests/util.py:41: in <module>
+    from MDAnalysis.lib.distances import HAS_DISTOPIA
+E   ModuleNotFoundError: No module named 'MDAnalysis'
+_______ ERROR collecting testsuite/MDAnalysisTests/auxiliary/test_edr.py _______
+ImportError while importing test module '/app/repo_to_process/testsuite/MDAnalysisTests/auxiliary/test_edr.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+    from MDAnalysisTests.util import (
+testsuite/MDAnalysisTests/util.py:41: in <module>
+    from MDAnalysis.lib.distances import HAS_DISTOPIA
+E   ModuleNotFoundError: No module named 'MDAnalysis'
+_______ ERROR collecting testsuite/MDAnalysisTests/auxiliary/test_xvg.py _______
+ImportError while importing test module '/app/repo_to_process/testsuite/MDAnalysisTests/auxiliary/test_xvg.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+    from MDAnalysisTests.util import (
+testsuite/MDAnalysisTests/util.py:41: in <module>
+    from MDAnalysis.lib.distances import HAS_DISTOPIA
+E   ModuleNotFoundError: No module named 'MDAnalysis'
+______ ERROR collecting testsuite/MDAnalysisTests/converters/test_base.py ______
+ImportError while importing test module '/app/repo_to_process/testsuite/MDAnalysisTests/converters/test_base.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+    from MDAnalysisTests.util import (
+testsuite/MDAnalysisTests/util.py:41: in <module>
+    from MDAnalysis.lib.distances import HAS_DISTOPIA
+E   ModuleNotFoundError: No module named 'MDAnalysis'
+_____ ERROR collecting testsuite/MDAnalysisTests/converters/test_openmm.py _____
+ImportError while importing test module '/app/repo_to_process/testsuite/MDAnalysisTests/converters/test_openmm.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+    from MDAnalysisTests.util import (
+testsuite/MDAnalysisTests/util.py:41: in <module>
+    from MDAnalysis.lib.distances import HAS_DISTOPIA
+E   ModuleNotFoundError: No module named 'MDAnalysis'
+_ ERROR collecting testsuite/MDAnalysisTests/converters/test_openmm_parser.py __
+ImportError while importing test module '/app/repo_to_process/testsuite/MDAnalysisTests/converters/test_openmm_parser.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+    from MDAnalysisTests.util import (
+testsuite/MDAnalysisTests/util.py:41: in <module>
+    from MDAnalysis.lib.distances import HAS_DISTOPIA
+E   ModuleNotFoundError: No module named 'MDAnalysis'
+_____ ERROR collecting testsuite/MDAnalysisTests/converters/test_parmed.py _____
+ImportError while importing test module '/app/repo_to_process/testsuite/MDAnalysisTests/converters/test_parmed.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+    from MDAnalysisTests.util import (
+testsuite/MDAnalysisTests/util.py:41: in <module>
+    from MDAnalysis.lib.distances import HAS_DISTOPIA
+E   ModuleNotFoundError: No module named 'MDAnalysis'
+_ ERROR collecting testsuite/MDAnalysisTests/converters/test_parmed_parser.py __
+ImportError while importing test module '/app/repo_to_process/testsuite/MDAnalysisTests/converters/test_parmed_parser.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+    from MDAnalysisTests.util import (
+testsuite/MDAnalysisTests/util.py:41: in <module>
+    from MDAnalysis.lib.distances import HAS_DISTOPIA
+E   ModuleNotFoundError: No module named 'MDAnalysis'
+_____ ERROR collecting testsuite/MDAnalysisTests/converters/test_rdkit.py ______
+ImportError while importing test module '/app/repo_to_process/testsuite/MDAnalysisTests/converters/test_rdkit.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+    from MDAnalysisTests.util import (
+testsuite/MDAnalysisTests/util.py:41: in <module>
+    from MDAnalysis.lib.distances import HAS_DISTOPIA
+E   ModuleNotFoundError: No module named 'MDAnalysis'
+__ ERROR collecting testsuite/MDAnalysisTests/converters/test_rdkit_parser.py __
+ImportError while importing test module '/app/repo_to_process/testsuite/MDAnalysisTests/converters/test_rdkit_parser.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+testsuite/MDAnalysisTests/__init__.py:125: in <module>
+
+... (1526 lines omitted)
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

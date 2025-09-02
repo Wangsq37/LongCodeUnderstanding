@@ -1,0 +1,13 @@
+The error is not due to a missing pip-installable package, but from a missing Cython/native module `cantera._cantera` (inside `interfaces/cython/cantera`). This generally means the Cantera extension is not built.
+
+There is no `setup.py` or `pyproject.toml` visible in the root, but there is an `SConstruct` file—a signature of projects using SCons, often for native/Cython/mixed builds.
+
+Accordingly, the right next step is to build the Cantera Python extension via SCons. This usually works with:
+```bash
+scons build python
+```
+However, Cantera sometimes expects the user to specify an installation prefix and/or options for building Python bindings. Let's try the basic Python build first and see what errors or output occur. If this fails, we’ll inspect the README or INSTALL docs for details.
+
+```bash
+scons build python
+```

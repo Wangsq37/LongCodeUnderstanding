@@ -1,0 +1,23 @@
+[
+  {
+    "command": "ls -l SConstruct",
+    "success": true,
+    "stdout": "-rwxr-xr-x 1 root root 90261 Aug 10 12:51 SConstruct\n",
+    "stderr": "",
+    "execution_time": 0.0020246505737304688
+  },
+  {
+    "command": "ls -l interfaces/cython/cantera/_cantera*",
+    "success": true,
+    "stdout": "-rwxr-xr-x 1 root root 1561 Aug 10 12:51 interfaces/cython/cantera/_cantera.pyx\n",
+    "stderr": "",
+    "execution_time": 0.002027750015258789
+  },
+  {
+    "command": "ls -l interfaces/cython/cantera/",
+    "success": true,
+    "stdout": "total 1184\n-rwxr-xr-x 1 root root    800 Aug 10 12:51 __init__.pxd\n-rwxr-xr-x 1 root root    843 Aug 10 12:51 __init__.py\ndrwxr-xr-x 2 root root   4096 Aug 10 14:56 __pycache__\n-rwxr-xr-x 1 root root   1561 Aug 10 12:51 _cantera.pyx\n-rwxr-xr-x 1 root root   8486 Aug 10 12:51 _onedim.pxd\n-rwxr-xr-x 1 root root  60119 Aug 10 12:51 _onedim.pyx\n-rwxr-xr-x 1 root root   4935 Aug 10 12:51 _utils.pxd\n-rwxr-xr-x 1 root root  19271 Aug 10 12:51 _utils.pyx\n-rwxr-xr-x 1 root root  99388 Aug 10 12:51 ck2yaml.py\n-rwxr-xr-x 1 root root  62995 Aug 10 12:51 composite.py\n-rwxr-xr-x 1 root root    909 Aug 10 12:51 constants.pxd\n-rwxr-xr-x 1 root root   1026 Aug 10 12:51 constants.pyx\n-rwxr-xr-x 1 root root   1060 Aug 10 12:51 ctcxx.pxd\n-rwxr-xr-x 1 root root  68331 Aug 10 12:51 cti2yaml.py\n-rwxr-xr-x 1 root root 117126 Aug 10 12:51 ctml2yaml.py\n-rwxr-xr-x 1 root root    881 Aug 10 12:51 data.py\n-rwxr-xr-x 1 root root   5738 Aug 10 12:51 delegator.pxd\n-rwxr-xr-x 1 root root  24697 Aug 10 12:51 delegator.pyx\n-rwxr-xr-x 1 root root  12466 Aug 10 12:51 drawnetwork.py\ndrwxr-xr-x 2 root root   4096 Aug 10 12:51 examples\n-rwxr-xr-x 1 root root   2682 Aug 10 12:51 func1.pxd\n-rwxr-xr-x 1 root root  13587 Aug 10 12:51 func1.pyx\n-rwxr-xr-x 1 root root    398 Aug 10 12:51 interrupts.py\n-rwxr-xr-x 1 root root   2479 Aug 10 12:51 jacobians.pxd\n-rwxr-xr-x 1 root root   6016 Aug 10 12:51 jacobians.pyx\n-rwxr-xr-x 1 root root   7920 Aug 10 12:51 kinetics.pxd\n-rwxr-xr-x 1 root root  40491 Aug 10 12:51 kinetics.pyx\n-rwxr-xr-x 1 root root   7751 Aug 10 12:51 liquidvapor.py\n-rwxr-xr-x 1 root root  13644 Aug 10 12:51 lxcat2yaml.py\n-rwxr-xr-x 1 root root   2349 Aug 10 12:51 mixture.pxd\n-rwxr-xr-x 1 root root  13536 Aug 10 12:51 mixture.pyx\n-rwxr-xr-x 1 root root  61243 Aug 10 12:51 onedim.py\n-rwxr-xr-x 1 root root  12716 Aug 10 12:51 reaction.pxd\n-rwxr-xr-x 1 root root  67607 Aug 10 12:51 reaction.pyx\n-rwxr-xr-x 1 root root   1494 Aug 10 12:51 reactionpath.pxd\n-rwxr-xr-x 1 root root   6042 Aug 10 12:51 reactionpath.pyx\n-rwxr-xr-x 1 root root  12378 Aug 10 12:51 reactor.pxd\n-rwxr-xr-x 1 root root  82784 Aug 10 12:51 reactor.pyx\n-rwxr-xr-x 1 root root   5722 Aug 10 12:51 solutionbase.pxd\n-rwxr-xr-x 1 root root  27235 Aug 10 12:51 solutionbase.pyx\n-rwxr-xr-x 1 root root   1336 Aug 10 12:51 speciesthermo.pxd\n-rwxr-xr-x 1 root root  10164 Aug 10 12:51 speciesthermo.pyx\ndrwxr-xr-x 2 root root   4096 Aug 10 12:51 test\n-rwxr-xr-x 1 root root  14657 Aug 10 12:51 thermo.pxd\n-rwxr-xr-x 1 root root  91378 Aug 10 12:51 thermo.pyx\n-rwxr-xr-x 1 root root   4757 Aug 10 12:51 transport.pxd\n-rwxr-xr-x 1 root root  21345 Aug 10 12:51 transport.pyx\n-rwxr-xr-x 1 root root   2089 Aug 10 12:51 units.pxd\n-rwxr-xr-x 1 root root  10587 Aug 10 12:51 units.pyx\n-rwxr-xr-x 1 root root    716 Aug 10 12:51 utils.py\ndrwxr-xr-x 2 root root   4096 Aug 10 12:51 with_units\n-rwxr-xr-x 1 root root  32990 Aug 10 12:51 yaml2ck.py\n-rwxr-xr-x 1 root root   1054 Aug 10 12:51 yamlwriter.pxd\n-rwxr-xr-x 1 root root   2930 Aug 10 12:51 yamlwriter.pyx\n",
+    "stderr": "",
+    "execution_time": 0.001888275146484375
+  }
+]

@@ -1,0 +1,24 @@
+The error is:
+
+```
+ModuleNotFoundError: No module named 'pywt._extensions._pywt'
+```
+
+This is a compiled Cython extension, typically named `_pywt.so` or `_pywt.pyd`, which is not built yet. The project uses `meson-python` as a build backend, and the extension sources are present at `pywt/_extensions/_pywt.pyx`.
+
+Since `pip install .` failed due to a missing runtime Python dependency for Meson ("Run-time dependency python found: NO") and the Cython extension isn't built, I'll first try building the Cython extensions in place.
+
+If the python dependency in meson is missing due to the lack of `python3-dev` or `python3-all-dev`, but in Docker that's not installable with pip. Since we are limited to pip and can't use apt, some Meson builds won't succeed. But let's try using build tools via pip where possible.
+
+I'll try:
+1. Install Cython and meson-python manually in case direct build helps.
+2. Try explicitly building Cython extensions via `python -m cython` or `meson compile`.
+3. Run pytest again if the extension builds.
+
+If all attempts fail due to inability to build native extensions (and so no `_pywt` module exists), I'll declare failure.
+
+```bash
+pip install cython meson meson-python
+pip install .
+pytest
+```

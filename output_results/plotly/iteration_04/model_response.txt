@@ -1,0 +1,26 @@
+The relevant part of the error: 
+
+```
+ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+```
+This shows up during import of pandas and xarray, after attempts to synchronize numpy and pandas. If you look at the pip install log, you see:
+- numpy==1.24.4 was installed first (correct).
+- BUT then, due to `pip install pandas==2.0.3 scipy numba xarray` resolution, pip REINSTALLED numpy 2.2.6 (because pandas>=2.0.0, as well as latest xarray, require numpy>=1.21 and do not properly restrict upper bounds). 
+
+We are stuck in a dependency hell: 
+- pandas 2.0.3 and modern xarray/scipy/numba let pip "upgrade" numpy, breaking ABI from .so files built targeting older numpy.
+  
+The solution is to:
+1. Explicitly pin numpy==1.24.4 and all dependent libraries to versions compatible with numpy<1.25.
+2. Uninstall all possibly conflicting packages before reinstalling.
+3. Use older, compatible xarray and numba.
+
+Let's proceed carefully:
+
+```bash
+pip uninstall -y numpy pandas scipy xarray numba llvmlite
+pip install "numpy==1.24.4" "pandas==2.0.3" "scipy==1.10.0" "xarray==2023.1.0" "numba==0.56.4" "llvmlite==0.39.1"
+pytest
+```
+
+This will force all critical related packages to match and avoid the endless wheel conflict.

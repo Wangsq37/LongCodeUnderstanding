@@ -1,0 +1,10 @@
+```bash
+# 1. Install dependencies from pyproject.toml and environment.yml (if requirements.txt not at root)
+pip install -e .
+
+# 2. Look for a requirements.txt under doc/ and install those (it's the only requirements.txt listed)
+pip install -r doc/requirements.txt
+
+# 3. Try running pytest (entry point for test auto-discovery)
+pytest
+```

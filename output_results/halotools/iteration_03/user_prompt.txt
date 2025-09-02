@@ -1,0 +1,566 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── ci_tests.yaml
+│   │   ├── cron_tests.yaml
+│   │   └── wheels.yaml
+│   └── dependabot.yml
+├── cextern/
+│   └── README.rst
+├── docs/
+│   ├── _static/
+│   │   ├── bijective_distribution_matching_demo.png
+│   │   ├── cam_example_assembias_clf.png
+│   │   ├── cam_example_bulge_disk_ratio.png
+│   │   ├── cam_example_complex_sfr.png
+│   │   ├── cam_example_complex_sfr_dmdt_correlation.png
+│   │   ├── cam_example_complex_sfr_recovery.png
+│   │   ├── color_correlation_pdf.png
+│   │   ├── dm-splatting-large.png
+│   │   ├── fuzzy_binning_example.png
+│   │   ├── halotools.css
+│   │   ├── matched_distributions.png
+│   │   ├── mbk10_nsat_up0_behavior.png
+│   │   ├── monte_carlo_example.png
+│   │   ├── monte_carlo_example2.png
+│   │   ├── noisy_percentile_demo.png
+│   │   ├── non_poisson_mc_realization.png
+│   │   ├── quenching_gradient_model_clustering.png
+│   │   ├── quenching_gradient_models.png
+│   │   └── spin_percentile.png
+│   │       └── ... (14 more files)
+│   ├── _templates/
+│   │   └── autosummary/
+│   │       ├── base.rst
+│   │       ├── class.rst
+│   │       └── module.rst
+│   ├── full_ref_api/
+│   │   └── halotools_full_api.rst
+│   ├── function_usage/
+│   │   ├── abundance_matching.rst
+│   │   ├── empirical_model_factory_functions.rst
+│   │   ├── hod_occupation_functions.rst
+│   │   ├── index.rst
+│   │   ├── mock_observables_functions.rst
+│   │   ├── phase_space_models_functions.rst
+│   │   ├── processing_simulation_data.rst
+│   │   └── utility_functions.rst
+│   │       └── ... (3 more files)
+│   ├── notebooks/
+│   │   ├── cam_modeling/
+│   │   │   ├── cam_complex_sfr_tutorial.ipynb
+│   │   │   ├── cam_decorated_clf.ipynb
+│   │   │   └── cam_disk_bulge_ratios_demo.ipynb
+│   │   ├── galcat_analysis/
+│   │   │   ├── basic_examples/
+│   │   │   └── intermediate_examples/
+│   │   ├── halocat_analysis/
+│   │   │   └── basic_examples/
+│   │   ├── hod_modeling/
+│   │   │   ├── hod_modeling_tutorial1.ipynb
+│   │   │   ├── hod_modeling_tutorial2.ipynb
+│   │   │   ├── hod_modeling_tutorial3.ipynb
+│   │   │   ├── hod_modeling_tutorial4.ipynb
+│   │   │   └── hod_modeling_tutorial5.ipynb
+│   │   ├── intrinsic_alignments/
+│   │   │   ├── hod_modeling_tutorial_with_alignments.ipynb
+│   │   │   └── measuring_correlations_tutorial.ipynb
+│   │   └── subhalo_modeling/
+│   │       ├── subhalo_modeling_tutorial1.ipynb
+│   │       ├── subhalo_modeling_tutorial2.ipynb
+│   │       ├── subhalo_modeling_tutorial3.ipynb
+│   │       ├── subhalo_modeling_tutorial4.ipynb
+│   │       └── subhalo_modeling_tutorial5.ipynb
+│   ├── quickstart_and_tutorials/
+│   │   ├── development/
+│   │   │   ├── bug_reports.rst
+│   │   │   ├── citing_halotools.rst
+│   │   │   ├── contributors.rst
+│   │   │   ├── getting_started.rst
+│   │   │   └── index.rst
+│   │   ├── managing_catalogs/
+│   │   │   └── supported_sim_list.rst
+│   │   ├── mock_observations/
+│   │   │   ├── calculating_counts_in_cells.rst
+│   │   │   └── mock_obs_pos_formatting.rst
+│   │   ├── quickstart_guides/
+│   │   │   ├── halo_catalog_analysis_quickstart.rst
+│   │   │   ├── working_with_alternative_catalogs.rst
+│   │   │   └── working_with_halotools_provided_catalogs.rst
+│   │   ├── tutorials/
+│   │   │   ├── catalog_analysis/
+│   │   │   ├── model_building/
+│   │   │   ├── merger_tree_analysis_example.rst
+│   │   │   ├── reducing_and_caching_a_new_rockstar_catalog.rst
+│   │   │   ├── user_supplied_halo_catalogs.rst
+│   │   │   └── working_with_alternative_particle_data.rst
+│   │   ├── getting_started_overview.rst
+│   │   └── index.rst
+│   ├── source_notes/
+│   │   ├── empirical_models/
+│   │   │   ├── assembias_models/
+│   │   │   ├── factories/
+│   │   │   └── phase_space_models/
+│   │   ├── mock_observables/
+│   │   │   └── zspace_distortions.rst
+│   │   ├── convert_tutorials.py
+│   │   └── index.rst
+│   ├── usage_tutorials/
+│   │   ├── cache_management/
+│   │   │   └── relocating_simulation_data.rst
+│   │   └── empirical_models/
+│   │       ├── assembias_models/
+│   │       └── subhalo_phase_space/
+│   ├── whats_new_history/
+│   │   ├── whats_new_0.5.rst
+│   │   ├── whats_new_0.6.rst
+│   │   ├── whats_new_0.7.rst
+│   │   ├── whats_new_0.8.rst
+│   │   └── whats_new_v0x_history.rst
+│   ├── changelog.rst
+│   ├── conf.py
+│   ├── index.rst
+│   ├── install.rst
+│   ├── installation_troubleshooting.rst
+│   ├── installing_halotools_with_virtualenv.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── overview.rst
+│   └── whats_new.rst
+│       └── ... (5 more files)
+├── halotools/
+│   ├── data/
+│   │   └── README.rst
+│   ├── empirical_models/
+│   │   ├── abunmatch/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── bin_free_cam.py
+│   │   │   ├── conditional_abunmatch_bin_based.py
+│   │   │   └── noisy_percentile.py
+│   │   ├── assembias_models/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── heaviside_assembias.py
+│   │   ├── component_model_templates/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── binary_galprop_models.py
+│   │   │   ├── prim_galprop_model.py
+│   │   │   └── scatter_models.py
+│   │   ├── composite_models/
+│   │   │   ├── hod_models/
+│   │   │   ├── sfr_models/
+│   │   │   ├── smhm_models/
+│   │   │   ├── tests/
+│   │   │   └── __init__.py
+│   │   ├── factories/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── hod_mock_factory.py
+│   │   │   ├── hod_model_factory.py
+│   │   │   ├── mock_factory_template.py
+│   │   │   ├── mock_helpers.py
+│   │   │   ├── model_factory_template.py
+│   │   │   ├── prebuilt_model_factory.py
+│   │   │   ├── subhalo_mock_factory.py
+│   │   │   └── subhalo_model_factory.py
+│   │   │       └── ... (4 more files)
+│   │   ├── ia_models/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── ia_model_components.py
+│   │   │   ├── ia_strength_models.py
+│   │   │   ├── README.md
+│   │   │   └── watson_distribution.py
+│   │   ├── occupation_models/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── cacciato09_components.py
+│   │   │   ├── leauthaud11_components.py
+│   │   │   ├── negative_binomial_sats.py
+│   │   │   ├── occupation_model_template.py
+│   │   │   ├── tinker13_components.py
+│   │   │   ├── zheng07_components.py
+│   │   │   └── zu_mandelbaum15_components.py
+│   │   │       └── ... (3 more files)
+│   │   ├── phase_space_models/
+│   │   │   ├── analytic_models/
+│   │   │   ├── subhalo_based_models/
+│   │   │   └── __init__.py
+│   │   ├── sfr_models/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── halo_mass_quenching.py
+│   │   │   └── zu_mandelbaum16.py
+│   │   ├── smhm_models/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── behroozi10.py
+│   │   │   ├── moster13.py
+│   │   │   ├── smhm_helpers.py
+│   │   │   └── zu_mandelbaum15.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_model_helpers.py
+│   │   ├── __init__.py
+│   │   ├── model_defaults.py
+│   │   └── model_helpers.py
+│   ├── extern/
+│   │   └── __init__.py
+│   ├── mock_observables/
+│   │   ├── counts_in_cells/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── counts_in_cylinders.py
+│   │   ├── group_identification/
+│   │   │   ├── test_groups/
+│   │   │   ├── __init__.py
+│   │   │   └── fof_groups.py
+│   │   ├── ia_correlations/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── alignment_helpers.py
+│   │   │   ├── ed_3d.py
+│   │   │   ├── ed_3d_one_two_halo_decomp.py
+│   │   │   ├── ed_projected.py
+│   │   │   ├── ee_3d.py
+│   │   │   ├── ee_3d_one_two_halo_decomp.py
+│   │   │   ├── ee_projected.py
+│   │   │   ├── gi_minus_3d.py
+│   │   │   ├── gi_minus_projected.py
+│   │   │   ├── gi_plus_3d.py
+│   │   │   ├── gi_plus_projected.py
+│   │   │   ├── ii_minus_3d.py
+│   │   │   ├── ii_minus_projected.py
+│   │   │   ├── ii_plus_3d.py
+│   │   │   └── ii_plus_projected.py
+│   │   │       └── ... (11 more files)
+│   │   ├── isolation_functions/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── conditional_cylindrical_isolation.py
+│   │   │   ├── conditional_spherical_isolation.py
+│   │   │   ├── cylindrical_isolation.py
+│   │   │   ├── isolation_functions_helpers.py
+│   │   │   └── spherical_isolation.py
+│   │   │       └── ... (1 more files)
+│   │   ├── large_scale_density/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── large_scale_density_spherical_annulus.py
+│   │   │   └── large_scale_density_spherical_volume.py
+│   │   ├── pair_counters/
+│   │   │   ├── cpairs/
+│   │   │   ├── marked_cpairs/
+│   │   │   ├── test_pair_counters/
+│   │   │   ├── __init__.py
+│   │   │   ├── marked_npairs_3d.py
+│   │   │   ├── marked_npairs_xy_z.py
+│   │   │   ├── mesh_helpers.py
+│   │   │   ├── npairs_3d.py
+│   │   │   ├── npairs_jackknife_3d.py
+│   │   │   ├── npairs_jackknife_xy_z.py
+│   │   │   ├── npairs_per_object_3d.py
+│   │   │   ├── npairs_projected.py
+│   │   │   ├── npairs_s_mu.py
+│   │   │   ├── npairs_xy_z.py
+│   │   │   ├── pairs.py
+│   │   │   ├── pairwise_distance_3d.py
+│   │   │   ├── pairwise_distance_xy_z.py
+│   │   │   ├── positional_marked_npairs_3d.py
+│   │   │   ├── positional_marked_npairs_xy_z.py
+│   │   │   ├── rectangular_mesh.py
+│   │   │   ├── rectangular_mesh_2d.py
+│   │   │   └── weighted_npairs_s_mu.py
+│   │   │       └── ... (14 more files)
+│   │   ├── pairwise_velocities/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── los_pvd_vs_rp.py
+│   │   │   ├── mean_los_velocity_vs_rp.py
+│   │   │   ├── mean_radial_velocity_vs_r.py
+│   │   │   ├── pairwise_velocities_helpers.py
+│   │   │   ├── radial_pvd_vs_r.py
+│   │   │   ├── velocity_marked_npairs_3d.py
+│   │   │   └── velocity_marked_npairs_xy_z.py
+│   │   │       └── ... (3 more files)
+│   │   ├── radial_profiles/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── radial_profile_3d.py
+│   │   │   └── radial_profiles_helpers.py
+│   │   ├── surface_density/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── mass_in_cylinders.py
+│   │   │   ├── mean_delta_sigma.py
+│   │   │   ├── surface_density.py
+│   │   │   ├── surface_density_helpers.py
+│   │   │   ├── weighted_npairs_per_object_xy.py
+│   │   │   └── weighted_npairs_xy.py
+│   │   │       └── ... (2 more files)
+│   │   ├── tensor_calculations/
+│   │   │   ├── engines/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── inertia_tensor.py
+│   │   │   └── tensor_derived_quantities.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── cf_helpers.py
+│   │   │   ├── test_catalog_analysis_helpers.py
+│   │   │   ├── test_mock_observables_helpers.py
+│   │   │   ├── test_mock_survey.py
+│   │   │   └── test_occupation_stats.py
+│   │   │       └── ... (1 more files)
+│   │   ├── two_point_clustering/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── angular_tpcf.py
+│   │   │   ├── clustering_helpers.py
+│   │   │   ├── marked_tpcf.py
+│   │   │   ├── rp_pi_tpcf.py
+│   │   │   ├── rp_pi_tpcf_jackknife.py
+│   │   │   ├── s_mu_tpcf.py
+│   │   │   ├── tpcf.py
+│   │   │   ├── tpcf_estimators.py
+│   │   │   ├── tpcf_jackknife.py
+│   │   │   ├──
+... (138 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install pytest-astropy pytest-xdist coverage[toml] ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting pytest-astropy
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/cf/05/d6e2068e99c4ca69986844d68c82c4c08379296430e355a3756c51a55f73/pytest_astropy-0.11.0-py3-none-any.whl (5.2 kB)
+Collecting pytest-xdist
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ca/31/d4e37e9e550c2b92a9cbc2e4d0b7420a27224968580b5a447f420847c975/pytest_xdist-3.8.0-py3-none-any.whl (46 kB)
+Collecting coverage[toml]
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b9/8e/5a8835fb0122a2e2a108bf3527931693c4625fdc4d953950a480b9625852/coverage-7.10.2-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (243 kB)
+Requirement already satisfied: pytest>=4.6 in /usr/local/lib/python3.10/dist-packages (from pytest-astropy) (8.4.1)
+Collecting pytest-doctestplus>=1.0.0 (from pytest-astropy)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/88/08/0e0e38a6046f91ad6ae352c0639c1b6dd90e2cd53ab2d2282d1d231535fb/pytest_doctestplus-1.4.0-py3-none-any.whl (25 kB)
+Collecting pytest-remotedata>=0.4.1 (from pytest-astropy)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/02/70/9d5e2a5020c4721115b48fa6efa765ffff1cd679ed89049fa4c9a3c62f55/pytest_remotedata-0.4.1-py3-none-any.whl (8.6 kB)
+Collecting pytest-astropy-header>=0.2.2 (from pytest-astropy)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/10/db/3bde86b77504c01f8cc174ccce13029aa5e26daaae9fcdc08826f1f0c7a5/pytest_astropy_header-0.2.2-py3-none-any.whl (7.8 kB)
+Collecting pytest-arraydiff>=0.5 (from pytest-astropy)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/cf/2a/2f8efb1ef8048aec7b44f37bc3fecb8c2c22e3238781d3e93c58d9c89268/pytest_arraydiff-0.6.1-py3-none-any.whl (10 kB)
+Collecting pytest-filter-subpackage>=0.1.2 (from pytest-astropy)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/f8/2ed436b6ef3fb46743ba6e562c5421493d695c6534f051420ef2b5a99258/pytest_filter_subpackage-0.2.0-py2.py3-none-any.whl (5.5 kB)
+Collecting pytest-cov>=2.3.1 (from pytest-astropy)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/bc/16/4ea354101abb1287856baa4af2732be351c7bee728065aed451b678153fd/pytest_cov-6.2.1-py3-none-any.whl (24 kB)
+Collecting pytest-mock>=2.0 (from pytest-astropy)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b2/05/77b60e520511c53d1c1ca75f1930c7dd8e971d0c4379b7f4b3f9644685ba/pytest_mock-3.14.1-py3-none-any.whl (9.9 kB)
+Collecting attrs>=19.2.0 (from pytest-astropy)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/77/06/bb80f5f86020c4551da315d78b3ab75e8228f89f0162f2c3a819e407941a/attrs-25.3.0-py3-none-any.whl (63 kB)
+Collecting hypothesis>=5.1 (from pytest-astropy)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/1a/13/92753f97f70f3584a70ccbd2a678878ea43d5880c4e009664c3fe9fe7e50/hypothesis-6.137.1-py3-none-any.whl (527 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 527.6/527.6 kB 6.5 MB/s  0:00:00
+Collecting execnet>=2.1 (from pytest-xdist)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/43/09/2aea36ff60d16dd8879bdb2f5b3ee0ba8d08cbbdcdfe870e695ce3784385/execnet-2.1.1-py3-none-any.whl (40 kB)
+Requirement already satisfied: tomli in /usr/local/lib/python3.10/dist-packages (from coverage[toml]) (2.2.1)
+Requirement already satisfied: exceptiongroup>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from hypothesis>=5.1->pytest-astropy) (1.3.0)
+Collecting sortedcontainers<3.0.0,>=2.1.0 (from hypothesis>=5.1->pytest-astropy)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+Requirement already satisfied: typing-extensions>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from exceptiongroup>=1.0.0->hypothesis>=5.1->pytest-astropy) (4.14.1)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=4.6->pytest-astropy) (2.1.0)
+Requirement already satisfied: packaging>=20 in /usr/local/lib/python3.10/dist-packages (from pytest>=4.6->pytest-astropy) (25.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.10/dist-packages (from pytest>=4.6->pytest-astropy) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest>=4.6->pytest-astropy) (2.19.2)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from pytest-arraydiff>=0.5->pytest-astropy) (2.2.6)
+Installing collected packages: sortedcontainers, execnet, coverage, attrs, hypothesis, pytest-xdist, pytest-remotedata, pytest-mock, pytest-filter-subpackage, pytest-doctestplus, pytest-cov, pytest-astropy-header, pytest-arraydiff, pytest-astropy
+
+Successfully installed attrs-25.3.0 coverage-7.10.2 execnet-2.1.1 hypothesis-6.137.1 pytest-arraydiff-0.6.1 pytest-astropy-0.11.0 pytest-astropy-header-0.2.2 pytest-cov-6.2.1 pytest-doctestplus-1.4.0 pytest-filter-subpackage-0.2.0 pytest-mock-3.14.1 pytest-remotedata-0.4.1 pytest-xdist-3.8.0 sortedcontainers-2.4.0
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+
+Running tests with halotools version .
+Running tests in halotools docs.
+
+Date: 2025-08-10T19:30:01
+
+Platform: Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.35
+
+Executable: /usr/bin/python3
+
+Full Python Version: 
+3.10.12 (main, May 27 2025, 17:12:29) [GCC 11.4.0]
+
+encodings: sys: utf-8, locale: UTF-8, filesystem: utf-8
+byteorder: little
+float info: dig: 15, mant_dig: 15
+
+Package versions: 
+Numpy: 2.2.6
+Scipy: 1.15.3
+Matplotlib: not available
+h5py: 3.14.0
+scikit-image: not available
+
+Using Astropy options: remote_data: none.
+
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+testpaths: halotools, docs
+plugins: arraydiff-0.6.1, doctestplus-1.4.0, filter-subpackage-0.2.0, xdist-3.8.0, astropy-0.11.0, mock-3.14.1, cov-6.2.1, hypothesis-6.137.1, remotedata-0.4.1, astropy-header-0.2.2
+collected 70 items / 609 errors
+
+==================================== ERRORS ====================================
+___________ ERROR collecting halotools/empirical_models/__init__.py ____________
+halotools/empirical_models/__init__.py:7: in <module>
+    from .model_helpers import *
+halotools/empirical_models/model_helpers.py:10: in <module>
+    from ..utils.array_utils import custom_len
+halotools/utils/__init__.py:16: in <module>
+    from .conditional_percentile import sliding_conditional_percentile
+halotools/utils/conditional_percentile.py:9: in <module>
+    from .engines import cython_conditional_rank_kernel
+halotools/utils/engines/__init__.py:1: in <module>
+    from .conditional_rank_kernel import cython_conditional_rank_kernel
+E   ModuleNotFoundError: No module named 'halotools.utils.engines.conditional_rank_kernel'
+______ ERROR collecting halotools/empirical_models/abunmatch/__init__.py _______
+/usr/local/lib/python3.10/dist-packages/pytest_doctestplus/plugin.py:275: in collect
+    module = import_path(fspath, mode=mode, root=self.config.rootpath,
+/usr/local/lib/python3.10/dist-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:992: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:883: in exec_module
+    ???
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+halotools/empirical_models/__init__.py:9: in <module>
+    from .factories import *
+halotools/empirical_models/factories/__init__.py:7: in <module>
+    from .hod_mock_factory import *
+halotools/empirical_models/factories/hod_mock_factory.py:20: in <module>
+    from ...sim_manager import sim_defaults
+halotools/sim_manager/__init__.py:19: in <module>
+    from .fake_sim import FakeSim
+halotools/sim_manager/fake_sim.py:10: in <module>
+    from .user_supplied_halo_catalog import UserSuppliedHaloCatalog
+halotools/sim_manager/user_supplied_halo_catalog.py:12: in <module>
+    from .halo_table_cache import HaloTableCache
+halotools/sim_manager/halo_table_cache.py:15: in <module>
+    from .halo_table_cache_log_entry import HaloTableCacheLogEntry
+halotools/sim_manager/halo_table_cache_log_entry.py:7: in <module>
+    from ..utils.python_string_comparisons import _passively_decode_string, compare_strings_py23_safe
+halotools/utils/__init__.py:16: in <module>
+    from .conditional_percentile import sliding_conditional_percentile
+halotools/utils/conditional_percentile.py:9: in <module>
+    from .engines import cython_conditional_rank_kernel
+halotools/utils/engines/__init__.py:1: in <module>
+    from .conditional_rank_kernel import cython_conditional_rank_kernel
+E   ModuleNotFoundError: No module named 'halotools.utils.engines.conditional_rank_kernel'
+____ ERROR collecting halotools/empirical_models/abunmatch/bin_free_cam.py _____
+/usr/local/lib/python3.10/dist-packages/pytest_doctestplus/plugin.py:275: in collect
+    module = import_path(fspath, mode=mode, root=self.config.rootpath,
+/usr/local/lib/python3.10/dist-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:992: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:992: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:883: in exec_module
+    ???
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+halotools/empirical_models/__init__.py:9: in <module>
+    from .factories import *
+halotools/empirical_models/factories/__init__.py:7: in <module>
+    from .hod_mock_factory import *
+halotools/empirical_models/factories/hod_mock_factory.py:20: in <module>
+    from ...sim_manager import sim_defaults
+halotools/sim_manager/__init__.py:19: in <module>
+    from .fake_sim import FakeSim
+halotools/sim_manager/fake_sim.py:10: in <module>
+    from .user_supplied_halo_catalog import UserSuppliedHaloCatalog
+halotools/sim_manager/user_supplied_halo_catalog.py:12: in <module>
+    from .halo_table_cache import HaloTableCache
+halotools/sim_manager/halo_table_cache.py:15: in <module>
+    from .halo_table_cache_log_entry import HaloTableCacheLogEntry
+halotools/sim_manager/halo_table_cache_log_entry.py:7: in <module>
+    from ..utils.python_string_comparisons import _passively_decode_string, compare_strings_py23_safe
+halotools/utils/__init__.py:16: in <module>
+    from .conditional_percentile import sliding_conditional_percentile
+halotools/utils/conditional_percentile.py:9: in <module>
+    from .engines import cython_conditional_rank_kernel
+halotools/utils/engines/__init__.py:1: in <module>
+    from .conditional_rank_kernel import cython_conditional_rank_kernel
+E   ModuleNotFoundError: No module named 'halotools.utils.engines.conditional_rank_kernel'
+_ ERROR collecting halotools/empirical_models/abunmatch/conditional_abunmatch_bin_based.py _
+/usr/local/lib/python
+... (28594 lines omitted)
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

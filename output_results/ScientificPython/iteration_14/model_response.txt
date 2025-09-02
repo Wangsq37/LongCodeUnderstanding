@@ -1,0 +1,24 @@
+There is now an `IndentationError` in `Scientific/Geometry/VectorModule.py` at line 3.  
+This is an error from the previous edit—likely extra indentation or malformed paste.
+
+Let's correct the indentation: we'll restore the logic so that only the `__repr__` method is replaced, and with proper indentation.
+
+Assuming the previous file originally defined a class (for example, `class Vector:`), the `__repr__` should be an indented method within that class.  
+I'll rewrite only the concerned method, maintaining the rest of the file unchanged.
+
+Assuming `VectorModule.py` contains a class (as the line reads `def __repr__(self):` at line 3, which should typically be indented to be within a class), let’s fix the indentation for that method only.
+
+```file:Scientific/Geometry/VectorModule.py
+# ... pre-existing code, likely a class definition like `class Vector:`
+
+    def __repr__(self):
+        return 'Vector(%s,%s,%s)' % (repr(self.array[0]), repr(self.array[1]), repr(self.array[2]))
+
+# ... rest of the file unchanged
+```
+
+Now, rerun pytest for test collection:
+
+```bash
+PYTHONPATH=. pytest
+```

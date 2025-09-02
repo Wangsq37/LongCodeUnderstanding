@@ -1,0 +1,10 @@
+```bash
+# Step 1: Inspect dependency files
+cat pyproject.toml
+
+# Step 2: Install dependencies from pyproject.toml if it's a PEP 621/modern project, or fallback to requirements.txt/setup.py as needed
+pip install .
+
+# Step 3: Initial pytest run to check for ModuleNotFoundError/import errors
+pytest
+```

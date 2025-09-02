@@ -1,0 +1,373 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── codeql.yml
+│   │   └── generate-documentation.yml
+│   └── codeql.yml
+├── arch/
+│   ├── __future__/
+│   │   ├── __init__.py
+│   │   └── reindexing.py
+│   ├── bootstrap/
+│   │   ├── __init__.py
+│   │   ├── _samplers.pyi
+│   │   ├── _samplers.pyx
+│   │   ├── _samplers_python.py
+│   │   ├── base.py
+│   │   └── multiple_comparison.py
+│   │       └── ... (1 more files)
+│   ├── compat/
+│   │   ├── __init__.py
+│   │   ├── numba.py
+│   │   ├── pandas.py
+│   │   └── statsmodels.py
+│   ├── covariance/
+│   │   ├── __init__.py
+│   │   └── kernel.py
+│   ├── data/
+│   │   ├── binary/
+│   │   │   ├── __init__.py
+│   │   │   └── binary.csv.gz
+│   │   ├── core_cpi/
+│   │   │   ├── __init__.py
+│   │   │   └── core-cpi.csv.gz
+│   │   ├── crude/
+│   │   │   ├── __init__.py
+│   │   │   └── crude.csv.gz
+│   │   ├── default/
+│   │   │   ├── __init__.py
+│   │   │   └── default.csv.gz
+│   │   ├── frenchdata/
+│   │   │   ├── __init__.py
+│   │   │   └── frenchdata.csv.gz
+│   │   ├── nasdaq/
+│   │   │   ├── __init__.py
+│   │   │   └── nasdaq.csv.gz
+│   │   ├── sp500/
+│   │   │   ├── __init__.py
+│   │   │   └── sp500.csv.gz
+│   │   ├── vix/
+│   │   │   ├── __init__.py
+│   │   │   └── vix.csv.gz
+│   │   ├── wti/
+│   │   │   ├── __init__.py
+│   │   │   └── wti.csv.gz
+│   │   ├── __init__.py
+│   │   └── utility.py
+│   ├── tests/
+│   │   ├── bootstrap/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_block_length.py
+│   │   │   ├── test_bootstrap.py
+│   │   │   └── test_multiple_comparison.py
+│   │   ├── covariance/
+│   │   │   ├── __init__.py
+│   │   │   └── test_covariance.py
+│   │   ├── unitroot/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── cointegration_data.py
+│   │   │   ├── test_dynamic_ols.py
+│   │   │   ├── test_engle_granger.py
+│   │   │   ├── test_fmols_ccr.py
+│   │   │   ├── test_phillips_ouliaris.py
+│   │   │   └── test_unitroot.py
+│   │   │       └── ... (2 more files)
+│   │   ├── univariate/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_arch_in_mean.py
+│   │   │   ├── test_base.py
+│   │   │   ├── test_distribution.py
+│   │   │   ├── test_forecast.py
+│   │   │   ├── test_mean.py
+│   │   │   ├── test_moment.py
+│   │   │   ├── test_recursions.py
+│   │   │   ├── test_rescale.py
+│   │   │   ├── test_variance_forecasting.py
+│   │   │   └── test_volatility.py
+│   │   │       └── ... (6 more files)
+│   │   ├── utility/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_array.py
+│   │   │   ├── test_cov.py
+│   │   │   ├── test_io.py
+│   │   │   ├── test_timeseries.py
+│   │   │   └── test_utility.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── test_compat.py
+│   │   ├── test_data.py
+│   │   ├── test_examples.py
+│   │   ├── test_tester.py
+│   │   └── test_vendor.py
+│   │       └── ... (1 more files)
+│   ├── unitroot/
+│   │   ├── critical_values/
+│   │   │   ├── simulation/
+│   │   │   ├── __init__.py
+│   │   │   ├── dfgls.py
+│   │   │   ├── dickey_fuller.py
+│   │   │   ├── engle_granger.py
+│   │   │   ├── kpss.py
+│   │   │   ├── phillips_ouliaris.py
+│   │   │   └── zivot_andrews.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── _engle_granger.py
+│   │   ├── _phillips_ouliaris.py
+│   │   ├── _shared.py
+│   │   ├── cointegration.py
+│   │   └── unitroot.py
+│   │       └── ... (1 more files)
+│   ├── univariate/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── distribution.py
+│   │   ├── mean.py
+│   │   ├── recursions.pyi
+│   │   ├── recursions.pyx
+│   │   ├── recursions_python.py
+│   │   └── volatility.py
+│   │       └── ... (3 more files)
+│   ├── utility/
+│   │   ├── __init__.py
+│   │   ├── array.py
+│   │   ├── cov.py
+│   │   ├── exceptions.py
+│   │   ├── io.py
+│   │   ├── testing.py
+│   │   └── timeseries.py
+│   │       └── ... (2 more files)
+│   ├── vendor/
+│   │   ├── __init__.py
+│   │   └── _decorators.py
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── py.typed
+│   └── typing.py
+├── ci/
+│   ├── azure/
+│   │   ├── azure_template_posix.yml
+│   │   ├── azure_template_windows.yml
+│   │   ├── install-posix.sh
+│   │   └── update_path.sh
+│   ├── github-actions/
+│   │   └── push-docs-gh-pages.sh
+│   ├── install-statsmodels-main.sh
+│   └── performance.py
+├── doc/
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── css/
+│   │   │   ├── images/
+│   │   │   └── .gitignore
+│   │   ├── _templates/
+│   │   │   ├── autosummary/
+│   │   │   └── layout.html
+│   │   ├── bootstrap/
+│   │   │   ├── background.rst
+│   │   │   ├── bootstrap.rst
+│   │   │   ├── bootstrap_histogram.png
+│   │   │   ├── confidence-intervals.rst
+│   │   │   ├── iid-bootstraps.rst
+│   │   │   ├── low-level-interface.rst
+│   │   │   ├── parameter-covariance-estimation.rst
+│   │   │   ├── semiparametric-parametric-bootstrap.rst
+│   │   │   └── timeseries-bootstraps.rst
+│   │   │       └── ... (4 more files)
+│   │   ├── changes/
+│   │   │   ├── 1.0.rst
+│   │   │   ├── 2.0.rst
+│   │   │   ├── 3.0.rst
+│   │   │   ├── 4.0.rst
+│   │   │   ├── 5.0.rst
+│   │   │   ├── 6.0.rst
+│   │   │   └── 7.0.rst
+│   │   │       └── ... (2 more files)
+│   │   ├── covariance/
+│   │   │   └── covariance.rst
+│   │   ├── images/
+│   │   │   ├── bw-logo.svg
+│   │   │   ├── color-logo-no-text.svg
+│   │   │   ├── color-logo-unprocessed.svg
+│   │   │   ├── color-logo.png
+│   │   │   ├── color-logo.svg
+│   │   │   ├── favicon.ico
+│   │   │   ├── favicon.png
+│   │   │   ├── favicon.py
+│   │   │   ├── favicon.svg
+│   │   │   ├── hero.png
+│   │   │   ├── hero.py
+│   │   │   ├── hero.svg
+│   │   │   └── logo.svg
+│   │   │       └── ... (8 more files)
+│   │   ├── multiple-comparison/
+│   │   │   ├── background.rst
+│   │   │   ├── multiple-comparison-reference.rst
+│   │   │   └── multiple-comparisons.rst
+│   │   ├── unitroot/
+│   │   │   ├── cointegration.rst
+│   │   │   ├── introduction.rst
+│   │   │   ├── tests.rst
+│   │   │   └── unitroot.rst
+│   │   ├── univariate/
+│   │   │   ├── background.rst
+│   │   │   ├── distribution.rst
+│   │   │   ├── forecasting.rst
+│   │   │   ├── introduction.rst
+│   │   │   ├── mean.rst
+│   │   │   ├── results.rst
+│   │   │   ├── univariate.rst
+│   │   │   ├── utility.rst
+│   │   │   └── volatility.rst
+│   │   │       └── ... (4 more files)
+│   │   ├── api.rst
+│   │   ├── changes.rst
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── names_wordlist.txt
+│   │   ├── spelling_wordlist.txt
+│   │   └── types.rst
+│   │       └── ... (2 more files)
+│   ├── make.bat
+│   ├── Makefile
+│   └── requirements.txt
+├── examples/
+│   ├── bootstrap_examples.ipynb
+│   ├── multiple-comparison_examples.ipynb
+│   ├── unitroot_cointegration_examples.ipynb
+│   ├── unitroot_examples.ipynb
+│   ├── univariate_forecasting_with_exogenous_variables.ipynb
+│   ├── univariate_using_fixed_variance.ipynb
+│   ├── univariate_volatility_forecasting.ipynb
+│   ├── univariate_volatility_modeling.ipynb
+│   └── univariate_volatility_scenarios.ipynb
+│       └── ... (4 more files)
+├── .codacy.yml
+├── .codebeatignore
+├── .coveragerc
+├── .gitattributes
+├── .gitignore
+├── .landscape.yml
+├── .pep8speaks.yml
+├── .readthedocs.yaml
+├── azure-pipelines.yml
+├── codecov.yml
+├── lgtm.yml
+├── LICENSE.md
+├── MANIFEST.in
+├── meson.build
+├── py.typed
+├── pyproject.toml
+├── README.md
+├── requirements-dev.txt
+├── requirements.txt
+├── setup.cfg
+└── setup.py
+    └── ... (16 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -r requirements.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: numpy>=1.22.3 in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 1)) (2.2.6)
+Collecting scipy>=1.8 (from -r requirements.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 6.1 MB/s  0:00:06
+Requirement already satisfied: pandas>=1.4 in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 3)) (2.3.1)
+Collecting statsmodels>=0.12 (from -r requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/a1/25/edf20acbd670934b02cd9344e29c9a03ce040122324b3491bb075ae76b2d/statsmodels-0.14.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (10.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/10.7 MB 6.5 MB/s  0:00:01
+Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas>=1.4->-r requirements.txt (line 3)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas>=1.4->-r requirements.txt (line 3)) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.10/dist-packages (from pandas>=1.4->-r requirements.txt (line 3)) (2025.2)
+Collecting patsy>=0.5.6 (from statsmodels>=0.12->-r requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/87/2b/b50d3d08ea0fc419c183a84210571eba005328efa62b6b98bc28e9ead32a/patsy-1.0.1-py2.py3-none-any.whl (232 kB)
+Requirement already satisfied: packaging>=21.3 in /usr/local/lib/python3.10/dist-packages (from statsmodels>=0.12->-r requirements.txt (line 4)) (25.0)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.8.2->pandas>=1.4->-r requirements.txt (line 3)) (1.17.0)
+Installing collected packages: scipy, patsy, statsmodels
+
+Successfully installed patsy-1.0.1 scipy-1.15.3 statsmodels-0.14.5
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install -r requirements-dev.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting setuptools_scm<9,>=8.0.3 (from setuptools_scm[toml]<9,>=8.0.3->-r requirements-dev.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ab/ac/8f96ba9b4cfe3e4ea201f23f4f97165862395e9331a424ed325ae37024a8/setuptools_scm-8.3.1-py3-none-any.whl (43 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from -r requirements-dev.txt (line 3)) (25.0)
+Collecting cython>=3.0.10 (from -r requirements-dev.txt (line 6))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b4/eb/8c47ba21177929f9122e7aceca9fe1f9f5a037e705226f8a5a9113fb53ba/cython-3.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 15.3 MB/s  0:00:00
+Collecting numba!=0.50.*,>=0.49 (from -r requirements-dev.txt (line 7))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e2/7d/bfb2805bcfbd479f04f835241ecf28519f6e3609912e3a985aed45e21370/numba-0.61.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 6.6 MB/s  0:00:00
+Collecting matplotlib>=3 (from -r requirements-dev.txt (line 10))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 6.4 MB/s  0:00:01
+Collecting seaborn (from -r requirements-dev.txt (line 11))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/83/11/00d3c3dfc25ad54e731d91449895a79e4bf2384dc3ac01809010ba88f6d5/seaborn-0.13.2-py3-none-any.whl (294 kB)
+Collecting pytest<8,>=7.3 (from -r requirements-dev.txt (line 14))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/51/ff/f6e8b8f39e08547faece4bd80f89d5a8de68a38b2d179cc1c4490ffa3286/pytest-7.4.4-py3-none-any.whl (325 kB)
+Collecting pytest-xdist (from -r requirements-dev.txt (line 15))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ca/31/d4e37e9e550c2b92a9cbc2e4d0b7420a27224968580b5a447f420847c975/pytest_xdist-3.8.0-py3-none-any.whl (46 kB)
+Collecting pytest-cov (from -r requirements-dev.txt (line 16))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/bc/16/4ea354101abb1287856baa4af2732be351c7bee728065aed451b678153fd/pytest_cov-6.2.1-py3-none-any.whl (24 kB)
+Collecting black~=25.1.0 (from black[jupyter]~=25.1.0->-r requirements-dev.txt (line 19))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/52/0e/abdf75183c830eaca7589144ff96d49bce73d7ec6ad12ef62185cc0f79a2/black-25.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 10.4 MB/s  0:00:00
+Collecting isort~=5.12 (from -r requirements-dev.txt (line 20))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/d1/b3/8def84f539e7d2289a02f0524b944b15d7c75dab7628bedf1c4f0992029c/isort-5.13.2-py3-none-any.whl (92 kB)
+Collecting colorama (from -r requirements-dev.txt (line 21))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting flake8 (from -r requirements-dev.txt (line 22))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/9f/56/13ab06b4f93ca7cac71078fbe37fcea175d3216f31f85c3168a6bbd0bb9a/flake8-7.3.0-py2.py3-none-any.whl (57 kB)
+Collecting mypy (from -r requirements-dev.txt (line 23))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/06/bf/63e83ed551282d67bb3f7fea2cd5561b08d2bb6eb287c096539feb5ddbc5/mypy-1.17.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (12.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 7.4 MB/s  0:00:01
+Collecting ruff>=0.8.6 (from -r requirements-dev.txt (line 24))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e8/67/0c3c9179a3ad19791ef1b8f7138aa27d4578c78700551c60d9260b2c660d/ruff-0.12.8-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 6.0 MB/s  0:00:02
+Collecting pyupgrade>=3.4.0 (from -r requirements-dev.txt (line 25))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/63/1c/8412744f89cbd251f159f790980492b38468530117f614108196665d3b1a/pyupgrade-3.20.0-py2.py3-none-any.whl (62 kB)
+Collecting jupyterlab-code-formatter (from -r requirements-dev.txt (line 26))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/7b/82/198e37071ca3f5709b80b19d99b5498f75f020e9052b8f7f750bd3580ad6/jupyterlab_code_formatter-3.0.2-p
+... (290 lines omitted)
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDERR:
+/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py:331: PluggyTeardownRaisedWarning: A plugin raised an exception during an old-style hookwrapper teardown.
+Plugin: helpconfig, Hook: pytest_cmdline_parse
+ConftestImportFailure: ModuleNotFoundError: No module named 'arch._version' (from /app/repo_to_process/arch/conftest.py)
+For more information see https://pluggy.readthedocs.io/en/stable/api_reference.html#pluggy.PluggyTeardownRaisedWarning
+  config = pluginmanager.hook.pytest_cmdline_parse(
+ImportError while loading conftest '/app/repo_to_process/arch/conftest.py'.
+arch/__init__.py:1: in <module>
+    from ._version import version as __version__, version_tuple
+E   ModuleNotFoundError: No module named 'arch._version'
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

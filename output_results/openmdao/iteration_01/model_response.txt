@@ -1,0 +1,10 @@
+```bash
+# 1. Inspect dependency file
+cat pyproject.toml
+
+# 2. Try pip install from pyproject.toml, which should have the main requirements for OpenMDAO and its test suite.
+pip install .
+
+# 3. Try running pytest to see if dependencies are satisfied
+pytest
+```

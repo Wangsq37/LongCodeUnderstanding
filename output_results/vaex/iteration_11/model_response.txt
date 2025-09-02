@@ -1,0 +1,5 @@
+```bash
+pip install -e packages/vaex
+pip install -e packages/vaex-viz
+pytest
+```

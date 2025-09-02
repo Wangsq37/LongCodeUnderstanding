@@ -1,0 +1,22 @@
+```bash
+# 1. Find and install dependencies for this monorepo-style (multi-package) project.
+# Priority: main repo, and all under packages/
+# First, check main requirements files
+pip install -r binder/requirements.txt || true
+# Next, install all main packages using their setup.py (many "vaex-*" subpackages)
+pip install -e packages/vaex-core
+pip install -e packages/vaex
+pip install -e packages/vaex-arrow
+pip install -e packages/vaex-astro
+pip install -e packages/vaex-contrib
+pip install -e packages/vaex-graphql
+pip install -e packages/vaex-hdf5
+pip install -e packages/vaex-jupyter
+pip install -e packages/vaex-ml
+pip install -e packages/vaex-server
+pip install -e packages/vaex-ui
+pip install -e packages/vaex-viz
+
+# 2. Run pytest, so we can see if anything is missing
+pytest
+```

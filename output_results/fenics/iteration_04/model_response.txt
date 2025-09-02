@@ -1,0 +1,9 @@
+```bash
+# The editable pip install failed due to missing 'fenics-basix>=0.10.0.dev0', which is required to use 'dolfinx'.
+# Try installing the latest available fenics-basix via pip, even if it is not the .dev0 version.
+pip install fenics-basix
+# Then retry installing the python package in editable mode.
+pip install -e ./python
+# Then run pytest again.
+pytest
+```

@@ -1,0 +1,16 @@
+```bash
+# Inspect dependency files
+cat pyproject.toml
+cat requirements.txt || true
+cat .readthedocs-requirements.txt || true
+cat joblib/test/_openmp_test_helper/setup.py || true
+
+# Install main dependencies from pyproject.toml if it declares them
+# Try requirements.txt if it exists as well
+pip install .
+pip install -r requirements.txt || true
+pip install -r .readthedocs-requirements.txt || true
+
+# Run pytest and capture output to check for missing dependencies or collection errors
+pytest
+```

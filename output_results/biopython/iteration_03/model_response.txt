@@ -1,0 +1,22 @@
+The critical error blocking the build and imports is:
+
+```
+Bio/Align/_aligncore.c:9:10: fatal error: Python.h: No such file or directory
+#include <Python.h>
+compilation terminated.
+error: command '/usr/bin/x86_64-linux-gnu-gcc' failed with exit code 1
+```
+
+This means the Python development headers (needed for building C extensions) are missing.
+
+**Next step:**  
+Install the Python development headers. For Python 3.10 on Debian/Ubuntu, the package is `python3.10-dev`.
+
+```bash
+pip install Cython
+apt-get update && apt-get install -y python3.10-dev
+pip install --editable .
+pytest
+```
+
+If the above doesn't resolve import errors, I will fallback to manually setting the `PYTHONPATH`. But first, let's try installing the development headers and see if the C extensions build and `Bio` is importable.

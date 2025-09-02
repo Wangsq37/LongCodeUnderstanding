@@ -1,0 +1,2245 @@
+08/27/2025 22:25:54 - INFO - [geopandas] - 正在为仓库 'geopandas' 启动并准备容器 'agent-run-geopandas'...
+08/27/2025 22:25:56 - INFO - [geopandas] - 容器 'agent-run-geopandas' 已就绪。
+08/27/2025 22:25:56 - INFO - [geopandas] - --- 开始评估组合: ORIGINAL / ORACLE for repo geopandas ---
+08/27/2025 22:25:56 - INFO - [geopandas] - --- 正在处理任务 1/82: geopandas_0 ---
+08/27/2025 22:25:56 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_create_metadata'): invalid syntax (<unknown>, line 6)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 6
+    assert (metadata['version'] == 1.0.0)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 22:25:56 - ERROR - [geopandas] -   任务 geopandas_0 的代码注入失败，计为执行失败。
+08/27/2025 22:25:56 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_create_metadata'): invalid syntax (<unknown>, line 6)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 6
+    assert (metadata['version'] == 1.0.0)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 22:25:56 - ERROR - [geopandas] -   任务 geopandas_0 的代码注入失败，计为执行失败。
+08/27/2025 22:25:58 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 22:26:00 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 22:26:01 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 22:26:01 - INFO - [geopandas] - --- 正在处理任务 2/82: geopandas_1 ---
+08/27/2025 22:26:03 - WARNING - [geopandas] -   [失败] 任务 geopandas_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:05 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 22:26:06 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 22:26:08 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 22:26:09 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 22:26:10 - INFO - [geopandas] - --- 正在处理任务 3/82: geopandas_10 ---
+08/27/2025 22:26:10 - WARNING - [geopandas] -   任务 geopandas_10 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:26:10 - WARNING - [geopandas] -   任务 geopandas_10 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:26:10 - WARNING - [geopandas] -   任务 geopandas_10 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:26:10 - WARNING - [geopandas] -   任务 geopandas_10 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:26:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_10 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:12 - INFO - [geopandas] - --- 正在处理任务 4/82: geopandas_11 ---
+08/27/2025 22:26:12 - WARNING - [geopandas] -   任务 geopandas_11 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:26:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_11 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_11 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_11 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:18 - WARNING - [geopandas] -   任务 geopandas_11 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:26:18 - INFO - [geopandas] - --- 正在处理任务 5/82: geopandas_12 ---
+08/27/2025 22:26:19 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 22:26:21 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 22:26:22 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 22:26:24 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 22:26:25 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 22:26:25 - INFO - [geopandas] - --- 正在处理任务 6/82: geopandas_13 ---
+08/27/2025 22:26:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_13 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:29 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 22:26:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_13 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_13 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_13 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:35 - INFO - [geopandas] - --- 正在处理任务 7/82: geopandas_14 ---
+08/27/2025 22:26:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:45 - INFO - [geopandas] - --- 正在处理任务 8/82: geopandas_15 ---
+08/27/2025 22:26:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_15 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:49 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 22:26:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_15 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_15 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:26:57 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 22:26:57 - INFO - [geopandas] - --- 正在处理任务 9/82: geopandas_159 ---
+08/27/2025 22:26:58 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:27:00 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:27:01 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:27:02 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:27:03 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:27:04 - INFO - [geopandas] - --- 正在处理任务 10/82: geopandas_16 ---
+08/27/2025 22:27:06 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:27:08 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:27:11 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:27:13 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:27:15 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:27:16 - INFO - [geopandas] - --- 正在处理任务 11/82: geopandas_160 ---
+08/27/2025 22:27:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_160 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_160 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_160 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_160 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:24 - WARNING - [geopandas] -   [失败] 任务 geopandas_160 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:24 - INFO - [geopandas] - --- 正在处理任务 12/82: geopandas_161 ---
+08/27/2025 22:27:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_161 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_161 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_161 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_161 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_161 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:33 - INFO - [geopandas] - --- 正在处理任务 13/82: geopandas_17 ---
+08/27/2025 22:27:35 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:27:38 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:27:40 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:27:43 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:27:45 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:27:45 - INFO - [geopandas] - --- 正在处理任务 14/82: geopandas_18 ---
+08/27/2025 22:27:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:27:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:01 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:01 - INFO - [geopandas] - --- 正在处理任务 15/82: geopandas_19 ---
+08/27/2025 22:28:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_19 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_19 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_19 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_19 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_19 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:27 - INFO - [geopandas] - --- 正在处理任务 16/82: geopandas_2 ---
+08/27/2025 22:28:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:32 - INFO - [geopandas] -   [成功] 任务 geopandas_2 测试通过。
+08/27/2025 22:28:34 - INFO - [geopandas] -   [成功] 任务 geopandas_2 测试通过。
+08/27/2025 22:28:36 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:36 - INFO - [geopandas] - --- 正在处理任务 17/82: geopandas_21 ---
+08/27/2025 22:28:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:47 - INFO - [geopandas] - --- 正在处理任务 18/82: geopandas_22 ---
+08/27/2025 22:28:48 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:28:48 - WARNING - [geopandas] -   任务 geopandas_22 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:28:50 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:28:51 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:28:53 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:28:53 - INFO - [geopandas] - --- 正在处理任务 19/82: geopandas_23 ---
+08/27/2025 22:28:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:28:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:03 - INFO - [geopandas] -   [成功] 任务 geopandas_23 测试通过。
+08/27/2025 22:29:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:06 - INFO - [geopandas] - --- 正在处理任务 20/82: geopandas_24 ---
+08/27/2025 22:29:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:17 - INFO - [geopandas] - --- 正在处理任务 21/82: geopandas_25 ---
+08/27/2025 22:29:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_25 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:21 - WARNING - [geopandas] -   [失败] 任务 geopandas_25 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:24 - WARNING - [geopandas] -   [失败] 任务 geopandas_25 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:24 - WARNING - [geopandas] -   任务 geopandas_25 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:29:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_25 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:26 - INFO - [geopandas] - --- 正在处理任务 22/82: geopandas_26 ---
+08/27/2025 22:29:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_26 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_26 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_26 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_26 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_26 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:37 - INFO - [geopandas] - --- 正在处理任务 23/82: geopandas_27 ---
+08/27/2025 22:29:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_27 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_27 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_27 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_27 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_27 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:49 - INFO - [geopandas] - --- 正在处理任务 24/82: geopandas_28 ---
+08/27/2025 22:29:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_28 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:51 - WARNING - [geopandas] -   任务 geopandas_28 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:29:51 - WARNING - [geopandas] -   任务 geopandas_28 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:29:51 - WARNING - [geopandas] -   任务 geopandas_28 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:29:51 - WARNING - [geopandas] -   任务 geopandas_28 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:29:51 - INFO - [geopandas] - --- 正在处理任务 25/82: geopandas_29 ---
+08/27/2025 22:29:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_29 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:53 - WARNING - [geopandas] -   任务 geopandas_29 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:29:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_29 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:29:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_29 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_29 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:00 - INFO - [geopandas] - --- 正在处理任务 26/82: geopandas_3 ---
+08/27/2025 22:30:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:10 - WARNING - [geopandas] -   [失败] 任务 geopandas_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:11 - INFO - [geopandas] - --- 正在处理任务 27/82: geopandas_30 ---
+08/27/2025 22:30:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_30 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_30 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_30 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_30 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:21 - WARNING - [geopandas] -   [失败] 任务 geopandas_30 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:21 - INFO - [geopandas] - --- 正在处理任务 28/82: geopandas_31 ---
+08/27/2025 22:30:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:32 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:32 - INFO - [geopandas] - --- 正在处理任务 29/82: geopandas_32 ---
+08/27/2025 22:30:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_32 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:36 - WARNING - [geopandas] -   [失败] 任务 geopandas_32 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_32 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_32 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_32 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:43 - INFO - [geopandas] - --- 正在处理任务 30/82: geopandas_324 ---
+08/27/2025 22:30:43 - WARNING - [geopandas] -   任务 geopandas_324 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:30:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_324 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:45 - WARNING - [geopandas] -   任务 geopandas_324 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:30:45 - WARNING - [geopandas] -   任务 geopandas_324 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:30:45 - WARNING - [geopandas] -   任务 geopandas_324 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:30:45 - INFO - [geopandas] - --- 正在处理任务 31/82: geopandas_325 ---
+08/27/2025 22:30:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_325 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_325 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_325 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_325 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_325 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:53 - INFO - [geopandas] - --- 正在处理任务 32/82: geopandas_326 ---
+08/27/2025 22:30:53 - WARNING - [geopandas] -   任务 geopandas_326 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:30:53 - WARNING - [geopandas] -   任务 geopandas_326 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:30:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_326 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:55 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_doc_template_from_func'): invalid syntax (<unknown>, line 4)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 4
+    assert (cummax_aug.__doc__ == This is the cummax method.\n\nIt computes the cumulative maximum.\n)
+                                              ^
+SyntaxError: invalid syntax
+08/27/2025 22:30:55 - ERROR - [geopandas] -   任务 geopandas_326 的代码注入失败，计为执行失败。
+08/27/2025 22:30:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_326 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:57 - INFO - [geopandas] - --- 正在处理任务 33/82: geopandas_327 ---
+08/27/2025 22:30:57 - WARNING - [geopandas] -   任务 geopandas_327 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:30:57 - WARNING - [geopandas] -   任务 geopandas_327 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:30:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_327 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:30:59 - WARNING - [geopandas] -   任务 geopandas_327 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:31:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_327 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:01 - INFO - [geopandas] - --- 正在处理任务 34/82: geopandas_371 ---
+08/27/2025 22:31:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_371 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_371 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_371 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_371 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:10 - WARNING - [geopandas] -   [失败] 任务 geopandas_371 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:10 - INFO - [geopandas] - --- 正在处理任务 35/82: geopandas_372 ---
+08/27/2025 22:31:12 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 22:31:13 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 22:31:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_372 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:17 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 22:31:18 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 22:31:18 - INFO - [geopandas] - --- 正在处理任务 36/82: geopandas_373 ---
+08/27/2025 22:31:19 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 22:31:21 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 22:31:22 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 22:31:24 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 22:31:25 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 22:31:25 - INFO - [geopandas] - --- 正在处理任务 37/82: geopandas_374 ---
+08/27/2025 22:31:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_374 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_374 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_374 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_374 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_374 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:35 - INFO - [geopandas] - --- 正在处理任务 38/82: geopandas_375 ---
+08/27/2025 22:31:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_375 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_375 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_375 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_375 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_375 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:45 - INFO - [geopandas] - --- 正在处理任务 39/82: geopandas_376 ---
+08/27/2025 22:31:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_376 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_376 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_376 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_376 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_376 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:31:54 - INFO - [geopandas] - --- 正在处理任务 40/82: geopandas_377 ---
+08/27/2025 22:31:56 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:31:57 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:31:59 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:32:00 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:32:02 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:32:02 - INFO - [geopandas] - --- 正在处理任务 41/82: geopandas_378 ---
+08/27/2025 22:32:04 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:32:05 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:32:07 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:32:08 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:32:10 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:32:10 - INFO - [geopandas] - --- 正在处理任务 42/82: geopandas_4 ---
+08/27/2025 22:32:11 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:32:13 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:32:14 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:32:16 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:32:17 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:32:17 - INFO - [geopandas] - --- 正在处理任务 43/82: geopandas_5 ---
+08/27/2025 22:32:19 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:32:20 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:32:22 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:32:23 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:32:25 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:32:25 - INFO - [geopandas] - --- 正在处理任务 44/82: geopandas_519 ---
+08/27/2025 22:32:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_519 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_519 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_519 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:32 - WARNING - [geopandas] -   [失败] 任务 geopandas_519 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_519 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:34 - INFO - [geopandas] - --- 正在处理任务 45/82: geopandas_520 ---
+08/27/2025 22:32:36 - WARNING - [geopandas] -   [失败] 任务 geopandas_520 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_520 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_520 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_520 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_520 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:44 - INFO - [geopandas] - --- 正在处理任务 46/82: geopandas_521 ---
+08/27/2025 22:32:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_521 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_521 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_521 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_521 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:32:51 - WARNING - [geopandas] -   任务 geopandas_521 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:32:51 - INFO - [geopandas] - --- 正在处理任务 47/82: geopandas_522 ---
+08/27/2025 22:32:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:32:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:32:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:32:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:32:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:32:59 - INFO - [geopandas] - --- 正在处理任务 48/82: geopandas_523 ---
+08/27/2025 22:33:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:33:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:33:03 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:33:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:33:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:33:06 - INFO - [geopandas] - --- 正在处理任务 49/82: geopandas_6 ---
+08/27/2025 22:33:06 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_create_metadata'): invalid syntax (<unknown>, line 20)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 20
+    assert (metadata['version'] == 1.1.0)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 22:33:06 - ERROR - [geopandas] -   任务 geopandas_6 的代码注入失败，计为执行失败。
+08/27/2025 22:33:08 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 22:33:09 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 22:33:11 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 22:33:12 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 22:33:12 - INFO - [geopandas] - --- 正在处理任务 50/82: geopandas_630 ---
+08/27/2025 22:33:14 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:21 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:23 - INFO - [geopandas] - --- 正在处理任务 51/82: geopandas_631 ---
+08/27/2025 22:33:24 - INFO - [geopandas] -   [成功] 任务 geopandas_631 测试通过。
+08/27/2025 22:33:26 - INFO - [geopandas] -   [成功] 任务 geopandas_631 测试通过。
+08/27/2025 22:33:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:34 - INFO - [geopandas] - --- 正在处理任务 52/82: geopandas_632 ---
+08/27/2025 22:33:36 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:43 - INFO - [geopandas] -   [成功] 任务 geopandas_632 测试通过。
+08/27/2025 22:33:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:45 - INFO - [geopandas] - --- 正在处理任务 53/82: geopandas_633 ---
+08/27/2025 22:33:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_633 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_633 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:52 - INFO - [geopandas] -   [成功] 任务 geopandas_633 测试通过。
+08/27/2025 22:33:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_633 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:33:56 - INFO - [geopandas] -   [成功] 任务 geopandas_633 测试通过。
+08/27/2025 22:33:56 - INFO - [geopandas] - --- 正在处理任务 54/82: geopandas_634 ---
+08/27/2025 22:33:58 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:33:59 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:34:01 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:34:03 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:34:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_634 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:34:05 - INFO - [geopandas] - --- 正在处理任务 55/82: geopandas_635 ---
+08/27/2025 22:34:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_635 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:34:09 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:34:11 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:34:13 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:34:14 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:34:15 - INFO - [geopandas] - --- 正在处理任务 56/82: geopandas_641 ---
+08/27/2025 22:34:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:34:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:34:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:34:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:34:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:34:22 - INFO - [geopandas] - --- 正在处理任务 57/82: geopandas_642 ---
+08/27/2025 22:34:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:34:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:34:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:34:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:34:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:34:29 - INFO - [geopandas] - --- 正在处理任务 58/82: geopandas_7 ---
+08/27/2025 22:34:31 - INFO - [geopandas] -   [成功] 任务 geopandas_7 测试通过。
+08/27/2025 22:34:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:34:34 - INFO - [geopandas] -   [成功] 任务 geopandas_7 测试通过。
+08/27/2025 22:34:36 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:34:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:34:38 - INFO - [geopandas] - --- 正在处理任务 59/82: geopandas_78 ---
+08/27/2025 22:34:40 - INFO - [geopandas] -   [成功] 任务 geopandas_78 测试通过。
+08/27/2025 22:34:41 - INFO - [geopandas] -   [成功] 任务 geopandas_78 测试通过。
+08/27/2025 22:34:42 - INFO - [geopandas] -   [成功] 任务 geopandas_78 测试通过。
+08/27/2025 22:34:44 - INFO - [geopandas] -   [成功] 任务 geopandas_78 测试通过。
+08/27/2025 22:34:45 - INFO - [geopandas] -   [成功] 任务 geopandas_78 测试通过。
+08/27/2025 22:34:45 - INFO - [geopandas] - --- 正在处理任务 60/82: geopandas_79 ---
+08/27/2025 22:34:47 - INFO - [geopandas] -   [成功] 任务 geopandas_79 测试通过。
+08/27/2025 22:34:48 - INFO - [geopandas] -   [成功] 任务 geopandas_79 测试通过。
+08/27/2025 22:34:49 - INFO - [geopandas] -   [成功] 任务 geopandas_79 测试通过。
+08/27/2025 22:34:51 - INFO - [geopandas] -   [成功] 任务 geopandas_79 测试通过。
+08/27/2025 22:34:52 - INFO - [geopandas] -   [成功] 任务 geopandas_79 测试通过。
+08/27/2025 22:34:52 - INFO - [geopandas] - --- 正在处理任务 61/82: geopandas_8 ---
+08/27/2025 22:34:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:34:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:34:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:35:00 - INFO - [geopandas] -   [成功] 任务 geopandas_8 测试通过。
+08/27/2025 22:35:02 - INFO - [geopandas] -   [成功] 任务 geopandas_8 测试通过。
+08/27/2025 22:35:02 - INFO - [geopandas] - --- 正在处理任务 62/82: geopandas_80 ---
+08/27/2025 22:35:03 - INFO - [geopandas] -   [成功] 任务 geopandas_80 测试通过。
+08/27/2025 22:35:04 - INFO - [geopandas] -   [成功] 任务 geopandas_80 测试通过。
+08/27/2025 22:35:06 - INFO - [geopandas] -   [成功] 任务 geopandas_80 测试通过。
+08/27/2025 22:35:08 - INFO - [geopandas] -   [成功] 任务 geopandas_80 测试通过。
+08/27/2025 22:35:09 - INFO - [geopandas] -   [成功] 任务 geopandas_80 测试通过。
+08/27/2025 22:35:09 - INFO - [geopandas] - --- 正在处理任务 63/82: geopandas_81 ---
+08/27/2025 22:35:10 - INFO - [geopandas] -   [成功] 任务 geopandas_81 测试通过。
+08/27/2025 22:35:12 - INFO - [geopandas] -   [成功] 任务 geopandas_81 测试通过。
+08/27/2025 22:35:13 - INFO - [geopandas] -   [成功] 任务 geopandas_81 测试通过。
+08/27/2025 22:35:15 - INFO - [geopandas] -   [成功] 任务 geopandas_81 测试通过。
+08/27/2025 22:35:16 - INFO - [geopandas] -   [成功] 任务 geopandas_81 测试通过。
+08/27/2025 22:35:16 - INFO - [geopandas] - --- 正在处理任务 64/82: geopandas_82 ---
+08/27/2025 22:35:18 - INFO - [geopandas] -   [成功] 任务 geopandas_82 测试通过。
+08/27/2025 22:35:19 - INFO - [geopandas] -   [成功] 任务 geopandas_82 测试通过。
+08/27/2025 22:35:20 - INFO - [geopandas] -   [成功] 任务 geopandas_82 测试通过。
+08/27/2025 22:35:22 - INFO - [geopandas] -   [成功] 任务 geopandas_82 测试通过。
+08/27/2025 22:35:23 - INFO - [geopandas] -   [成功] 任务 geopandas_82 测试通过。
+08/27/2025 22:35:23 - INFO - [geopandas] - --- 正在处理任务 65/82: geopandas_83 ---
+08/27/2025 22:35:25 - INFO - [geopandas] -   [成功] 任务 geopandas_83 测试通过。
+08/27/2025 22:35:26 - INFO - [geopandas] -   [成功] 任务 geopandas_83 测试通过。
+08/27/2025 22:35:28 - INFO - [geopandas] -   [成功] 任务 geopandas_83 测试通过。
+08/27/2025 22:35:29 - INFO - [geopandas] -   [成功] 任务 geopandas_83 测试通过。
+08/27/2025 22:35:30 - INFO - [geopandas] -   [成功] 任务 geopandas_83 测试通过。
+08/27/2025 22:35:30 - INFO - [geopandas] - --- 正在处理任务 66/82: geopandas_84 ---
+08/27/2025 22:35:32 - INFO - [geopandas] -   [成功] 任务 geopandas_84 测试通过。
+08/27/2025 22:35:33 - INFO - [geopandas] -   [成功] 任务 geopandas_84 测试通过。
+08/27/2025 22:35:35 - INFO - [geopandas] -   [成功] 任务 geopandas_84 测试通过。
+08/27/2025 22:35:36 - INFO - [geopandas] -   [成功] 任务 geopandas_84 测试通过。
+08/27/2025 22:35:37 - INFO - [geopandas] -   [成功] 任务 geopandas_84 测试通过。
+08/27/2025 22:35:38 - INFO - [geopandas] - --- 正在处理任务 67/82: geopandas_85 ---
+08/27/2025 22:35:39 - INFO - [geopandas] -   [成功] 任务 geopandas_85 测试通过。
+08/27/2025 22:35:40 - INFO - [geopandas] -   [成功] 任务 geopandas_85 测试通过。
+08/27/2025 22:35:42 - INFO - [geopandas] -   [成功] 任务 geopandas_85 测试通过。
+08/27/2025 22:35:43 - INFO - [geopandas] -   [成功] 任务 geopandas_85 测试通过。
+08/27/2025 22:35:45 - INFO - [geopandas] -   [成功] 任务 geopandas_85 测试通过。
+08/27/2025 22:35:45 - INFO - [geopandas] - --- 正在处理任务 68/82: geopandas_86 ---
+08/27/2025 22:35:46 - INFO - [geopandas] -   [成功] 任务 geopandas_86 测试通过。
+08/27/2025 22:35:47 - INFO - [geopandas] -   [成功] 任务 geopandas_86 测试通过。
+08/27/2025 22:35:49 - INFO - [geopandas] -   [成功] 任务 geopandas_86 测试通过。
+08/27/2025 22:35:50 - INFO - [geopandas] -   [成功] 任务 geopandas_86 测试通过。
+08/27/2025 22:35:52 - INFO - [geopandas] -   [成功] 任务 geopandas_86 测试通过。
+08/27/2025 22:35:52 - INFO - [geopandas] - --- 正在处理任务 69/82: geopandas_87 ---
+08/27/2025 22:35:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:35:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:35:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:35:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:36:01 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:36:01 - INFO - [geopandas] - --- 正在处理任务 70/82: geopandas_88 ---
+08/27/2025 22:36:03 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:36:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:36:07 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:36:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:36:10 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:36:10 - INFO - [geopandas] - --- 正在处理任务 71/82: geopandas_89 ---
+08/27/2025 22:36:12 - INFO - [geopandas] -   [成功] 任务 geopandas_89 测试通过。
+08/27/2025 22:36:13 - INFO - [geopandas] -   [成功] 任务 geopandas_89 测试通过。
+08/27/2025 22:36:15 - INFO - [geopandas] -   [成功] 任务 geopandas_89 测试通过。
+08/27/2025 22:36:16 - INFO - [geopandas] -   [成功] 任务 geopandas_89 测试通过。
+08/27/2025 22:36:17 - INFO - [geopandas] -   [成功] 任务 geopandas_89 测试通过。
+08/27/2025 22:36:18 - INFO - [geopandas] - --- 正在处理任务 72/82: geopandas_9 ---
+08/27/2025 22:36:19 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:36:20 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:36:22 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:36:23 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:36:25 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:36:25 - INFO - [geopandas] - --- 正在处理任务 73/82: geopandas_90 ---
+08/27/2025 22:36:26 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:36:28 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:36:29 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:36:31 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:36:32 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:36:32 - INFO - [geopandas] - --- 正在处理任务 74/82: geopandas_91 ---
+08/27/2025 22:36:33 - INFO - [geopandas] -   [成功] 任务 geopandas_91 测试通过。
+08/27/2025 22:36:35 - INFO - [geopandas] -   [成功] 任务 geopandas_91 测试通过。
+08/27/2025 22:36:36 - INFO - [geopandas] -   [成功] 任务 geopandas_91 测试通过。
+08/27/2025 22:36:38 - INFO - [geopandas] -   [成功] 任务 geopandas_91 测试通过。
+08/27/2025 22:36:39 - INFO - [geopandas] -   [成功] 任务 geopandas_91 测试通过。
+08/27/2025 22:36:39 - INFO - [geopandas] - --- 正在处理任务 75/82: geopandas_92 ---
+08/27/2025 22:36:39 - WARNING - [geopandas] -   任务 geopandas_92 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:36:39 - WARNING - [geopandas] -   任务 geopandas_92 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:36:40 - INFO - [geopandas] -   [成功] 任务 geopandas_92 测试通过。
+08/27/2025 22:36:42 - INFO - [geopandas] -   [成功] 任务 geopandas_92 测试通过。
+08/27/2025 22:36:43 - INFO - [geopandas] -   [成功] 任务 geopandas_92 测试通过。
+08/27/2025 22:36:43 - INFO - [geopandas] - --- 正在处理任务 76/82: geopandas_93 ---
+08/27/2025 22:36:45 - INFO - [geopandas] -   [成功] 任务 geopandas_93 测试通过。
+08/27/2025 22:36:46 - INFO - [geopandas] -   [成功] 任务 geopandas_93 测试通过。
+08/27/2025 22:36:48 - INFO - [geopandas] -   [成功] 任务 geopandas_93 测试通过。
+08/27/2025 22:36:49 - INFO - [geopandas] -   [成功] 任务 geopandas_93 测试通过。
+08/27/2025 22:36:50 - INFO - [geopandas] -   [成功] 任务 geopandas_93 测试通过。
+08/27/2025 22:36:51 - INFO - [geopandas] - --- 正在处理任务 77/82: geopandas_94 ---
+08/27/2025 22:36:52 - INFO - [geopandas] -   [成功] 任务 geopandas_94 测试通过。
+08/27/2025 22:36:53 - INFO - [geopandas] -   [成功] 任务 geopandas_94 测试通过。
+08/27/2025 22:36:55 - INFO - [geopandas] -   [成功] 任务 geopandas_94 测试通过。
+08/27/2025 22:36:55 - WARNING - [geopandas] -   任务 geopandas_94 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:36:56 - INFO - [geopandas] -   [成功] 任务 geopandas_94 测试通过。
+08/27/2025 22:36:56 - INFO - [geopandas] - --- 正在处理任务 78/82: geopandas_95 ---
+08/27/2025 22:36:58 - INFO - [geopandas] -   [成功] 任务 geopandas_95 测试通过。
+08/27/2025 22:36:59 - INFO - [geopandas] -   [成功] 任务 geopandas_95 测试通过。
+08/27/2025 22:37:00 - INFO - [geopandas] -   [成功] 任务 geopandas_95 测试通过。
+08/27/2025 22:37:02 - INFO - [geopandas] -   [成功] 任务 geopandas_95 测试通过。
+08/27/2025 22:37:03 - INFO - [geopandas] -   [成功] 任务 geopandas_95 测试通过。
+08/27/2025 22:37:03 - INFO - [geopandas] - --- 正在处理任务 79/82: geopandas_96 ---
+08/27/2025 22:37:05 - INFO - [geopandas] -   [成功] 任务 geopandas_96 测试通过。
+08/27/2025 22:37:06 - INFO - [geopandas] -   [成功] 任务 geopandas_96 测试通过。
+08/27/2025 22:37:08 - INFO - [geopandas] -   [成功] 任务 geopandas_96 测试通过。
+08/27/2025 22:37:09 - INFO - [geopandas] -   [成功] 任务 geopandas_96 测试通过。
+08/27/2025 22:37:10 - INFO - [geopandas] -   [成功] 任务 geopandas_96 测试通过。
+08/27/2025 22:37:11 - INFO - [geopandas] - --- 正在处理任务 80/82: geopandas_97 ---
+08/27/2025 22:37:12 - INFO - [geopandas] -   [成功] 任务 geopandas_97 测试通过。
+08/27/2025 22:37:13 - INFO - [geopandas] -   [成功] 任务 geopandas_97 测试通过。
+08/27/2025 22:37:14 - INFO - [geopandas] -   [成功] 任务 geopandas_97 测试通过。
+08/27/2025 22:37:16 - INFO - [geopandas] -   [成功] 任务 geopandas_97 测试通过。
+08/27/2025 22:37:17 - INFO - [geopandas] -   [成功] 任务 geopandas_97 测试通过。
+08/27/2025 22:37:18 - INFO - [geopandas] - --- 正在处理任务 81/82: geopandas_98 ---
+08/27/2025 22:37:19 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 22:37:20 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 22:37:22 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 22:37:23 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 22:37:25 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 22:37:25 - INFO - [geopandas] - --- 正在处理任务 82/82: geopandas_99 ---
+08/27/2025 22:37:26 - INFO - [geopandas] -   [成功] 任务 geopandas_99 测试通过。
+08/27/2025 22:37:27 - INFO - [geopandas] -   [成功] 任务 geopandas_99 测试通过。
+08/27/2025 22:37:29 - INFO - [geopandas] -   [成功] 任务 geopandas_99 测试通过。
+08/27/2025 22:37:30 - INFO - [geopandas] -   [成功] 任务 geopandas_99 测试通过。
+08/27/2025 22:37:32 - INFO - [geopandas] -   [成功] 任务 geopandas_99 测试通过。
+08/27/2025 22:37:32 - INFO - [geopandas] - --- 开始评估组合: ORIGINAL / RETRIEVAL for repo geopandas ---
+08/27/2025 22:37:32 - INFO - [geopandas] - --- 正在处理任务 1/82: geopandas_0 ---
+08/27/2025 22:37:33 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 22:37:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:37:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:37:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:37:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:37:41 - INFO - [geopandas] - --- 正在处理任务 2/82: geopandas_1 ---
+08/27/2025 22:37:43 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 22:37:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:37:46 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 22:37:48 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 22:37:49 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 22:37:49 - INFO - [geopandas] - --- 正在处理任务 3/82: geopandas_10 ---
+08/27/2025 22:37:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_10 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:37:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_10 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:37:53 - WARNING - [geopandas] -   任务 geopandas_10 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:37:53 - WARNING - [geopandas] -   任务 geopandas_10 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:37:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_10 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:37:55 - INFO - [geopandas] - --- 正在处理任务 4/82: geopandas_11 ---
+08/27/2025 22:37:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_11 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:37:58 - WARNING - [geopandas] -   任务 geopandas_11 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:37:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_11 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_11 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_11 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:04 - INFO - [geopandas] - --- 正在处理任务 5/82: geopandas_12 ---
+08/27/2025 22:38:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_12 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_12 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:10 - WARNING - [geopandas] -   [失败] 任务 geopandas_12 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:10 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_crs_metadata_datum_ensemble'): invalid syntax (<unknown>, line 12)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 12
+    assert (pyproj.CRS(crs_json) == EPSG:4326)
+                                        ^
+SyntaxError: invalid syntax
+08/27/2025 22:38:10 - ERROR - [geopandas] -   任务 geopandas_12 的代码注入失败，计为执行失败。
+08/27/2025 22:38:10 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_crs_metadata_datum_ensemble'): invalid syntax (<unknown>, line 12)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 12
+    assert (pyproj.CRS(crs_json) == EPSG:4326)
+                                        ^
+SyntaxError: invalid syntax
+08/27/2025 22:38:10 - ERROR - [geopandas] -   任务 geopandas_12 的代码注入失败，计为执行失败。
+08/27/2025 22:38:10 - INFO - [geopandas] - --- 正在处理任务 6/82: geopandas_13 ---
+08/27/2025 22:38:12 - WARNING - [geopandas] -   [失败] 任务 geopandas_13 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:14 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 22:38:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_13 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_13 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_13 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:20 - INFO - [geopandas] - --- 正在处理任务 7/82: geopandas_14 ---
+08/27/2025 22:38:21 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 22:38:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_14 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:30 - INFO - [geopandas] - --- 正在处理任务 8/82: geopandas_15 ---
+08/27/2025 22:38:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_15 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_15 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_15 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_15 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_15 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:38:44 - INFO - [geopandas] - --- 正在处理任务 9/82: geopandas_159 ---
+08/27/2025 22:38:45 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:38:46 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:38:48 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:38:49 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:38:50 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:38:51 - INFO - [geopandas] - --- 正在处理任务 10/82: geopandas_16 ---
+08/27/2025 22:38:53 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:38:55 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:38:58 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:39:00 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:39:03 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:39:03 - INFO - [geopandas] - --- 正在处理任务 11/82: geopandas_160 ---
+08/27/2025 22:39:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_160 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_160 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_160 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:10 - WARNING - [geopandas] -   [失败] 任务 geopandas_160 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_160 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:11 - INFO - [geopandas] - --- 正在处理任务 12/82: geopandas_161 ---
+08/27/2025 22:39:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_161 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_161 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_161 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_161 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_161 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:20 - INFO - [geopandas] - --- 正在处理任务 13/82: geopandas_17 ---
+08/27/2025 22:39:22 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:39:25 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:39:27 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:39:30 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:39:32 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:39:32 - INFO - [geopandas] - --- 正在处理任务 14/82: geopandas_18 ---
+08/27/2025 22:39:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:48 - INFO - [geopandas] - --- 正在处理任务 15/82: geopandas_19 ---
+08/27/2025 22:39:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_19 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:39:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_19 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:03 - WARNING - [geopandas] -   [失败] 任务 geopandas_19 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_19 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_19 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:13 - INFO - [geopandas] - --- 正在处理任务 16/82: geopandas_2 ---
+08/27/2025 22:40:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:16 - INFO - [geopandas] -   [成功] 任务 geopandas_2 测试通过。
+08/27/2025 22:40:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:20 - INFO - [geopandas] -   [成功] 任务 geopandas_2 测试通过。
+08/27/2025 22:40:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:22 - INFO - [geopandas] - --- 正在处理任务 17/82: geopandas_21 ---
+08/27/2025 22:40:24 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:33 - INFO - [geopandas] - --- 正在处理任务 18/82: geopandas_22 ---
+08/27/2025 22:40:34 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:40:36 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:40:38 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:40:39 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:40:41 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:40:41 - INFO - [geopandas] - --- 正在处理任务 19/82: geopandas_23 ---
+08/27/2025 22:40:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:51 - INFO - [geopandas] -   [成功] 任务 geopandas_23 测试通过。
+08/27/2025 22:40:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:54 - INFO - [geopandas] - --- 正在处理任务 20/82: geopandas_24 ---
+08/27/2025 22:40:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:40:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:05 - INFO - [geopandas] - --- 正在处理任务 21/82: geopandas_25 ---
+08/27/2025 22:41:07 - WARNING - [geopandas] -   [失败] 任务 geopandas_25 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:09 - WARNING - [geopandas] -   [失败] 任务 geopandas_25 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_25 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:11 - WARNING - [geopandas] -   任务 geopandas_25 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:41:14 - WARNING - [geopandas] -   [失败] 任务 geopandas_25 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:14 - INFO - [geopandas] - --- 正在处理任务 22/82: geopandas_26 ---
+08/27/2025 22:41:14 - WARNING - [geopandas] -   任务 geopandas_26 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:41:14 - WARNING - [geopandas] -   任务 geopandas_26 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:41:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_26 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_26 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_26 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:20 - INFO - [geopandas] - --- 正在处理任务 23/82: geopandas_27 ---
+08/27/2025 22:41:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_27 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_27 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:25 - WARNING - [geopandas] -   任务 geopandas_27 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:41:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_27 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_27 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:30 - INFO - [geopandas] - --- 正在处理任务 24/82: geopandas_28 ---
+08/27/2025 22:41:32 - WARNING - [geopandas] -   [失败] 任务 geopandas_28 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:32 - WARNING - [geopandas] -   任务 geopandas_28 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:41:32 - WARNING - [geopandas] -   任务 geopandas_28 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:41:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_28 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:36 - WARNING - [geopandas] -   [失败] 任务 geopandas_28 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:36 - INFO - [geopandas] - --- 正在处理任务 25/82: geopandas_29 ---
+08/27/2025 22:41:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_29 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_29 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:41 - WARNING - [geopandas] -   任务 geopandas_29 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:41:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_29 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_29 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:45 - INFO - [geopandas] - --- 正在处理任务 26/82: geopandas_3 ---
+08/27/2025 22:41:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:41:56 - INFO - [geopandas] - --- 正在处理任务 27/82: geopandas_30 ---
+08/27/2025 22:41:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_30 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_30 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_30 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_30 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_30 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:06 - INFO - [geopandas] - --- 正在处理任务 28/82: geopandas_31 ---
+08/27/2025 22:42:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:10 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:17 - INFO - [geopandas] - --- 正在处理任务 29/82: geopandas_32 ---
+08/27/2025 22:42:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_32 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:21 - WARNING - [geopandas] -   [失败] 任务 geopandas_32 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_32 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_32 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_32 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:28 - INFO - [geopandas] - --- 正在处理任务 30/82: geopandas_324 ---
+08/27/2025 22:42:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_324 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_324 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_324 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_324 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:35 - WARNING - [geopandas] -   任务 geopandas_324 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:42:35 - INFO - [geopandas] - --- 正在处理任务 31/82: geopandas_325 ---
+08/27/2025 22:42:35 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_docstring_appending'): invalid syntax (<unknown>, line 4)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 4
+    assert (cumavg_aug.__doc__ == This is the cumavg method.
+                                              ^
+SyntaxError: invalid syntax
+08/27/2025 22:42:35 - ERROR - [geopandas] -   任务 geopandas_325 的代码注入失败，计为执行失败。
+08/27/2025 22:42:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_325 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_325 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_325 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:40 - WARNING - [geopandas] -   任务 geopandas_325 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:42:40 - INFO - [geopandas] - --- 正在处理任务 32/82: geopandas_326 ---
+08/27/2025 22:42:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_326 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_326 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_326 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_326 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_326 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:49 - INFO - [geopandas] - --- 正在处理任务 33/82: geopandas_327 ---
+08/27/2025 22:42:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_327 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_327 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_327 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_327 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:42:56 - WARNING - [geopandas] -   任务 geopandas_327 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:42:56 - INFO - [geopandas] - --- 正在处理任务 34/82: geopandas_371 ---
+08/27/2025 22:42:56 - WARNING - [geopandas] -   任务 geopandas_371 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:42:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_371 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_371 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_371 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_371 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:04 - INFO - [geopandas] - --- 正在处理任务 35/82: geopandas_372 ---
+08/27/2025 22:43:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_372 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_372 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:10 - WARNING - [geopandas] -   [失败] 任务 geopandas_372 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:12 - WARNING - [geopandas] -   [失败] 任务 geopandas_372 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:14 - WARNING - [geopandas] -   [失败] 任务 geopandas_372 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:14 - INFO - [geopandas] - --- 正在处理任务 36/82: geopandas_373 ---
+08/27/2025 22:43:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_373 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_373 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_373 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:21 - WARNING - [geopandas] -   [失败] 任务 geopandas_373 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:22 - WARNING - [geopandas] -   任务 geopandas_373 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:43:22 - INFO - [geopandas] - --- 正在处理任务 37/82: geopandas_374 ---
+08/27/2025 22:43:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_374 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_374 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:25 - WARNING - [geopandas] -   任务 geopandas_374 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:43:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_374 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_374 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:29 - INFO - [geopandas] - --- 正在处理任务 38/82: geopandas_375 ---
+08/27/2025 22:43:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_375 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_375 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_375 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_375 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_375 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:39 - INFO - [geopandas] - --- 正在处理任务 39/82: geopandas_376 ---
+08/27/2025 22:43:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_376 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_376 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_376 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_376 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_376 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:43:49 - INFO - [geopandas] - --- 正在处理任务 40/82: geopandas_377 ---
+08/27/2025 22:43:50 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:43:52 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:43:53 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:43:55 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:43:56 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:43:57 - INFO - [geopandas] - --- 正在处理任务 41/82: geopandas_378 ---
+08/27/2025 22:43:58 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:44:00 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:44:01 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:44:03 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:44:05 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:44:05 - INFO - [geopandas] - --- 正在处理任务 42/82: geopandas_4 ---
+08/27/2025 22:44:06 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:44:08 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:44:10 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:44:11 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:44:13 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:44:13 - INFO - [geopandas] - --- 正在处理任务 43/82: geopandas_5 ---
+08/27/2025 22:44:14 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:44:16 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:44:17 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:44:19 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:44:20 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:44:20 - INFO - [geopandas] - --- 正在处理任务 44/82: geopandas_519 ---
+08/27/2025 22:44:20 - WARNING - [geopandas] -   任务 geopandas_519 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:44:20 - WARNING - [geopandas] -   任务 geopandas_519 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:44:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_519 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:24 - WARNING - [geopandas] -   [失败] 任务 geopandas_519 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_519 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:26 - INFO - [geopandas] - --- 正在处理任务 45/82: geopandas_520 ---
+08/27/2025 22:44:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_520 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_520 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_520 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_520 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_520 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:35 - INFO - [geopandas] - --- 正在处理任务 46/82: geopandas_521 ---
+08/27/2025 22:44:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_521 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_521 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_521 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_521 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_521 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:44:45 - INFO - [geopandas] - --- 正在处理任务 47/82: geopandas_522 ---
+08/27/2025 22:44:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:44:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:44:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:44:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:44:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:44:52 - INFO - [geopandas] - --- 正在处理任务 48/82: geopandas_523 ---
+08/27/2025 22:44:52 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_constructor_sliced_row_slices'): invalid syntax (<unknown>, line 9)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 9
+    assert (res.geometry == POINT (0 0))
+                                     ^
+SyntaxError: invalid syntax
+08/27/2025 22:44:52 - ERROR - [geopandas] -   任务 geopandas_523 的代码注入失败，计为执行失败。
+08/27/2025 22:44:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:44:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:44:55 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_constructor_sliced_row_slices'): invalid syntax (<unknown>, line 9)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 9
+    assert (res.geometry == POINT (0 0))
+                                     ^
+SyntaxError: invalid syntax
+08/27/2025 22:44:55 - ERROR - [geopandas] -   任务 geopandas_523 的代码注入失败，计为执行失败。
+08/27/2025 22:44:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:44:57 - INFO - [geopandas] - --- 正在处理任务 49/82: geopandas_6 ---
+08/27/2025 22:44:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:01 - WARNING - [geopandas] -   [失败] 任务 geopandas_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:03 - WARNING - [geopandas] -   [失败] 任务 geopandas_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:07 - WARNING - [geopandas] -   [失败] 任务 geopandas_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:07 - INFO - [geopandas] - --- 正在处理任务 50/82: geopandas_630 ---
+08/27/2025 22:45:09 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:18 - INFO - [geopandas] - --- 正在处理任务 51/82: geopandas_631 ---
+08/27/2025 22:45:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:27 - INFO - [geopandas] -   [成功] 任务 geopandas_631 测试通过。
+08/27/2025 22:45:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:29 - INFO - [geopandas] - --- 正在处理任务 52/82: geopandas_632 ---
+08/27/2025 22:45:32 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:42 - INFO - [geopandas] - --- 正在处理任务 53/82: geopandas_633 ---
+08/27/2025 22:45:44 - INFO - [geopandas] -   [成功] 任务 geopandas_633 测试通过。
+08/27/2025 22:45:45 - INFO - [geopandas] -   [成功] 任务 geopandas_633 测试通过。
+08/27/2025 22:45:47 - INFO - [geopandas] -   [成功] 任务 geopandas_633 测试通过。
+08/27/2025 22:45:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_633 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:51 - INFO - [geopandas] -   [成功] 任务 geopandas_633 测试通过。
+08/27/2025 22:45:51 - INFO - [geopandas] - --- 正在处理任务 54/82: geopandas_634 ---
+08/27/2025 22:45:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_634 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_634 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:45:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_634 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:00 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:46:02 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:46:02 - INFO - [geopandas] - --- 正在处理任务 55/82: geopandas_635 ---
+08/27/2025 22:46:04 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:46:05 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:46:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_635 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:10 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:46:12 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:46:12 - INFO - [geopandas] - --- 正在处理任务 56/82: geopandas_641 ---
+08/27/2025 22:46:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:46:14 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:46:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:46:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:46:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:46:19 - INFO - [geopandas] - --- 正在处理任务 57/82: geopandas_642 ---
+08/27/2025 22:46:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:46:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:46:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:46:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:46:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:46:26 - INFO - [geopandas] - --- 正在处理任务 58/82: geopandas_7 ---
+08/27/2025 22:46:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:30 - INFO - [geopandas] -   [成功] 任务 geopandas_7 测试通过。
+08/27/2025 22:46:31 - INFO - [geopandas] -   [成功] 任务 geopandas_7 测试通过。
+08/27/2025 22:46:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:35 - INFO - [geopandas] -   [成功] 任务 geopandas_7 测试通过。
+08/27/2025 22:46:35 - INFO - [geopandas] - --- 正在处理任务 59/82: geopandas_78 ---
+08/27/2025 22:46:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_78 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_78 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_78 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_78 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:43 - WARNING - [geopandas] -   任务 geopandas_78 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:46:43 - INFO - [geopandas] - --- 正在处理任务 60/82: geopandas_79 ---
+08/27/2025 22:46:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:52 - INFO - [geopandas] - --- 正在处理任务 61/82: geopandas_8 ---
+08/27/2025 22:46:54 - INFO - [geopandas] -   [成功] 任务 geopandas_8 测试通过。
+08/27/2025 22:46:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:46:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:02 - INFO - [geopandas] -   [成功] 任务 geopandas_8 测试通过。
+08/27/2025 22:47:02 - INFO - [geopandas] - --- 正在处理任务 62/82: geopandas_80 ---
+08/27/2025 22:47:03 - WARNING - [geopandas] -   [失败] 任务 geopandas_80 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_80 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:07 - WARNING - [geopandas] -   [失败] 任务 geopandas_80 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:09 - WARNING - [geopandas] -   [失败] 任务 geopandas_80 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_80 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:11 - INFO - [geopandas] - --- 正在处理任务 63/82: geopandas_81 ---
+08/27/2025 22:47:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_81 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_81 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_81 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_81 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_81 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:21 - INFO - [geopandas] - --- 正在处理任务 64/82: geopandas_82 ---
+08/27/2025 22:47:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_82 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:24 - WARNING - [geopandas] -   [失败] 任务 geopandas_82 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_82 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_82 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_82 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:30 - INFO - [geopandas] - --- 正在处理任务 65/82: geopandas_83 ---
+08/27/2025 22:47:32 - WARNING - [geopandas] -   [失败] 任务 geopandas_83 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_83 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_83 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_83 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_83 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:39 - INFO - [geopandas] - --- 正在处理任务 66/82: geopandas_84 ---
+08/27/2025 22:47:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_84 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_84 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_84 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_84 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_84 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:49 - INFO - [geopandas] - --- 正在处理任务 67/82: geopandas_85 ---
+08/27/2025 22:47:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_85 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_85 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_85 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_85 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_85 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:47:58 - INFO - [geopandas] - --- 正在处理任务 68/82: geopandas_86 ---
+08/27/2025 22:48:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_86 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_86 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_86 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_86 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:07 - WARNING - [geopandas] -   [失败] 任务 geopandas_86 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:08 - INFO - [geopandas] - --- 正在处理任务 69/82: geopandas_87 ---
+08/27/2025 22:48:09 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:17 - INFO - [geopandas] - --- 正在处理任务 70/82: geopandas_88 ---
+08/27/2025 22:48:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:22 - WARNING - [geopandas] -   任务 geopandas_88 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:48:24 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:24 - INFO - [geopandas] - --- 正在处理任务 71/82: geopandas_89 ---
+08/27/2025 22:48:24 - WARNING - [geopandas] -   任务 geopandas_89 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:48:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_89 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_89 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_89 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_89 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:31 - INFO - [geopandas] - --- 正在处理任务 72/82: geopandas_9 ---
+08/27/2025 22:48:33 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:48:34 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:48:36 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:48:37 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:48:39 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:48:39 - INFO - [geopandas] - --- 正在处理任务 73/82: geopandas_90 ---
+08/27/2025 22:48:40 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:48:42 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:48:43 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:48:44 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:48:46 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:48:46 - INFO - [geopandas] - --- 正在处理任务 74/82: geopandas_91 ---
+08/27/2025 22:48:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_91 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_91 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_91 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_91 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_91 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:55 - INFO - [geopandas] - --- 正在处理任务 75/82: geopandas_92 ---
+08/27/2025 22:48:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_92 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:48:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_92 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:01 - WARNING - [geopandas] -   [失败] 任务 geopandas_92 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_92 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:03 - WARNING - [geopandas] -   任务 geopandas_92 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:49:03 - INFO - [geopandas] - --- 正在处理任务 76/82: geopandas_93 ---
+08/27/2025 22:49:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_93 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_93 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_93 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:10 - WARNING - [geopandas] -   [失败] 任务 geopandas_93 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:12 - WARNING - [geopandas] -   [失败] 任务 geopandas_93 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:12 - INFO - [geopandas] - --- 正在处理任务 77/82: geopandas_94 ---
+08/27/2025 22:49:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_94 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_94 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_94 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_94 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:21 - WARNING - [geopandas] -   [失败] 任务 geopandas_94 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:21 - INFO - [geopandas] - --- 正在处理任务 78/82: geopandas_95 ---
+08/27/2025 22:49:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_95 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_95 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:25 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_null_geometry_and_2D_point'): invalid syntax (<unknown>, line 3)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 3
+    assert (infer_schema(df) == geometry: extension<geoarrow.point>)
+                                        ^
+SyntaxError: invalid syntax
+08/27/2025 22:49:25 - ERROR - [geopandas] -   任务 geopandas_95 的代码注入失败，计为执行失败。
+08/27/2025 22:49:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_95 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_95 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:29 - INFO - [geopandas] - --- 正在处理任务 79/82: geopandas_96 ---
+08/27/2025 22:49:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_96 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:30 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_null_geometry_and_3D_point'): invalid syntax (<unknown>, line 3)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 3
+    assert (infer_schema(df) == Point Z)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 22:49:30 - ERROR - [geopandas] -   任务 geopandas_96 的代码注入失败，计为执行失败。
+08/27/2025 22:49:31 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_null_geometry_and_3D_point'): invalid syntax (<unknown>, line 3)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 3
+    assert (infer_schema(df) == Point Z)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 22:49:31 - ERROR - [geopandas] -   任务 geopandas_96 的代码注入失败，计为执行失败。
+08/27/2025 22:49:32 - WARNING - [geopandas] -   [失败] 任务 geopandas_96 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_96 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:34 - INFO - [geopandas] - --- 正在处理任务 80/82: geopandas_97 ---
+08/27/2025 22:49:36 - WARNING - [geopandas] -   [失败] 任务 geopandas_97 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_97 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_97 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_97 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_97 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:44 - INFO - [geopandas] - --- 正在处理任务 81/82: geopandas_98 ---
+08/27/2025 22:49:44 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_int32'): invalid syntax (<unknown>, line 6)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 6
+    assert (infer_schema(df) == geometry: geometry, int32_column: int32)
+                                        ^
+SyntaxError: invalid syntax
+08/27/2025 22:49:44 - ERROR - [geopandas] -   任务 geopandas_98 的代码注入失败，计为执行失败。
+08/27/2025 22:49:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_98 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_98 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_98 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_98 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:52 - INFO - [geopandas] - --- 正在处理任务 82/82: geopandas_99 ---
+08/27/2025 22:49:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_99 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_99 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_99 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:49:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_99 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:50:01 - WARNING - [geopandas] -   [失败] 任务 geopandas_99 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:50:01 - INFO - [geopandas] - --- 开始评估组合: REWRITE / ORACLE for repo geopandas ---
+08/27/2025 22:50:01 - INFO - [geopandas] - --- 正在处理任务 1/82: geopandas_0 ---
+08/27/2025 22:50:01 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_create_metadata'): invalid syntax (<unknown>, line 6)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 6
+    assert (metadata['version'] == 1.0.0)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 22:50:01 - ERROR - [geopandas] -   任务 geopandas_0 的代码注入失败，计为执行失败。
+08/27/2025 22:50:03 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 22:50:04 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 22:50:06 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 22:50:06 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_create_metadata'): invalid syntax (<unknown>, line 6)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 6
+    assert (metadata['version'] == 1.0.0)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 22:50:06 - ERROR - [geopandas] -   任务 geopandas_0 的代码注入失败，计为执行失败。
+08/27/2025 22:50:06 - INFO - [geopandas] - --- 正在处理任务 2/82: geopandas_1 ---
+08/27/2025 22:50:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:50:09 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 22:50:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:50:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:50:15 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 22:50:15 - INFO - [geopandas] - --- 正在处理任务 3/82: geopandas_10 ---
+08/27/2025 22:50:15 - WARNING - [geopandas] -   任务 geopandas_10 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:50:16 - INFO - [geopandas] -   [成功] 任务 geopandas_10 测试通过。
+08/27/2025 22:50:16 - WARNING - [geopandas] -   任务 geopandas_10 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:50:17 - INFO - [geopandas] -   [成功] 任务 geopandas_10 测试通过。
+08/27/2025 22:50:19 - INFO - [geopandas] -   [成功] 任务 geopandas_10 测试通过。
+08/27/2025 22:50:19 - INFO - [geopandas] - --- 正在处理任务 4/82: geopandas_11 ---
+08/27/2025 22:50:20 - INFO - [geopandas] -   [成功] 任务 geopandas_11 测试通过。
+08/27/2025 22:50:21 - WARNING - [geopandas] -   任务 geopandas_11 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:50:22 - INFO - [geopandas] -   [成功] 任务 geopandas_11 测试通过。
+08/27/2025 22:50:23 - INFO - [geopandas] -   [成功] 任务 geopandas_11 测试通过。
+08/27/2025 22:50:25 - INFO - [geopandas] -   [成功] 任务 geopandas_11 测试通过。
+08/27/2025 22:50:25 - INFO - [geopandas] - --- 正在处理任务 5/82: geopandas_12 ---
+08/27/2025 22:50:26 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 22:50:28 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 22:50:29 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 22:50:31 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 22:50:32 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 22:50:32 - INFO - [geopandas] - --- 正在处理任务 6/82: geopandas_13 ---
+08/27/2025 22:50:33 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 22:50:35 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 22:50:36 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 22:50:38 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 22:50:39 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 22:50:39 - INFO - [geopandas] - --- 正在处理任务 7/82: geopandas_14 ---
+08/27/2025 22:50:41 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 22:50:42 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 22:50:43 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 22:50:45 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 22:50:46 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 22:50:47 - INFO - [geopandas] - --- 正在处理任务 8/82: geopandas_15 ---
+08/27/2025 22:50:48 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 22:50:50 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 22:50:52 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 22:50:54 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 22:50:54 - WARNING - [geopandas] -   任务 geopandas_15 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:50:54 - INFO - [geopandas] - --- 正在处理任务 9/82: geopandas_159 ---
+08/27/2025 22:50:55 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:50:57 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:50:58 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:50:59 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:51:01 - INFO - [geopandas] -   [成功] 任务 geopandas_159 测试通过。
+08/27/2025 22:51:01 - INFO - [geopandas] - --- 正在处理任务 10/82: geopandas_16 ---
+08/27/2025 22:51:03 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:51:05 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:51:08 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:51:10 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:51:13 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 22:51:13 - INFO - [geopandas] - --- 正在处理任务 11/82: geopandas_160 ---
+08/27/2025 22:51:14 - INFO - [geopandas] -   [成功] 任务 geopandas_160 测试通过。
+08/27/2025 22:51:15 - INFO - [geopandas] -   [成功] 任务 geopandas_160 测试通过。
+08/27/2025 22:51:17 - INFO - [geopandas] -   [成功] 任务 geopandas_160 测试通过。
+08/27/2025 22:51:18 - INFO - [geopandas] -   [成功] 任务 geopandas_160 测试通过。
+08/27/2025 22:51:19 - INFO - [geopandas] -   [成功] 任务 geopandas_160 测试通过。
+08/27/2025 22:51:20 - INFO - [geopandas] - --- 正在处理任务 12/82: geopandas_161 ---
+08/27/2025 22:51:21 - INFO - [geopandas] -   [成功] 任务 geopandas_161 测试通过。
+08/27/2025 22:51:22 - INFO - [geopandas] -   [成功] 任务 geopandas_161 测试通过。
+08/27/2025 22:51:23 - INFO - [geopandas] -   [成功] 任务 geopandas_161 测试通过。
+08/27/2025 22:51:25 - INFO - [geopandas] -   [成功] 任务 geopandas_161 测试通过。
+08/27/2025 22:51:26 - INFO - [geopandas] -   [成功] 任务 geopandas_161 测试通过。
+08/27/2025 22:51:26 - INFO - [geopandas] - --- 正在处理任务 13/82: geopandas_17 ---
+08/27/2025 22:51:29 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:51:31 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:51:33 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:51:36 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:51:38 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 22:51:38 - INFO - [geopandas] - --- 正在处理任务 14/82: geopandas_18 ---
+08/27/2025 22:51:40 - INFO - [geopandas] -   [成功] 任务 geopandas_18 测试通过。
+08/27/2025 22:51:43 - INFO - [geopandas] -   [成功] 任务 geopandas_18 测试通过。
+08/27/2025 22:51:45 - INFO - [geopandas] -   [成功] 任务 geopandas_18 测试通过。
+08/27/2025 22:51:47 - INFO - [geopandas] -   [成功] 任务 geopandas_18 测试通过。
+08/27/2025 22:51:50 - INFO - [geopandas] -   [成功] 任务 geopandas_18 测试通过。
+08/27/2025 22:51:50 - INFO - [geopandas] - --- 正在处理任务 15/82: geopandas_19 ---
+08/27/2025 22:51:52 - INFO - [geopandas] -   [成功] 任务 geopandas_19 测试通过。
+08/27/2025 22:51:55 - INFO - [geopandas] -   [成功] 任务 geopandas_19 测试通过。
+08/27/2025 22:51:57 - INFO - [geopandas] -   [成功] 任务 geopandas_19 测试通过。
+08/27/2025 22:51:59 - INFO - [geopandas] -   [成功] 任务 geopandas_19 测试通过。
+08/27/2025 22:52:02 - INFO - [geopandas] -   [成功] 任务 geopandas_19 测试通过。
+08/27/2025 22:52:02 - INFO - [geopandas] - --- 正在处理任务 16/82: geopandas_2 ---
+08/27/2025 22:52:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:05 - INFO - [geopandas] -   [成功] 任务 geopandas_2 测试通过。
+08/27/2025 22:52:07 - INFO - [geopandas] -   [成功] 任务 geopandas_2 测试通过。
+08/27/2025 22:52:09 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:11 - INFO - [geopandas] - --- 正在处理任务 17/82: geopandas_21 ---
+08/27/2025 22:52:12 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:14 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_21 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:21 - INFO - [geopandas] - --- 正在处理任务 18/82: geopandas_22 ---
+08/27/2025 22:52:22 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:52:23 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:52:25 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:52:27 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:52:28 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 22:52:28 - INFO - [geopandas] - --- 正在处理任务 19/82: geopandas_23 ---
+08/27/2025 22:52:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:35 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:40 - INFO - [geopandas] - --- 正在处理任务 20/82: geopandas_24 ---
+08/27/2025 22:52:40 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_read_parquet_bbox_single_point'): invalid syntax (<unknown>, line 7)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 7
+    assert (pq_df.geometry[0] == POINT (-2.5 3.14))
+                                             ^
+SyntaxError: invalid syntax
+08/27/2025 22:52:40 - ERROR - [geopandas] -   任务 geopandas_24 的代码注入失败，计为执行失败。
+08/27/2025 22:52:42 - INFO - [geopandas] -   [成功] 任务 geopandas_24 测试通过。
+08/27/2025 22:52:42 - WARNING - [geopandas] -   任务 geopandas_24 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:52:43 - INFO - [geopandas] -   [成功] 任务 geopandas_24 测试通过。
+08/27/2025 22:52:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_24 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:52:46 - INFO - [geopandas] - --- 正在处理任务 21/82: geopandas_25 ---
+08/27/2025 22:52:47 - INFO - [geopandas] -   [成功] 任务 geopandas_25 测试通过。
+08/27/2025 22:52:49 - INFO - [geopandas] -   [成功] 任务 geopandas_25 测试通过。
+08/27/2025 22:52:51 - INFO - [geopandas] -   [成功] 任务 geopandas_25 测试通过。
+08/27/2025 22:52:52 - INFO - [geopandas] -   [成功] 任务 geopandas_25 测试通过。
+08/27/2025 22:52:54 - INFO - [geopandas] -   [成功] 任务 geopandas_25 测试通过。
+08/27/2025 22:52:54 - INFO - [geopandas] - --- 正在处理任务 22/82: geopandas_26 ---
+08/27/2025 22:52:55 - INFO - [geopandas] -   [成功] 任务 geopandas_26 测试通过。
+08/27/2025 22:52:57 - INFO - [geopandas] -   [成功] 任务 geopandas_26 测试通过。
+08/27/2025 22:52:59 - INFO - [geopandas] -   [成功] 任务 geopandas_26 测试通过。
+08/27/2025 22:53:00 - INFO - [geopandas] -   [成功] 任务 geopandas_26 测试通过。
+08/27/2025 22:53:02 - INFO - [geopandas] -   [成功] 任务 geopandas_26 测试通过。
+08/27/2025 22:53:02 - INFO - [geopandas] - --- 正在处理任务 23/82: geopandas_27 ---
+08/27/2025 22:53:04 - INFO - [geopandas] -   [成功] 任务 geopandas_27 测试通过。
+08/27/2025 22:53:05 - INFO - [geopandas] -   [成功] 任务 geopandas_27 测试通过。
+08/27/2025 22:53:07 - INFO - [geopandas] -   [成功] 任务 geopandas_27 测试通过。
+08/27/2025 22:53:09 - INFO - [geopandas] -   [成功] 任务 geopandas_27 测试通过。
+08/27/2025 22:53:10 - INFO - [geopandas] -   [成功] 任务 geopandas_27 测试通过。
+08/27/2025 22:53:10 - INFO - [geopandas] - --- 正在处理任务 24/82: geopandas_28 ---
+08/27/2025 22:53:12 - INFO - [geopandas] -   [成功] 任务 geopandas_28 测试通过。
+08/27/2025 22:53:13 - INFO - [geopandas] -   [成功] 任务 geopandas_28 测试通过。
+08/27/2025 22:53:15 - INFO - [geopandas] -   [成功] 任务 geopandas_28 测试通过。
+08/27/2025 22:53:16 - INFO - [geopandas] -   [成功] 任务 geopandas_28 测试通过。
+08/27/2025 22:53:18 - INFO - [geopandas] -   [成功] 任务 geopandas_28 测试通过。
+08/27/2025 22:53:18 - INFO - [geopandas] - --- 正在处理任务 25/82: geopandas_29 ---
+08/27/2025 22:53:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_29 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:53:22 - INFO - [geopandas] -   [成功] 任务 geopandas_29 测试通过。
+08/27/2025 22:53:23 - INFO - [geopandas] -   [成功] 任务 geopandas_29 测试通过。
+08/27/2025 22:53:25 - INFO - [geopandas] -   [成功] 任务 geopandas_29 测试通过。
+08/27/2025 22:53:27 - INFO - [geopandas] -   [成功] 任务 geopandas_29 测试通过。
+08/27/2025 22:53:27 - INFO - [geopandas] - --- 正在处理任务 26/82: geopandas_3 ---
+08/27/2025 22:53:28 - INFO - [geopandas] -   [成功] 任务 geopandas_3 测试通过。
+08/27/2025 22:53:30 - INFO - [geopandas] -   [成功] 任务 geopandas_3 测试通过。
+08/27/2025 22:53:31 - INFO - [geopandas] -   [成功] 任务 geopandas_3 测试通过。
+08/27/2025 22:53:32 - INFO - [geopandas] -   [成功] 任务 geopandas_3 测试通过。
+08/27/2025 22:53:34 - INFO - [geopandas] -   [成功] 任务 geopandas_3 测试通过。
+08/27/2025 22:53:34 - INFO - [geopandas] - --- 正在处理任务 27/82: geopandas_30 ---
+08/27/2025 22:53:35 - INFO - [geopandas] -   [成功] 任务 geopandas_30 测试通过。
+08/27/2025 22:53:37 - INFO - [geopandas] -   [成功] 任务 geopandas_30 测试通过。
+08/27/2025 22:53:38 - INFO - [geopandas] -   [成功] 任务 geopandas_30 测试通过。
+08/27/2025 22:53:40 - INFO - [geopandas] -   [成功] 任务 geopandas_30 测试通过。
+08/27/2025 22:53:41 - INFO - [geopandas] -   [成功] 任务 geopandas_30 测试通过。
+08/27/2025 22:53:42 - INFO - [geopandas] - --- 正在处理任务 28/82: geopandas_31 ---
+08/27/2025 22:53:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:53:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:53:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:53:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:53:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:53:52 - INFO - [geopandas] - --- 正在处理任务 29/82: geopandas_32 ---
+08/27/2025 22:53:53 - INFO - [geopandas] -   [成功] 任务 geopandas_32 测试通过。
+08/27/2025 22:53:54 - INFO - [geopandas] -   [成功] 任务 geopandas_32 测试通过。
+08/27/2025 22:53:56 - INFO - [geopandas] -   [成功] 任务 geopandas_32 测试通过。
+08/27/2025 22:53:57 - INFO - [geopandas] -   [成功] 任务 geopandas_32 测试通过。
+08/27/2025 22:53:59 - INFO - [geopandas] -   [成功] 任务 geopandas_32 测试通过。
+08/27/2025 22:53:59 - INFO - [geopandas] - --- 正在处理任务 30/82: geopandas_324 ---
+08/27/2025 22:54:01 - WARNING - [geopandas] -   [失败] 任务 geopandas_324 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:54:03 - WARNING - [geopandas] -   [失败] 任务 geopandas_324 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:54:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_324 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:54:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_324 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:54:08 - INFO - [geopandas] -   [成功] 任务 geopandas_324 测试通过。
+08/27/2025 22:54:08 - INFO - [geopandas] - --- 正在处理任务 31/82: geopandas_325 ---
+08/27/2025 22:54:08 - WARNING - [geopandas] -   任务 geopandas_325 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:09 - INFO - [geopandas] -   [成功] 任务 geopandas_325 测试通过。
+08/27/2025 22:54:09 - WARNING - [geopandas] -   任务 geopandas_325 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_325 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:54:12 - INFO - [geopandas] -   [成功] 任务 geopandas_325 测试通过。
+08/27/2025 22:54:12 - INFO - [geopandas] - --- 正在处理任务 32/82: geopandas_326 ---
+08/27/2025 22:54:12 - WARNING - [geopandas] -   任务 geopandas_326 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:12 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_doc_template_from_func'): unexpected character after line continuation character (<unknown>, line 4)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 4
+    assert (cummax_aug.__doc__ == \nThis is the 3.1415 method.\n\nIt computes the cumulative 2.718.\n)
+                                   ^
+SyntaxError: unexpected character after line continuation character
+08/27/2025 22:54:12 - ERROR - [geopandas] -   任务 geopandas_326 的代码注入失败，计为执行失败。
+08/27/2025 22:54:12 - WARNING - [geopandas] -   任务 geopandas_326 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:12 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_doc_template_from_func'): unexpected character after line continuation character (<unknown>, line 4)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 4
+    assert (cummax_aug.__doc__ == \nThis is the 3.1415 method.\n\nIt computes the cumulative 2.718.\n)
+                                   ^
+SyntaxError: unexpected character after line continuation character
+08/27/2025 22:54:12 - ERROR - [geopandas] -   任务 geopandas_326 的代码注入失败，计为执行失败。
+08/27/2025 22:54:13 - WARNING - [geopandas] -   任务 geopandas_326 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:13 - INFO - [geopandas] - --- 正在处理任务 33/82: geopandas_327 ---
+08/27/2025 22:54:14 - INFO - [geopandas] -   [成功] 任务 geopandas_327 测试通过。
+08/27/2025 22:54:14 - WARNING - [geopandas] -   任务 geopandas_327 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:14 - WARNING - [geopandas] -   任务 geopandas_327 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:14 - WARNING - [geopandas] -   任务 geopandas_327 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:14 - WARNING - [geopandas] -   任务 geopandas_327 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:14 - INFO - [geopandas] - --- 正在处理任务 34/82: geopandas_371 ---
+08/27/2025 22:54:15 - INFO - [geopandas] -   [成功] 任务 geopandas_371 测试通过。
+08/27/2025 22:54:17 - INFO - [geopandas] -   [成功] 任务 geopandas_371 测试通过。
+08/27/2025 22:54:18 - INFO - [geopandas] -   [成功] 任务 geopandas_371 测试通过。
+08/27/2025 22:54:20 - INFO - [geopandas] -   [成功] 任务 geopandas_371 测试通过。
+08/27/2025 22:54:21 - INFO - [geopandas] -   [成功] 任务 geopandas_371 测试通过。
+08/27/2025 22:54:22 - INFO - [geopandas] - --- 正在处理任务 35/82: geopandas_372 ---
+08/27/2025 22:54:23 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 22:54:24 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 22:54:26 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 22:54:27 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 22:54:29 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 22:54:29 - INFO - [geopandas] - --- 正在处理任务 36/82: geopandas_373 ---
+08/27/2025 22:54:30 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 22:54:32 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 22:54:33 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 22:54:35 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 22:54:36 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 22:54:37 - INFO - [geopandas] - --- 正在处理任务 37/82: geopandas_374 ---
+08/27/2025 22:54:37 - WARNING - [geopandas] -   任务 geopandas_374 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:38 - INFO - [geopandas] -   [成功] 任务 geopandas_374 测试通过。
+08/27/2025 22:54:40 - INFO - [geopandas] -   [成功] 任务 geopandas_374 测试通过。
+08/27/2025 22:54:41 - INFO - [geopandas] -   [成功] 任务 geopandas_374 测试通过。
+08/27/2025 22:54:41 - WARNING - [geopandas] -   任务 geopandas_374 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:54:41 - INFO - [geopandas] - --- 正在处理任务 38/82: geopandas_375 ---
+08/27/2025 22:54:43 - INFO - [geopandas] -   [成功] 任务 geopandas_375 测试通过。
+08/27/2025 22:54:44 - INFO - [geopandas] -   [成功] 任务 geopandas_375 测试通过。
+08/27/2025 22:54:45 - INFO - [geopandas] -   [成功] 任务 geopandas_375 测试通过。
+08/27/2025 22:54:47 - INFO - [geopandas] -   [成功] 任务 geopandas_375 测试通过。
+08/27/2025 22:54:48 - INFO - [geopandas] -   [成功] 任务 geopandas_375 测试通过。
+08/27/2025 22:54:49 - INFO - [geopandas] - --- 正在处理任务 39/82: geopandas_376 ---
+08/27/2025 22:54:50 - INFO - [geopandas] -   [成功] 任务 geopandas_376 测试通过。
+08/27/2025 22:54:52 - INFO - [geopandas] -   [成功] 任务 geopandas_376 测试通过。
+08/27/2025 22:54:53 - INFO - [geopandas] -   [成功] 任务 geopandas_376 测试通过。
+08/27/2025 22:54:55 - INFO - [geopandas] -   [成功] 任务 geopandas_376 测试通过。
+08/27/2025 22:54:56 - INFO - [geopandas] -   [成功] 任务 geopandas_376 测试通过。
+08/27/2025 22:54:56 - INFO - [geopandas] - --- 正在处理任务 40/82: geopandas_377 ---
+08/27/2025 22:54:58 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:54:59 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:55:01 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:55:02 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:55:04 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 22:55:04 - INFO - [geopandas] - --- 正在处理任务 41/82: geopandas_378 ---
+08/27/2025 22:55:05 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:55:07 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:55:08 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:55:10 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:55:12 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 22:55:12 - INFO - [geopandas] - --- 正在处理任务 42/82: geopandas_4 ---
+08/27/2025 22:55:13 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:55:14 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:55:16 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:55:17 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:55:19 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 22:55:19 - INFO - [geopandas] - --- 正在处理任务 43/82: geopandas_5 ---
+08/27/2025 22:55:20 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:55:22 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:55:23 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:55:24 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:55:26 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 22:55:26 - INFO - [geopandas] - --- 正在处理任务 44/82: geopandas_519 ---
+08/27/2025 22:55:27 - INFO - [geopandas] -   [成功] 任务 geopandas_519 测试通过。
+08/27/2025 22:55:29 - INFO - [geopandas] -   [成功] 任务 geopandas_519 测试通过。
+08/27/2025 22:55:30 - INFO - [geopandas] -   [成功] 任务 geopandas_519 测试通过。
+08/27/2025 22:55:32 - INFO - [geopandas] -   [成功] 任务 geopandas_519 测试通过。
+08/27/2025 22:55:33 - INFO - [geopandas] -   [成功] 任务 geopandas_519 测试通过。
+08/27/2025 22:55:33 - INFO - [geopandas] - --- 正在处理任务 45/82: geopandas_520 ---
+08/27/2025 22:55:35 - INFO - [geopandas] -   [成功] 任务 geopandas_520 测试通过。
+08/27/2025 22:55:36 - INFO - [geopandas] -   [成功] 任务 geopandas_520 测试通过。
+08/27/2025 22:55:38 - INFO - [geopandas] -   [成功] 任务 geopandas_520 测试通过。
+08/27/2025 22:55:39 - INFO - [geopandas] -   [成功] 任务 geopandas_520 测试通过。
+08/27/2025 22:55:40 - INFO - [geopandas] -   [成功] 任务 geopandas_520 测试通过。
+08/27/2025 22:55:41 - INFO - [geopandas] - --- 正在处理任务 46/82: geopandas_521 ---
+08/27/2025 22:55:42 - INFO - [geopandas] -   [成功] 任务 geopandas_521 测试通过。
+08/27/2025 22:55:43 - INFO - [geopandas] -   [成功] 任务 geopandas_521 测试通过。
+08/27/2025 22:55:45 - INFO - [geopandas] -   [成功] 任务 geopandas_521 测试通过。
+08/27/2025 22:55:46 - INFO - [geopandas] -   [成功] 任务 geopandas_521 测试通过。
+08/27/2025 22:55:48 - INFO - [geopandas] -   [成功] 任务 geopandas_521 测试通过。
+08/27/2025 22:55:48 - INFO - [geopandas] - --- 正在处理任务 47/82: geopandas_522 ---
+08/27/2025 22:55:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:55:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:55:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:55:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:55:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:55:55 - INFO - [geopandas] - --- 正在处理任务 48/82: geopandas_523 ---
+08/27/2025 22:55:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:55:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:55:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:56:01 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:56:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:56:02 - INFO - [geopandas] - --- 正在处理任务 49/82: geopandas_6 ---
+08/27/2025 22:56:04 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 22:56:05 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 22:56:06 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 22:56:08 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 22:56:09 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 22:56:09 - INFO - [geopandas] - --- 正在处理任务 50/82: geopandas_630 ---
+08/27/2025 22:56:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:14 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:14 - WARNING - [geopandas] -   任务 geopandas_630 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:56:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:18 - INFO - [geopandas] - --- 正在处理任务 51/82: geopandas_631 ---
+08/27/2025 22:56:19 - INFO - [geopandas] -   [成功] 任务 geopandas_631 测试通过。
+08/27/2025 22:56:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:24 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:29 - INFO - [geopandas] - --- 正在处理任务 52/82: geopandas_632 ---
+08/27/2025 22:56:31 - INFO - [geopandas] -   [成功] 任务 geopandas_632 测试通过。
+08/27/2025 22:56:32 - INFO - [geopandas] -   [成功] 任务 geopandas_632 测试通过。
+08/27/2025 22:56:34 - INFO - [geopandas] -   [成功] 任务 geopandas_632 测试通过。
+08/27/2025 22:56:36 - INFO - [geopandas] -   [成功] 任务 geopandas_632 测试通过。
+08/27/2025 22:56:37 - INFO - [geopandas] -   [成功] 任务 geopandas_632 测试通过。
+08/27/2025 22:56:37 - INFO - [geopandas] - --- 正在处理任务 53/82: geopandas_633 ---
+08/27/2025 22:56:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_633 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_633 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:44 - INFO - [geopandas] -   [成功] 任务 geopandas_633 测试通过。
+08/27/2025 22:56:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_633 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_633 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:56:49 - INFO - [geopandas] - --- 正在处理任务 54/82: geopandas_634 ---
+08/27/2025 22:56:50 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:56:52 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:56:54 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:56:55 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:56:57 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 22:56:57 - INFO - [geopandas] - --- 正在处理任务 55/82: geopandas_635 ---
+08/27/2025 22:56:59 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:57:01 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:57:02 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:57:04 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:57:06 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 22:57:06 - INFO - [geopandas] - --- 正在处理任务 56/82: geopandas_641 ---
+08/27/2025 22:57:07 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:57:09 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:57:10 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:57:12 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:57:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:57:13 - INFO - [geopandas] - --- 正在处理任务 57/82: geopandas_642 ---
+08/27/2025 22:57:14 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:57:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:57:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:57:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:57:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 22:57:20 - INFO - [geopandas] - --- 正在处理任务 58/82: geopandas_7 ---
+08/27/2025 22:57:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:57:24 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:57:25 - INFO - [geopandas] -   [成功] 任务 geopandas_7 测试通过。
+08/27/2025 22:57:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:57:29 - INFO - [geopandas] -   [成功] 任务 geopandas_7 测试通过。
+08/27/2025 22:57:29 - INFO - [geopandas] - --- 正在处理任务 59/82: geopandas_78 ---
+08/27/2025 22:57:30 - INFO - [geopandas] -   [成功] 任务 geopandas_78 测试通过。
+08/27/2025 22:57:32 - INFO - [geopandas] -   [成功] 任务 geopandas_78 测试通过。
+08/27/2025 22:57:33 - INFO - [geopandas] -   [成功] 任务 geopandas_78 测试通过。
+08/27/2025 22:57:34 - INFO - [geopandas] -   [成功] 任务 geopandas_78 测试通过。
+08/27/2025 22:57:36 - INFO - [geopandas] -   [成功] 任务 geopandas_78 测试通过。
+08/27/2025 22:57:36 - INFO - [geopandas] - --- 正在处理任务 60/82: geopandas_79 ---
+08/27/2025 22:57:37 - INFO - [geopandas] -   [成功] 任务 geopandas_79 测试通过。
+08/27/2025 22:57:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:57:41 - INFO - [geopandas] -   [成功] 任务 geopandas_79 测试通过。
+08/27/2025 22:57:42 - INFO - [geopandas] -   [成功] 任务 geopandas_79 测试通过。
+08/27/2025 22:57:43 - INFO - [geopandas] -   [成功] 任务 geopandas_79 测试通过。
+08/27/2025 22:57:44 - INFO - [geopandas] - --- 正在处理任务 61/82: geopandas_8 ---
+08/27/2025 22:57:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:57:47 - INFO - [geopandas] -   [成功] 任务 geopandas_8 测试通过。
+08/27/2025 22:57:48 - INFO - [geopandas] -   [成功] 任务 geopandas_8 测试通过。
+08/27/2025 22:57:50 - INFO - [geopandas] -   [成功] 任务 geopandas_8 测试通过。
+08/27/2025 22:57:51 - INFO - [geopandas] -   [成功] 任务 geopandas_8 测试通过。
+08/27/2025 22:57:51 - INFO - [geopandas] - --- 正在处理任务 62/82: geopandas_80 ---
+08/27/2025 22:57:51 - WARNING - [geopandas] -   任务 geopandas_80 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:57:53 - INFO - [geopandas] -   [成功] 任务 geopandas_80 测试通过。
+08/27/2025 22:57:54 - INFO - [geopandas] -   [成功] 任务 geopandas_80 测试通过。
+08/27/2025 22:57:55 - INFO - [geopandas] -   [成功] 任务 geopandas_80 测试通过。
+08/27/2025 22:57:57 - INFO - [geopandas] -   [成功] 任务 geopandas_80 测试通过。
+08/27/2025 22:57:57 - INFO - [geopandas] - --- 正在处理任务 63/82: geopandas_81 ---
+08/27/2025 22:57:58 - INFO - [geopandas] -   [成功] 任务 geopandas_81 测试通过。
+08/27/2025 22:58:00 - INFO - [geopandas] -   [成功] 任务 geopandas_81 测试通过。
+08/27/2025 22:58:01 - INFO - [geopandas] -   [成功] 任务 geopandas_81 测试通过。
+08/27/2025 22:58:03 - INFO - [geopandas] -   [成功] 任务 geopandas_81 测试通过。
+08/27/2025 22:58:04 - INFO - [geopandas] -   [成功] 任务 geopandas_81 测试通过。
+08/27/2025 22:58:04 - INFO - [geopandas] - --- 正在处理任务 64/82: geopandas_82 ---
+08/27/2025 22:58:05 - INFO - [geopandas] -   [成功] 任务 geopandas_82 测试通过。
+08/27/2025 22:58:07 - INFO - [geopandas] -   [成功] 任务 geopandas_82 测试通过。
+08/27/2025 22:58:08 - INFO - [geopandas] -   [成功] 任务 geopandas_82 测试通过。
+08/27/2025 22:58:10 - INFO - [geopandas] -   [成功] 任务 geopandas_82 测试通过。
+08/27/2025 22:58:11 - INFO - [geopandas] -   [成功] 任务 geopandas_82 测试通过。
+08/27/2025 22:58:11 - INFO - [geopandas] - --- 正在处理任务 65/82: geopandas_83 ---
+08/27/2025 22:58:13 - INFO - [geopandas] -   [成功] 任务 geopandas_83 测试通过。
+08/27/2025 22:58:14 - INFO - [geopandas] -   [成功] 任务 geopandas_83 测试通过。
+08/27/2025 22:58:15 - INFO - [geopandas] -   [成功] 任务 geopandas_83 测试通过。
+08/27/2025 22:58:17 - INFO - [geopandas] -   [成功] 任务 geopandas_83 测试通过。
+08/27/2025 22:58:18 - INFO - [geopandas] -   [成功] 任务 geopandas_83 测试通过。
+08/27/2025 22:58:18 - INFO - [geopandas] - --- 正在处理任务 66/82: geopandas_84 ---
+08/27/2025 22:58:20 - INFO - [geopandas] -   [成功] 任务 geopandas_84 测试通过。
+08/27/2025 22:58:21 - INFO - [geopandas] -   [成功] 任务 geopandas_84 测试通过。
+08/27/2025 22:58:22 - INFO - [geopandas] -   [成功] 任务 geopandas_84 测试通过。
+08/27/2025 22:58:24 - INFO - [geopandas] -   [成功] 任务 geopandas_84 测试通过。
+08/27/2025 22:58:25 - INFO - [geopandas] -   [成功] 任务 geopandas_84 测试通过。
+08/27/2025 22:58:25 - INFO - [geopandas] - --- 正在处理任务 67/82: geopandas_85 ---
+08/27/2025 22:58:27 - INFO - [geopandas] -   [成功] 任务 geopandas_85 测试通过。
+08/27/2025 22:58:28 - INFO - [geopandas] -   [成功] 任务 geopandas_85 测试通过。
+08/27/2025 22:58:29 - INFO - [geopandas] -   [成功] 任务 geopandas_85 测试通过。
+08/27/2025 22:58:31 - INFO - [geopandas] -   [成功] 任务 geopandas_85 测试通过。
+08/27/2025 22:58:32 - INFO - [geopandas] -   [成功] 任务 geopandas_85 测试通过。
+08/27/2025 22:58:32 - INFO - [geopandas] - --- 正在处理任务 68/82: geopandas_86 ---
+08/27/2025 22:58:34 - INFO - [geopandas] -   [成功] 任务 geopandas_86 测试通过。
+08/27/2025 22:58:35 - INFO - [geopandas] -   [成功] 任务 geopandas_86 测试通过。
+08/27/2025 22:58:36 - INFO - [geopandas] -   [成功] 任务 geopandas_86 测试通过。
+08/27/2025 22:58:38 - INFO - [geopandas] -   [成功] 任务 geopandas_86 测试通过。
+08/27/2025 22:58:39 - INFO - [geopandas] -   [成功] 任务 geopandas_86 测试通过。
+08/27/2025 22:58:39 - INFO - [geopandas] - --- 正在处理任务 69/82: geopandas_87 ---
+08/27/2025 22:58:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:58:43 - INFO - [geopandas] -   [成功] 任务 geopandas_87 测试通过。
+08/27/2025 22:58:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:58:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:58:48 - INFO - [geopandas] -   [成功] 任务 geopandas_87 测试通过。
+08/27/2025 22:58:48 - INFO - [geopandas] - --- 正在处理任务 70/82: geopandas_88 ---
+08/27/2025 22:58:49 - INFO - [geopandas] -   [成功] 任务 geopandas_88 测试通过。
+08/27/2025 22:58:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:58:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:58:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:58:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:58:57 - INFO - [geopandas] - --- 正在处理任务 71/82: geopandas_89 ---
+08/27/2025 22:58:58 - INFO - [geopandas] -   [成功] 任务 geopandas_89 测试通过。
+08/27/2025 22:59:00 - INFO - [geopandas] -   [成功] 任务 geopandas_89 测试通过。
+08/27/2025 22:59:01 - INFO - [geopandas] -   [成功] 任务 geopandas_89 测试通过。
+08/27/2025 22:59:02 - INFO - [geopandas] -   [成功] 任务 geopandas_89 测试通过。
+08/27/2025 22:59:04 - INFO - [geopandas] -   [成功] 任务 geopandas_89 测试通过。
+08/27/2025 22:59:04 - INFO - [geopandas] - --- 正在处理任务 72/82: geopandas_9 ---
+08/27/2025 22:59:05 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:59:07 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:59:08 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:59:10 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:59:11 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 22:59:11 - INFO - [geopandas] - --- 正在处理任务 73/82: geopandas_90 ---
+08/27/2025 22:59:12 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:59:13 - WARNING - [geopandas] -   任务 geopandas_90 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:59:14 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:59:15 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:59:17 - INFO - [geopandas] -   [成功] 任务 geopandas_90 测试通过。
+08/27/2025 22:59:17 - INFO - [geopandas] - --- 正在处理任务 74/82: geopandas_91 ---
+08/27/2025 22:59:18 - INFO - [geopandas] -   [成功] 任务 geopandas_91 测试通过。
+08/27/2025 22:59:19 - INFO - [geopandas] -   [成功] 任务 geopandas_91 测试通过。
+08/27/2025 22:59:21 - INFO - [geopandas] -   [成功] 任务 geopandas_91 测试通过。
+08/27/2025 22:59:21 - WARNING - [geopandas] -   任务 geopandas_91 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:59:22 - INFO - [geopandas] -   [成功] 任务 geopandas_91 测试通过。
+08/27/2025 22:59:22 - INFO - [geopandas] - --- 正在处理任务 75/82: geopandas_92 ---
+08/27/2025 22:59:24 - INFO - [geopandas] -   [成功] 任务 geopandas_92 测试通过。
+08/27/2025 22:59:25 - INFO - [geopandas] -   [成功] 任务 geopandas_92 测试通过。
+08/27/2025 22:59:26 - INFO - [geopandas] -   [成功] 任务 geopandas_92 测试通过。
+08/27/2025 22:59:28 - INFO - [geopandas] -   [成功] 任务 geopandas_92 测试通过。
+08/27/2025 22:59:29 - INFO - [geopandas] -   [成功] 任务 geopandas_92 测试通过。
+08/27/2025 22:59:29 - INFO - [geopandas] - --- 正在处理任务 76/82: geopandas_93 ---
+08/27/2025 22:59:31 - INFO - [geopandas] -   [成功] 任务 geopandas_93 测试通过。
+08/27/2025 22:59:32 - INFO - [geopandas] -   [成功] 任务 geopandas_93 测试通过。
+08/27/2025 22:59:33 - INFO - [geopandas] -   [成功] 任务 geopandas_93 测试通过。
+08/27/2025 22:59:35 - INFO - [geopandas] -   [成功] 任务 geopandas_93 测试通过。
+08/27/2025 22:59:36 - INFO - [geopandas] -   [成功] 任务 geopandas_93 测试通过。
+08/27/2025 22:59:36 - INFO - [geopandas] - --- 正在处理任务 77/82: geopandas_94 ---
+08/27/2025 22:59:38 - INFO - [geopandas] -   [成功] 任务 geopandas_94 测试通过。
+08/27/2025 22:59:39 - INFO - [geopandas] -   [成功] 任务 geopandas_94 测试通过。
+08/27/2025 22:59:40 - INFO - [geopandas] -   [成功] 任务 geopandas_94 测试通过。
+08/27/2025 22:59:42 - INFO - [geopandas] -   [成功] 任务 geopandas_94 测试通过。
+08/27/2025 22:59:43 - INFO - [geopandas] -   [成功] 任务 geopandas_94 测试通过。
+08/27/2025 22:59:43 - INFO - [geopandas] - --- 正在处理任务 78/82: geopandas_95 ---
+08/27/2025 22:59:45 - INFO - [geopandas] -   [成功] 任务 geopandas_95 测试通过。
+08/27/2025 22:59:46 - INFO - [geopandas] -   [成功] 任务 geopandas_95 测试通过。
+08/27/2025 22:59:48 - INFO - [geopandas] -   [成功] 任务 geopandas_95 测试通过。
+08/27/2025 22:59:49 - INFO - [geopandas] -   [成功] 任务 geopandas_95 测试通过。
+08/27/2025 22:59:50 - INFO - [geopandas] -   [成功] 任务 geopandas_95 测试通过。
+08/27/2025 22:59:51 - INFO - [geopandas] - --- 正在处理任务 79/82: geopandas_96 ---
+08/27/2025 22:59:52 - INFO - [geopandas] -   [成功] 任务 geopandas_96 测试通过。
+08/27/2025 22:59:53 - INFO - [geopandas] -   [成功] 任务 geopandas_96 测试通过。
+08/27/2025 22:59:55 - INFO - [geopandas] -   [成功] 任务 geopandas_96 测试通过。
+08/27/2025 22:59:56 - INFO - [geopandas] -   [成功] 任务 geopandas_96 测试通过。
+08/27/2025 22:59:57 - INFO - [geopandas] -   [成功] 任务 geopandas_96 测试通过。
+08/27/2025 22:59:58 - INFO - [geopandas] - --- 正在处理任务 80/82: geopandas_97 ---
+08/27/2025 22:59:59 - INFO - [geopandas] -   [成功] 任务 geopandas_97 测试通过。
+08/27/2025 23:00:00 - INFO - [geopandas] -   [成功] 任务 geopandas_97 测试通过。
+08/27/2025 23:00:02 - INFO - [geopandas] -   [成功] 任务 geopandas_97 测试通过。
+08/27/2025 23:00:03 - INFO - [geopandas] -   [成功] 任务 geopandas_97 测试通过。
+08/27/2025 23:00:04 - INFO - [geopandas] -   [成功] 任务 geopandas_97 测试通过。
+08/27/2025 23:00:05 - INFO - [geopandas] - --- 正在处理任务 81/82: geopandas_98 ---
+08/27/2025 23:00:06 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 23:00:07 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 23:00:09 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 23:00:10 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 23:00:12 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 23:00:12 - INFO - [geopandas] - --- 正在处理任务 82/82: geopandas_99 ---
+08/27/2025 23:00:13 - INFO - [geopandas] -   [成功] 任务 geopandas_99 测试通过。
+08/27/2025 23:00:15 - INFO - [geopandas] -   [成功] 任务 geopandas_99 测试通过。
+08/27/2025 23:00:16 - INFO - [geopandas] -   [成功] 任务 geopandas_99 测试通过。
+08/27/2025 23:00:17 - INFO - [geopandas] -   [成功] 任务 geopandas_99 测试通过。
+08/27/2025 23:00:19 - INFO - [geopandas] -   [成功] 任务 geopandas_99 测试通过。
+08/27/2025 23:00:19 - INFO - [geopandas] - --- 开始评估组合: REWRITE / RETRIEVAL for repo geopandas ---
+08/27/2025 23:00:19 - INFO - [geopandas] - --- 正在处理任务 1/82: geopandas_0 ---
+08/27/2025 23:00:20 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 23:00:22 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 23:00:22 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_create_metadata'): invalid syntax (<unknown>, line 6)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 6
+    assert (metadata['version'] == 1.0.0)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 23:00:22 - ERROR - [geopandas] -   任务 geopandas_0 的代码注入失败，计为执行失败。
+08/27/2025 23:00:23 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 23:00:25 - INFO - [geopandas] -   [成功] 任务 geopandas_0 测试通过。
+08/27/2025 23:00:25 - INFO - [geopandas] - --- 正在处理任务 2/82: geopandas_1 ---
+08/27/2025 23:00:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:00:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:00:30 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 23:00:31 - INFO - [geopandas] -   [成功] 任务 geopandas_1 测试通过。
+08/27/2025 23:00:32 - WARNING - [geopandas] -   任务 geopandas_1 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:00:32 - INFO - [geopandas] - --- 正在处理任务 3/82: geopandas_10 ---
+08/27/2025 23:00:32 - WARNING - [geopandas] -   任务 geopandas_10 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:00:33 - INFO - [geopandas] -   [成功] 任务 geopandas_10 测试通过。
+08/27/2025 23:00:34 - INFO - [geopandas] -   [成功] 任务 geopandas_10 测试通过。
+08/27/2025 23:00:36 - INFO - [geopandas] -   [成功] 任务 geopandas_10 测试通过。
+08/27/2025 23:00:37 - INFO - [geopandas] -   [成功] 任务 geopandas_10 测试通过。
+08/27/2025 23:00:37 - INFO - [geopandas] - --- 正在处理任务 4/82: geopandas_11 ---
+08/27/2025 23:00:37 - WARNING - [geopandas] -   任务 geopandas_11 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:00:39 - INFO - [geopandas] -   [成功] 任务 geopandas_11 测试通过。
+08/27/2025 23:00:39 - WARNING - [geopandas] -   任务 geopandas_11 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:00:39 - WARNING - [geopandas] -   任务 geopandas_11 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:00:40 - INFO - [geopandas] -   [成功] 任务 geopandas_11 测试通过。
+08/27/2025 23:00:40 - INFO - [geopandas] - --- 正在处理任务 5/82: geopandas_12 ---
+08/27/2025 23:00:42 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 23:00:43 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 23:00:44 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 23:00:46 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 23:00:47 - INFO - [geopandas] -   [成功] 任务 geopandas_12 测试通过。
+08/27/2025 23:00:48 - INFO - [geopandas] - --- 正在处理任务 6/82: geopandas_13 ---
+08/27/2025 23:00:49 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 23:00:50 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 23:00:52 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 23:00:53 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 23:00:55 - INFO - [geopandas] -   [成功] 任务 geopandas_13 测试通过。
+08/27/2025 23:00:55 - INFO - [geopandas] - --- 正在处理任务 7/82: geopandas_14 ---
+08/27/2025 23:00:56 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 23:00:57 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 23:00:59 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 23:01:00 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 23:01:02 - INFO - [geopandas] -   [成功] 任务 geopandas_14 测试通过。
+08/27/2025 23:01:02 - INFO - [geopandas] - --- 正在处理任务 8/82: geopandas_15 ---
+08/27/2025 23:01:04 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 23:01:06 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 23:01:08 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 23:01:09 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 23:01:11 - INFO - [geopandas] -   [成功] 任务 geopandas_15 测试通过。
+08/27/2025 23:01:11 - INFO - [geopandas] - --- 正在处理任务 9/82: geopandas_159 ---
+08/27/2025 23:01:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_159 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:01:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_159 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:01:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_159 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:01:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_159 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:01:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_159 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:01:20 - INFO - [geopandas] - --- 正在处理任务 10/82: geopandas_16 ---
+08/27/2025 23:01:23 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 23:01:25 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 23:01:27 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 23:01:30 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 23:01:32 - INFO - [geopandas] -   [成功] 任务 geopandas_16 测试通过。
+08/27/2025 23:01:32 - INFO - [geopandas] - --- 正在处理任务 11/82: geopandas_160 ---
+08/27/2025 23:01:34 - INFO - [geopandas] -   [成功] 任务 geopandas_160 测试通过。
+08/27/2025 23:01:35 - INFO - [geopandas] -   [成功] 任务 geopandas_160 测试通过。
+08/27/2025 23:01:36 - INFO - [geopandas] -   [成功] 任务 geopandas_160 测试通过。
+08/27/2025 23:01:38 - INFO - [geopandas] -   [成功] 任务 geopandas_160 测试通过。
+08/27/2025 23:01:39 - INFO - [geopandas] -   [成功] 任务 geopandas_160 测试通过。
+08/27/2025 23:01:39 - INFO - [geopandas] - --- 正在处理任务 12/82: geopandas_161 ---
+08/27/2025 23:01:41 - INFO - [geopandas] -   [成功] 任务 geopandas_161 测试通过。
+08/27/2025 23:01:42 - INFO - [geopandas] -   [成功] 任务 geopandas_161 测试通过。
+08/27/2025 23:01:43 - INFO - [geopandas] -   [成功] 任务 geopandas_161 测试通过。
+08/27/2025 23:01:45 - INFO - [geopandas] -   [成功] 任务 geopandas_161 测试通过。
+08/27/2025 23:01:46 - INFO - [geopandas] -   [成功] 任务 geopandas_161 测试通过。
+08/27/2025 23:01:46 - INFO - [geopandas] - --- 正在处理任务 13/82: geopandas_17 ---
+08/27/2025 23:01:48 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 23:01:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_17 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:01:54 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 23:01:56 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 23:01:59 - INFO - [geopandas] -   [成功] 任务 geopandas_17 测试通过。
+08/27/2025 23:01:59 - INFO - [geopandas] - --- 正在处理任务 14/82: geopandas_18 ---
+08/27/2025 23:02:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:02:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:02:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:02:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:02:14 - WARNING - [geopandas] -   [失败] 任务 geopandas_18 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:02:14 - INFO - [geopandas] - --- 正在处理任务 15/82: geopandas_19 ---
+08/27/2025 23:02:16 - INFO - [geopandas] -   [成功] 任务 geopandas_19 测试通过。
+08/27/2025 23:02:19 - INFO - [geopandas] -   [成功] 任务 geopandas_19 测试通过。
+08/27/2025 23:02:21 - INFO - [geopandas] -   [成功] 任务 geopandas_19 测试通过。
+08/27/2025 23:02:23 - INFO - [geopandas] -   [成功] 任务 geopandas_19 测试通过。
+08/27/2025 23:02:26 - INFO - [geopandas] -   [成功] 任务 geopandas_19 测试通过。
+08/27/2025 23:02:26 - INFO - [geopandas] - --- 正在处理任务 16/82: geopandas_2 ---
+08/27/2025 23:02:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:02:29 - INFO - [geopandas] -   [成功] 任务 geopandas_2 测试通过。
+08/27/2025 23:02:31 - INFO - [geopandas] -   [成功] 任务 geopandas_2 测试通过。
+08/27/2025 23:02:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:02:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_2 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:02:35 - INFO - [geopandas] - --- 正在处理任务 17/82: geopandas_21 ---
+08/27/2025 23:02:36 - INFO - [geopandas] -   [成功] 任务 geopandas_21 测试通过。
+08/27/2025 23:02:38 - INFO - [geopandas] -   [成功] 任务 geopandas_21 测试通过。
+08/27/2025 23:02:39 - INFO - [geopandas] -   [成功] 任务 geopandas_21 测试通过。
+08/27/2025 23:02:41 - INFO - [geopandas] -   [成功] 任务 geopandas_21 测试通过。
+08/27/2025 23:02:42 - INFO - [geopandas] -   [成功] 任务 geopandas_21 测试通过。
+08/27/2025 23:02:43 - INFO - [geopandas] - --- 正在处理任务 18/82: geopandas_22 ---
+08/27/2025 23:02:44 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 23:02:46 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 23:02:47 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 23:02:49 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 23:02:50 - INFO - [geopandas] -   [成功] 任务 geopandas_22 测试通过。
+08/27/2025 23:02:50 - INFO - [geopandas] - --- 正在处理任务 19/82: geopandas_23 ---
+08/27/2025 23:02:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:02:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:02:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:03:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:03:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_23 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:03:03 - INFO - [geopandas] - --- 正在处理任务 20/82: geopandas_24 ---
+08/27/2025 23:03:04 - INFO - [geopandas] -   [成功] 任务 geopandas_24 测试通过。
+08/27/2025 23:03:06 - INFO - [geopandas] -   [成功] 任务 geopandas_24 测试通过。
+08/27/2025 23:03:07 - INFO - [geopandas] -   [成功] 任务 geopandas_24 测试通过。
+08/27/2025 23:03:09 - INFO - [geopandas] -   [成功] 任务 geopandas_24 测试通过。
+08/27/2025 23:03:10 - INFO - [geopandas] -   [成功] 任务 geopandas_24 测试通过。
+08/27/2025 23:03:10 - INFO - [geopandas] - --- 正在处理任务 21/82: geopandas_25 ---
+08/27/2025 23:03:12 - INFO - [geopandas] -   [成功] 任务 geopandas_25 测试通过。
+08/27/2025 23:03:13 - INFO - [geopandas] -   [成功] 任务 geopandas_25 测试通过。
+08/27/2025 23:03:15 - INFO - [geopandas] -   [成功] 任务 geopandas_25 测试通过。
+08/27/2025 23:03:17 - INFO - [geopandas] -   [成功] 任务 geopandas_25 测试通过。
+08/27/2025 23:03:18 - INFO - [geopandas] -   [成功] 任务 geopandas_25 测试通过。
+08/27/2025 23:03:18 - INFO - [geopandas] - --- 正在处理任务 22/82: geopandas_26 ---
+08/27/2025 23:03:20 - INFO - [geopandas] -   [成功] 任务 geopandas_26 测试通过。
+08/27/2025 23:03:21 - INFO - [geopandas] -   [成功] 任务 geopandas_26 测试通过。
+08/27/2025 23:03:23 - INFO - [geopandas] -   [成功] 任务 geopandas_26 测试通过。
+08/27/2025 23:03:25 - INFO - [geopandas] -   [成功] 任务 geopandas_26 测试通过。
+08/27/2025 23:03:26 - INFO - [geopandas] -   [成功] 任务 geopandas_26 测试通过。
+08/27/2025 23:03:26 - INFO - [geopandas] - --- 正在处理任务 23/82: geopandas_27 ---
+08/27/2025 23:03:28 - INFO - [geopandas] -   [成功] 任务 geopandas_27 测试通过。
+08/27/2025 23:03:30 - INFO - [geopandas] -   [成功] 任务 geopandas_27 测试通过。
+08/27/2025 23:03:31 - INFO - [geopandas] -   [成功] 任务 geopandas_27 测试通过。
+08/27/2025 23:03:33 - INFO - [geopandas] -   [成功] 任务 geopandas_27 测试通过。
+08/27/2025 23:03:34 - INFO - [geopandas] -   [成功] 任务 geopandas_27 测试通过。
+08/27/2025 23:03:34 - INFO - [geopandas] - --- 正在处理任务 24/82: geopandas_28 ---
+08/27/2025 23:03:36 - INFO - [geopandas] -   [成功] 任务 geopandas_28 测试通过。
+08/27/2025 23:03:37 - INFO - [geopandas] -   [成功] 任务 geopandas_28 测试通过。
+08/27/2025 23:03:39 - INFO - [geopandas] -   [成功] 任务 geopandas_28 测试通过。
+08/27/2025 23:03:41 - INFO - [geopandas] -   [成功] 任务 geopandas_28 测试通过。
+08/27/2025 23:03:42 - INFO - [geopandas] -   [成功] 任务 geopandas_28 测试通过。
+08/27/2025 23:03:42 - INFO - [geopandas] - --- 正在处理任务 25/82: geopandas_29 ---
+08/27/2025 23:03:44 - INFO - [geopandas] -   [成功] 任务 geopandas_29 测试通过。
+08/27/2025 23:03:45 - INFO - [geopandas] -   [成功] 任务 geopandas_29 测试通过。
+08/27/2025 23:03:47 - INFO - [geopandas] -   [成功] 任务 geopandas_29 测试通过。
+08/27/2025 23:03:48 - INFO - [geopandas] -   [成功] 任务 geopandas_29 测试通过。
+08/27/2025 23:03:50 - INFO - [geopandas] -   [成功] 任务 geopandas_29 测试通过。
+08/27/2025 23:03:50 - INFO - [geopandas] - --- 正在处理任务 26/82: geopandas_3 ---
+08/27/2025 23:03:52 - INFO - [geopandas] -   [成功] 任务 geopandas_3 测试通过。
+08/27/2025 23:03:53 - INFO - [geopandas] -   [成功] 任务 geopandas_3 测试通过。
+08/27/2025 23:03:54 - INFO - [geopandas] -   [成功] 任务 geopandas_3 测试通过。
+08/27/2025 23:03:56 - INFO - [geopandas] -   [成功] 任务 geopandas_3 测试通过。
+08/27/2025 23:03:57 - INFO - [geopandas] -   [成功] 任务 geopandas_3 测试通过。
+08/27/2025 23:03:57 - INFO - [geopandas] - --- 正在处理任务 27/82: geopandas_30 ---
+08/27/2025 23:03:59 - INFO - [geopandas] -   [成功] 任务 geopandas_30 测试通过。
+08/27/2025 23:04:00 - INFO - [geopandas] -   [成功] 任务 geopandas_30 测试通过。
+08/27/2025 23:04:02 - INFO - [geopandas] -   [成功] 任务 geopandas_30 测试通过。
+08/27/2025 23:04:03 - INFO - [geopandas] -   [成功] 任务 geopandas_30 测试通过。
+08/27/2025 23:04:05 - INFO - [geopandas] -   [成功] 任务 geopandas_30 测试通过。
+08/27/2025 23:04:05 - INFO - [geopandas] - --- 正在处理任务 28/82: geopandas_31 ---
+08/27/2025 23:04:07 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:04:09 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:04:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:04:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:04:14 - WARNING - [geopandas] -   [失败] 任务 geopandas_31 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:04:15 - INFO - [geopandas] - --- 正在处理任务 29/82: geopandas_32 ---
+08/27/2025 23:04:16 - INFO - [geopandas] -   [成功] 任务 geopandas_32 测试通过。
+08/27/2025 23:04:17 - INFO - [geopandas] -   [成功] 任务 geopandas_32 测试通过。
+08/27/2025 23:04:19 - INFO - [geopandas] -   [成功] 任务 geopandas_32 测试通过。
+08/27/2025 23:04:20 - INFO - [geopandas] -   [成功] 任务 geopandas_32 测试通过。
+08/27/2025 23:04:22 - INFO - [geopandas] -   [成功] 任务 geopandas_32 测试通过。
+08/27/2025 23:04:22 - INFO - [geopandas] - --- 正在处理任务 30/82: geopandas_324 ---
+08/27/2025 23:04:22 - WARNING - [geopandas] -   任务 geopandas_324 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:04:22 - WARNING - [geopandas] -   任务 geopandas_324 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:04:23 - INFO - [geopandas] -   [成功] 任务 geopandas_324 测试通过。
+08/27/2025 23:04:23 - WARNING - [geopandas] -   任务 geopandas_324 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:04:23 - WARNING - [geopandas] -   任务 geopandas_324 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:04:23 - INFO - [geopandas] - --- 正在处理任务 31/82: geopandas_325 ---
+08/27/2025 23:04:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_325 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:04:26 - INFO - [geopandas] -   [成功] 任务 geopandas_325 测试通过。
+08/27/2025 23:04:28 - INFO - [geopandas] -   [成功] 任务 geopandas_325 测试通过。
+08/27/2025 23:04:29 - INFO - [geopandas] -   [成功] 任务 geopandas_325 测试通过。
+08/27/2025 23:04:29 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_docstring_appending'): invalid syntax (<unknown>, line 4)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 4
+    assert (cumavg_aug.__doc__ == This is the massive_cumavg method.
+                                              ^
+SyntaxError: invalid syntax
+08/27/2025 23:04:29 - ERROR - [geopandas] -   任务 geopandas_325 的代码注入失败，计为执行失败。
+08/27/2025 23:04:29 - INFO - [geopandas] - --- 正在处理任务 32/82: geopandas_326 ---
+08/27/2025 23:04:31 - INFO - [geopandas] -   [成功] 任务 geopandas_326 测试通过。
+08/27/2025 23:04:32 - INFO - [geopandas] -   [成功] 任务 geopandas_326 测试通过。
+08/27/2025 23:04:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_326 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:04:35 - INFO - [geopandas] -   [成功] 任务 geopandas_326 测试通过。
+08/27/2025 23:04:37 - WARNING - [geopandas] -   [失败] 任务 geopandas_326 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:04:37 - INFO - [geopandas] - --- 正在处理任务 33/82: geopandas_327 ---
+08/27/2025 23:04:38 - INFO - [geopandas] -   [成功] 任务 geopandas_327 测试通过。
+08/27/2025 23:04:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_327 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:04:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_327 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:04:43 - INFO - [geopandas] -   [成功] 任务 geopandas_327 测试通过。
+08/27/2025 23:04:44 - INFO - [geopandas] -   [成功] 任务 geopandas_327 测试通过。
+08/27/2025 23:04:44 - INFO - [geopandas] - --- 正在处理任务 34/82: geopandas_371 ---
+08/27/2025 23:04:46 - INFO - [geopandas] -   [成功] 任务 geopandas_371 测试通过。
+08/27/2025 23:04:47 - INFO - [geopandas] -   [成功] 任务 geopandas_371 测试通过。
+08/27/2025 23:04:49 - INFO - [geopandas] -   [成功] 任务 geopandas_371 测试通过。
+08/27/2025 23:04:50 - INFO - [geopandas] -   [成功] 任务 geopandas_371 测试通过。
+08/27/2025 23:04:52 - INFO - [geopandas] -   [成功] 任务 geopandas_371 测试通过。
+08/27/2025 23:04:52 - INFO - [geopandas] - --- 正在处理任务 35/82: geopandas_372 ---
+08/27/2025 23:04:53 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 23:04:55 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 23:04:56 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 23:04:58 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 23:04:59 - INFO - [geopandas] -   [成功] 任务 geopandas_372 测试通过。
+08/27/2025 23:04:59 - INFO - [geopandas] - --- 正在处理任务 36/82: geopandas_373 ---
+08/27/2025 23:05:01 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 23:05:02 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 23:05:04 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 23:05:05 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 23:05:07 - INFO - [geopandas] -   [成功] 任务 geopandas_373 测试通过。
+08/27/2025 23:05:07 - INFO - [geopandas] - --- 正在处理任务 37/82: geopandas_374 ---
+08/27/2025 23:05:07 - WARNING - [geopandas] -   任务 geopandas_374 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:05:08 - INFO - [geopandas] -   [成功] 任务 geopandas_374 测试通过。
+08/27/2025 23:05:10 - INFO - [geopandas] -   [成功] 任务 geopandas_374 测试通过。
+08/27/2025 23:05:10 - WARNING - [geopandas] -   任务 geopandas_374 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:05:11 - INFO - [geopandas] -   [成功] 任务 geopandas_374 测试通过。
+08/27/2025 23:05:12 - INFO - [geopandas] - --- 正在处理任务 38/82: geopandas_375 ---
+08/27/2025 23:05:13 - INFO - [geopandas] -   [成功] 任务 geopandas_375 测试通过。
+08/27/2025 23:05:14 - INFO - [geopandas] -   [成功] 任务 geopandas_375 测试通过。
+08/27/2025 23:05:15 - WARNING - [geopandas] -   任务 geopandas_375 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:05:16 - INFO - [geopandas] -   [成功] 任务 geopandas_375 测试通过。
+08/27/2025 23:05:16 - WARNING - [geopandas] -   任务 geopandas_375 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:05:16 - INFO - [geopandas] - --- 正在处理任务 39/82: geopandas_376 ---
+08/27/2025 23:05:18 - INFO - [geopandas] -   [成功] 任务 geopandas_376 测试通过。
+08/27/2025 23:05:19 - INFO - [geopandas] -   [成功] 任务 geopandas_376 测试通过。
+08/27/2025 23:05:20 - INFO - [geopandas] -   [成功] 任务 geopandas_376 测试通过。
+08/27/2025 23:05:22 - INFO - [geopandas] -   [成功] 任务 geopandas_376 测试通过。
+08/27/2025 23:05:24 - INFO - [geopandas] -   [成功] 任务 geopandas_376 测试通过。
+08/27/2025 23:05:24 - INFO - [geopandas] - --- 正在处理任务 40/82: geopandas_377 ---
+08/27/2025 23:05:25 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 23:05:27 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 23:05:28 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 23:05:30 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 23:05:32 - INFO - [geopandas] -   [成功] 任务 geopandas_377 测试通过。
+08/27/2025 23:05:32 - INFO - [geopandas] - --- 正在处理任务 41/82: geopandas_378 ---
+08/27/2025 23:05:33 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 23:05:35 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 23:05:36 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 23:05:38 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 23:05:39 - INFO - [geopandas] -   [成功] 任务 geopandas_378 测试通过。
+08/27/2025 23:05:39 - INFO - [geopandas] - --- 正在处理任务 42/82: geopandas_4 ---
+08/27/2025 23:05:41 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 23:05:42 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 23:05:44 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 23:05:45 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 23:05:46 - INFO - [geopandas] -   [成功] 任务 geopandas_4 测试通过。
+08/27/2025 23:05:47 - INFO - [geopandas] - --- 正在处理任务 43/82: geopandas_5 ---
+08/27/2025 23:05:48 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 23:05:49 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 23:05:51 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 23:05:52 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 23:05:53 - INFO - [geopandas] -   [成功] 任务 geopandas_5 测试通过。
+08/27/2025 23:05:54 - INFO - [geopandas] - --- 正在处理任务 44/82: geopandas_519 ---
+08/27/2025 23:05:55 - INFO - [geopandas] -   [成功] 任务 geopandas_519 测试通过。
+08/27/2025 23:05:56 - INFO - [geopandas] -   [成功] 任务 geopandas_519 测试通过。
+08/27/2025 23:05:58 - INFO - [geopandas] -   [成功] 任务 geopandas_519 测试通过。
+08/27/2025 23:05:59 - INFO - [geopandas] -   [成功] 任务 geopandas_519 测试通过。
+08/27/2025 23:06:01 - INFO - [geopandas] -   [成功] 任务 geopandas_519 测试通过。
+08/27/2025 23:06:01 - INFO - [geopandas] - --- 正在处理任务 45/82: geopandas_520 ---
+08/27/2025 23:06:02 - INFO - [geopandas] -   [成功] 任务 geopandas_520 测试通过。
+08/27/2025 23:06:04 - INFO - [geopandas] -   [成功] 任务 geopandas_520 测试通过。
+08/27/2025 23:06:05 - INFO - [geopandas] -   [成功] 任务 geopandas_520 测试通过。
+08/27/2025 23:06:07 - INFO - [geopandas] -   [成功] 任务 geopandas_520 测试通过。
+08/27/2025 23:06:08 - INFO - [geopandas] -   [成功] 任务 geopandas_520 测试通过。
+08/27/2025 23:06:08 - INFO - [geopandas] - --- 正在处理任务 46/82: geopandas_521 ---
+08/27/2025 23:06:09 - INFO - [geopandas] -   [成功] 任务 geopandas_521 测试通过。
+08/27/2025 23:06:11 - INFO - [geopandas] -   [成功] 任务 geopandas_521 测试通过。
+08/27/2025 23:06:12 - INFO - [geopandas] -   [成功] 任务 geopandas_521 测试通过。
+08/27/2025 23:06:14 - INFO - [geopandas] -   [成功] 任务 geopandas_521 测试通过。
+08/27/2025 23:06:15 - INFO - [geopandas] -   [成功] 任务 geopandas_521 测试通过。
+08/27/2025 23:06:15 - INFO - [geopandas] - --- 正在处理任务 47/82: geopandas_522 ---
+08/27/2025 23:06:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:06:18 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:06:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:06:21 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:06:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_522 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:06:23 - INFO - [geopandas] - --- 正在处理任务 48/82: geopandas_523 ---
+08/27/2025 23:06:24 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:06:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:06:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:06:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:06:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_523 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:06:30 - INFO - [geopandas] - --- 正在处理任务 49/82: geopandas_6 ---
+08/27/2025 23:06:31 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 23:06:32 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 23:06:34 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 23:06:35 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 23:06:37 - INFO - [geopandas] -   [成功] 任务 geopandas_6 测试通过。
+08/27/2025 23:06:37 - INFO - [geopandas] - --- 正在处理任务 50/82: geopandas_630 ---
+08/27/2025 23:06:39 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:06:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:06:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:06:45 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:06:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_630 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:06:48 - INFO - [geopandas] - --- 正在处理任务 51/82: geopandas_631 ---
+08/27/2025 23:06:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:06:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:06:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:06:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:07:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_631 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:07:00 - INFO - [geopandas] - --- 正在处理任务 52/82: geopandas_632 ---
+08/27/2025 23:07:02 - INFO - [geopandas] -   [成功] 任务 geopandas_632 测试通过。
+08/27/2025 23:07:03 - INFO - [geopandas] -   [成功] 任务 geopandas_632 测试通过。
+08/27/2025 23:07:06 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:07:08 - WARNING - [geopandas] -   [失败] 任务 geopandas_632 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:07:10 - INFO - [geopandas] -   [成功] 任务 geopandas_632 测试通过。
+08/27/2025 23:07:10 - INFO - [geopandas] - --- 正在处理任务 53/82: geopandas_633 ---
+08/27/2025 23:07:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_633 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:07:14 - INFO - [geopandas] -   [成功] 任务 geopandas_633 测试通过。
+08/27/2025 23:07:16 - INFO - [geopandas] -   [成功] 任务 geopandas_633 测试通过。
+08/27/2025 23:07:18 - INFO - [geopandas] -   [成功] 任务 geopandas_633 测试通过。
+08/27/2025 23:07:20 - WARNING - [geopandas] -   [失败] 任务 geopandas_633 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:07:20 - INFO - [geopandas] - --- 正在处理任务 54/82: geopandas_634 ---
+08/27/2025 23:07:22 - WARNING - [geopandas] -   [失败] 任务 geopandas_634 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:07:24 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 23:07:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_634 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:07:28 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 23:07:30 - INFO - [geopandas] -   [成功] 任务 geopandas_634 测试通过。
+08/27/2025 23:07:30 - INFO - [geopandas] - --- 正在处理任务 55/82: geopandas_635 ---
+08/27/2025 23:07:32 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 23:07:34 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 23:07:35 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 23:07:37 - INFO - [geopandas] -   [成功] 任务 geopandas_635 测试通过。
+08/27/2025 23:07:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_635 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:07:40 - INFO - [geopandas] - --- 正在处理任务 56/82: geopandas_641 ---
+08/27/2025 23:07:41 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:07:43 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:07:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:07:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:07:47 - WARNING - [geopandas] -   [失败] 任务 geopandas_641 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:07:47 - INFO - [geopandas] - --- 正在处理任务 57/82: geopandas_642 ---
+08/27/2025 23:07:49 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:07:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:07:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:07:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:07:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_642 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:07:55 - INFO - [geopandas] - --- 正在处理任务 58/82: geopandas_7 ---
+08/27/2025 23:07:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:07:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:01 - WARNING - [geopandas] -   [失败] 任务 geopandas_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:02 - INFO - [geopandas] -   [成功] 任务 geopandas_7 测试通过。
+08/27/2025 23:08:03 - INFO - [geopandas] -   [成功] 任务 geopandas_7 测试通过。
+08/27/2025 23:08:04 - INFO - [geopandas] - --- 正在处理任务 59/82: geopandas_78 ---
+08/27/2025 23:08:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_78 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:07 - WARNING - [geopandas] -   [失败] 任务 geopandas_78 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:09 - WARNING - [geopandas] -   [失败] 任务 geopandas_78 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_78 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_78 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:13 - INFO - [geopandas] - --- 正在处理任务 60/82: geopandas_79 ---
+08/27/2025 23:08:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:21 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_79 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:23 - INFO - [geopandas] - --- 正在处理任务 61/82: geopandas_8 ---
+08/27/2025 23:08:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:28 - INFO - [geopandas] -   [成功] 任务 geopandas_8 测试通过。
+08/27/2025 23:08:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:32 - WARNING - [geopandas] -   [失败] 任务 geopandas_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:32 - INFO - [geopandas] - --- 正在处理任务 62/82: geopandas_80 ---
+08/27/2025 23:08:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_80 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:36 - WARNING - [geopandas] -   [失败] 任务 geopandas_80 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_80 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_80 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_80 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:42 - INFO - [geopandas] - --- 正在处理任务 63/82: geopandas_81 ---
+08/27/2025 23:08:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_81 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_81 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_81 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_81 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_81 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:52 - INFO - [geopandas] - --- 正在处理任务 64/82: geopandas_82 ---
+08/27/2025 23:08:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_82 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_82 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:08:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_82 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_82 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_82 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:02 - INFO - [geopandas] - --- 正在处理任务 65/82: geopandas_83 ---
+08/27/2025 23:09:03 - WARNING - [geopandas] -   [失败] 任务 geopandas_83 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_83 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:07 - WARNING - [geopandas] -   [失败] 任务 geopandas_83 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:09 - WARNING - [geopandas] -   [失败] 任务 geopandas_83 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_83 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:11 - INFO - [geopandas] - --- 正在处理任务 66/82: geopandas_84 ---
+08/27/2025 23:09:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_84 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_84 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_84 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_84 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:21 - WARNING - [geopandas] -   [失败] 任务 geopandas_84 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:21 - INFO - [geopandas] - --- 正在处理任务 67/82: geopandas_85 ---
+08/27/2025 23:09:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_85 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_85 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_85 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_85 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:31 - WARNING - [geopandas] -   [失败] 任务 geopandas_85 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:31 - INFO - [geopandas] - --- 正在处理任务 68/82: geopandas_86 ---
+08/27/2025 23:09:33 - WARNING - [geopandas] -   [失败] 任务 geopandas_86 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_86 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:36 - WARNING - [geopandas] -   [失败] 任务 geopandas_86 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_86 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_86 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:40 - INFO - [geopandas] - --- 正在处理任务 69/82: geopandas_87 ---
+08/27/2025 23:09:40 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_multiple_shape_types'): invalid syntax (<unknown>, line 7)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 7
+    assert (infer_schema(df) == geometry Z)
+                                         ^
+SyntaxError: invalid syntax
+08/27/2025 23:09:40 - ERROR - [geopandas] -   任务 geopandas_87 的代码注入失败，计为执行失败。
+08/27/2025 23:09:41 - WARNING - [geopandas] -   任务 geopandas_87 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:09:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_87 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:46 - INFO - [geopandas] - --- 正在处理任务 70/82: geopandas_88 ---
+08/27/2025 23:09:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:52 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:54 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:56 - WARNING - [geopandas] -   [失败] 任务 geopandas_88 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:09:56 - INFO - [geopandas] - --- 正在处理任务 71/82: geopandas_89 ---
+08/27/2025 23:09:58 - WARNING - [geopandas] -   [失败] 任务 geopandas_89 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:00 - WARNING - [geopandas] -   [失败] 任务 geopandas_89 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:02 - WARNING - [geopandas] -   [失败] 任务 geopandas_89 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:02 - WARNING - [geopandas] -   任务 geopandas_89 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:10:04 - WARNING - [geopandas] -   [失败] 任务 geopandas_89 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:04 - INFO - [geopandas] - --- 正在处理任务 72/82: geopandas_9 ---
+08/27/2025 23:10:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:07 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 23:10:08 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 23:10:10 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 23:10:11 - INFO - [geopandas] -   [成功] 任务 geopandas_9 测试通过。
+08/27/2025 23:10:11 - INFO - [geopandas] - --- 正在处理任务 73/82: geopandas_90 ---
+08/27/2025 23:10:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_90 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:13 - WARNING - [geopandas] -   任务 geopandas_90 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:10:15 - WARNING - [geopandas] -   [失败] 任务 geopandas_90 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:17 - WARNING - [geopandas] -   [失败] 任务 geopandas_90 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:19 - WARNING - [geopandas] -   [失败] 任务 geopandas_90 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:19 - INFO - [geopandas] - --- 正在处理任务 74/82: geopandas_91 ---
+08/27/2025 23:10:21 - WARNING - [geopandas] -   [失败] 任务 geopandas_91 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:23 - WARNING - [geopandas] -   [失败] 任务 geopandas_91 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:25 - WARNING - [geopandas] -   [失败] 任务 geopandas_91 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:25 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_mixed_3D_linestring'): invalid syntax (<unknown>, line 5)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 5
+    assert (infer_schema(df) == LineString Z)
+                                           ^
+SyntaxError: invalid syntax
+08/27/2025 23:10:25 - ERROR - [geopandas] -   任务 geopandas_91 的代码注入失败，计为执行失败。
+08/27/2025 23:10:27 - WARNING - [geopandas] -   [失败] 任务 geopandas_91 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:27 - INFO - [geopandas] - --- 正在处理任务 75/82: geopandas_92 ---
+08/27/2025 23:10:29 - WARNING - [geopandas] -   [失败] 任务 geopandas_92 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_92 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:32 - WARNING - [geopandas] -   [失败] 任务 geopandas_92 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:34 - WARNING - [geopandas] -   [失败] 任务 geopandas_92 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:36 - WARNING - [geopandas] -   [失败] 任务 geopandas_92 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:36 - INFO - [geopandas] - --- 正在处理任务 76/82: geopandas_93 ---
+08/27/2025 23:10:38 - WARNING - [geopandas] -   [失败] 任务 geopandas_93 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:40 - WARNING - [geopandas] -   [失败] 任务 geopandas_93 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:40 - WARNING - [geopandas] -   任务 geopandas_93 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:10:42 - WARNING - [geopandas] -   [失败] 任务 geopandas_93 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:44 - WARNING - [geopandas] -   [失败] 任务 geopandas_93 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:44 - INFO - [geopandas] - --- 正在处理任务 77/82: geopandas_94 ---
+08/27/2025 23:10:46 - WARNING - [geopandas] -   [失败] 任务 geopandas_94 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:48 - WARNING - [geopandas] -   [失败] 任务 geopandas_94 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:50 - WARNING - [geopandas] -   [失败] 任务 geopandas_94 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:51 - WARNING - [geopandas] -   [失败] 任务 geopandas_94 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:53 - WARNING - [geopandas] -   [失败] 任务 geopandas_94 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:54 - INFO - [geopandas] - --- 正在处理任务 78/82: geopandas_95 ---
+08/27/2025 23:10:55 - WARNING - [geopandas] -   [失败] 任务 geopandas_95 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:57 - WARNING - [geopandas] -   [失败] 任务 geopandas_95 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:10:59 - WARNING - [geopandas] -   [失败] 任务 geopandas_95 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:01 - WARNING - [geopandas] -   [失败] 任务 geopandas_95 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:03 - WARNING - [geopandas] -   [失败] 任务 geopandas_95 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:03 - INFO - [geopandas] - --- 正在处理任务 79/82: geopandas_96 ---
+08/27/2025 23:11:05 - WARNING - [geopandas] -   [失败] 任务 geopandas_96 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:05 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_null_geometry_and_3D_point'): invalid syntax (<unknown>, line 3)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 3
+    assert (infer_schema(df) == Point Z)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 23:11:05 - ERROR - [geopandas] -   任务 geopandas_96 的代码注入失败，计为执行失败。
+08/27/2025 23:11:05 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_null_geometry_and_3D_point'): invalid syntax (<unknown>, line 3)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 3
+    assert (infer_schema(df) == Point Z)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 23:11:05 - ERROR - [geopandas] -   任务 geopandas_96 的代码注入失败，计为执行失败。
+08/27/2025 23:11:05 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_null_geometry_and_3D_point'): invalid syntax (<unknown>, line 3)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 3
+    assert (infer_schema(df) == Point Z)
+                                      ^
+SyntaxError: invalid syntax
+08/27/2025 23:11:05 - ERROR - [geopandas] -   任务 geopandas_96 的代码注入失败，计为执行失败。
+08/27/2025 23:11:07 - WARNING - [geopandas] -   [失败] 任务 geopandas_96 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:07 - INFO - [geopandas] - --- 正在处理任务 80/82: geopandas_97 ---
+08/27/2025 23:11:09 - WARNING - [geopandas] -   [失败] 任务 geopandas_97 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:11 - WARNING - [geopandas] -   [失败] 任务 geopandas_97 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:13 - WARNING - [geopandas] -   [失败] 任务 geopandas_97 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:14 - WARNING - [geopandas] -   [失败] 任务 geopandas_97 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:16 - WARNING - [geopandas] -   [失败] 任务 geopandas_97 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:16 - INFO - [geopandas] - --- 正在处理任务 81/82: geopandas_98 ---
+08/27/2025 23:11:18 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 23:11:19 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 23:11:21 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 23:11:22 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 23:11:24 - INFO - [geopandas] -   [成功] 任务 geopandas_98 测试通过。
+08/27/2025 23:11:24 - INFO - [geopandas] - --- 正在处理任务 82/82: geopandas_99 ---
+08/27/2025 23:11:24 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_int64'): invalid syntax (<unknown>, line 5)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 5
+    assert (infer_schema(df) == geometry: extension<geoarrow.wkb>
+                                        ^
+SyntaxError: invalid syntax
+08/27/2025 23:11:24 - ERROR - [geopandas] -   任务 geopandas_99 的代码注入失败，计为执行失败。
+08/27/2025 23:11:24 - ERROR - [geopandas] - 使用 AST 修改代码失败 (路径: 'test_infer_schema_int64'): invalid syntax (<unknown>, line 5)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 5
+    assert (infer_schema(df) == geometry: extension<geoarrow.wkb>
+                                        ^
+SyntaxError: invalid syntax
+08/27/2025 23:11:24 - ERROR - [geopandas] -   任务 geopandas_99 的代码注入失败，计为执行失败。
+08/27/2025 23:11:26 - WARNING - [geopandas] -   [失败] 任务 geopandas_99 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:28 - WARNING - [geopandas] -   [失败] 任务 geopandas_99 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:30 - WARNING - [geopandas] -   [失败] 任务 geopandas_99 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:11:30 - INFO - [geopandas] - 仓库 'geopandas' 处理完毕，正在停止容器 'agent-run-geopandas'...

@@ -1,0 +1,9 @@
+```bash
+# Step 1: Install dependencies from requirements.txt, setup.py, and pyproject.toml if available
+pip install -r requirements.txt
+pip install .
+# If requirements.txt is missing some dependencies, try installing from pyproject.toml
+pip install .
+# Run pytest to see initial status
+pytest
+```

@@ -1,0 +1,9 @@
+[
+  {
+    "command": "cat setup.py",
+    "success": true,
+    "stdout": "import os\nfrom setuptools import setup\n\ndef read(fname):\n    return open(os.path.join(os.path.dirname(__file__), fname)).read()\n\nsetup(\n    name='pyDOE',\n    version=\"0.3.8\",\n    author='Abraham Lee',\n    author_email='tisimst@gmail.com',\n    description='Design of experiments for Python',\n    url='https://github.com/tisimst/pyDOE',\n    license='BSD License (3-Clause)',\n    long_description=read('README'),\n    packages=['pyDOE'],\n    install_requires=['numpy', 'scipy'],\n    keywords=[\n        'DOE',\n        'design of experiments',\n        'experimental design',\n        'optimization',\n        'statistics',\n        'python'\n        ],\n    classifiers=[\n        'Development Status :: 5 - Production/Stable',\n        'Intended Audience :: Education',\n        'Intended Audience :: Science/Research',\n        'License :: OSI Approved :: BSD License',\n        'Operating System :: OS Independent',\n        'Programming Language :: Python',\n        'Programming Language :: Python :: 2.6',\n        'Programming Language :: Python :: 2.7',\n        'Programming Language :: Python :: 3.0',\n        'Programming Language :: Python :: 3.1',\n        'Programming Language :: Python :: 3.2',\n        'Programming Language :: Python :: 3.3',\n        'Topic :: Education',\n        'Topic :: Scientific/Engineering',\n        'Topic :: Scientific/Engineering :: Mathematics',\n        'Topic :: Scientific/Engineering :: Physics',\n        'Topic :: Software Development',\n        'Topic :: Software Development :: Libraries',\n        'Topic :: Software Development :: Libraries :: Python Modules',\n        'Topic :: Utilities'\n        ]\n    )\n",
+    "stderr": "",
+    "execution_time": 0.0016291141510009766
+  }
+]

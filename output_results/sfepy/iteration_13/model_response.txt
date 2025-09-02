@@ -1,0 +1,18 @@
+The build script failed with:
+
+```
+Problem with the CMake installation, aborting build. CMake executable is cmake
+```
+
+This means `cmake` is not installed and is required to build the extensions.
+
+```bash
+pip install cmake
+```
+
+Then re-run:
+
+```bash
+python setup.py build_ext --inplace
+```
+and then rerun `pytest` if the build succeeds.

@@ -1,0 +1,666 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── emscripten.yml
+│   │   ├── lint.yml
+│   │   ├── tests.yml
+│   │   └── wheel_tests_and_release.yml
+│   ├── dependabot.yml
+│   └── FUNDING.yml
+├── benchmarks/
+│   ├── benchmarks/
+│   │   ├── __init__.py
+│   │   ├── cwt_benchmarks.py
+│   │   ├── dwt_benchmarks.py
+│   │   └── swt_benchmarks.py
+│   ├── asv.conf.json
+│   └── README.rst
+├── demo/
+│   ├── _dwt_decompose.c
+│   ├── batch_processing.py
+│   ├── benchmark.py
+│   ├── cwt_analysis.py
+│   ├── dwt2_dwtn_image.py
+│   ├── dwt_signal_decomposition.py
+│   ├── dwt_swt_show_coeffs.py
+│   ├── fswavedecn.py
+│   ├── fswavedecn_mondrian.py
+│   ├── image_blender.py
+│   ├── mra2d.py
+│   ├── mra_vs_swt.py
+│   ├── plot_demo_signals.py
+│   ├── plot_wavelets.py
+│   ├── plot_wavelets_pyqtgraph.py
+│   ├── swt2.py
+│   ├── swt_variance.py
+│   ├── waveinfo.py
+│   ├── wp_2d.py
+│   ├── wp_nd.py
+│   ├── wp_scalogram.py
+│   └── wp_visualize_coeffs_distribution.py
+│       └── ... (17 more files)
+├── doc/
+│   ├── paper/
+│   │   ├── paper.bib
+│   │   └── paper.md
+│   ├── release/
+│   │   ├── 0.3.0-notes.rst
+│   │   ├── 0.4.0-notes.rst
+│   │   ├── 0.5.0-notes.rst
+│   │   ├── 0.5.1-notes.rst
+│   │   ├── 0.5.2-notes.rst
+│   │   ├── 1.0.0-notes.rst
+│   │   ├── 1.0.1-notes.rst
+│   │   ├── 1.0.2-notes.rst
+│   │   ├── 1.0.3-notes.rst
+│   │   ├── 1.1.0-notes.rst
+│   │   ├── 1.1.1-notes.rst
+│   │   ├── 1.2.0-notes.rst
+│   │   ├── 1.3.0-notes.rst
+│   │   ├── 1.4.0-notes.rst
+│   │   ├── 1.4.1-notes.rst
+│   │   ├── 1.5.0-notes.rst
+│   │   ├── 1.6.0-notes.rst
+│   │   ├── 1.7.0-notes.rst
+│   │   ├── 1.8.0-notes.rst
+│   │   └── 1.9.0-notes.rst
+│   │       └── ... (15 more files)
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── comments.png
+│   │   │   ├── favicon.ico
+│   │   │   ├── myst-nb.css
+│   │   │   ├── page_edit.png
+│   │   │   ├── pywavelets.css
+│   │   │   └── wave.png
+│   │   │       └── ... (1 more files)
+│   │   ├── dev/
+│   │   │   ├── conduct/
+│   │   │   ├── building_extension.rst
+│   │   │   ├── how_to_build_the_docs.rst
+│   │   │   ├── how_to_release.rst
+│   │   │   ├── index.rst
+│   │   │   ├── installing_build_dependencies.rst
+│   │   │   ├── preparing_linux_build_environment.rst
+│   │   │   ├── preparing_windows_build_environment.rst
+│   │   │   └── testing.rst
+│   │   │       └── ... (3 more files)
+│   │   ├── pyplots/
+│   │   │   ├── camera_approx_detail.py
+│   │   │   ├── cwt_scaling_demo.py
+│   │   │   ├── cwt_wavelet_frequency_bandwidth_demo.py
+│   │   │   ├── plot_2d_bases.py
+│   │   │   ├── plot_boundary_modes.py
+│   │   │   ├── plot_cwt_scaleogram.py
+│   │   │   ├── plot_mallat_2d.py
+│   │   │   ├── plot_thresholds.py
+│   │   │   └── plot_wavelets.py
+│   │   │       └── ... (4 more files)
+│   │   ├── ref/
+│   │   │   ├── 2d-decompositions-overview.rst
+│   │   │   ├── 2d-dwt-and-idwt.rst
+│   │   │   ├── cwt.rst
+│   │   │   ├── dwt-coefficient-handling.rst
+│   │   │   ├── dwt-discrete-wavelet-transform.rst
+│   │   │   ├── idwt-inverse-discrete-wavelet-transform.rst
+│   │   │   ├── index.rst
+│   │   │   ├── iswt-inverse-stationary-wavelet-transform.rst
+│   │   │   ├── mra.rst
+│   │   │   ├── nd-dwt-and-idwt.rst
+│   │   │   ├── other-functions.rst
+│   │   │   ├── signal-extension-modes.rst
+│   │   │   ├── swt-stationary-wavelet-transform.rst
+│   │   │   ├── thresholding-functions.rst
+│   │   │   ├── wavelet-packets.rst
+│   │   │   └── wavelets.rst
+│   │   │       └── ... (11 more files)
+│   │   ├── regression/
+│   │   │   ├── dwt-idwt.md
+│   │   │   ├── gotchas.md
+│   │   │   ├── header.md
+│   │   │   ├── index.rst
+│   │   │   ├── modes.md
+│   │   │   ├── multilevel.md
+│   │   │   ├── README.md
+│   │   │   ├── wavelet.md
+│   │   │   ├── wp.md
+│   │   │   └── wp2d.md
+│   │   │       └── ... (5 more files)
+│   │   ├── common_refs.rst
+│   │   ├── conf.py
+│   │   ├── contributing.rst
+│   │   ├── index.rst
+│   │   ├── install.rst
+│   │   ├── release.0.3.0.rst
+│   │   ├── release.0.4.0.rst
+│   │   ├── release.0.5.0.rst
+│   │   ├── release.0.5.1.rst
+│   │   ├── release.0.5.2.rst
+│   │   ├── release.1.0.0.rst
+│   │   ├── release.1.0.1.rst
+│   │   ├── release.1.0.2.rst
+│   │   ├── release.1.0.3.rst
+│   │   ├── release.1.1.0.rst
+│   │   ├── release.1.1.1.rst
+│   │   ├── release.1.2.0.rst
+│   │   ├── release.1.3.0.rst
+│   │   ├── release.1.4.0.rst
+│   │   ├── release.1.4.1.rst
+│   │   ├── release.1.5.0.rst
+│   │   ├── release.1.6.0.rst
+│   │   ├── release.1.7.0.rst
+│   │   ├── release.1.8.0.rst
+│   │   ├── release.1.9.0.rst
+│   │   ├── releasenotes.rst
+│   │   ├── substitutions.rst
+│   │   └── try_examples.json
+│   │       └── ... (23 more files)
+│   ├── doc2html.bat
+│   ├── make.bat
+│   └── Makefile
+├── licenses_bundled/
+│   ├── LICENSE_numpy.txt
+│   ├── LICENSE_scipy.txt
+│   └── README.txt
+├── pywt/
+│   ├── _extensions/
+│   │   ├── c/
+│   │   │   ├── common.c
+│   │   │   ├── common.h
+│   │   │   ├── convolution.c
+│   │   │   ├── convolution.h
+│   │   │   ├── convolution.template.c
+│   │   │   ├── convolution.template.h
+│   │   │   ├── cwt.c
+│   │   │   ├── cwt.h
+│   │   │   ├── cwt.template.c
+│   │   │   ├── cwt.template.h
+│   │   │   ├── templating.h
+│   │   │   ├── wavelets.c
+│   │   │   ├── wavelets.h
+│   │   │   ├── wavelets_coeffs.h
+│   │   │   ├── wavelets_coeffs.template.h
+│   │   │   ├── wt.c
+│   │   │   ├── wt.h
+│   │   │   ├── wt.template.c
+│   │   │   └── wt.template.h
+│   │   │       └── ... (14 more files)
+│   │   ├── __init__.py
+│   │   ├── _cwt.pxd
+│   │   ├── _cwt.pyx
+│   │   ├── _dwt.pxd
+│   │   ├── _dwt.pyx
+│   │   ├── _pywt.pxd
+│   │   ├── _pywt.pyx
+│   │   ├── _swt.pyx
+│   │   ├── c_wt.pxd
+│   │   ├── common.pxd
+│   │   ├── config.pxi.in
+│   │   ├── meson.build
+│   │   ├── wavelet.pxd
+│   │   └── wavelets_list.pxi
+│   │       └── ... (9 more files)
+│   ├── data/
+│   │   ├── __init__.py
+│   │   ├── _readers.py
+│   │   ├── _wavelab_signals.py
+│   │   ├── aero.npz
+│   │   ├── ascent.npz
+│   │   ├── camera.npz
+│   │   ├── ecg.npz
+│   │   └── sst_nino3.npz
+│   │       └── ... (3 more files)
+│   ├── tests/
+│   │   ├── data/
+│   │   │   ├── cwt_matlabR2015b_result.npz
+│   │   │   ├── dwt_matlabR2012a_result.npz
+│   │   │   ├── generate_matlab_data.py
+│   │   │   ├── generate_matlab_data_cwt.py
+│   │   │   └── wavelab_test_signals.npz
+│   │   ├── test__pywt.py
+│   │   ├── test_concurrent.py
+│   │   ├── test_cwt_wavelets.py
+│   │   ├── test_data.py
+│   │   ├── test_deprecations.py
+│   │   ├── test_doc.py
+│   │   ├── test_dwt_idwt.py
+│   │   ├── test_functions.py
+│   │   ├── test_matlab_compatibility.py
+│   │   ├── test_matlab_compatibility_cwt.py
+│   │   ├── test_modes.py
+│   │   ├── test_mra.py
+│   │   ├── test_multidim.py
+│   │   ├── test_multilevel.py
+│   │   ├── test_perfect_reconstruction.py
+│   │   ├── test_swt.py
+│   │   ├── test_thresholding.py
+│   │   ├── test_wavelet.py
+│   │   ├── test_wp.py
+│   │   ├── test_wp2d.py
+│   │   └── test_wpnd.py
+│   │       └── ... (16 more files)
+│   ├── __init__.py
+│   ├── _c99_config.py.in
+│   ├── _cwt.py
+│   ├── _doc_utils.py
+│   ├── _dwt.py
+│   ├── _functions.py
+│   ├── _mra.py
+│   ├── _multidim.py
+│   ├── _multilevel.py
+│   ├── _pytest.py
+│   ├── _pytesttester.py
+│   ├── _swt.py
+│   ├── _thresholding.py
+│   ├── _utils.py
+│   ├── _wavelet_packets.py
+│   ├── conftest.py
+│   └── meson.build
+│       └── ... (12 more files)
+├── util/
+│   ├── readthedocs/
+│   │   └── requirements.txt
+│   ├── authors.py
+│   ├── create_dat.py
+│   ├── gh_lists.py
+│   └── version_utils.py
+├── .coveragerc
+├── .git-blame-ignore-revs
+├── .gitignore
+├── .mailmap
+├── .pre-commit-config.yaml
+├── .readthedocs.yaml
+├── appveyor.yml
+├── community_guidelines.rst
+├── CONTRIBUTING.rst
+├── LICENSE
+├── meson.build
+├── pyproject.toml
+├── pytest.ini
+├── README.rst
+└── tox.ini
+    └── ... (10 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: cat requirements.txt ---
+SUCCESS: False
+STDERR:
+cat: requirements.txt: No such file or directory
+
+
+--- Command: cat pyproject.toml ---
+SUCCESS: True
+STDOUT:
+# Note that in maintenance branches, all build dependencies should
+# have an upper bound equal to the most recent already-released version
+# of the dependency. This to prevent that a future backwards-incompatible
+# release will break the source build of a PyWavelets release.
+# Do accept micro (bug-fix) releases.
+
+[build-system]
+build-backend = "mesonpy"
+requires = [
+    "meson-python>=0.18.0",
+    "Cython>=3.0.4",
+
+    # numpy requirement for wheel builds for distribution on PyPI - building
+    # against 2.x yields wheels that are also compatible with numpy 1.x at
+    # runtime.
+    # Note that building against numpy 1.x works fine too - users and
+    # redistributors can do this by installing the numpy version they like and
+    # disabling build isolation.
+    "numpy>=2.0.0; python_version<'3.13'",
+    "numpy>=2.1.0; python_version>='3.13'",
+    "numpy>=2.3.2; python_version>='3.14'",
+]
+
+[project]
+name = "PyWavelets"
+version = "1.10.0.dev0"
+license = "MIT and BSD-3-Clause"
+license-files = [
+    "LICENSE",
+    "licenses_bundled/LICENSE_*",
+]
+maintainers = [
+    {name = "The PyWavelets Developers", email = "pywavelets@googlegroups.com"}
+]
+description = "PyWavelets, wavelet transform module"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.25,<3"]
+readme = "README.rst"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: C",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[project.urls]
+homepage = "https://github.com/PyWavelets/pywt"
+source = "https://github.com/PyWavelets/pywt"
+documentation = "https://pywavelets.readthedocs.io/"
+
+[tool.ruff]
+line-length = 88
+target-version = 'py310'
+lint.select = [
+    "I",
+    "UP",
+    "C4",
+    "E713",
+    "NPY201",
+    "PIE",
+    "PGH003",
+    "PLR0402",
+    "SIM101",
+    "SIM109",
+    "SIM110",
+    "SIM118",
+    "SIM2",
+]
+lint.ignore = [
+     "UP038", # https://github.com/astral-sh/ruff/issues/7871
+]
+
+[tool.spin]
+package = "pywt"
+
+[tool.spin.commands]
+"Build" = [
+  "spin.cmds.meson.build",
+  "spin.cmds.meson.test",
+  "spin.cmds.build.sdist"
+]
+Environments = [
+    'spin.cmds.meson.run',
+    'spin.cmds.meson.ipython',
+    'spin.cmds.meson.python',
+]
+Documentation = ["spin.cmds.meson.docs"]
+
+
+--- Command: cat setup.py ---
+SUCCESS: False
+STDERR:
+cat: setup.py: No such file or directory
+
+
+--- Command: cat tox.ini ---
+SUCCESS: True
+STDOUT:
+# Tox (http://tox.testrun.org/) is a tool for running tests
+# in multiple virtualenvs. This configuration file will run the
+# test suite on all supported python versions. To use it, "pip install tox"
+# and then run "tox" from this directory.
+
+# Running the command 'tox' while in the root of the pywt source
+# directory will:
+#   - Create a pywt source distribution
+#   - Then for every supported version of Python:
+#     - Create a virtualenv in {homedir}/.tox/pywt/py$VERSION and
+#       install dependencies. (These virtualenvs are cached across
+#       runs unless you use --recreate.)
+#     - Use pip to install the pywt sdist into the virtualenv
+#     - Run the pywt tests
+# To run against a specific subset of Python versions, use:
+#   tox -e py39,py310
+
+# Tox assumes that you have appropriate Python interpreters already
+# installed and that they can be run as 'python3.9', 'python3.10', etc.
+
+[tox]
+toxworkdir = {homedir}/.tox/pywt/
+envlist = py310, py311, py312
+
+[testenv]
+deps =
+    pytest
+    cython
+    numpy
+    matplotlib
+changedir = {envdir}
+commands =
+    pytest {toxinidir}/pywt/tests -v
+
+
+--- Command: cat util/readthedocs/requirements.txt ---
+SUCCESS: True
+STDOUT:
+cython
+docutils
+# Pyodide kernel 0.5.1 comes with Pyodide 0.27.1 and PyWavelets 1.7.0
+# see https://pyodide.org/en/stable/usage/packages-in-pyodide.html
+# and https://jupyterlite-pyodide-kernel.readthedocs.io/en/stable/#with-pyodide
+# for information on updating
+jupyterlite-pyodide-kernel==0.5.1
+jupyterlite-sphinx>=0.18.0
+jupytext
+pydata-sphinx-theme
+pytest
+matplotlib
+meson-python
+myst-nb
+nbformat
+numpy
+numpydoc
+sphinx>=7
+sphinx-copybutton
+sphinx-design
+sphinx-togglebutton
+
+
+--- Command: pip install . || true ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'error'
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Preparing metadata (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [22 lines of output]
+      + meson setup /app/repo_to_process /app/repo_to_process/.mesonpy-1bgw4sg9 -Dbuildtype=release -Db_ndebug=if-release -Db_vscrt=md --native-file=/app/repo_to_process/.mesonpy-1bgw4sg9/meson-python-native-file.ini
+      The Meson build system
+      Version: 1.8.3
+      Source dir: /app/repo_to_process
+      Build dir: /app/repo_to_process/.mesonpy-1bgw4sg9
+      Build type: native build
+      Project name: PyWavelets
+      Project version: 1.10.0.dev0
+      C compiler for the host machine: cc (gcc 11.4.0 "cc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0")
+      C linker for the host machine: cc ld.bfd 2.38
+      Cython compiler for the host machine: cython (cython 3.1.2)
+      Host machine cpu family: x86_64
+      Host machine cpu: x86_64
+      Program cython found: YES (/tmp/pip-build-env-mecf3kz8/overlay/local/bin/cython)
+      Program python found: YES (/usr/bin/python3)
+      Did not find pkg-config by name 'pkg-config'
+      Found pkg-config: NO
+      Run-time dependency python found: NO (tried pkgconfig, pkgconfig and sysconfig)
+      
+      ../meson.build:17:12: ERROR: Python dependency not found
+      
+      A full log can be found at /app/repo_to_process/.mesonpy-1bgw4sg9/meson-logs/meson-log.txt
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+
+
+--- Command: pip install numpy scipy matplotlib pillow pytest pytest-cov ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (2.2.6)
+Collecting scipy
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 6.1 MB/s  0:00:06
+Collecting matplotlib
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 5.8 MB/s  0:00:01
+Collecting pillow
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/f0/16/1a6bf01fb622fb9cf5c91683823f073f053005c849b1f52ed613afcf8dae/pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 5.9 MB/s  0:00:01
+Requirement already satisfied: pytest in /usr/local/lib/python3.10/dist-packages (8.4.1)
+Collecting pytest-cov
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/bc/16/4ea354101abb1287856baa4af2732be351c7bee728065aed451b678153fd/pytest_cov-6.2.1-py3-none-any.whl (24 kB)
+Collecting contourpy>=1.0.1 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/32/5c/1ee32d1c7956923202f00cf8d2a14a62ed7517bdc0ee1e55301227fc273c/contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+Collecting cycler>=0.10 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting fonttools>=4.22.0 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/57/767e31e48861045d89691128bd81fd4c62b62150f9a17a666f731ce4f197/fonttools-4.59.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 9.2 MB/s  0:00:00
+Collecting kiwisolver>=1.3.1 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/d4/42/0f333164e6307a0687d1eb9ad256215aae2f4bd5d28f4653d6cd319a3ba3/kiwisolver-1.4.9-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 7.7 MB/s  0:00:00
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (25.0)
+Collecting pyparsing>=2.3.1 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/e7/df2285f3d08fee213f2d041540fa4fc9ca6c2d44cf36d3a035bf2a8d2bcc/pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (2.9.0.post0)
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest) (1.3.0)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest) (2.1.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.10/dist-packages (from pytest) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest) (2.19.2)
+Requirement already satisfied: tomli>=1 in /usr/local/lib/python3.10/dist-packages (from pytest) (2.2.1)
+Collecting coverage>=7.5 (from coverage[toml]>=7.5->pytest-cov)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b9/8e/5a8835fb0122a2e2a108bf3527931693c4625fdc4d953950a480b9625852/coverage-7.10.2-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (243 kB)
+Requirement already satisfied: typing-extensions>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from exceptiongroup>=1->pytest) (4.14.1)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.7->matplotlib) (1.17.0)
+Installing collected packages: scipy, pyparsing, pillow, kiwisolver, fonttools, cycler, coverage, contourpy, matplotlib, pytest-cov
+
+Successfully installed contourpy-1.3.2 coverage-7.10.2 cycler-0.12.1 fonttools-4.59.0 kiwisolver-1.4.9 matplotlib-3.10.5 pillow-11.3.0 pyparsing-3.2.3 pytest-cov-6.2.1 scipy-1.15.3
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pytest.ini
+plugins: cov-6.2.1
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+____________________________ ERROR collecting pywt _____________________________
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+        level      = 0
+        name       = 'pywt.conftest'
+        package    = None
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+        level      = 0
+        name       = 'pywt.conftest'
+        package    = None
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+        import_    = <function _gcd_import at 0x7f9f3c7d7400>
+        module     = <object object at 0x7f9f3c7fc060>
+        name       = 'pywt.conftest'
+<frozen importlib._bootstrap>:992: in _find_and_load_unlocked
+    ???
+        import_    = <function _gcd_import at 0x7f9f3c7d7400>
+        name       = 'pywt.conftest'
+        parent     = 'pywt'
+        path       = None
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+        args       = ('pywt',)
+        f          = <function _gcd_import at 0x7f9f3c7d7400>
+        kwds       = {}
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+        level      = 0
+        name       = 'pywt'
+        package    = None
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+        import_    = <function _gcd_import at 0x7f9f3c7d7400>
+        module     = <object object at 0x7f9f3c7fc060>
+        name       = 'pywt'
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+        import_    = <function _gcd_import at 0x7f9f3c7d7400>
+        name       = 'pywt'
+        parent     = ''
+        path       = None
+        spec       = ModuleSpec(name='pywt', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7f9f3b0c41f0>, origin='/app/repo_to_process/pywt/__init__.py', submodule_search_locations=['/app/repo_to_process/pywt'])
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+        module     = <module 'pywt' from '/app/repo_to_process/pywt/__init__.py'>
+        spec       = ModuleSpec(name='pywt', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7f9f3b0c41f0>, origin='/app/repo_to_process/pywt/__init__.py', submodule_search_locations=['/app/repo_to_process/pywt'])
+<frozen importlib._bootstrap_external>:883: in exec_module
+    ???
+        code       = <code object <module> at 0x7f9f3b09dd10, file "/app/repo_to_process/pywt/__init__.py", line 1>
+        module     = <module 'pywt' from '/app/repo_to_process/pywt/__init__.py'>
+        self       = <_frozen_importlib_external.SourceFileLoader object at 0x7f9f3b0c41f0>
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+        args       = (<code object <module> at 0x7f9f3b09dd10, file "/app/repo_to_process/pywt/__init__.py", line 1>, {'__builtins__': {'Ar... packets signal decomposition and reconstruction module.\n', '__file__': '/app/repo_to_process/pywt/__init__.py', ...})
+        f          = <built-in function exec>
+        kwds       = {}
+pywt/__init__.py:13: in <module>
+    from ._extensions._pywt import *
+E   ModuleNotFoundError: No module named 'pywt._extensions._pywt'
+        __builtins__ = <builtins>
+        __cached__ = '/app/repo_to_process/pywt/__pycache__/__init__.cpython-310.pyc'
+        __doc__    = '\nDiscrete forward and inverse wavelet transform, stationary wavelet transform,\nwavelet packets signal decomposition and reconstruction module.\n'
+        __file__   = '/app/repo_to_process/pywt/__init__.py'
+        __loader__ = <_frozen_importlib_external.SourceFileLoader object at 0x7f9f3b0c41f0>
+        __name__   = 'pywt'
+        __package__ = 'pywt'
+        __path__   = ['/app/repo_to_process/pywt']
+        __spec__   = ModuleSpec(name='pywt', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7f9f3b0c41f0>, origin='/app/repo_to_process/pywt/__init__.py', submodule_search_locations=['/app/repo_to_process/pywt'])
+        _extensions = <module 'pywt._extensions' from '/app/repo_to_process/pywt/_extensions/__init__.py'>
+=========================== short test summary info ============================
+ERROR pywt - ModuleNotFoundError: No module named 'pywt._extensions._pywt'
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.11s ===============================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

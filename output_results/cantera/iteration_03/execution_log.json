@@ -1,0 +1,30 @@
+[
+  {
+    "command": "cd interfaces/cython",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0009500980377197266
+  },
+  {
+    "command": "python setup.py build_ext --inplace",
+    "success": false,
+    "stdout": "",
+    "stderr": "python: can't open file '/app/repo_to_process/setup.py': [Errno 2] No such file or directory\n",
+    "execution_time": 0.03946185111999512
+  },
+  {
+    "command": "cd ../..",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0007803440093994141
+  },
+  {
+    "command": "pytest test/python",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/test/python/conftest.py'.\ntest/python/conftest.py:1: in <module>\n    import cantera\ninterfaces/cython/cantera/__init__.py:4: in <module>\n    from ._cantera import *\nE   ModuleNotFoundError: No module named 'cantera._cantera'\n",
+    "execution_time": 0.17897439002990723
+  }
+]

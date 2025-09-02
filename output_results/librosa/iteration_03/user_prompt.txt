@@ -1,0 +1,481 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   ├── config.yml
+│   │   ├── documentation.yml
+│   │   └── feature_request.yml
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   ├── docs-ci.yml
+│   │   ├── docs.yml
+│   │   ├── lint_python.yml
+│   │   └── publish.yml
+│   ├── codecov.yml
+│   ├── environment-ci.yml
+│   ├── environment-docs.yml
+│   ├── environment-lint.yml
+│   ├── environment-minimal.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+│       └── ... (1 more files)
+├── docs/
+│   ├── _static/
+│   │   ├── css/
+│   │   │   └── custom.css
+│   │   └── playback-thumbnail.png
+│   ├── _templates/
+│   │   ├── page.html
+│   │   └── versions.html
+│   ├── examples/
+│   │   ├── audio/
+│   │   │   ├── README.md
+│   │   │   ├── sir_duke_fast.ogg
+│   │   │   ├── sir_duke_slow.ogg
+│   │   │   └── snare-accelerate.ogg
+│   │   ├── plot_audio_playback.py
+│   │   ├── plot_chroma.py
+│   │   ├── plot_display.py
+│   │   ├── plot_dynamic_beat.py
+│   │   ├── plot_hprss.py
+│   │   ├── plot_music_sync.py
+│   │   ├── plot_patch_generation.py
+│   │   ├── plot_pcen_stream.py
+│   │   ├── plot_presets.py
+│   │   ├── plot_rainbowgram.py
+│   │   ├── plot_segmentation.py
+│   │   ├── plot_spectral_harmonics.py
+│   │   ├── plot_superflux.py
+│   │   ├── plot_viterbi.py
+│   │   ├── plot_vocal_separation.py
+│   │   └── README.txt
+│   │       └── ... (11 more files)
+│   ├── img/
+│   │   ├── librosa_logo_text.png
+│   │   └── librosa_logo_text.svg
+│   ├── advanced.rst
+│   ├── beat.rst
+│   ├── BUILD.md
+│   ├── cache.rst
+│   ├── changelog.rst
+│   ├── conf.py
+│   ├── core.rst
+│   ├── decompose.rst
+│   ├── display.rst
+│   ├── docsite-index-redirect.html
+│   ├── effects.rst
+│   ├── feature.rst
+│   ├── filters.rst
+│   ├── genindex.rst
+│   ├── glossary.rst
+│   ├── index.rst
+│   ├── install.rst
+│   ├── ioformats.rst
+│   ├── Makefile
+│   ├── multichannel.rst
+│   ├── onset.rst
+│   ├── recordings.rst
+│   ├── segment.rst
+│   ├── sequence.rst
+│   ├── troubleshooting.rst
+│   ├── tutorial.rst
+│   └── util.rst
+│       └── ... (22 more files)
+├── librosa/
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── __init__.pyi
+│   │   ├── audio.py
+│   │   ├── constantq.py
+│   │   ├── convert.py
+│   │   ├── fft.py
+│   │   ├── harmonic.py
+│   │   ├── intervals.msgpack
+│   │   ├── intervals.py
+│   │   ├── notation.py
+│   │   ├── pitch.py
+│   │   └── spectrum.py
+│   │       └── ... (7 more files)
+│   ├── feature/
+│   │   ├── __init__.py
+│   │   ├── __init__.pyi
+│   │   ├── inverse.py
+│   │   ├── rhythm.py
+│   │   ├── spectral.py
+│   │   └── utils.py
+│   │       └── ... (1 more files)
+│   ├── util/
+│   │   ├── example_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── index.json
+│   │   │   └── registry.txt
+│   │   ├── __init__.py
+│   │   ├── __init__.pyi
+│   │   ├── _nnls.py
+│   │   ├── decorators.py
+│   │   ├── deprecation.py
+│   │   ├── exceptions.py
+│   │   ├── files.py
+│   │   ├── matching.py
+│   │   └── utils.py
+│   │       └── ... (4 more files)
+│   ├── __init__.py
+│   ├── __init__.pyi
+│   ├── _cache.py
+│   ├── _typing.py
+│   ├── beat.py
+│   ├── decompose.py
+│   ├── display.py
+│   ├── effects.py
+│   ├── filters.py
+│   ├── onset.py
+│   ├── py.typed
+│   ├── segment.py
+│   ├── sequence.py
+│   └── version.py
+│       └── ... (9 more files)
+├── scripts/
+│   ├── audit_docstring_examples.py
+│   ├── create_author_list.py
+│   ├── create_intervals.py
+│   ├── get_latest_release.sh
+│   └── pull_dois.py
+├── tests/
+│   ├── baseline_images/
+│   │   └── test_display/
+│   │       ├── test_abs_input.png
+│   │       ├── test_chroma.png
+│   │       ├── test_chroma_svara.png
+│   │       ├── test_complex_input.png
+│   │       ├── test_coords.png
+│   │       ├── test_cqt_hz.png
+│   │       ├── test_cqt_note.png
+│   │       ├── test_display_cqt_svara.png
+│   │       ├── test_display_fft_odd.png
+│   │       ├── test_display_fft_svara.png
+│   │       ├── test_display_fourier_tempo_odd.png
+│   │       ├── test_double_chroma.png
+│   │       ├── test_fft_note.png
+│   │       ├── test_fourier_tempo.png
+│   │       ├── test_sharex_specshow_ms.png
+│   │       ├── test_sharex_waveplot_ms.png
+│   │       ├── test_specshow_chromafjs.png
+│   │       ├── test_specshow_ext_axes.png
+│   │       ├── test_specshow_unicode_false.png
+│   │       ├── test_specshow_unicode_true.png
+│   │       ├── test_specshow_vqt.png
+│   │       ├── test_tempo.png
+│   │       ├── test_time_scales_auto.png
+│   │       ├── test_time_unit.png
+│   │       ├── test_time_unit_lag.png
+│   │       ├── test_tonnetz.png
+│   │       ├── test_waveshow_ext_axes.png
+│   │       ├── test_waveshow_mono.png
+│   │       ├── test_waveshow_mono_trans.png
+│   │       ├── test_waveshow_mono_zoom.png
+│   │       ├── test_waveshow_mono_zoom_out.png
+│   │       ├── test_waveshow_mono_zoom_trans.png
+│   │       ├── test_waveshow_stereo.png
+│   │       ├── test_x_mel.png
+│   │       ├── test_xaxis_frames_yaxis_none.png
+│   │       ├── test_xaxis_lag_yaxis_none.png
+│   │       ├── test_xaxis_linear_yaxis_none.png
+│   │       ├── test_xaxis_log_yaxis_none.png
+│   │       ├── test_xaxis_none_yaxis_frames.png
+│   │       ├── test_xaxis_none_yaxis_linear.png
+│   │       ├── test_xaxis_none_yaxis_log.png
+│   │       ├── test_xaxis_none_yaxis_time.png
+│   │       ├── test_xaxis_time_yaxis_lag.png
+│   │       ├── test_xaxis_time_yaxis_none.png
+│   │       ├── test_y_mel.png
+│   │       └── test_y_mel_bounded.png
+│   │           └── ... (41 more files)
+│   ├── data/
+│   ├── .coveragerc
+│   ├── conftest.py
+│   ├── make_mel_norm_test_data.ipynb
+│   ├── makeCTData.m
+│   ├── makeMETdata.m
+│   ├── makeTestData.m
+│   ├── README.md
+│   ├── test_beat.py
+│   ├── test_cache.py
+│   ├── test_constantq.py
+│   ├── test_convert.py
+│   ├── test_core.py
+│   ├── test_decompose.py
+│   ├── test_display.py
+│   ├── test_dtw.py
+│   ├── test_effects.py
+│   ├── test_failures.py
+│   ├── test_features.py
+│   ├── test_filters.py
+│   ├── test_intervals.py
+│   ├── test_met_features.py
+│   ├── test_multichannel.py
+│   ├── test_notation.py
+│   ├── test_onset.py
+│   ├── test_segment.py
+│   ├── test_sequence.py
+│   └── test_util.py
+│       └── ... (22 more files)
+├── .coverage
+├── .coveragerc
+├── .gitattributes
+├── .gitignore
+├── .gitmodules
+├── .zenodo.json
+├── AUTHORS.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── coverage.xml
+├── LICENSE.md
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+├── setup.cfg
+└── setup.py
+    └── ... (11 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install pytest-cov pytest-mpl ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting pytest-cov
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/bc/16/4ea354101abb1287856baa4af2732be351c7bee728065aed451b678153fd/pytest_cov-6.2.1-py3-none-any.whl (24 kB)
+Collecting pytest-mpl
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/f3/32/3b5d6973cc8bdc320736ee608377e2756b1042ed162ca2d2ee5555f2d117/pytest_mpl-0.17.0-py3-none-any.whl (27 kB)
+Requirement already satisfied: pytest>=6.2.5 in /usr/local/lib/python3.10/dist-packages (from pytest-cov) (8.4.1)
+Collecting coverage>=7.5 (from coverage[toml]>=7.5->pytest-cov)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b9/8e/5a8835fb0122a2e2a108bf3527931693c4625fdc4d953950a480b9625852/coverage-7.10.2-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (243 kB)
+Requirement already satisfied: pluggy>=1.2 in /usr/local/lib/python3.10/dist-packages (from pytest-cov) (1.6.0)
+Collecting matplotlib (from pytest-mpl)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 13.1 MB/s  0:00:00
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from pytest-mpl) (25.0)
+Collecting Jinja2 (from pytest-mpl)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Collecting Pillow (from pytest-mpl)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/f0/16/1a6bf01fb622fb9cf5c91683823f073f053005c849b1f52ed613afcf8dae/pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 14.5 MB/s  0:00:00
+Requirement already satisfied: tomli in /usr/local/lib/python3.10/dist-packages (from coverage[toml]>=7.5->pytest-cov) (2.2.1)
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-cov) (1.3.0)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-cov) (2.1.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-cov) (2.19.2)
+Requirement already satisfied: typing-extensions>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from exceptiongroup>=1->pytest>=6.2.5->pytest-cov) (4.14.1)
+Collecting MarkupSafe>=2.0 (from Jinja2->pytest-mpl)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/22/35/137da042dfb4720b638d2937c38a9c2df83fe32d20e8c8f3185dbfef05f7/MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+Collecting contourpy>=1.0.1 (from matplotlib->pytest-mpl)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/32/5c/1ee32d1c7956923202f00cf8d2a14a62ed7517bdc0ee1e55301227fc273c/contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+Collecting cycler>=0.10 (from matplotlib->pytest-mpl)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting fonttools>=4.22.0 (from matplotlib->pytest-mpl)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/57/767e31e48861045d89691128bd81fd4c62b62150f9a17a666f731ce4f197/fonttools-4.59.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 14.5 MB/s  0:00:00
+Collecting kiwisolver>=1.3.1 (from matplotlib->pytest-mpl)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/de/c6/7b9bb8044e150d4d1558423a1568e4f227193662a02231064e3824f37e0a/kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 13.9 MB/s  0:00:00
+Requirement already satisfied: numpy>=1.23 in /usr/local/lib/python3.10/dist-packages (from matplotlib->pytest-mpl) (2.2.6)
+Collecting pyparsing>=2.3.1 (from matplotlib->pytest-mpl)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/e7/df2285f3d08fee213f2d041540fa4fc9ca6c2d44cf36d3a035bf2a8d2bcc/pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib->pytest-mpl) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.7->matplotlib->pytest-mpl) (1.17.0)
+Installing collected packages: pyparsing, Pillow, MarkupSafe, kiwisolver, fonttools, cycler, coverage, contourpy, matplotlib, Jinja2, pytest-mpl, pytest-cov
+
+Successfully installed Jinja2-3.1.6 MarkupSafe-3.0.2 Pillow-11.3.0 contourpy-1.3.2 coverage-7.10.2 cycler-0.12.1 fonttools-4.59.0 kiwisolver-1.4.8 matplotlib-3.10.5 pyparsing-3.2.3 pytest-cov-6.2.1 pytest-mpl-0.17.0
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+Matplotlib: 3.10.5
+Freetype: 2.6.1
+rootdir: /app/repo_to_process
+configfile: setup.cfg
+plugins: cov-6.2.1, mpl-0.17.0
+collected 14200 items
+
+tests/test_beat.py s.................................................... [  0%]
+........................................................................ [  0%]
+....x.........EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  1%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  1%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  2%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  2%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  3%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  3%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  4%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  4%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  5%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  5%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE                                     [  6%]
+tests/test_cache.py ..                                                   [  6%]
+tests/test_constantq.py xxxxxx.......................................... [  6%]
+........................................................................ [  7%]
+........................................................................ [  7%]
+........................................................................ [  8%]
+....................................................x................... [  8%]
+........................................................................ [  9%]
+........................................................................ [  9%]
+........................................................................ [ 10%]
+............................................................xxx......... [ 10%]
+.................                                                        [ 10%]
+tests/test_convert.py .................................................. [ 11%]
+........................................................................ [ 11%]
+............................x........................................... [ 12%]
+.....................................x....x......x...................... [ 12%]
+........................................................................ [ 13%]
+........................................................................ [ 13%]
+........................................................................ [ 14%]
+...................................                                      [ 14%]
+tests/test_core.py sFFFFFFEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 14%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 15%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 15%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 16%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 16%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 17%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEExxsx............... [ 17%]
+...........................xxxxxxxxxx................................... [ 18%]
+...............s.................................FF....E................ [ 18%]
+...................................sssssssssssssssssssssssssssssssssssss [ 19%]
+sssssssssssssssssssssss....................................FFx.......... [ 19%]
+..............s...........................................EEEEEEEEEEEEEE [ 20%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 20%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 21%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 21%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 22%]
+EEEEEEEEEEEEEEEEEEEEEE.....F.xxxxxxx.......F.xxx........................ [ 22%]
+.....................EEEEEEEEEEEEEEEEx................................xx [ 23%]
+x....................................................................... [ 23%]
+........................................................................ [ 24%]
+........................................................................ [ 24%]
+........................................................................ [ 25%]
+........................................................................ [ 25%]
+..............................................xxxx...................... [ 26%]
+..xx................................................xxxx................ [ 26%]
+........................................................................ [ 27%]
+........................................................................ [ 27%]
+.................................................................xxxxxxx [ 28%]
+xxxx....xx...FE..xxxxxxxxx............xx................................ [ 28%]
+........................................................................ [ 29%]
+........................................................................ [ 29%]
+........................................................................ [ 30%]
+........................................................................ [ 30%]
+........................................................................ [ 31%]
+........................................................................ [ 31%]
+........................................................................ [ 32%]
+........................................................................ [ 33%]
+........................................................................ [ 33%]
+........................................................................ [ 34%]
+........................................................................ [ 34%]
+........................................................................ [ 35%]
+........................................................................ [ 35%]
+........................................................................ [ 36%]
+........................................................................ [ 36%]
+........................................................................ [ 37%]
+........................................................................ [ 37%]
+........................................................................ [ 38%]
+........................................................................ [ 38%]
+........................................................................ [ 39%]
+........................................................................ [ 39%]
+........................................................................ [ 40%]
+........................................................................ [ 40%]
+........................................................................ [ 41%]
+........................................................................ [ 41%]
+........................................................................ [ 42%]
+........................................................................ [ 42%]
+........................................................................ [ 43%]
+........................................................................ [ 43%]
+........................................................................ [ 44%]
+........................................................................ [ 44%]
+........................................................................ [ 45%]
+........................................................................ [ 45%]
+........................................................................ [ 46%]
+........................................................................ [ 46%]
+........................................................................ [ 47%]
+........................................................................ [ 47%]
+........................................................................ [ 48%]
+........................................................................ [ 48%]
+........................................................................ [ 49%]
+........................................................................ [ 49%]
+........................................................................ [ 50%]
+...........................xxx.FFFEEExxxEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 50%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 51%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 51%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 52%]
+EEEEEEEEEEEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 52%]
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 53%]
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 53%]
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEEEEEEEEEEEEEEEEEEEEE [ 54%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 54%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 55%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 55%]
+EEEEEEEEEEEEEEEEEEE......xxx......xxxxxxFFF....x                         [ 56%]
+tests/test_decompose.py ...x.x.EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 56%]
+EEEEEEEEE...EEE.xxxxxxxxxx                                               [ 56%]
+tests/test_display.py ExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxEEEEE....xExx. [ 57%]
+..xx........xxEExxxxE                                                    [ 57%]
+tests/test_dtw.py x......xxxxxxx........xxxx.                            [ 57%]
+tests/test_effects.py EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [ 57%]
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE................................. [ 58%]
+........................................................................ [ 58%]
+......................................................................   [ 59%]
+tests/test_failures.py xx..xxx..xxxxxxxxxx                               [ 59%]
+tests/test_features.py ................................................. [ 59%]
+.......................xxxxxxxxxxxxxxx.................................. [ 60%]
+..............xxxxxxxxxxx....xx......................xx.........xxxxExxx [ 60%]
+xxxxxx...xxxx.........EEEEEEEEEEEEEEEEEEEEEEEExx........................ [ 61%]
+..........................xEEEFxxxxEE................................... [ 61%]
+...................................................xxxxEE........FEEEE.. [ 62%]
+......................xx................................................ [ 62%]
+.................EExx.EEE                                                [ 62%]
+tests/test_filters.py sssss...x.s....................................... [ 63%]
+........................................................................ [ 63%]
+........................................................................ [ 64%]
+...............................xxxxxxxxxxx..x........................... [ 64%]
+........................................................................ [ 65%]
+........................................................................ [ 65%]
+........................................................................ [ 66%]
+........................................................................ [ 66%]
+........................................................................ [ 67%]
+........................................................................ [ 67%]
+........................................................................ [ 68%]
+........................................................................ [ 68%]
+........................................................................ [ 69%]
+........................................................................ [ 69%]
+........................................................................ [ 70%]
+........................................................................ [ 70%]
+........................................................................ [ 71%]
+.............................................x........F................. [ 71%]
+.......................................................                  [ 72%]
+tests/test_intervals.py ................................
+... (575686 lines omitted)
+STDERR:
+/usr/local/lib/python3.10/dist-packages/coverage/control.py:921: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+
+
+
+## Your Task (Phase 2: Call Chain Tracing)
+`pytest` is now executable without collection errors. Your task is to set up call chain tracing.
+1.  **Identify the main source code directory/directories.** Based on the structure, this is likely `skimage`.
+2.  **Create a `conftest.py` file** in the project root to trace this directory.
+3.  **Run `pytest`** one last time to generate the reports.
+4.  If the reports are generated, declare success with ```status
+success
+```.
+
+**REMINDER:** When creating `conftest.py`, you only need to provide the line defining `SOURCE_DIRS_TO_TRACK`. For example:
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['skimage']
+```

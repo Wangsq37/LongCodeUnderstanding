@@ -1,0 +1,54 @@
+08/11/2025 03:39:04 - INFO - __main__ - --- Processing repository: cupy ---
+08/11/2025 03:39:04 - INFO - __main__ - No existing container found. Creating new container 'agent-run-cupy'...
+08/11/2025 03:39:05 - INFO - __main__ - Copying 'python_repos\cupy' to new container 'agent-run-cupy:/app/repo_to_process'...
+08/11/2025 03:39:08 - INFO - __main__ - Executing agent inside the container...
+08/11/2025 03:39:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:08 - INFO - __main__ - --- Starting Agent inside Container ---
+08/11/2025 03:39:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:08 - INFO - __main__ - Repository Name: cupy
+08/11/2025 03:39:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:08 - INFO - __main__ - Repository: /app/repo_to_process
+08/11/2025 03:39:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:08 - INFO - __main__ - Language: Python
+08/11/2025 03:39:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:08 - INFO - __main__ - Model: gpt-4.1
+08/11/2025 03:39:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:08 - INFO - __main__ - Max Iterations: 15
+08/11/2025 03:39:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:08 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/11/2025 03:39:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:11 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/11/2025 03:39:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:11 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:39:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:11 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:39:15 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:15 - INFO - __main__ - Executing 2 command(s)...
+08/11/2025 03:39:15 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:15 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e .
+08/11/2025 03:39:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:19 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:39:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:19 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:39:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:19 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:39:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:19 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/11/2025 03:39:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:19 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:39:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:19 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:39:22 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:22 - INFO - __main__ - Executing 2 command(s)...
+08/11/2025 03:39:22 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:22 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install cupy
+08/11/2025 03:39:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:29 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:39:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:29 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:39:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:29 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:39:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:29 - INFO - __main__ - === Starting Iteration 3/15 [Phase: SETUP] ===
+08/11/2025 03:39:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:29 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:39:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:29 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:39:34 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:34 - INFO - __main__ - Executing 3 command(s)...
+08/11/2025 03:39:34 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:34 - INFO - __main__ - Executing command in '/app/repo_to_process': git submodule update --init
+08/11/2025 03:39:50 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:50 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e .
+08/11/2025 03:39:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:55 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:39:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:55 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:39:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:55 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:39:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:55 - INFO - __main__ - === Starting Iteration 4/15 [Phase: SETUP] ===
+08/11/2025 03:39:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:55 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:39:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:39:55 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:40:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:01 - INFO - __main__ - ❌ Model reported failure. Terminating.
+08/11/2025 03:40:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:01 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed
+08/11/2025 03:40:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:01 - INFO - __main__ - ❌ Agent finished with non-success status: failed
+08/11/2025 03:40:01 - INFO - __main__ - Agent finished with exit code: 1
+08/11/2025 03:40:01 - INFO - __main__ - Copying all generated files from container 'agent-run-cupy:/app/new_test_detection_logs/cupy'...
+08/11/2025 03:40:01 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\cupy'.
+08/11/2025 03:40:01 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-cupy:/app/repo_to_process'...
+08/11/2025 03:40:01 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 03:40:01 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 03:40:01 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/11/2025 03:40:01 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/11/2025 03:40:01 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/11/2025 03:40:01 - INFO - __main__ - Deleting container 'agent-run-cupy' due to failure or missing required files.
+08/11/2025 03:40:12 - INFO - __main__ - --- Finished processing repository: cupy ---
+

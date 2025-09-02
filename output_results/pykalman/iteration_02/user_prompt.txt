@@ -1,0 +1,317 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── release.yml
+│   │   └── run-ci.yml
+│   └── dependabot.yml
+├── build_tools/
+│   ├── changelog.py
+│   └── fail_on_missing_init_files.sh
+├── doc/
+│   ├── source/
+│   │   ├── images/
+│   │   │   ├── pykalman-logo-with-name.png
+│   │   │   └── pykalman-logo.png
+│   │   ├── class_docs.rst
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── kf_users_guide.rst
+│   │   ├── numerical_stability.rst
+│   │   ├── plot_em.ipynb
+│   │   └── ukf_users_guide.rst
+│   │       └── ... (2 more files)
+│   └── Makefile
+├── examples/
+│   ├── standard/
+│   │   ├── plot_em.py
+│   │   ├── plot_filter.py
+│   │   ├── plot_missing.py
+│   │   ├── plot_online.py
+│   │   └── plot_sin.py
+│   └── unscented/
+│       ├── plot_additive.py
+│       └── plot_filter.py
+├── pykalman/
+│   ├── datasets/
+│   │   ├── data/
+│   │   │   └── robot.mat
+│   │   ├── descr/
+│   │   │   ├── __init__.py
+│   │   │   └── robot.rst
+│   │   ├── __init__.py
+│   │   └── base.py
+│   ├── sqrt/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_unscented.py
+│   │   ├── __init__.py
+│   │   ├── bierman.py
+│   │   ├── cholesky.py
+│   │   └── unscented.py
+│   ├── tests/
+│   │   ├── __init__.py
+│   │   ├── test_standard.py
+│   │   ├── test_unscented.py
+│   │   └── ukf_tests.m
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── _numpy.py
+│   │   └── _sklearn.py
+│   ├── __init__.py
+│   ├── _nopytest_tests.py
+│   ├── standard.py
+│   ├── unscented.py
+│   └── utils_numpy.py
+├── .all-contributorsrc
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .readthedocs.yml
+├── CHANGELOG
+├── CHANGELOG.md
+├── LICENSE
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+└── setup.cfg
+    └── ... (7 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: cat pyproject.toml ---
+SUCCESS: True
+STDOUT:
+[project]
+name = "pykalman"
+version = "0.10.1"
+description = "An implementation of the Kalman Filter, Kalman Smoother, and EM algorithm in Python"
+maintainers = [
+    {name = "pykalman developers", email = "info@sktime.net"}
+]
+authors = [
+    {name = "Daniel Duckworth"},
+    {name = "Maksym Balatsko", email = "mbalatsko@gmail.com"},
+    {name = "pykalman developers", email = "info@sktime.net"}
+]
+readme = "README.md"
+keywords = [
+    "kalman filter",
+    "smoothing",
+    "filter",
+    "smoothing",
+    "em",
+    "expectation-maximization",
+    "hmm",
+    "tracking",
+    "unscented",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+requires-python = ">=3.9,<3.14"
+dependencies = [
+    "numpy<3",
+    "packaging",
+    "scikit-base<0.13.0",
+    "scipy<2.0.0",
+]
+
+[project.optional-dependencies]
+
+tests = [
+    "pytest"
+]
+
+dev = [
+    "pytest",
+    "pre-commit"
+]
+
+docs = [
+    "jupyter",
+    "Sphinx<9.0.0",
+    "numpydoc",
+    "matplotlib"
+]
+
+all = [
+    "jupyter",
+    "pytest",
+    "Sphinx<9.0.0",
+    "numpydoc",
+    "twine",
+    "pre-commit"
+]
+
+[project.urls]
+Homepage = "https://github.com/pykalman/pykalman"
+Repository = "https://github.com/pykalman/pykalman"
+Documentation = "https://pykalman.readthedocs.io/en/latest/"
+Download = "https://pypi.org/project/pykalman/"
+
+[project.license]
+file = "LICENSE"
+
+[build-system]
+requires = ["setuptools>61", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+zip-safe = true
+
+[tool.setuptools.package-data]
+pykalman = [
+    "datasets/descr/robot.rst",
+    "datasets/data/robot.mat"
+]
+
+[tool.setuptools.packages.find]
+exclude = ["pykalman.tests", "pykalman.sqrt.tests"]
+
+
+--- Command: cat setup.cfg ---
+SUCCESS: True
+STDOUT:
+[metadata]
+description_file = README.md
+long_description_content_type = text/markdown
+
+[bdist_wheel]
+universal = true
+
+
+--- Command: if [ -f requirements.txt ]; then cat requirements.txt; fi ---
+SUCCESS: True
+
+--- Command: pip install numpy scipy matplotlib scikit-learn ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (2.2.6)
+Collecting scipy
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 6.1 MB/s  0:00:06
+Collecting matplotlib
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 6.7 MB/s  0:00:01
+Collecting scikit-learn
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/fb/a4/e488acdece6d413f370a9589a7193dac79cd486b2e418d3276d6ea0b9305/scikit_learn-1.7.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 7.1 MB/s  0:00:01
+Collecting contourpy>=1.0.1 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/32/5c/1ee32d1c7956923202f00cf8d2a14a62ed7517bdc0ee1e55301227fc273c/contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+Collecting cycler>=0.10 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting fonttools>=4.22.0 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/57/767e31e48861045d89691128bd81fd4c62b62150f9a17a666f731ce4f197/fonttools-4.59.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 10.6 MB/s  0:00:00
+Collecting kiwisolver>=1.3.1 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/de/c6/7b9bb8044e150d4d1558423a1568e4f227193662a02231064e3824f37e0a/kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 12.5 MB/s  0:00:00
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (25.0)
+Collecting pillow>=8 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/f0/16/1a6bf01fb622fb9cf5c91683823f073f053005c849b1f52ed613afcf8dae/pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 6.6 MB/s  0:00:00
+Collecting pyparsing>=2.3.1 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/e7/df2285f3d08fee213f2d041540fa4fc9ca6c2d44cf36d3a035bf2a8d2bcc/pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (2.9.0.post0)
+Collecting joblib>=1.2.0 (from scikit-learn)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/7d/4f/1195bbac8e0c2acc5f740661631d8d750dc38d4a32b23ee5df3cde6f4e0d/joblib-1.5.1-py3-none-any.whl (307 kB)
+Collecting threadpoolctl>=3.1.0 (from scikit-learn)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/32/d5/f9a850d79b0851d1d4ef6456097579a9005b31fea68726a4ae5f2d82ddd9/threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.7->matplotlib) (1.17.0)
+Installing collected packages: threadpoolctl, scipy, pyparsing, pillow, kiwisolver, joblib, fonttools, cycler, contourpy, scikit-learn, matplotlib
+
+Successfully installed contourpy-1.3.2 cycler-0.12.1 fonttools-4.59.0 joblib-1.5.1 kiwisolver-1.4.8 matplotlib-3.10.5 pillow-11.3.0 pyparsing-3.2.3 scikit-learn-1.7.1 scipy-1.15.3 threadpoolctl-3.6.0
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+collected 0 items / 3 errors
+
+==================================== ERRORS ====================================
+____________ ERROR collecting pykalman/sqrt/tests/test_unscented.py ____________
+ImportError while importing test module '/app/repo_to_process/pykalman/sqrt/tests/test_unscented.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+pykalman/__init__.py:8: in <module>
+    from .standard import KalmanFilter
+pykalman/standard.py:24: in <module>
+    from .utils_numpy import newbyteorder
+pykalman/utils_numpy.py:3: in <module>
+    from pykalman.utils._numpy import newbyteorder
+pykalman/utils/_numpy.py:3: in <module>
+    from skbase.utils.dependencies import _check_soft_dependencies
+E   ModuleNotFoundError: No module named 'skbase'
+_______________ ERROR collecting pykalman/tests/test_standard.py _______________
+ImportError while importing test module '/app/repo_to_process/pykalman/tests/test_standard.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+pykalman/__init__.py:8: in <module>
+    from .standard import KalmanFilter
+pykalman/standard.py:24: in <module>
+    from .utils_numpy import newbyteorder
+pykalman/utils_numpy.py:3: in <module>
+    from pykalman.utils._numpy import newbyteorder
+pykalman/utils/_numpy.py:3: in <module>
+    from skbase.utils.dependencies import _check_soft_dependencies
+E   ModuleNotFoundError: No module named 'skbase'
+______________ ERROR collecting pykalman/tests/test_unscented.py _______________
+ImportError while importing test module '/app/repo_to_process/pykalman/tests/test_unscented.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+pykalman/__init__.py:8: in <module>
+    from .standard import KalmanFilter
+pykalman/standard.py:24: in <module>
+    from .utils_numpy import newbyteorder
+pykalman/utils_numpy.py:3: in <module>
+    from pykalman.utils._numpy import newbyteorder
+pykalman/utils/_numpy.py:3: in <module>
+    from skbase.utils.dependencies import _check_soft_dependencies
+E   ModuleNotFoundError: No module named 'skbase'
+=========================== short test summary info ============================
+ERROR pykalman/sqrt/tests/test_unscented.py
+ERROR pykalman/tests/test_standard.py
+ERROR pykalman/tests/test_unscented.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
+============================== 3 errors in 0.40s ===============================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

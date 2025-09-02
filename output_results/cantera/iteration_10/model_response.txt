@@ -1,0 +1,8 @@
+There has been no `pytest` output reported yet. All previous operations were related to SCons and its targets, and there is no indication that you have attempted to run `pytest` at all.
+
+## Next Step:
+Let’s try running `pytest` so we can see whether there are missing Python dependencies or collection errors.
+
+```bash
+pytest
+```

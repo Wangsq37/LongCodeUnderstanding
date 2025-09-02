@@ -1,0 +1,9 @@
+[
+  {
+    "command": "pytest python/prophet/tests",
+    "success": true,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process/python\nconfigfile: pyproject.toml\ncollected 79 items\n\npython/prophet/tests/test_diagnostics.py ...................             [ 24%]\npython/prophet/tests/test_prophet.py ......s..s......................... [ 68%]\n.....................                                                    [ 94%]\npython/prophet/tests/test_serialize.py ...                               [ 98%]\npython/prophet/tests/test_utilities.py .                                 [100%]\n\n=============================== warnings summary ===============================\nprophet/tests/test_diagnostics.py: 50 warnings\n  /app/repo_to_process/python/prophet/forecaster.py:1338: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)\n    gammas[i] = (\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n================= 77 passed, 2 skipped, 50 warnings in 34.01s ==================\n",
+    "stderr": "",
+    "execution_time": 35.17328882217407
+  }
+]

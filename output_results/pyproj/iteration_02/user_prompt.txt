@@ -1,0 +1,366 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── config.yml
+│   │   ├── feature_request.md
+│   │   └── installation_issues.md
+│   ├── workflows/
+│   │   ├── build_docs.yaml
+│   │   ├── release.yaml
+│   │   ├── test_proj_latest.yaml
+│   │   └── tests.yaml
+│   ├── dependabot.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── ci/
+│   ├── proj-compile-wheels.sh
+│   ├── proj-compile.sh
+│   └── vcpkg.json
+├── docs/
+│   ├── api/
+│   │   ├── crs/
+│   │   │   ├── coordinate_operation.rst
+│   │   │   ├── coordinate_system.rst
+│   │   │   ├── crs.rst
+│   │   │   ├── datum.rst
+│   │   │   ├── enums.rst
+│   │   │   └── index.rst
+│   │   │       └── ... (1 more files)
+│   │   ├── aoi.rst
+│   │   ├── database.rst
+│   │   ├── datadir.rst
+│   │   ├── enums.rst
+│   │   ├── exceptions.rst
+│   │   ├── geod.rst
+│   │   ├── global_context.rst
+│   │   ├── index.rst
+│   │   ├── list.rst
+│   │   ├── network.rst
+│   │   ├── proj.rst
+│   │   ├── show_versions.rst
+│   │   ├── sync.rst
+│   │   └── transformer.rst
+│   │       └── ... (9 more files)
+│   ├── media/
+│   │   ├── icon.png
+│   │   ├── icon.svg
+│   │   ├── logo.png
+│   │   └── logo.svg
+│   ├── advanced_examples.rst
+│   ├── build_crs.rst
+│   ├── build_crs_cf.rst
+│   ├── cli.rst
+│   ├── conf.py
+│   ├── crs_compatibility.rst
+│   ├── examples.rst
+│   ├── gotchas.rst
+│   ├── history.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── optimize_transformations.rst
+│   ├── past_versions.rst
+│   └── transformation_grids.rst
+│       └── ... (11 more files)
+├── flake8/
+│   └── cython.cfg
+├── pyproj/
+│   ├── crs/
+│   │   ├── __init__.py
+│   │   ├── _cf1x8.py
+│   │   ├── coordinate_operation.py
+│   │   ├── coordinate_system.py
+│   │   ├── crs.py
+│   │   ├── datum.py
+│   │   └── enums.py
+│   │       └── ... (2 more files)
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── _compat.pxd
+│   ├── _compat.pyi
+│   ├── _compat.pyx
+│   ├── _context.pxd
+│   ├── _context.pyi
+│   ├── _context.pyx
+│   ├── _crs.pxd
+│   ├── _crs.pyi
+│   ├── _crs.pyx
+│   ├── _geod.pxd
+│   ├── _geod.pyi
+│   ├── _geod.pyx
+│   ├── _network.pyi
+│   ├── _network.pyx
+│   ├── _show_versions.py
+│   ├── _sync.pyi
+│   ├── _sync.pyx
+│   ├── _transformer.pxd
+│   ├── _transformer.pyi
+│   ├── _transformer.pyx
+│   ├── _version.pyi
+│   ├── _version.pyx
+│   ├── aoi.py
+│   ├── base.pxi
+│   ├── database.pyi
+│   ├── database.pyx
+│   ├── datadir.py
+│   ├── enums.py
+│   ├── exceptions.py
+│   ├── geod.py
+│   ├── list.pyi
+│   ├── list.pyx
+│   ├── network.py
+│   ├── proj.pxi
+│   ├── proj.py
+│   ├── py.typed
+│   ├── sync.py
+│   ├── transformer.py
+│   └── utils.py
+│       └── ... (36 more files)
+├── test/
+│   ├── crs/
+│   │   ├── test_crs.py
+│   │   ├── test_crs_cf.py
+│   │   ├── test_crs_coordinate_operation.py
+│   │   ├── test_crs_coordinate_system.py
+│   │   ├── test_crs_datum.py
+│   │   ├── test_crs_json.py
+│   │   └── test_crs_maker.py
+│   │       └── ... (2 more files)
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── sample.out
+│   ├── test_aoi.py
+│   ├── test_awips221.py
+│   ├── test_cli.py
+│   ├── test_database.py
+│   ├── test_datadir.py
+│   ├── test_datum.py
+│   ├── test_datum_shift.py
+│   ├── test_doctest_wrapper.py
+│   ├── test_exception_logging.py
+│   ├── test_geod.py
+│   ├── test_list.py
+│   ├── test_network.py
+│   ├── test_pickle.py
+│   ├── test_proj.py
+│   ├── test_show_versions.py
+│   ├── test_sync.py
+│   ├── test_transform.py
+│   ├── test_transformer.py
+│   └── test_utils.py
+│       └── ... (17 more files)
+├── .all-contributorsrc
+├── .coveragerc
+├── .flake8
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .pylintrc
+├── CODE_OF_CONDUCT.md
+├── codecov.yml
+├── CONTRIBUTING.md
+├── HOW_TO_RELEASE.md
+├── LICENSE
+├── LICENSE_proj
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── pytest.ini
+├── README.md
+├── requirements-dev.txt
+├── requirements-docs.txt
+├── requirements-test.txt
+└── setup.py
+    └── ... (16 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -r requirements-dev.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting cython>=0.28.4 (from -r requirements-dev.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b4/eb/8c47ba21177929f9122e7aceca9fe1f9f5a037e705226f8a5a9113fb53ba/cython-3.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 10.6 MB/s  0:00:00
+Collecting mypy (from -r requirements-dev.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/06/bf/63e83ed551282d67bb3f7fea2cd5561b08d2bb6eb287c096539feb5ddbc5/mypy-1.17.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (12.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 6.6 MB/s  0:00:01
+Collecting pre-commit (from -r requirements-dev.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/5b/a5/987a405322d78a73b66e39e4a90e4ef156fd7141bf71df987e50717c321b/pre_commit-4.3.0-py2.py3-none-any.whl (220 kB)
+Collecting ruff (from -r requirements-dev.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e8/67/0c3c9179a3ad19791ef1b8f7138aa27d4578c78700551c60d9260b2c660d/ruff-0.12.8-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 6.3 MB/s  0:00:02
+Collecting types-certifi (from -r requirements-dev.txt (line 5))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b5/63/2463d89481e811f007b0e1cd0a91e52e141b47f9de724d20db7b861dcfec/types_certifi-2021.10.8.3-py3-none-any.whl (2.1 kB)
+Requirement already satisfied: typing_extensions>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from mypy->-r requirements-dev.txt (line 2)) (4.14.1)
+Collecting mypy_extensions>=1.0.0 (from mypy->-r requirements-dev.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+Collecting pathspec>=0.9.0 (from mypy->-r requirements-dev.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/cc/20/ff623b09d963f88bfde16306a54e12ee5ea43e9b597108672ff3a408aad6/pathspec-0.12.1-py3-none-any.whl (31 kB)
+Requirement already satisfied: tomli>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from mypy->-r requirements-dev.txt (line 2)) (2.2.1)
+Collecting cfgv>=2.0.0 (from pre-commit->-r requirements-dev.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/c5/55/51844dd50c4fc7a33b653bfaba4c2456f06955289ca770a5dbd5fd267374/cfgv-3.4.0-py2.py3-none-any.whl (7.2 kB)
+Collecting identify>=1.0.0 (from pre-commit->-r requirements-dev.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e7/ce/461b60a3ee109518c055953729bf9ed089a04db895d47e95444071dcdef2/identify-2.6.13-py2.py3-none-any.whl (99 kB)
+Collecting nodeenv>=0.11.1 (from pre-commit->-r requirements-dev.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/d2/1d/1b658dbd2b9fa9c4c9f32accbfc0205d532c8c6194dc0f2a4c0428e7128a/nodeenv-1.9.1-py2.py3-none-any.whl (22 kB)
+Collecting pyyaml>=5.1 (from pre-commit->-r requirements-dev.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/6b/4e/1523cb902fd98355e2e9ea5e5eb237cbc5f3ad5f3075fa65087aa0ecb669/PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 12.9 MB/s  0:00:00
+Collecting virtualenv>=20.10.0 (from pre-commit->-r requirements-dev.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ca/ff/ded57ac5ff40a09e6e198550bab075d780941e0b0f83cbeabd087c59383a/virtualenv-20.33.1-py3-none-any.whl (6.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.1/6.1 MB 5.9 MB/s  0:00:01
+Collecting distlib<1,>=0.3.7 (from virtualenv>=20.10.0->pre-commit->-r requirements-dev.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/33/6b/e0547afaf41bf2c42e52430072fa5658766e3d65bd4b03a563d1b6336f57/distlib-0.4.0-py2.py3-none-any.whl (469 kB)
+Collecting filelock<4,>=3.12.2 (from virtualenv>=20.10.0->pre-commit->-r requirements-dev.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/4d/36/2a115987e2d8c300a974597416d9de88f2444426de9571f4b59b2cca3acc/filelock-3.18.0-py3-none-any.whl (16 kB)
+Collecting platformdirs<5,>=3.9.1 (from virtualenv>=20.10.0->pre-commit->-r requirements-dev.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/fe/39/979e8e21520d4e47a0bbe349e2713c0aac6f3d853d0e5b34d76206c439aa/platformdirs-4.3.8-py3-none-any.whl (18 kB)
+Installing collected packages: types-certifi, distlib, ruff, pyyaml, platformdirs, pathspec, nodeenv, mypy_extensions, identify, filelock, cython, cfgv, virtualenv, mypy, pre-commit
+
+Successfully installed cfgv-3.4.0 cython-3.1
+... (truncated)
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install -r requirements-test.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from -r requirements-test.txt (line 1)) (25.0)
+Requirement already satisfied: pytest>3.6 in /usr/local/lib/python3.10/dist-packages (from -r requirements-test.txt (line 2)) (8.4.1)
+Collecting pytest-cov (from -r requirements-test.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/bc/16/4ea354101abb1287856baa4af2732be351c7bee728065aed451b678153fd/pytest_cov-6.2.1-py3-none-any.whl (24 kB)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from -r requirements-test.txt (line 4)) (2.2.6)
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from -r requirements-test.txt (line 5)) (2.3.1)
+Collecting shapely (from -r requirements-test.txt (line 6))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/a9/4f/6c9bb4bd7b1a14d7051641b9b479ad2a643d5cbc382bcf5bd52fd0896974/shapely-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 10.5 MB/s  0:00:00
+Collecting xarray (from -r requirements-test.txt (line 7))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/82/8a/6b50c1dd2260d407c1a499d47cf829f59f07007e0dcebafdabb24d1d26a5/xarray-2025.6.1-py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 12.3 MB/s  0:00:00
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>3.6->-r requirements-test.txt (line 2)) (1.3.0)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>3.6->-r requirements-test.txt (line 2)) (2.1.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.10/dist-packages (from pytest>3.6->-r requirements-test.txt (line 2)) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest>3.6->-r requirements-test.txt (line 2)) (2.19.2)
+Requirement already satisfied: tomli>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>3.6->-r requirements-test.txt (line 2)) (2.2.1)
+Collecting coverage>=7.5 (from coverage[toml]>=7.5->pytest-cov->-r requirements-test.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b9/8e/5a8835fb0122a2e2a108bf3527931693c4625fdc4d953950a480b9625852/coverage-7.10.2-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (243 kB)
+Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas->-r requirements-test.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas->-r requirements-test.txt (line 5)) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.10/dist-packages (from pandas->-r requirements-test.txt (line 5)) (2025.2)
+Requirement already satisfied: typing-extensions>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from exceptiongroup>=1->pytest>3.6->-r requirements-test.txt (line 2)) (4.14.1)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.8.2->pandas->-r requirements-test.txt (line 5)) (1.17.0)
+Installing collected packages: shapely, coverage, xarray, pytest-cov
+
+Successfully installed coverage-7.10.2 pytest-cov-6.2.1 shapely-2.1.1 xarray-2025.6.1
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install -r requirements-docs.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting furo>=2022.6 (from -r requirements-docs.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/3a/34/2b07b72bee02a63241d654f5d8af87a2de977c59638eec41ca356ab915cd/furo-2025.7.19-py3-none-any.whl (342 kB)
+Collecting sphinx (from -r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/26/60/1ddff83a56d33aaf6f10ec8ce84b4c007d9368b21008876fceda7e7381ef/sphinx-8.1.3-py3-none-any.whl (3.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 7.3 MB/s  0:00:00
+Collecting sphinx-argparse (from -r requirements-docs.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e5/43/9f0e9bfb3ce02cbf7747aa2185c48a9d6e42ba95736a5e8f511a5054d976/sphinx_argparse-0.5.2-py3-none-any.whl (12 kB)
+Collecting beautifulsoup4 (from furo>=2022.6->-r requirements-docs.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/50/cd/30110dc0ffcf3b131156077b90e9f60ed75711223f306da4db08eff8403b/beautifulsoup4-4.13.4-py3-none-any.whl (187 kB)
+Collecting sphinx-basic-ng>=1.0.0.beta2 (from furo>=2022.6->-r requirements-docs.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/3c/dd/018ce05c532a22007ac58d4f45232514cd9d6dd0ee1dc374e309db830983/sphinx_basic_ng-1.0.0b2-py3-none-any.whl (22 kB)
+Requirement already satisfied: pygments>=2.7 in /usr/local/lib/python3.10/dist-packages (from furo>=2022.6->-r requirements-docs.txt (line 1)) (2.19.2)
+Collecting accessible-pygments>=0.0.5 (from furo>=2022.6->-r requirements-docs.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8d/3f/95338030883d8c8b91223b4e21744b04d11b161a3ef117295d8241f50ab4/accessible_pygments-0.0.5-py3-none-any.whl (1.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 13.3 MB/s  0:00:00
+Collecting sphinxcontrib-applehelp>=1.0.7 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/5d/85/9ebeae2f76e9e77b952f4b274c27238156eae7979c5421fba91a28f4970d/sphinxcontrib_applehelp-2.0.0-py3-none-any.whl (119 kB)
+Collecting sphinxcontrib-devhelp>=1.0.6 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/35/7a/987e583882f985fe4d7323774889ec58049171828b58c2217e7f79cdf44e/sphinxcontrib_devhelp-2.0.0-py3-none-any.whl (82 kB)
+Collecting sphinxcontrib-htmlhelp>=2.0.6 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/0a/7b/18a8c0bcec9182c05a0b3ec2a776bba4ead82750a55ff798e8d406dae604/sphinxcontrib_htmlhelp-2.1.0-py3-none-any.whl (98 kB)
+Collecting sphinxcontrib-jsmath>=1.0.1 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/c2/42/4c8646762ee83602e3fb3fbe774c2fac12f317deb0b5dbeeedd2d3ba4b77/sphinxcontrib_jsmath-1.0.1-py2.py3-none-any.whl (5.1 kB)
+Collecting sphinxcontrib-qthelp>=1.0.6 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/27/83/859ecdd180cacc13b1f7e857abf8582a64552ea7a061057a6c716e790fce/sphinxcontrib_qthelp-2.0.0-py3-none-any.whl (88 kB)
+Collecting sphinxcontrib-serializinghtml>=1.1.9 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/52/a7/d2782e4e3f77c8450f727ba74a8f12756d5ba823d81b941f1b04da9d033a/sphinxcontrib_serializinghtml-2.0.0-py3-none-any.whl (92 kB)
+Collecting Jinja2>=3.1 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Collecting docutils<0.22,>=0.20 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8f/d7/9322c609343d929e75e7e5e6255e614fcc67572cfd083959cdef3b7aad79/docutils-0.21.2-py3-none-any.whl (587 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 587.4/587.4 kB 9.5 MB/s  0:00:00
+Collecting snowballstemmer>=2.2 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/c8/78/3565d011c61f5a43488987ee32b6f3f656e7f107ac2782dd57bdd7d91d9a/snowballstemmer-3.0.1-py3-none-any.whl (103 kB)
+Collecting babel>=2.13 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b7/b8/3fe70c75fe32afc4bb507f75563d39bc5642255d1d94f1f23604725780bf/babel-2.17.0-py3-none-any.whl (10.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 8.1 MB/s  0:00:01
+Collecting alabaster>=0.7.14 (from sphinx->-r requirements-docs.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/7e/b3/6b4067be973ae96ba0d615946e314c5ae35f9f993eca561b356540bb0c2b/alabaster-1.0.0-py3-none-any
+... (17 lines omitted)
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'error'
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [1 lines of output]
+      proj executable not found. Please set the PROJ_DIR variable. For more information see: https://pyproj4.github.io/pyproj/stable/installation.html
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× Getting requirements to build wheel did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDERR:
+ImportError while loading conftest '/app/repo_to_process/test/conftest.py'.
+test/conftest.py:10: in <module>
+    import pyproj
+pyproj/__init__.py:34: in <module>
+    import pyproj.network
+pyproj/network.py:10: in <module>
+    from pyproj._context import _set_context_ca_bundle_path
+E   ModuleNotFoundError: No module named 'pyproj._context'
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

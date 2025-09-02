@@ -1,0 +1,17 @@
+The error is:
+
+```
+ERROR collecting dask - _pytest.pathlib.ImportPathMismatchError: ('dask.conftest', '/usr/local/lib/python3.10/dist-packages/dask/conftest.py', PosixPath('/app/repo_to_process/dask/conftest.py'))
+```
+
+This is a conftest clash between the installed package and the local source tree:
+- `/usr/local/lib/python3.10/dist-packages/dask/conftest.py` (likely from previous pip installs)
+- `/app/repo_to_process/dask/conftest.py` (local source)
+
+Pytest gets confused when a package is both installed and in the test root tree. The recommended fix is to uninstall the `dask` package so only the local copy is used.
+
+```bash
+pip uninstall -y dask
+pytest
+```
+If other packages (e.g., `distributed`) cause the same error due to local source, they may also need to be uninstalled. Let's try with `dask` first.

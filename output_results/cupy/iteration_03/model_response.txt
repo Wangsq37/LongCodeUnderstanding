@@ -1,0 +1,21 @@
+The output shows that installing `cupy` from source failed because it's missing the CUDA toolkit (headers/libraries) in the environment. Furthermore, CuPy is actually a main source directory in this repo (`cupy/`), so the intent is to run tests against the local source, not the PyPI version.
+
+This means the correct resolution is NOT to `pip install cupy` (it will keep failing unless you add CUDA and build, which is not indicated), but rather to let the project use its *editable* version from the repo. The initial problem here is:
+
+> The directory third_party/cccl is a git submodule but is currently empty.
+
+which means some required code is missing due to the uninitialized git submodule.
+
+The steps required are:
+
+1. Initialize the git submodules so that required files in `third_party/cccl/` become available.
+2. Try the install again (likely with `pip install -e .`).
+3. Then re-run pytest.
+
+Because you must use the editable install (directly from the source), the next step is:
+
+```bash
+git submodule update --init
+pip install -e .
+pytest
+```

@@ -1,0 +1,163 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── config.yml
+│   │   └── feature_request.md
+│   └── workflows/
+│       ├── autopush.yml
+│       └── ci.yml
+├── bpl-subset/
+├── doc/
+│   ├── array.rst
+│   ├── conf.py
+│   ├── driver.rst
+│   ├── gl.rst
+│   ├── index.rst
+│   ├── install.rst
+│   ├── Makefile
+│   ├── metaprog.rst
+│   ├── misc.rst
+│   ├── tutorial.rst
+│   ├── upload-docs.sh
+│   └── util.rst
+│       └── ... (7 more files)
+├── examples/
+│   ├── from-wiki/
+│   │   ├── 2d_fft.py
+│   │   ├── arithmetic_example.py
+│   │   ├── c++_function_templates.py
+│   │   ├── convolution.py
+│   │   ├── demo_complex.py
+│   │   ├── demo_meta_cgen.py
+│   │   ├── demo_meta_matrixmul_cheetah.py
+│   │   ├── distance_element_wise3d.py
+│   │   ├── game_of_life.py
+│   │   ├── gl_interop.py
+│   │   ├── gpu_scalar_mult.py
+│   │   ├── kernel_concurrency.py
+│   │   ├── light_field_3d_viewer.py
+│   │   ├── mandelbrot.py
+│   │   ├── mandelbrot_interactive.py
+│   │   ├── manhattan_distance_for_2D_array.py
+│   │   ├── matrix_transpose.py
+│   │   ├── matrixmul_simple.py
+│   │   ├── matrixmul_tiled.py
+│   │   ├── measure_gpuarray_speed_random.py
+│   │   ├── multiple_threads.py
+│   │   ├── plot_random_data.py
+│   │   ├── rotate.py
+│   │   ├── select_to_list.py
+│   │   ├── simple_rgb2gray.py
+│   │   ├── simple_speed_test.py
+│   │   ├── sobel_filter.py
+│   │   ├── sparse_solve.py
+│   │   ├── threads_and_blocks.py
+│   │   ├── thrust_interop.py
+│   │   └── using_printf.py
+│   │       └── ... (26 more files)
+│   ├── .gitignore
+│   ├── cai_cupy_arrays.py
+│   ├── cai_numba.py
+│   ├── demo.py
+│   ├── demo_cdpSimplePrint.py
+│   ├── demo_elementwise.py
+│   ├── demo_meta_codepy.py
+│   ├── demo_meta_template.py
+│   ├── demo_struct.py
+│   ├── dump_properties.py
+│   ├── fill_gpu_with_nans.py
+│   └── hello_gpu.py
+│       └── ... (7 more files)
+├── pycuda/
+│   ├── compyte/
+│   ├── cuda/
+│   │   ├── pycuda-complex-impl.hpp
+│   │   ├── pycuda-complex.hpp
+│   │   └── pycuda-helpers.hpp
+│   ├── gl/
+│   │   ├── __init__.py
+│   │   └── autoinit.py
+│   ├── sparse/
+│   │   ├── __init__.py
+│   │   ├── cg.py
+│   │   ├── coordinate.py
+│   │   ├── inner.py
+│   │   ├── operator.py
+│   │   ├── packeted.py
+│   │   ├── pkt_build.py
+│   │   └── pkt_build_cython.pyx
+│   │       └── ... (3 more files)
+│   ├── __init__.py
+│   ├── _cluda.py
+│   ├── _mymako.py
+│   ├── autoinit.py
+│   ├── autoprimaryctx.py
+│   ├── characterize.py
+│   ├── compiler.py
+│   ├── cumath.py
+│   ├── curandom.py
+│   ├── debug.py
+│   ├── driver.py
+│   ├── elementwise.py
+│   ├── gpuarray.py
+│   ├── reduction.py
+│   ├── scan.py
+│   └── tools.py
+│       └── ... (11 more files)
+├── src/
+│   ├── cpp/
+│   │   ├── bitlog.cpp
+│   │   ├── bitlog.hpp
+│   │   ├── cuda.cpp
+│   │   ├── cuda.hpp
+│   │   ├── cuda_gl.hpp
+│   │   ├── curand.hpp
+│   │   └── mempool.hpp
+│   │       └── ... (2 more files)
+│   └── wrapper/
+│       ├── _pvt_struct_v3.cpp
+│       ├── mempool.cpp
+│       ├── tools.hpp
+│       ├── wrap_cudadrv.cpp
+│       ├── wrap_cudagl.cpp
+│       ├── wrap_curand.cpp
+│       └── wrap_helpers.hpp
+│           └── ... (2 more files)
+├── test/
+│   ├── undistributed/
+│   │   ├── elwise-perf.py
+│   │   ├── measure_gpuarray_speed.py
+│   │   └── reduction-perf.py
+│   ├── test_cumath.py
+│   ├── test_driver.py
+│   └── test_gpuarray.py
+├── .editorconfig
+├── .gitignore
+├── .gitlab-ci.yml
+├── .gitmodules
+├── aksetup_helper.py
+├── CITATION.cff
+├── configure.py
+├── LICENSE
+├── Makefile.in
+├── MANIFEST.in
+├── pyproject.toml
+├── README.rst
+├── README_SETUP.txt
+└── setup.py
+    └── ... (9 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

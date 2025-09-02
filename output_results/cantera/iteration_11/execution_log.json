@@ -1,0 +1,9 @@
+[
+  {
+    "command": "ls -l",
+    "success": true,
+    "stdout": "total 180\n-rwxr-xr-x  1 root root  6234 Aug 10 12:51 AUTHORS.md\n-rwxr-xr-x  1 root root   723 Aug 10 12:51 CITATION.cff\n-rwxr-xr-x  1 root root  5604 Aug 10 12:51 CODE_OF_CONDUCT.md\n-rwxr-xr-x  1 root root  5970 Aug 10 12:51 CONTRIBUTING.md\n-rwxr-xr-x  1 root root   788 Aug 10 12:51 INSTALL.md\n-rwxr-xr-x  1 root root  1834 Aug 10 12:51 License.txt\n-rwxr-xr-x  1 root root  5781 Aug 10 12:51 README.rst\n-rwxr-xr-x  1 root root 90261 Aug 10 12:51 SConstruct\ndrwxr-xr-x  3 root root  4096 Aug 10 12:51 data\ndrwxr-xr-x  4 root root  4096 Aug 10 12:51 doc\ndrwxr-xr-x  9 root root  4096 Aug 10 12:51 ext\ndrwxr-xr-x  3 root root  4096 Aug 10 12:51 include\ndrwxr-xr-x  8 root root  4096 Aug 10 12:51 interfaces\ndrwxr-xr-x  4 root root  4096 Aug 10 12:51 platform\ndrwxr-xr-x 10 root root  4096 Aug 10 12:51 samples\ndrwxr-xr-x  4 root root  4096 Aug 10 14:57 site_scons\ndrwxr-xr-x 15 root root  4096 Aug 10 12:51 src\ndrwxr-xr-x 15 root root  4096 Aug 10 12:51 test\ndrwxr-xr-x 16 root root  4096 Aug 10 12:51 test_problems\n",
+    "stderr": "",
+    "execution_time": 0.0022640228271484375
+  }
+]

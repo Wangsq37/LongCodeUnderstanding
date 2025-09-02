@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip install numpy scipy",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nRequirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (2.2.6)\nCollecting scipy\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 5.9 MB/s  0:00:06\nInstalling collected packages: scipy\nSuccessfully installed scipy-1.15.3\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 10.854637622833252
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\ncollected 0 items\n\n============================ no tests ran in 0.01s =============================\n",
+    "stderr": "",
+    "execution_time": 0.1891932487487793
+  }
+]

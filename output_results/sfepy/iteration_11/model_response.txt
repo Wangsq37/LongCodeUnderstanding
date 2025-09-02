@@ -1,0 +1,17 @@
+The error is:
+
+```
+ModuleNotFoundError: No module named 'skbuild'
+```
+
+This is a missing build dependency needed by the setup script. Install `scikit-build`.
+
+```bash
+pip install scikit-build
+```
+After this, rerun the build command:
+
+```bash
+python setup.py build_ext --inplace
+```
+Then rerun `pytest` to check if the `cmapping` extension is built and installed.

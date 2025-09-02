@@ -1,0 +1,9 @@
+The project requires a CUDA development environment to build and install `cupy` from source, but this Docker environment does not have CUDA libraries/headers present (no `cublas_v2.h`, `cuda_runtime_api.h`, etc.), and no NVCC compiler.
+
+Both `pip install cupy` and `pip install -e .` fail due to this. The local source does not provide a pure Python fallback—it's fundamental for `cupy` (as a GPU array library) to have CUDA or ROCm.
+
+Given this, it is impossible to run or collect tests (even to get to collection!) without a valid CUDA development environment. There is no way to proceed without system-level changes outside standard Python/PyPI package installs.
+
+```status
+failed
+```

@@ -1,0 +1,531 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   ├── workflows/
+│   │   ├── linters.yml
+│   │   ├── main.yml
+│   │   ├── packaging.yml
+│   │   ├── post-merge-tests.yml
+│   │   └── zizmor.yml
+│   ├── dependabot.yml
+│   ├── FUNDING.yml
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── SUPPORT.md
+├── data/
+│   ├── example_data/
+│   ├── air.yaml
+│   ├── airNASA9.yaml
+│   ├── critical-properties.yaml
+│   ├── diamond.yaml
+│   ├── element-standard-entropies.yaml
+│   ├── graphite.yaml
+│   ├── gri30.yaml
+│   ├── gri30_highT.yaml
+│   ├── gri30_ion.yaml
+│   ├── h2o2.yaml
+│   ├── KOH.yaml
+│   ├── liquidvapor.yaml
+│   ├── lithium_ion_battery.yaml
+│   ├── methane_pox_on_pt.yaml
+│   ├── nasa_condensed.yaml
+│   ├── nasa_gas.yaml
+│   ├── nDodecane_Reitz.yaml
+│   ├── ohn.yaml
+│   ├── ptcombust.yaml
+│   ├── SiF4_NH3_mec.yaml
+│   ├── silicon.yaml
+│   ├── sofc.yaml
+│   └── water.yaml
+│       └── ... (18 more files)
+├── doc/
+│   ├── doxygen/
+│   │   ├── cantera-doxygen.css
+│   │   ├── cantera.bib
+│   │   ├── Doxyfile.in
+│   │   ├── DoxygenLayout.xml
+│   │   ├── header.html
+│   │   ├── macros.tex
+│   │   ├── mainpage.md
+│   │   └── versions.md
+│   │       └── ... (3 more files)
+│   ├── sphinx/
+│   │   ├── _static/
+│   │   │   ├── images/
+│   │   │   ├── custom.css
+│   │   │   └── doc-versions.json
+│   │   ├── _templates/
+│   │   │   └── numfocus.html
+│   │   ├── clib/
+│   │   │   └── index.md
+│   │   ├── develop/
+│   │   │   ├── compiling/
+│   │   │   ├── distribution-packages/
+│   │   │   ├── clib-extensions.md
+│   │   │   ├── continuous-integration.md
+│   │   │   ├── doc-formatting.md
+│   │   │   ├── dotnet-extensions.md
+│   │   │   ├── index.md
+│   │   │   ├── reactor-integration.md
+│   │   │   ├── running-tests.md
+│   │   │   ├── sourcegen-config.md
+│   │   │   ├── sourcegen.md
+│   │   │   ├── style-guidelines.md
+│   │   │   ├── vscode-tips.md
+│   │   │   ├── writing-examples.md
+│   │   │   ├── writing-tests.md
+│   │   │   └── yaml-extensions.md
+│   │   │       └── ... (9 more files)
+│   │   ├── dotnet/
+│   │   │   └── index.md
+│   │   ├── examples/
+│   │   │   ├── input/
+│   │   │   └── index.md
+│   │   ├── install/
+│   │   │   ├── conda.md
+│   │   │   ├── fedora-rhel.md
+│   │   │   ├── freebsd.md
+│   │   │   ├── gentoo.md
+│   │   │   ├── index.md
+│   │   │   ├── opensuse.md
+│   │   │   ├── pip.md
+│   │   │   └── ubuntu.md
+│   │   │       └── ... (3 more files)
+│   │   ├── matlab/
+│   │   │   └── index.md
+│   │   ├── python/
+│   │   │   ├── ck_conversion.rst
+│   │   │   ├── constants.rst
+│   │   │   ├── cti_conversion.rst
+│   │   │   ├── ctml_conversion.rst
+│   │   │   ├── importing.rst
+│   │   │   ├── index.md
+│   │   │   ├── kinetics.rst
+│   │   │   ├── lxcat_conversion.rst
+│   │   │   ├── onedim.rst
+│   │   │   ├── scripts.rst
+│   │   │   ├── thermo.rst
+│   │   │   ├── transport.rst
+│   │   │   ├── units.rst
+│   │   │   ├── utilities.rst
+│   │   │   ├── yaml_conversion.rst
+│   │   │   └── zerodim.rst
+│   │   │       └── ... (11 more files)
+│   │   ├── reference/
+│   │   │   ├── kinetics/
+│   │   │   ├── onedim/
+│   │   │   ├── reactors/
+│   │   │   ├── releasenotes/
+│   │   │   ├── thermo/
+│   │   │   ├── transport/
+│   │   │   ├── bibliography.md
+│   │   │   ├── glossary.md
+│   │   │   └── index.md
+│   │   ├── userguide/
+│   │   │   ├── ck2yaml-tutorial.md
+│   │   │   ├── compiling-cxx.md
+│   │   │   ├── creating-mechanisms.md
+│   │   │   ├── cxx-tutorial.md
+│   │   │   ├── demo1a.cpp
+│   │   │   ├── demoequil.cpp
+│   │   │   ├── extensible-reactor.md
+│   │   │   ├── faq.md
+│   │   │   ├── flame-temperature.md
+│   │   │   ├── heating-value.md
+│   │   │   ├── index.md
+│   │   │   ├── input-errors.md
+│   │   │   ├── input-tutorial.md
+│   │   │   ├── kinetics_transport.cpp
+│   │   │   ├── legacy2yaml-tutorial.md
+│   │   │   ├── python-tutorial.md
+│   │   │   ├── reactor-tutorial.md
+│   │   │   ├── thermobuild.md
+│   │   │   └── thermodemo.cpp
+│   │   │       └── ... (14 more files)
+│   │   ├── yaml/
+│   │   │   ├── ck2yaml.md
+│   │   │   ├── cti2yaml.md
+│   │   │   ├── ctml2yaml.md
+│   │   │   ├── elements.md
+│   │   │   ├── general.md
+│   │   │   ├── index.md
+│   │   │   ├── lxcat2yaml.md
+│   │   │   ├── phases.md
+│   │   │   ├── reactions.md
+│   │   │   ├── species.md
+│   │   │   └── yaml2ck.md
+│   │   │       └── ... (6 more files)
+│   │   ├── conf.py
+│   │   ├── ctutils.py
+│   │   └── index.md
+│   ├── example-keywords.py
+│   ├── example-keywords.txt
+│   ├── example-skip-keywords.txt
+│   └── SConscript
+├── ext/
+│   ├── doxygen-awesome-css/
+│   ├── eigen/
+│   ├── fmt/
+│   ├── googletest/
+│   ├── HighFive/
+│   ├── sundials/
+│   ├── yaml-cpp/
+│   ├── SConscript
+│   └── sundials_config.h.in
+├── include/
+│   └── cantera/
+│       ├── base/
+│       │   ├── AnyMap.h
+│       │   ├── AnyMap.inl.h
+│       │   ├── Array.h
+│       │   ├── clockWC.h
+│       │   ├── config.h.in
+│       │   ├── ct_defs.h
+│       │   ├── ctexceptions.h
+│       │   ├── Delegator.h
+│       │   ├── ExtensionManager.h
+│       │   ├── ExtensionManagerFactory.h
+│       │   ├── ExternalLogger.h
+│       │   ├── FactoryBase.h
+│       │   ├── fmt.h
+│       │   ├── global.h
+│       │   ├── Interface.h
+│       │   ├── logger.h
+│       │   ├── NoExitLogger.h
+│       │   ├── Solution.h
+│       │   ├── SolutionArray.h
+│       │   ├── Storage.h
+│       │   ├── stringUtils.h
+│       │   ├── Units.h
+│       │   ├── utilities.h
+│       │   ├── ValueCache.h
+│       │   ├── yaml.h
+│       │   └── YamlWriter.h
+│       │       └── ... (21 more files)
+│       ├── clib/
+│       │   ├── clib_defs.h
+│       │   ├── ct.h
+│       │   ├── ctfunc.h
+│       │   ├── ctmatlab.h
+│       │   ├── ctmultiphase.h
+│       │   ├── ctonedim.h
+│       │   ├── ctreactor.h
+│       │   ├── ctrpath.h
+│       │   ├── ctsurf.h
+│       │   └── README.md
+│       │       └── ... (5 more files)
+│       ├── cython/
+│       │   ├── funcWrapper.h
+│       │   ├── kinetics_utils.h
+│       │   ├── thermo_utils.h
+│       │   ├── transport_utils.h
+│       │   ├── utils_utils.h
+│       │   └── wrappers.h
+│       │       └── ... (1 more files)
+│       ├── equil/
+│       │   ├── ChemEquil.h
+│       │   ├── MultiPhase.h
+│       │   ├── MultiPhaseEquil.h
+│       │   ├── vcs_defs.h
+│       │   ├── vcs_internal.h
+│       │   ├── vcs_MultiPhaseEquil.h
+│       │   ├── vcs_solve.h
+│       │   ├── vcs_species_thermo.h
+│       │   ├── vcs_SpeciesProperties.h
+│       │   └── vcs_VolPhase.h
+│       │       └── ... (5 more files)
+│       ├── extensions/
+│       │   ├── PythonExtensionManager.h
+│       │   └── PythonHandle.h
+│       ├── kinetics/
+│       │   ├── Arrhenius.h
+│       │   ├── BlowersMaselRate.h
+│       │   ├── BulkKinetics.h
+│       │   ├── ChebyshevRate.h
+│       │   ├── Custom.h
+│       │   ├── EdgeKinetics.h
+│       │   ├── ElectronCollisionPlasmaRate.h
+│       │   ├── Falloff.h
+│       │   ├── Group.h
+│       │   ├── ImplicitSurfChem.h
+│       │   ├── InterfaceKinetics.h
+│       │   ├── InterfaceRate.h
+│       │   ├── Kinetics.h
+│       │   ├── KineticsFactory.h
+│       │   ├── LinearBurkeRate.h
+│       │   ├── MultiRate.h
+│       │   ├── MultiRateBase.h
+│       │   ├── PlogRate.h
+│       │   ├── Reaction.h
+│       │   ├── ReactionData.h
+│       │   ├── ReactionPath.h
+│       │   ├── ReactionRate.h
+│       │   ├── ReactionRateDelegator.h
+│       │   ├── ReactionRateFactory.h
+│       │   ├── solveSP.h
+│       │   ├── StoichManager.h
+│       │   ├── ThirdBodyCalc.h
+│       │   └── TwoTempPlasmaRate.h
+│       │       └── ... (23 more files)
+│       ├── numerics/
+│       │   ├── AdaptivePreconditioner.h
+│       │   ├── BandMatrix.h
+│       │   ├── ctlapack.h
+│       │   ├── CVodesIntegrator.h
+│       │   ├── DenseMatrix.h
+│       │   ├── eigen_dense.h
+│       │   ├── eigen_sparse.h
+│       │   ├── EigenSparseDirectJacobian.h
+│       │   ├── EigenSparseJacobian.h
+│       │   ├── Func1.h
+│       │   ├── Func1Factory.h
+│       │   ├── FuncEval.h
+│       │   ├── funcs.h
+│       │   ├── GeneralMatrix.h
+│       │   ├── IdasIntegrator.h
+│       │   ├── Integrator.h
+│       │   ├── polyfit.h
+│       │   ├── PreconditionerBase.h
+│       │   ├── PreconditionerFactory.h
+│       │   ├── SteadyStateSystem.h
+│       │   ├── sundials_headers.h
+│       │   ├── SundialsContext.h
+│       │   ├── SystemJacobian.h
+│       │   └── SystemJacobianFactory.h
+│       │       └── ... (19 more files)
+│       ├── oneD/
+│       │   ├── Boundary1D.h
+│       │   ├── Domain1D.h
+│       │   ├── DomainFactory.h
+│       │   ├── Flow1D.h
+│       │   ├── IonFlow.h
+│       │   ├── MultiJac.h
+│       │   ├── MultiNewton.h
+│       │   ├── OneDim.h
+│       │   ├── refine.h
+│       │   └── Sim1D.h
+│       │       └── ... (5 more files)
+│       ├── test/
+│       │   └── gtest_utils.h
+│       ├── thermo/
+│       │   ├── BinarySolutionTabulatedThermo.h
+│       │   ├── ConstCpPoly.h
+│       │   ├── CoverageDependentSurfPhase.h
+│       │   ├── DebyeHuckel.h
+│       │   ├── EdgePhase.h
+│       │   ├── electrolytes.h
+│       │   ├── Elements.h
+│       │   ├── GibbsExcessVPSSTP.h
+│       │   ├── HMWSoln.h
+│       │   ├── IdealGasPhase.h
+│       │   ├── IdealMolalSoln.h
+│       │   ├── IdealSolidSolnPhase.h
+│       │   ├── IdealSolnGasVPSS.h
+│       │   ├── LatticePhase.h
+│       │   ├── LatticeSolidPhase.h
+│       │   ├── MargulesVPSSTP.h
+│       │   ├── MetalPhase.h
+│       │   ├── MixtureFugacityTP.h
+│       │   ├── MolalityVPSSTP.h
+│       │   ├── Mu0Poly.h
+│       │   ├── MultiSpeciesThermo.h
+│       │   ├── Nasa9Poly1.h
+│       │   ├── Nasa9PolyMultiTempRegion.h
+│       │   ├── NasaPoly1.h
+│       │   ├── NasaPoly2.h
+│       │   ├── PDSS.h
+│       │   ├── PDSS_ConstVol.h
+│       │   ├── PDSS_HKFT.h
+│       │   ├── PDSS_SSVol.h
+│       │   ├── PDSS_Water.h
+│       │   ├── PDSSFactory.h
+│       │   ├── PengRobinson.h
+│       │   ├── Phase.h
+│       │   ├── PlasmaPhase.h
+│       │   ├── PureFluidPhase.h
+│       │   ├── RedlichKisterVPSSTP.h
+│       │   ├── RedlichKwongMFTP.h
+│       │   ├── ShomatePoly.h
+│       │   ├── SingleSpeciesTP.h
+│       │   ├── Species.h
+│       │   ├── SpeciesThermoFactory.h
+│       │   ├── SpeciesThermoInterpType.h
+│       │   ├── speciesThermoTypes.h
+│       │   ├── StoichSubstance.h
+│       │   ├── SurfPhase.h
+│       │   ├── ThermoFactory.h
+│       │   ├── ThermoPhase.h
+│       │   ├── VPStandardStateTP.h
+│       │   ├── WaterProps.h
+│       │   ├── WaterPropsIAPWS.h
+│       │   ├── WaterPropsIAPWSphi.h
+│       │   └── WaterSSTP.h
+│       │       └── ... (47 more files)
+│       ├── tpx/
+│       │   ├── Sub.h
+│       │   └── utils.h
+│       ├── transport/
+│       │   ├── DustyGasTransport.h
+│       │   ├── GasTransport.h
+│       │   ├── HighPressureGasTransport.h
+│       │   ├── IonGasTransport.h
+│       │   ├── MixTransport.h
+│       │   ├── MultiTransport.h
+│       │   ├── Transport.h
+│       │   ├── TransportData.h
+│       │   ├── TransportFactory.h
+│       │   ├── UnityLewisTransport.h
+│       │   └── WaterTransport.h
+│       │       └── ... (6 more files)
+│       ├── zeroD/
+│       │   ├── ConnectorFactory.h
+│       │   ├── ConnectorNode.h
+│       │   ├── ConstPressureMoleReactor.h
+│       │   ├── ConstPressureReactor.h
+│       │   ├── flowControllers.h
+│       │   ├── FlowDevice.h
+│       │   ├── FlowDeviceFactory.h
+│       │   ├── FlowReactor.h
+│       │   ├── IdealGasConstPressureMoleReactor.h
+│       │   ├── IdealGasConstPressureReactor.h
+│       │   ├── IdealGasMoleReactor.h
+│       │   ├── IdealGasReactor.h
+│       │   ├── MoleReactor.h
+│       │   ├── Reactor.h
+│       │   ├── ReactorBase.h
+│       │   ├── ReactorDelegator.h
+│       │   ├── ReactorFactory.h
+│       │   ├── ReactorNet.h
+│       │
+... (1070 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: ls interfaces/cython/ ---
+SUCCESS: True
+STDOUT:
+SConscript
+cantera
+pyproject.toml
+setup.cfg.in
+setup.py
+
+
+--- Command: ls interfaces/cython/pyproject.toml ---
+SUCCESS: True
+STDOUT:
+interfaces/cython/pyproject.toml
+
+
+--- Command: ls interfaces/cython/requirements.txt ---
+SUCCESS: False
+STDERR:
+ls: cannot access 'interfaces/cython/requirements.txt': No such file or directory
+
+
+--- Command: ls interfaces/cython/setup.py ---
+SUCCESS: True
+STDOUT:
+interfaces/cython/setup.py
+
+
+--- Command: ls requirements.txt ---
+SUCCESS: False
+STDERR:
+ls: cannot access 'requirements.txt': No such file or directory
+
+
+--- Command: ls pyproject.toml ---
+SUCCESS: False
+STDERR:
+ls: cannot access 'pyproject.toml': No such file or directory
+
+
+--- Command: ls setup.py ---
+SUCCESS: False
+STDERR:
+ls: cannot access 'setup.py': No such file or directory
+
+
+--- Command: ls test/python/ ---
+SUCCESS: True
+STDOUT:
+__init__.py
+conftest.py
+coverage.ini
+pytest.ini
+test_composite.py
+test_convert.py
+test_equilibrium.py
+test_func1.py
+test_jacobian.py
+test_kinetics.py
+test_mixture.py
+test_onedim.py
+test_purefluid.py
+test_reaction.py
+test_reactor.py
+test_thermo.py
+test_transport.py
+test_units.py
+test_utils.py
+user_ext.py
+user_ext_invalid.py
+utilities.py
+
+
+--- Command: pip install -e interfaces/cython ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Obtaining file:///app/repo_to_process/interfaces/cython
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: cantera
+  Building editable for cantera (pyproject.toml): started
+  Building editable for cantera (pyproject.toml): finished with status 'done'
+  Created wheel for cantera: filename=cantera-0.0.0-0.editable-cp310-cp310-linux_x86_64.whl size=2641 sha256=6d172e08afb71f3426cf1b2d39e793c870929f2473f8692c9a856e92ba6e736e
+  Stored in directory: /tmp/pip-ephem-wheel-cache-298i5u1s/wheels/37/b3/dd/ec25e170ff9a36ef49370eeedecd82f8da40ee17f168be2f5c
+Successfully built cantera
+Installing collected packages: cantera
+Successfully installed cantera-0.0.0
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: if [ -f interfaces/cython/requirements.txt ]; then pip install -r interfaces/cython/requirements.txt; fi ---
+SUCCESS: True
+
+--- Command: pytest test/python ---
+SUCCESS: False
+STDERR:
+ImportError while loading conftest '/app/repo_to_process/test/python/conftest.py'.
+test/python/conftest.py:1: in <module>
+    import cantera
+interfaces/cython/cantera/__init__.py:4: in <module>
+    from ._cantera import *
+E   ModuleNotFoundError: No module named 'cantera._cantera'
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

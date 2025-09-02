@@ -1,0 +1,10 @@
+# The error "ModuleNotFoundError: No module named 'cantera._cantera'" persists.
+# The reported attempt to build with `python setup.py build_ext --inplace` failed due to running in the wrong directory.
+# The correct path has `setup.py` under `interfaces/cython/`.
+# Re-run the build command from within the correct directory.
+```bash
+cd interfaces/cython
+python setup.py build_ext --inplace
+cd ../..
+pytest test/python
+```

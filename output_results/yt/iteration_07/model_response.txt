@@ -1,0 +1,8 @@
+Since there is a top-level `setup.py` present, and the failures are almost certainly due to not having built the Cython extension modules, the next required step is to build the project in-place so that the `.so` files for Cython modules (such as those in `yt/geometry/`) are created and can be imported.
+
+This is standard for source-based packages with Cython modules.
+
+```bash
+python setup.py build_ext --inplace
+```
+After this, I will re-run `pytest` to see if the error is resolved and tests can be collected.

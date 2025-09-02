@@ -1,0 +1,6 @@
+```bash
+pip install -r package/requirements.txt
+pip install -r testsuite/requirements.txt || true
+pip install -e ./package
+pytest
+```

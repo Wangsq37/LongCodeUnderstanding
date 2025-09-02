@@ -1,0 +1,16 @@
+The error persists: `ModuleNotFoundError: No module named 'dolfinx'`  
+The attempted install of `fenics-dolfinx` (via `python/`) fails due to `fenics-basix>=0.10.0.dev0` not existing on PyPI (latest is 0.9.0), so editable install for dolfinx cannot proceed.
+
+Before declaring failure, let's check if there is any `requirements.txt` or other install format in `python/` that can be used to force install or build, or if the Python package can work with lower versions of basix.
+
+Let's look for a requirements file and try a plain pip install of `fenics-dolfinx` to get any binary or older version, and/or see if dropping or editing the version spec in `python/pyproject.toml` can help.
+
+```bash
+ls python/
+ls python/dolfinx/
+ls python/demo/
+cat python/pyproject.toml
+cat python/requirements.txt  # if exists
+pip install fenics-dolfinx
+```
+(If pip install fenics-dolfinx succeeds, retry pytest.)

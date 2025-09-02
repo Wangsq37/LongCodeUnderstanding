@@ -1,0 +1,7 @@
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['pythran', 'omp']
+```
+
+```bash
+pytest
+```

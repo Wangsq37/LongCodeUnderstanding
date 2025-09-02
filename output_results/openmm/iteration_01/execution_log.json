@@ -1,0 +1,23 @@
+[
+  {
+    "command": "pip install -e wrappers/python",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nObtaining file:///app/repo_to_process/wrappers/python\n  Preparing metadata (setup.py): started\n  Preparing metadata (setup.py): finished with status 'error'\n",
+    "stderr": "  error: subprocess-exited-with-error\n  \n  × python setup.py egg_info did not run successfully.\n  │ exit code: 1\n  ╰─> [6 lines of output]\n      Traceback (most recent call last):\n        File \"<string>\", line 2, in <module>\n        File \"<pip-setuptools-caller>\", line 35, in <module>\n        File \"/app/repo_to_process/wrappers/python/setup.py\", line 11, in <module>\n          from Cython.Build import cythonize\n      ModuleNotFoundError: No module named 'Cython'\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: metadata-generation-failed\n\n× Encountered error while generating package metadata.\n╰─> See above for output.\n\nnote: This is an issue with the package mentioned above, not pip.\nhint: See above for details.\n",
+    "execution_time": 0.8966917991638184
+  },
+  {
+    "command": "cd wrappers/python/tests",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0008454322814941406
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\ncollected 0 items\n\n============================ no tests ran in 0.32s =============================\n",
+    "stderr": "",
+    "execution_time": 0.5053327083587646
+  }
+]

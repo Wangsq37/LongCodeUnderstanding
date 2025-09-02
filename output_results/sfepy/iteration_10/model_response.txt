@@ -1,0 +1,20 @@
+The error persists:
+
+```
+ModuleNotFoundError: No module named 'sfepy.discrete.common.extmods.cmapping'
+```
+
+Despite installing in editable mode, the C-extension `cmapping` was not built/found. This is a classic problem with Python packages using C extensions when the build step does not succeed or isn't triggered correctly.
+
+**Diagnosis:**  
+- `sfepy/discrete/common/extmods/` exists, but cmapping is not found.
+- Editable install via pip did not build or install the extension (may require CMake/ninja presence, or manual build step).
+- `_skbuild/linux-x86_64-3.10/cmake-build/sfepy` exists, possible build output directory from scikit-build, but may not be installed.
+
+**Next step:**  
+Try a direct build using `python setup.py build_ext --inplace` to explicitly build extensions, then rerun pytest.
+
+```bash
+python setup.py build_ext --inplace
+pytest
+```

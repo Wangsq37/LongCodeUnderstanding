@@ -1,0 +1,1590 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   ├── workflows/
+│   │   ├── codeql.yml
+│   │   ├── emscripten.yml
+│   │   └── generate-documentation.yml
+│   ├── dependabot.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── archive/
+│   ├── docs/
+│   │   ├── source/
+│   │   │   └── genericmle.rst.TXT
+│   │   ├── fix_longtable.py
+│   │   ├── GLMNotes.lyx
+│   │   └── GLMNotes.pdf
+│   ├── tsa/
+│   │   ├── ex_arma.py
+│   │   └── notes_organize.txt
+│   └── README.md
+├── docs/
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── icons/
+│   │   │   ├── images/
+│   │   │   ├── stylesheets/
+│   │   │   ├── blogger.png
+│   │   │   ├── blogger_sm.png
+│   │   │   ├── bullet.gif
+│   │   │   ├── closelabel.png
+│   │   │   ├── facebox.css
+│   │   │   ├── facebox.js
+│   │   │   ├── gettingstarted_0.png
+│   │   │   ├── ipython.min.css
+│   │   │   ├── loading.gif
+│   │   │   ├── minus.gif
+│   │   │   ├── mktree.css
+│   │   │   ├── mktree.js
+│   │   │   ├── nbviewer.pygments.css
+│   │   │   ├── plus.gif
+│   │   │   ├── scripts.js
+│   │   │   └── versions.json
+│   │   │       └── ... (11 more files)
+│   │   ├── _templates/
+│   │   │   ├── autosummary/
+│   │   │   └── layout.html
+│   │   ├── datasets/
+│   │   │   └── index.rst
+│   │   ├── dev/
+│   │   │   ├── images/
+│   │   │   ├── dataset_notes.rst
+│   │   │   ├── examples.rst
+│   │   │   ├── get_involved.rst
+│   │   │   ├── git_notes.rst
+│   │   │   ├── index.rst
+│   │   │   ├── internal.rst
+│   │   │   ├── maintainer_notes.rst
+│   │   │   ├── naming_conventions.rst
+│   │   │   ├── test_notes.rst
+│   │   │   ├── testing.rst
+│   │   │   └── warnings-and-exceptions.rst
+│   │   │       └── ... (6 more files)
+│   │   ├── examples/
+│   │   │   ├── index.jinja2
+│   │   │   ├── landing.yml
+│   │   │   └── README
+│   │   ├── images/
+│   │   │   ├── aw.png
+│   │   │   ├── favicon.ico
+│   │   │   ├── hl.png
+│   │   │   ├── ht.png
+│   │   │   ├── ls.png
+│   │   │   ├── re.png
+│   │   │   ├── statsmodels-favicon-base.svg
+│   │   │   ├── statsmodels-logo-v2-bw.svg
+│   │   │   ├── statsmodels-logo-v2-dark.svg
+│   │   │   ├── statsmodels-logo-v2-horizontal-dark.svg
+│   │   │   ├── statsmodels-logo-v2-horizontal-light.svg
+│   │   │   ├── statsmodels-logo-v2-horizontal.svg
+│   │   │   ├── statsmodels-logo-v2-light.svg
+│   │   │   ├── statsmodels-logo-v2-no-text-dark.svg
+│   │   │   ├── statsmodels-logo-v2-no-text-light.svg
+│   │   │   ├── statsmodels-logo-v2-no-text.svg
+│   │   │   ├── statsmodels-logo-v2.svg
+│   │   │   ├── statsmodels_hybi_banner.png
+│   │   │   ├── statsmodels_hybi_banner.svg
+│   │   │   ├── statsmodels_hybi_banner_v2.png
+│   │   │   ├── statsmodels_hybi_favico.ico
+│   │   │   ├── tk.png
+│   │   │   └── tm.png
+│   │   │       └── ... (18 more files)
+│   │   ├── plots/
+│   │   │   ├── arma_predict_plot.py
+│   │   │   ├── bkf_plot.py
+│   │   │   ├── cff_plot.py
+│   │   │   ├── graphics-mean_diff_plot.py
+│   │   │   ├── graphics_boxplot_beanplot.py
+│   │   │   ├── graphics_boxplot_violinplot.py
+│   │   │   ├── graphics_correlation_plot_corr.py
+│   │   │   ├── graphics_correlation_plot_corr_grid.py
+│   │   │   ├── graphics_functional_fboxplot.py
+│   │   │   ├── graphics_functional_hdrboxplot.py
+│   │   │   ├── graphics_functional_rainbowplot.py
+│   │   │   ├── graphics_gofplots_qqplot.py
+│   │   │   ├── graphics_gofplots_qqplot_2samples.py
+│   │   │   ├── graphics_gofplots_qqplot_qqline.py
+│   │   │   ├── graphics_mosaicplot_mosaic.py
+│   │   │   ├── graphics_plot_fit_ex.py
+│   │   │   ├── graphics_plot_grids_scatter_ellipse.py
+│   │   │   ├── graphics_regression_abline.py
+│   │   │   ├── graphics_regression_ccpr.py
+│   │   │   ├── graphics_regression_ccpr_grid.py
+│   │   │   ├── graphics_regression_ceres_residuals.py
+│   │   │   ├── graphics_regression_influence.py
+│   │   │   ├── graphics_regression_leverage_resid2.py
+│   │   │   ├── graphics_regression_partregress.py
+│   │   │   ├── graphics_regression_partregress_grid.py
+│   │   │   ├── graphics_regression_regress_exog.py
+│   │   │   ├── graphics_tsa_month_plot.py
+│   │   │   ├── graphics_tsa_plot_acf.py
+│   │   │   ├── graphics_tsa_plot_pacf.py
+│   │   │   ├── graphics_tsa_quarter_plot.py
+│   │   │   ├── hpf_plot.py
+│   │   │   ├── load_macrodata.py
+│   │   │   ├── mice_example_1.txt
+│   │   │   ├── mstl_plot.py
+│   │   │   ├── stl_plot.py
+│   │   │   ├── var_plot_acorr.py
+│   │   │   ├── var_plot_fevd.py
+│   │   │   ├── var_plot_forecast.py
+│   │   │   ├── var_plot_input.py
+│   │   │   ├── var_plot_irf.py
+│   │   │   ├── var_plot_irf_cum.py
+│   │   │   └── var_plots.py
+│   │   │       └── ... (37 more files)
+│   │   ├── release/
+│   │   │   ├── index.rst
+│   │   │   ├── old_changes.rst
+│   │   │   ├── version0.10.1.rst
+│   │   │   ├── version0.10.2.rst
+│   │   │   ├── version0.10.rst
+│   │   │   ├── version0.11.1.rst
+│   │   │   ├── version0.11.rst
+│   │   │   ├── version0.12.1.rst
+│   │   │   ├── version0.12.rst
+│   │   │   ├── version0.13.0.rst
+│   │   │   ├── version0.13.1.rst
+│   │   │   ├── version0.13.2.rst
+│   │   │   ├── version0.13.3.rst
+│   │   │   ├── version0.13.4-5.rst
+│   │   │   ├── version0.14.0.rst
+│   │   │   ├── version0.14.1.rst
+│   │   │   ├── version0.14.2.rst
+│   │   │   ├── version0.14.3.rst
+│   │   │   ├── version0.14.4.rst
+│   │   │   ├── version0.5.rst
+│   │   │   ├── version0.6.rst
+│   │   │   ├── version0.7.rst
+│   │   │   ├── version0.8.rst
+│   │   │   └── version0.9.rst
+│   │   │       └── ... (19 more files)
+│   │   ├── version_info/
+│   │   │   └── versions-v3.json
+│   │   ├── about.rst
+│   │   ├── anova.rst
+│   │   ├── api-structure.rst
+│   │   ├── api.rst
+│   │   ├── conf.py
+│   │   ├── contingency_tables.rst
+│   │   ├── contrasts.rst
+│   │   ├── diagnostic.rst
+│   │   ├── discretemod.rst
+│   │   ├── distributions.rst
+│   │   ├── duration.rst
+│   │   ├── emplike.rst
+│   │   ├── endog_exog.rst
+│   │   ├── example_formulas.rst
+│   │   ├── extending.rst.TXT
+│   │   ├── faq.rst
+│   │   ├── gam.rst
+│   │   ├── gee.rst
+│   │   ├── gettingstarted.rst
+│   │   ├── glm.rst
+│   │   ├── glm_techn1.rst.TXT
+│   │   ├── glm_techn2.rst.TXT
+│   │   ├── gmm.rst
+│   │   ├── gmm_techn1.rst.TXT
+│   │   ├── graphics.rst
+│   │   ├── imputation.rst
+│   │   ├── index.rst
+│   │   ├── install.rst
+│   │   ├── iolib.rst
+│   │   ├── large_data.rst
+│   │   ├── miscmodels.rst
+│   │   ├── missing.rst
+│   │   ├── mixed_glm.rst
+│   │   ├── mixed_linear.rst
+│   │   ├── multivariate.rst
+│   │   ├── names_wordlist.txt
+│   │   ├── nonparametric.rst
+│   │   ├── optimization.rst
+│   │   ├── other_models.rst
+│   │   ├── pitfalls.rst
+│   │   ├── regression.rst
+│   │   ├── regression_techn1.rst.TXT
+│   │   ├── rlm.rst
+│   │   ├── rlm_techn1.rst
+│   │   ├── sandbox.rst
+│   │   ├── spelling_wordlist.txt
+│   │   ├── statespace.rst
+│   │   ├── stats.rst
+│   │   ├── tools.rst
+│   │   ├── treatment.rst
+│   │   ├── tsa.rst
+│   │   ├── tsastats.rst.TXT
+│   │   ├── user-guide.rst
+│   │   └── vector_ar.rst
+│   │       └── ... (49 more files)
+│   ├── make.bat
+│   ├── Makefile
+│   └── README.md
+├── examples/
+│   ├── incomplete/
+│   │   ├── arima.py
+│   │   ├── arma2.py
+│   │   ├── dates.py
+│   │   ├── glsar.py
+│   │   ├── ols_table.py
+│   │   ├── ols_tftest.py
+│   │   └── wls_extended.py
+│   │       └── ... (2 more files)
+│   ├── notebooks/
+│   │   ├── autoregressions.ipynb
+│   │   ├── autoregressive_distributed_lag.ipynb
+│   │   ├── categorical_interaction_plot.ipynb
+│   │   ├── chi2_fitting.ipynb
+│   │   ├── contrasts.ipynb
+│   │   ├── copula.ipynb
+│   │   ├── count_hurdle.ipynb
+│   │   ├── deterministics.ipynb
+│   │   ├── discrete_choice_example.ipynb
+│   │   ├── discrete_choice_overview.ipynb
+│   │   ├── distributed_estimation.ipynb
+│   │   ├── ets.ipynb
+│   │   ├── exponential_smoothing.ipynb
+│   │   ├── formulas.ipynb
+│   │   ├── gee_nested_simulation.ipynb
+│   │   ├── gee_score_test_simulation.ipynb
+│   │   ├── generic_mle.ipynb
+│   │   ├── glm.ipynb
+│   │   ├── glm_formula.ipynb
+│   │   ├── glm_weights.ipynb
+│   │   ├── gls.ipynb
+│   │   ├── influence_glm_logit.ipynb
+│   │   ├── interactions_anova.ipynb
+│   │   ├── kernel_density.ipynb
+│   │   ├── linear_regression_diagnostics_plots.ipynb
+│   │   ├── lowess.ipynb
+│   │   ├── markov_autoregression.ipynb
+│   │   ├── markov_regression.ipynb
+│   │   ├── mediation_survival.ipynb
+│   │   ├── metaanalysis1.ipynb
+│   │   ├── mixed_lm_example.ipynb
+│   │   ├── mstl_decomposition.ipynb
+│   │   ├── multivariate_ls.ipynb
+│   │   ├── ols.ipynb
+│   │   ├── ordinal_regression.ipynb
+│   │   ├── pca_fertility_factors.ipynb
+│   │   ├── plots_boxplots.ipynb
+│   │   ├── postestimation_poisson.ipynb
+│   │   ├── predict.ipynb
+│   │   ├── quantile_regression.ipynb
+│   │   ├── quasibinomial.ipynb
+│   │   ├── recursive_ls.ipynb
+│   │   ├── regression_diagnostics.ipynb
+│   │   ├── regression_plots.ipynb
+│   │   ├── robust_models_0.ipynb
+│   │   ├── robust_models_1.ipynb
+│   │   ├── rolling_ls.ipynb
+│   │   ├── star_diagram.png
+│   │   ├── statespace_arma_0.ipynb
+│   │   ├── statespace_chandrasekhar.ipynb
+│   │   ├── statespace_concentrated_scale.ipynb
+│   │   ├── statespace_custom_models.ipynb
+│   │   ├── statespace_cycles.ipynb
+│   │   ├── statespace_dfm_coincident.ipynb
+│   │   ├── statespace_fixed_params.ipynb
+│   │   ├── statespace_forecasting.ipynb
+│   │   ├── statespace_local_linear_trend.ipynb
+│   │   ├── statespace_news.ipynb
+│   │   ├── statespace_sarimax_faq.ipynb
+│   │   ├── statespace_sarimax_internet.ipynb
+│   │   ├── statespace_sarimax_pymc3.ipynb
+│   │   ├── statespace_sarimax_stata.ipynb
+│   │   ├── statespace_seasonal.ipynb
+│   │   ├── statespace_structural_harvey_jaeger.ipynb
+│   │   ├── statespace_tvpvar_mcmc_cfa.ipynb
+│   │   ├── statespace_varmax.ipynb
+│   │   ├── stationarity_detrending_adf_kpss.ipynb
+│   │   ├── stats_poisson.ipynb
+│   │   ├── stats_rankcompare.ipynb
+│   │   ├── stl_decomposition.ipynb
+│   │   ├── theta-model.ipynb
+│   │   ├── treatment_effect.ipynb
+│   │   ├── tsa_arma_0.ipynb
+│   │   ├── tsa_arma_1.ipynb
+│   │   ├── tsa_dates.ipynb
+│   │   ├── tsa_filters.ipynb
+│   │   ├── variance_components.ipynb
+│   │   └── wls.ipynb
+│   │       └── ... (73 more files)
+│   ├── python/
+│   │   ├── autoregressions.py
+│   │   ├── autoregressive_distributed_lag.py
+│   │   ├── categorical_interaction_plot.py
+│   │   ├── chi2_fitting.py
+│   │   ├── contrasts.py
+│   │   ├── copula.py
+│   │   ├── deterministics.py
+│   │   ├── discrete_choice_example.py
+│   │   ├── discrete_choice_overview.py
+│   │   ├── distributed_estimation.py
+│   │   ├── ets.py
+│   │   ├── exponential_smoothing.py
+│   │   ├── formulas.py
+│   │   ├── gee_nested_simulation.py
+│   │   ├── gee_score_test_simulation.py
+│   │   ├── generic_mle.py
+│   │   ├── glm.py
+│   │   ├── glm_formula.py
+│   │   ├── glm_weights.py
+│   │   ├── gls.py
+│   │   ├── influence_glm_logit.py
+│   │   ├── interactions_anova.py
+│   │   ├── kernel_density.py
+│   │   ├── linear_regression_diagnostics_plots.py
+│   │   ├── lowess.py
+│   │   ├── markov_autoregression.py
+│   │   ├── markov_regression.py
+│   │   ├── mediation_survival.py
+│   │   ├── metaanalysis1.py
+│   │   ├── mixed_lm_example.py
+│   │   ├── ols.py
+│   │   ├── ordinal_regression.py
+│   │   ├── pca_fertility_factors.py
+│   │   ├── plots_boxplots.py
+│   │   ├── predict.py
+│   │   ├── quantile_regression.py
+│   │   ├── quasibinomial.py
+│   │   ├── recursive_ls.py
+│   │   ├── regression_diagnostics.py
+│   │   ├── regression_plots.py
+│   │   ├── robust_models_0.py
+│   │   ├── robust_models_1.py
+│   │   ├── rolling_ls.py
+│   │   ├── statespace_arma_0.py
+│   │   ├── statespace_chandrasekhar.py
+│   │   ├── statespace_concentrated_scale.py
+│   │   ├── statespace_custom_models.py
+│   │   ├── statespace_cycles.py
+│   │   ├── statespace_dfm_coincident.py
+│   │   ├── statespace_fixed_params.py
+│   │   ├── statespace_forecasting.py
+│   │   ├── statespace_local_linear_trend.py
+│   │   ├── statespace_news.py
+│   │   ├── statespace_sarimax_faq.py
+│   │   ├── statespace_sarimax_internet.py
+│   │   ├── statespace_sarimax_pymc3.py
+│   │   ├── statespace_sarimax_stata.py
+│   │   ├── statespace_seasonal.py
+│   │   ├── statespace_structural_harvey_jaeger.py
+│   │   ├── statespace_tvpvar_mcmc_cfa.py
+│   │   ├── statespace_varmax.py
+│   │   ├── stationarity_detrending_adf_kpss.py
+│   │   ├── stl_decomposition.py
+│   │   ├── theta-model.py
+│   │   ├── tsa_arma_0.py
+│   │   ├── tsa_arma_1.py
+│   │   ├── tsa_dates.py
+│   │   ├── tsa_filters.py
+│   │   ├── variance_components.py
+│   │   └── wls.py
+│   │       └── ... (65 more files)
+│   └── run_all.py
+├── statsmodels/
+│   ├── base/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_data.py
+│   │   │   ├── test_distributed_estimation.py
+│   │   │   ├── test_generic_methods.py
+│   │   │   ├── test_optimize.py
+│   │   │   ├── test_penalized.py
+│   │   │   ├── test_penalties.py
+│   │   │   ├── test_predict.py
+│   │   │   ├── test_screening.py
+│   │   │   ├── test_shrink_pickle.py
+│   │   │   └── test_transform.py
+│   │   │       └── ... (6 more files)
+│   │   ├── __init__.py
+│   │   ├── _constraints.py
+│   │   ├── _parameter_inference.py
+│   │   ├── _penalized.py
+│   │   ├── _penalties.py
+│   │   ├── _prediction_inference.py
+│   │   ├── _screening.py
+│   │   ├── covtype.py
+│   │   ├── data.py
+│   │   ├── distributed_estimation.py
+│   │   ├── elastic_net.py
+│   │   ├── l1_cvxopt.py
+│   │   ├── l1_slsqp.py
+│   │   ├── l1_solvers_common.py
+│   │   ├── model.py
+│   │   ├── optimizer.py
+│   │   ├── transform.py
+│   │   └── wrapper.py
+│   │       └── ... (13 more files)
+│   ├── compat/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_itercompat.py
+│   │   │   ├── test_pandas.py
+│   │   │   └── test_scipy_compat.py
+│   │   ├── __init__.py
+│   │   ├── _scipy_multivariate_t.py
+│   │   ├── numpy.py
+│   │   ├── pandas.py
+│   │   ├── patsy.py
+│   │   ├── platform.py
+│   │   ├── pytest.py
+│   │   ├── python.py
+│   │   └── scipy.py
+│   │       └── ... (4 more files)
+│   ├── datasets/
+│   │   ├── anes96/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── anes96.csv
+│   │   │   └── data.py
+│   │   ├── cancer/
+│   │   │   ├── __init__.py
+│   │   │   ├── cancer.csv
+│   │   │   └── data.py
+│   │   ├── ccard/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── ccard.csv
+│   │   │   ├── data.py
+│   │   │   └── R_wls.s
+│   │   ├── china_smoking/
+│   │   │   ├── __init__.py
+│   │   │   ├── china_smoking.csv
+│   │   │   └── data.py
+│   │   ├── co2/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── co2.csv
+│   │   │   └── data.py
+│   │   ├── committee/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── committee.csv
+│   │   │   ├── data.py
+│   │   │   └── R_committee.s
+│   │   ├── copper/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── copper.csv
+│   │   │   └── data.py
+│   │   ├── cpunish/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── cpunish.csv
+│   │   │   ├── data.py
+│   │   │   └── R_cpunish.s
+│   │   ├── danish_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.csv
+│   │   │   └── data.py
+│   │   ├── elec_equip/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── elec_equip.csv
+│   │   ├── elnino/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── elnino.csv
+│   │   ├── engel/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── engel.csv
+│   │   ├── fair/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   ├── fair.csv
+│   │   │   └── fair_pt.csv
+│   │   ├── fertility/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── fertility.csv
+│   │   ├── grunfeld/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── grunfeld.csv
+│   │   ├── heart/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── heart.csv
+│   │   ├── interest_inflation/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   ├── E6.csv
+│   │   │   └── E6_jmulti.csv
+│   │   ├── longley/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   ├── longley.csv
+│   │   │   ├── R_gls.s
+│   │   │   └── R_lm.s
+│   │   ├── macrodata/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   ├── macrodata.csv
+│   │   │   └── macrodata.dta
+│   │   ├── modechoice/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── modechoice.csv
+│   │   ├── nile/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── nile.csv
+│   │   ├── randhie/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── randhie.csv
+│   │   ├── scotland/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   ├── R_scotvote.s
+│   │   │   └── scotvote.csv
+│   │   ├── spector/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── spector.csv
+│   │   ├── stackloss/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   ├── R_stackloss.s
+│   │   │   └── stackloss.csv
+│   │   ├── star98/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   ├── r_glm.s
+│   │   │   └── star98.csv
+│   │   ├── statecrime/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── statecrime.csv
+│   │   ├── strikes/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.py
+│   │   │   └── strikes.csv
+│   │   ├── sunspots/
+│   │   │   ├── src/
+│   │   │   ├── __init__.py
+│   │   │   ├── arima_mod.R
+│   │   │   ├── data.py
+│   │   │   ├── R_sunspots.s
+│   │   │   └── sunspots.csv
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_data.py
+│   │   │   └── test_utils.py
+│   │   ├── __init__.py
+│   │   ├── template_data.py
+│   │   └── utils.py
+│   ├── discrete/
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_conditional.py
+│   │   │   ├── test_constrained.py
+│   │   │   ├── test_count_model.py
+│   │   │   ├── test_diagnostic.py
+│   │   │   ├── test_discrete.py
+│   │   │   ├── test_margins.py
+│   │   │   ├── test_predict.py
+│   │   │   ├── test_sandwich_cov.py
+│   │   │   └── test_truncated_model.py
+│   │   │       └── ... (5 more files)
+│   │   ├── __init__.py
+│   │   ├── _diagnostics_count.py
+│   │   ├── conditional_models.py
+│   │   ├── count_model.py
+│   │   ├── diagnostic.py
+│   │   ├── discrete_margins.py
+│   │   ├── discrete_model.py
+│   │   └── truncated_model.py
+│   │       └── ... (3 more files)
+│   ├── distributions/
+│   │   ├── copula/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _special.py
+│   │   │   ├── api.py
+│   │   │   ├── archimedean.py
+│   │   │   ├── copulas.py
+│   │   │   ├── depfunc_ev.py
+│   │   │   ├── elliptical.py
+│   │   │   ├── extreme_value.py
+│   │   │   ├── other_copulas.py
+│   │   │   └── transforms.py
+│   │   │       └── ... (5 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_bernstein.py
+│   │   │   ├── test_discrete.py
+│   │   │   ├── test_ecdf.py
+│   │   │   ├── test_edgeworth.py
+│   │   │   ├── test_mixture.py
+│   │   │   └── test_tools.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── bernstein.py
+│   │   ├── discrete.py
+│   │   ├── edgeworth.py
+│   │   ├── empirical_distribution.py
+│   │   ├── mixture_rvs.py
+│   │   └── tools.py
+│   │       └── ... (2 more files)
+│   ├── duration/
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_phreg.py
+│   │   │   └── test_survfunc.py
+│   │   ├── __init__.py
+│   │   ├── _kernel_estimates.py
+│   │   ├── api.py
+│   │   ├── hazard_regression.py
+│   │   └── survfunc.py
+│   ├── emplike/
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_aft.py
+│   │   │   ├── test_anova.py
+│   │   │   ├── test_descriptive.py
+│   │   │   ├── test_origin.py
+│   │   │   └── test_regression.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── aft_el.py
+│   │   ├── api.py
+│   │   ├── descriptive.py
+│   │   ├── elanova.py
+│   │   ├── elregress.py
+│   │   └── originregress.py
+│   │       └── ... (2 more files)
+│   ├── examples/
+│   │   ├── l1_demo/
+│   │   │   ├── demo.py
+│   │   │   ├── short_demo.py
+│   │   │   └── sklearn_compare.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_notebooks.py
+│   │   ├── tsa/
+│   │   │   ├── ar1cholesky.py
+│   │   │   ├── arma_plots.py
+│   │   │   ├── compare_arma.py
+│   │   │   ├── ex_arma_all.py
+│   │   │   ├── ex_coint.py
+│   │   │   ├── ex_var.py
+│   │   │   ├── ex_var_reorder.py
+│   │   │   ├── lagpolynomial.py
+│   │   │   └── try_ar.py
+│   │   │       └── ... (4 more files)
+│   │   ├── es_misc_poisson2.py
+│   │   ├── ex_arch_canada.py
+│   │   ├── ex_emplike_1.py
+│   │   ├── ex_emplike_2.py
+│   │   ├── ex_emplike_3.py
+│   │   ├── ex_feasible_gls_het.py
+│   │   ├── ex_feasible_gls_het_0.py
+│   │   ├── ex_generic_mle.py
+│   │   ├── ex_generic_mle_t.py
+│   │   ├── ex_generic_mle_tdist.py
+│   │   ├── ex_grangercausality.py
+│   │   ├── ex_inter_rater.py
+│   │   ├── ex_kde_confint.py
+│   │   ├── ex_kde_normalreference.py
+│   │   ├── ex_kernel_regression.py
+│   │   ├── ex_kernel_regression2.py
+│   │   ├── ex_kernel_regression3.py
+│   │   ├── ex_kernel_regression_censored2.py
+│   │   ├── ex_kernel_regression_dgp.py
+│   │   ├── ex_kernel_regression_sigtest.py
+│   │   ├── ex_kernel_semilinear_dgp.py
+│   │   ├── ex_kernel_singleindex_dgp.py
+│   │   ├── ex_kernel_test_functional.py
+│   │   ├── ex_kernel_test_functional_li_wang.py
+│   │   ├── ex_lowess.py
+│   │   ├── ex_misc_tarma.py
+│   │   ├── ex_misc_tmodel.py
+│   │   ├── ex_multivar_kde.py
+│   │   ├── ex_nearest_corr.py
+│   │   ├── ex_ols_robustcov.py
+│   │   ├── ex_ordered_model.py
+│   │   ├── ex_outliers_influence.py
+│   │   ├── ex_pandas.py
+│   │   ├── ex_pareto_plot.py
+│   │   ├── ex_predict_results.py
+│   │   ├── ex_proportion.py
+│   │   ├── ex_regressionplots.py
+│   │   ├── ex_rootfinding.py
+│   │   ├── ex_sandwich.py
+│   │   ├── ex_sandwich2.py
+│   │   ├── ex_sandwich3.py
+│   │   ├── ex_scatter_ellipse.py
+│   │   ├── ex_univar_kde.py
+│   │   ├── ex_wald_anova.py
+│   │   ├── example_discrete_mnl.py
+│   │   ├── example_enhanced_boxplots.py
+│   │   ├── example_functional_plots.py
+│   │   ├── example_kde.py
+│   │   ├── example_ols_minimal_comp.py
+│   │   ├── example_rpy.py
+│   │   ├── koul_and_mc.py
+│   │   ├── run_all.py
+│   │   ├── try_2regress.py
+│   │   ├── try_fit_constrained.py
+│   │   ├── try_gee.py
+│   │   ├── try_gof_chisquare.py
+│   │   ├── try_polytrend.py
+│   │   ├── try_power.py
+│   │   ├── try_power2.py
+│   │   ├── try_tukey_hsd.py
+│   │   ├── tut_ols_ancova.py
+│   │   └── tut_ols_rlm_short.py
+│   │       └── ... (57 more files)
+│   ├── formula/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_formula.py
+│   │   │   └── test_manager.py
+│   │   ├── __init__.py
+│   │   ├── _manager.py
+│   │   ├── api.py
+│   │   └── formulatools.py
+│   ├── gam/
+│   │   ├── gam_cross_validation/
+│   │   │   ├── __init__.py
+│   │   │   ├── cross_validators.py
+│   │   │   └── gam_cross_validation.py
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_gam.py
+│   │   │   ├── test_penalized.py
+│   │   │   └── test_smooth_basis.py
+│   │   ├── __init__.py
+│   │   ├── api.py
+│   │   ├── gam_penalties.py
+│   │   ├── generalized_additive_model.py
+│   │   └── smooth_basis.py
+│   ├── genmod/
+│   │   ├── families/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── family.py
+│   │   │   ├── links.py
+│   │   │   └── varfuncs.py
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── gee_categorical_simulation_check.py
+│   │   │   ├── gee_categorical_simulation_check.txt
+│   │   │   ├── gee_gaussian_simulation_check.py
+│   │   │   ├── gee_gaussian_simulation_check.txt
+│   │   │   ├── gee_poisson_simulation_check.py
+│   │   │   ├── gee_poisson_simulation_check.txt
+│   │   │   ├── gee_simulation_check.py
+│   │   │   ├── test_bayes_mixed_glm.py
+│   │   │   ├── test_constrained.py
+│   │   │   ├── test_gee.py
+│   │   │   ├── test_gee_glm.py
+│   │   │   ├── test_glm.py
+│   │   │   ├── test_glm_weights.py
+│   │   │   ├── test_qif.py
+│   │   │   └── test_score_test.py
+│   │   │       └── ... (11 more files)
+│   │   ├── __init__.py
+│   │   ├── _tweedie_compound_poisson.py
+│   │   ├── api.py
+│   │   ├── bayes_mixed_glm.py
+│   │   ├── cov_struct.py
+│   │   ├── generalized_estimating_equations.py
+│   │   ├── generalized_linear_model.py
+│   │   └── qif.py
+│   │       └── ... (3 more files)
+│   ├── graphics/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_agreement.py
+│   │   │   ├── test_boxplots.py
+│   │   │   ├── test_correlation.py
+│   │   │   ├── test_dotplot.py
+│   │   │   ├── test_factorplots.py
+│   │   │   ├── test_functional.py
+│   │   │   ├── test_gofplots.py
+│   │   │   ├── test_mosaicplot.py
+│   │   │   ├── test_regressionplots.py
+│   │   │   └── test_tsaplots.py
+│   │   │       └── ... (6 more files)
+│   │   ├── __init__.py
+│   │   ├── _regressionplots_doc.py
+│   │   ├── agreement.py
+│   │   ├── api.py
+│   │   ├── boxplots.py
+│   │   ├── correlation.py
+│   │   ├── dotplots.py
+│   │   ├── factorplots.py
+│   │   ├── functional.py
+│   │   ├── gofplots.py
+│   │   ├── mosaicplot.py
+│   │   ├── plot_grids.py
+│   │   ├── plottools.py
+│   │   ├── regressionplots.py
+│   │   ├── tsaplots.py
+│   │   ├── tukeyplot.py
+│   │   └── utils.py
+│   │       └── ... (12 more files)
+│   ├── imputation/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_bayes_mi.py
+│   │   │   ├── test_mice.py
+│   │   │   └── test_ros.py
+│   │   ├── __init__.py
+│   │   ├── bayes_mi.py
+│   │   ├── mice.py
+│   │   └── ros.py
+│   ├── interface/
+│   │   └── __init__.py
+│   ├── iolib/
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── gen_dates.do
+│   │   │   ├── stata_dates.csv
+│   │   │   ├── test_data.csv
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_summary.py
+│   │   │   ├── test_summary2.py
+│   │   │   ├── test_summary_old.py
+│   │   │   ├── test_table.py
+│   │   │   └── test_table_econpy.py
+│   │   │       └── ... (5 more files)
+│   │   ├── __init__.py
+│   │   ├── api.py
+│   │   ├── foreign.py
+│   │   ├── openfile.py
+│   │   ├── smpickle.py
+│   │   ├── stata_summary_examples.py
+│   │   ├── summary.py
+│   │   ├── summary2.py
+│   │   ├── table.py
+│   │   └── tableformatting.py
+│   │       └── ... (5 more files)
+│   ├── miscmodels/
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── results_tmodel.py
+│   │   │   ├── test_generic_mle.py
+│   │   │   ├── test_ordinal_model.py
+│   │   │   ├── test_poisson.py
+│   │   │   └── test_tmodel.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── api.py
+│   │   ├── count.py
+│   │   ├── nonlinls.py
+│   │   ├── ordinal_model.py
+│   │   ├── tmodel.py
+│   │   └── try_mlecov.py
+│   │       └── ... (2 more files)
+│   ├── multivariate/
+│   │   ├── factor_rotation/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _analytic_rotation.py
+│   │   │   ├── _gpa_rotation.py
+│   │   │   ├── _wrappers.py
+│   │   │   ├── COPYRIGHTS.txt
+│   │   │   └── LICENSE.txt
+│   │   │       └── ... (1 more files)
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_cancorr.py
+│   │   │   ├── test_factor.py
+│   │   │   ├── test_manova.py
+│   │   │   ├── test_ml_factor.py
+│   │   │   ├── test_multivariate_ols.py
+│   │   │   └── test_pca.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── api.py
+│   │   ├── cancorr.py
+│   │   ├── factor.py
+│   │   ├── manova.py
+│   │   ├── multivariate_ols.py
+│   │   ├── pca.py
+│   │   └── plots.py
+│   │       └── ... (3 more files)
+│   ├── nonparametric/
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_asymmetric.py
+│   │   │   ├── test_bandwidths.py
+│   │   │   ├── test_kde.py
+│   │   │   ├── test_kernel_density.py
+│   │   │   ├── test_kernel_regression.py
+│   │   │   ├── test_kernels.py
+│   │   │   ├── test_lowess.py
+│   │   │   └── Xi_test_data.csv
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── _kernel_base.py
+│   │   ├── _smoothers_lowess.pyx
+│   │   ├── api.py
+│   │   ├── bandwidths.py
+│   │   ├── kde.py
+│   │   ├── kdetools.py
+│   │   ├── kernel_density.py
+│   │   ├── kernel_regression.py
+│   │   ├── kernels.py
+│   │   ├── kernels_asymmetric.py
+│   │   ├── linbin.pyx
+│   │   ├── smoothers_lowess.py
+│   │   └── smoothers_lowess_old.py
+│   │       └── ... (9 more files)
+│   ├── othermod/
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   └── test_beta.py
+│   │   ├── __init__.py
+│   │   ├── api.py
+│   │   └── betareg.py
+│   ├── regression/
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── lme_examples.R
+│   │   │   ├── test_cov.py
+│   │   │   ├── test_dimred.py
+│   │   │   ├── test_glsar_gretl.py
+│   │   │   ├── test_glsar_stata.py
+│   │   │   ├── test_lme.py
+│   │   │   ├── test_predict.py
+│   │   │   ├── test_processreg.py
+│   │   │   ├── test_quantile_regression.py
+│   │   │   ├── test_recursive_ls.py
+│   │   │   ├── test_regression.py
+│   │   │   ├── test_robustcov.py
+│   │   │   ├── test_rolling.py
+│   │   │   ├── test_theil.py
+│   │   │   └── test_tools.py
+│   │   │       └── ... (11 more files)
+│   │   ├── __init__.py
+│   │   ├── _prediction.py
+│   │   ├── _tools.py
+│   │   ├── dimred.py
+│   │   ├── feasible_gls.py
+│   │   ├── linear_model.py
+│   │   ├── mixed_linear_model.py
+│   │   ├── process_regression.py
+│   │   ├── quantile_regression.py
+│   │   ├── recursive_ls.py
+│   │   └── rolling.py
+│   │       └── ... (6 more files)
+│   ├── robust/
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_covariance.py
+│   │   │   ├── test_mquantiles.py
+│   │   │   ├── test_norms.py
+│   │   │   ├── test_rlm.py
+│   │   │   ├── test_scale.py
+│   │   │   └── test_tools.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── _qn.pyx
+│   │   ├── _tables.py
+│   │   ├── covariance.py
+│   │   ├── norms.py
+│   │   ├── resistant_linear_model.py
+│   │   ├── robust_linear_model.py
+│   │   ├── scale.py
+│   │   └── tools.py
+│   │       └── ... (4 more files)
+│   ├── sandbox/
+│   │   ├── archive/
+│   │   │   ├── __init__.py
+│   │   │   ├── linalg_covmat.py
+│   │   │   ├── linalg_decomp_1.py
+│   │   │   └── tsa.py
+│   │   ├── datarich/
+│   │   │   ├── __init__.py
+│   │   │   └── factormodels.py
+│   │   ├── distributions/
+│   │   │   ├── examples/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── estimators.py
+│   │   │   ├── extras.py
+│   │   │   ├── genpareto.py
+│   │   │   ├── gof_new.py
+│   │   │   ├── multivariate.py
+│   │   │   ├── mv_measures.py
+│   │   │   ├── mv_normal.py
+│   │   │   ├── otherdist.py
+│   │   │   ├── quantize.py
+│   │   │   ├── sppatch.py
+│   │   │   ├── transform_functions.py
+│   │   │   ├── transformed.py
+│   │   │   ├── try_max.py
+│   │   │   └── try_pot.py
+│   │   │       └── ... (10 more files)
+│   │   ├── examples/
+│   │   │   ├── thirdparty/
+│   │   │   ├── bayesprior.py
+│   │   │   ├── dji_table.csv
+│   │   │   ├── ex_cusum.py
+│   │   │   ├── ex_gam_results.py
+│   │   │   ├── ex_mixed_lls_0.py
+│   │   │   ├── ex_mixed_lls_re.py
+│   │   │   ├── ex_mixed_lls_timecorr.py
+│   │   │   ├── ex_onewaygls.py
+│   │   │   ├── ex_random_panel.py
+│   │   │   ├── example_crossval.py
+│   │   │   ├── example_gam.py
+│   │   │   ├── example_gam_0.py
+│   │   │   ├── example_mle.py
+│   │   │   ├── example_nbin.py
+│   │   │   ├── example_pca.py
+│   │   │   ├── example_pca_regression.py
+│   │   │   ├── example_sysreg.py
+│   │   │   ├── gspc_table.csv
+│   │   │   ├── run_all.py
+│   │   │   ├── try_gmm_other.py
+│   │   │   ├── try_multiols.py
+│   │   │   ├── try_quantile_regression.py
+│   │   │   ├── try_quantile_regression1.py
+│   │   │   └── try_smoothers.py
+│   │   │       └── ... (19 more files)
+│   │   ├── mcevaluate/
+│   │   │   ├── __init__.py
+│   │   │   ├── arma.py
+│   │   │   └── mcresuts_arma1.txt
+│   │   ├── nonparametric/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── densityorthopoly.py
+│   │   │   ├── dgp_examples.py
+│   │   │   ├── kde2.py
+│   │   │   ├── kdecovclass.py
+│   │   │   ├── kernel_extras.py
+│   │   │   ├── kernels.py
+│   │   │   ├── smoothers.py
+│   │   │   └── testdata.py
+│   │   │       └── ... (4 more files)
+│   │   ├── panel/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── correlation_structures.py
+│   │   │   ├── mixed.py
+│   │   │   ├── panel_short.py
+│   │   │   ├── panelmod.py
+│   │   │   ├── random_panel.py
+│   │   │   └── sandwich_covariance_generic.py
+│   │   │       └── ... (2 more files)
+│   │   ├── regression/
+│   │   │   ├── data/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── anova_nistcertified.py
+│   │   │   ├── ar_panel.py
+│   │   │   ├── example_kernridge.py
+│   │   │   ├── gmm.py
+│   │   │   ├── kernridgeregress_class.py
+│   │   │   ├── notes_runmnl.txt
+│   │   │   ├── ols_anova_original.py
+│   │   │   ├── onewaygls.py
+│   │   │   ├── penalized.py
+│   │   │   ├── predstd.py
+│   │   │   ├── runmnl.py
+│   │   │   ├── sympy_diff.py
+│   │   │   ├── tools.py
+│   │   │   ├── treewalkerclass.py
+│   │   │   ├── try_catdata.py
+│   │   │   ├── try_ols_anova.py
+│   │   │   └── try_treewalker.py
+│   │   │       └── ... (13 more files)
+│   │   ├── stats/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── contrast_tools.py
+│   │   │   ├── diagnostic.py
+│   │   │   ├── ex_newtests.py
+│   │   │   ├── multicomp.py
+│   │   │   ├── notes_fdr.txt
+│   │   │   ├── runs.py
+│   │   │   ├── stats_dhuard.py
+│   │   │   └── stats_mstats_short.py
+│   │   │       └── ... (4 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── GreeneEx15_1.s
+│   │   │   ├── macrodata.s
+│   │   │   ├── maketests_mlabwrap.py
+│   │   │   ├── savervs.py
+│   │   │   ├── sysreg.s
+│   │   │   ├── test_bspline.py.txt
+│   │   │   ├── test_gam.py
+│   │   │   ├── test_pca.py
+│   │   │   └── test_predict_functional.py
+│   │   │       └── ... (5 more files)
+│   │   ├── tools/
+│   │   │   ├── __init__.py
+│   │   │   ├── cross_val.py
+│   │   │   ├── mctools.py
+│   │   │   ├── TODO.txt
+│   │   │   ├── tools_pca.py
+│   │   │   └── try_mctools.py
+│   │   │       └── ... (1 more files)
+│   │   ├── tsa/
+│   │   │   ├── examples/
+│   │   │   ├── __init__.py
+│   │   │   ├── diffusion.py
+│   │   │   ├── diffusion2.py
+│   │   │   ├── example_arma.py
+│   │   │   ├── fftarma.py
+│   │   │   ├── movstat.py
+│   │   │   ├── try_arma_more.py
+│   │   │   ├── try_fi.py
+│   │   │   ├── try_var_convolve.py
+│   │   │   └── varma.py
+│   │   │       └── ... (5 more files)
+│   │   ├── __init__.py
+│   │   ├── bspline.py
+│   │   ├── descstats.py
+│   │   ├── gam.py
+│   │   ├── infotheo.py
+│   │   ├── mle.py
+│   │   ├── mlogitmath.lyx
+│   │   ├── multilinear.py
+│   │   ├── nos4.mtx
+│   │   ├── pca.py
+│   │   ├── predict_functional.py
+│   │   ├── rls.py
+│   │   ├── rlsdata.txt
+│   │   └── sysreg.py
+│   │       └── ... (9 more files)
+│   ├── src/
+│   │   ├── __init__.py
+│   │   ├── blas_lapack.pxd
+│   │   ├── capsule.h
+│   │   └── math.pxd
+│   ├── stats/
+│   │   ├── libqsturng/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── CH.r
+│   │   │   ├── LICENSE.txt
+│   │   │   ├── make_tbls.py
+│   │   │   └── qsturng_.py
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── gen_contingency_table_tests.R
+│   │   │   ├── test_anova.py
+│   │   │   ├── test_anova_rm.py
+│   │   │   ├── test_base.py
+│   │   │   ├── test_contingency_tables.py
+│   │   │   ├── test_contrast.py
+│   │   │   ├── test_correlation.py
+│   │   │   ├── test_corrpsd.py
+│   │   │   ├── test_covariance.py
+│   │   │   ├── test_data.txt
+│   │   │   ├── test_deltacov.py
+│   │   │   ├── test_descriptivestats.py
+│   │   │   ├── test_diagnostic.py
+│   │   │   ├── test_diagnostic_other.py
+│   │   │   ├── test_dist_dependant_measures.py
+│   │   │   ├── test_effectsize.py
+│   │   │   ├── test_gof.py
+│   │   │   ├── test_groups_sw.py
+│   │   │   ├── test_influence.py
+│   │   │   ├── test_inter_rater.py
+│   │   │   ├── test_knockoff.py
+│   │   │   ├── test_lilliefors.py
+│   │   │   ├── test_mediation.py
+│   │   │   ├── test_meta.py
+│   │   │   ├── test_moment_helpers.py
+│   │   │   ├── test_multi.py
+│   │   │   ├── test_multivariate.py
+│   │   │   ├── test_nonparametric.py
+│   │   │   ├── test_oaxaca.py
+│   │   │   ├── test_oneway.py
+│   │   │   ├── test_outliers_influence.py
+│   │   │   ├── test_pairwise.py
+│   │   │   ├── test_panel_robustcov.py
+│   │   │   ├── test_power.py
+│   │   │   ├── test_proportion.py
+│   │   │   ├── test_qsturng.py
+│   │   │   ├── test_rates_poisson.py
+│   │   │   ├── test_regularized_covariance.py
+│   │   │   ├── test_robust_compare.py
+│   │   │   ├── test_sandwich.py
+│   │   │   ├── test_statstools.py
+│   │   │   ├── test_tabledist.py
+│   │   │   ├── test_tost.py
+│   │   │   └── test_weightstats.py
+│   │   │       └── ... (40 more files)
+│   │   ├── __init__.py
+│   │   ├── _adnorm.py
+│   │   ├── _delta_method.py
+│   │   ├── _diagnostic_other.py
+│   │   ├── _inference_tools.py
+│   │   ├── _knockoff.py
+│   │   ├── _lilliefors.py
+│   │   ├── _lilliefors_critical_values.py
+│   │   ├── _results_store.py
+│   │   ├── anova.py
+│   │   ├── api.py
+│   │   ├── base.py
+│   │   ├── contingency_tables.py
+│   │   ├── contrast.py
+│   │   ├── correlation_tools.py
+│   │   ├── covariance.py
+│   │   ├── descriptivestats.py
+│   │   ├── diagnostic.py
+│   │   ├── diagnostic_gen.py
+│   │   ├── dist_dependence_measures.py
+│   │   ├── effect_size.py
+│   │   ├── gof.py
+│   │   ├── inter_rater.py
+│   │   ├── knockoff_regeffects.py
+│   │   ├── mediation.py
+│   │   ├── meta_analysis.py
+│   │   ├── moment_helpers.py
+│   │   ├── multicomp.py
+│   │   ├── multitest.py
+│   │   ├── multivariate.py
+│   │   ├── multivariate_tools.py
+│   │   ├── nonparametric.py
+│   │   ├── oaxaca.py
+│   │   ├── oneway.py
+│   │   ├── outliers_influence.py
+│   │   ├── power.py
+│   │   ├── proportion.py
+│   │   ├── rates.py
+│   │   ├── regularized_covariance.py
+│   │   ├── robust_compare.py
+│   │   ├── sandwich_covariance.py
+│   │   ├── stattools.py
+│   │   ├── tabledist.py
+│   │   └── weightstats.py
+│   │       └── ... (39 more files)
+│   ├── tests/
+│   │   ├── __init__.py
+│   │   ├── test_package.py
+│   │   └── test_x13.py
+│   ├── tools/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_catadd.py
+│   │   │   ├── test_data.py
+│   │   │   ├── test_decorators.py
+│   │   │   ├── test_docstring.py
+│   │   │   ├── test_eval_measures.py
+│   │   │   ├── test_grouputils.py
+│   │   │   ├── test_linalg.py
+│   │   │   ├── test_numdiff.py
+│   │   │   ├── test_parallel.py
+│   │   │   ├── test_rootfinding.py
+│   │   │   ├── test_sequences.py
+│   │   │   ├── test_testing.py
+│   │   │   ├── test_tools.py
+│   │   │   ├── test_transform_model.py
+│   │   │   └── test_web.py
+│   │   │       └── ... (11 more files)
+│   │   ├── validation/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── decorators.py
+│   │   │   └── validation.py
+│   │   ├── __init__.py
+│   │   ├── _test_runner.py
+│   │   ├── _testing.py
+│   │   ├── catadd.py
+│   │   ├── data.py
+│   │   ├── decorators.py
+│   │   ├── docstring.py
+│   │   ├── eval_measures.py
+│   │   ├── grouputils.py
+│   │   ├── linalg.py
+│   │   ├── numdiff.py
+│   │   ├── parallel.py
+│   │   ├── print_version.py
+│   │   ├── rng_qrng.py
+│   │   ├── rootfinding.py
+│   │   ├── sequences.py
+│   │   ├── sm_exceptions.py
+│   │   ├── testing.py
+│   │   ├── tools.py
+│   │   ├── transform_model.py
+│   │   ├── typing.py
+│   │   └── web.py
+│   │       └── ... (17 more files)
+│   ├── treatment/
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   └── test_teffects.py
+│   │   ├── __init__.py
+│   │   └── treatment_effects.py
+│   ├── tsa/
+│   │   ├── ardl/
+│   │   │   ├── _pss_critical_values/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── model.py
+│   │   │   └── pss_critical_values.py
+│   │   ├── arima/
+│   │   │   ├── datasets/
+│   │   │   ├── estimators/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── model.py
+│   │   │   ├── params.py
+│   │   │   ├── specification.py
+│   │   │   └── tools.py
+│   │   │       └── ... (1 more files)
+│   │   ├── base/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── datetools.py
+│   │   │   ├── prediction.py
+│   │   │   └── tsa_model.py
+│   │   ├── exponential_smoothing/
+│   │   │   ├── __init__.py
+│   │   │   ├── _ets_smooth.pyx
+│   │   │   ├── base.py
+│   │   │   ├── ets.py
+│   │   │   └── initialization.py
+│   │   ├── filters/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _utils.py
+│   │   │   ├── api.py
+│   │   │   ├── bk_filter.py
+│   │   │   ├── cf_filter.py
+│   │   │   ├── filtertools.py
+│   │   │   └── hp_filter.py
+│   │   │       └── ... (2 more files)
+│   │   ├── forecasting/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── stl.py
+│   │   │   └── theta.py
+│   │   ├── holtwinters/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _exponential_smoothers.pyx
+│   │   │   ├── _smoothers.py
+│   │   │   ├── model.py
+│   │   │   └── results.py
+│   │   ├── innovations/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _arma_innovations.pyx.in
+│   │   │   ├── api.py
+│   │   │   └── arma_innovations.py
+│   │   ├── interp/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── denton.py
+│   │   ├── regime_switching/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hamilton_filter.pxd
+│   │   │   ├── _hamilton_filter.pyx.in
+│   │   │   ├── _kim_smoother.pxd
+│   │   │   ├── _kim_smoother.pyx.in
+│   │   │   ├── markov_autoregression.py
+│   │   │   ├── markov_regression.py
+│   │   │   └── markov_switching.py
+│   │   │       └── ... (3 more files)
+│   │   ├── seasonal/
+│   │   │   ├── __init__.py
+│   │   │   └── _seasonal.py
+│   │   ├── statespace/
+│   │   │   ├── _filters/
+│   │   │   ├── _smoothers/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _cfa_simulation_smoother.pxd
+│   │   │   ├── _cfa_simulation_smoother.pyx.in
+│   │   │   ├── _initialization.pxd
+│   │   │   ├── _initialization.pyx.in
+│   │   │   ├── _kalman_filter.pxd
+│   │   │   ├── _kalman_filter.pyx.in
+│   │   │   ├── _kalman_smoother.pxd
+│   │   │   ├── _kalman_smoother.pyx.in
+│   │   │   ├── _pykalman_smoother.py
+│   │   │   ├── _quarterly_ar1.py
+│   │   │   ├── _representation.pxd
+│   │   │   ├── _representation.pyx.in
+│   │   │   ├── _simulation_smoother.pxd
+│   │   │   ├── _simulation_smoother.pyx.in
+│   │   │   ├── _tools.pxd
+│   │   │   ├── _tools.pyx.in
+│   │   │   ├── api.py
+│   │   │   ├── cfa_simulation_smoother.py
+│   │   │   ├── dynamic_factor.py
+│   │   │   ├── dynamic_factor_mq.py
+│   │   │   ├── exponential_smoothing.py
+│   │   │   ├── initialization.py
+│   │   │   ├── kalman_filter.py
+│   │   │   ├── kalman_smoother.py
+│   │   │   ├── mlemodel.py
+│   │   │   ├── news.py
+│   │   │   ├── representation.py
+│   │   │   ├── sarimax.py
+│   │   │   ├── simulation_smoother.py
+│   │   │   ├── structural.py
+│   │   │   ├── tools.py
+│   │   │   └── varmax.py
+│   │   │       └── ... (28 more files)
+│   │   ├── stattools/
+│   │   │   ├── __init__.py
+│   │   │   ├── _arma_order_selection.py
+│   │   │   ├── _leybourne.py
+│   │   │   └── _stattools.py
+│   │   ├── stl/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _stl.pyx
+│   │   │   └── mstl.py
+│   │   ├── tests/
+│   │   │   ├── results/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_adfuller_lag.py
+│   │   │   ├── test_ar.py
+│   │   │   ├── test_arima_process.py
+│   │   │   ├── test_bds.py
+│   │   │   ├── test_deterministic.py
+│   │   │   ├── test_exponential_smoothing.py
+│   │   │   ├── test_seasonal.py
+│   │   │   ├── test_stattools.py
+│   │   │   ├── test_tsa_tools.py
+│   │   │   └── test_x13.py
+│   │   │       └── ... (6 more files)
+│   │   ├── vector_ar/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── hypothesis_test_results.py
+│   │   │   ├── irf.py
+│   │   │   ├── output.py
+│   │   │   ├── plotting.py
+│   │   │   ├── svar_model.py
+│   │   │   ├── util.py
+│   │   │   ├── var_model.py
+│   │   │   └── vecm.py
+│   │   │       └── ... (5 more files)
+│   │   ├── __init__.py
+│   │   ├── _bds.py
+│   │   ├── _innovations.pyx
+│   │   ├── _leybourne.py
+│   │   ├── adfvalues.py
+│   │   ├── api.py
+│   │   ├── ar_model.py
+│   │   ├── arima_model.py
+│   │   ├── arima_process.py
+│   │   ├── arma_mle.py
+│   │   ├── coint_tables.py
+│   │   ├── descriptivestats.py
+│   │   ├── deterministic.py
+│   │   ├── mlemodel.py
+│   │   ├── tsatools.py
+│   │   ├── varma_process.py
+│   │   └── x13.py
+│   │       └── ... (12 more files)
+│   ├── __init__.py
+│   ├── api.py
+│   └── conftest.py
+├── tools/
+│   ├── ci/
+│   │   ├── azure/
+│   │   │   ├── azure_template_posix.yml
+│   │   │   ├── azure_template_windows.yml
+│   │   │   └── install-posix.sh
+│   │   ├── docbuild-commit.sh
+│   │   ├── docbuild-push.sh
+│   │   ├── docbuild.sh
+│   │   ├── docbuild_install.sh
+│   │   ├── README.md
+│   │   └── run_test.bat
+│   │       └── ... (1 more files)
+│   ├── R2nparray/
+│   │   ├── R/
+│   │   │   ├── ex_sur.R
+│   │   │   ├── R2nparray-package.R
+│   │   │   └── R2nparray.R
+│   │   ├── DESCRIPTION
+│   │   ├── NAMESPACE
+│   │   └── README.txt
+│   ├── releasing/
+│   │   ├── enumerate-api.py
+│   │   ├── release_note.py
+│   │   └── release_note.tmpl
+│   ├── check_api.py
+│   ├── dataset_rst.py
+│   ├── estmat2nparray.ado
+│   ├── export_notebooks_to_python.py
+│   ├── generate_formula_api.py
+│   ├── nbgenerate.py
+│   ├── README.rst
+│   └── validate_docstrings.py
+│       └── ... (3 more files)
+├── .codacy.yml
+├── .gitattributes
+├── .gitignore
+├── .mailmap
+├── .pep8speaks.yml
+├── azure-pipelines.yml
+├── CHANGES.md
+├── CITATION.cff
+├── codecov.yml
+├── CONTRIBUTING.rst
+├── COPYRIGHTS.txt
+├── github_deploy_key_statsmodels_statsmodels_github_io.enc
+├── INSTALL.txt
+├── LICENSE.txt
+├── lint.sh
+├── MANIFEST.in
+├── pyproject.toml
+├── README.rst
+├── README_l1.txt
+├── requirements-dev.txt
+├── requirements-doc.txt
+├── requirements.txt
+├── setup.cfg
+└── setup.py
+    └── ... (19 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

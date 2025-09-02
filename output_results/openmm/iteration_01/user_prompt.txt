@@ -1,0 +1,1325 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .azure-pipelines/
+│   └── azure-pipelines-windows.yml
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug-report.md
+│   │   ├── feature-suggestion.md
+│   │   └── help-request.md
+│   └── workflows/
+│       └── CI.yml
+├── cmake_modules/
+│   ├── EncodeKernelFiles.cmake
+│   ├── FindOpenCL.cmake
+│   └── TargetArch.cmake
+├── devtools/
+│   ├── ci/
+│   │   ├── gh-actions/
+│   │   │   ├── conda-envs/
+│   │   │   ├── scripts/
+│   │   │   └── start_docker_locally.sh
+│   │   └── jenkins/
+│   │       ├── install.sh
+│   │       ├── install_and_test_cpu.sh
+│   │       └── test.sh
+│   ├── forcefield-scripts/
+│   │   ├── makeAmberGB.py
+│   │   ├── processAmberForceField.py
+│   │   ├── processCharmmForceField.py
+│   │   ├── processTinkerForceField.py
+│   │   └── residuesFinal.xml
+│   ├── hosted-envs/
+│   │   ├── openmm-8-beta-linux.yaml
+│   │   ├── openmm-8-beta-mac.yaml
+│   │   ├── openmm-8-rc1-linux.yaml
+│   │   └── openmm-8-rc1-mac.yaml
+│   ├── packaging/
+│   │   ├── manifests/
+│   │   │   ├── binary/
+│   │   │   ├── source/
+│   │   │   └── README.md
+│   │   ├── scripts/
+│   │   │   ├── linux/
+│   │   │   ├── osx/
+│   │   │   ├── source/
+│   │   │   └── windows/
+│   │   ├── install.sh
+│   │   └── README.md
+│   ├── CI-README.md
+│   ├── CONDA_FORGE_RELEASES.md
+│   ├── Jenkinsfile
+│   └── run-ctest.py
+├── docs-source/
+│   ├── api-c++/
+│   │   ├── _static/
+│   │   │   ├── custom.css
+│   │   │   └── logo.png
+│   │   ├── _templates/
+│   │   │   └── navigation.html
+│   │   ├── breathe-apidoc.py
+│   │   ├── CMakeLists.txt
+│   │   ├── conf.py
+│   │   ├── Doxyfile.in
+│   │   ├── extras.rst
+│   │   ├── forces.rst
+│   │   ├── index.rst
+│   │   └── integrators.rst
+│   │       └── ... (3 more files)
+│   ├── api-python/
+│   │   ├── _static/
+│   │   │   ├── custom.css
+│   │   │   └── logo.png
+│   │   ├── _templates/
+│   │   │   ├── class.rst
+│   │   │   └── navigation.html
+│   │   ├── app.rst.jinja2
+│   │   ├── CMakeLists.txt
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── library.rst.jinja2
+│   │   ├── process-docstring.py
+│   │   └── render.py
+│   │       └── ... (2 more files)
+│   ├── developerguide/
+│   │   ├── _static/
+│   │   │   ├── custom.css
+│   │   │   └── logo.png
+│   │   ├── _templates/
+│   │   │   └── navigation.html
+│   │   ├── 01_introduction.rst
+│   │   ├── 02_core_library.rst
+│   │   ├── 03_writing_plugins.rst
+│   │   ├── 04_reference_platform.rst
+│   │   ├── 05_cpu_platform.rst
+│   │   ├── 06_opencl_platform.rst
+│   │   ├── 07_cuda_platform.rst
+│   │   ├── 08_common_compute.rst
+│   │   ├── 09_customcppforceimpl.rst
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── license.rst
+│   │   ├── make.bat
+│   │   └── Makefile
+│   │       └── ... (9 more files)
+│   ├── images/
+│   │   ├── ArchitectureLayers.jpg
+│   │   ├── Argon.png
+│   │   ├── EnergyDrift.png
+│   │   ├── OpenMMSetup.png
+│   │   ├── SystemContextRelationships.jpg
+│   │   ├── VisualStudioLaunch.jpg
+│   │   └── VisualStudioSetConfiguration.jpg
+│   │       └── ... (2 more files)
+│   ├── licenses/
+│   │   ├── GPL.txt
+│   │   ├── LGPL.txt
+│   │   └── Licenses.txt
+│   ├── sphinx/
+│   │   ├── autonumber.py
+│   │   ├── caption.py
+│   │   ├── continuous.py
+│   │   └── samepage.py
+│   ├── usersguide/
+│   │   ├── _static/
+│   │   │   ├── custom.css
+│   │   │   └── logo.png
+│   │   ├── _templates/
+│   │   │   └── navigation.html
+│   │   ├── application/
+│   │   │   ├── 01_getting_started.rst
+│   │   │   ├── 02_running_sims.rst
+│   │   │   ├── 03_model_building_editing.rst
+│   │   │   ├── 04_advanced_sim_examples.rst
+│   │   │   ├── 05_add_on_packages.rst
+│   │   │   └── 06_creating_ffs.rst
+│   │   │       └── ... (1 more files)
+│   │   ├── library/
+│   │   │   ├── 01_introduction.rst
+│   │   │   ├── 02_compiling.rst
+│   │   │   ├── 03_tutorials.rst
+│   │   │   ├── 04_platform_specifics.rst
+│   │   │   ├── 05_languages_not_cpp.rst
+│   │   │   ├── 06_integration_examples.rst
+│   │   │   ├── 07_testing_validation.rst
+│   │   │   ├── 08_amoeba_plugin.rst
+│   │   │   ├── 09_rpmd_plugin.rst
+│   │   │   └── 10_drude_plugin.rst
+│   │   │       └── ... (5 more files)
+│   │   ├── theory/
+│   │   │   ├── 01_introduction.rst
+│   │   │   ├── 02_standard_forces.rst
+│   │   │   ├── 03_custom_forces.rst
+│   │   │   ├── 04_integrators.rst
+│   │   │   └── 05_other_features.rst
+│   │   ├── application.rst
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── introduction.rst
+│   │   ├── library.rst
+│   │   ├── license.rst
+│   │   ├── make.bat
+│   │   ├── Makefile
+│   │   ├── references.bib
+│   │   ├── theory.rst
+│   │   └── zbibliography.rst
+│   │       └── ... (6 more files)
+│   ├── C++ API Reference.html
+│   ├── CMakeLists.txt
+│   ├── DoxyfileC++.in
+│   ├── Lepton User's Manual.doc
+│   ├── Lepton User's Manual.pdf
+│   └── Python API Reference.html
+│       └── ... (1 more files)
+├── examples/
+│   ├── benchmarks/
+│   │   └── benchmark.py
+│   ├── cpp-examples/
+│   │   ├── VisualStudio/
+│   │   │   ├── HelloArgon.sln
+│   │   │   ├── HelloArgon.vcproj
+│   │   │   ├── HelloArgonInC.sln
+│   │   │   ├── HelloArgonInC.vcproj
+│   │   │   ├── HelloArgonInFortran.sln
+│   │   │   └── HelloArgonInFortran.vfproj
+│   │   │       └── ... (1 more files)
+│   │   ├── CMakeLists.txt
+│   │   ├── Empty.cpp
+│   │   ├── HelloArgon.cpp
+│   │   ├── HelloArgonInC.c
+│   │   ├── HelloArgonInFortran.f90
+│   │   ├── HelloEthane.cpp
+│   │   ├── HelloSodiumChloride.cpp
+│   │   ├── HelloSodiumChlorideInC.c
+│   │   ├── HelloSodiumChlorideInFortran.f90
+│   │   ├── HelloWaterBox.cpp
+│   │   ├── Makefile
+│   │   ├── NMakefile
+│   │   └── README.md
+│   │       └── ... (8 more files)
+│   ├── extras/
+│   │   ├── optimizepme.py
+│   │   ├── README.md
+│   │   └── rigid.py
+│   ├── python-examples/
+│   │   ├── ala_ala_ala.psf
+│   │   ├── argon-chemical-potential.py
+│   │   ├── charmm22.par
+│   │   ├── charmm22.rtf
+│   │   ├── CMakeLists.txt
+│   │   ├── input.gro
+│   │   ├── input.inpcrd
+│   │   ├── input.prmtop
+│   │   ├── input.top
+│   │   ├── simulateAmber.py
+│   │   ├── simulateCharmm.py
+│   │   ├── simulateGromacs.py
+│   │   └── simulatePdb.py
+│   │       └── ... (8 more files)
+│   ├── CMakeLists.txt
+│   └── README.md
+├── libraries/
+│   ├── asmjit/
+│   │   └── asmjit/
+│   │       ├── arm/
+│   │       ├── core/
+│   │       ├── x86/
+│   │       ├── a64.h
+│   │       ├── arm.h
+│   │       ├── asmjit-scope-begin.h
+│   │       ├── asmjit-scope-end.h
+│   │       ├── asmjit.h
+│   │       ├── core.h
+│   │       ├── LICENSE.md
+│   │       └── x86.h
+│   │           └── ... (3 more files)
+│   ├── csha1/
+│   │   ├── include/
+│   │   │   └── SHA1.h
+│   │   └── src/
+│   │       └── SHA1.cpp
+│   ├── hilbert/
+│   │   ├── include/
+│   │   │   └── hilbert.h
+│   │   └── src/
+│   │       └── hilbert.cpp
+│   ├── irrxml/
+│   │   ├── doc/
+│   │   │   ├── irrXML.chm
+│   │   │   └── readme.txt
+│   │   ├── example/
+│   │   │   ├── config.xml
+│   │   │   ├── irrXML.dev
+│   │   │   ├── irrXML.dsp
+│   │   │   ├── irrXML.dsw
+│   │   │   ├── irrxml.sln
+│   │   │   ├── irrxml.vcproj
+│   │   │   ├── Makefile
+│   │   │   └── test.cpp
+│   │   │       └── ... (3 more files)
+│   │   ├── include/
+│   │   │   ├── CXMLReaderImpl.h
+│   │   │   ├── fast_atof.h
+│   │   │   ├── heapsort.h
+│   │   │   ├── irrArray.h
+│   │   │   ├── irrString.h
+│   │   │   ├── irrTypes.h
+│   │   │   └── irrXML.h
+│   │   │       └── ... (2 more files)
+│   │   ├── src/
+│   │   │   └── irrXML.cpp
+│   │   ├── changes.txt
+│   │   └── readme.txt
+│   ├── jama/
+│   │   └── include/
+│   │       ├── jama_cholesky.h
+│   │       ├── jama_eig.h
+│   │       ├── jama_lu.h
+│   │       ├── jama_qr.h
+│   │       ├── jama_svd.h
+│   │       ├── tnt.h
+│   │       ├── tnt_array1d.h
+│   │       ├── tnt_array1d_utils.h
+│   │       ├── tnt_array2d.h
+│   │       ├── tnt_array2d_utils.h
+│   │       ├── tnt_array3d.h
+│   │       ├── tnt_array3d_utils.h
+│   │       ├── tnt_cmat.h
+│   │       ├── tnt_fortran_array1d.h
+│   │       ├── tnt_fortran_array1d_utils.h
+│   │       ├── tnt_fortran_array2d.h
+│   │       ├── tnt_fortran_array2d_utils.h
+│   │       ├── tnt_fortran_array3d.h
+│   │       ├── tnt_fortran_array3d_utils.h
+│   │       ├── tnt_i_refvec.h
+│   │       ├── tnt_math_utils.h
+│   │       ├── tnt_sparse_matrix_csr.h
+│   │       ├── tnt_stopwatch.h
+│   │       ├── tnt_subscript.h
+│   │       ├── tnt_vec.h
+│   │       └── tnt_version.h
+│   │           └── ... (21 more files)
+│   ├── lbfgs/
+│   │   ├── include/
+│   │   │   └── lbfgs.h
+│   │   └── src/
+│   │       ├── arithmetic_ansi.h
+│   │       ├── arithmetic_sse_double.h
+│   │       ├── arithmetic_sse_float.h
+│   │       └── lbfgs.cpp
+│   ├── lepton/
+│   │   ├── include/
+│   │   │   ├── lepton/
+│   │   │   └── Lepton.h
+│   │   └── src/
+│   │       ├── CompiledExpression.cpp
+│   │       ├── CompiledVectorExpression.cpp
+│   │       ├── ExpressionProgram.cpp
+│   │       ├── ExpressionTreeNode.cpp
+│   │       ├── MSVC_erfc.h
+│   │       ├── Operation.cpp
+│   │       ├── ParsedExpression.cpp
+│   │       └── Parser.cpp
+│   │           └── ... (3 more files)
+│   ├── pocketfft/
+│   │   └── include/
+│   │       └── pocketfft_hdronly.h
+│   ├── quern/
+│   │   ├── include/
+│   │   │   ├── quern.h
+│   │   │   └── quern_list.h
+│   │   ├── src/
+│   │   │   ├── quern.cpp
+│   │   │   ├── quern_factorization.cpp
+│   │   │   ├── quern_order.cpp
+│   │   │   └── quern_solver.cpp
+│   │   └── README
+│   ├── sfmt/
+│   │   ├── include/
+│   │   │   └── sfmt/
+│   │   ├── src/
+│   │   │   └── SFMT.cpp
+│   │   ├── CHANGE-LOG.txt
+│   │   ├── LICENSE.txt
+│   │   ├── README.txt
+│   │   └── test.c
+│   ├── vecmath/
+│   │   ├── include/
+│   │   │   ├── neon_mathfun.h
+│   │   │   └── sse_mathfun.h
+│   │   └── src/
+│   │       └── vecmath.cpp
+│   └── vkfft/
+│       └── include/
+│           └── vkFFT.h
+├── olla/
+│   ├── include/
+│   │   └── openmm/
+│   │       ├── Kernel.h
+│   │       ├── KernelFactory.h
+│   │       ├── KernelImpl.h
+│   │       ├── kernels.h
+│   │       ├── Platform.h
+│   │       └── PluginInitializer.h
+│   │           └── ... (1 more files)
+│   └── src/
+│       ├── Kernel.cpp
+│       ├── KernelImpl.cpp
+│       └── Platform.cpp
+├── openmmapi/
+│   ├── include/
+│   │   ├── openmm/
+│   │   │   ├── internal/
+│   │   │   ├── AndersenThermostat.h
+│   │   │   ├── ATMForce.h
+│   │   │   ├── BrownianIntegrator.h
+│   │   │   ├── CMAPTorsionForce.h
+│   │   │   ├── CMMotionRemover.h
+│   │   │   ├── CompoundIntegrator.h
+│   │   │   ├── Context.h
+│   │   │   ├── CustomAngleForce.h
+│   │   │   ├── CustomBondForce.h
+│   │   │   ├── CustomCentroidBondForce.h
+│   │   │   ├── CustomCompoundBondForce.h
+│   │   │   ├── CustomCVForce.h
+│   │   │   ├── CustomExternalForce.h
+│   │   │   ├── CustomGBForce.h
+│   │   │   ├── CustomHbondForce.h
+│   │   │   ├── CustomIntegrator.h
+│   │   │   ├── CustomManyParticleForce.h
+│   │   │   ├── CustomNonbondedForce.h
+│   │   │   ├── CustomTorsionForce.h
+│   │   │   ├── CustomVolumeForce.h
+│   │   │   ├── DPDIntegrator.h
+│   │   │   ├── Force.h
+│   │   │   ├── GayBerneForce.h
+│   │   │   ├── GBSAOBCForce.h
+│   │   │   ├── HarmonicAngleForce.h
+│   │   │   ├── HarmonicBondForce.h
+│   │   │   ├── Integrator.h
+│   │   │   ├── LangevinIntegrator.h
+│   │   │   ├── LangevinMiddleIntegrator.h
+│   │   │   ├── LocalEnergyMinimizer.h
+│   │   │   ├── MonteCarloAnisotropicBarostat.h
+│   │   │   ├── MonteCarloBarostat.h
+│   │   │   ├── MonteCarloFlexibleBarostat.h
+│   │   │   ├── MonteCarloMembraneBarostat.h
+│   │   │   ├── NonbondedForce.h
+│   │   │   ├── NoseHooverChain.h
+│   │   │   ├── NoseHooverIntegrator.h
+│   │   │   ├── OpenMMException.h
+│   │   │   ├── PeriodicTorsionForce.h
+│   │   │   ├── RBTorsionForce.h
+│   │   │   ├── RMSDForce.h
+│   │   │   ├── State.h
+│   │   │   ├── System.h
+│   │   │   ├── TabulatedFunction.h
+│   │   │   ├── Units.h
+│   │   │   ├── VariableLangevinIntegrator.h
+│   │   │   ├── VariableVerletIntegrator.h
+│   │   │   ├── Vec3.h
+│   │   │   ├── VerletIntegrator.h
+│   │   │   └── VirtualSite.h
+│   │   │       └── ... (45 more files)
+│   │   └── OpenMM.h
+│   └── src/
+│       ├── AndersenThermostat.cpp
+│       ├── AndersenThermostatImpl.cpp
+│       ├── AssertionUtilities.cpp
+│       ├── ATMForce.cpp
+│       ├── ATMForceImpl.cpp
+│       ├── BrownianIntegrator.cpp
+│       ├── CMAPTorsionForce.cpp
+│       ├── CMAPTorsionForceImpl.cpp
+│       ├── CMMotionRemover.cpp
+│       ├── CMMotionRemoverImpl.cpp
+│       ├── CompiledExpressionSet.cpp
+│       ├── CompoundIntegrator.cpp
+│       ├── Context.cpp
+│       ├── ContextImpl.cpp
+│       ├── CustomAngleForce.cpp
+│       ├── CustomAngleForceImpl.cpp
+│       ├── CustomBondForce.cpp
+│       ├── CustomBondForceImpl.cpp
+│       ├── CustomCentroidBondForce.cpp
+│       ├── CustomCentroidBondForceImpl.cpp
+│       ├── CustomCompoundBondForce.cpp
+│       ├── CustomCompoundBondForceImpl.cpp
+│       ├── CustomCPPForceImpl.cpp
+│       ├── CustomCVForce.cpp
+│       ├── CustomCVForceImpl.cpp
+│       ├── CustomExternalForce.cpp
+│       ├── CustomExternalForceImpl.cpp
+│       ├── CustomGBForce.cpp
+│       ├── CustomGBForceImpl.cpp
+│       ├── CustomHbondForce.cpp
+│       ├── CustomHbondForceImpl.cpp
+│       ├── CustomIntegrator.cpp
+│       ├── CustomIntegratorUtilities.cpp
+│       ├── CustomManyParticleForce.cpp
+│       ├── CustomManyParticleForceImpl.cpp
+│       ├── CustomNonbondedForce.cpp
+│       ├── CustomNonbondedForceImpl.cpp
+│       ├── CustomTorsionForce.cpp
+│       ├── CustomTorsionForceImpl.cpp
+│       ├── CustomVolumeForce.cpp
+│       ├── CustomVolumeForceImpl.cpp
+│       ├── DPDIntegrator.cpp
+│       ├── DPDIntegratorUtilities.cpp
+│       ├── Force.cpp
+│       ├── ForceImpl.cpp
+│       ├── GayBerneForce.cpp
+│       ├── GayBerneForceImpl.cpp
+│       ├── GBSAOBCForce.cpp
+│       ├── GBSAOBCForceImpl.cpp
+│       ├── HarmonicAngleForce.cpp
+│       ├── HarmonicAngleForceImpl.cpp
+│       ├── HarmonicBondForce.cpp
+│       ├── HarmonicBondForceImpl.cpp
+│       ├── Integrator.cpp
+│       ├── LangevinIntegrator.cpp
+│       ├── LangevinMiddleIntegrator.cpp
+│       ├── LocalEnergyMinimizer.cpp
+│       ├── Messages.cpp
+│       ├── MonteCarloAnisotropicBarostat.cpp
+│       ├── MonteCarloAnisotropicBarostatImpl.cpp
+│       ├── MonteCarloBarostat.cpp
+│       ├── MonteCarloBarostatImpl.cpp
+│       ├── MonteCarloFlexibleBarostat.cpp
+│       ├── MonteCarloFlexibleBarostatImpl.cpp
+│       ├── MonteCarloMembraneBarostat.cpp
+│       ├── MonteCarloMembraneBarostatImpl.cpp
+│       ├── NonbondedForce.cpp
+│       ├── NonbondedForceImpl.cpp
+│       ├── NoseHooverChain.cpp
+│       ├── NoseHooverIntegrator.cpp
+│       ├── OSRngSeed.cpp
+│       ├── PeriodicTorsionForce.cpp
+│       ├── PeriodicTorsionForceImpl.cpp
+│       ├── RBTorsionForce.cpp
+│       ├── RBTorsionForceImpl.cpp
+│       ├── RMSDForce.cpp
+│       ├── RMSDForceImpl.cpp
+│       ├── SplineFitter.cpp
+│       ├── State.cpp
+│       ├── System.cpp
+│       ├── TabulatedFunction.cpp
+│       ├── ThreadPool.cpp
+│       ├── VariableLangevinIntegrator.cpp
+│       ├── VariableVerletIntegrator.cpp
+│       ├── VectorExpression.cpp
+│       ├── VerletIntegrator.cpp
+│       └── VirtualSite.cpp
+│           └── ... (82 more files)
+├── platforms/
+│   ├── common/
+│   │   ├── include/
+│   │   │   └── openmm/
+│   │   ├── src/
+│   │   │   ├── kernels/
+│   │   │   ├── BondedUtilities.cpp
+│   │   │   ├── CommonCalcCustomGBForceKernel.cpp
+│   │   │   ├── CommonCalcCustomHbondForceKernel.cpp
+│   │   │   ├── CommonCalcCustomManyParticleForceKernel.cpp
+│   │   │   ├── CommonCalcCustomNonbondedForceKernel.cpp
+│   │   │   ├── CommonCalcNonbondedForce.cpp
+│   │   │   ├── CommonIntegrateCustomStepKernel.cpp
+│   │   │   ├── CommonIntegrateNoseHooverStepKernel.cpp
+│   │   │   ├── CommonKernels.cpp
+│   │   │   ├── CommonKernelSources.cpp.in
+│   │   │   ├── CommonKernelSources.h.in
+│   │   │   ├── CommonParallelKernels.cpp
+│   │   │   ├── ComputeArray.cpp
+│   │   │   ├── ComputeContext.cpp
+│   │   │   ├── ComputeForceInfo.cpp
+│   │   │   ├── ComputeParameterSet.cpp
+│   │   │   ├── ExpressionUtilities.cpp
+│   │   │   └── IntegrationUtilities.cpp
+│   │   │       └── ... (13 more files)
+│   │   └── CMakeLists.txt
+│   ├── cpu/
+│   │   ├── include/
+│   │   │   ├── AlignedArray.h
+│   │   │   ├── CpuBondForce.h
+│   │   │   ├── CpuCustomGBForce.h
+│   │   │   ├── CpuCustomManyParticleForce.h
+│   │   │   ├── CpuCustomNonbondedForce.h
+│   │   │   ├── CpuCustomNonbondedForceFvec.h
+│   │   │   ├── CpuGayBerneForce.h
+│   │   │   ├── CpuGBSAOBCForce.h
+│   │   │   ├── CpuKernelFactory.h
+│   │   │   ├── CpuKernels.h
+│   │   │   ├── CpuLangevinMiddleDynamics.h
+│   │   │   ├── CpuNeighborList.h
+│   │   │   ├── CpuNonbondedForce.h
+│   │   │   ├── CpuNonbondedForceFvec.h
+│   │   │   ├── CpuPlatform.h
+│   │   │   ├── CpuRandom.h
+│   │   │   ├── CpuSETTLE.h
+│   │   │   └── windowsExportCpu.h
+│   │   │       └── ... (13 more files)
+│   │   ├── sharedTarget/
+│   │   │   └── CMakeLists.txt
+│   │   ├── src/
+│   │   │   ├── CpuBondForce.cpp
+│   │   │   ├── CpuCustomGBForce.cpp
+│   │   │   ├── CpuCustomManyParticleForce.cpp
+│   │   │   ├── CpuCustomNonbondedForce.cpp
+│   │   │   ├── CpuCustomNonbondedForceAvx.cpp
+│   │   │   ├── CpuCustomNonbondedForceFvec.cpp
+│   │   │   ├── CpuCustomNonbondedForceVec4.cpp
+│   │   │   ├── CpuGayBerneForce.cpp
+│   │   │   ├── CpuGBSAOBCForce.cpp
+│   │   │   ├── CpuKernelFactory.cpp
+│   │   │   ├── CpuKernels.cpp
+│   │   │   ├── CpuLangevinMiddleDynamics.cpp
+│   │   │   ├── CpuNeighborList.cpp
+│   │   │   ├── CpuNonbondedForce.cpp
+│   │   │   ├── CpuNonbondedForceAvx.cpp
+│   │   │   ├── CpuNonbondedForceAvx2.cpp
+│   │   │   ├── CpuNonbondedForceFvec.cpp
+│   │   │   ├── CpuNonbondedForceVec4.cpp
+│   │   │   ├── CpuPlatform.cpp
+│   │   │   ├── CpuRandom.cpp
+│   │   │   └── CpuSETTLE.cpp
+│   │   │       └── ... (16 more files)
+│   │   ├── staticTarget/
+│   │   │   └── CMakeLists.txt
+│   │   ├── tests/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── CpuTests.h
+│   │   │   ├── TestCpuCheckpoints.cpp
+│   │   │   ├── TestCpuCompoundIntegrator.cpp
+│   │   │   ├── TestCpuCustomCPPForce.cpp
+│   │   │   ├── TestCpuCustomGBForce.cpp
+│   │   │   ├── TestCpuCustomManyParticleForce.cpp
+│   │   │   ├── TestCpuCustomNonbondedForce.cpp
+│   │   │   ├── TestCpuDispersionPME.cpp
+│   │   │   ├── TestCpuEwald.cpp
+│   │   │   ├── TestCpuGayBerneForce.cpp
+│   │   │   ├── TestCpuGBSAOBCForce.cpp
+│   │   │   ├── TestCpuHarmonicAngleForce.cpp
+│   │   │   ├── TestCpuLangevinIntegrator.cpp
+│   │   │   ├── TestCpuLangevinMiddleIntegrator.cpp
+│   │   │   ├── TestCpuNeighborList.cpp
+│   │   │   ├── TestCpuNonbondedForce.cpp
+│   │   │   ├── TestCpuPeriodicTorsionForce.cpp
+│   │   │   ├── TestCpuRBTorsionForce.cpp
+│   │   │   └── TestCpuSettle.cpp
+│   │   │       └── ... (15 more files)
+│   │   └── CMakeLists.txt
+│   ├── cuda/
+│   │   ├── include/
+│   │   │   ├── CudaArray.h
+│   │   │   ├── CudaBondedUtilities.h
+│   │   │   ├── CudaContext.h
+│   │   │   ├── CudaEvent.h
+│   │   │   ├── CudaExpressionUtilities.h
+│   │   │   ├── CudaFFT3D.h
+│   │   │   ├── CudaForceInfo.h
+│   │   │   ├── CudaIntegrationUtilities.h
+│   │   │   ├── CudaKernel.h
+│   │   │   ├── CudaKernelFactory.h
+│   │   │   ├── CudaKernels.h
+│   │   │   ├── CudaNonbondedUtilities.h
+│   │   │   ├── CudaParallelKernels.h
+│   │   │   ├── CudaPlatform.h
+│   │   │   ├── CudaProgram.h
+│   │   │   ├── CudaQueue.h
+│   │   │   └── CudaSort.h
+│   │   │       └── ... (12 more files)
+│   │   ├── sharedTarget/
+│   │   │   └── CMakeLists.txt
+│   │   ├── src/
+│   │   │   ├── kernels/
+│   │   │   ├── CudaArray.cpp
+│   │   │   ├── CudaContext.cpp
+│   │   │   ├── CudaEvent.cpp
+│   │   │   ├── CudaFFT3D.cpp
+│   │   │   ├── CudaIntegrationUtilities.cpp
+│   │   │   ├── CudaKernel.cpp
+│   │   │   ├── CudaKernelFactory.cpp
+│   │   │   ├── CudaKernels.cpp
+│   │   │   ├── CudaKernelSources.cpp.in
+│   │   │   ├── CudaKernelSources.h.in
+│   │   │   ├── CudaNonbondedUtilities.cpp
+│   │   │   ├── CudaParallelKernels.cpp
+│   │   │   ├── CudaPlatform.cpp
+│   │   │   ├── CudaProgram.cpp
+│   │   │   ├── CudaQueue.cpp
+│   │   │   └── CudaSort.cpp
+│   │   │       └── ... (11 more files)
+│   │   ├── staticTarget/
+│   │   │   └── CMakeLists.txt
+│   │   ├── tests/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── CudaTests.h
+│   │   │   ├── TestCudaAndersenThermostat.cpp
+│   │   │   ├── TestCudaATMForce.cpp
+│   │   │   ├── TestCudaBrownianIntegrator.cpp
+│   │   │   ├── TestCudaCheckpoints.cpp
+│   │   │   ├── TestCudaCMAPTorsionForce.cpp
+│   │   │   ├── TestCudaCMMotionRemover.cpp
+│   │   │   ├── TestCudaCompoundIntegrator.cpp
+│   │   │   ├── TestCudaCustomAngleForce.cpp
+│   │   │   ├── TestCudaCustomBondForce.cpp
+│   │   │   ├── TestCudaCustomCentroidBondForce.cpp
+│   │   │   ├── TestCudaCustomCompoundBondForce.cpp
+│   │   │   ├── TestCudaCustomCPPForce.cpp
+│   │   │   ├── TestCudaCustomCVForce.cpp
+│   │   │   ├── TestCudaCustomExternalForce.cpp
+│   │   │   ├── TestCudaCustomGBForce.cpp
+│   │   │   ├── TestCudaCustomHbondForce.cpp
+│   │   │   ├── TestCudaCustomIntegrator.cpp
+│   │   │   ├── TestCudaCustomManyParticleForce.cpp
+│   │   │   ├── TestCudaCustomNonbondedForce.cpp
+│   │   │   ├── TestCudaCustomTorsionForce.cpp
+│   │   │   ├── TestCudaDispersionPME.cpp
+│   │   │   ├── TestCudaDPDIntegrator.cpp
+│   │   │   ├── TestCudaEwald.cpp
+│   │   │   ├── TestCudaFFT3D.cpp
+│   │   │   ├── TestCudaGayBerneForce.cpp
+│   │   │   ├── TestCudaGBSAOBCForce.cpp
+│   │   │   ├── TestCudaHarmonicAngleForce.cpp
+│   │   │   ├── TestCudaHarmonicBondForce.cpp
+│   │   │   ├── TestCudaLangevinIntegrator.cpp
+│   │   │   ├── TestCudaLangevinMiddleIntegrator.cpp
+│   │   │   ├── TestCudaLocalEnergyMinimizer.cpp
+│   │   │   ├── TestCudaMonteCarloAnisotropicBarostat.cpp
+│   │   │   ├── TestCudaMonteCarloBarostat.cpp
+│   │   │   ├── TestCudaMonteCarloFlexibleBarostat.cpp
+│   │   │   ├── TestCudaMultipleForces.cpp
+│   │   │   ├── TestCudaNonbondedForce.cpp
+│   │   │   ├── TestCudaNoseHooverIntegrator.cpp
+│   │   │   ├── TestCudaPeriodicTorsionForce.cpp
+│   │   │   ├── TestCudaRandom.cpp
+│   │   │   ├── TestCudaRBTorsionForce.cpp
+│   │   │   ├── TestCudaRMSDForce.cpp
+│   │   │   ├── TestCudaSettle.cpp
+│   │   │   ├── TestCudaSort.cpp
+│   │   │   ├── TestCudaVariableLangevinIntegrator.cpp
+│   │   │   ├── TestCudaVariableVerletIntegrator.cpp
+│   │   │   ├── TestCudaVerletIntegrator.cpp
+│   │   │   └── TestCudaVirtualSites.cpp
+│   │   │       └── ... (44 more files)
+│   │   └── CMakeLists.txt
+│   ├── hip/
+│   │   ├── include/
+│   │   │   ├── HipArray.h
+│   │   │   ├── HipBondedUtilities.h
+│   │   │   ├── HipContext.h
+│   │   │   ├── HipEvent.h
+│   │   │   ├── HipExpressionUtilities.h
+│   │   │   ├── HipFFT3D.h
+│   │   │   ├── HipForceInfo.h
+│   │   │   ├── HipIntegrationUtilities.h
+│   │   │   ├── HipKernel.h
+│   │   │   ├── HipKernelFactory.h
+│   │   │   ├── HipKernels.h
+│   │   │   ├── HipNonbondedUtilities.h
+│   │   │   ├── HipParallelKernels.h
+│   │   │   ├── HipPlatform.h
+│   │   │   ├── HipProgram.h
+│   │   │   ├── HipQueue.h
+│   │   │   └── HipSort.h
+│   │   │       └── ... (12 more files)
+│   │   ├── src/
+│   │   │   ├── kernels/
+│   │   │   ├── HipArray.cpp
+│   │   │   ├── HipContext.cpp
+│   │   │   ├── HipEvent.cpp
+│   │   │   ├── HipFFT3D.cpp
+│   │   │   ├── HipIntegrationUtilities.cpp
+│   │   │   ├── HipKernel.cpp
+│   │   │   ├── HipKernelFactory.cpp
+│   │   │   ├── HipKernels.cpp
+│   │   │   ├── HipKernelSources.cpp.in
+│   │   │   ├── HipKernelSources.h.in
+│   │   │   ├── HipNonbondedUtilities.cpp
+│   │   │   ├── HipParallelKernels.cpp
+│   │   │   ├── HipPlatform.cpp
+│   │   │   ├── HipProgram.cpp
+│   │   │   ├── HipQueue.cpp
+│   │   │   └── HipSort.cpp
+│   │   │       └── ... (11 more files)
+│   │   ├── tests/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── HipTests.h
+│   │   │   ├── TestHipAndersenThermostat.cpp
+│   │   │   ├── TestHipATMForce.cpp
+│   │   │   ├── TestHipBrownianIntegrator.cpp
+│   │   │   ├── TestHipCheckpoints.cpp
+│   │   │   ├── TestHipCMAPTorsionForce.cpp
+│   │   │   ├── TestHipCMMotionRemover.cpp
+│   │   │   ├── TestHipCompoundIntegrator.cpp
+│   │   │   ├── TestHipCustomAngleForce.cpp
+│   │   │   ├── TestHipCustomBondForce.cpp
+│   │   │   ├── TestHipCustomCentroidBondForce.cpp
+│   │   │   ├── TestHipCustomCompoundBondForce.cpp
+│   │   │   ├── TestHipCustomCPPForce.cpp
+│   │   │   ├── TestHipCustomCVForce.cpp
+│   │   │   ├── TestHipCustomExternalForce.cpp
+│   │   │   ├── TestHipCustomGBForce.cpp
+│   │   │   ├── TestHipCustomHbondForce.cpp
+│   │   │   ├── TestHipCustomIntegrator.cpp
+│   │   │   ├── TestHipCustomManyParticleForce.cpp
+│   │   │   ├── TestHipCustomNonbondedForce.cpp
+│   │   │   ├── TestHipCustomTorsionForce.cpp
+│   │   │   ├── TestHipDispersionPME.cpp
+│   │   │   ├── TestHipDPDIntegrator.cpp
+│   │   │   ├── TestHipEwald.cpp
+│   │   │   ├── TestHipFFT3D.cpp
+│   │   │   ├── TestHipGayBerneForce.cpp
+│   │   │   ├── TestHipGBSAOBCForce.cpp
+│   │   │   ├── TestHipHarmonicAngleForce.cpp
+│   │   │   ├── TestHipHarmonicBondForce.cpp
+│   │   │   ├── TestHipLangevinIntegrator.cpp
+│   │   │   ├── TestHipLangevinMiddleIntegrator.cpp
+│   │   │   ├── TestHipLocalEnergyMinimizer.cpp
+│   │   │   ├── TestHipMonteCarloAnisotropicBarostat.cpp
+│   │   │   ├── TestHipMonteCarloBarostat.cpp
+│   │   │   ├── TestHipMonteCarloFlexibleBarostat.cpp
+│   │   │   ├── TestHipMultipleForces.cpp
+│   │   │   ├── TestHipNonbondedForce.cpp
+│   │   │   ├── TestHipNoseHooverIntegrator.cpp
+│   │   │   ├── TestHipPeriodicTorsionForce.cpp
+│   │   │   ├── TestHipRandom.cpp
+│   │   │   ├── TestHipRBTorsionForce.cpp
+│   │   │   ├── TestHipRMSDForce.cpp
+│   │   │   ├── TestHipSettle.cpp
+│   │   │   ├── TestHipSort.cpp
+│   │   │   ├── TestHipVariableLangevinIntegrator.cpp
+│   │   │   ├── TestHipVariableVerletIntegrator.cpp
+│   │   │   ├── TestHipVerletIntegrator.cpp
+│   │   │   └── TestHipVirtualSites.cpp
+│   │   │       └── ... (44 more files)
+│   │   └── CMakeLists.txt
+│   ├── opencl/
+│   │   ├── include/
+│   │   │   ├── OpenCLArray.h
+│   │   │   ├── OpenCLBondedUtilities.h
+│   │   │   ├── OpenCLCompact.h
+│   │   │   ├── OpenCLContext.h
+│   │   │   ├── OpenCLEvent.h
+│   │   │   ├── OpenCLExpressionUtilities.h
+│   │   │   ├── OpenCLFFT3D.h
+│   │   │   ├── OpenCLForceInfo.h
+│   │   │   ├── OpenCLIntegrationUtilities.h
+│   │   │   ├── OpenCLKernel.h
+│   │   │   ├── OpenCLKernelFactory.h
+│   │   │   ├── OpenCLKernels.h
+│   │   │   ├── OpenCLNonbondedUtilities.h
+│   │   │   ├── OpenCLParallelKernels.h
+│   │   │   ├── OpenCLPlatform.h
+│   │   │   ├── OpenCLProgram.h
+│   │   │   ├── OpenCLQueue.h
+│   │   │   └── OpenCLSort.h
+│   │   │       └── ... (13 more files)
+│   │   ├── sharedTarget/
+│   │   │   └── CMakeLists.txt
+│   │   ├── src/
+│   │   │   ├── kernels/
+│   │   │   ├── opencl.hpp
+│   │   │   ├── OpenCLArray.cpp
+│   │   │   ├── OpenCLCompact.cpp
+│   │   │   ├── OpenCLContext.cpp
+│   │   │   ├── OpenCLEvent.cpp
+│   │   │   ├── OpenCLFFT3D.cpp
+│   │   │   ├── OpenCLIntegrationUtilities.cpp
+│   │   │   ├── OpenCLKernel.cpp
+│   │   │   ├── OpenCLKernelFactory.cpp
+│   │   │   ├── OpenCLKernels.cpp
+│   │   │   ├── OpenCLKernelSources.cpp.in
+│   │   │   ├── OpenCLKernelSources.h.in
+│   │   │   ├── OpenCLNonbondedUtilities.cpp
+│   │   │   ├── OpenCLParallelKernels.cpp
+│   │   │   ├── OpenCLPlatform.cpp
+│   │   │   ├── OpenCLProgram.cpp
+│   │   │   └── OpenCLSort.cpp
+│   │   │       └── ... (12 more files)
+│   │   ├── staticTarget/
+│   │   │   └── CMakeLists.txt
+│   │   ├── tests/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── has_opencl_gpu.c
+│   │   │   ├── OpenCLTests.h
+│   │   │   ├── TestOpenCLAndersenThermostat.cpp
+│   │   │   ├── TestOpenCLATMForce.cpp
+│   │   │   ├── TestOpenCLBrownianIntegrator.cpp
+│   │   │   ├── TestOpenCLCheckpoints.cpp
+│   │   │   ├── TestOpenCLCMAPTorsionForce.cpp
+│   │   │   ├── TestOpenCLCMMotionRemover.cpp
+│   │   │   ├── TestOpenCLCompoundIntegrator.cpp
+│   │   │   ├── TestOpenCLCustomAngleForce.cpp
+│   │   │   ├── TestOpenCLCustomBondForce.cpp
+│   │   │   ├── TestOpenCLCustomCentroidBondForce.cpp
+│   │   │   ├── TestOpenCLCustomCompoundBondForce.cpp
+│   │   │   ├── TestOpenCLCustomCPPForce.cpp
+│   │   │   ├── TestOpenCLCustomCVForce.cpp
+│   │   │   ├── TestOpenCLCustomExternalForce.cpp
+│   │   │   ├── TestOpenCLCustomGBForce.cpp
+│   │   │   ├── TestOpenCLCustomHbondForce.cpp
+│   │   │   ├── TestOpenCLCustomIntegrator.cpp
+│   │   │   ├── TestOpenCLCustomManyParticleForce.cpp
+│   │   │   ├── TestOpenCLCustomNonbondedForce.cpp
+│   │   │   ├── TestOpenCLCustomTorsionForce.cpp
+│   │   │   ├── TestOpenCLDeviceQuery.cpp
+│   │   │   ├── TestOpenCLDispersionPME.cpp
+│   │   │   ├── TestOpenCLDPDIntegrator.cpp
+│   │   │   ├── TestOpenCLEwald.cpp
+│   │   │   ├── TestOpenCLFFT.cpp
+│   │   │   ├── TestOpenCLGayBerneForce.cpp
+│   │   │   ├── TestOpenCLGBSAOBCForce.cpp
+│   │   │   ├── TestOpenCLHarmonicAngleForce.cpp
+│   │   │   ├── TestOpenCLHarmonicBondForce.cpp
+│   │   │   ├── TestOpenCLLangevinIntegrator.cpp
+│   │   │   ├── TestOpenCLLangevinMiddleIntegrator.cpp
+│   │   │   ├── TestOpenCLLocalEnergyMinimizer.cpp
+│   │   │   ├── TestOpenCLMonteCarloAnisotropicBarostat.cpp
+│   │   │   ├── TestOpenCLMonteCarloBarostat.cpp
+│   │   │   ├── TestOpenCLMonteCarloFlexibleBarostat.cpp
+│   │   │   ├── TestOpenCLMultipleForces.cpp
+│   │   │   ├── TestOpenCLNonbondedForce.cpp
+│   │   │   ├── TestOpenCLNoseHooverIntegrator.cpp
+│   │   │   ├── TestOpenCLPeriodicTorsionForce.cpp
+│   │   │   ├── TestOpenCLRandom.cpp
+│   │   │   ├── TestOpenCLRBTorsionForce.cpp
+│   │   │   ├── TestOpenCLRMSDForce.cpp
+│   │   │   ├── TestOpenCLSettle.cpp
+│   │   │   ├── TestOpenCLSort.cpp
+│   │   │   ├── TestOpenCLVariableLangevinIntegrator.cpp
+│   │   │   ├── TestOpenCLVariableVerletIntegrator.cpp
+│   │   │   ├── TestOpenCLVerletIntegrator.cpp
+│   │   │   └── TestOpenCLVirtualSites.cpp
+│   │   │       └── ... (46 more files)
+│   │   └── CMakeLists.txt
+│   └── reference/
+│       ├── include/
+│       │   ├── ObcParameters.h
+│       │   ├── RealVec.h
+│       │   ├── ReferenceAndersenThermostat.h
+│       │   ├── ReferenceAngleBondIxn.h
+│       │   ├── ReferenceBondForce.h
+│       │   ├── ReferenceBondIxn.h
+│       │   ├── ReferenceBrownianDynamics.h
+│       │   ├── ReferenceCCMAAlgorithm.h
+│       │   ├── ReferenceCMAPTorsionIxn.h
+│       │   ├── ReferenceConstraintAlgorithm.h
+│       │   ├── ReferenceConstraints.h
+│       │   ├── ReferenceCustomAngleIxn.h
+│       │   ├── ReferenceCustomBondIxn.h
+│       │   ├── ReferenceCustomCentroidBondIxn.h
+│       │   ├── ReferenceCustomCompoundBondIxn.h
+│       │   ├── ReferenceCustomCVForce.h
+│       │   ├── ReferenceCustomDynamics.h
+│       │   ├── ReferenceCustomExternalIxn.h
+│       │   ├── ReferenceCustomGBIxn.h
+│       │   ├── ReferenceCustomHbondIxn.h
+│       │   ├── ReferenceCustomManyParticleIxn.h
+│       │   ├── ReferenceCustomNonbondedIxn.h
+│       │   ├── ReferenceCustomTorsionIxn.h
+│       │   ├── ReferenceDPDDynamics.h
+│       │   ├── ReferenceDynamics.h
+│       │   ├── ReferenceForce.h
+│       │   ├── ReferenceGayBerneForce.h
+│       │   ├── ReferenceHarmonicBondIxn.h
+│       │   ├── ReferenceKernelFactory.h
+│       │   ├── ReferenceKernels.h
+│       │   ├── ReferenceLangevinMiddleDynamics.h
+│       │   ├── ReferenceLincsAlgorithm.h
+│       │   ├── ReferenceLJCoulomb14.h
+│       │   ├── ReferenceLJCoulombIxn.h
+│       │   ├── ReferenceMonteCarloBarostat.h
+│       │   ├── ReferenceNeighborList.h
+│       │   ├── ReferenceNoseHooverChain.h
+│       │   ├── ReferenceNoseHooverDynamics.h
+│       │   ├── ReferenceObc.h
+│       │   ├── ReferencePairIxn.h
+│       │   ├── ReferencePlatform.h
+│       │   ├── ReferencePME.h
+│       │   ├── ReferencePointFunctions.h
+│       │   ├── ReferenceProperDihedralBond.h
+│       │   ├── ReferenceRbDihedralBond.h
+│       │   ├── ReferenceRMSDForce.h
+│       │   ├── ReferenceSETTLEAlgorithm.h
+│       │   ├── ReferenceTabulatedFunction.h
+│       │   ├── ReferenceVariableStochasticDynamics.h
+│       │   ├── ReferenceVariableVerletDynamics.h
+│       │   ├── ReferenceVerletDynamics.h
+│       │   ├── ReferenceVirtualSites.h
+│       │   ├── SimTKOpenMMRealType.h
+│       │   └── SimTKOpenMMUtilities.h
+│       │       └── ... (49 more files)
+│       ├── src/
+│       │   ├── SimTKReference/
+│       │   ├── ReferenceKernelFactory.cpp
+│       │   ├── ReferenceKernels.cpp
+│       │   ├── ReferencePlatform.cpp
+│       │   ├── ReferencePointFunctions.cpp
+│       │   └── ReferenceTabulatedFunction.cpp
+│       └── tests/
+│           ├── CMakeLists.txt
+│           ├── ReferenceTests.h
+│           ├── TestReferenceAndersenThermostat.cpp
+│           ├── TestReferenceATMForce.cpp
+│           ├── TestReferenceBrownianIntegrator.cpp
+│           ├── TestReferenceCheckpoints.cpp
+│           ├── TestReferenceCMAPTorsionForce.cpp
+│           ├── TestReferenceCMMotionRemover.cpp
+│           ├── TestReferenceCompoundIntegrator.cpp
+│           ├── TestReferenceCustomAngleForce.cpp
+│           ├── TestReferenceCustomBondForce.cpp
+│           ├── TestReferenceCustomCentroidBondForce.cpp
+│           ├── TestReferenceCustomCompoundBondForce.cpp
+│           ├── TestReferenceCustomCPPForce.cpp
+│           ├── TestReferenceCustomCVForce.cpp
+│           ├── TestReferenceCustomExternalForce.cpp
+│           ├── TestReferenceCustomGBForce.cpp
+│           ├── TestReferenceCustomHbondForce.cpp
+│           ├── TestReferenceCustomIntegrator.cpp
+│           ├── TestReferenceCustomManyParticleForce.cpp
+│           ├── TestReferenceCustomNonbondedForce.cpp
+│           ├── TestReferenceCustomTorsionForce.cpp
+│           ├── TestReferenceDispersionPME.cpp
+│           ├── TestReferenceDPDIntegrator.cpp
+│           ├── TestReferenceEwald.cpp
+│           ├── TestReferenceGayBerneForce.cpp
+│           ├── TestReferenceGBSAOBCForce.cpp
+│           ├── TestReferenceHarmonicAngleForce.cpp
+│           ├── TestReferenceHarmonicBondForce.cpp
+│           ├── TestReferenceKineticEnergy.cpp
+│           ├── TestReferenceLangevinIntegrator.cpp
+│           ├── TestReferenceLangevinMiddleIntegrator.cpp
+│           ├── TestReferenceLocalEnergyMinimizer.cpp
+│           ├── TestReferenceMonteCarloAnisotropicBarostat.cpp
+│           ├── TestReferenceMonteCarloBarostat.cpp
+│           ├── TestReferenceMonteCarloFlexibleBarostat.cpp
+│           ├── TestReferenceMonteCarloMembraneBarostat.cpp
+│           ├── TestReferenceNeighborList.cpp
+│           ├── TestReferenceNonbondedForce.cpp
+│           ├── TestReferenceNoseHooverIntegrator.cpp
+│           ├── TestReferencePeriodicTorsionForce.cpp
+│           ├── TestReferenceRandom.cpp
+│           ├── TestReferenceRBTorsionForce.cpp
+│           ├── TestReferenceRMSDForce.cpp
+│           ├── TestReferenceSettle.cpp
+│           ├── TestReferenceVariableLangevinIntegrator.cpp
+│           ├── TestReferenceVariableVerletIntegrator.cpp
+│           ├── TestReferenceVerletIntegrator.cpp
+│           └── TestReferenceVirtualSites.cpp
+│               └── ... (44 more files)
+├── plugins/
+│   ├── amoeba/
+│   │   ├── openmmapi/
+│   │   │   ├── include/
+│   │   │   └── src/
+│   │   ├── platforms/
+│   │   │   ├── common/
+│   │   │   ├── cuda/
+│   │   │   ├── hip/
+│   │   │   ├── opencl/
+│   │   │   └── reference/
+│   │   ├── serialization/
+│   │   │   ├── include/
+│   │   │   ├── src/
+│   │   │   └── tests/
+│   │   ├── tests/
+│   │   │   ├── TestAmoebaExtrapolatedPolarization.h
+│   │   │   ├── TestAmoebaGeneralizedKirkwoodForce.h
+│   │   │   ├── TestAmoebaMultipoleForce.h
+│   │   │   ├── TestAmoebaTorsionTorsionForce.h
+│   │   │   ├── TestAmoebaVdwForce.h
+│   │   │   ├── TestHippoNonbondedForce.h
+│   │   │   └── TestWcaDispersionForce.h
+│   │   │       └── ... (2 more files)
+│   │   ├── wrappers/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Doxyfile.in
+│   │   │   └── generateAmoebaWrappers.py
+│   │   └── CMakeLists.txt
+│   ├── cpupme/
+│   │   ├── include/
+│   │   │   └── internal/
+│   │   ├── src/
+│   │   │   ├── CpuPmeKernelFactory.cpp
+│   │   │   ├── CpuPmeKernelFactory.h
+│   │   │   ├── CpuPmeKernels.cpp
+│   │   │   └── CpuPmeKernels.h
+│   │   ├── tests/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── TestCpuPme.cpp
+│   │   └── CMakeLists.txt
+│   ├── drude/
+│   │   ├── openmmapi/
+│   │   │   ├── include/
+│   │   │   └── src/
+│   │   ├── platforms/
+│   │   │   ├── common/
+│   │   │   ├── cuda/
+│   │   │   ├── hip/
+│   │   │   ├── opencl/
+│   │   │   └── reference/
+│   │   ├── serialization/
+│   │   │   ├── include/
+│   │   │   ├── src/
+│   │   │   └── tests/
+│   │   ├── tests/
+│   │   │   ├── TestDrudeForce.h
+│   │   │   ├── TestDrudeLangevinIntegrator.h
+│   │   │   ├── TestDrudeNoseHoover.h
+│   │   │   └── TestDrudeSCFIntegrator.h
+│   │   ├── wrappers/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Doxyfile.in
+│   │   │   └── generateDrudeWrappers.py
+│   │   └── CMakeLists.txt
+│   └── rpmd/
+│       ├── openmmapi/
+│       │   ├── include/
+│       │   └── src/
+│       ├── platforms/
+│       │   ├── common/
+│       │   ├── cuda/
+│       │   ├── hip/
+│       │   ├── opencl/
+│       │   └── reference/
+│       ├── tests/
+│       │   └── TestRpmd.h
+│       └── CMakeLists.txt
+├── serialization/
+│   ├── include/
+│   │   └── openmm/
+│   │       └── serialization/
+│   ├── src/
+│   │   ├── AndersenThermostatProxy.cpp
+│   │   ├── ATMForceProxy.cpp
+│   │   ├── BrownianIntegratorProxy.cpp
+│   │   ├── CMAPTorsionForceProxy.cpp
+│   │   ├── CMMotionRemoverProxy.cpp
+│   │   ├── CompoundIntegratorProxy.cpp
+│   │   ├── CustomAngleForceProxy.cpp
+│   │   ├── CustomBondForceProxy.cpp
+│   │   ├── CustomCentroidBondForceProxy.cpp
+│   │   ├── CustomCompoundBondForceProxy.cpp
+│   │   ├── CustomCVForceProxy.cpp
+│   │   ├── CustomExternalForceProxy.cpp
+│   │   ├── CustomGBForceProxy.cpp
+│   │   ├── CustomHbondForceProxy.cpp
+│   │   ├── CustomIntegratorProxy.cpp
+│   │   ├── CustomManyParticleForceProxy.cpp
+│   │   ├── CustomNonbondedForceProxy.cpp
+│   │   ├── CustomTorsionForceProxy.cpp
+│   │   ├── CustomVolumeForceProxy.cpp
+│   │   ├── DPDIntegratorProxy.cpp
+│   │   ├── dtoa.cpp
+│   │   ├── g_fmt.cpp
+│   │   ├── GayBerneForceProxy.cpp
+│   │   ├── GBSAOBCForceProxy.cpp
+│   │   ├── HarmonicAngleForceProxy.cpp
+│   │   ├── HarmonicBondForceProxy.cpp
+│   │   ├── LangevinIntegratorProxy.cpp
+│   │   ├── LangevinMiddleIntegratorProxy.cpp
+│   │   ├── MonteCarloAnisotropicBarostatProxy.cpp
+│   │   ├── MonteCarloBarostatProxy.cpp
+│   │   ├── MonteCarloFlexibleBarostatProxy.cpp
+│   │   ├── MonteCarloMembraneBarostatProxy.cpp
+│   │   ├── NonbondedForceProxy.cpp
+│   │   ├── NoseHooverIntegratorProxy.cpp
+│   │   ├── PeriodicTorsionForceProxy.cpp
+│   │   ├── RBTorsionForceProxy.cpp
+│   │   ├── RMSDForceProxy.cpp
+│   │   ├── SerializationNode.cpp
+│   │   ├── SerializationProxy.cpp
+│   │   ├── SerializationProxyRegistration.cpp
+│   │   ├── StateProxy.cpp
+│   │   ├── SystemProxy.cpp
+│   │   ├── TabulatedFunctionProxies.cpp
+│   │   ├── VariableLangevinIntegratorProxy.cpp
+│   │   ├── VariableVerletIntegratorProxy.cpp
+│   │   ├── VerletIntegratorProxy.cpp
+│   │   └── XmlSerializer.cpp
+│   │       └── ... (42 more files)
+│   ├── tests/
+│   │   ├── CMakeLists.txt
+│   │   ├── TestSerializationNode.cpp
+│   │   ├── TestSerializeAndersenThermostat.cpp
+│   │   ├── TestSerializeATMForce.cpp
+│   │   ├── TestSerializeCMAPTorsion.cpp
+│   │   ├── TestSerializeCMMotionRemover.cpp
+│   │   ├── TestSerializeCustomAngleForce.cpp
+│   │   ├── TestSerializeCustomBondForce.cpp
+│   │   ├── TestSerializeCustomCentroidBondForce.cpp
+│   │   ├── TestSerializeCustomCompoundBondForce.cpp
+│   │   ├── TestSerializeCustomCVForce.cpp
+│   │   ├── TestSerializeCustomExternalForce.cpp
+│   │   ├── TestSerializeCustomGBForce.cpp
+│   │   ├── TestSerializeCustomHbondForce.cpp
+│   │   ├── TestSerializeCustomManyParticleForce.cpp
+│   │   ├── TestSerializeCustomNonbondedForce.cpp
+│   │   ├── TestSerializeCustomTorsionForce.cpp
+│   │   ├── TestSerializeCustomVolumeForce.cpp
+│   │   ├── TestSerializeDPDIntegrator.cpp
+│   │   ├── TestSerializeGayBerneForce.cpp
+│   │   ├── TestSerializeGBSAOBCForce.cpp
+│   │   ├── TestSerializeHarmonicAngleForce.cpp
+│   │   ├── TestSerializeHarmonicBondForce.cpp
+│   │   ├── TestSerializeIntegrator.cpp
+│   │   ├── TestSerializeMonteCarloAnisotropicBarostat.cpp
+│   │   ├── TestSerializeMonteCarloBarostat.cpp
+│   │   ├── TestSerializeMonteCarloFlexibleBarostat.cpp
+│   │   ├── TestSerializeMonteCarloMembraneBarostat.cpp
+│   │   ├── TestSerializeNonbondedForce.cpp
+│   │   ├── TestSerializeNoseHooverIntegrator.cpp
+│   │   ├── TestSerializePeriodicTorsionForce.cpp
+│   │   ├── TestSerializeRBTorsionForce.cpp
+│   │   ├── TestSerializeRMSDForce.cpp
+│   │   ├── TestSerializeState.cpp
+│   │   ├── TestSerializeSystem.cpp
+│   │   └── TestSerializeTabulatedFunctions.cpp
+│   │       └── ... (31 more files)
+│   └── CMakeLists.txt
+├── tests/
+│   ├── CMakeLists.txt
+│   ├── nacl_amorph.dat
+│   ├── nacl_crystal.dat
+│   ├── TestAndersenThermostat.h
+│   ├── TestATMForce.h
+│   ├── TestBrownianIntegrator.h
+│   ├── TestCheckpoints.h
+│   ├── TestCMAPTorsionForce.h
+│   ├── TestCMMotionRemover.h
+│   ├── TestCompoundIntegrator.h
+│   ├── TestCustomAngleForce.h
+│   ├── TestCustomBondForce.h
+│   ├── TestCustomCentroidBondForce.h
+│   ├── TestCustomCompoundBondForce.h
+│   ├── TestCustomCPPForce.h
+│   ├── TestCustomCVForce.h
+│   ├── TestCustomExternalForce.h
+│   ├── TestCustomGBForce.h
+│   ├── TestCustomHbondForce.h
+│   ├── TestCustomIntegrator.h
+│   ├── TestCustomManyParticleForce.h
+│   ├── TestCustomNonbondedForce.h
+│   ├── TestCustomTorsionForce.h
+│   ├── TestCustomVolumeForce.cpp
+│   ├── TestDispersionPME.h
+│   ├── TestDPDIntegrator.h
+│   ├── TestEnforcePeriodicBox.cpp
+│   ├── TestEwald.h
+│   ├── TestFindExclusions.cpp
+│   ├── TestFindMolecules.cpp
+│   ├── TestGayBerneForce.h
+│   ├── TestGBSAOBCForce.h
+│   ├── TestHarmonicAngleForce.h
+│   ├── TestHarmonicBondForce.h
+│   ├── TestLangevinIntegrator.h
+│   ├── TestLangevinMiddleIntegrator.h
+│   ├── TestLocalEnergyMinimizer.h
+│   ├── TestMonteCarloAnisotropicBarostat.h
+│   ├── TestMonteCarloBarostat.h
+│   ├── TestMonteCarloFlexibleBarostat.h
+│   ├── TestMultipleForces.h
+│   ├── TestNonbondedForce.h
+│   ├── TestNoseHooverIntegrator.h
+│   ├── TestParser.cpp
+│   ├── TestPeriodicTorsionForce.h
+│   ├── TestRBTorsionForce.h
+│   ├── TestRMSDForce.h
+│   ├── TestSettle.h
+│   ├── TestSplineFitter.cpp
+│   ├── TestSystem.cpp
+│   ├── TestVariableLangevinIntegrator.h
+│   ├── TestVariableVerletIntegrator.h
+│   ├── TestVectorExpression.cpp
+│   ├── TestVectorize.cpp
+│   ├── TestVectorizeAvx.cpp
+│   ├── TestVectorizeAvx2.cpp
+│   ├── TestVectorizeGeneric.h
+│   ├── TestVerletIntegrator.h
+│   └── TestVirtualSites.h
+│       └── ... (54 more files)
+├── wrappers/
+│   ├── python/
+│   │   ├── openmm/
+│   │   │   ├── app/
+│   │   │   ├── unit/
+│   │   │   ├── __init__.py
+│   │   │   ├── amd.py
+│   │   │   ├── mtsintegrator.py
+│   │   │   ├── testInstallation.py
+│   │   │   └── vec3.py
+│   │   ├── simtk/
+│   │   │   ├── openmm/
+│   │   │   ├── unit/
+│   │   │   └── __init__.py
+│   │   ├── src/
+│   │   │   └── swig_doxygen/
+│   │   ├── tests/
+│   │   │   ├── systems/
+│   │   │   ├── pytest.ini
+│   │   │   ├── TestAmberInpcrdFile.py
+│   │   │   ├── TestAmberPrmtopFile.py
+│   │   │   ├── TestAPIUnits.py
+│   │   │   ├── TestATMForce.py
+│   │   │   ├── TestBytes.py
+│   │   │   ├── TestCharmmFiles.py
+│   │   │   ├── TestCheckpointReporter.py
+│   │   │   ├── TestDcdFile.py
+│   │   │   ├── TestDesmondDMSFile.py
+│   │   │   ├── TestElement.py
+│   │   │   ├── TestForceField.py
+│   │   │   ├── TestForceGroups.py
+│   │   │   ├── TestGenerators.py
+│   │   │   ├── TestGromacsGroFile.py
+│   │   │   ├── TestGromacsTopFile.py
+│   │   │   ├── TestIntegrators.py
+│   │   │   ├── TestMetadynamics.py
+│   │   │   ├── TestModeller.py
+│   │   │   ├── TestNumpyCompatibility.py
+│   │   │   ├── TestPatches.py
+│   │   │   ├── TestPdbFile.py
+│   │   │   ├── TestPdbReporter.py
+│   │   │   ├── TestPdbxFile.py
+│   │   │   ├── TestPickle.py
+│   │   │   ├── TestSimulatedTempering.py
+│   │   │   ├── TestSimulation.py
+│   │   │   ├── TestStateDataReporter.py
+│   │   │   ├── TestSwigWrappers.py
+│   │   │   ├── TestTopology.py
+│   │   │   ├── TestUnitCell.py
+│   │   │   ├── TestUnits.py
+│   │   │   ├── TestVec3.py
+│   │   │   ├── TestXtcFile.py
+│   │   │   ├── validateConstraints.py
+│   │   │   └── validateModeller.py
+│   │   │       └── ... (31 more files)
+│   │   ├── CMakeLists.txt
+│   │   ├── MANIFEST.in
+│   │   ├── pysetup.cmake.in
+│   │   └── setup.py
+│   ├── CMakeLists.txt
+│   ├── Doxyfile.in
+│   └── generateWrappers.py
+├── .gitignore
+├── .travis.yml
+├── appveyor.yml
+├── CMakeLists.txt
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── README.md
+└── SUPPORT.md
+    └── ... (3 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

@@ -1,0 +1,620 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       └── build_and_test_matrix.yml
+├── _skbuild/
+│   └── linux-x86_64-3.10/
+│       ├── cmake-build/
+│       │   ├── CMakeFiles/
+│       │   ├── sfepy/
+│       │   ├── .ninja_log
+│       │   ├── build.ninja
+│       │   ├── cmake_install.cmake
+│       │   ├── CMakeCache.txt
+│       │   └── CMakeSpec.json
+│       ├── cmake-install/
+│       └── setuptools/
+├── doc/
+│   ├── _static/
+│   │   ├── sfepy.css
+│   │   ├── sfepy_logo.png
+│   │   ├── sfepy_sphinx2_fix.css
+│   │   └── uwb_logo.png
+│   ├── _templates/
+│   │   └── layout.html
+│   ├── images/
+│   │   ├── mat_optim/
+│   │   │   ├── iterations.png
+│   │   │   ├── macro_micro.png
+│   │   │   ├── microstruct_rve.png
+│   │   │   └── tensile_test.png
+│   │   ├── preprocessing/
+│   │   │   ├── circle_in_square.png
+│   │   │   ├── sdf_gmsh1.png
+│   │   │   ├── sdf_gmsh2.png
+│   │   │   ├── sdf_mesh.png
+│   │   │   ├── sdh_freecad.png
+│   │   │   ├── sdh_mesh.png
+│   │   │   ├── sdh_openscad.png
+│   │   │   ├── workflow.png
+│   │   │   └── workflow.svg
+│   │   │       └── ... (4 more files)
+│   │   ├── primer/
+│   │   │   ├── ITS.png
+│   │   │   ├── ITS2D.png
+│   │   │   ├── its2D_0.png
+│   │   │   ├── its2D_01.png
+│   │   │   ├── its2D_1.png
+│   │   │   ├── its2D_2.png
+│   │   │   ├── its2D_3.png
+│   │   │   ├── its2D_4.png
+│   │   │   ├── mesh1.png
+│   │   │   ├── mesh2.png
+│   │   │   ├── mesh3.png
+│   │   │   ├── mesh4.png
+│   │   │   ├── probe_its2D_line0.png
+│   │   │   └── probe_its2D_line1.png
+│   │   │       └── ... (9 more files)
+│   │   ├── resview/
+│   │   │   ├── resview_shot1.png
+│   │   │   ├── resview_shot2.png
+│   │   │   └── resview_shot3.png
+│   │   ├── splinebox/
+│   │   │   ├── spbox.png
+│   │   │   ├── spbox_cp.png
+│   │   │   ├── spregion2d.png
+│   │   │   └── spregion2d_def.png
+│   │   ├── using_salome/
+│   │   │   └── EDF1_screen10.png
+│   │   ├── elements.png
+│   │   ├── linear_elasticity_regions.png
+│   │   ├── linear_elasticity_solution1.png
+│   │   └── linear_elasticity_solution2.png
+│   ├── mat_optim/
+│   │   ├── homogenization_opt_src.rst
+│   │   ├── linear_elasticity_opt_src.rst
+│   │   └── material_opt_src.rst
+│   ├── preprocessing/
+│   │   ├── circle_in_square.geo
+│   │   ├── screwdriver_full.geo
+│   │   ├── screwdriver_full.py
+│   │   ├── screwdriver_full.scad
+│   │   ├── screwdriver_handle.geo
+│   │   ├── screwdriver_handle.py
+│   │   └── screwdriver_handle.scad
+│   │       └── ... (2 more files)
+│   ├── src/
+│   │   ├── sfepy/
+│   │   │   ├── applications/
+│   │   │   ├── base/
+│   │   │   ├── discrete/
+│   │   │   ├── homogenization/
+│   │   │   ├── linalg/
+│   │   │   ├── mechanics/
+│   │   │   ├── mesh/
+│   │   │   ├── parallel/
+│   │   │   ├── postprocess/
+│   │   │   ├── scripts/
+│   │   │   ├── solvers/
+│   │   │   ├── terms/
+│   │   │   ├── tests/
+│   │   │   ├── config.rst
+│   │   │   └── version.rst
+│   │   └── tools/
+│   │       ├── build_helpers.rst
+│   │       ├── gen_field_table.rst
+│   │       ├── gen_gallery.rst
+│   │       ├── gen_legendre_simplex_base.rst
+│   │       ├── gen_lobatto1d_c.rst
+│   │       ├── gen_release_notes.rst
+│   │       ├── gen_serendipity_basis.rst
+│   │       ├── gen_solver_table.rst
+│   │       ├── gen_term_table.rst
+│   │       ├── install_data.rst
+│   │       ├── show_authors.rst
+│   │       ├── show_terms_use.rst
+│   │       └── sync_module_docs.rst
+│   │           └── ... (8 more files)
+│   ├── archived_news.rst
+│   ├── archived_support.rst
+│   ├── conf.py
+│   ├── dev_info.rst
+│   ├── dev_topics.rst
+│   ├── developer_guide.rst
+│   ├── development.rst
+│   ├── documentation.rst
+│   ├── downloads.rst
+│   ├── doxygen.config
+│   ├── ebcs_implementation.rst
+│   ├── examples.rst
+│   ├── faq.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── introduction.rst
+│   ├── license.rst
+│   ├── linear_combination_bc.rst
+│   ├── links.inc
+│   ├── make.bat
+│   ├── Makefile
+│   ├── man-sfepy-run.rst
+│   ├── man-sfepy-view.rst
+│   ├── mat_optim.rst
+│   ├── news.rst
+│   ├── preprocessing.rst
+│   ├── primer.rst
+│   ├── problem_desc_file_long.rst
+│   ├── release_notes.rst
+│   ├── release_tasks.rst
+│   ├── solving_pdes_by_fem.rst
+│   ├── splinebox.rst
+│   ├── terms_overview.rst
+│   ├── theory.rst
+│   ├── tutorial.rst
+│   ├── users_guide.rst
+│   └── using_salome.rst
+│       └── ... (32 more files)
+├── meshes/
+│   ├── 2d/
+│   │   ├── special/
+│   │   │   ├── channels_symm944t.mesh
+│   │   │   ├── circle_in_square.geo
+│   │   │   ├── circle_in_square.mesh
+│   │   │   ├── circle_in_square_small.mesh
+│   │   │   ├── circles_in_square.vtk
+│   │   │   ├── hanging_nodes.mesh
+│   │   │   ├── osteonT1_11.mesh
+│   │   │   ├── square_triquad.mesh
+│   │   │   └── two_rectangles.mesh
+│   │   │       └── ... (4 more files)
+│   │   ├── acoustic_wg_mid.vtk
+│   │   ├── big.mesh
+│   │   ├── bridge.vtk
+│   │   ├── circle_sym.mesh
+│   │   ├── citroen.geo
+│   │   ├── citroen.h5
+│   │   ├── cross-51-0.34.mesh
+│   │   ├── helmholtz_apartment.geo
+│   │   ├── helmholtz_apartment.vtk
+│   │   ├── its2D.mesh
+│   │   ├── rectangle_tri.mesh
+│   │   ├── square_1m.mesh
+│   │   ├── square_2m.mesh
+│   │   ├── square_quad.mesh
+│   │   ├── square_tri1.mesh
+│   │   ├── square_tri2.mesh
+│   │   └── square_unit_tri.mesh
+│   │       └── ... (12 more files)
+│   ├── 3d/
+│   │   ├── special/
+│   │   │   ├── cross3d.mesh
+│   │   │   ├── cube_cylinder.mesh
+│   │   │   └── cube_sphere.mesh
+│   │   ├── acoustic_wg.vtk
+│   │   ├── acoustics_mesh3d.mesh
+│   │   ├── beam_h5t12.mesh
+│   │   ├── beam_h7.mesh
+│   │   ├── beam_t42.mesh
+│   │   ├── beam_w14.vtk
+│   │   ├── block.mesh
+│   │   ├── bridge3d.vtk
+│   │   ├── cube_big_tetra.mesh
+│   │   ├── cube_medium_hexa.mesh
+│   │   ├── cube_medium_tetra.mesh
+│   │   ├── cylinder.mesh
+│   │   ├── cylinder.vtk
+│   │   ├── cylinder_in_box.geo
+│   │   ├── cylinder_in_box.mesh
+│   │   ├── elbow.mesh
+│   │   ├── elbow2.mesh
+│   │   ├── hsphere8.vtk
+│   │   ├── matrix_fiber.mesh
+│   │   ├── matrix_fiber_rand.vtk
+│   │   ├── multi_material_cylinder_plate.geo
+│   │   ├── multi_material_cylinder_plate.vtk
+│   │   ├── perfusion_micro3d.mesh
+│   │   ├── piezo_mesh_micro.vtk
+│   │   ├── unit_ball.mesh
+│   │   └── wheelset.vtk
+│   │       └── ... (21 more files)
+│   ├── elements/
+│   │   ├── 1_2_1.mesh
+│   │   ├── 1_2_2.mesh
+│   │   ├── 2_1_2_2.mesh
+│   │   ├── 2_3_1.mesh
+│   │   ├── 2_3_2.mesh
+│   │   ├── 2_3_2z.mesh
+│   │   ├── 2_4_1.mesh
+│   │   ├── 2_4_2.mesh
+│   │   ├── 3_1_2_2.mesh
+│   │   ├── 3_2_4_2.mesh
+│   │   ├── 3_4_1.mesh
+│   │   ├── 3_4_2.mesh
+│   │   ├── 3_4_2z.mesh
+│   │   ├── 3_8_1.mesh
+│   │   └── 3_8_2.mesh
+│   │       └── ... (10 more files)
+│   ├── iga/
+│   │   ├── block2d.iga
+│   │   ├── block3d.iga
+│   │   └── patch2d.iga
+│   ├── quantum/
+│   │   ├── square.geo
+│   │   └── square.mesh
+│   └── various_formats/
+│       ├── abaqus_hex.inp
+│       ├── abaqus_quad.inp
+│       ├── abaqus_quad_tri.inp
+│       ├── abaqus_tet.inp
+│       ├── abaqus_tri.inp
+│       ├── comsol_tri.txt
+│       ├── cube.bdf
+│       ├── hex4.mesh3d
+│       ├── msh_tetra.msh
+│       ├── msh_tri.msh
+│       ├── octahedron.ele
+│       ├── octahedron.node
+│       ├── small2d.mesh
+│       ├── small2d.vtk
+│       ├── small3d.mesh
+│       ├── tetra8.mesh3d
+│       ├── xyz_quad.ien
+│       ├── xyz_quad.xyz
+│       ├── xyz_tet.ien
+│       └── xyz_tet.xyz
+│           └── ... (15 more files)
+├── sfepy/
+│   ├── applications/
+│   │   ├── __init__.py
+│   │   ├── application.py
+│   │   ├── evp_solver_app.py
+│   │   └── pde_solver_app.py
+│   ├── base/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── compat.py
+│   │   ├── conf.py
+│   │   ├── getch.py
+│   │   ├── goptions.py
+│   │   ├── ioutils.py
+│   │   ├── log.py
+│   │   ├── log_plotter.py
+│   │   ├── mem_usage.py
+│   │   ├── multiproc.py
+│   │   ├── multiproc_mpi.py
+│   │   ├── multiproc_proc.py
+│   │   ├── parse_conf.py
+│   │   ├── plotutils.py
+│   │   ├── reader.py
+│   │   ├── resolve_deps.py
+│   │   ├── testing.py
+│   │   └── timing.py
+│   │       └── ... (14 more files)
+│   ├── discrete/
+│   │   ├── common/
+│   │   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── dof_info.py
+│   │   │   ├── domain.py
+│   │   │   ├── fields.py
+│   │   │   ├── global_interp.py
+│   │   │   ├── mappings.py
+│   │   │   ├── poly_spaces.py
+│   │   │   └── region.py
+│   │   │       └── ... (3 more files)
+│   │   ├── dg/
+│   │   │   ├── __init__.py
+│   │   │   ├── dg_1D_vizualizer.py
+│   │   │   ├── fields.py
+│   │   │   ├── limiters.py
+│   │   │   └── poly_spaces.py
+│   │   ├── fem/
+│   │   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── _serendipity.py
+│   │   │   ├── domain.py
+│   │   │   ├── facets.py
+│   │   │   ├── fe_surface.py
+│   │   │   ├── fields_base.py
+│   │   │   ├── fields_hierarchic.py
+│   │   │   ├── fields_l2.py
+│   │   │   ├── fields_nodal.py
+│   │   │   ├── fields_positive.py
+│   │   │   ├── geometry_element.py
+│   │   │   ├── history.py
+│   │   │   ├── lcbc_operators.py
+│   │   │   ├── linearizer.py
+│   │   │   ├── mappings.py
+│   │   │   ├── mesh.py
+│   │   │   ├── meshio.py
+│   │   │   ├── periodic.py
+│   │   │   ├── poly_spaces.py
+│   │   │   ├── refine.py
+│   │   │   ├── refine_hanging.py
+│   │   │   └── utils.py
+│   │   │       └── ... (17 more files)
+│   │   ├── iga/
+│   │   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── domain.py
+│   │   │   ├── domain_generators.py
+│   │   │   ├── fields.py
+│   │   │   ├── iga.py
+│   │   │   ├── io.py
+│   │   │   ├── mappings.py
+│   │   │   ├── plot_nurbs.py
+│   │   │   └── utils.py
+│   │   │       └── ... (4 more files)
+│   │   ├── structural/
+│   │   │   ├── __init__.py
+│   │   │   ├── fields.py
+│   │   │   └── mappings.py
+│   │   ├── __init__.py
+│   │   ├── conditions.py
+│   │   ├── equations.py
+│   │   ├── evaluate.py
+│   │   ├── evaluate_variable.py
+│   │   ├── functions.py
+│   │   ├── integrals.py
+│   │   ├── materials.py
+│   │   ├── parse_equations.py
+│   │   ├── parse_regions.py
+│   │   ├── probes.py
+│   │   ├── problem.py
+│   │   ├── projections.py
+│   │   ├── quadratures.py
+│   │   ├── simplex_cubature.py
+│   │   └── variables.py
+│   │       └── ... (11 more files)
+│   ├── examples/
+│   │   ├── acoustics/
+│   │   │   ├── __init__.py
+│   │   │   ├── acoustics.py
+│   │   │   ├── acoustics3d.py
+│   │   │   ├── helmholtz_apartment.py
+│   │   │   └── vibro_acoustic3d.py
+│   │   ├── dg/
+│   │   │   ├── __init__.py
+│   │   │   ├── advection_1D.py
+│   │   │   ├── advection_2D.py
+│   │   │   ├── advection_diffusion_2D.py
+│   │   │   ├── burgers_2D.py
+│   │   │   ├── dg_plot_1D.py
+│   │   │   ├── example_dg_common.py
+│   │   │   ├── imperative_burgers_1D.py
+│   │   │
+... (389 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi ---
+SUCCESS: True
+
+--- Command: if [ -f pyproject.toml ]; then pip install .; fi ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting matplotlib (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+Collecting meshio (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/89/5f/39cbadc320cd78f4834b0a9f7a2fa3c980dca942bf193f315837eacb8870/meshio-5.3.5-py3-none-any.whl (166 kB)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b) (2.2.6)
+Collecting pyparsing (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/05/e7/df2285f3d08fee213f2d041540fa4fc9ca6c2d44cf36d3a035bf2a8d2bcc/pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Collecting pyvista (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/59/39/a42bf1a87c9414ca6900ac694b92ed657300461913f0abe18d4364a716f1/pyvista-0.46.0-py3-none-any.whl (2.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 11.0 MB/s  0:00:00
+Collecting scipy (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+Collecting sympy (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/a2/09/77d55d46fd61b4a135c444fc97158ef34a095e5681d0a6c10b75bf356191/sympy-1.14.0-py3-none-any.whl (6.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 11.3 MB/s  0:00:00
+Collecting tables (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/0a/7d/3165c7538b8e89b22fa17ad68e04106cca7023cf68e94011ae7b3b6d2a78/tables-3.10.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (7.6 MB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b) (25.0)
+Collecting contourpy>=1.0.1 (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/32/5c/1ee32d1c7956923202f00cf8d2a14a62ed7517bdc0ee1e55301227fc273c/contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+Collecting cycler>=0.10 (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting fonttools>=4.22.0 (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/05/57/767e31e48861045d89691128bd81fd4c62b62150f9a17a666f731ce4f197/fonttools-4.59.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.8 MB)
+Collecting kiwisolver>=1.3.1 (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/de/c6/7b9bb8044e150d4d1558423a1568e4f227193662a02231064e3824f37e0a/kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+Collecting pillow>=8 (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/f0/16/1a6bf01fb622fb9cf5c91683823f073f053005c849b1f52ed613afcf8dae/pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.7->matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b) (1.17.0)
+Collecting rich (from meshio->sfepy==
+... (38 lines omitted)
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Building wheel for sfepy (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [261 lines of output]
+      sympy (optional) is missing; some tests are going to fail!
+      igakit (optional) is missing; you may get run-time errors
+      petsc4py (optional) is missing; you may get run-time errors
+      mpi4py (optional) is missing; you may get run-time errors
+      slepc4py (optional) is missing; you may get run-time errors
+      pymetis (optional) is missing; you may get run-time errors
+      scikits.umfpack (optional) is missing; you may get run-time errors
+      psutil (optional) is missing; you may get run-time errors
+      pyvista (optional) is missing; you may get run-time errors
+      opt_einsum (optional) is missing; you may get run-time errors
+      jax (optional) is missing; you may get run-time errors
+      dask (optional) is missing; you may get run-time errors
+      primme (optional) is missing; you may get run-time errors
+      oct2py (optional) is missing; you may get run-time errors
+      mumpspy (optional) is missing; you may get run-time errors
+      mumps (optional) is missing; you may get run-time errors
+      ipctk (optional) is missing; you may get run-time errors
+      pypardiso (optional) is missing; you may get run-time errors
+      /tmp/pip-build-env-x_mqgj_d/overlay/local/lib/python3.10/dist-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: BSD License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        self._finalize_license_expression()
+      
+      
+      --------------------------------------------------------------------------------
+      -- Trying 'Ninja' generator
+      --------------------------------
+      ---------------------------
+      ----------------------
+      -----------------
+      ------------
+      -------
+      --
+      CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+        Compatibility with CMake < 3.10 will be removed from a future version of
+        CMake.
+      
+        Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+        to tell CMake that the project requires at least <min> but has been updated
+        to work with policies introduced by <max> or earlier.
+      
+      Not searching for unused variables given on the command line.
+      
+      -- The C compiler identification is GNU 11.4.0
+      -- Detecting C compiler ABI info
+      -- Detecting C compiler ABI info - done
+      -- Check for working C compiler: /usr/bin/cc - skipped
+      -- Detecting C compile features
+      -- Detecting C compile features - done
+      -- Configuring done (0.1s)
+      -- Generating done (0.0s)
+      -- Build files have been written to: /app/repo_to_process/_cmake_test_compile/build
+      --
+      -------
+      ------------
+      -----------------
+      ----------------------
+      ---------------------------
+      --------------------------------
+      -- Trying 'Ninja' generator - success
+      --------------------------------------------------------------------------------
+      
+      Configuring Project
+        Working directory:
+          /app/repo_to_process/_skbuild/linux-x86_64-3.10/cmake-build
+        Command:
+          /tmp/pip-build-env-x_mqgj_d/overlay/local/lib/python3.10/dist-packages/cmake/data/bin/cmake /app/repo_to_process -G Ninja -DCMAKE_MAKE_PROGRAM:FILEPATH=/tmp/pip-build-env-x_mqgj_d/overlay/local/lib/python3.10/dist-packages/ninja/data/bin/ninja --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX:PATH=/app/repo_to_process/_skbuild/linux-x86_64-3.10/cmake-install -DPYTHON_VERSION_STRING:STRING=3.10.12 -DSKBUILD:INTERNAL=TRUE -DCMAKE_MODULE_PATH:PATH=/tmp/pip-build-env-x_mqgj_d/overlay/local/lib/python3.10/dist-packages/skbuild/resources/cmake -DPYTHON_EXECUTABLE:PATH=/usr/bin/python3 -DPYTHON_INCLUDE_DIR:PATH=/usr/include/python3.10 -DPython_EXECUTABLE:PATH=/usr/bin/python3 -DPython_ROOT_DIR:PATH=/usr -DPython_FIND_REGISTRY:STRING=NEVER -DPython_INCLUDE_DIR:PATH=/usr/include/python3.10 -DPython_NumPy_INCLUDE_DIRS:PATH=/tmp/pip-build-env-x_mqgj_d/overlay/local/lib/python3.10/dist-packages/numpy/_core/include -DPython3_EXECUTABLE:PATH=/usr/bin/python3 -DPython3_ROOT_DIR:PATH=/usr -DPython3_FIND_REGISTRY:STRING=NEVER -DPython3_INCLUDE_DIR:PATH=/usr/include/python3.10 -DPython3_NumPy_INCLUDE_DIRS:PATH=/tmp/pip-build-env-x_mqgj_d/overlay/local/lib/python3.10/dist-packages/numpy/_core/include -DCMAKE_MAKE_PROGRAM:FILEPATH=/tmp/pip-build-env-x_mqgj_d/overlay/local/lib/python3.10/dist-packages/ninja/data/bin/ninja '-DCMAKE_C_FLAGS=-g -O2 -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security' -DDEBUG_FMF=OFF -DDEBUG_MESH=OFF -DCMAKE_BUILD_TYPE:STRING=Release
+      
+      Not searching for unused variables given on the command line.
+      -- The C compiler identification is GNU 11.4.0
+      -- Detecting C compiler ABI info
+      -- Detecting C compiler ABI info - done
+      -- Check for working C compiler: /usr/bin/cc - skipped
+      -- Detecting C compile features
+      -- Detecting C compile features - done
+      CMake Warning (dev) at /tmp/pip-build-env-x_mqgj_d/overlay/local/lib/python3.10/dist-packages/skbuild/resources/cmake/FindPythonExtensions.cmake:245 (find_package):
+        Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+        are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+        the cmake_policy command to set the policy and suppress this warning.
+      
+      Call Stack (most recent call first):
+        CMakeLists.txt:6 (find_package)
+      This warning is for project developers.  Use -Wno-dev to suppress it.
+      
+      -- Found PythonInterp: /usr/bin/python3 (found version "3.10.12")
+      CMake Warning (dev) at /tmp/pip-build-env-x_mqgj_d/overlay/local/lib/python3.10/dist-packages/skbuild/resources/cmake/FindPythonExtensions.cmake:248 (find_package):
+        Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+        are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+        the cmake_policy command to set the policy and suppress this warning.
+      
+      Call Stack (most recent call first):
+        CMakeLists.txt:6 (find_package)
+      This warning is for project developers.  Use -Wno-dev to suppress it.
+      
+      -- Found PythonLibs: no-library-required
+      -- Found Cython: /tmp/pip-build-env-x_mqgj_d/overlay/local/bin/cython
+      -- Found NumPy: /tmp/pip-build-env-x_mqgj_d/overlay/local/lib/python3.10/dist-packages/numpy/_core/include (found version "2.2.6")
+      _modinit_prefix:PyInit_
+      _modinit_prefix:PyInit_
+      _modinit_prefix:PyInit_
+      _modinit_prefix:PyInit_
+      _modinit_prefix:PyInit_
+      _modinit_prefix:PyInit_
+      _modinit_prefix:PyInit_
+      _modinit_prefix:PyInit_
+      _modinit_prefix:PyInit_
+      _modinit_prefix:PyInit_
+      _modinit_prefix:PyInit_
+      -- Configuring done (1.1s)
+      -- Generating done (0.0s)
+      -- Build files have been written to: /app/repo_to_process/_skbuild/linux-x86_64-3.10/cmake-build
+      [1/66] Building C object sfepy/discrete/common/extmods/CMakeFiles/sfepy_common.dir/common_python.c.o
+      FAILED: sfepy/discrete/common/extmods/CMakeFiles/sfepy_common.dir/common_python.c.o
+      /usr/bin/cc -DNPY_NO_DEPRECATED_API=NPY_2_0_API
+... (146 lines omitted)
+
+--- Command: if [ -f setup.py ]; then pip install .; fi ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting matplotlib (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+Collecting meshio (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/89/5f/39cbadc320cd78f4834b0a9f7a2fa3c980dca942bf193f315837eacb8870/meshio-5.3.5-py3-none-any.whl (166 kB)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b) (2.2.6)
+Collecting pyparsing (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/05/e7/df2285f3d08fee213f2d041540fa4fc9ca6c2d44cf36d3a035bf2a8d2bcc/pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Collecting pyvista (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/59/39/a42bf1a87c9414ca6900ac694b92ed657300461913f0abe18d4364a716f1/pyvista-0.46.0-py3-none-any.whl (2.4 MB)
+Collecting scipy (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+Collecting sympy (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/a2/09/77d55d46fd61b4a135c444fc97158ef34a095e5681d0a6c10b75bf356191/sympy-1.14.0-py3-none-any.whl (6.3 MB)
+Collecting tables (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/0a/7d/3165c7538b8e89b22fa17ad68e04106cca7023cf68e94011ae7b3b6d2a78/tables-3.10.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (7.6 MB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b) (25.0)
+Collecting contourpy>=1.0.1 (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/32/5c/1ee32d1c7956923202f00cf8d2a14a62ed7517bdc0ee1e55301227fc273c/contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+Collecting cycler>=0.10 (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting fonttools>=4.22.0 (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/05/57/767e31e48861045d89691128bd81fd4c62b62150f9a17a666f731ce4f197/fonttools-4.59.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.8 MB)
+Collecting kiwisolver>=1.3.1 (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/de/c6/7b9bb8044e150d4d1558423a1568e4f227193662a02231064e3824f37e0a/kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+Collecting pillow>=8 (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/f0/16/1a6bf01fb622fb9cf5c91683823f073f053005c849b1f52ed613afcf8dae/pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.7->matplotlib->sfepy==2025.2+git.542d54540c78a2422bbf4042bb7b28751e62905b) (1.17.0)
+Collecting rich (from meshio->sfepy==2025.2
+... (298 lines omitted)
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

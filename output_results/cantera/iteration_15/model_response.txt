@@ -1,0 +1,12 @@
+We still have not run pytest yet, and therefore do not know if there are missing dependencies, import errors, or collection errors.
+
+Here is the logical next step for phase 1:
+- Try to discover and run the Python tests, so we can analyze the output.
+- Since there is a `scons test-python` target, but also possibly standard pytest tests, let's first see if there is a test directory or files that pytest will discover.
+- If there is no `tests/` dir, check for a directory with likely python tests (such as `test/`, `python/tests/`, etc.).
+
+Let's simply run pytest from the project root to see what happens. This will show us missing dependencies or collection errors, which we can then address.
+
+```bash
+pytest
+```

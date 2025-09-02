@@ -1,0 +1,11 @@
+The output confirms the critical Cantera extension module `cantera/_cantera` is missing—there is only the `.pyx` source, no compiled `.so` or `.pyd` file.
+
+This is because, for Cantera, you must build the entire project (not just Cython) using SCons (`./SConstruct`) at the root. This step builds the C++ core, shared library, and Cython wrappers.
+
+**Next, attempt a project-wide build using SCons, which should produce the critical shared libraries.**
+
+```bash
+scons build python
+```
+
+After this step, if the build is successful, re-run the test build and/or `pytest` as appropriate.

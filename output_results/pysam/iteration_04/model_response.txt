@@ -1,0 +1,12 @@
+The `pytest` output shows repeated `ModuleNotFoundError: No module named 'pysam'` for all test files. This means the `pysam` package is not installed in the environment as an importable Python module. The previous attempt to install via `pip install -e .` failed because of missing build files (notably `version.sh`) required to build the package.
+
+There is a `htslib/version.sh` in the repo, but the build complains it can't find it (likely it's not executable, in the wrong path, or something else in the build fails).
+
+Let's list the files in `htslib` and ensure `version.sh` exists and is executable, as some builds require it for generating version info. Then, if needed, make it executable and retry the installation.
+
+```bash
+ls -l htslib/version.sh
+chmod +x htslib/version.sh
+pip install -e .
+pytest
+```

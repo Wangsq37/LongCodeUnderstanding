@@ -1,0 +1,8 @@
+The error log shows that installing the package fails because `gdal-config` is missing and a GDAL API version must be specified. Also, running pytest fails with `ModuleNotFoundError: No module named 'fiona'`, which likely means the `fiona` package (the C-extension) isn't installed in the system Python because the build failed due to missing GDAL.
+
+To proceed, I should try to install the binary version of the `fiona` package directly via `pip`, as many distributions (especially wheels on PyPI) come bundled with the correct GDAL dependencies.
+
+```bash
+pip install fiona
+pytest
+```

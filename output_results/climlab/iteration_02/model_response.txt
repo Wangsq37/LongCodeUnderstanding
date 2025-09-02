@@ -1,0 +1,18 @@
+Based on the dependency info from `setup.py`, `climlab` requires:
+
+- numpy
+- xarray
+- scipy
+
+No other main runtime dependencies are listed.
+
+To ensure a clean environment, let's install these dependencies explicitly.
+
+Also, while the `setup_requires` and `install_requires` are present, installing via `pip install .` or with `pip install -e .` would install them, but in testing containers it's safer to pin the runtime dependencies first (since we do not need to build extensions, only to ensure imports for tests).
+
+Let's proceed to install the core dependencies and then run `pytest`. If there are further `ModuleNotFoundError` problems during test collection, we will install those missing packages as we encounter them.
+
+```bash
+pip install numpy xarray scipy
+pytest
+```

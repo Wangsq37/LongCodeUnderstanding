@@ -1,0 +1,21 @@
+The build is failing because the "Ninja" build tool is missing.
+
+Install it to resolve the build dependency:
+
+```bash
+pip install ninja
+```
+
+Then re-run:
+
+```bash
+python setup.py build_ext --inplace
+```
+
+After a successful build, run:
+
+```bash
+pytest
+```
+
+to continue with test collection analysis.

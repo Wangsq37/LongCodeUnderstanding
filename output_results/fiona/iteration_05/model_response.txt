@@ -1,0 +1,11 @@
+The output `No call chains were recorded. (Hint: Check SOURCE_DIRS_TO_TRACK in conftest.py)` suggests that the structure may require tracking a submodule, such as `fiona.fio` rather than just `fiona`. Given `fiona/fio/` contains many scripts/utilities used by the CLI and tests, it's likely most actionable code is there.
+
+To ensure we cover both the top-level package and its important submodule for tracing, update the config accordingly:
+
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['fiona', 'fiona/fio']
+```
+
+```bash
+pytest
+```

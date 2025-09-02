@@ -1,0 +1,536 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── durations/
+│   │   ├── core_tests_durations.json
+│   │   ├── jax_tests_durations.json
+│   │   └── tf_tests_durations.json
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   └── feature_request.yml
+│   ├── stable/
+│   │   ├── all_interfaces.txt
+│   │   ├── core.txt
+│   │   ├── doc.txt
+│   │   ├── external.txt
+│   │   ├── jax.txt
+│   │   ├── tf.txt
+│   │   └── torch.txt
+│   │       └── ... (2 more files)
+│   ├── workflows/
+│   │   ├── scripts/
+│   │   │   ├── benchmarks/
+│   │   │   ├── upload_reports/
+│   │   │   └── set_nightly_version.py
+│   │   ├── assign_bugs.yml
+│   │   ├── changelog_reminder.yml
+│   │   ├── check-external-contributor.yml
+│   │   ├── check_in_artifact.yml
+│   │   ├── code_security_scan.yml
+│   │   ├── determine-workflow-runner.yml
+│   │   ├── docker.yml
+│   │   ├── docs.yml
+│   │   ├── format.yml
+│   │   ├── interface-dependency-versions.yml
+│   │   ├── interface-unit-tests.yml
+│   │   ├── module-validation.yml
+│   │   ├── package_warnings_as_errors.yml
+│   │   ├── rc_sync.yml
+│   │   ├── rtd-check.yml
+│   │   ├── test_numpy_1_compat.yml
+│   │   ├── tests-gpu.yml
+│   │   ├── tests-labs.yml
+│   │   ├── tests.yml
+│   │   ├── trigger_benchmarks.yml
+│   │   ├── unit-test.yml
+│   │   ├── update-durations.yml
+│   │   ├── upload-nightly-release.yml
+│   │   └── upload.yml
+│   │       └── ... (19 more files)
+│   ├── CHANGELOG.md
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CODEOWNERS
+│   ├── CONTRIBUTING.md
+│   └── PULL_REQUEST_TEMPLATE.md
+├── doc/
+│   ├── _static/
+│   │   ├── draw_mpl/
+│   │   │   ├── black_white_style.png
+│   │   │   ├── ctrl_gphase.png
+│   │   │   ├── decimals.png
+│   │   │   ├── draw_mpl_examples.py
+│   │   │   ├── gphase_no_wires.png
+│   │   │   ├── gphase_one_wire.png
+│   │   │   ├── level_none.png
+│   │   │   ├── level_slice.png
+│   │   │   ├── level_top.png
+│   │   │   ├── level_user.png
+│   │   │   ├── main_example.png
+│   │   │   ├── max_length1.png
+│   │   │   ├── max_length2.png
+│   │   │   ├── mid_measure.png
+│   │   │   ├── per_wire_options.png
+│   │   │   ├── postprocessing.png
+│   │   │   ├── rcparams.png
+│   │   │   ├── show_all_wires.png
+│   │   │   ├── sketch_style.png
+│   │   │   ├── snapshot.png
+│   │   │   ├── wire_order.png
+│   │   │   └── wires_labels.png
+│   │   │       └── ... (17 more files)
+│   │   ├── drawer/
+│   │   │   ├── black_white_style.png
+│   │   │   ├── box_gates.png
+│   │   │   ├── box_gates_autosized.png
+│   │   │   ├── box_gates_formatted.png
+│   │   │   ├── cnot.png
+│   │   │   ├── cond.png
+│   │   │   ├── ctrl.png
+│   │   │   ├── example_basic.png
+│   │   │   ├── example_formatted.png
+│   │   │   ├── example_rcParams.png
+│   │   │   ├── example_release_notes.png
+│   │   │   ├── float_layer.png
+│   │   │   ├── just_wires.png
+│   │   │   ├── labels.png
+│   │   │   ├── labels_formatted.png
+│   │   │   ├── labels_test.png
+│   │   │   ├── measure.png
+│   │   │   ├── mpldrawer_examples.py
+│   │   │   └── SWAP.png
+│   │   │       └── ... (14 more files)
+│   │   ├── ops/
+│   │   │   ├── f.pdf
+│   │   │   ├── f.svg
+│   │   │   ├── f.tex
+│   │   │   ├── qmc.pdf
+│   │   │   ├── qmc.svg
+│   │   │   ├── qmc.tex
+│   │   │   ├── QubitCarry.pdf
+│   │   │   ├── QubitCarry.svg
+│   │   │   ├── QubitCarry.tex
+│   │   │   ├── QubitSum.pdf
+│   │   │   ├── QubitSum.svg
+│   │   │   └── QubitSum.tex
+│   │   │       └── ... (7 more files)
+│   │   ├── pulse/
+│   │   │   ├── make_pulse_images.py
+│   │   │   ├── parametrized_coefficients_example.png
+│   │   │   ├── pwc_example.png
+│   │   │   └── rect_example.png
+│   │   ├── qchem/
+│   │   │   ├── fig_mult_active_space.png
+│   │   │   ├── hf_references.png
+│   │   │   ├── orbital_rotation.jpeg
+│   │   │   ├── sd_excitations.png
+│   │   │   └── sketch_active_space.png
+│   │   ├── qcircuit/
+│   │   │   ├── main.tex
+│   │   │   ├── Qcircuit.tex
+│   │   │   └── var_circuit.tex
+│   │   ├── readme/
+│   │   │   ├── banner.png
+│   │   │   ├── banner2.png
+│   │   │   ├── code.gif
+│   │   │   ├── code.png
+│   │   │   ├── code2-numpy.png
+│   │   │   ├── code2-tf.png
+│   │   │   ├── code2-torch.png
+│   │   │   ├── code2.png
+│   │   │   ├── demos.png
+│   │   │   ├── dilution.png
+│   │   │   ├── getting-started.png
+│   │   │   ├── gpu_to_qpu.png
+│   │   │   ├── pl-logo-darkmode.png
+│   │   │   ├── pl-logo-lightmode.png
+│   │   │   ├── pl-logo.png
+│   │   │   ├── research.png
+│   │   │   └── videos.png
+│   │   │       └── ... (12 more files)
+│   │   ├── style/
+│   │   │   ├── black_white_dark_style.png
+│   │   │   ├── black_white_style.png
+│   │   │   ├── default_style.png
+│   │   │   ├── pennylane_sketch_style.png
+│   │   │   ├── pennylane_style.png
+│   │   │   ├── sketch_dark_style.png
+│   │   │   ├── sketch_style.png
+│   │   │   ├── solarized_dark_style.png
+│   │   │   ├── solarized_light_style.png
+│   │   │   └── style_examples.py
+│   │   │       └── ... (5 more files)
+│   │   ├── tape_mpl/
+│   │   │   ├── black_white_style.png
+│   │   │   ├── decimals.png
+│   │   │   ├── default.png
+│   │   │   ├── mid_measure.png
+│   │   │   ├── per_wire_options.png
+│   │   │   ├── postprocessing.png
+│   │   │   ├── rcparams.png
+│   │   │   ├── show_all_wires.png
+│   │   │   ├── sketch_style.png
+│   │   │   ├── Solarize_Light2.png
+│   │   │   ├── tape_mpl_examples.py
+│   │   │   ├── wire_order.png
+│   │   │   └── wires_labels.png
+│   │   │       └── ... (8 more files)
+│   │   ├── templates/
+│   │   │   ├── arithmetic/
+│   │   │   ├── embeddings/
+│   │   │   ├── layers/
+│   │   │   ├── prepselprep/
+│   │   │   ├── qrom/
+│   │   │   ├── qubitization/
+│   │   │   ├── state_preparations/
+│   │   │   ├── subroutines/
+│   │   │   ├── swap_networks/
+│   │   │   ├── tensornetworks/
+│   │   │   ├── broadcast_alltoall.png
+│   │   │   ├── broadcast_chain.png
+│   │   │   ├── broadcast_custom.png
+│   │   │   ├── broadcast_double.png
+│   │   │   ├── broadcast_double_odd.png
+│   │   │   ├── broadcast_pyramid.png
+│   │   │   ├── broadcast_ring.png
+│   │   │   └── broadcast_single.png
+│   │   │       └── ... (3 more files)
+│   │   ├── thumbs/
+│   │   │   └── code.png
+│   │   ├── building_blocks.svg
+│   │   ├── building_blocks2.png
+│   │   ├── building_blocks2.svg
+│   │   ├── circuit_embedding.svg
+│   │   ├── classical_quantum_info.svg
+│   │   ├── clements.png
+│   │   ├── code-intro.png
+│   │   ├── code.png
+│   │   ├── concepts.png
+│   │   ├── concepts.svg
+│   │   ├── cvqnn_layer.png
+│   │   ├── draw_mpl.png
+│   │   ├── fable.png
+│   │   ├── favicon.ico
+│   │   ├── fold_global_zne_by-hand.png
+│   │   ├── forest.png
+│   │   ├── fourier.png
+│   │   ├── fourier_vis_bar_plot.png
+│   │   ├── fourier_vis_bar_plot_2.png
+│   │   ├── fourier_vis_box.png
+│   │   ├── fourier_vis_panel.png
+│   │   ├── fourier_vis_radial_box.png
+│   │   ├── fourier_vis_violin.png
+│   │   ├── grad.png
+│   │   ├── grad.svg
+│   │   ├── hamiltonian_expval_h_plot.png
+│   │   ├── header-dark-mode.png
+│   │   ├── header-tall.png
+│   │   ├── header.png
+│   │   ├── hybrid_graph.png
+│   │   ├── hybrid_graph.svg
+│   │   ├── intro.svg
+│   │   ├── jax.png
+│   │   ├── jigsaw.png
+│   │   ├── jigsaw.svg
+│   │   ├── layer_cvqnn.png
+│   │   ├── layer_interferometer.png
+│   │   ├── layer_interferometerpng.png
+│   │   ├── layer_rnd.png
+│   │   ├── layer_sec.png
+│   │   ├── logo.png
+│   │   ├── logo_new.png
+│   │   ├── logo_new_small.png
+│   │   ├── microsoft.png
+│   │   ├── mid-circuit-measurement.png
+│   │   ├── new_return_types.png
+│   │   ├── numpy.png
+│   │   ├── opengraph.png
+│   │   ├── param_shift_broadcast_speedup.png
+│   │   ├── pennylane.svg
+│   │   ├── pl_wordmark.png
+│   │   ├── projectq_logo.png
+│   │   ├── pytorch.png
+│   │   ├── qaoa_layers.png
+│   │   ├── qaoa_layers.svg
+│   │   ├── qcut_graph.svg
+│   │   ├── qiskit_logo.png
+│   │   ├── qnode.png
+│   │   ├── qnode.svg
+│   │   ├── quantum_function.svg
+│   │   ├── quantum_gradient.svg
+│   │   ├── quantum_node.svg
+│   │   ├── quantumnode.png
+│   │   ├── quantumnode.svg
+│   │   ├── quantumnode_detail.png
+│   │   ├── quantumnode_detail.svg
+│   │   ├── reck.png
+│   │   ├── requires_grad.png
+│   │   ├── simple_hybrid_graph.png
+│   │   ├── simple_hybrid_graph.svg
+│   │   ├── sketch_pennylane_qchem.png
+│   │   ├── strawberryfields_logo.png
+│   │   ├── tensorflow.png
+│   │   ├── transforms_order.png
+│   │   ├── transforms_order.svg
+│   │   ├── two_qubit_decomposition_2_cnots.svg
+│   │   ├── two_qubit_decomposition_3_cnots.svg
+│   │   ├── var_circuit.svg
+│   │   ├── varcirc.png
+│   │   ├── varcirc.svg
+│   │   ├── variational_rough.png
+│   │   ├── variational_rough.svg
+│   │   ├── vc_aoa.svg
+│   │   ├── vc_cc.svg
+│   │   ├── vc_cvkernels.svg
+│   │   ├── vc_cvqnn.svg
+│   │   ├── vc_gatearchitecture.svg
+│   │   ├── vc_general.svg
+│   │   ├── vc_iqp.svg
+│   │   ├── vc_iqp_cv.svg
+│   │   ├── vc_mps.svg
+│   │   ├── vc_staticent.svg
+│   │   ├── vc_tree.svg
+│   │   ├── xanadu_gallery.css
+│   │   └── xanadu_x.png
+│   │       └── ... (90 more files)
+│   ├── _templates/
+│   │   ├── autosummary/
+│   │   │   ├── base.rst
+│   │   │   ├── class.rst
+│   │   │   ├── class_no_inherited.rst
+│   │   │   └── module.rst
+│   │   └── autosummary_core/
+│   │       ├── base.rst
+│   │       ├── class.rst
+│   │       └── module.rst
+│   ├── code/
+│   │   ├── qml.rst
+│   │   ├── qml_bose.rst
+│   │   ├── qml_capture.rst
+│   │   ├── qml_compiler.rst
+│   │   ├── qml_concurrency.rst
+│   │   ├── qml_data.rst
+│   │   ├── qml_debugging.rst
+│   │   ├── qml_decomposition.rst
+│   │   ├── qml_devices.rst
+│   │   ├── qml_drawer.rst
+│   │   ├── qml_exceptions.rst
+│   │   ├── qml_fermi.rst
+│   │   ├── qml_fourier.rst
+│   │   ├── qml_ftqc.rst
+│   │   ├── qml_gradients.rst
+│   │   ├── qml_io.rst
+│   │   ├── qml_kernels.rst
+│   │   ├── qml_labs.rst
+│   │   ├── qml_liealg.rst
+│   │   ├── qml_logging.rst
+│   │   ├── qml_math.rst
+│   │   ├── qml_measurements.rst
+│   │   ├── qml_noise.rst
+│   │   ├── qml_numpy.rst
+│   │   ├── qml_operation.rst
+│   │   ├── qml_ops_op_math.rst
+│   │   ├── qml_pauli.rst
+│   │   ├── qml_pulse.rst
+│   │   ├── qml_pytrees.rst
+│   │   ├── qml_qaoa.rst
+│   │   ├── qml_qchem.rst
+│   │   ├── qml_qcut.rst
+│   │   ├── qml_qnn.rst
+│   │   ├── qml_queuing.rst
+│   │   ├── qml_resource.rst
+│   │   ├── qml_shadows.rst
+│   │   ├── qml_spin.rst
+│   │   ├── qml_tape.rst
+│   │   ├── qml_transforms.rst
+│   │   ├── qml_wires.rst
+│   │   └── qml_workflow.rst
+│   │       └── ... (36 more files)
+│   ├── development/
+│   │   ├── guide/
+│   │   │   ├── adr.rst
+│   │   │   ├── architecture.rst
+│   │   │   ├── contributing.rst
+│   │   │   ├── deprecations_removals.rst
+│   │   │   ├── documentation.rst
+│   │   │   ├── example_module_autosummary.txt
+│   │   │   ├── example_module_rst.txt
+│   │   │   ├── example_package_rst.txt
+│   │   │   ├── installation.rst
+│   │   │   ├── logging.rst
+│   │   │   ├── pl_backprop_device.png
+│   │   │   ├── pl_overview.png
+│   │   │   ├── pl_overview.svg
+│   │   │   ├── pl_workflow.png
+│   │   │   ├── pl_workflow.svg
+│   │   │   ├── pullrequests.rst
+│   │   │   ├── tests.rst
+│   │   │   └── view_doc_build.jpeg
+│   │   │       └── ... (13 more files)
+│   │   ├── adding_operators.rst
+│   │   ├── autograph.rst
+│   │   ├── deprecations.rst
+
+... (1544 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -r requirements.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting numpy~=1.23 (from -r requirements.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/4b/d7/ecf66c1cd12dc28b4040b15ab4d17b773b87fa9d29ca16125de01adb36cd/numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 6.1 MB/s  0:00:02
+Collecting scipy~=1.8 (from -r requirements.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 6.1 MB/s  0:00:06
+Collecting cvxpy~=1.2 (from -r requirements.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/87/94/ad57c816d48bd357494d98b261ed0928277e04e0b2d6e9f952740b920218/cvxpy-1.7.1-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 7.7 MB/s  0:00:00
+Collecting cvxopt~=1.3.0 (from -r requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/41/6d/98814860dbb9cdc27dcb6651b35124d7adca3bfe281f3351abb02a8a3f72/cvxopt-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.6/13.6 MB 5.9 MB/s  0:00:02
+Collecting cachetools~=5.3.0 (from -r requirements.txt (line 5))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/fb/2b/a64c2d25a37aeb921fddb929111413049fc5f8b9a4c1aefaffaafe768d54/cachetools-5.3.3-py3-none-any.whl (9.3 kB)
+Collecting networkx~=2.8 (from -r requirements.txt (line 6))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/42/31/d2f89f1ae42718f8c8a9e440ebe38d7d5fe1e0d9eb9178ce779e365b3ab0/networkx-2.8.8-py3-none-any.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 7.3 MB/s  0:00:00
+Collecting rustworkx~=0.15.1 (from -r requirements.txt (line 7))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/cb/a0/af448af28514e82f36e7431bc88e933ad043e5a95a7985bd9458a05877c6/rustworkx-0.15.1-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 8.5 MB/s  0:00:00
+Collecting autograd~=1.4 (from -r requirements.txt (line 8))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/84/ea/e16f0c423f7d83cf8b79cae9452040fb7b2e020c7439a167ee7c317de448/autograd-1.8.0-py3-none-any.whl (51 kB)
+Collecting tomlkit~=0.13 (from -r requirements.txt (line 9))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/bd/75/8539d011f6be8e29f339c42e633aae3cb73bffa95dd0f9adec09b9c58e85/tomlkit-0.13.3-py3-none-any.whl (38 kB)
+Collecting appdirs~=1.4 (from -r requirements.txt (line 10))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 11)) (25.0)
+Collecting autoray>=0.6.11 (from -r requirements.txt (line 12))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/dc/ca/00c61fcd5bb7ce1dfe3e9313febf2ba11fa17cf619676960f548a7c32586/autoray-0.7.2-py3-none-any.whl (930 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 930.8/930.8 kB 8.5 MB/s  0:00:00
+Collecting matplotlib~=3.5 (from -r requirements.txt (line 13))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 6.2 MB/s  0:00:01
+Collecting opt_einsum~=3.3 (from -r requirements.txt (line 14))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/23/cd/066e86230ae37ed0be70aae89aabf03ca8d9f39c8aea0dec8029455b5540/opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+Collecting requests~=2.31.0 (from -r requirements.txt (line 15))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/70/8e/0e2d847013cb52cd35b38c009bb167a1a26b2ce6cd6965bf26b47bc0bf44/requests-2.31.0-py3-none-any.whl (62 kB)
+Requirement already satisfied: typing_extensions>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 16)) (4.14.1)
+Collecting tach~=0.28.5 (from -r requirements.txt (line 17))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/3c/83/57bbcbcf53dd036a604c33d1a0bc0c4fc877dd764ec5cb561ec44c344f83/tach-0.
+... (86 lines omitted)
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install -r requirements-dev.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting pre-commit>=2.19.0 (from -r requirements-dev.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/5b/a5/987a405322d78a73b66e39e4a90e4ef156fd7141bf71df987e50717c321b/pre_commit-4.3.0-py2.py3-none-any.whl (220 kB)
+Requirement already satisfied: pytest>=8.4.1 in /usr/local/lib/python3.10/dist-packages (from -r requirements-dev.txt (line 2)) (8.4.1)
+Collecting pytest-cov>=3.0.0 (from -r requirements-dev.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/bc/16/4ea354101abb1287856baa4af2732be351c7bee728065aed451b678153fd/pytest_cov-6.2.1-py3-none-any.whl (24 kB)
+Collecting pytest-mock>=3.7.0 (from -r requirements-dev.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b2/05/77b60e520511c53d1c1ca75f1930c7dd8e971d0c4379b7f4b3f9644685ba/pytest_mock-3.14.1-py3-none-any.whl (9.9 kB)
+Collecting pytest-xdist>=2.5.0 (from -r requirements-dev.txt (line 5))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ca/31/d4e37e9e550c2b92a9cbc2e4d0b7420a27224968580b5a447f420847c975/pytest_xdist-3.8.0-py3-none-any.whl (46 kB)
+Collecting pytest-rng (from -r requirements-dev.txt (line 6))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/66/40c88e87c8731d96bb2f9a49329785d24236debb9685f6aaccc52536e697/pytest_rng-1.0.0-py3-none-any.whl (8.0 kB)
+Collecting flaky>=3.7.0 (from -r requirements-dev.txt (line 7))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/7f/b8/b830fc43663246c3f3dd1ae7dca4847b96ed992537e85311e27fa41ac40e/flaky-3.8.1-py2.py3-none-any.whl (19 kB)
+Collecting pytest-forked>=1.4.0 (from -r requirements-dev.txt (line 8))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/f4/af/9c0bda43e486a3c9bf1e0f876d0f241bc3f229d7d65d09331a0868db9629/pytest_forked-1.6.0-py3-none-any.whl (4.9 kB)
+Collecting pytest-benchmark (from -r requirements-dev.txt (line 9))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/9e/d6/b41653199ea09d5969d4e385df9bbfd9a100f28ca7e824ce7c0a016e3053/pytest_benchmark-5.1.0-py3-none-any.whl (44 kB)
+Collecting pytest-split (from -r requirements-dev.txt (line 10))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/d6/a7/cad88e9c1109a5c2a320d608daa32e5ee008ccbc766310f54b1cd6b3d69c/pytest_split-0.10.0-py3-none-any.whl (11 kB)
+Collecting black>=21 (from -r requirements-dev.txt (line 11))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/52/0e/abdf75183c830eaca7589144ff96d49bce73d7ec6ad12ef62185cc0f79a2/black-25.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 7.9 MB/s  0:00:00
+Requirement already satisfied: tomlkit~=0.13 in /usr/local/lib/python3.10/dist-packages (from -r requirements-dev.txt (line 12)) (0.13.3)
+Collecting isort==6.0.1 (from -r requirements-dev.txt (line 13))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/c1/11/114d0a5f4dabbdcedc1125dee0888514c3c3b16d3e9facad87ed96fad97c/isort-6.0.1-py3-none-any.whl (94 kB)
+Collecting pylint==3.3.7 (from -r requirements-dev.txt (line 14))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e8/83/bff755d09e31b5d25cc7fdc4bf3915d1a404e181f1abf0359af376845c24/pylint-3.3.7-py3-none-any.whl (522 kB)
+Requirement already satisfied: rich>=13.7.1 in /usr/local/lib/python3.10/dist-packages (from -r requirements-dev.txt (line 15)) (13.9.4)
+Requirement already satisfied: tach==0.28.5 in /usr/local/lib/python3.10/dist-packages (from -r requirements-dev.txt (line 16)) (0.28.5)
+Collecting build (from -r requirements-dev.txt (line 17))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/cb/8c/2b30c12155ad8de0cf641d76a8b396a16d2c36bc6d50b621a62b7c4567c1/build-1.3.0-py3-none-any.whl (23 kB)
+Collecting astroid<=3.4.0.dev0,>=3.3.8 (from pylint==3.3.7->-r requirements-dev.txt (line 14))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/af/0f/3b8fdc946b4d9cc8cc1e8af42c4e409468c84441b933d037e101b3d72d86/astroid-3.3.11-py3-none-any.whl (275 kB)
+Collecting dill>=0.2 (from pylint==3.3.7->-r requirements-dev.txt (line 14))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/50/3d/9373ad9c56321fdab5b41197068e1d8c25883b3fea29dd361f9b55116869/dill-0.4.0-py3-none-any.whl (119 kB)
+Collecting mccabe<0.8,>=0.6 (from pylint==3.3.7->-r requirements-dev.txt (line 14))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/27/1a/1f68f9ba0c207934b35b86a8ca3aad8395a3d6dd7921c0686e23853ff5a9/mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Collecting platformdirs>=2.2 (from pylint==3.3.7->-r requirements-dev.txt (line 14))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/fe/39/979e8e21520d4e47a0bbe349e2713c0aac6f3d853d0e5b34d76206c439aa/platformdirs-4.3.8-py3-none-any.whl (18 kB)
+Requirement already satisfied: tomli>=1.1 in /usr/local/lib/python3.10/dist-packages (from pylint==3.3.7->-r requirements-dev.txt (line 14)) (2.2.1)
+Requirement already satisfied: pyyaml~=6.0
+... (50 lines omitted)
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install -r requirements-ci.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 1)) (1.26.4)
+Requirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 2)) (1.15.3)
+Requirement already satisfied: cvxpy in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 3)) (1.7.1)
+Requirement already satisfied: cvxopt in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 4)) (1.3.2)
+Requirement already satisfied: networkx in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 5)) (2.8.8)
+Requirement already satisfied: rustworkx in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 6)) (0.15.1)
+Requirement already satisfied: autograd in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 7)) (1.8.0)
+Requirement already satisfied: tomlkit in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 8)) (0.13.3)
+Requirement already satisfied: appdirs in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 9)) (1.4.4)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 10)) (25.0)
+Requirement already satisfied: autoray>=0.6.11 in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 11)) (0.7.2)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 12)) (3.10.5)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 13)) (2.31.0)
+Requirement already satisfied: rich in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 14)) (13.9.4)
+Requirement already satisfied: diastatic-malt in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 15)) (2.15.2)
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 16)) (2.3.1)
+Requirement already satisfied: build in /usr/local/lib/python3.10/dist-packages (from -r requirements-ci.txt (line 17)) (1.3.0)
+Requirement already satisfied: osqp>=0.6.2 in /usr/local/lib/python3.10/dist-packages (from cvxpy->-r requirements-ci.txt (line 3)) (1.0.4)
+Requirement already satisfied: clarabel>=0.5.0 in /usr/local/lib/python3.10/dist-packages (from cvxpy->-r requirements-ci.txt (line 3)) (0.11.1)
+Requirement already satisfied: scs>=3.2.4.post1 in /usr/local/lib/python3.10/dist-packages (from cvxpy->-r requirements-ci.txt (line 3)) (3.2.7.post2)
+Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib->-r requirements-ci.txt (line 12)) (1.3.2)
+Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib->-r requirements-ci.txt (line 12)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib->-r requirements-ci.txt (line 12)) (4.59.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib->-r requirements-ci.txt (line 12)) (1.4.8)
+Requirement already satisfied: pillow>=8 in /usr/local/lib/python3.10/dist-packages (from matplotlib->-r requirements-ci.txt (line 12)) (11.3.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib->-r requirements-ci.txt (line 12)) (3.2.3)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib->-r requirements-ci.txt (line 12)) (2.9.0.post0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests->-r requirements-ci.txt (line 13)) (3.4.2)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests->-r requirements-ci.txt (line 13)) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests->-r requirements-ci.txt (line 13)) (2.5.0)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->-r requirements-ci.txt (line 13)) (2025.8.3)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.10/dist-packages (from rich->-r requirements-ci.txt (line 14)) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.10/dist-packages (from rich->-r requirements-ci.txt (line 14)) (2.19.2)
+Requirement already satisfied: typing-extensions<5.0,>=4.0.0 in /usr/local/lib/python3.10/dist-packages (from rich->-r requirements-ci.txt (line 14)) (4.14.1)
+Requirement already satisfied: astunparse in /usr/local/lib/python3.10/dist-packages (from diastatic-malt->-r requirements-ci.txt (line 15)) (1.6.3)
+Requirement already satisfied: gast in /usr/local/lib/python3.10/dist-packages (from diastatic-malt->-r requirements-ci.txt (line 15)) (0.6.0)
+Requirement already satisfied: termcolor in /usr/local/lib/python3.10/dist-packages (from diastatic-malt->-r requirements-ci.txt (line 15)) (3.1.0)
+Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas->-r requirements-ci.txt (line 16)) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.10/dist-packages (from pandas->-r requirements-ci.txt (line 16)) (2025.2)
+Requirement already satisfied: pyproject_hooks in /usr/local/lib/python3.10/dist-packages (from build->-r requirements-ci.txt (line 17)) (1.2.0)
+Requirement already satisfied: tomli>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from build->-r requirements-ci.txt (line 17)) (2.2.1)
+Requirement already satisfied: cffi in /usr/local/lib/python3.10/dist-packages (from clarabel>=0.5.0->cvxpy->-r requirements-ci.txt (line 3)) (1.17.1)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.10/dist-packages (from markdown-it-py>=2.2.0->
+... (18 lines omitted)
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

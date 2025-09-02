@@ -1,0 +1,9 @@
+```bash
+# The error says "Could not find CMake with version >=3.21".
+# Let's install cmake (latest version from pip, as apt packages are often old).
+pip install cmake
+# Then try the install again.
+pip install --no-build-isolation -e ./python
+# Try pytest after that to check if dolfinx import is now resolved.
+pytest
+```

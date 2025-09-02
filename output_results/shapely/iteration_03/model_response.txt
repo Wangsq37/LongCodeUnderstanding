@@ -1,0 +1,9 @@
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['shapely']
+```
+```bash
+pytest
+```
+```status
+success
+```

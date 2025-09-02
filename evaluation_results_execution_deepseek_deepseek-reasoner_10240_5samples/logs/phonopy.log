@@ -1,0 +1,137 @@
+08/27/2025 23:56:15 - INFO - [phonopy] - 正在为仓库 'phonopy' 启动并准备容器 'agent-run-phonopy'...
+08/27/2025 23:56:17 - INFO - [phonopy] - 容器 'agent-run-phonopy' 已就绪。
+08/27/2025 23:56:17 - INFO - [phonopy] - --- 开始评估组合: ORIGINAL / ORACLE for repo phonopy ---
+08/27/2025 23:56:17 - INFO - [phonopy] - --- 正在处理任务 1/5: phonopy_1 ---
+08/27/2025 23:56:18 - WARNING - [phonopy] -   [失败] 任务 phonopy_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:19 - WARNING - [phonopy] -   [失败] 任务 phonopy_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:20 - WARNING - [phonopy] -   [失败] 任务 phonopy_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:21 - WARNING - [phonopy] -   [失败] 任务 phonopy_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:22 - WARNING - [phonopy] -   [失败] 任务 phonopy_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:22 - INFO - [phonopy] - --- 正在处理任务 2/5: phonopy_59 ---
+08/27/2025 23:56:23 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:56:25 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:56:26 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:56:27 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:56:29 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:56:29 - INFO - [phonopy] - --- 正在处理任务 3/5: phonopy_60 ---
+08/27/2025 23:56:30 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:56:32 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:56:33 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:56:35 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:56:36 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:56:36 - INFO - [phonopy] - --- 正在处理任务 4/5: phonopy_61 ---
+08/27/2025 23:56:37 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:38 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:39 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:40 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:41 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:41 - INFO - [phonopy] - --- 正在处理任务 5/5: phonopy_70 ---
+08/27/2025 23:56:43 - WARNING - [phonopy] -   [失败] 任务 phonopy_70 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:44 - WARNING - [phonopy] -   [失败] 任务 phonopy_70 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:45 - WARNING - [phonopy] -   [失败] 任务 phonopy_70 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:47 - WARNING - [phonopy] -   [失败] 任务 phonopy_70 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:48 - WARNING - [phonopy] -   [失败] 任务 phonopy_70 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:48 - INFO - [phonopy] - --- 开始评估组合: ORIGINAL / RETRIEVAL for repo phonopy ---
+08/27/2025 23:56:48 - INFO - [phonopy] - --- 正在处理任务 1/5: phonopy_1 ---
+08/27/2025 23:56:49 - WARNING - [phonopy] -   [失败] 任务 phonopy_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:50 - WARNING - [phonopy] -   [失败] 任务 phonopy_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:51 - WARNING - [phonopy] -   [失败] 任务 phonopy_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:52 - WARNING - [phonopy] -   [失败] 任务 phonopy_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:54 - WARNING - [phonopy] -   [失败] 任务 phonopy_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:54 - INFO - [phonopy] - --- 正在处理任务 2/5: phonopy_59 ---
+08/27/2025 23:56:55 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:56:57 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:56:58 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:56:59 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:01 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:01 - INFO - [phonopy] - --- 正在处理任务 3/5: phonopy_60 ---
+08/27/2025 23:57:02 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:57:04 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:57:05 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:57:07 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:57:08 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:57:08 - INFO - [phonopy] - --- 正在处理任务 4/5: phonopy_61 ---
+08/27/2025 23:57:09 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:57:10 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:57:11 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:57:12 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:57:13 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:57:13 - INFO - [phonopy] - --- 正在处理任务 5/5: phonopy_70 ---
+08/27/2025 23:57:15 - WARNING - [phonopy] -   [失败] 任务 phonopy_70 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:57:16 - WARNING - [phonopy] -   [失败] 任务 phonopy_70 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:57:17 - WARNING - [phonopy] -   [失败] 任务 phonopy_70 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:57:19 - WARNING - [phonopy] -   [失败] 任务 phonopy_70 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:57:20 - WARNING - [phonopy] -   [失败] 任务 phonopy_70 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:57:20 - INFO - [phonopy] - --- 开始评估组合: REWRITE / ORACLE for repo phonopy ---
+08/27/2025 23:57:20 - INFO - [phonopy] - --- 正在处理任务 1/5: phonopy_1 ---
+08/27/2025 23:57:21 - INFO - [phonopy] -   [成功] 任务 phonopy_1 测试通过。
+08/27/2025 23:57:22 - INFO - [phonopy] -   [成功] 任务 phonopy_1 测试通过。
+08/27/2025 23:57:23 - INFO - [phonopy] -   [成功] 任务 phonopy_1 测试通过。
+08/27/2025 23:57:23 - INFO - [phonopy] -   [成功] 任务 phonopy_1 测试通过。
+08/27/2025 23:57:24 - INFO - [phonopy] -   [成功] 任务 phonopy_1 测试通过。
+08/27/2025 23:57:24 - INFO - [phonopy] - --- 正在处理任务 2/5: phonopy_59 ---
+08/27/2025 23:57:26 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:27 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:29 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:30 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:31 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:32 - INFO - [phonopy] - --- 正在处理任务 3/5: phonopy_60 ---
+08/27/2025 23:57:33 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:57:34 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:57:36 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:57:37 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:57:39 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:57:39 - INFO - [phonopy] - --- 正在处理任务 4/5: phonopy_61 ---
+08/27/2025 23:57:39 - INFO - [phonopy] -   [成功] 任务 phonopy_61 测试通过。
+08/27/2025 23:57:40 - INFO - [phonopy] -   [成功] 任务 phonopy_61 测试通过。
+08/27/2025 23:57:41 - INFO - [phonopy] -   [成功] 任务 phonopy_61 测试通过。
+08/27/2025 23:57:42 - INFO - [phonopy] -   [成功] 任务 phonopy_61 测试通过。
+08/27/2025 23:57:43 - INFO - [phonopy] -   [成功] 任务 phonopy_61 测试通过。
+08/27/2025 23:57:43 - INFO - [phonopy] - --- 正在处理任务 5/5: phonopy_70 ---
+08/27/2025 23:57:44 - INFO - [phonopy] -   [成功] 任务 phonopy_70 测试通过。
+08/27/2025 23:57:45 - INFO - [phonopy] -   [成功] 任务 phonopy_70 测试通过。
+08/27/2025 23:57:46 - INFO - [phonopy] -   [成功] 任务 phonopy_70 测试通过。
+08/27/2025 23:57:47 - INFO - [phonopy] -   [成功] 任务 phonopy_70 测试通过。
+08/27/2025 23:57:48 - INFO - [phonopy] -   [成功] 任务 phonopy_70 测试通过。
+08/27/2025 23:57:48 - INFO - [phonopy] - --- 开始评估组合: REWRITE / RETRIEVAL for repo phonopy ---
+08/27/2025 23:57:48 - INFO - [phonopy] - --- 正在处理任务 1/5: phonopy_1 ---
+08/27/2025 23:57:48 - WARNING - [phonopy] -   任务 phonopy_1 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 23:57:48 - INFO - [phonopy] -   [成功] 任务 phonopy_1 测试通过。
+08/27/2025 23:57:49 - INFO - [phonopy] -   [成功] 任务 phonopy_1 测试通过。
+08/27/2025 23:57:50 - INFO - [phonopy] -   [成功] 任务 phonopy_1 测试通过。
+08/27/2025 23:57:51 - INFO - [phonopy] -   [成功] 任务 phonopy_1 测试通过。
+08/27/2025 23:57:51 - INFO - [phonopy] - --- 正在处理任务 2/5: phonopy_59 ---
+08/27/2025 23:57:53 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:54 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:55 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:57 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:58 - INFO - [phonopy] -   [成功] 任务 phonopy_59 测试通过。
+08/27/2025 23:57:58 - INFO - [phonopy] - --- 正在处理任务 3/5: phonopy_60 ---
+08/27/2025 23:58:00 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:58:01 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:58:03 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:58:04 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:58:05 - INFO - [phonopy] -   [成功] 任务 phonopy_60 测试通过。
+08/27/2025 23:58:06 - INFO - [phonopy] - --- 正在处理任务 4/5: phonopy_61 ---
+08/27/2025 23:58:06 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:58:07 - ERROR - [phonopy] - 使用 AST 修改代码失败 (路径: 'test_cell2struct_and_read_qlm'): invalid syntax (<unknown>, line 15)
+Traceback (most recent call last):
+  File "C:\Users\Vendetta\Downloads\New_data_collection\evaluation_executor.py", line 106, in _generate_modified_code_ast
+    injected_module = ast.parse(injected_function_code)
+  File "C:\Users\Vendetta\anaconda3\envs\d2l\lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 15
+    assert (cell1.symbols == Li Li F Xe Na Clu Br Sr P H)
+                                ^
+SyntaxError: invalid syntax
+08/27/2025 23:58:07 - ERROR - [phonopy] -   任务 phonopy_61 的代码注入失败，计为执行失败。
+08/27/2025 23:58:08 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:58:09 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:58:10 - WARNING - [phonopy] -   [失败] 任务 phonopy_61 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:58:10 - INFO - [phonopy] - --- 正在处理任务 5/5: phonopy_70 ---
+08/27/2025 23:58:11 - INFO - [phonopy] -   [成功] 任务 phonopy_70 测试通过。
+08/27/2025 23:58:11 - INFO - [phonopy] -   [成功] 任务 phonopy_70 测试通过。
+08/27/2025 23:58:12 - INFO - [phonopy] -   [成功] 任务 phonopy_70 测试通过。
+08/27/2025 23:58:13 - INFO - [phonopy] -   [成功] 任务 phonopy_70 测试通过。
+08/27/2025 23:58:14 - INFO - [phonopy] -   [成功] 任务 phonopy_70 测试通过。
+08/27/2025 23:58:15 - INFO - [phonopy] - 仓库 'phonopy' 处理完毕，正在停止容器 'agent-run-phonopy'...

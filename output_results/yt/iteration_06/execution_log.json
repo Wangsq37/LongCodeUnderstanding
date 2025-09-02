@@ -1,0 +1,9 @@
+[
+  {
+    "command": "ls -l",
+    "success": true,
+    "stdout": "total 180\n-rwxr-xr-x  1 root root  2021 Aug 10 13:07 CITATION\n-rwxr-xr-x  1 root root 37610 Aug 10 13:07 CONTRIBUTING.rst\n-rwxr-xr-x  1 root root  3567 Aug 10 13:07 COPYING.txt\n-rwxr-xr-x  1 root root  7095 Aug 10 13:07 CREDITS\n-rwxr-xr-x  1 root root  3491 Aug 10 13:07 MANIFEST.in\n-rwxr-xr-x  1 root root  7503 Aug 10 13:07 README.md\ndrwxr-xr-x  2 root root  4096 Aug 10 19:28 __pycache__\ndrwxr-xr-x  2 root root  4096 Aug 10 13:07 answer-store\n-rwxr-xr-x  1 root root    44 Aug 10 13:07 clean.sh\n-rwxr-xr-x  1 root root 17486 Aug 10 13:07 conftest.py\ndrwxr-xr-x  5 root root  4096 Aug 10 13:07 doc\n-rwxr-xr-x  1 root root  1501 Aug 10 13:07 minimal_requirements.txt\n-rwxr-xr-x  1 root root   264 Aug 10 13:07 nose_answer.cfg\n-rwxr-xr-x  1 root root  2073 Aug 10 13:07 nose_ignores.txt\n-rwxr-xr-x  1 root root    46 Aug 10 13:07 nose_requirements.txt\n-rwxr-xr-x  1 root root   175 Aug 10 13:07 nose_unit.cfg\n-rwxr-xr-x  1 root root 17223 Aug 10 13:07 pyproject.toml\ndrwxr-xr-x  2 root root  4096 Aug 10 13:07 requirements\n-rwxr-xr-x  1 root root  4023 Aug 10 13:07 setup.py\n-rwxr-xr-x  1 root root 16339 Aug 10 13:07 setupext.py\ndrwxr-xr-x  5 root root  4096 Aug 10 13:07 tests\ndrwxr-xr-x 15 root root  4096 Aug 10 19:28 yt\ndrwxr-xr-x  2 root root  4096 Aug 10 19:27 yt.egg-info\n",
+    "stderr": "",
+    "execution_time": 0.0020639896392822266
+  }
+]

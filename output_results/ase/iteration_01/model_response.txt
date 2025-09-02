@@ -1,0 +1,8 @@
+```bash
+# 1. Install dependencies listed in pyproject.toml and setup.py (likely a scientific/ASE package).
+# Since both files exist, try pip install using editable mode to ensure local source is used and all dependencies are pulled.
+pip install -e . 
+
+# 2. Run pytest and check for collection errors.
+pytest
+```

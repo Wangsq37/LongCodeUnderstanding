@@ -1,0 +1,9 @@
+[
+  {
+    "command": "pip install scipy",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nCollecting scipy\n  Using cached https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)\nRequirement already satisfied: numpy<2.5,>=1.23.5 in /usr/local/lib/python3.10/dist-packages (from scipy) (2.2.6)\nInstalling collected packages: scipy\nSuccessfully installed scipy-1.15.3\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 4.308180332183838
+  }
+]

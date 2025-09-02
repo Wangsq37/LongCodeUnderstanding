@@ -1,0 +1,536 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── build-multiarch.yaml
+│       ├── build.yml
+│       ├── build_multi_numpy_scipy.yml
+│       └── build_nuitka_library.yml
+├── benchmarks/
+│   └── benchmarks.py
+├── dev/
+│   └── prerelease.py
+├── docs/
+│   ├── _static/
+│   │   └── copybutton.js
+│   ├── _templates/
+│   │   └── layout.html
+│   ├── Data/
+│   │   ├── Friction.ipynb
+│   │   ├── Pipe Schedules.ipynb
+│   │   └── Sieve Sizes for Particle Size Distributions.ipynb
+│   ├── Examples/
+│   │   └── Crane TP 410 Solved Problems/
+│   │       ├── 7.1 Smooth Pipe (Plastic).ipynb
+│   │       ├── 7.10 Piping Systems - Steam.ipynb
+│   │       ├── 7.11 Flat heating Coils - Water.ipynb
+│   │       ├── 7.12 Orifice Size for Given Pressure Drop and Velocity.ipynb
+│   │       ├── 7.13 Flow given in English Units - Oil.ipynb
+│   │       ├── 7.14 Bernoulli's Theorem-Water.ipynb
+│   │       ├── 7.15 Power Required for Pumping.ipynb
+│   │       ├── 7.16 Air Lines.ipynb
+│   │       ├── 7.17 Sizing of Pump for Oil Pipelines.ipynb
+│   │       ├── 7.18 Gas.ipynb
+│   │       ├── 7.19 Water.ipynb
+│   │       ├── 7.2 L, L over D and K from Kv for Conventional Type Valves.ipynb
+│   │       ├── 7.20 Steam at Sonic Velocity.ipynb
+│   │       ├── 7.21 Gases at Sonic Velocity.ipynb
+│   │       ├── 7.22 Compressible Fluids at Subsonic Velocity.ipynb
+│   │       ├── 7.23 Flow Through Orifice Meters.ipynb
+│   │       ├── 7.24 Laminar Flow.ipynb
+│   │       ├── 7.25 Rectangular Duct - Application of Hydraulic Radius to Flow Problems.ipynb
+│   │       ├── 7.26 Pipe Partially Filled with Flowing Water.ipynb
+│   │       ├── 7.27 Sizing Control Valves for Liquid Service.ipynb
+│   │       ├── 7.28 Checking for Choked Flow Conditions in a Control Valve.ipynb
+│   │       ├── 7.29 Orifice Flow Rate Calculation.ipynb
+│   │       ├── 7.3 L, L over D, K, and Kv for Conventional Type Valves.ipynb
+│   │       ├── 7.30 Nozzle Sizing Calculations.ipynb
+│   │       ├── 7.32 NPSH Available Calculation.ipynb
+│   │       ├── 7.33 Pump Affinity Rules.ipynb
+│   │       ├── 7.34 Pump Power and Operating Cost.ipynb
+│   │       ├── 7.35 Hydraulic Resistance of a Converging Tee.ipynb
+│   │       ├── 7.36 Hydraulic Resistance of a Diverging Wye.ipynb
+│   │       ├── 7.4 Venturi Type Valves.ipynb
+│   │       ├── 7.5 Lift Check Valves.ipynb
+│   │       ├── 7.6 Reduced Port Ball Valve.ipynb
+│   │       ├── 7.7 Laminar flow in Valves, Fittings, and Pipe - System from Example 7.6.ipynb
+│   │       ├── 7.8 Laminar flow in Valves, Fittings, and Pipe - SAE oil through a pipe and globe valve.ipynb
+│   │       └── 7.9 Laminar Flow in Valves, Fittings, and Pipe.ipynb
+│   │           └── ... (30 more files)
+│   ├── fittings/
+│   │   ├── bend_miter.png
+│   │   ├── bend_rounded.png
+│   │   ├── contraction_beveled.png
+│   │   ├── contraction_conical.png
+│   │   ├── contraction_round.png
+│   │   ├── contraction_sharp.png
+│   │   ├── curved_wall_diffuser.png
+│   │   ├── diffuser_conical.png
+│   │   ├── entrance_mounted_at_an_angle.png
+│   │   ├── flush_mounted_beveled_entrance.png
+│   │   ├── flush_mounted_beveled_orifice_entrance.png
+│   │   ├── flush_mounted_exit.png
+│   │   ├── flush_mounted_rounded_entrance.png
+│   │   ├── flush_mounted_sharp_edged_entrance.png
+│   │   └── sharp_edged_entrace_extended_mount.png
+│   │       └── ... (10 more files)
+│   ├── language_examples/
+│   │   ├── C/
+│   │   │   ├── fluids_test.c
+│   │   │   └── Makefile
+│   │   ├── cpp/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── D/
+│   │   │   ├── source/
+│   │   │   ├── dub.json
+│   │   │   └── dub.selections.json
+│   │   ├── fortran/
+│   │   │   └── fluids_test.f90
+│   │   ├── go/
+│   │   │   ├── go.mod
+│   │   │   └── main.go
+│   │   ├── haskell/
+│   │   │   ├── app/
+│   │   │   ├── CHANGELOG.md
+│   │   │   └── haskell-fluids-test.cabal
+│   │   ├── nim/
+│   │   │   └── check_fluids_can_be_called_from_nim.nim
+│   │   ├── c.rst
+│   │   ├── check_fluids_can_be_called_from_julia.jl
+│   │   ├── check_fluids_can_be_called_from_lisp.lisp
+│   │   ├── check_fluids_can_be_called_from_octave.m
+│   │   ├── check_fluids_can_be_called_from_perl.pl
+│   │   ├── check_fluids_can_be_called_from_r.R
+│   │   ├── check_fluids_can_be_called_from_ruby.rb
+│   │   ├── cpp.rst
+│   │   ├── d.rst
+│   │   ├── fortran.rst
+│   │   ├── go.rst
+│   │   ├── haskell.rst
+│   │   ├── index.rst
+│   │   ├── julia.rst
+│   │   ├── lisp.rst
+│   │   ├── nim.rst
+│   │   ├── octave.rst
+│   │   ├── perl.rst
+│   │   ├── r.rst
+│   │   └── ruby.rst
+│   │       └── ... (15 more files)
+│   ├── plots/
+│   │   ├── bend_miter_plot.py
+│   │   ├── bend_rounded_Crane_plot.py
+│   │   ├── contraction_conical_plot.py
+│   │   ├── contraction_round_plot.py
+│   │   ├── diffuser_conical_plot.py
+│   │   ├── entrance_beveled_plot.py
+│   │   ├── entrance_distance_plot.py
+│   │   ├── entrance_rounded_plot.py
+│   │   └── ft_Crane_plot.py
+│   │       └── ... (4 more files)
+│   ├── Samples/
+│   │   └── Tank.ipynb
+│   ├── conf.py
+│   ├── data.rst
+│   ├── developers.rst
+│   ├── examples.rst
+│   ├── fluids.atmosphere.rst
+│   ├── fluids.compressible.rst
+│   ├── fluids.control_valve.rst
+│   ├── fluids.core.rst
+│   ├── fluids.drag.rst
+│   ├── fluids.filters.rst
+│   ├── fluids.fittings.rst
+│   ├── fluids.flow_meter.rst
+│   ├── fluids.friction.rst
+│   ├── fluids.geometry.rst
+│   ├── fluids.jet_pump.rst
+│   ├── fluids.mixing.rst
+│   ├── fluids.numba.rst
+│   ├── fluids.open_flow.rst
+│   ├── fluids.packed_bed.rst
+│   ├── fluids.packed_tower.rst
+│   ├── fluids.particle_size_distribution.rst
+│   ├── fluids.piping.rst
+│   ├── fluids.pump.rst
+│   ├── fluids.rst
+│   ├── fluids.safety_valve.rst
+│   ├── fluids.saltation.rst
+│   ├── fluids.separator.rst
+│   ├── fluids.two_phase.rst
+│   ├── fluids.two_phase_voidage.rst
+│   ├── fluids.units.rst
+│   ├── fluids.vectorized.rst
+│   ├── index.rst
+│   ├── modules.rst
+│   ├── robots.txt
+│   ├── sample_programs.rst
+│   ├── test_documentation.py
+│   └── tutorial.rst
+│       └── ... (32 more files)
+├── fluids/
+│   ├── constants/
+│   │   ├── __init__.py
+│   │   └── constants.py
+│   ├── data/
+│   │   ├── 3 phase power.csv
+│   │   ├── ASTM E11 sieves.csv
+│   │   ├── isd-history-cleaned.tsv
+│   │   ├── ISO 3310-1 sieves.csv
+│   │   ├── Miller 2E 1990 abrupt contraction K.csv
+│   │   ├── Miller 2E 1990 conical contractions K part 1.csv
+│   │   ├── Miller 2E 1990 conical contractions K part 2.csv
+│   │   ├── Miller 2E 1990 conical diffuser Kd.csv
+│   │   ├── Miller 2E 1990 entrances rounded beveled K.csv
+│   │   ├── Miller 2E 1990 Kb mitre bend.csv
+│   │   ├── Miller 2E 1990 smooth bends Kb.csv
+│   │   ├── Miller 2E 1990 smooth bends outlet tangent length correction.csv
+│   │   ├── Miller 2E 1990 smooth bends Re correction.csv
+│   │   └── residential power.csv
+│   │       └── ... (9 more files)
+│   ├── nrlmsise00/
+│   │   ├── __init__.py
+│   │   ├── LICENSE
+│   │   ├── nrlmsise_00.py
+│   │   ├── nrlmsise_00_data.py
+│   │   ├── nrlmsise_00_header.py
+│   │   └── README
+│   │       └── ... (1 more files)
+│   ├── numerics/
+│   │   ├── __init__.py
+│   │   ├── arrays.py
+│   │   ├── doubledouble.py
+│   │   ├── polynomial_evaluation.py
+│   │   ├── polynomial_roots.py
+│   │   ├── polynomial_utils.py
+│   │   └── special.py
+│   │       └── ... (2 more files)
+│   ├── optional/
+│   │   ├── __init__.py
+│   │   ├── irradiance.py
+│   │   ├── pychebfun.py
+│   │   └── spa.py
+│   ├── __init__.py
+│   ├── atmosphere.py
+│   ├── atmosphere.pyi
+│   ├── compressible.py
+│   ├── compressible.pyi
+│   ├── control_valve.py
+│   ├── control_valve.pyi
+│   ├── core.py
+│   ├── core.pyi
+│   ├── design_climate.py
+│   ├── drag.py
+│   ├── drag.pyi
+│   ├── filters.py
+│   ├── filters.pyi
+│   ├── fittings.py
+│   ├── fittings.pyi
+│   ├── flow_meter.py
+│   ├── flow_meter.pyi
+│   ├── friction.py
+│   ├── friction.pyi
+│   ├── geometry.py
+│   ├── geometry.pyi
+│   ├── jet_pump.py
+│   ├── jet_pump.pyi
+│   ├── mixing.py
+│   ├── mixing.pyi
+│   ├── numba.py
+│   ├── numba_vectorized.py
+│   ├── open_flow.py
+│   ├── open_flow.pyi
+│   ├── packed_bed.py
+│   ├── packed_bed.pyi
+│   ├── packed_tower.py
+│   ├── packed_tower.pyi
+│   ├── particle_size_distribution.py
+│   ├── particle_size_distribution.pyi
+│   ├── piping.py
+│   ├── piping.pyi
+│   ├── pump.py
+│   ├── pump.pyi
+│   ├── py.typed
+│   ├── safety_valve.py
+│   ├── safety_valve.pyi
+│   ├── saltation.py
+│   ├── saltation.pyi
+│   ├── separator.py
+│   ├── separator.pyi
+│   ├── two_phase.py
+│   ├── two_phase.pyi
+│   ├── two_phase_voidage.py
+│   ├── two_phase_voidage.pyi
+│   ├── typing_utils.py
+│   ├── units.py
+│   └── vectorized.py
+│       └── ... (49 more files)
+├── tests/
+│   ├── gsod/
+│   │   ├── 1936/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1937/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1938/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1939/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1940/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1941/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1942/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1943/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1944/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1945/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1946/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1947/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1948/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1949/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1950/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1951/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1952/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1953/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1954/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1955/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1956/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1957/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1958/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1959/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1960/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1961/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1962/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1963/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1964/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1965/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1966/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1967/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1968/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1969/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1970/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1971/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1972/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1973/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1974/
+│   │   │   └──
+... (200 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -r requirements.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: numpy>=1.5.0 in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 1)) (2.2.6)
+Collecting scipy>=1.6.0 (from -r requirements.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 6.3 MB/s  0:00:05
+Installing collected packages: scipy
+Successfully installed scipy-1.15.3
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install -r requirements_test.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from -r requirements_test.txt (line 1)) (1.15.3)
+Requirement already satisfied: pytest in /usr/local/lib/python3.10/dist-packages (from -r requirements_test.txt (line 2)) (8.4.1)
+Collecting pytest-cov (from -r requirements_test.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/bc/16/4ea354101abb1287856baa4af2732be351c7bee728065aed451b678153fd/pytest_cov-6.2.1-py3-none-any.whl (24 kB)
+Collecting coveralls (from -r requirements_test.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/63/e5/6708c75e2a4cfca929302d4d9b53b862c6dc65bd75e6933ea3d20016d41d/coveralls-4.0.1-py3-none-any.whl (13 kB)
+Collecting sympy (from -r requirements_test.txt (line 5))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/a2/09/77d55d46fd61b4a135c444fc97158ef34a095e5681d0a6c10b75bf356191/sympy-1.14.0-py3-none-any.whl (6.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 12.8 MB/s  0:00:00
+Collecting thefuzz (from -r requirements_test.txt (line 6))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/82/4f/1695e70ceb3604f19eda9908e289c687ea81c4fecef4d90a9d1d0f2f7ae9/thefuzz-0.22.1-py3-none-any.whl (8.2 kB)
+Collecting pint (from -r requirements_test.txt (line 7))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b7/16/bd2f5904557265882108dc2e04f18abc05ab0c2b7082ae9430091daf1d5c/Pint-0.24.4-py3-none-any.whl (302 kB)
+Requirement already satisfied: pytz in /usr/local/lib/python3.10/dist-packages (from -r requirements_test.txt (line 8)) (2025.2)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from -r requirements_test.txt (line 9)) (2.2.6)
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from -r requirements_test.txt (line 10)) (2.3.1)
+Collecting IPython (from -r requirements_test.txt (line 11))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/91/d0/274fbf7b0b12643cbbc001ce13e6a5b1607ac4929d1b11c72460152c9fc3/ipython-8.37.0-py3-none-any.whl (831 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 831.9/831.9 kB 12.1 MB/s  0:00:00
+Collecting sphinx (from -r requirements_test.txt (line 12))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/26/60/1ddff83a56d33aaf6f10ec8ce84b4c007d9368b21008876fceda7e7381ef/sphinx-8.1.3-py3-none-any.whl (3.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 10.8 MB/s  0:00:00
+Requirement already satisfied: wheel in /usr/lib/python3/dist-packages (from -r requirements_test.txt (line 13)) (0.37.1)
+Collecting matplotlib (from -r requirements_test.txt (line 14))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 6.7 MB/s  0:00:01
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test.txt (line 2)) (1.3.0)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test.txt (line 2)) (2.1.0)
+Requirement already satisfied: packaging>=20 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test.txt (line 2)) (25.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test.txt (line 2)) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test.txt (line 2)) (2.19.2)
+Requirement already satisfied: tomli>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test.txt (line 2)) (2.2.1)
+Collecting coverage>=7.5 (from coverage[toml]>=7.5->pytest-cov->-r requirements_test.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b9/8e/5a8835fb0122a2e2a108bf3527931693c4625fdc4d953950a480b9625852/coverage-7.10.2-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (243 kB)
+Collecting docopt<0.7.0,>=0.6.1 (from coveralls->-r requirements_test.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz (25 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: requests<3.0.0,>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from coveralls->-r requirements_test.txt (line 4)) (2.32.4)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests<3.0.0,>=1.0.0->coveralls->-r requirements_test.txt (line 4)) (3.4.2)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests<3.0.0,>=1.0.0->coveralls->-r requirements_test.txt (line 4)) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests<3.0.0,>=1.0.0->coveralls->-r requirements_test.txt (line 4)) (2.5.0)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests<3.0.0,>=1.0.0->coveralls->-r requirements_test.txt (line 4)) (2025.8.3)
+Collecting mpmath<1.4,>=1.1.0 (from sympy->-r requirements_test.txt (line 5))
+  Downloading https://repo.huaweicloud
+... (93 lines omitted)
+STDERR:
+  DEPRECATION: Building 'docopt' using the legacy setup.py bdist_wheel mechanism, which will be removed in a future version. pip 25.3 will enforce this behaviour change. A possible replacement is to use the standardized build interface by setting the `--use-pep517` option, (possibly combined with `--no-build-isolation`), or adding a `pyproject.toml` file to the source tree of 'docopt'. Discussion can be found at https://github.com/pypa/pip/issues/6334
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install -r requirements_test_multiarch.txt || true ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: pytest in /usr/local/lib/python3.10/dist-packages (from -r requirements_test_multiarch.txt (line 1)) (8.4.1)
+Requirement already satisfied: pytest-cov in /usr/local/lib/python3.10/dist-packages (from -r requirements_test_multiarch.txt (line 2)) (6.2.1)
+Requirement already satisfied: sympy in /usr/local/lib/python3.10/dist-packages (from -r requirements_test_multiarch.txt (line 3)) (1.14.0)
+Requirement already satisfied: thefuzz in /usr/local/lib/python3.10/dist-packages (from -r requirements_test_multiarch.txt (line 4)) (0.22.1)
+Requirement already satisfied: pint in /usr/local/lib/python3.10/dist-packages (from -r requirements_test_multiarch.txt (line 5)) (0.24.4)
+Requirement already satisfied: pytz in /usr/local/lib/python3.10/dist-packages (from -r requirements_test_multiarch.txt (line 6)) (2025.2)
+Requirement already satisfied: IPython in /usr/local/lib/python3.10/dist-packages (from -r requirements_test_multiarch.txt (line 7)) (8.37.0)
+Requirement already satisfied: sphinx in /usr/local/lib/python3.10/dist-packages (from -r requirements_test_multiarch.txt (line 8)) (8.1.3)
+Requirement already satisfied: wheel in /usr/lib/python3/dist-packages (from -r requirements_test_multiarch.txt (line 9)) (0.37.1)
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test_multiarch.txt (line 1)) (1.3.0)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test_multiarch.txt (line 1)) (2.1.0)
+Requirement already satisfied: packaging>=20 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test_multiarch.txt (line 1)) (25.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test_multiarch.txt (line 1)) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test_multiarch.txt (line 1)) (2.19.2)
+Requirement already satisfied: tomli>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements_test_multiarch.txt (line 1)) (2.2.1)
+Requirement already satisfied: coverage>=7.5 in /usr/local/lib/python3.10/dist-packages (from coverage[toml]>=7.5->pytest-cov->-r requirements_test_multiarch.txt (line 2)) (7.10.2)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy->-r requirements_test_multiarch.txt (line 3)) (1.3.0)
+Requirement already satisfied: rapidfuzz<4.0.0,>=3.0.0 in /usr/local/lib/python3.10/dist-packages (from thefuzz->-r requirements_test_multiarch.txt (line 4)) (3.13.0)
+Requirement already satisfied: platformdirs>=2.1.0 in /usr/local/lib/python3.10/dist-packages (from pint->-r requirements_test_multiarch.txt (line 5)) (4.3.8)
+Requirement already satisfied: typing-extensions>=4.0.0 in /usr/local/lib/python3.10/dist-packages (from pint->-r requirements_test_multiarch.txt (line 5)) (4.14.1)
+Requirement already satisfied: flexcache>=0.3 in /usr/local/lib/python3.10/dist-packages (from pint->-r requirements_test_multiarch.txt (line 5)) (0.3)
+Requirement already satisfied: flexparser>=0.4 in /usr/local/lib/python3.10/dist-packages (from pint->-r requirements_test_multiarch.txt (line 5)) (0.4)
+Requirement already satisfied: decorator in /usr/local/lib/python3.10/dist-packages (from IPython->-r requirements_test_multiarch.txt (line 7)) (5.2.1)
+Requirement already satisfied: jedi>=0.16 in /usr/local/lib/python3.10/dist-packages (from IPython->-r requirements_test_multiarch.txt (line 7)) (0.19.2)
+Requirement already satisfied: matplotlib-inline in /usr/local/lib/python3.10/dist-packages (from IPython->-r requirements_test_multiarch.txt (line 7)) (0.1.7)
+Requirement already satisfied: pexpect>4.3 in /usr/local/lib/python3.10/dist-packages (from IPython->-r requirements_test_multiarch.txt (line 7)) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in /usr/local/lib/python3.10/dist-packages (from IPython->-r requirements_test_multiarch.txt (line 7)) (3.0.51)
+Requirement already satisfied: stack_data in /usr/local/lib/python3.10/dist-packages (from IPython->-r requirements_test_multiarch.txt (line 7)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in /usr/local/lib/python3.10/dist-packages (from IPython->-r requirements_test_multiarch.txt (line 7)) (5.14.3)
+Requirement already satisfied: wcwidth in /usr/local/lib/python3.10/dist-packages (from prompt_toolkit<3.1.0,>=3.0.41->IPython->-r requirements_test_multiarch.txt (line 7)) (0.2.13)
+Requirement already satisfied: sphinxcontrib-applehelp>=1.0.7 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (2.0.0)
+Requirement already satisfied: sphinxcontrib-devhelp>=1.0.6 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (2.0.0)
+Requirement already satisfied: sphinxcontrib-htmlhelp>=2.0.6 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (2.1.0)
+Requirement already satisfied: sphinxcontrib-jsmath>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (1.0.1)
+Requirement already satisfied: sphinxcontrib-qthelp>=1.0.6 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (2.0.0)
+Requirement already satisfied: sphinxcontrib-serializinghtml>=1.1.9 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (2.0.0)
+Requirement already satisfied: Jinja2>=3.1 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (3.1.6)
+Requirement already satisfied: docutils<0.22,>=0.20 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (0.21.2)
+Requirement already satisfied: snowballstemmer>=2.2 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (3.0.1)
+Requirement already satisfied: babel>=2.13 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (2.17.0)
+Requirement already satisfied: alabaster>=0.7.14 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (1.0.0)
+Requirement already satisfied: imagesize>=1.3 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (1.4.1)
+Requirement already satisfied: requests>=2.30.0 in /usr/local/lib/python3.10/dist-packages (from sphinx->-r requirements_test_multiarch.txt (line 8)) (2.32.4)
+Requirement already satisfied: parso<0.9.0,>=0.8.4 in /usr/local/lib/python3.10/dist-packages (from jedi>=0.16->IPython->-r
+... (9 lines omitted)
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pytest.ini
+plugins: cov-6.2.1
+collected 1776 items / 2 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting fluids/numba.py _______________________
+ImportError while importing test module '/app/repo_to_process/fluids/numba.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+fluids/numba.py:32: in <module>
+    import numba
+E   ModuleNotFoundError: No module named 'numba'
+_________________ ERROR collecting fluids/numba_vectorized.py __________________
+ImportError while importing test module '/app/repo_to_process/fluids/numba_vectorized.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+fluids/numba_vectorized.py:24: in <module>
+    import fluids.numba
+fluids/numba.py:32: in <module>
+    import numba
+E   ModuleNotFoundError: No module named 'numba'
+=============================== warnings summary ===============================
+conftest.py:12
+  /app/repo_to_process/conftest.py:12: PytestRemovedIn9Warning: The (path: py.path.local) argument is deprecated, please use (collection_path: pathlib.Path)
+  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path
+    def pytest_ignore_collect(path):
+
+fluids/numerics/arrays.py:255
+  /app/repo_to_process/fluids/numerics/arrays.py:255: DeprecationWarning: invalid escape sequence '\*'
+    '''
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR fluids/numba.py
+ERROR fluids/numba_vectorized.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+======================== 2 warnings, 2 errors in 2.46s =========================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

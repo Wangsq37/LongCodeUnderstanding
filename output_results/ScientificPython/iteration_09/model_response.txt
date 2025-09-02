@@ -1,0 +1,76 @@
+The errors have changed. Now the issues are:
+
+1. **Syntax errors:**
+   - `print c` and `print model.coeff` (Python 2.x print statement instead of print function).
+   - `except ValueError, text:` (Python 2.x except syntax; in Python 3 must be `except ValueError as text:`).
+   
+2. **NameError:**
+   - `NameError: name 'ModuleDeprecationWarning' is not defined` in `oldnumeric/__init__.py` (used by `Scientific/N.py`).
+
+**Analysis:**
+- This codebase is written for Python 2.x and currently being run on Python 3.10.
+- All the syntax errors are due to Python 2-to-3 incompatibilities.
+- `ModuleDeprecationWarning` was available in Python 2.x but not Python 3 (must use `DeprecationWarning`).
+
+**Next required actions:**
+1. Fix print statements in the affected files.
+2. Fix exception syntax.
+3. Patch `oldnumeric/__init__.py` to use `DeprecationWarning` if needed.
+
+Let's start with the first listed file for each error for test collection purposes:
+
+---
+
+### 1. Fix print statement in `Scientific/Clustering/AffinityPropagation.py` and `Scientific/Signals/Models.py`
+(Patch all occurrences of Python 2 `print ...` with Python 3 `print(...)`.)
+
+#### AffinityPropagation.py:
+```file:Scientific/Clustering/AffinityPropagation.py
+# At line 306, change:
+# print c
+# to:
+print(c)
+# (Do this for all print statements in this file)
+```
+
+#### Models.py:
+```file:Scientific/Signals/Models.py
+# At line 346, change:
+# print model.coeff
+# to:
+print(model.coeff)
+# (Do this for all print statements in this file)
+```
+
+---
+
+### 2. Fix exception syntax in `Scientific/Functions/Interpolation.py`
+(Replace `except ValueError, text:` with `except ValueError as text:`.)
+
+```file:Scientific/Functions/Interpolation.py
+# At line 100, change:
+# except ValueError, text:
+# to:
+except ValueError as text:
+# (Do this for all similar try/except in this file)
+```
+
+---
+
+### 3. Patch `oldnumeric/__init__.py` to define `ModuleDeprecationWarning` if missing.
+Find or create the `oldnumeric/__init__.py` file in `/usr/local/lib/python3.10/dist-packages/oldnumeric/__init__.py` (since that's where it's imported from). But as we cannot directly patch site-packages from here, let's instead address this differently:
+
+If possible, install the compatibility layer for Numeric or Numeric itself for Python 3 (unlikely to exist), or patch `Scientific/N.py` to import `DeprecationWarning` instead, assuming `oldnumeric` is a local copy (but it's not).
+
+**Alternative plan:**  
+Let's see if installing `numpy` (provides Numeric/oldnumeric compatibility), or `scipy`, unblocks this.
+So:
+```bash
+pip install numpy
+```
+Then rerun pytest:
+```bash
+PYTHONPATH=. pytest
+```
+
+If the error persists, we'll patch `Scientific/N.py` to fallback to `DeprecationWarning` for Python 3.

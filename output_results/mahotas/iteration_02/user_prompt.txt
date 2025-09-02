@@ -1,0 +1,444 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── test-python-package-with-conda.yml
+│       └── wheel.yml
+├── docs/
+│   ├── source/
+│   │   ├── _templates/
+│   │   │   └── sidebar.html
+│   │   ├── figures/
+│   │   │   └── distance.py
+│   │   ├── images/
+│   │   │   ├── zbest.jpg
+│   │   │   ├── zedf.jpg
+│   │   │   └── zmax.jpg
+│   │   ├── api.rst
+│   │   ├── classification.rst
+│   │   ├── color.rst
+│   │   ├── conf.py
+│   │   ├── contributing.rst
+│   │   ├── distance.rst
+│   │   ├── edf.rst
+│   │   ├── faq.rst
+│   │   ├── features.rst
+│   │   ├── history.rst
+│   │   ├── index.rst
+│   │   ├── install.rst
+│   │   ├── internals.rst
+│   │   ├── io.rst
+│   │   ├── labeled.rst
+│   │   ├── lbp.rst
+│   │   ├── LBP.svg
+│   │   ├── mahotas-features.rst
+│   │   ├── morphology.rst
+│   │   ├── polygon.rst
+│   │   ├── principles.rst
+│   │   ├── surf.rst
+│   │   ├── surfref.rst
+│   │   ├── tasks.rst
+│   │   ├── thresholding.rst
+│   │   ├── wally.rst
+│   │   └── wavelets.rst
+│   │       └── ... (22 more files)
+│   ├── .gitignore
+│   └── Makefile
+├── mahotas/
+│   ├── demos/
+│   │   ├── data/
+│   │   │   ├── DepartmentStore.jpg
+│   │   │   ├── lena.jpg
+│   │   │   ├── luispedro.jpg
+│   │   │   └── nuclear.png
+│   │   ├── __init__.py
+│   │   ├── distance.py
+│   │   ├── edge_demo.py
+│   │   ├── morphology.py
+│   │   ├── nuclear.py
+│   │   ├── nuclear_distance_watershed.py
+│   │   ├── superpixels.py
+│   │   ├── surf_gaussians.py
+│   │   ├── surf_luispedro.py
+│   │   ├── thresholding.py
+│   │   ├── wally.py
+│   │   └── wavelet_compress.py
+│   │       └── ... (7 more files)
+│   ├── features/
+│   │   ├── __init__.py
+│   │   ├── _lbp.cpp
+│   │   ├── _surf.cpp
+│   │   ├── _texture.cpp
+│   │   ├── _zernike.cpp
+│   │   ├── lbp.py
+│   │   ├── moments.py
+│   │   ├── shape.py
+│   │   ├── surf.py
+│   │   ├── tas.py
+│   │   ├── texture.py
+│   │   └── zernike.py
+│   │       └── ... (7 more files)
+│   ├── io/
+│   │   ├── __init__.py
+│   │   ├── freeimage.py
+│   │   └── pil.py
+│   ├── numpypp/
+│   │   ├── array.hpp
+│   │   ├── dispatch.hpp
+│   │   └── numpy.hpp
+│   ├── tests/
+│   │   ├── data/
+│   │   │   ├── 1bpp.bmp
+│   │   │   ├── determinant_zero.png
+│   │   │   ├── luispedro.npy
+│   │   │   └── rgba.png
+│   │   ├── __init__.py
+│   │   ├── pymorph_copy.py
+│   │   ├── test_bbox.py
+│   │   ├── test_bwperim.py
+│   │   ├── test_center_of_mass.py
+│   │   ├── test_citation.py
+│   │   ├── test_close_holes.py
+│   │   ├── test_colors.py
+│   │   ├── test_convolve.py
+│   │   ├── test_demos.py
+│   │   ├── test_dilate_erode.py
+│   │   ├── test_distance.py
+│   │   ├── test_edge.py
+│   │   ├── test_euler.py
+│   │   ├── test_features_shape.py
+│   │   ├── test_filters.py
+│   │   ├── test_find.py
+│   │   ├── test_freeimage.py
+│   │   ├── test_gvoronoi.py
+│   │   ├── test_histogram.py
+│   │   ├── test_hitmiss.py
+│   │   ├── test_imresize.py
+│   │   ├── test_internal.py
+│   │   ├── test_interpolate.py
+│   │   ├── test_io.py
+│   │   ├── test_label.py
+│   │   ├── test_labeled.py
+│   │   ├── test_lbp.py
+│   │   ├── test_mahotas.py
+│   │   ├── test_majority.py
+│   │   ├── test_mean_filter.py
+│   │   ├── test_median_filter.py
+│   │   ├── test_moments.py
+│   │   ├── test_morph.py
+│   │   ├── test_polygon.py
+│   │   ├── test_segmentation.py
+│   │   ├── test_stretch.py
+│   │   ├── test_surf.py
+│   │   ├── test_surf_regression.py
+│   │   ├── test_tas.py
+│   │   ├── test_template_match.py
+│   │   ├── test_texture.py
+│   │   ├── test_thin.py
+│   │   ├── test_thresholding.py
+│   │   ├── test_watershed.py
+│   │   ├── test_zernike.py
+│   │   └── utils.py
+│   │       └── ... (42 more files)
+│   ├── __init__.py
+│   ├── _bbox.cpp
+│   ├── _center_of_mass.cpp
+│   ├── _convex.cpp
+│   ├── _convolve.cpp
+│   ├── _distance.cpp
+│   ├── _filters.cpp
+│   ├── _filters.h
+│   ├── _filters.py
+│   ├── _histogram.cpp
+│   ├── _interpolate.cpp
+│   ├── _labeled.cpp
+│   ├── _morph.cpp
+│   ├── _thin.cpp
+│   ├── bbox.py
+│   ├── bwperim.py
+│   ├── center_of_mass.py
+│   ├── colors.py
+│   ├── convolve.py
+│   ├── debug.h
+│   ├── distance.py
+│   ├── edge.py
+│   ├── euler.py
+│   ├── features_cli.py
+│   ├── freeimage.py
+│   ├── histogram.py
+│   ├── internal.py
+│   ├── interpolate.py
+│   ├── labeled.py
+│   ├── lbp.py
+│   ├── mahotas_version.py
+│   ├── Makefile
+│   ├── moments.py
+│   ├── morph.py
+│   ├── polygon.py
+│   ├── resize.py
+│   ├── segmentation.py
+│   ├── stretch.py
+│   ├── surf.py
+│   ├── tas.py
+│   ├── texture.py
+│   ├── thin.py
+│   ├── thresholding.py
+│   ├── utils.hpp
+│   └── zernike.py
+│       └── ... (40 more files)
+├── .coveragerc
+├── .gitignore
+├── .readthedocs.yaml
+├── AUTHORS
+├── ChangeLog
+├── CITATION
+├── CITATION.cff
+├── COPYING
+├── INSTALL
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+├── readthedocs-requirements.txt
+├── requirements.txt
+├── setup.py
+└── tests-requirements.txt
+    └── ... (12 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -r requirements.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 1)) (2.2.6)
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install -r tests-requirements.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting matplotlib (from -r tests-requirements.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 14.0 MB/s  0:00:00
+Requirement already satisfied: pip in /usr/local/lib/python3.10/dist-packages (from -r tests-requirements.txt (line 2)) (25.2)
+Collecting coveralls (from -r tests-requirements.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/63/e5/6708c75e2a4cfca929302d4d9b53b862c6dc65bd75e6933ea3d20016d41d/coveralls-4.0.1-py3-none-any.whl (13 kB)
+Collecting pytest<=8.1.1 (from -r tests-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/4d/7e/c79cecfdb6aa85c6c2e3cf63afc56d0f165f24f5c66c03c695c4d9b84756/pytest-8.1.1-py3-none-any.whl (337 kB)
+Collecting scipy (from -r tests-requirements.txt (line 5))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 14.3 MB/s  0:00:02
+Collecting pillow (from -r tests-requirements.txt (line 6))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/f0/16/1a6bf01fb622fb9cf5c91683823f073f053005c849b1f52ed613afcf8dae/pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 14.4 MB/s  0:00:00
+Requirement already satisfied: iniconfig in /usr/local/lib/python3.10/dist-packages (from pytest<=8.1.1->-r tests-requirements.txt (line 4)) (2.1.0)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from pytest<=8.1.1->-r tests-requirements.txt (line 4)) (25.0)
+Requirement already satisfied: pluggy<2.0,>=1.4 in /usr/local/lib/python3.10/dist-packages (from pytest<=8.1.1->-r tests-requirements.txt (line 4)) (1.6.0)
+Requirement already satisfied: exceptiongroup>=1.0.0rc8 in /usr/local/lib/python3.10/dist-packages (from pytest<=8.1.1->-r tests-requirements.txt (line 4)) (1.3.0)
+Requirement already satisfied: tomli>=1 in /usr/local/lib/python3.10/dist-packages (from pytest<=8.1.1->-r tests-requirements.txt (line 4)) (2.2.1)
+Collecting contourpy>=1.0.1 (from matplotlib->-r tests-requirements.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/32/5c/1ee32d1c7956923202f00cf8d2a14a62ed7517bdc0ee1e55301227fc273c/contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+Collecting cycler>=0.10 (from matplotlib->-r tests-requirements.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting fonttools>=4.22.0 (from matplotlib->-r tests-requirements.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/57/767e31e48861045d89691128bd81fd4c62b62150f9a17a666f731ce4f197/fonttools-4.59.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 13.4 MB/s  0:00:00
+Collecting kiwisolver>=1.3.1 (from matplotlib->-r tests-requirements.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/de/c6/7b9bb8044e150d4d1558423a1568e4f227193662a02231064e3824f37e0a/kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 12.9 MB/s  0:00:00
+Requirement already satisfied: numpy>=1.23 in /usr/local/lib/python3.10/dist-packages (from matplotlib->-r tests-requirements.txt (line 1)) (2.2.6)
+Collecting pyparsing>=2.3.1 (from matplotlib->-r tests-requirements.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/e7/df2285f3d08fee213f2d041540fa4fc9ca6c2d44cf36d3a035bf2a8d2bcc/pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib->-r tests-requirements.txt (line 1)) (2.9.0.post0)
+Collecting coverage!=6.0.*,!=6.1,!=6.1.1,<8.0,>=5.0 (from coverage[toml]!=6.0.*,!=6.1,!=6.1.1,<8.0,>=5.0->coveralls->-r tests-requirements.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b9/8e/5a8835fb0122a2e2a108bf3527931693c4625fdc4d953950a480b9625852/coverage-7.10.2-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (243 kB)
+Collecting docopt<0.7.0,>=0.6.1 (from coveralls->-r tests-requirements.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz (25 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py
+... (20 lines omitted)
+STDERR:
+  DEPRECATION: Building 'docopt' using the legacy setup.py bdist_wheel mechanism, which will be removed in a future version. pip 25.3 will enforce this behaviour change. A possible replacement is to use the standardized build interface by setting the `--use-pep517` option, (possibly combined with `--no-build-isolation`), or adding a `pyproject.toml` file to the source tree of 'docopt'. Discussion can be found at https://github.com/pypa/pip/issues/6334
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install -r readthedocs-requirements.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from -r readthedocs-requirements.txt (line 1)) (2.2.6)
+Collecting numpydoc (from -r readthedocs-requirements.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/26/62/5783d8924fca72529defb2c7dbe2070d49224d2dba03a85b20b37adb24d8/numpydoc-1.9.0-py3-none-any.whl (64 kB)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.10/dist-packages (from -r readthedocs-requirements.txt (line 3)) (3.10.5)
+Collecting sphinx<7,>=4.2 (from -r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/5f/d8/45ba6097c39ba44d9f0e1462fb232e13ca4ddb5aea93a385dcfa964687da/sphinx-6.2.1-py3-none-any.whl (3.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 9.9 MB/s  0:00:00
+Collecting sphinxcontrib-applehelp (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/5d/85/9ebeae2f76e9e77b952f4b274c27238156eae7979c5421fba91a28f4970d/sphinxcontrib_applehelp-2.0.0-py3-none-any.whl (119 kB)
+Collecting sphinxcontrib-devhelp (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/35/7a/987e583882f985fe4d7323774889ec58049171828b58c2217e7f79cdf44e/sphinxcontrib_devhelp-2.0.0-py3-none-any.whl (82 kB)
+Collecting sphinxcontrib-jsmath (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/c2/42/4c8646762ee83602e3fb3fbe774c2fac12f317deb0b5dbeeedd2d3ba4b77/sphinxcontrib_jsmath-1.0.1-py2.py3-none-any.whl (5.1 kB)
+Collecting sphinxcontrib-htmlhelp>=2.0.0 (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/0a/7b/18a8c0bcec9182c05a0b3ec2a776bba4ead82750a55ff798e8d406dae604/sphinxcontrib_htmlhelp-2.1.0-py3-none-any.whl (98 kB)
+Collecting sphinxcontrib-serializinghtml>=1.1.5 (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/52/a7/d2782e4e3f77c8450f727ba74a8f12756d5ba823d81b941f1b04da9d033a/sphinxcontrib_serializinghtml-2.0.0-py3-none-any.whl (92 kB)
+Collecting sphinxcontrib-qthelp (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/27/83/859ecdd180cacc13b1f7e857abf8582a64552ea7a061057a6c716e790fce/sphinxcontrib_qthelp-2.0.0-py3-none-any.whl (88 kB)
+Collecting Jinja2>=3.0 (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Requirement already satisfied: Pygments>=2.13 in /usr/local/lib/python3.10/dist-packages (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4)) (2.19.2)
+Collecting docutils<0.20,>=0.18.1 (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/93/69/e391bd51bc08ed9141ecd899a0ddb61ab6465309f1eb470905c0c8868081/docutils-0.19-py3-none-any.whl (570 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 570.5/570.5 kB 6.8 MB/s  0:00:00
+Collecting snowballstemmer>=2.0 (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/c8/78/3565d011c61f5a43488987ee32b6f3f656e7f107ac2782dd57bdd7d91d9a/snowballstemmer-3.0.1-py3-none-any.whl (103 kB)
+Collecting babel>=2.9 (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b7/b8/3fe70c75fe32afc4bb507f75563d39bc5642255d1d94f1f23604725780bf/babel-2.17.0-py3-none-any.whl (10.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 13.6 MB/s  0:00:00
+Collecting alabaster<0.8,>=0.7 (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/32/34/d4e1c02d3bee589efb5dfa17f88ea08bdb3e3eac12bc475462aec52ed223/alabaster-0.7.16-py3-none-any.whl (13 kB)
+Collecting imagesize>=1.3 (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ff/62/85c4c919272577931d407be5ba5d71c20f0b616d31a0befe0ae45bb79abd/imagesize-1.4.1-py2.py3-none-any.whl (8.8 kB)
+Requirement already satisfied: requests>=2.25.0 in /usr/local/lib/python3.10/dist-packages (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4)) (2.32.4)
+Requirement already satisfied: packaging>=21.0 in /usr/local/lib/python3.10/dist-packages (from sphinx<7,>=4.2->-r readthedocs-requirements.txt (line 4)) (25.0)
+Requirement already satisfied: tomli>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from numpydoc->-r readthedocs-requirements.txt (line 2)) (2.2.1)
+Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib->-r readthedocs-requirements.txt (line 3)) (
+... (16 lines omitted)
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.1.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+collected 98 items / 29 errors
+
+==================================== ERRORS ====================================
+_________________ ERROR collecting mahotas/tests/test_bbox.py __________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_bbox.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_bbox.py:4: in <module>
+    from mahotas import bbox
+mahotas/bbox.py:8: in <module>
+    from . import _bbox
+E   ImportError: cannot import name '_bbox' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+------------------------------- Captured stderr --------------------------------
+Could not import submodules (exact error was: cannot import name '_bbox' from partially initialized module 'mahotas' (most likely due to a circular import) (/app/repo_to_process/mahotas/__init__.py)).
+
+There are many reasons for this error the most common one is that you have
+either not built the packages or have built (using `python setup.py build`) or
+installed them (using `python setup.py install`) and then proceeded to test
+mahotas **without changing the current directory**.
+
+Try installing and then changing to another directory before importing mahotas.
+________________ ERROR collecting mahotas/tests/test_bwperim.py ________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_bwperim.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_bwperim.py:1: in <module>
+    from mahotas import bwperim
+mahotas/bwperim.py:14: in <module>
+    from .labeled import bwperim
+mahotas/labeled.py:8: in <module>
+    from .morph import get_structuring_elem
+mahotas/morph.py:10: in <module>
+    from . import _morph
+E   ImportError: cannot import name '_morph' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+____________ ERROR collecting mahotas/tests/test_center_of_mass.py _____________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_center_of_mass.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_center_of_mass.py:3: in <module>
+    import mahotas.center_of_mass
+mahotas/center_of_mass.py:7: in <module>
+    from . import _center_of_mass
+E   ImportError: cannot import name '_center_of_mass' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+_______________ ERROR collecting mahotas/tests/test_convolve.py ________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_convolve.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_convolve.py:3: in <module>
+    import mahotas.convolve
+mahotas/convolve.py:8: in <module>
+    from . import _convolve
+E   ImportError: cannot import name '_convolve' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+_______________ ERROR collecting mahotas/tests/test_distance.py ________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_distance.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_distance.py:1: in <module>
+    from mahotas import distance
+mahotas/distance.py:6: in <module>
+    from . import _distance
+E   ImportError: cannot import name '_distance' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+_________________ ERROR collecting mahotas/tests/test_edge.py __________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_edge.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_edge.py:1: in <module>
+    from mahotas.edge import sobel
+mahotas/edge.py:9: in <module>
+    from . import convolve, gaussian_filter
+mahotas/convolve.py:8: in <module>
+    from . import _convolve
+E   ImportError: cannot import name '_convolve' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+_________________ ERROR collecting mahotas/tests/test_euler.py _________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_euler.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_euler.py:2: in <module>
+    from mahotas.euler import euler, _euler_lookup4, _euler_lookup8
+mahotas/euler.py:6: in <module>
+    from .convolve import convolve
+mahotas/convolve.py:8: in <module>
+    from . import _convolve
+E   ImportError: cannot import name '_convolve' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+____________ ERROR collecting mahotas/tests/test_features_shape.py _____________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_features_shape.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_features_shape.py:1: in <module>
+    import mahotas.features.shape
+mahotas/features/__init__.py:6: in <module>
+    from .texture import haralick
+mahotas/features/texture.py:8: in <
+... (33 lines omitted)
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

@@ -1,0 +1,94 @@
+08/11/2025 13:10:20 - INFO - __main__ - --- Processing repository: arviz ---
+08/11/2025 13:10:20 - INFO - __main__ - No existing container found. Creating new container 'agent-run-arviz'...
+08/11/2025 13:10:21 - INFO - __main__ - Copying 'python_repos\arviz' to new container 'agent-run-arviz:/app/repo_to_process'...
+08/11/2025 13:10:25 - INFO - __main__ - Executing agent inside the container...
+08/11/2025 13:10:26 - INFO - __main__ - [AGENT-LOG] 08/11/2025 05:10:26 - INFO - __main__ - --- Starting Agent inside Container ---
+08/11/2025 13:10:26 - INFO - __main__ - [AGENT-LOG] 08/11/2025 05:10:26 - INFO - __main__ - Repository Name: arviz
+08/11/2025 13:10:26 - INFO - __main__ - [AGENT-LOG] 08/11/2025 05:10:26 - INFO - __main__ - Repository: /app/repo_to_process
+08/11/2025 13:10:26 - INFO - __main__ - [AGENT-LOG] 08/11/2025 05:10:26 - INFO - __main__ - Language: Python
+08/11/2025 13:10:26 - INFO - __main__ - [AGENT-LOG] 08/11/2025 05:10:26 - INFO - __main__ - Model: gpt-4.1
+08/11/2025 13:10:26 - INFO - __main__ - [AGENT-LOG] 08/11/2025 05:10:26 - INFO - __main__ - Max Iterations: 15
+08/11/2025 13:10:26 - INFO - __main__ - [AGENT-LOG] 08/11/2025 05:10:26 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] 08/11/2025 05:10:31 - ERROR - __main__ - 💥 Agent pipeline failed with a critical error: HTTPSConnectionPool(host='openaipublic.blob.core.windows.net', port=443): Max retries exceeded with url: /encodings/cl100k_base.tiktoken (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] 08/11/2025 05:10:31 - ERROR - __main__ - Full traceback: Traceback (most recent call last):
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 464, in _make_request
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] self._validate_conn(conn)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] conn.connect()
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 790, in connect
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/urllib3/connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] ssl_sock = ssl_wrap_socket(
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/urllib3/util/ssl_.py", line 480, in ssl_wrap_socket
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/urllib3/util/ssl_.py", line 524, in _ssl_wrap_socket_impl
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/lib/python3.10/ssl.py", line 513, in wrap_socket
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] return self.sslsocket_class._create(
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/lib/python3.10/ssl.py", line 1100, in _create
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] self.do_handshake()
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/lib/python3.10/ssl.py", line 1371, in do_handshake
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] self._sslobj.do_handshake()
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] ssl.SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] 
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] During handling of the above exception, another exception occurred:
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] 
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] Traceback (most recent call last):
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 787, in urlopen
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] response = self._make_request(
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 488, in _make_request
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] raise new_e
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] 
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] The above exception was the direct cause of the following exception:
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] 
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] Traceback (most recent call last):
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 667, in send
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] resp = conn.urlopen(
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py", line 841, in urlopen
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] retries = retries.increment(
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/urllib3/util/retry.py", line 519, in increment
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='openaipublic.blob.core.windows.net', port=443): Max retries exceeded with url: /encodings/cl100k_base.tiktoken (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] 
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] During handling of the above exception, another exception occurred:
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] 
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] Traceback (most recent call last):
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/app/runnable_agent_batch/run.py", line 374, in main
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] encoding = tiktoken.encoding_for_model("gpt-4")
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/tiktoken/model.py", line 116, in encoding_for_model
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] return get_encoding(encoding_name_for_model(model_name))
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/tiktoken/registry.py", line 86, in get_encoding
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] enc = Encoding(**constructor())
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/tiktoken_ext/openai_public.py", line 76, in cl100k_base
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] mergeable_ranks = load_tiktoken_bpe(
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/tiktoken/load.py", line 148, in load_tiktoken_bpe
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] contents = read_file_cached(tiktoken_bpe_file, expected_hash)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/tiktoken/load.py", line 63, in read_file_cached
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] contents = read_file(blobpath)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/tiktoken/load.py", line 22, in read_file
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] resp = requests.get(blobpath)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 73, in get
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] return request("get", url, params=params, **kwargs)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/requests/api.py", line 59, in request
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] return session.request(method=method, url=url, **kwargs)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 589, in request
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] resp = self.send(prep, **send_kwargs)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 703, in send
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] r = adapter.send(request, **kwargs)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 698, in send
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] raise SSLError(e, request=request)
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] requests.exceptions.SSLError: HTTPSConnectionPool(host='openaipublic.blob.core.windows.net', port=443): Max retries exceeded with url: /encodings/cl100k_base.tiktoken (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+08/11/2025 13:10:31 - INFO - __main__ - [AGENT-LOG] 
+08/11/2025 13:10:31 - INFO - __main__ - Agent finished with exit code: 2
+08/11/2025 13:10:31 - INFO - __main__ - Copying all generated files from container 'agent-run-arviz:/app/new_test_detection_logs/arviz'...
+08/11/2025 13:10:31 - WARNING - __main__ - Could not copy agent-generated files from container. This is normal if the agent failed before creating logs.
+08/11/2025 13:10:31 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-arviz:/app/repo_to_process'...
+08/11/2025 13:10:31 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 13:10:31 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 13:10:31 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/11/2025 13:10:31 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/11/2025 13:10:31 - WARNING - __main__ - Agent failed with exit code 2. Container will be deleted.
+08/11/2025 13:10:31 - INFO - __main__ - Deleting container 'agent-run-arviz' due to failure or missing required files.
+08/11/2025 13:10:43 - INFO - __main__ - --- Finished processing repository: arviz ---
+

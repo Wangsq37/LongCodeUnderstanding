@@ -1,0 +1,1589 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .circleci/
+│   └── config.yml
+├── .devcontainer/
+│   ├── devcontainer.json
+│   └── welcome-message.txt
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yaml
+│   │   ├── config.yml
+│   │   └── feature_request.yaml
+│   ├── workflows/
+│   │   ├── CFF-test.yml
+│   │   ├── check_changelog.yml
+│   │   ├── check_milestone.yml
+│   │   ├── ci_benchmark.yml
+│   │   ├── ci_cron_daily.yml
+│   │   ├── ci_cron_weekly.yml
+│   │   ├── ci_workflows.yml
+│   │   ├── codeql-analysis.yml
+│   │   ├── open_actions.yml
+│   │   ├── publish.yml
+│   │   ├── stalebot.yml
+│   │   ├── update_astropy_iers_data_pin.py
+│   │   └── update_astropy_iers_data_pin.yml
+│   │       └── ... (8 more files)
+│   ├── CODEOWNERS
+│   ├── dependabot.yml
+│   ├── labeler.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── .pyinstaller/
+│   ├── hooks/
+│   │   ├── hook-astropy_iers_data.py
+│   │   └── hook-skyfield.py
+│   └── run_astropy_tests.py
+├── astropy/
+│   ├── _dev/
+│   │   ├── __init__.py
+│   │   └── scm_version.py
+│   ├── config/
+│   │   ├── tests/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   └── test_configs.py
+│   │   ├── __init__.py
+│   │   ├── configuration.py
+│   │   └── paths.py
+│   ├── constants/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_constant.py
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_prior_version.py
+│   │   │   └── test_sciencestate.py
+│   │   ├── __init__.py
+│   │   ├── astropyconst13.py
+│   │   ├── astropyconst20.py
+│   │   ├── astropyconst40.py
+│   │   ├── cgs.py
+│   │   ├── codata2010.py
+│   │   ├── codata2014.py
+│   │   ├── codata2018.py
+│   │   ├── codata2022.py
+│   │   ├── config.py
+│   │   ├── constant.py
+│   │   ├── iau2012.py
+│   │   ├── iau2015.py
+│   │   ├── si.py
+│   │   └── utils.py
+│   │       └── ... (10 more files)
+│   ├── convolution/
+│   │   ├── src/
+│   │   │   ├── convolve.c
+│   │   │   └── convolve.h
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_convolve.py
+│   │   │   ├── test_convolve_fft.py
+│   │   │   ├── test_convolve_kernels.py
+│   │   │   ├── test_convolve_models.py
+│   │   │   ├── test_convolve_nddata.py
+│   │   │   ├── test_discretize.py
+│   │   │   ├── test_kernel_class.py
+│   │   │   └── test_pickle.py
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── _convolve.pyx
+│   │   ├── convolve.py
+│   │   ├── core.py
+│   │   ├── kernels.py
+│   │   ├── setup_package.py
+│   │   └── utils.py
+│   │       └── ... (2 more files)
+│   ├── coordinates/
+│   │   ├── angles/
+│   │   │   ├── __init__.py
+│   │   │   ├── angle_lextab.py
+│   │   │   ├── angle_parsetab.py
+│   │   │   ├── core.py
+│   │   │   ├── errors.py
+│   │   │   ├── formats.py
+│   │   │   └── utils.py
+│   │   │       └── ... (2 more files)
+│   │   ├── builtin_frames/
+│   │   │   ├── __init__.py
+│   │   │   ├── altaz.py
+│   │   │   ├── baseradec.py
+│   │   │   ├── cirs.py
+│   │   │   ├── cirs_observed_transforms.py
+│   │   │   ├── ecliptic.py
+│   │   │   ├── ecliptic_transforms.py
+│   │   │   ├── equatorial.py
+│   │   │   ├── fk4.py
+│   │   │   ├── fk4_fk5_transforms.py
+│   │   │   ├── fk5.py
+│   │   │   ├── galactic.py
+│   │   │   ├── galactic_transforms.py
+│   │   │   ├── galactocentric.py
+│   │   │   ├── gcrs.py
+│   │   │   ├── hadec.py
+│   │   │   ├── hcrs.py
+│   │   │   ├── icrs.py
+│   │   │   ├── icrs_cirs_transforms.py
+│   │   │   ├── icrs_fk5_transforms.py
+│   │   │   ├── icrs_observed_transforms.py
+│   │   │   ├── intermediate_rotation_transforms.py
+│   │   │   ├── itrs.py
+│   │   │   ├── itrs_observed_transforms.py
+│   │   │   ├── lsr.py
+│   │   │   ├── skyoffset.py
+│   │   │   ├── supergalactic.py
+│   │   │   ├── supergalactic_transforms.py
+│   │   │   └── utils.py
+│   │   │       └── ... (24 more files)
+│   │   ├── data/
+│   │   │   ├── constellation_data_roman87.dat
+│   │   │   ├── constellation_names.dat
+│   │   │   └── sites.json
+│   │   ├── representation/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── cartesian.py
+│   │   │   ├── cylindrical.py
+│   │   │   ├── geodetic.py
+│   │   │   └── spherical.py
+│   │   │       └── ... (1 more files)
+│   │   ├── tests/
+│   │   │   ├── accuracy/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── helper.py
+│   │   │   ├── test_angle_generators.py
+│   │   │   ├── test_angles.py
+│   │   │   ├── test_angular_separation.py
+│   │   │   ├── test_api_ape5.py
+│   │   │   ├── test_arrays.py
+│   │   │   ├── test_atc_replacements.py
+│   │   │   ├── test_celestial_transformations.py
+│   │   │   ├── test_distance.py
+│   │   │   ├── test_earth.py
+│   │   │   ├── test_earth_orientation.py
+│   │   │   ├── test_erfa_astrom.py
+│   │   │   ├── test_exceptions.py
+│   │   │   ├── test_finite_difference_velocities.py
+│   │   │   ├── test_formatting.py
+│   │   │   ├── test_frames.py
+│   │   │   ├── test_frames_with_velocity.py
+│   │   │   ├── test_funcs.py
+│   │   │   ├── test_geodetic_representations.py
+│   │   │   ├── test_iau_fullstack.py
+│   │   │   ├── test_icrs_observed_transformations.py
+│   │   │   ├── test_intermediate_transformations.py
+│   │   │   ├── test_masked.py
+│   │   │   ├── test_matching.py
+│   │   │   ├── test_matrix_utilities.py
+│   │   │   ├── test_name_resolve.py
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_polarization.py
+│   │   │   ├── test_regression.py
+│   │   │   ├── test_representation.py
+│   │   │   ├── test_representation_arithmetic.py
+│   │   │   ├── test_representation_methods.py
+│   │   │   ├── test_separation.py
+│   │   │   ├── test_shape_manipulation.py
+│   │   │   ├── test_sites.py
+│   │   │   ├── test_sky_coord.py
+│   │   │   ├── test_sky_coord_velocities.py
+│   │   │   ├── test_skyoffset_transformations.py
+│   │   │   ├── test_solar_system.py
+│   │   │   ├── test_spectral_coordinate.py
+│   │   │   ├── test_spectral_quantity.py
+│   │   │   ├── test_transformations.py
+│   │   │   ├── test_unit_representation.py
+│   │   │   ├── test_utils.py
+│   │   │   └── test_velocity_corrs.py
+│   │   │       └── ... (41 more files)
+│   │   ├── transformations/
+│   │   │   ├── __init__.py
+│   │   │   ├── affine.py
+│   │   │   ├── base.py
+│   │   │   ├── composite.py
+│   │   │   ├── function.py
+│   │   │   └── graph.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── attributes.py
+│   │   ├── baseframe.py
+│   │   ├── calculation.py
+│   │   ├── distances.py
+│   │   ├── earth.py
+│   │   ├── earth_orientation.py
+│   │   ├── erfa_astrom.py
+│   │   ├── errors.py
+│   │   ├── funcs.py
+│   │   ├── jparser.py
+│   │   ├── matching.py
+│   │   ├── matrix_utilities.py
+│   │   ├── name_resolve.py
+│   │   ├── polarization.py
+│   │   ├── sites.py
+│   │   ├── sky_coordinate.py
+│   │   ├── sky_coordinate_parsers.py
+│   │   ├── solar_system.py
+│   │   ├── spectral_coordinate.py
+│   │   └── spectral_quantity.py
+│   │       └── ... (16 more files)
+│   ├── cosmology/
+│   │   ├── _src/
+│   │   │   ├── flrw/
+│   │   │   ├── funcs/
+│   │   │   ├── io/
+│   │   │   ├── parameter/
+│   │   │   ├── tests/
+│   │   │   ├── traits/
+│   │   │   ├── __init__.py
+│   │   │   ├── core.py
+│   │   │   ├── default.py
+│   │   │   ├── setup_package.py
+│   │   │   ├── signature_deprecations.c
+│   │   │   ├── typing.py
+│   │   │   ├── units.py
+│   │   │   ├── units_equivalencies.py
+│   │   │   └── utils.py
+│   │   │       └── ... (4 more files)
+│   │   ├── data/
+│   │   │   ├── Planck13.ecsv
+│   │   │   ├── Planck15.ecsv
+│   │   │   ├── Planck18.ecsv
+│   │   │   ├── WMAP1.ecsv
+│   │   │   ├── WMAP3.ecsv
+│   │   │   ├── WMAP5.ecsv
+│   │   │   ├── WMAP7.ecsv
+│   │   │   └── WMAP9.ecsv
+│   │   │       └── ... (3 more files)
+│   │   ├── __init__.py
+│   │   ├── connect.py
+│   │   ├── core.py
+│   │   ├── flrw.py
+│   │   ├── funcs.py
+│   │   ├── io.py
+│   │   ├── parameter.py
+│   │   ├── parameters.py
+│   │   ├── realizations.py
+│   │   ├── traits.py
+│   │   └── units.py
+│   │       └── ... (6 more files)
+│   ├── extern/
+│   │   ├── configobj/
+│   │   │   ├── __init__.py
+│   │   │   ├── configobj.py
+│   │   │   └── validate.py
+│   │   ├── ply/
+│   │   │   ├── __init__.py
+│   │   │   ├── cpp.py
+│   │   │   ├── ctokens.py
+│   │   │   ├── lex.py
+│   │   │   ├── yacc.py
+│   │   │   └── ygen.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── _strptime.py
+│   │   └── README.rst
+│   ├── io/
+│   │   ├── ascii/
+│   │   │   ├── src/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── basic.py
+│   │   │   ├── cds.py
+│   │   │   ├── connect.py
+│   │   │   ├── core.py
+│   │   │   ├── cparser.pyx
+│   │   │   ├── daophot.py
+│   │   │   ├── docs.py
+│   │   │   ├── ecsv.py
+│   │   │   ├── fastbasic.py
+│   │   │   ├── fixedwidth.py
+│   │   │   ├── html.py
+│   │   │   ├── ipac.py
+│   │   │   ├── latex.py
+│   │   │   ├── misc.py
+│   │   │   ├── mrt.py
+│   │   │   ├── qdp.py
+│   │   │   ├── rst.py
+│   │   │   ├── setup_package.py
+│   │   │   ├── sextractor.py
+│   │   │   ├── tdat.py
+│   │   │   └── ui.py
+│   │   │       └── ... (17 more files)
+│   │   ├── fits/
+│   │   │   ├── hdu/
+│   │   │   ├── scripts/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _utils.pyx
+│   │   │   ├── card.py
+│   │   │   ├── column.py
+│   │   │   ├── connect.py
+│   │   │   ├── convenience.py
+│   │   │   ├── diff.py
+│   │   │   ├── file.py
+│   │   │   ├── fitsrec.py
+│   │   │   ├── fitstime.py
+│   │   │   ├── header.py
+│   │   │   ├── util.py
+│   │   │   └── verify.py
+│   │   │       └── ... (8 more files)
+│   │   ├── misc/
+│   │   │   ├── pandas/
+│   │   │   ├── pyarrow/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── connect.py
+│   │   │   ├── ecsv.py
+│   │   │   ├── hdf5.py
+│   │   │   ├── parquet.py
+│   │   │   ├── pickle_helpers.py
+│   │   │   └── yaml.py
+│   │   │       └── ... (2 more files)
+│   │   ├── registry/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── compat.py
+│   │   │   ├── core.py
+│   │   │   └── interface.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── mixin_columns.py
+│   │   │   └── safeio.py
+│   │   ├── votable/
+│   │   │   ├── data/
+│   │   │   ├── src/
+│   │   │   ├── tests/
+│   │   │   ├── validator/
+│   │   │   ├── __init__.py
+│   │   │   ├── connect.py
+│   │   │   ├── converters.py
+│   │   │   ├── dataorigin.py
+│   │   │   ├── exceptions.py
+│   │   │   ├── setup_package.py
+│   │   │   ├── table.py
+│   │   │   ├── tree.py
+│   │   │   ├── ucd.py
+│   │   │   ├── util.py
+│   │   │   ├── volint.py
+│   │   │   └── xmlutil.py
+│   │   │       └── ... (7 more files)
+│   │   ├── __init__.py
+│   │   └── typing.py
+│   ├── modeling/
+│   │   ├── models/
+│   │   │   └── __init__.py
+│   │   ├── tests/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── example_models.py
+│   │   │   ├── irafutil.py
+│   │   │   ├── test_bounding_box.py
+│   │   │   ├── test_compound.py
+│   │   │   ├── test_constraints.py
+│   │   │   ├── test_convolution.py
+│   │   │   ├── test_core.py
+│   │   │   ├── test_fitters.py
+│   │   │   ├── test_fitting_parallel.py
+│   │   │   ├── test_functional_models.py
+│   │   │   ├── test_input.py
+│   │   │   ├── test_mappings.py
+│   │   │   ├── test_math_func.py
+│   │   │   ├── test_model_sets.py
+│   │   │   ├── test_models.py
+│   │   │   ├── test_models_quantities.py
+│   │   │   ├── test_parameters.py
+│   │   │   ├── test_physical_models.py
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_polynomial.py
+│   │   │   ├── test_projections.py
+│   │   │   ├── test_quantities_evaluation.py
+│   │   │   ├── test_quantities_fitting.py
+│   │   │   ├── test_quantities_model.py
+│   │   │   ├── test_quantities_parameters.py
+│   │   │   ├── test_quantities_rotations.py
+│   │   │   ├── test_rotations.py
+│   │   │   ├── test_separable.py
+│   │   │   ├── test_spline.py
+│   │   │   ├── test_statistics.py
+│   │   │   ├── test_units_mapping.py
+│   │   │   └── test_utils.py
+│   │   │       └── ... (28 more files)
+│   │   ├── __init__.py
+│   │   ├── _fitting_parallel.py
+│   │   ├── bounding_box.py
+│   │   ├── convolution.py
+│   │   ├── core.py
+│   │   ├── fitting.py
+│   │   ├── functional_models.py
+│   │   ├── mappings.py
+│   │   ├── math_functions.py
+│   │   ├── optimizers.py
+│   │   ├── parameters.py
+│   │   ├── physical_models.py
+│   │   ├── polynomial.py
+│   │   ├── powerlaws.py
+│   │   ├── projections.py
+│   │   ├── rotations.py
+│   │   ├── separable.py
+│   │   ├── spline.py
+│   │   ├── statistic.py
+│   │   ├── tabular.py
+│   │   └── utils.py
+│   │       └── ... (16 more files)
+│   ├── nddata/
+│   │   ├── mixins/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── ndarithmetic.py
+│   │   │   ├── ndio.py
+│   │   │   └── ndslicing.py
+│   │   ├── tests/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_bitmask.py
+│   │   │   ├── test_blocks.py
+│   │   │   ├── test_ccddata.py
+│   │   │   ├── test_compat.py
+│   │   │   ├── test_covariance.py
+│   │   │   ├── test_decorators.py
+│   │   │   ├── test_flag_collection.py
+│   │   │   ├── test_nddata.py
+│   │   │   ├── test_nddata_base.py
+│   │   │   ├── test_nduncertainty.py
+│   │   │   └── test_utils.py
+│   │   │       └── ... (7 more files)
+│   │   ├── __init__.py
+│   │   ├── _testing.py
+│   │   ├── bitmask.py
+│   │   ├── blocks.py
+│   │   ├── ccddata.py
+│   │   ├── compat.py
+│   │   ├── covariance.py
+│   │   ├── decorators.py
+│   │   ├── flag_collection.py
+│   │   ├── nddata.py
+│   │   ├── nddata_base.py
+│   │   ├── nddata_withmixins.py
+│   │   ├── nduncertainty.py
+│   │   └── utils.py
+│   │       └── ... (9 more files)
+│   ├── samp/
+│   │   ├── data/
+│   │   │   ├── astropy_icon.png
+│   │   │   ├── clientaccesspolicy.xml
+│   │   │   └── crossdomain.xml
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_client.py
+│   │   │   ├── test_errors.py
+│   │   │   ├── test_helpers.py
+│   │   │   ├── test_hub.py
+│   │   │   ├── test_hub_proxy.py
+│   │   │   ├── test_hub_script.py
+│   │   │   ├── test_standard_profile.py
+│   │   │   ├── test_web_profile.py
+│   │   │   └── web_profile_test_helpers.py
+│   │   │       └── ... (5 more files)
+│   │   ├── __init__.py
+│   │   ├── client.py
+│   │   ├── constants.py
+│   │   ├── errors.py
+│   │   ├── hub.py
+│   │   ├── hub_proxy.py
+│   │   ├── hub_script.py
+│   │   ├── integrated_client.py
+│   │   ├── lockfile_helpers.py
+│   │   ├── setup_package.py
+│   │   ├── standard_profile.py
+│   │   ├── utils.py
+│   │   └── web_profile.py
+│   │       └── ... (8 more files)
+│   ├── stats/
+│   │   ├── src/
+│   │   │   ├── compute_bounds.c
+│   │   │   ├── compute_bounds.h
+│   │   │   ├── fast_sigma_clip.c
+│   │   │   ├── wirth_select.c
+│   │   │   └── wirth_select.h
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_bayesian_blocks.py
+│   │   │   ├── test_biweight.py
+│   │   │   ├── test_circstats.py
+│   │   │   ├── test_funcs.py
+│   │   │   ├── test_histogram.py
+│   │   │   ├── test_info_theory.py
+│   │   │   ├── test_jackknife.py
+│   │   │   ├── test_sigma_clipping.py
+│   │   │   └── test_spatial.py
+│   │   │       └── ... (5 more files)
+│   │   ├── __init__.py
+│   │   ├── _stats.pyx
+│   │   ├── bayesian_blocks.py
+│   │   ├── biweight.py
+│   │   ├── circstats.py
+│   │   ├── funcs.py
+│   │   ├── histogram.py
+│   │   ├── info_theory.py
+│   │   ├── jackknife.py
+│   │   ├── nanfunctions.py
+│   │   ├── setup_package.py
+│   │   ├── sigma_clipping.py
+│   │   └── spatial.py
+│   │       └── ... (8 more files)
+│   ├── table/
+│   │   ├── mixins/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── dask.py
+│   │   │   └── registry.py
+│   │   ├── scripts/
+│   │   │   ├── __init__.py
+│   │   │   └── showtable.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── test_array.py
+│   │   │   ├── test_bst.py
+│   │   │   ├── test_column.py
+│   │   │   ├── test_groups.py
+│   │   │   ├── test_index.py
+│   │   │   ├── test_info.py
+│   │   │   ├── test_init_table.py
+│   │   │   ├── test_item_access.py
+│   │   │   ├── test_jsviewer.py
+│   │   │   ├── test_masked.py
+│   │   │   ├── test_mixin.py
+│   │   │   ├── test_np_utils.py
+│   │   │   ├── test_operations.py
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_pprint.py
+│   │   │   ├── test_row.py
+│   │   │   ├── test_showtable.py
+│   │   │   ├── test_subclass.py
+│   │   │   └── test_table.py
+│   │   │       └── ... (16 more files)
+│   │   ├── __init__.py
+│   │   ├── _column_mixins.pyx
+│   │   ├── _np_utils.pyx
+│   │   ├── bst.py
+│   │   ├── column.py
+│   │   ├── connect.py
+│   │   ├── groups.py
+│   │   ├── index.py
+│   │   ├── info.py
+│   │   ├── jsviewer.py
+│   │   ├── meta.py
+│   │   ├── ndarray_mixin.py
+│   │   ├── notebook_backends.py
+│   │   ├── np_utils.py
+│   │   ├── operations.py
+│   │   ├── pandas.py
+│   │   ├── pprint.py
+│   │   ├── row.py
+│   │   ├── serialize.py
+│   │   ├── setup_package.py
+│   │   ├── soco.py
+│   │   ├── sorted_array.py
+│   │   ├── table.py
+│   │   └── table_helpers.py
+│   │       └── ... (19 more files)
+│   ├── tests/
+│   │   ├── figures/
+│   │   │   ├── __init__.py
+│   │   │   ├── helpers.py
+│   │   │   ├── py311-test-image-mpl380-cov.json
+│   │   │   └── py311-test-image-mpldev-cov.json
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_imports.py
+│   │   │   ├── test_quantity_helpers.py
+│   │   │   ├── test_run_tests.py
+│   │   │   └── test_runner.py
+│   │   ├── __init__.py
+│   │   ├── command.py
+│   │   ├── helper.py
+│   │   ├── runner.py
+│   │   └── test_logger.py
+│   ├── time/
+│   │   ├── src/
+│   │   │   └── parse_times.c
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_basic.py
+│   │   │   ├── test_comparisons.py
+│   │   │   ├── test_corrs.py
+│   │   │   ├── test_custom_formats.py
+│   │   │   ├── test_delta.py
+│   │   │   ├── test_fast_parser.py
+│   │   │   ├── test_functions.py
+│   │   │   ├── test_guess.py
+│   │   │   ├── test_mask.py
+│   │   │   ├── test_methods.py
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_precision.py
+│   │   │   ├── test_quantity_interaction.py
+│   │   │   ├── test_sidereal.py
+│   │   │   ├── test_update_leap_seconds.py
+│   │   │   └── test_ut1.py
+│   │   │       └── ... (12 more files)
+│   │   ├── time_helper/
+│   │   │   ├── __init__.py
+│   │   │   └── function_helpers.py
+│   │   ├── __init__.py
+│   │   ├── core.py
+│   │   ├── formats.py
+│   │   ├── setup_package.py
+│   │   └── utils.py
+│   ├── timeseries/
+│   │   ├── io/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── kepler.py
+│   │   ├── periodograms/
+│   │   │   ├── bls/
+│   │   │   ├── lombscargle/
+│   │   │   ├── lombscargle_multiband/
+│   │   │   ├── __init__.py
+│   │   │   └── base.py
+│   │   ├── tests/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_binned.py
+│   │   │   ├── test_common.py
+│   │   │   ├── test_downsample.py
+│   │   │   └── test_sampled.py
+│   │   ├── __init__.py
+│   │   ├── binned.py
+│   │   ├── core.py
+│   │   ├── downsample.py
+│   │   └── sampled.py
+│   ├── uncertainty/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_containers.py
+│   │   │   ├── test_distribution.py
+│   │   │   └── test_functions.py
+│   │   ├── __init__.py
+│   │   ├── core.py
+│   │   ├── distributions.py
+│   │   └── function_helpers.py
+│   ├── units/
+│   │   ├── format/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── cds.py
+│   │   │   ├── cds_lextab.py
+│   │   │   ├── cds_parsetab.py
+│   │   │   ├── console.py
+│   │   │   ├── fits.py
+│   │   │   ├── generic.py
+│   │   │   ├── generic_lextab.py
+│   │   │   ├── generic_parsetab.py
+│   │   │   ├── latex.py
+│   │   │   ├── ogip.py
+│   │   │   ├── ogip_lextab.py
+│   │   │   ├── ogip_parsetab.py
+│   │   │   ├── unicode_format.py
+│   │   │   ├── utils.py
+│   │   │   └── vounit.py
+│   │   │       └── ... (12 more files)
+│   │   ├── function/
+│   │   │   ├── __init__.py
+│   │   │   ├── core.py
+│   │   │   ├── logarithmic.py
+│   │   │   ├── mixin.py
+│   │   │   └── units.py
+│   │   ├── quantity_helper/
+│   │   │   ├── __init__.py
+│   │   │   ├── converters.py
+│   │   │   ├── erfa.py
+│   │   │   ├── function_helpers.py
+│   │   │   ├── helpers.py
+│   │   │   └── scipy_special.py
+│   │   │       └── ... (1 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_aliases.py
+│   │   │   ├── test_deprecated.py
+│   │   │   ├── test_docgen.py
+│   │   │   ├── test_equivalencies.py
+│   │   │   ├── test_format.py
+│   │   │   ├── test_logarithmic.py
+│   │   │   ├── test_photometric.py
+│   │   │   ├── test_physical.py
+│   │   │   ├── test_quantity.py
+│   │   │   ├── test_quantity_annotations.py
+│   │   │   ├── test_quantity_array_methods.py
+│   │   │   ├── test_quantity_decorator.py
+│   │   │   ├── test_quantity_erfa_ufuncs.py
+│   │   │   ├── test_quantity_helpers.py
+│   │   │   ├── test_quantity_info.py
+│   │   │   ├── test_quantity_non_ufuncs.py
+│   │   │   ├── test_quantity_typing.py
+│   │   │   ├── test_quantity_ufuncs.py
+│   │   │   ├── test_structured.py
+│   │   │   └── test_units.py
+│   │   │       └── ... (16 more files)
+│   │   ├── __init__.py
+│   │   ├── astrophys.py
+│   │   ├── cds.py
+│   │   ├── cgs.py
+│   │   ├── core.py
+│   │   ├── decorators.py
+│   │   ├── deprecated.py
+│   │   ├── docgen.py
+│   │   ├── equivalencies.py
+│   │   ├── errors.py
+│   │   ├── imperial.py
+│   │   ├── misc.py
+│   │   ├── photometric.py
+│   │   ├── physical.py
+│   │   ├── quantity.py
+│   │   ├── required_by_vounit.py
+│   │   ├── si.py
+│   │   ├── structured.py
+│   │   ├── typing.py
+│   │   └── utils.py
+│   │       └── ... (15 more files)
+│   ├── utils/
+│   │   ├── compat/
+│   │   │   ├── __init__.py
+│   │   │   ├── numpycompat.py
+│   │   │   └── optional_deps.py
+│   │   ├── iers/
+│   │   │   ├── data/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── iers.py
+│   │   ├── masked/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── core.py
+│   │   │   └── function_helpers.py
+│   │   ├── metadata/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── core.py
+│   │   │   ├── exceptions.py
+│   │   │   ├── merge.py
+│   │   │   └── utils.py
+│   │   ├── src/
+│   │   │   └── compiler.c
+│   │   ├── tests/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_codegen.py
+│   │   │   ├── test_collections.py
+│   │   │   ├── test_console.py
+│   │   │   ├── test_data.py
+│   │   │   ├── test_data_info.py
+│   │   │   ├── test_decorators.py
+│   │   │   ├── test_diff.py
+│   │   │   ├── test_introspection.py
+│   │   │   ├── test_misc.py
+│   │   │   ├── test_parsing.py
+│   │   │   ├── test_progress_bar_func.py
+│   │   │   ├── test_shapes.py
+│   │   │   ├── test_state.py
+│   │   │   └── test_xml.py
+│   │   │       └── ... (10 more files)
+│   │   ├── xml/
+│   │   │   ├── src/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── check.py
+│   │   │   ├── iterparser.py
+│   │   │   ├── setup_package.py
+│   │   │   ├── unescaper.py
+│   │   │   ├── validate.py
+│   │   │   └── writer.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── codegen.py
+│   │   ├── collections.py
+│   │   ├── console.py
+│   │   ├── data.py
+│   │   ├── data_info.py
+│   │   ├── decorators.py
+│   │   ├── diff.py
+│   │   ├── exceptions.py
+│   │   ├── introspection.py
+│   │   ├── misc.py
+│   │   ├── parsing.py
+│   │   ├── setup_package.py
+│   │   ├── shapes.py
+│   │   ├── state.py
+│   │   └── system_info.py
+│   │       └── ... (11 more files)
+│   ├── visualization/
+│   │   ├── scripts/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── fits2bitmap.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_basic_rgb.py
+│   │   │   ├── test_histogram.py
+│   │   │   ├── test_interval.py
+│   │   │   ├── test_lupton_rgb.py
+│   │   │   ├── test_norm.py
+│   │   │   ├── test_stretch.py
+│   │   │   ├── test_time.py
+│   │   │   └── test_units.py
+│   │   │       └── ... (4 more files)
+│   │   ├── wcsaxes/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _auto.py
+│   │   │   ├── axislabels.py
+│   │   │   ├── coordinate_helpers.py
+│   │   │   ├── coordinate_range.py
+│   │   │   ├── coordinates_map.py
+│   │   │   ├── core.py
+│   │   │   ├── formatter_locator.py
+│   │   │   ├── frame.py
+│   │   │   ├── grid_paths.py
+│   │   │   ├── helpers.py
+│   │   │   ├── patches.py
+│   │   │   ├── ticklabels.py
+│   │   │   ├── ticks.py
+│   │   │   ├── transforms.py
+│   │   │   ├── utils.py
+│   │   │   └── wcsapi.py
+│   │   │       └── ... (12 more files)
+│   │   ├── __init__.py
+│   │   ├── basic_rgb.py
+│   │   ├── hist.py
+│   │   ├── interval.py
+│   │   ├── lupton_rgb.py
+│   │   ├── mpl_normalize.py
+│   │   ├── mpl_style.py
+│   │   ├── stretch.py
+│   │   ├── time.py
+│   │   ├── transform.py
+│   │   └── units.py
+│   │       └── ... (6 more files)
+│   ├── wcs/
+│   │   ├── include/
+│   │   │   ├── astropy_wcs/
+│   │   │   ├── wcslib/
+│   │   │   ├── .gitignore
+│   │   │   └── astropy_wcs_api.h
+│   │   ├── src/
+│   │   │   ├── .gitignore
+│   │   │   ├── astropy_wcs.c
+│   │   │   ├── astropy_wcs_api.c
+│   │   │   ├── distortion.c
+│   │   │   ├── distortion_wrap.c
+│   │   │   ├── pipeline.c
+│   │   │   ├── pyutil.c
+│   │   │   ├── sip.c
+│   │   │   ├── sip_wrap.c
+│   │   │   ├── str_list_proxy.c
+│   │   │   ├── unit_list_proxy.c
+│   │   │   ├── util.c
+│   │   │   ├── wcslib_auxprm_wrap.c
+│   │   │   ├── wcslib_celprm_wrap.c
+│   │   │   ├── wcslib_prjprm_wrap.c
+│   │   │   ├── wcslib_tabprm_wrap.c
+│   │   │   ├── wcslib_wrap.c
+│   │   │   └── wcslib_wtbarr_wrap.c
+│   │   │       └── ... (13 more files)
+│   │   ├── tests/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── helper.py
+│   │   │   ├── test_auxprm.py
+│   │   │   ├── test_celprm.py
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_prjprm.py
+│   │   │   ├── test_profiling.py
+│   │   │   ├── test_tab.py
+│   │   │   ├── test_tabprm.py
+│   │   │   ├── test_utils.py
+│   │   │   ├── test_wcs.py
+│   │   │   ├── test_wcsprm.py
+│   │   │   └── test_wtbarr.py
+│   │   │       └── ... (9 more files)
+│   │   ├── wcsapi/
+│   │   │   ├── data/
+│   │   │   ├── tests/
+│   │   │   ├── wrappers/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── fitswcs.py
+│   │   │   ├── high_level_api.py
+│   │   │   ├── high_level_wcs_wrapper.py
+│   │   │   ├── low_level_api.py
+│   │   │   └── utils.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── docstrings.py
+│   │   ├── setup_package.py
+│   │   ├── utils.py
+│   │   ├── wcs.py
+│   │   └── wcslint.py
+│   │       └── ... (1 more files)
+│   ├── __init__.py
+│   ├── CITATION
+│   ├── conftest.py
+│   ├── logger.py
+│   └── version.py
+├── cextern/
+│   ├── cfitsio/
+│   │   ├── lib/
+│   │   │   ├── fits_hcompress.c
+│   │   │   ├── fits_hdecompress.c
+│   │   │   ├── fitsio2.h
+│   │   │   ├── pliocomp.c
+│   │   │   ├── quantize.c
+│   │   │   └── ricecomp.c
+│   │   │       └── ... (1 more files)
+│   │   ├── licenses/
+│   │   │   └── License.txt
+│   │   ├── ChangeLog
+│   │   └── README.rst
+│   ├── expat/
+│   │   ├── lib/
+│   │   │   ├── ascii.h
+│   │   │   ├── asciitab.h
+│   │   │   ├── expat.h
+│   │   │   ├── expat_external.h
+│   │   │   ├── iasciitab.h
+│   │   │   ├── internal.h
+│   │   │   ├── latin1tab.h
+│   │   │   ├── Makefile.am
+│   │   │   ├── Makefile.in
+│   │   │   ├── nametab.h
+│   │   │   ├── siphash.h
+│   │   │   ├── utf8tab.h
+│   │   │   ├── winconfig.h
+│   │   │   ├── xmlparse.c
+│   │   │   ├── xmlrole.c
+│   │   │   ├── xmlrole.h
+│   │   │   ├── xmltok.c
+│   │   │   ├── xmltok.h
+│   │   │   ├── xmltok_impl.c
+│   │   │   ├── xmltok_impl.h
+│   │   │   └── xmltok_ns.c
+│   │   │       └── ... (16 more files)
+│   │   ├── AUTHORS
+│   │   ├── Changes
+│   │   ├── COPYING
+│   │   ├── expat_config.h
+│   │   ├── expat_config.h.in
+│   │   ├── README.md
+│   │   └── README.txt
+│   │       └── ... (2 more files)
+│   ├── wcslib/
+│   │   ├── C/
+│   │   │   ├── flexed/
+│   │   │   ├── cel.c
+│   │   │   ├── cel.h
+│   │   │   ├── dis.c
+│   │   │   ├── dis.h
+│   │   │   ├── fitshdr.h
+│   │   │   ├── fitshdr.l
+│   │   │   ├── getwcstab.c
+│   │   │   ├── getwcstab.h
+│   │   │   ├── GNUmakefile
+│   │   │   ├── lin.c
+│   │   │   ├── lin.h
+│   │   │   ├── log.c
+│   │   │   ├── log.h
+│   │   │   ├── prj.c
+│   │   │   ├── prj.h
+│   │   │   ├── spc.c
+│   │   │   ├── spc.h
+│   │   │   ├── sph.c
+│   │   │   ├── sph.h
+│   │   │   ├── spx.c
+│   │   │   ├── spx.h
+│   │   │   ├── tab.c
+│   │   │   ├── tab.h
+│   │   │   ├── wcs.c
+│   │   │   ├── wcs.h
+│   │   │   ├── wcsbth.l
+│   │   │   ├── wcserr.c
+│   │   │   ├── wcserr.h
+│   │   │   ├── wcsfix.c
+│   │   │   ├── wcsfix.h
+│   │   │   ├── wcshdr.c
+│   │   │   ├── wcshdr.h
+│   │   │   ├── wcslib.h
+│   │   │   ├── wcsmath.h
+│   │   │   ├── wcspih.l
+│   │   │   ├── wcsprintf.c
+│   │   │   ├── wcsprintf.h
+│   │   │   ├── wcstrig.c
+│   │   │   ├── wcstrig.h
+│   │   │   ├── wcsulex.l
+│   │   │   ├── wcsunits.c
+│   │   │   ├── wcsunits.h
+│   │   │   ├── wcsutil.c
+│   │   │   ├── wcsutil.h
+│   │   │   ├── wcsutrn.l
+│   │   │   └── wtbarr.h
+│   │   │       └── ... (41 more files)
+│   │   ├── config/
+│   │   │   ├── ax_pthread.m4
+│   │   │   ├── config.guess
+│   │   │   ├── config.sub
+│   │   │   └── install-sh
+│   │   ├── CHANGES
+│   │   ├── configure
+│   │   ├── configure.ac
+│   │   ├── COPYING
+│   │   ├── COPYING.LESSER
+│   │   ├── flavours
+│   │   ├── GNUmakefile
+│   │   ├── INSTALL
+│   │   ├── makedefs.in
+│   │   ├── makelog
+│   │   ├── README
+│   │   ├── THANKS
+│   │   ├── VALIDATION
+│   │   ├── wcsconfig.h.in
+│   │   ├── wcsconfig_f77.h.in
+│   │   ├── wcsconfig_tests.h.in
+│   │   ├── wcsconfig_utils.h.in
+│   │   └── wcslib.pc.in
+│   │       └── ... (13 more files)
+│   ├── .gitignore
+│   ├── README.rst
+│   ├── trim_cfitsio.sh
+│   └── trim_wcslib.sh
+├── docs/
+│   ├── _static/
+│   │   ├── index-images/
+│   │   │   ├── api.svg
+│   │   │   ├── contributor.svg
+│   │   │   ├── getting_started.svg
+│   │   │   ├── learn.svg
+│   │   │   ├── packages.svg
+│   │   │   └── user_guide.svg
+│   │   │       └── ... (1 more files)
+│   │   ├── astropy.css
+│   │   ├── astropy_banner.svg
+│   │   ├── astropy_banner_96.png
+│   │   ├── astropy_banner_96_dark.png
+│   │   ├── astropy_banner_dark.svg
+│   │   ├── astropy_logo.ico
+│   │   └── astropy_logo.pdf
+│   │       └── ... (2 more files)
+│   ├── _templates/
+│   │   └── layout.html
+│   ├── changes/
+│   │   ├── config/
+│   │   │   └── .gitkeep
+│   │   ├── constants/
+│   │   │   ├── .gitkeep
+│   │   │   └── 18118.feature.rst
+│   │   ├── convolution/
+│   │   │   └── .gitkeep
+│   │   ├── coordinates/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 18418.api.rst
+│   │   │   └── 18504.bugfix.rst
+│   │   ├── cosmology/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 18271.feature.rst
+│   │   │   └── 18447.feature.rst
+│   │   ├── extern/
+│   │   │   └── .gitkeep
+│   │   ├── io.ascii/
+│   │   │   └── .gitkeep
+│   │   ├── io.fits/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 18151.feature.rst
+│   │   │   └── 18230.bugfix.rst
+│   │   ├── io.misc/
+│   │   │   ├── .gitkeep
+│   │   │   └── 18267.feature.rst
+│   │   ├── io.registry/
+│   │   │   ├── .gitkeep
+│   │   │   └── 18470.feature.rst
+│   │   ├── io.votable/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 18105.bugfix.rst
+│   │   │   ├── 18151.feature.rst
+│   │   │   ├── 18366.api.rst
+│   │   │   └── 18366.feature.rst
+│   │   ├── modeling/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 17304.feature.rst
+│   │   │   └── 18238.perf.rst
+│   │   ├── nddata/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 18205.feature.rst
+│   │   │   └── 18424.bugfix.rst
+│   │   ├── samp/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 18151.feature.rst
+│   │   │   └── 18169.bugfix.rst
+│   │   ├── stats/
+│   │   │   └── .gitkeep
+│   │   ├── table/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 17631.api.rst
+│   │   │   ├── 18139.bugfix.rst
+│   │   │   └── 18151.feature.rst
+│   │   ├── tests/
+│   │   │   ├── .gitkeep
+│   │   │   └── 17874.api.rst
+│   │   ├── time/
+│   │   │   ├── .gitkeep
+│   │   │   └── 18265.bugfix.rst
+│   │   ├── timeseries/
+│   │   │   ├── .gitkeep
+│   │   │   └── 18188.bugfix.rst
+│   │   ├── uncertainty/
+│   │   │   └── .gitkeep
+│   │   ├── units/
+│   │   │   └── .gitkeep
+│   │   ├── utils/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 18053.api.rst
+│   │   │   └── 18173.bugfix.rst
+│   │   ├── visualization/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 18151.feature.rst
+│   │   │   ├── 18312.feature.rst
+│   │   │   ├── 18313.bugfix.rst
+│   │   │   ├── 18324.api.rst
+│   │   │   ├── 18327.bugfix.rst
+│   │   │   └── 18346.bugfix.rst
+│   │   │       └── ... (2 more files)
+│   │   ├── wcs/
+│   │   │   ├── .gitkeep
+│   │   │   ├── 16411.bugfix.rst
+│   │   │   ├── 18151.feature.rst
+│   │   │   ├── 18338.feature.rst
+│   │   │   ├── 18350.bugfix.rst
+│   │   │   ├── 18352.bugfix.rst
+│   │   │   ├── 18394.bugfix.rst
+│   │   │   ├── 18417.bugfix.rst
+│   │   │   └── 18419.bugfix.rst
+│   │   │       └── ... (4 more files)
+│   │   ├── 18160.other.rst
+│   │   ├── 18164.other.rst
+│   │   ├── 18253.other.rst
+│   │   ├── README.rst
+│   │   └── template.rst
+│   ├── config/
+│   │   ├── astropy_config.rst
+│   │   ├── index.rst
+│   │   └── ref_api.rst
+│   ├── constants/
+│   │   ├── index.rst
+│   │   └── performance.inc.rst
+│   ├── convolution/
+│   │   ├── images/
+│   │   │   ├── astropy.png
+│   │   │   ├── original.png
+│   │   │   └── scipy.png
+│   │   ├── index.rst
+│   │   ├── kernels.rst
+│   │   ├── non_normalized_kernels.rst
+│   │   ├── performance.inc.rst
+│   │   ├── ref_api.rst
+│   │   └── using.rst
+│   │       └── ... (1 more files)
+│   ├── coordinates/
+│   │   ├── angles.rst
+│   │   ├── apply_space_motion.rst
+│   │   ├── common_errors.rst
+│   │   ├── definitions.rst
+│   │   ├── example_gallery_index.rst
+│   │   ├── example_gallery_plot_galactocentric_frame.rst
+│   │   ├── example_gallery_plot_mars_coordinate_frame.rst
+│   │   ├── example_gallery_plot_obs_planning.rst
+│   │   ├── example_gallery_plot_sgr_coordinate_frame.rst
+│   │   ├── example_gallery_rv_to_gsr.rst
+│   │   ├── formatting.rst
+│   │   ├── frames.rst
+│   │   ├── galactocentric.rst
+│   │   ├── index.rst
+│   │   ├── inplace.rst
+│   │   ├── matchsep.rst
+│   │   ├── performance.inc.rst
+│   │   ├── ref_api.rst
+│   │   ├── remote_methods.rst
+│   │   ├── representations.rst
+│   │   ├── satellites.rst
+│   │   ├── skycoord.rst
+│   │   ├── solarsystem.rst
+│   │   ├── spectralcoord.rst
+│   │   ├── stokescoord.rst
+│   │   ├── transforming.rst
+│   │   └── velocities.rst
+│   │       └── ... (22 more files)
+│   ├── cosmology/
+│   │   ├── io/
+│   │   │   ├── builtin.rst
+│   │   │   ├── custom.rst
+│   │   │   ├── details.rst
+│   │   │   └── index.rst
+│   │   ├── dev.rst
+│   │   ├── index.rst
+│   │   ├── realizations.rst
+│   │   ├── ref_api.rst
+│   │   ├── traits.rst
+│   │   └── units.rst
+│   │       └── ... (1 more files)
+│   ├── development/
+│   │   ├── maintainers/
+│   │   │   ├── astropy-package-template.rst
+│   │   │   ├── index.rst
+│   │   │   ├── maintainer_workflow.rst
+│   │   │   ├── releasing.rst
+│   │   │   └── testhelpers.rst
+│   │   ├── branch_dropdown.png
+│   │   ├── ccython.rst
+│   │   ├── codeguide.rst
+│   │   ├── development_details.rst
+│   │   ├── docguide.rst
+│   │   ├── git_edit_workflow_examples.rst
+│   │   ├── git_resources.rst
+│   │   ├── links.inc
+│   │   ├── pull_button.png
+│   │   ├── quickstart.rst
+│   │   ├── scripts.rst
+│   │   ├── style-guide.rst
+│   │   ├── testguide.rst
+│   │   ├── vision.rst
+│   │   └── worked_example_switch_branch.png
+│   │       └── ... (10 more files)
+│   ├── io/
+│   │   ├── ascii/
+│   │   │   ├── base_classes.rst
+│   │   │   ├── ecsv.rst
+│   │   │   ├── extension_classes.rst
+│   │   │   ├── fast_ascii_io.rst
+│   │   │   ├── fixed_width_gallery.rst
+│   │   │   ├── index.rst
+│   │   │   ├── performance.inc.rst
+│   │   │   ├── read.rst
+│   │   │   ├── ref_api.rst
+│   │   │   ├── references.txt
+│   │   │   ├── toc.txt
+│   │   │   └── write.rst
+│   │   │       └── ... (7 more files)
+│   │   ├── fits/
+│   │   │   ├── api/
+│   │   │   ├── appendix/
+│   │   │   ├── usage/
+│   │   │   ├── index.rst
+│   │   │   └── performance.inc.rst
+│   │   ├── votable/
+│   │   │   ├── .gitignore
+│   │   │   ├── api_exceptions.rst
+│   │   │   ├── coosys_element.rst
+│   │   │   ├── dataorigin.rst
+│   │   │   ├── index.rst
+│   │   │   ├── mivot_blocks.rst
+│   │   │   ├── performance.inc.rst
+│   │   │   ├── ref_api.rst
+│   │   │   ├── references.txt
+│   │   │   └── table_element.rst
+│   │   │       └── ... (5 more files)
+│   │   ├── misc.rst
+│   │   ├── misc_ref_api.rst
+│   │   ├── overview.rst
+│   │   ├── registry.rst
+│   │   ├── registry_ref_api.rst
+│   │   ├── typing.rst
+│   │   ├── unified.rst
+│   │   ├── unified_image.rst
+│   │   ├── unified_table.rst
+│   │   ├── unified_table_fits.rst
+│   │   ├── unified_table_hdf5.rst
+│   │   ├── unified_table_parquet.rst
+│   │   ├── unified_table_text.rst
+│   │   └── unified_table_votable.rst
+│   │       └── ... (9 more files)
+│   ├── modeling/
+│   │   ├── add-units.rst
+│   │   ├── compound-models.rst
+│   │   ├── example-fitting-constraints.rst
+│   │   ├── example-fitting-line.rst
+│   │   ├── example-fitting-model-sets.rst
+│   │   ├── fitting.rst
+│   │   ├── index.rst
+│   │   ├── jointfitter.rst
+│   │   ├── links.inc
+│   │   ├── models.rst
+│   │   ├── new-fitter.rst
+│   │   ├── new-model.rst
+│   │   ├── parallel-fitting.rst
+│   │   ├── parameters.rst
+│   │   ├── performance.rst
+│   │   ├── physical_models.rst
+│   │   ├── polynomial_models.rst
+│   │   ├── powerlaw_models.rst
+│   │   ├── predef_models1D.rst
+│   │   ├── predef_models2D.rst
+│   │   ├── reference_api.rst
+│   │   ├── spline_models.rst
+│   │   └── units.rst
+│   │       └── ... (18 more files)
+│   ├── nddata/
+│   │   ├── examples/
+│   │   │   └── cutout2d_tofits.py
+│   │   ├── mixins/
+│   │   │   ├── index.rst
+│   │   │   ├── ndarithmetic.rst
+│   │   │   ├── ndio.rst
+│   │   │   └── ndslicing.rst
+│   │   ├── bitmask.rst
+│   │   ├── ccddata.rst
+│   │   ├── covariance.rst
+│   │   ├── decorator.rst
+│   │   ├── index.rst
+│   │   ├── nddata.rst
+│   │   ├── performance.inc.rst
+│   │   ├── ref_api.rst
+│   │   ├── subclassing.rst
+│   │   └── utils.rst
+│   │       └── ... (5 more files)
+│   ├── samp/
+│   │   ├── advanced_embed_samp_hub.rst
+│   │   ├── example_clients.rst
+│   │   ├── example_hub.rst
+│   │   ├── example_table_image.rst
+│   │   ├── index.rst
+│   │   ├── performance.inc.rst
+│   │   └── ref_api.rst
+│   │       └── ... (2 more files)
+│   ├── stats/
+│   │   ├── circ.rst
+│   │   ├── index.rst
+│   │   ├── performance.inc.rst
+│   │   ├── ref_api.rst
+│   │   ├── ripley.rst
+│   │   └── robust.rst
+│   │       └── ... (1 more files)
+│   ├── table/
+│   │   ├── access_table.rst
+│   │   ├── construct_table.rst
+│   │   ├── implementation_details.rst
+│   │   ├── index.rst
+│   │   ├── indexing.rst
+│   │   ├── masking.rst
+│   │   ├── mixin_columns.rst
+│   │   ├── modify_table.rst
+│   │   ├── operations.rst
+│   │   ├── pandas.rst
+│   │   ├── performance.inc.rst
+│   │   ├── ref_api.rst
+│   │   ├── table_and_dataframes.rst
+│   │   ├── table_architecture.png
+│   │   ├── table_repr_html.png
+│   │   └── table_row.png
+│   │       └── ... (11 more files)
+│   ├── time/
+│   │   ├── index.rst
+│   │   ├── performance.inc.rst
+│   │   ├── ref_api.rst
+│   │   ├── time_scale_conversion.odg
+│   │   └── time_scale_conversion.png
+│   ├── timeseries/
+│   │   ├── analysis.rst
+│   │   ├── binned.csv
+│   │   ├── bls.rst
+│   │   ├── data_access.rst
+│   │   ├── index.rst
+│   │   ├── initializing.rst
+│   │   ├── io.rst
+│   │   ├── lombscargle.rst
+│   │   ├── lombscarglemb.rst
+│   │   ├── masking.rst
+│   │   ├── pandas.rst
+│   │   ├── ref_api.rst
+│   │   ├── sampled.csv
+│   │   └── times.rst
+│   │       └── ... (9 more files)
+│   ├── uncertainty/
+│   │   ├── index.rst
+│   │   └── performance.inc.rst
+│   ├── units/
+│   │   ├── combining_and_defining.rst
+│   │   ├── constants_versions.rst
+│   │   ├── conversion.rst
+│   │   ├── decomposing_and_composing.rst
+│   │   ├── equivalencies.rst
+│   │   ├── format.rst
+│   │   ├── index.rst
+│   │   ├── logarithmic_units.rst
+│   │   ├── performance.inc.rst
+│   │   ├── physical_types.rst
+│   │   ├── quantity.rst
+│   │   ├── ref_api.rst
+│   │   ├── standard_units.rst
+│   │   ├── structured_units.rst
+│   │   └── type_hints.rst
+│   │       └── ... (10 more files)
+│   ├── utils/
+│   │   ├── masked/
+│   │   │   └── index.rst
+│   │   ├── data.rst
+│   │   ├── iers.rst
+│   │   ├── index.rst
+│   │   └── ref_api.rst
+│   ├── visualization/
+│   │   ├── wcsaxes/
+│   │   │   ├── controlling_axes.rst
+│   │   │   ├── custom_frames.rst
+│   │   │   ├── generic_transforms.rst
+│   │   │   ├── images_contours.rst
+│   │   │   ├── index.rst
+│   │   │   ├── initializing_axes.rst
+│   │   │   ├── overlaying_coordinate_systems.rst
+│   │   │   ├── overlays.rst
+│   │   │   ├── slicing_datacubes.rst
+│   │   │   └── ticks_labels_grid.rst
+│   │   │       └── ... (5 more files)
+│   │   ├── histogram.rst
+│   │   ├── index.rst
+│   │   ├── matplotlib_integration.rst
+│   │   ├── normalization.rst
+│   │   ├── performance.inc.rst
+│   │   ├── ref_api.rst
+│   │   └── rgb.rst
+│   │       └── ... (2 more files)
+│   ├── wcs/
+│   │   ├── examples/
+│   │   │   ├── cube_wcs.py
+│   │   │   ├── from_file.py
+│   │   │   ├── planetary_wcs.py
+│   │   │   └── programmatic.py
+│   │   ├── creating_planetary_wcs.rst
+│   │   ├── example_create_imaging.rst
+│   │   ├── example_cube_wcs.rst
+│   │   ├── history.rst
+│   │   ├── index.rst
+│   │   ├── legacy_interface.rst
+│   │   ├── loading_from_fits.rst
+│   │   ├── note_sip.rst
+│   │   ├── performance.inc.rst
+│   │   ├── reference_api.rst
+│   │   ├── references.rst
+│   │   ├── references.txt
+│   │   ├── relax.rst
+│   │   ├── supported_projections.rst
+│   │   ├── validation.rst
+│   │   ├── wcsapi.rst
+│   │   └── wcstools.rst
+│   │       └── ... (12 more files)
+│   ├── whatsnew/
+│   │   ├── 0.1.rst
+│   │   ├── 0.2.rst
+│   │   ├── 0.3.rst
+│   │   ├── 0.4.rst
+│   │   ├── 1.0.rst
+│   │   ├── 1.1.rst
+│   │   ├── 1.2.rst
+│   │   ├── 1.3.rst
+│   │   ├── 2.0.rst
+│   │   ├── 3.0.rst
+│   │   ├── 3.1.rst
+│   │   ├── 3.2.rst
+│   │   ├── 4.0.rst
+│   │   ├── 4.1.rst
+│   │   ├── 4.2.rst
+│   │   ├── 4.3.rst
+│   │   ├── 5.0.rst
+│   │   ├── 5.1.rst
+│   │   ├── 5.2.rst
+│   │   ├── 5.3.rst
+│   │   ├── 6.0.rst
+│   │   ├── 6.1.rst
+│   │   ├── 7.0.rst
+│   │   ├── 7.1.rst
+│   │   ├── 7.2.rst
+│   │   └── index.rst
+│   │       └── ... (21 more files)
+│   ├── _pkgtemplate.rst
+│   ├── changelog.rst
+│   ├── conf.py
+│   ├── conftest.py
+│   ├── credits.rst
+│   ├── environment_variables.rst
+│   ├── glossary.rst
+│   ├── impact_health.rst
+│   ├── importing_astropy.rst
+│   ├── index.rst
+│   ├── index_dev.rst
+│   ├── index_getting_started.rst
+│   ├── index_project_details.rst
+│   ├── index_user_docs.rst
+│   ├── install.rst
+│   ├── known_issues.rst
+│   ├── license.rst
+│   ├── logging.rst
+│   ├── lts_policy.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── nitpick-exceptions
+│   ├── robots.txt
+│   ├── rtd_environment.yaml
+│   └── warnings.rst
+│       └── ... (20 more files)
+├── licenses/
+│   ├── AURA_LICENSE.rst
+│   ├── CONFIGOBJ_LICENSE.rst
+│   ├── DATATABLES_LICENSE.rst
+│   ├── ERFA.rst
+│   ├── EXPAT_LICENSE.rst
+│   ├── GATSPY_LICENSE.rst
+│   ├── JQUERY_LICENSE.rst
+│   ├── NUMPY_LICENSE.rst
+│   ├── PLY_LICENSE.rst
+│   ├── POSITIONAL_DEFAULTS.rst
+│   ├── PYFITS.rst
+│   ├── PYTHON.rst
+│   ├── README.rst
+│   └── WCSLIB_LICENSE.rst
+│       └── ... (9 more files)
+├── .astropy-root
+├── .flake8
+├── .git-blame-ignore-revs
+├── .gitattributes
+├── .gitignore
+├── .mailmap
+├── .pre-commit-config.yaml
+├── .pycodestyle
+├── .readthedocs.yaml
+├── .ruff.toml
+├── asv.ci.conf.json
+├── CHANGES.rst
+├── CITATION
+├── CITATION.cff
+├── CODE_OF_CONDUCT.md
+├── codecov.yml
+├── conftest.py
+├── CONTRIBUTING.md
+├── GOVERNANCE.md
+├── LICENSE.rst
+├── MANIFEST.in
+├── pyproject.toml
+├── README.rst
+├── SECURITY.md
+├── setup.py
+└── tox.ini
+    └── ... (21 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

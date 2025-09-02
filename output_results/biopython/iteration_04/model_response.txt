@@ -1,0 +1,23 @@
+The persistent critical error remains:
+
+```
+Bio/Align/_aligncore.c:9:10: fatal error: Python.h: No such file or directory
+...
+compilation terminated.
+error: command '/usr/bin/x86_64-linux-gnu-gcc' failed with exit code 1
+```
+
+and your attempt to install `python3.10-dev` failed due to a 502 Bad Gateway from `archive.ubuntu.com`.
+
+This failure is blocking the editable install and thus the test collection, as no `Bio` modules can be imported.
+
+Let's attempt to install the generic Python 3 development headers, which may pull in the proper version depending on your base image.
+
+```bash
+apt-get update && apt-get install -y python3-dev
+pip install --editable .
+pytest
+```
+
+If this still fails due to header issues (Python.h), no further meaningful progress can be achieved until you have development headers, which are essential for building this project (biopython from source).
+If this install succeeds, we'll proceed; if not, we'll have to fail and exit.

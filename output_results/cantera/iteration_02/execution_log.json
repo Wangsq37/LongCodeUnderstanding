@@ -1,0 +1,37 @@
+[
+  {
+    "command": "pip install cython numpy  # common build dependencies",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nCollecting cython\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b4/eb/8c47ba21177929f9122e7aceca9fe1f9f5a037e705226f8a5a9113fb53ba/cython-3.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 10.2 MB/s  0:00:00\nRequirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (2.2.6)\nInstalling collected packages: cython\nSuccessfully installed cython-3.1.2\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 2.096654176712036
+  },
+  {
+    "command": "cd interfaces/cython",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0008368492126464844
+  },
+  {
+    "command": "python setup.py build_ext --inplace",
+    "success": false,
+    "stdout": "",
+    "stderr": "python: can't open file '/app/repo_to_process/setup.py': [Errno 2] No such file or directory\n",
+    "execution_time": 0.04360389709472656
+  },
+  {
+    "command": "cd ../..",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0008327960968017578
+  },
+  {
+    "command": "pytest test/python",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/test/python/conftest.py'.\ntest/python/conftest.py:1: in <module>\n    import cantera\ninterfaces/cython/cantera/__init__.py:4: in <module>\n    from ._cantera import *\nE   ModuleNotFoundError: No module named 'cantera._cantera'\n",
+    "execution_time": 0.17018365859985352
+  }
+]

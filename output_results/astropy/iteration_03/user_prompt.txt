@@ -1,0 +1,429 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .circleci/
+│   └── config.yml
+├── .devcontainer/
+│   ├── devcontainer.json
+│   └── welcome-message.txt
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yaml
+│   │   ├── config.yml
+│   │   └── feature_request.yaml
+│   ├── workflows/
+│   │   ├── CFF-test.yml
+│   │   ├── check_changelog.yml
+│   │   ├── check_milestone.yml
+│   │   ├── ci_benchmark.yml
+│   │   ├── ci_cron_daily.yml
+│   │   ├── ci_cron_weekly.yml
+│   │   ├── ci_workflows.yml
+│   │   ├── codeql-analysis.yml
+│   │   ├── open_actions.yml
+│   │   ├── publish.yml
+│   │   ├── stalebot.yml
+│   │   ├── update_astropy_iers_data_pin.py
+│   │   └── update_astropy_iers_data_pin.yml
+│   │       └── ... (8 more files)
+│   ├── CODEOWNERS
+│   ├── dependabot.yml
+│   ├── labeler.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── .pyinstaller/
+│   ├── hooks/
+│   │   ├── hook-astropy_iers_data.py
+│   │   └── hook-skyfield.py
+│   └── run_astropy_tests.py
+├── astropy/
+│   ├── _dev/
+│   │   ├── __init__.py
+│   │   └── scm_version.py
+│   ├── config/
+│   │   ├── tests/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   └── test_configs.py
+│   │   ├── __init__.py
+│   │   ├── configuration.py
+│   │   └── paths.py
+│   ├── constants/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_constant.py
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_prior_version.py
+│   │   │   └── test_sciencestate.py
+│   │   ├── __init__.py
+│   │   ├── astropyconst13.py
+│   │   ├── astropyconst20.py
+│   │   ├── astropyconst40.py
+│   │   ├── cgs.py
+│   │   ├── codata2010.py
+│   │   ├── codata2014.py
+│   │   ├── codata2018.py
+│   │   ├── codata2022.py
+│   │   ├── config.py
+│   │   ├── constant.py
+│   │   ├── iau2012.py
+│   │   ├── iau2015.py
+│   │   ├── si.py
+│   │   └── utils.py
+│   │       └── ... (10 more files)
+│   ├── convolution/
+│   │   ├── src/
+│   │   │   ├── convolve.c
+│   │   │   └── convolve.h
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_convolve.py
+│   │   │   ├── test_convolve_fft.py
+│   │   │   ├── test_convolve_kernels.py
+│   │   │   ├── test_convolve_models.py
+│   │   │   ├── test_convolve_nddata.py
+│   │   │   ├── test_discretize.py
+│   │   │   ├── test_kernel_class.py
+│   │   │   └── test_pickle.py
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── _convolve.pyx
+│   │   ├── convolve.py
+│   │   ├── core.py
+│   │   ├── kernels.py
+│   │   ├── setup_package.py
+│   │   └── utils.py
+│   │       └── ... (2 more files)
+│   ├── coordinates/
+│   │   ├── angles/
+│   │   │   ├── __init__.py
+│   │   │   ├── angle_lextab.py
+│   │   │   ├── angle_parsetab.py
+│   │   │   ├── core.py
+│   │   │   ├── errors.py
+│   │   │   ├── formats.py
+│   │   │   └── utils.py
+│   │   │       └── ... (2 more files)
+│   │   ├── builtin_frames/
+│   │   │   ├── __init__.py
+│   │   │   ├── altaz.py
+│   │   │   ├── baseradec.py
+│   │   │   ├── cirs.py
+│   │   │   ├── cirs_observed_transforms.py
+│   │   │   ├── ecliptic.py
+│   │   │   ├── ecliptic_transforms.py
+│   │   │   ├── equatorial.py
+│   │   │   ├── fk4.py
+│   │   │   ├── fk4_fk5_transforms.py
+│   │   │   ├── fk5.py
+│   │   │   ├── galactic.py
+│   │   │   ├── galactic_transforms.py
+│   │   │   ├── galactocentric.py
+│   │   │   ├── gcrs.py
+│   │   │   ├── hadec.py
+│   │   │   ├── hcrs.py
+│   │   │   ├── icrs.py
+│   │   │   ├── icrs_cirs_transforms.py
+│   │   │   ├── icrs_fk5_transforms.py
+│   │   │   ├── icrs_observed_transforms.py
+│   │   │   ├── intermediate_rotation_transforms.py
+│   │   │   ├── itrs.py
+│   │   │   ├── itrs_observed_transforms.py
+│   │   │   ├── lsr.py
+│   │   │   ├── skyoffset.py
+│   │   │   ├── supergalactic.py
+│   │   │   ├── supergalactic_transforms.py
+│   │   │   └── utils.py
+│   │   │       └── ... (24 more files)
+│   │   ├── data/
+│   │   │   ├── constellation_data_roman87.dat
+│   │   │   ├── constellation_names.dat
+│   │   │   └── sites.json
+│   │   ├── representation/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── cartesian.py
+│   │   │   ├── cylindrical.py
+│   │   │   ├── geodetic.py
+│   │   │   └── spherical.py
+│   │   │       └── ... (1 more files)
+│   │   ├── tests/
+│   │   │   ├── accuracy/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── helper.py
+│   │   │   ├── test_angle_generators.py
+│   │   │   ├── test_angles.py
+│   │   │   ├── test_angular_separation.py
+│   │   │   ├── test_api_ape5.py
+│   │   │   ├── test_arrays.py
+│   │   │   ├── test_atc_replacements.py
+│   │   │   ├── test_celestial_transformations.py
+│   │   │   ├── test_distance.py
+│   │   │   ├── test_earth.py
+│   │   │   ├── test_earth_orientation.py
+│   │   │   ├── test_erfa_astrom.py
+│   │   │   ├── test_exceptions.py
+│   │   │   ├── test_finite_difference_velocities.py
+│   │   │   ├── test_formatting.py
+│   │   │   ├── test_frames.py
+│   │   │   ├── test_frames_with_velocity.py
+│   │   │   ├── test_funcs.py
+│   │   │   ├── test_geodetic_representations.py
+│   │   │   ├── test_iau_fullstack.py
+│   │   │   ├── test_icrs_observed_transformations.py
+│   │   │   ├── test_intermediate_transformations.py
+│   │   │   ├── test_masked.py
+│   │   │   ├── test_matching.py
+│   │   │   ├── test_matrix_utilities.py
+│   │   │   ├── test_name_resolve.py
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_polarization.py
+│   │   │   ├── test_regression.py
+│   │   │   ├── test_representation.py
+│   │   │   ├── test_representation_arithmetic.py
+│   │   │   ├── test_representation_methods.py
+│   │   │   ├── test_separation.py
+│   │   │   ├── test_shape_manipulation.py
+│   │   │   ├── test_sites.py
+│   │   │   ├── test_sky_coord.py
+│   │   │   ├── test_sky_coord_velocities.py
+│   │   │   ├── test_skyoffset_transformations.py
+│   │   │   ├── test_solar_system.py
+│   │   │   ├── test_spectral_coordinate.py
+│   │   │   ├── test_spectral_quantity.py
+│   │   │   ├── test_transformations.py
+│   │   │   ├── test_unit_representation.py
+│   │   │   ├── test_utils.py
+│   │   │   └── test_velocity_corrs.py
+│   │   │       └── ... (41 more files)
+│   │   ├── transformations/
+│   │   │   ├── __init__.py
+│   │   │   ├── affine.py
+│   │   │   ├── base.py
+│   │   │   ├── composite.py
+│   │   │   ├── function.py
+│   │   │   └── graph.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── attributes.py
+│   │   ├── baseframe.py
+│   │   ├── calculation.py
+│   │   ├── distances.py
+│   │   ├── earth.py
+│   │   ├── earth_orientation.py
+│   │   ├── erfa_astrom.py
+│   │   ├── errors.py
+│   │   ├── funcs.py
+│   │   ├── jparser.py
+│   │   ├── matching.py
+│   │   ├── matrix_utilities.py
+│   │   ├── name_resolve.py
+│   │   ├── polarization.py
+│   │   ├── sites.py
+│   │   ├── sky_coordinate.py
+│   │   ├── sky_coordinate_parsers.py
+│   │   ├── solar_system.py
+│   │   ├── spectral_coordinate.py
+│   │   └── spectral_quantity.py
+│   │       └── ... (16 more files)
+│   ├── cosmology/
+│   │   ├── _src/
+│   │   │   ├── flrw/
+│   │   │   ├── funcs/
+│   │   │   ├── io/
+│   │   │   ├── parameter/
+│   │   │   ├── tests/
+│   │   │   ├── traits/
+│   │   │   ├── __init__.py
+│   │   │   ├── core.py
+│   │   │   ├── default.py
+│   │   │   ├── setup_package.py
+│   │   │   ├── signature_deprecations.c
+│   │   │   ├── typing.py
+│   │   │   ├── units.py
+│   │   │   ├── units_equivalencies.py
+│   │   │   └── utils.py
+│   │   │       └── ... (4 more files)
+│   │   ├── data/
+│   │   │   ├── Planck13.ecsv
+│   │   │   ├── Planck15.ecsv
+│   │   │   ├── Planck18.ecsv
+│   │   │   ├── WMAP1.ecsv
+│   │   │   ├── WMAP3.ecsv
+│   │   │   ├── WMAP5.ecsv
+│   │   │   ├── WMAP7.ecsv
+│   │   │   └── WMAP9.ecsv
+│   │   │       └── ... (3 more files)
+│   │   ├── __init__.py
+│   │   ├── connect.py
+│   │   ├── core.py
+│   │   ├── flrw.py
+│   │   ├── funcs.py
+│   │   ├── io.py
+│   │   ├── parameter.py
+│   │   ├── parameters.py
+│   │   ├── realizations.py
+│   │   ├── traits.py
+│   │   └── units.py
+│   │       └── ... (6 more files)
+│   ├── extern/
+│   │   ├── configobj/
+│   │   │   ├── __init__.py
+│   │   │   ├── configobj.py
+│   │   │   └── validate.py
+│   │   ├── ply/
+│   │   │   ├── __init__.py
+│   │   │   ├── cpp.py
+│   │   │   ├── ctokens.py
+│   │   │   ├── lex.py
+│   │   │   ├── yacc.py
+│   │   │   └── ygen.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── _strptime.py
+│   │   └── README.rst
+│   ├── io/
+│   │   ├── ascii/
+│   │   │   ├── src/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── basic.py
+│   │   │   ├── cds.py
+│   │   │   ├── connect.py
+│   │   │   ├── core.py
+│   │   │   ├── cparser.pyx
+│   │   │   ├── daophot.py
+│   │   │   ├── docs.py
+│   │   │   ├── ecsv.py
+│   │   │   ├── fastbasic.py
+│   │   │   ├── fixedwidth.py
+│   │   │   ├── html.py
+│   │   │   ├── ipac.py
+│   │   │   ├── latex.py
+│   │   │   ├── misc.py
+│   │   │   ├── mrt.py
+│   │   │   ├── qdp.py
+│   │   │   ├── rst.py
+│   │   │   ├── setup_package.py
+│   │   │   ├── sextractor.py
+│   │   │   ├── tdat.py
+│   │   │   └── ui.py
+│   │   │       └── ... (17 more files)
+│   │   ├── fits/
+│   │   │   ├── hdu/
+│   │   │   ├── scripts/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── _utils.pyx
+│   │   │   ├── card.py
+│   │   │   ├── column.py
+│   │   │   ├── connect.py
+│   │   │   ├── convenience.py
+│   │   │   ├── diff.py
+│   │   │   ├── file.py
+│   │   │   ├── fitsrec.py
+│   │   │   ├── fitstime.py
+│   │   │   ├── header.py
+│   │   │   ├── util.py
+│   │   │   └── verify.py
+│   │   │       └── ... (8 more files)
+│   │   ├── misc/
+│   │   │   ├── pandas/
+│   │   │   ├── pyarrow/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── connect.py
+│   │   │   ├── ecsv.py
+│   │   │   ├── hdf5.py
+│   │   │   ├── parquet.py
+│   │   │   ├── pickle_helpers.py
+│   │   │   └── yaml.py
+│   │   │       └── ... (2 more files)
+│   │   ├── registry/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── compat.py
+│   │   │   ├── core.py
+│   │   │   └── interface.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── mixin_columns.py
+│   │   │   └── safeio.py
+│   │   ├── votable/
+│   │   │   ├── data/
+│   │   │   ├── src/
+│   │   │   ├── tests/
+│   │   │   ├── validator/
+│   │   │   ├── __init__.py
+│   │   │   ├── connect.py
+│   │   │   ├── converters.py
+│   │   │   ├── dataorigin.py
+│   │   │   ├── exceptions.py
+│   │   │   ├── setup_package.py
+│   │   │   ├── table.py
+│   │   │   ├── tree.py
+│   │   │   ├── ucd.py
+│   │   │   ├── util.py
+│   │   │   ├── volint.py
+│   │   │   └── xmlutil.py
+│   │   │       └── ... (7 more files)
+│   │   ├── __init__.py
+│   │   └── typing.py
+│   ├── modeling/
+│   │   ├── models/
+│   │   │   └── __init__.py
+│   │   ├── tests/
+│   │   │  
+... (1205 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install hypothesis ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting hypothesis
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/1a/13/92753f97f70f3584a70ccbd2a678878ea43d5880c4e009664c3fe9fe7e50/hypothesis-6.137.1-py3-none-any.whl (527 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 527.6/527.6 kB 13.0 MB/s  0:00:00
+Collecting attrs>=22.2.0 (from hypothesis)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/77/06/bb80f5f86020c4551da315d78b3ab75e8228f89f0162f2c3a819e407941a/attrs-25.3.0-py3-none-any.whl (63 kB)
+Requirement already satisfied: exceptiongroup>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from hypothesis) (1.3.0)
+Collecting sortedcontainers<3.0.0,>=2.1.0 (from hypothesis)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+Requirement already satisfied: typing-extensions>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from exceptiongroup>=1.0.0->hypothesis) (4.14.1)
+Installing collected packages: sortedcontainers, attrs, hypothesis
+
+Successfully installed attrs-25.3.0 hypothesis-6.137.1 sortedcontainers-2.4.0
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDERR:
+ImportError while loading conftest '/app/repo_to_process/conftest.py'.
+conftest.py:12: in <module>
+    from astropy import __version__
+astropy/__init__.py:13: in <module>
+    from astropy.utils.system_info import system_info
+astropy/utils/__init__.py:21: in <module>
+    from .shapes import *
+astropy/utils/shapes.py:10: in <module>
+    from typing import Self, TypeVar
+E   ImportError: cannot import name 'Self' from 'typing' (/usr/lib/python3.10/typing.py)
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

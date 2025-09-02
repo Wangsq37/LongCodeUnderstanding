@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip install ply",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nCollecting ply\n  Using cached https://repo.huaweicloud.com/repository/pypi/packages/a3/58/35da89ee790598a0700ea49b2a66594140f44dec458c07e8e3d4979137fc/ply-3.11-py2.py3-none-any.whl (49 kB)\nInstalling collected packages: ply\nSuccessfully installed ply-3.11\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 0.6289417743682861
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "Command timed out after 3600 seconds",
+    "execution_time": 3599.9028537273407
+  }
+]

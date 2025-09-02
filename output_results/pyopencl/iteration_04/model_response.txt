@@ -1,0 +1,22 @@
+The error being reported is:
+
+```
+pyopencl._cl.LogicError: clGetPlatformIDs failed: PLATFORM_NOT_FOUND_KHR
+```
+
+This indicates that PyOpenCL is trying to run its tests but cannot find any OpenCL platforms (i.e., no OpenCL hardware/drivers are accessible in this Docker environment). This is a typical issue for OpenCL projects when running in a container or VM with no GPU/CPU OpenCL driver installed.
+
+However, **there is no ImportError or missing Python package at this point**. The environment can import all required modules, but the actual test collection fails because the PyOpenCL test fixtures try to enumerate OpenCL platforms/devices and fail at import time.
+
+Next action: Try running pytest with the `-k` option for a non-PyOpenCL test (if any exist), or skip tests that need OpenCL. But from the structure, all test files are likely dependent on OpenCL.
+
+**Possible workaround for headless CI:**
+If OpenCL tests cannot run due to missing hardware/platform, you can try to install an OpenCL ICD loader (e.g., `pocl`, which provides a software OpenCL CPU device). If that's not possible in the current Docker, Phase 1 cannot be completed successfully.
+
+I'll try installing `pocl` and rerun `pytest` to see if this resolves the issue.
+
+```bash
+pip install pocl
+pytest
+```
+If this fails (e.g., `pocl` does not provide the necessary OpenCL platform), I will declare failure.

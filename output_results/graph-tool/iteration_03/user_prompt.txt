@@ -1,0 +1,446 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .gitlab/
+│   └── issue_templates/
+│       └── Default.md
+├── doc/
+│   ├── _static/
+│   │   ├── fonts/
+│   │   │   ├── 6NUO8FuJNQ2MbkrZ5-J8lKFrp7pRef2r.woff2
+│   │   │   ├── SlGVmQWMvZQIdix7AFxXkHNSbQ.woff2
+│   │   │   ├── tDbI2oqRg1oM3QBjjcaDkOr9rAU.woff2
+│   │   │   ├── tDbK2oqRg1oM3QBjjcaDkOr4nAfcHg.woff2
+│   │   │   ├── tDbV2oqRg1oM3QBjjcaDkOJGiRD7OwE.woff2
+│   │   │   └── tDbX2oqRg1oM3QBjjcaDkOr4lLz5CwOnSA.woff2
+│   │   │       └── ... (1 more files)
+│   │   ├── custom.css
+│   │   ├── fonts.css
+│   │   ├── graph-tool-logo-circle.svg
+│   │   └── graph-tool-logo.svg
+│   ├── _templates/
+│   │   ├── autosummary/
+│   │   │   ├── base.rst
+│   │   │   ├── class.rst
+│   │   │   └── graph.rst
+│   │   ├── base.rst
+│   │   ├── class.rst
+│   │   └── graph.rst
+│   ├── demos/
+│   │   ├── animation/
+│   │   │   ├── animation.md
+│   │   │   ├── animation_dancing.py
+│   │   │   ├── animation_sirs.py
+│   │   │   ├── animation_zombies.py
+│   │   │   ├── face-grin.png
+│   │   │   ├── face-surprise.png
+│   │   │   ├── interactive_bst.py
+│   │   │   └── zombie.png
+│   │   │       └── ... (3 more files)
+│   │   ├── cppextensions/
+│   │   │   ├── cppextensions.md
+│   │   │   ├── kcore.cc
+│   │   │   ├── kcore.hh
+│   │   │   ├── kcore.py
+│   │   │   └── Makefile
+│   │   ├── inference/
+│   │   │   ├── _assortative.md
+│   │   │   ├── _background.md
+│   │   │   ├── _edge_weights.md
+│   │   │   ├── _layers.md
+│   │   │   ├── _minimization.md
+│   │   │   ├── _model_class_selection.md
+│   │   │   ├── _model_selection.md
+│   │   │   ├── _ranked.md
+│   │   │   ├── _sampling.md
+│   │   │   ├── blockmodel-example.gt.gz
+│   │   │   ├── inference.md
+│   │   │   └── nested-diagram.svg
+│   │   │       └── ... (7 more files)
+│   │   ├── matplotlib/
+│   │   │   └── matplotlib.md
+│   │   ├── reconstruction_direct/
+│   │   │   ├── _prediction.md
+│   │   │   └── reconstruction.md
+│   │   ├── reconstruction_indirect/
+│   │   │   └── reconstruction.md
+│   │   └── index.md
+│   ├── sphinxext/
+│   │   ├── comment_eater.py
+│   │   ├── compiler_unparse.py
+│   │   ├── linkcode.py
+│   │   ├── phantom_import.py
+│   │   ├── plot_directive.py
+│   │   └── traitsdoc.py
+│   │       └── ... (1 more files)
+│   ├── centrality.rst
+│   ├── clustering.rst
+│   ├── collection.rst
+│   ├── conf.py
+│   ├── correlations.rst
+│   ├── draw.rst
+│   ├── dynamics.rst
+│   ├── extlinks_fancy.py
+│   ├── faq.md
+│   ├── flow.rst
+│   ├── g_small.gt
+│   ├── generation.rst
+│   ├── graph_tool.rst
+│   ├── gt_format.md
+│   ├── index.md
+│   ├── inference.rst
+│   ├── Makefile
+│   ├── mincut-example.xml.gz
+│   ├── mincut-st-example.xml.gz
+│   ├── modules.md
+│   ├── parallel.md
+│   ├── price.py
+│   ├── pyenv.py
+│   ├── quickstart.md
+│   ├── refs.bib
+│   ├── search_example.xml
+│   ├── search_module.rst
+│   ├── spectral.rst
+│   ├── stats.rst
+│   ├── test_inference.py
+│   ├── test_inference_mcmc.py
+│   ├── topology.rst
+│   └── util.rst
+│       └── ... (28 more files)
+├── m4/
+│   ├── ax_boost_base.m4
+│   ├── ax_boost_context.m4
+│   ├── ax_boost_coroutine.m4
+│   ├── ax_boost_graph.m4
+│   ├── ax_boost_iostreams.m4
+│   ├── ax_boost_python.m4
+│   ├── ax_boost_regex.m4
+│   ├── ax_boost_thread.m4
+│   ├── ax_create_pkgconfig_info.m4
+│   ├── ax_cxx_compile_stdcxx.m4
+│   ├── ax_cxx_compile_stdcxx_17.m4
+│   ├── ax_lib_cgal_core.m4
+│   ├── ax_openmp.m4
+│   ├── ax_python_devel.m4
+│   └── ax_python_module.m4
+│       └── ... (10 more files)
+├── release/
+│   ├── debian/
+│   │   ├── debian/
+│   │   │   ├── compat
+│   │   │   ├── control
+│   │   │   ├── copyright
+│   │   │   └── rules
+│   │   ├── Dockerfile
+│   │   └── git2debchangelog.sh
+│   └── docker/
+│       ├── Dockerfile
+│       └── PKGBUILD
+├── src/
+│   ├── boost-workaround/
+│   │   ├── boost/
+│   │   │   ├── container/
+│   │   │   ├── graph/
+│   │   │   └── math/
+│   │   └── LICENSE_1_0.txt
+│   ├── graph/
+│   │   ├── centrality/
+│   │   │   ├── graph_betweenness.cc
+│   │   │   ├── graph_centrality_bind.cc
+│   │   │   ├── graph_closeness.cc
+│   │   │   ├── graph_closeness.hh
+│   │   │   ├── graph_eigentrust.cc
+│   │   │   ├── graph_eigentrust.hh
+│   │   │   ├── graph_eigenvector.cc
+│   │   │   ├── graph_eigenvector.hh
+│   │   │   ├── graph_hits.cc
+│   │   │   ├── graph_hits.hh
+│   │   │   ├── graph_katz.cc
+│   │   │   ├── graph_katz.hh
+│   │   │   ├── graph_pagerank.cc
+│   │   │   ├── graph_pagerank.hh
+│   │   │   ├── graph_trust_transitivity.cc
+│   │   │   ├── graph_trust_transitivity.hh
+│   │   │   └── minmax.hh
+│   │   │       └── ... (12 more files)
+│   │   ├── clustering/
+│   │   │   ├── graph_clustering.cc
+│   │   │   ├── graph_clustering.hh
+│   │   │   ├── graph_extended_clustering.cc
+│   │   │   ├── graph_extended_clustering.hh
+│   │   │   ├── graph_motifs.cc
+│   │   │   └── graph_motifs.hh
+│   │   │       └── ... (1 more files)
+│   │   ├── correlations/
+│   │   │   ├── graph_assortativity.cc
+│   │   │   ├── graph_assortativity.hh
+│   │   │   ├── graph_avg_correlations.cc
+│   │   │   ├── graph_avg_correlations.hh
+│   │   │   ├── graph_avg_correlations_combined.cc
+│   │   │   ├── graph_corr_hist.hh
+│   │   │   ├── graph_correlations.cc
+│   │   │   ├── graph_correlations.hh
+│   │   │   ├── graph_correlations_bind.cc
+│   │   │   └── graph_correlations_combined.cc
+│   │   │       └── ... (5 more files)
+│   │   ├── draw/
+│   │   │   ├── graph_cairo_draw.cc
+│   │   │   ├── graph_tree_cts.cc
+│   │   │   └── pycairo_aux.cc
+│   │   ├── dynamics/
+│   │   │   ├── graph_continuous.cc
+│   │   │   ├── graph_continuous.hh
+│   │   │   ├── graph_discrete.cc
+│   │   │   ├── graph_discrete.hh
+│   │   │   ├── graph_dynamics.cc
+│   │   │   ├── graph_normal_bp.cc
+│   │   │   ├── graph_normal_bp.hh
+│   │   │   ├── graph_potts_bp.cc
+│   │   │   └── graph_potts_bp.hh
+│   │   │       └── ... (4 more files)
+│   │   ├── flow/
+│   │   │   ├── graph_augment.hh
+│   │   │   ├── graph_edmonds_karp.cc
+│   │   │   ├── graph_flow_bind.cc
+│   │   │   ├── graph_kolmogorov.cc
+│   │   │   ├── graph_minimum_cut.cc
+│   │   │   └── graph_push_relabel.cc
+│   │   │       └── ... (1 more files)
+│   │   ├── generation/
+│   │   │   ├── graph_bip_projection.cc
+│   │   │   ├── graph_bip_projection.hh
+│   │   │   ├── graph_complete.cc
+│   │   │   ├── graph_complete.hh
+│   │   │   ├── graph_contract_edges.cc
+│   │   │   ├── graph_contract_edges.hh
+│   │   │   ├── graph_generation.cc
+│   │   │   ├── graph_generation.hh
+│   │   │   ├── graph_geometric.cc
+│   │   │   ├── graph_geometric.hh
+│   │   │   ├── graph_knn.cc
+│   │   │   ├── graph_knn.hh
+│   │   │   ├── graph_lattice.cc
+│   │   │   ├── graph_lattice.hh
+│   │   │   ├── graph_line_graph.cc
+│   │   │   ├── graph_maxent_sbm.cc
+│   │   │   ├── graph_maxent_sbm.hh
+│   │   │   ├── graph_merge.cc
+│   │   │   ├── graph_merge.hh
+│   │   │   ├── graph_merge_eprop.cc
+│   │   │   ├── graph_merge_imp.cc
+│   │   │   ├── graph_merge_vprop.cc
+│   │   │   ├── graph_parallel.cc
+│   │   │   ├── graph_parallel.hh
+│   │   │   ├── graph_predecessor.cc
+│   │   │   ├── graph_predecessor.hh
+│   │   │   ├── graph_price.cc
+│   │   │   ├── graph_price.hh
+│   │   │   ├── graph_random_edges.cc
+│   │   │   ├── graph_random_edges.hh
+│   │   │   ├── graph_rewiring.cc
+│   │   │   ├── graph_rewiring.hh
+│   │   │   ├── graph_sbm.cc
+│   │   │   ├── graph_sbm.hh
+│   │   │   ├── graph_triadic_closure.cc
+│   │   │   ├── graph_triadic_closure.hh
+│   │   │   ├── graph_triangulation.cc
+│   │   │   └── graph_triangulation.hh
+│   │   │       └── ... (33 more files)
+│   │   ├── inference/
+│   │   │   ├── blockmodel/
+│   │   │   ├── cliques/
+│   │   │   ├── histogram/
+│   │   │   ├── layers/
+│   │   │   ├── loops/
+│   │   │   ├── modularity/
+│   │   │   ├── norm_cut/
+│   │   │   ├── overlap/
+│   │   │   ├── partition_centroid/
+│   │   │   ├── partition_modes/
+│   │   │   ├── planted_partition/
+│   │   │   ├── potts/
+│   │   │   ├── ranked/
+│   │   │   ├── support/
+│   │   │   ├── uncertain/
+│   │   │   ├── graph_inference.cc
+│   │   │   ├── graph_latent_multigraph.cc
+│   │   │   ├── graph_latent_multigraph.hh
+│   │   │   ├── graph_modularity.cc
+│   │   │   └── graph_modularity.hh
+│   │   ├── layout/
+│   │   │   ├── graph_arf.cc
+│   │   │   ├── graph_arf.hh
+│   │   │   ├── graph_bind_layout.cc
+│   │   │   ├── graph_fruchterman_reingold.cc
+│   │   │   ├── graph_planar_layout.cc
+│   │   │   ├── graph_radial.cc
+│   │   │   ├── graph_sfdp.cc
+│   │   │   ├── graph_sfdp.hh
+│   │   │   └── quad_tree.hh
+│   │   │       └── ... (4 more files)
+│   │   ├── search/
+│   │   │   ├── graph_astar.cc
+│   │   │   ├── graph_astar.hh
+│   │   │   ├── graph_astar_implicit.cc
+│   │   │   ├── graph_bellman_ford.cc
+│   │   │   ├── graph_bfs.cc
+│   │   │   ├── graph_dfs.cc
+│   │   │   ├── graph_dijkstra.cc
+│   │   │   └── graph_search_bind.cc
+│   │   │       └── ... (3 more files)
+│   │   ├── spectral/
+│   │   │   ├── graph_adjacency.cc
+│   │   │   ├── graph_adjacency.hh
+│   │   │   ├── graph_incidence.cc
+│   │   │   ├── graph_incidence.hh
+│   │   │   ├── graph_laplacian.cc
+│   │   │   ├── graph_laplacian.hh
+│   │   │   ├── graph_matrix.cc
+│   │   │   ├── graph_nonbacktracking.cc
+│   │   │   ├── graph_nonbacktracking.hh
+│   │   │   ├── graph_norm_laplacian.cc
+│   │   │   ├── graph_transition.cc
+│   │   │   └── graph_transition.hh
+│   │   │       └── ... (7 more files)
+│   │   ├── stats/
+│   │   │   ├── graph_average.cc
+│   │   │   ├── graph_average.hh
+│   │   │   ├── graph_distance.cc
+│   │   │   ├── graph_distance.hh
+│   │   │   ├── graph_distance_sampled.cc
+│   │   │   ├── graph_distance_sampled.hh
+│   │   │   ├── graph_histograms.cc
+│   │   │   ├── graph_histograms.hh
+│   │   │   └── graph_stats_bind.cc
+│   │   │       └── ... (4 more files)
+│   │   ├── topology/
+│   │   │   ├── graph_all_circuits.cc
+│   │   │   ├── graph_all_distances.cc
+│   │   │   ├── graph_bipartite.cc
+│   │   │   ├── graph_bipartite_weighted_matching.hh
+│   │   │   ├── graph_components.cc
+│   │   │   ├── graph_components.hh
+│   │   │   ├── graph_diameter.cc
+│   │   │   ├── graph_distance.cc
+│   │   │   ├── graph_dominator_tree.cc
+│   │   │   ├── graph_isomorphism.cc
+│   │   │   ├── graph_kcore.cc
+│   │   │   ├── graph_kcore.hh
+│   │   │   ├── graph_matching.cc
+│   │   │   ├── graph_maximal_cliques.cc
+│   │   │   ├── graph_maximal_cliques.hh
+│   │   │   ├── graph_maximal_planar.cc
+│   │   │   ├── graph_maximal_vertex_set.cc
+│   │   │   ├── graph_minimum_spanning_tree.cc
+│   │   │   ├── graph_percolation.cc
+│   │   │   ├── graph_percolation.hh
+│   │   │   ├── graph_planar.cc
+│   │   │   ├── graph_random_matching.cc
+│   │   │   ├── graph_random_spanning_tree.cc
+│   │   │   ├── graph_reciprocity.cc
+│   │   │   ├── graph_sequential_color.cc
+│   │   │   ├── graph_similarity.cc
+│   │   │   ├── graph_similarity.hh
+│   │   │   ├── graph_similarity_imp.cc
+│   │   │   ├── graph_subgraph_isomorphism.cc
+│   │   │   ├── graph_topological_sort.cc
+│   │   │   ├── graph_topology.cc
+│   │   │   ├── graph_transitive_closure.cc
+│   │   │   ├── graph_tsp.cc
+│   │   │   ├── graph_vertex_similarity.cc
+│   │   │   └── graph_vertex_similarity.hh
+│   │   │       └── ... (30
+... (181 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install graph-tool ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+
+STDERR:
+ERROR: Could not find a version that satisfies the requirement graph-tool (from versions: none)
+ERROR: No matching distribution found for graph-tool
+
+
+--- Command: pip install matplotlib ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting matplotlib
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 7.3 MB/s  0:00:01
+Collecting contourpy>=1.0.1 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/32/5c/1ee32d1c7956923202f00cf8d2a14a62ed7517bdc0ee1e55301227fc273c/contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+Collecting cycler>=0.10 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting fonttools>=4.22.0 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/57/767e31e48861045d89691128bd81fd4c62b62150f9a17a666f731ce4f197/fonttools-4.59.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 10.0 MB/s  0:00:00
+Collecting kiwisolver>=1.3.1 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/d4/42/0f333164e6307a0687d1eb9ad256215aae2f4bd5d28f4653d6cd319a3ba3/kiwisolver-1.4.9-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 14.0 MB/s  0:00:00
+Requirement already satisfied: numpy>=1.23 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (2.2.6)
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (25.0)
+Collecting pillow>=8 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/f0/16/1a6bf01fb622fb9cf5c91683823f073f053005c849b1f52ed613afcf8dae/pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 8.6 MB/s  0:00:00
+Collecting pyparsing>=2.3.1 (from matplotlib)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/e7/df2285f3d08fee213f2d041540fa4fc9ca6c2d44cf36d3a035bf2a8d2bcc/pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.7->matplotlib) (1.17.0)
+Installing collected packages: pyparsing, pillow, kiwisolver, fonttools, cycler, contourpy, matplotlib
+
+Successfully installed contourpy-1.3.2 cycler-0.12.1 fonttools-4.59.0 kiwisolver-1.4.9 matplotlib-3.10.5 pillow-11.3.0 pyparsing-3.2.3
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 0 items / 2 errors
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting doc/test_inference.py ____________________
+ImportError while importing test module '/app/repo_to_process/doc/test_inference.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+doc/test_inference.py:14: in <module>
+    from graph_tool.all import *
+E   ModuleNotFoundError: No module named 'graph_tool'
+_________________ ERROR collecting doc/test_inference_mcmc.py __________________
+ImportError while importing test module '/app/repo_to_process/doc/test_inference_mcmc.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+doc/test_inference_mcmc.py:6: in <module>
+    from graph_tool.all import *
+E   ModuleNotFoundError: No module named 'graph_tool'
+=========================== short test summary info ============================
+ERROR doc/test_inference.py
+ERROR doc/test_inference_mcmc.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+============================== 2 errors in 0.77s ===============================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

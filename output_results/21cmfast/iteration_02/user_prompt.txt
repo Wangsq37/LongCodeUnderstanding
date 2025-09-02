@@ -1,0 +1,343 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── auto-merge-deps.yml
+│   │   ├── auto-merge-precommit.yml
+│   │   ├── base_benchmarks.yml
+│   │   ├── bencher-archive-closed.yml
+│   │   ├── check-build.yml
+│   │   ├── deploy.yaml
+│   │   ├── labeler.yml
+│   │   ├── pr_benchmarks.yml
+│   │   ├── release-draft.yml
+│   │   ├── run-tutorials.yaml
+│   │   ├── test_build_macos.yaml
+│   │   └── test_suite.yaml
+│   │       └── ... (7 more files)
+│   ├── dependabot.yml
+│   ├── labels.yml
+│   └── release-drafter.yml
+├── devel/
+│   ├── estimated_mem_usage_plot.py
+│   ├── filter_valgrind.py
+│   ├── find_evolution_memory_leak.py
+│   ├── peak_memory_usage.png
+│   ├── performance.py
+│   ├── prepare_gh_logs_for_diff.py
+│   ├── prepare_log_for_diff.py
+│   ├── simulate_mcmc_memory_leak.py
+│   ├── valgrind-python.supp
+│   ├── valgrind-suppress-all-but-c.supp
+│   └── visualise_boxes_and_power.ipynb
+│       └── ... (6 more files)
+├── docs/
+│   ├── faqs/
+│   │   ├── installation_faq.rst
+│   │   └── misc.rst
+│   ├── reference/
+│   │   ├── index.rst
+│   │   └── py21cmfast.rst
+│   ├── templates/
+│   │   ├── class.rst
+│   │   └── module.rst
+│   ├── tutorials/
+│   │   ├── caching.ipynb
+│   │   ├── cli_usage.rst
+│   │   ├── coeval_cubes.ipynb
+│   │   ├── defining_input_params.ipynb
+│   │   ├── halosampler.ipynb
+│   │   ├── lightcones.ipynb
+│   │   ├── mini-halos.ipynb
+│   │   ├── redshift_space_distortions.ipynb
+│   │   └── relative_velocities.ipynb
+│   │       └── ... (4 more files)
+│   ├── authors.rst
+│   ├── changelog.rst
+│   ├── conf.py
+│   ├── contributing.rst
+│   ├── environment.yaml
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── Makefile
+│   ├── notes_for_developers.rst
+│   ├── quickstart.rst
+│   ├── readme.rst
+│   ├── spelling_wordlist.txt
+│   ├── tutorials.rst
+│   └── updates_from_v3.rst
+│       └── ... (9 more files)
+├── joss-paper/
+│   ├── .gitignore
+│   ├── apa.csl
+│   ├── joss-logo.png
+│   ├── latex.template
+│   ├── lightcone.pdf
+│   ├── make-example-plots.py
+│   ├── Makefile
+│   ├── paper.bib
+│   ├── paper.md
+│   ├── xH_history.pdf
+│   └── yuxiangs-plot-small.png
+│       └── ... (6 more files)
+├── src/
+│   └── py21cmfast/
+│       ├── _data/
+│       │   ├── x_int_tables/
+│       │   ├── __init__.py
+│       │   ├── kappa_eH_table.dat
+│       │   ├── kappa_pH_table.dat
+│       │   ├── Lyman_alpha_heating_table.dat
+│       │   ├── recfast_LCDM.dat
+│       │   ├── stellar_spectra.dat
+│       │   └── Transfers_z0.dat
+│       │       └── ... (2 more files)
+│       ├── drivers/
+│       │   ├── __init__.py
+│       │   ├── _param_config.py
+│       │   ├── coeval.py
+│       │   ├── lightcone.py
+│       │   └── single_field.py
+│       ├── io/
+│       │   ├── __init__.py
+│       │   ├── caching.py
+│       │   └── h5.py
+│       ├── src/
+│       │   ├── 21cmFAST.h
+│       │   ├── _functionprototypes_wrapper.h
+│       │   ├── _inputparams_wrapper.h
+│       │   ├── _outputstructs_wrapper.h
+│       │   ├── BrightnessTemperatureBox.c
+│       │   ├── BrightnessTemperatureBox.h
+│       │   ├── bubble_helper_progs.c
+│       │   ├── bubble_helper_progs.h
+│       │   ├── cexcept.h
+│       │   ├── Constants.h
+│       │   ├── cosmology.c
+│       │   ├── cosmology.h
+│       │   ├── debugging.c
+│       │   ├── debugging.h
+│       │   ├── dft.c
+│       │   ├── dft.h
+│       │   ├── elec_interp.c
+│       │   ├── elec_interp.h
+│       │   ├── exceptions.h
+│       │   ├── filtering.c
+│       │   ├── filtering.h
+│       │   ├── HaloBox.c
+│       │   ├── HaloBox.h
+│       │   ├── HaloField.c
+│       │   ├── HaloField.h
+│       │   ├── heating_helper_progs.c
+│       │   ├── heating_helper_progs.h
+│       │   ├── hmf.c
+│       │   ├── hmf.h
+│       │   ├── indexing.c
+│       │   ├── indexing.h
+│       │   ├── InitialConditions.c
+│       │   ├── InitialConditions.h
+│       │   ├── InputParameters.c
+│       │   ├── InputParameters.h
+│       │   ├── integral_wrappers.c
+│       │   ├── interp_tables.c
+│       │   ├── interp_tables.h
+│       │   ├── interpolation.c
+│       │   ├── interpolation.h
+│       │   ├── IonisationBox.c
+│       │   ├── IonisationBox.h
+│       │   ├── logger.h
+│       │   ├── LuminosityFunction.c
+│       │   ├── LuminosityFunction.h
+│       │   ├── OutputStructs.h
+│       │   ├── PerturbField.c
+│       │   ├── PerturbField.h
+│       │   ├── PerturbHaloField.c
+│       │   ├── PerturbHaloField.h
+│       │   ├── photoncons.c
+│       │   ├── photoncons.h
+│       │   ├── recombinations.c
+│       │   ├── recombinations.h
+│       │   ├── rng.c
+│       │   ├── rng.h
+│       │   ├── scaling_relations.c
+│       │   ├── scaling_relations.h
+│       │   ├── SpinTemperatureBox.c
+│       │   ├── SpinTemperatureBox.h
+│       │   ├── Stochasticity.c
+│       │   ├── Stochasticity.h
+│       │   ├── thermochem.c
+│       │   └── thermochem.h
+│       │       └── ... (59 more files)
+│       ├── templates/
+│       │   ├── const-zeta.toml
+│       │   ├── defaults.toml
+│       │   ├── fixed-halos.toml
+│       │   ├── latest-discrete.toml
+│       │   ├── latest.toml
+│       │   ├── manifest.toml
+│       │   ├── minihalos-discrete.toml
+│       │   ├── minihalos.toml
+│       │   ├── Munoz21.toml
+│       │   ├── park19.toml
+│       │   ├── Qin20.toml
+│       │   ├── simple.toml
+│       │   ├── size-gpc.toml
+│       │   ├── size-medium.toml
+│       │   ├── size-small.toml
+│       │   └── size-tiny.toml
+│       │       └── ... (11 more files)
+│       ├── wrapper/
+│       │   ├── __init__.py
+│       │   ├── _utils.py
+│       │   ├── arrays.py
+│       │   ├── arraystate.py
+│       │   ├── cfuncs.py
+│       │   ├── classy_interface.py
+│       │   ├── exceptions.py
+│       │   ├── inputs.py
+│       │   ├── outputs.py
+│       │   ├── photoncons.py
+│       │   └── structs.py
+│       │       └── ... (6 more files)
+│       ├── __init__.py
+│       ├── _cfg.py
+│       ├── _logging.py
+│       ├── _templates.py
+│       ├── _version.py
+│       ├── cli.py
+│       ├── input_serialization.py
+│       ├── lightconers.py
+│       ├── plotting.py
+│       ├── rsds.py
+│       ├── utils.py
+│       └── yaml.py
+│           └── ... (7 more files)
+├── testplots/
+│   └── _touch
+├── tests/
+│   ├── io/
+│   │   ├── test_caching.py
+│   │   └── test_h5.py
+│   ├── plots/
+│   │   └── tests.test_integration_features.py--test_power_spectra_coeval[18-kwargs12].pdf
+│   ├── test_data/
+│   │   ├── perturb_field_data_highres.h5
+│   │   ├── perturb_field_data_linear.h5
+│   │   ├── perturb_field_data_no2lpt.h5
+│   │   ├── perturb_field_data_simple.h5
+│   │   ├── power_spectra_dexm.h5
+│   │   ├── power_spectra_fftw_wisdom.h5
+│   │   ├── power_spectra_fixed_halogrids.h5
+│   │   ├── power_spectra_inhomo.h5
+│   │   ├── power_spectra_inhomo_ts.h5
+│   │   ├── power_spectra_mini.h5
+│   │   ├── power_spectra_mini_gamma_approx.h5
+│   │   ├── power_spectra_minimize_mem.h5
+│   │   ├── power_spectra_no-mdz.h5
+│   │   ├── power_spectra_photoncons-z.h5
+│   │   ├── power_spectra_sampler.h5
+│   │   ├── power_spectra_sampler_ir.h5
+│   │   ├── power_spectra_sampler_mini.h5
+│   │   ├── power_spectra_sampler_noncubic.h5
+│   │   ├── power_spectra_sampler_ts.h5
+│   │   ├── power_spectra_sampler_ts_ir.h5
+│   │   ├── power_spectra_sampler_ts_ir_onethread.h5
+│   │   ├── power_spectra_simple.h5
+│   │   ├── power_spectra_ts.h5
+│   │   └── power_spectra_ts_nomdz.h5
+│   │       └── ... (19 more files)
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── produce_integration_test_data.py
+│   ├── test_c_interpolation_tables.py
+│   ├── test_cfuncs.py
+│   ├── test_classy_interface.py
+│   ├── test_cli.py
+│   ├── test_config.py
+│   ├── test_data_exists.py
+│   ├── test_drivers_coev.py
+│   ├── test_drivers_lc.py
+│   ├── test_exceptions.py
+│   ├── test_filtering.py
+│   ├── test_halo_sampler.py
+│   ├── test_high_level_io.py
+│   ├── test_initial_conditions.py
+│   ├── test_input_serialization.py
+│   ├── test_input_structs.py
+│   ├── test_integration_features.py
+│   ├── test_lightconer.py
+│   ├── test_lightcones.py
+│   ├── test_output_structs.py
+│   ├── test_plotting.py
+│   ├── test_rsds.py
+│   ├── test_singlefield.py
+│   ├── test_tables.py
+│   ├── test_templates.py
+│   └── test_utils.py
+│       └── ... (23 more files)
+├── .bumpversion.cfg
+├── .clang-format
+├── .clang-tidy
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .readthedocs.yml
+├── AUTHORS.rst
+├── build_cffi.py
+├── bump
+├── CHANGELOG.rst
+├── CONTRIBUTING.rst
+├── environment_dev.yml
+├── INSTALLATION.rst
+├── LICENSE
+├── pyproject.toml
+├── README.rst
+├── setup.cfg
+├── setup.py
+└── VERSION
+    └── ... (14 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -e . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Obtaining file:///app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+INFO: pip is looking at multiple versions of 21cmfast to determine which version is compatible with other requirements. This could take a while.
+
+STDERR:
+ERROR: Package '21cmfast' requires a different Python: 3.10.12 not in '>=3.11'
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDERR:
+ImportError while loading conftest '/app/repo_to_process/tests/conftest.py'.
+tests/conftest.py:9: in <module>
+    from py21cmfast import (
+E   ModuleNotFoundError: No module named 'py21cmfast'
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

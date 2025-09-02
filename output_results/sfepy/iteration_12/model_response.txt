@@ -1,0 +1,18 @@
+The build script failed with:
+
+```
+RuntimeError: cython is missing
+```
+
+Cython is required to build the extension modules.
+
+```bash
+pip install cython
+```
+
+After this, rerun:
+
+```bash
+python setup.py build_ext --inplace
+```
+and then rerun `pytest` if the build succeeds.

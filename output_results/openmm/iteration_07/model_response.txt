@@ -1,0 +1,20 @@
+Based on the project structure, it appears the main Python source (if any) would be in one of these directories:
+- `devtools` (but mostly scripts/utilities)
+- `examples` (mostly samples, not core)
+- `docs-source` (documentation/scripts)
+- `libraries`, `olla`, or `openmmapi` (but mostly C++/C/headers)
+- There is **no top-level package directory or src/**.
+
+Given that, it's likely that the actual Python code is either sparse or only in `devtools` and possibly some scripts in `examples` or `docs-source`. For tracing call chains, you generally want to track the "main" package (not sample scripts or documentation utilities). 
+
+Of these, `devtools` is the closest thing to a reusable Python module. If later you want to expand tracing, you could also add `docs-source/sphinx` (contains Python files) and possibly some in `examples/*`.
+
+But for this run, let's set up for `devtools`.
+
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['devtools']
+```
+
+```bash
+pytest
+```

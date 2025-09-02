@@ -1,0 +1,602 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── ci.yaml
+│       └── release.yaml
+├── bcftools/
+│   ├── abuf.c
+│   ├── abuf.c.pysam.c
+│   ├── abuf.h
+│   ├── bam2bcf.c
+│   ├── bam2bcf.c.pysam.c
+│   ├── bam2bcf.h
+│   ├── bam2bcf_edlib.c
+│   ├── bam2bcf_edlib.c.pysam.c
+│   ├── bam2bcf_iaux.c
+│   ├── bam2bcf_iaux.c.pysam.c
+│   ├── bam2bcf_indel.c
+│   ├── bam2bcf_indel.c.pysam.c
+│   ├── bam_sample.c
+│   ├── bam_sample.c.pysam.c
+│   ├── bam_sample.h
+│   ├── bcftools.h
+│   ├── bcftools.pysam.c
+│   ├── bcftools.pysam.h
+│   ├── bin.c
+│   ├── bin.c.pysam.c
+│   ├── bin.h
+│   ├── call.h
+│   ├── ccall.c
+│   ├── ccall.c.pysam.c
+│   ├── cigar_state.h
+│   ├── cols.c
+│   ├── cols.c.pysam.c
+│   ├── cols.h
+│   ├── config.h
+│   ├── consensus.c
+│   ├── consensus.c.pysam.c
+│   ├── convert.c
+│   ├── convert.c.pysam.c
+│   ├── convert.h
+│   ├── csq.c
+│   ├── csq.c.pysam.c
+│   ├── dbuf.h
+│   ├── dist.c
+│   ├── dist.c.pysam.c
+│   ├── dist.h
+│   ├── edlib.c
+│   ├── edlib.c.pysam.c
+│   ├── edlib.h
+│   ├── em.c
+│   ├── em.c.pysam.c
+│   ├── extsort.c
+│   ├── extsort.c.pysam.c
+│   ├── extsort.h
+│   ├── filter.c
+│   ├── filter.c.pysam.c
+│   ├── filter.h
+│   ├── gff.c
+│   ├── gff.c.pysam.c
+│   ├── gff.h
+│   ├── gvcf.c
+│   ├── gvcf.c.pysam.c
+│   ├── gvcf.h
+│   ├── hclust.c
+│   ├── hclust.c.pysam.c
+│   ├── hclust.h
+│   ├── hex.h
+│   ├── HMM.c
+│   ├── HMM.c.pysam.c
+│   ├── HMM.h
+│   ├── khash_str2str.h
+│   ├── kheap.h
+│   ├── kmin.c
+│   ├── kmin.c.pysam.c
+│   ├── kmin.h
+│   ├── LICENSE
+│   ├── main.c
+│   ├── main.c.pysam.c
+│   ├── mcall.c
+│   ├── mcall.c.pysam.c
+│   ├── mpileup.c
+│   ├── mpileup.c.pysam.c
+│   ├── mw.h
+│   ├── ploidy.c
+│   ├── ploidy.c.pysam.c
+│   ├── ploidy.h
+│   ├── prob1.c
+│   ├── prob1.c.pysam.c
+│   ├── prob1.h
+│   ├── rbuf.h
+│   ├── read_consensus.c
+│   ├── read_consensus.c.pysam.c
+│   ├── read_consensus.h
+│   ├── README
+│   ├── regidx.c
+│   ├── regidx.c.pysam.c
+│   ├── regidx.h
+│   ├── reheader.c
+│   ├── reheader.c.pysam.c
+│   ├── smpl_ilist.c
+│   ├── smpl_ilist.c.pysam.c
+│   ├── smpl_ilist.h
+│   ├── str_finder.c
+│   ├── str_finder.c.pysam.c
+│   ├── str_finder.h
+│   ├── tabix.c
+│   ├── tabix.c.pysam.c
+│   ├── tsv2vcf.c
+│   ├── tsv2vcf.c.pysam.c
+│   ├── tsv2vcf.h
+│   ├── utlist.h
+│   ├── variantkey.h
+│   ├── vcfannotate.c
+│   ├── vcfannotate.c.pysam.c
+│   ├── vcfbuf.c
+│   ├── vcfbuf.c.pysam.c
+│   ├── vcfbuf.h
+│   ├── vcfcall.c
+│   ├── vcfcall.c.pysam.c
+│   ├── vcfcnv.c
+│   ├── vcfcnv.c.pysam.c
+│   ├── vcfconcat.c
+│   ├── vcfconcat.c.pysam.c
+│   ├── vcfconvert.c
+│   ├── vcfconvert.c.pysam.c
+│   ├── vcffilter.c
+│   ├── vcffilter.c.pysam.c
+│   ├── vcfgtcheck.c
+│   ├── vcfgtcheck.c.pysam.c
+│   ├── vcfhead.c
+│   ├── vcfhead.c.pysam.c
+│   ├── vcfindex.c
+│   ├── vcfindex.c.pysam.c
+│   ├── vcfisec.c
+│   ├── vcfisec.c.pysam.c
+│   ├── vcfmerge.c
+│   ├── vcfmerge.c.pysam.c
+│   ├── vcfnorm.c
+│   ├── vcfnorm.c.pysam.c
+│   ├── vcfplugin.c
+│   ├── vcfplugin.c.pysam.c
+│   ├── vcfquery.c
+│   ├── vcfquery.c.pysam.c
+│   ├── vcfroh.c
+│   ├── vcfroh.c.pysam.c
+│   ├── vcfsom.c
+│   ├── vcfsom.c.pysam.c
+│   ├── vcfsort.c
+│   ├── vcfsort.c.pysam.c
+│   ├── vcfstats.c
+│   ├── vcfstats.c.pysam.c
+│   ├── vcfview.c
+│   ├── vcfview.c.pysam.c
+│   ├── vcmp.c
+│   ├── vcmp.c.pysam.c
+│   ├── vcmp.h
+│   ├── version.c
+│   ├── version.c.pysam.c
+│   └── version.sh
+│       └── ... (148 more files)
+├── devtools/
+│   ├── artifactname.py
+│   ├── check-platform.sh
+│   ├── emulate-tools.py
+│   ├── environment-dev.yaml
+│   ├── import.py
+│   └── install-prerequisites.sh
+│       └── ... (1 more files)
+├── doc/
+│   ├── api.rst
+│   ├── benchmarking.rst
+│   ├── conf.py
+│   ├── developer.rst
+│   ├── faq.rst
+│   ├── glossary.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── release.rst
+│   ├── requirements-rtd.txt
+│   └── usage.rst
+│       └── ... (8 more files)
+├── htslib/
+│   ├── cram/
+│   │   ├── cram.h
+│   │   ├── cram_codecs.c
+│   │   ├── cram_codecs.h
+│   │   ├── cram_decode.c
+│   │   ├── cram_decode.h
+│   │   ├── cram_encode.c
+│   │   ├── cram_encode.h
+│   │   ├── cram_external.c
+│   │   ├── cram_index.c
+│   │   ├── cram_index.h
+│   │   ├── cram_io.c
+│   │   ├── cram_io.h
+│   │   ├── cram_samtools.h
+│   │   ├── cram_stats.c
+│   │   ├── cram_stats.h
+│   │   ├── cram_structs.h
+│   │   ├── mFILE.c
+│   │   ├── mFILE.h
+│   │   ├── misc.h
+│   │   ├── open_trace_file.c
+│   │   ├── open_trace_file.h
+│   │   ├── os.h
+│   │   ├── pooled_alloc.c
+│   │   ├── pooled_alloc.h
+│   │   ├── README
+│   │   ├── string_alloc.c
+│   │   └── string_alloc.h
+│   │       └── ... (22 more files)
+│   ├── htscodecs/
+│   │   └── htscodecs/
+│   │       ├── arith_dynamic.c
+│   │       ├── arith_dynamic.h
+│   │       ├── c_range_coder.h
+│   │       ├── c_simple_model.h
+│   │       ├── fqzcomp_qual.c
+│   │       ├── fqzcomp_qual.h
+│   │       ├── htscodecs.c
+│   │       ├── htscodecs.h
+│   │       ├── htscodecs_endian.h
+│   │       ├── pack.c
+│   │       ├── pack.h
+│   │       ├── permute.h
+│   │       ├── pooled_alloc.h
+│   │       ├── rANS_byte.h
+│   │       ├── rANS_static.c
+│   │       ├── rANS_static.h
+│   │       ├── rANS_static16_int.h
+│   │       ├── rANS_static32x16pr.c
+│   │       ├── rANS_static32x16pr.h
+│   │       ├── rANS_static32x16pr_avx2.c
+│   │       ├── rANS_static32x16pr_avx512.c
+│   │       ├── rANS_static32x16pr_neon.c
+│   │       ├── rANS_static32x16pr_sse4.c
+│   │       ├── rANS_static4x16.h
+│   │       ├── rANS_static4x16pr.c
+│   │       ├── rANS_word.h
+│   │       ├── rle.c
+│   │       ├── rle.h
+│   │       ├── tokenise_name3.c
+│   │       ├── tokenise_name3.h
+│   │       ├── utils.c
+│   │       ├── utils.h
+│   │       ├── varint.h
+│   │       ├── varint2.h
+│   │       └── version.h
+│   │           └── ... (30 more files)
+│   ├── htslib/
+│   │   ├── bgzf.h
+│   │   ├── cram.h
+│   │   ├── faidx.h
+│   │   ├── hfile.h
+│   │   ├── hts.h
+│   │   ├── hts_defs.h
+│   │   ├── hts_endian.h
+│   │   ├── hts_expr.h
+│   │   ├── hts_log.h
+│   │   ├── hts_os.h
+│   │   ├── kbitset.h
+│   │   ├── kfunc.h
+│   │   ├── khash.h
+│   │   ├── khash_str2int.h
+│   │   ├── klist.h
+│   │   ├── knetfile.h
+│   │   ├── kroundup.h
+│   │   ├── kseq.h
+│   │   ├── ksort.h
+│   │   ├── kstring.h
+│   │   ├── regidx.h
+│   │   ├── sam.h
+│   │   ├── synced_bcf_reader.h
+│   │   ├── tbx.h
+│   │   ├── thread_pool.h
+│   │   ├── vcf.h
+│   │   ├── vcf_sweep.h
+│   │   └── vcfutils.h
+│   │       └── ... (23 more files)
+│   ├── m4/
+│   │   ├── hts_check_compile_flags_needed.m4
+│   │   ├── hts_hide_dynamic_syms.m4
+│   │   ├── hts_prog_cc_warnings.m4
+│   │   └── pkg.m4
+│   ├── os/
+│   │   ├── lzma_stub.h
+│   │   └── rand.c
+│   ├── bcf_sr_sort.c
+│   ├── bcf_sr_sort.h
+│   ├── bgzf.c
+│   ├── builddir_vars.mk.in
+│   ├── config.guess
+│   ├── config.h
+│   ├── config.h.in
+│   ├── config.mk.in
+│   ├── config.sub
+│   ├── config_vars.h
+│   ├── configure
+│   ├── configure.ac
+│   ├── errmod.c
+│   ├── faidx.c
+│   ├── fuzz_settings.h
+│   ├── header.c
+│   ├── header.h
+│   ├── hfile.c
+│   ├── hfile_gcs.c
+│   ├── hfile_internal.h
+│   ├── hfile_libcurl.c
+│   ├── hfile_s3.c
+│   ├── hfile_s3_write.c
+│   ├── hts.c
+│   ├── hts_expr.c
+│   ├── hts_internal.h
+│   ├── hts_os.c
+│   ├── hts_time_funcs.h
+│   ├── htscodecs_bundled.mk
+│   ├── htscodecs_external.mk
+│   ├── htslib.mk
+│   ├── htslib.pc.in
+│   ├── htslib_vars.mk
+│   ├── kfunc.c
+│   ├── kstring.c
+│   ├── libhts.a
+│   ├── LICENSE
+│   ├── Makefile
+│   ├── md5.c
+│   ├── multipart.c
+│   ├── plugin.c
+│   ├── probaln.c
+│   ├── README
+│   ├── realn.c
+│   ├── regidx.c
+│   ├── region.c
+│   ├── sam.c
+│   ├── sam_internal.h
+│   ├── sam_mods.c
+│   ├── simd.c
+│   ├── synced_bcf_reader.c
+│   ├── tbx.c
+│   ├── textutils.c
+│   ├── textutils_internal.h
+│   ├── thread_pool.c
+│   ├── thread_pool_internal.h
+│   ├── vcf.c
+│   ├── vcf_sweep.c
+│   ├── vcfutils.c
+│   ├── version.h
+│   └── version.sh
+│       └── ... (56 more files)
+├── import/
+│   ├── pysam.c
+│   └── pysam.h
+├── linker_tests/
+│   ├── link_pre_489/
+│   │   ├── PysamTestModule_link_pre_489/
+│   │   │   ├── __init__.py
+│   │   │   └── BuildRead.pyx
+│   │   ├── tests/
+│   │   │   └── test_module.py
+│   │   ├── cy_build.py
+│   │   └── setup.py
+│   ├── link_with_rpath/
+│   │   ├── PysamTestModule_link_with_rpath/
+│   │   │   ├── __init__.py
+│   │   │   └── BuildRead.pyx
+│   │   ├── tests/
+│   │   │   └── test_module.py
+│   │   └── setup.py
+│   └── link_without_rpath/
+│       ├── PysamTestModule_link_without_rpath/
+│       │   ├── __init__.py
+│       │   └── BuildRead.pyx
+│       ├── tests/
+│       │   └── test_module.py
+│       └── setup.py
+├── pysam/
+│   ├── include/
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── alternatives.py.obsolete
+│   ├── bcftools.py
+│   ├── config.py
+│   ├── conftest_cstd.c
+│   ├── htslib_util.c
+│   ├── htslib_util.h
+│   ├── libcalignedsegment.pxd
+│   ├── libcalignedsegment.pyi
+│   ├── libcalignedsegment.pyx
+│   ├── libcalignmentfile.pxd
+│   ├── libcalignmentfile.pyi
+│   ├── libcalignmentfile.pyx
+│   ├── libcbcf.pxd
+│   ├── libcbcf.pyi
+│   ├── libcbcf.pyx
+│   ├── libcbcftools.pxd
+│   ├── libcbcftools.pyi
+│   ├── libcbcftools.pyx
+│   ├── libcbgzf.pxd
+│   ├── libcbgzf.pyi
+│   ├── libcbgzf.pyx
+│   ├── libcfaidx.pxd
+│   ├── libcfaidx.pyi
+│   ├── libcfaidx.pyx
+│   ├── libchtslib.c
+│   ├── libchtslib.pxd
+│   ├── libchtslib.pyi
+│   ├── libchtslib.pyx
+│   ├── libcsamfile.pxd
+│   ├── libcsamfile.pyi
+│   ├── libcsamfile.pyx
+│   ├── libcsamtools.pxd
+│   ├── libcsamtools.pyi
+│   ├── libcsamtools.pyx
+│   ├── libctabix.pxd
+│   ├── libctabix.pyi
+│   ├── libctabix.pyx
+│   ├── libctabixproxies.pxd
+│   ├── libctabixproxies.pyi
+│   ├── libctabixproxies.pyx
+│   ├── libcutils.pxd
+│   ├── libcutils.pyi
+│   ├── libcutils.pyx
+│   ├── libcvcf.pxd
+│   ├── libcvcf.pyi
+│   ├── libcvcf.pyx
+│   ├── Pileup.py
+│   ├── py.typed
+│   ├── samtools.py
+│   ├── utils.py
+│   ├── VCF.py.obsolete
+│   ├── version.h
+│   ├── version.py
+│   └── version.pyi
+│       └── ... (50 more files)
+├── samtools/
+│   ├── lz4/
+│   │   ├── LICENSE
+│   │   ├── lz4.c
+│   │   ├── lz4.c.pysam.c
+│   │   └── lz4.h
+│   ├── amplicon_stats.c
+│   ├── amplic
+... (288 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install pysam ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting pysam
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/1a/79a2c1bea757cd432a2d67087feb1e3dc8226b49fc926f2d844b3badd147/pysam-0.23.3-cp310-cp310-manylinux_2_28_x86_64.whl (23.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.4/23.4 MB 14.5 MB/s  0:00:01
+Installing collected packages: pysam
+Successfully installed pysam-0.23.3
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /app/repo_to_process
+configfile: setup.cfg
+testpaths: pysam, tests
+collecting ... collected 983 items / 1 skipped
+
+tests/AlignedSegment_test.py::TestAlignedSegment::testBlocks ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testClearQual ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testClearQualStr ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testClearSequence ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testCompare ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testEmpty ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testFullReferencePositions ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testHashing ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testLargeRead ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testNoSequence ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testPositions ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testSettingTagInEmptyRead ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testStrOfEmptyRead ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdate ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdate2 ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdateQual ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdateQualArrayB ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdateQualArrayI ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdateQualList ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdateQualString ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdateQualString2 ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdateQualTuple ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdateSequenceEffects1 ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdateSequenceEffects2 ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::testUpdateTlen ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_bin_values_for_mapped_reads_are_updated ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_bin_values_for_unmapped_reads_ignore_length ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_equivalence_matches_only_and_with_seq ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_1character_md ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_bad_type_md ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_hard_clipping ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_lowercase_md ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_match_mismatch ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_padding ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_padding_via_cigarstring ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_padding_with_seq ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_skip ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_skip_reference ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_soft_clipping ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_uppercase_md ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_get_aligned_pairs_with_malformed_MD_tag ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_header_accessible ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_infer_query_length ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_infer_read_length ERROR
+tests/AlignedSegment_test.py::TestAlignedSegment::test_query_length_is_limited ERROR
+tests/AlignedSegment_test.py::TestTidMapping::test_reference_name_can_be_set_to_asterisk ERROR
+tests/AlignedSegment_test.py::TestTidMapping::test_reference_name_can_be_set_to_chromosome ERROR
+tests/AlignedSegment_test.py::TestTidMapping::test_reference_name_can_be_set_to_none ERROR
+tests/AlignedSegment_test.py::TestTidMapping::test_reference_name_can_not_be_set_to_unknown_chromosome ERROR
+tests/AlignedSegment_test.py::TestTidMapping::test_tid_can_be_set_to_chromosome ERROR
+tests/AlignedSegment_test.py::TestTidMapping::test_tid_can_be_set_to_missing ERROR
+tests/AlignedSegment_test.py::TestTidMapping::test_tid_can_be_set_to_missing_without_header ERROR
+tests/AlignedSegment_test.py::TestTidMapping::test_tid_can_be_set_without_header ERROR
+tests/AlignedSegment_test.py::TestTidMapping::test_tid_can_not_be_set_to_unknown_chromosome ERROR
+tests/AlignedSegment_test.py::TestTidMapping::test_unmapped_tid_is_asterisk_in_output ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_reference_name_can_be_set_to_asterisk ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_reference_name_can_be_set_to_chromosome ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_reference_name_can_be_set_to_none ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_reference_name_can_not_be_set_to_unknown_chromosome ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_tid_can_be_set_to_chromosome ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_tid_can_be_set_to_equal ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_tid_can_be_set_to_missing ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_tid_can_be_set_to_missing_without_header ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_tid_can_be_set_without_header ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_tid_can_not_be_set_to_unknown_chromosome ERROR
+tests/AlignedSegment_test.py::TestNextTidMapping::test_next_unmapped_tid_is_asterisk_in_output ERROR
+tests/AlignedSegment_test.py::TestCigar::testCigar ERROR
+tests/AlignedSegment_test.py::TestCigar::testCigarString ERROR
+tests/AlignedSegment_test.py::TestCigarStats::testStats ERROR
+tests/AlignedSegment_test.py::TestAlignedPairs::testReferenceBases ERROR
+tests/AlignedSegment_test.py::TestBaseModifications::testChebi ERROR
+tests/AlignedSegment_test.py::TestBaseModifications::testDouble ERROR
+tests/AlignedSegment_test.py::TestBaseModifications::testExplicit ERROR
+tests/AlignedSegment_test.py::TestBaseModifications::testMulti ERROR
+tests/AlignedSegment_test.py::TestBaseModifications::testOrient ERROR
+tests/AlignedSegment_test.py::TestTags::testAddTags ERROR
+tests/AlignedSegment_test.py::TestTags::testAddTagsType ERROR
+tests/AlignedSegment_test.py::TestTags::testArrayTags ERROR
+tests/AlignedSegment_test.py::TestTags::testEmptyTag ERROR
+tests/AlignedSegment_test.py::TestTags::testLongTags ERROR
+tests/AlignedSegment_test.py::TestTags::testMDTagComplex ERROR
+tests/AlignedSegment_test.py::TestTags::testMDTagDeletions ERROR
+tests/AlignedSegment_test.py::TestTags::testMDTagInsertions ERROR
+tests/AlignedSegment_test.py::TestTags::testMDTagMatchOnly ERROR
+tests/AlignedSegment_test.py::TestTags::testMDTagRefSkipping ERROR
+tests/AlignedSegment_test.py::TestTags::testMDTagSoftClipping ERROR
+tests/AlignedSegment_test.py::TestTags::testMissingTag ERROR
+tests/AlignedSegment_test.py::TestTags::testNegativeIntegers ERROR
+tests/AlignedSegment_test.py::TestTags::testNegativeIntegersWrittenToFile ERROR
+tests/AlignedSegment_test.py::TestTags::testSetTag ERROR
+tests/AlignedSegment_test.py::TestTags::testTagParsing ERROR
+tests/AlignedSegment_test.py::TestTags::testTagsUpdatingFloat ERROR
+tests/AlignedSegment_test.py::TestCopy::testCopy ERROR
+tests/AlignedSegment_test.py::TestCopy::testDeepCopy ERROR
+tests/AlignedSegment_test.py::TestSetTagGetTag::test_set_array_tag_invalid_typecode ERROR
+tests/AlignedSegment_test.py::TestSetTagGetTag::test_set_array_tag_invalid_value_type ERROR
+tests/AlignedSegment_test.py::TestSetTagGetTag::test_set_tag_invalid_value_type ERROR
+tests/AlignedSegment_test.py::TestSetTagGetTag::test_set_tag_with_A ERROR
+tests/AlignedSegment_test.py::TestSetTagGetTag::test_set_tag_with_C ERROR
+tests/AlignedSegment_test.py::TestSetTagGetTag::test_set_tag_with_H ERROR
+tests/AlignedSegment_test.py::TestSetTagGet
+... (39568 lines omitted)
+STDERR:
+/app/repo_to_process/tests/_compile_test.c:42:10: fatal error: Python.h: No such file or directory
+   42 | #include "Python.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+
+
+
+## Your Task (Phase 2: Call Chain Tracing)
+`pytest` is now executable without collection errors. Your task is to set up call chain tracing.
+1.  **Identify the main source code directory/directories.** Based on the structure, this is likely `skimage`.
+2.  **Create a `conftest.py` file** in the project root to trace this directory.
+3.  **Run `pytest`** one last time to generate the reports.
+4.  If the reports are generated, declare success with ```status
+success
+```.
+
+**REMINDER:** When creating `conftest.py`, you only need to provide the line defining `SOURCE_DIRS_TO_TRACK`. For example:
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['skimage']
+```

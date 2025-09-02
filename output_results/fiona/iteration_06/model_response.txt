@@ -1,0 +1,20 @@
+It appears that call chains were still not recorded, likely because `'fiona/fio'` is not a valid Python module path for the tracer (it should be just directories, not with slashes). For Python path coverage, you only need to track the actual source directory roots. In this repository, the main source directory is:
+
+- `fiona`
+
+There is no need to add the subdirectory as a separate entry; tracking `fiona` will include everything under it, including its submodules such as `fio`.
+
+Let's correct that to the minimal and proper value:
+
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['fiona']
+```
+
+```bash
+pytest
+```
+If `report_files.jsonl` and `report_functions.jsonl` are generated, declare success:
+
+```status
+success
+```

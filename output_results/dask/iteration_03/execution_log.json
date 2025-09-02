@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip uninstall -y dask",
+    "success": true,
+    "stdout": "Found existing installation: dask 2025.7.0+6.gd0a9d158f.dirty\nUninstalling dask-2025.7.0+6.gd0a9d158f.dirty:\n  Successfully uninstalled dask-2025.7.0+6.gd0a9d158f.dirty\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 0.39868760108947754
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ERROR: while parsing the following warning configuration:\n\n  ignore:.*:dask.tests.warning_aliases.RemovedIn20Warning\n\nThis error occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py\", line 1967, in parse_warning_filter\n    category: type[Warning] = _resolve_warning_category(category_)\n  File \"/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py\", line 2012, in _resolve_warning_category\n    m = __import__(module, None, None, [klass])\nModuleNotFoundError: No module named 'dask.tests'\n\n\n",
+    "execution_time": 0.19433283805847168
+  }
+]

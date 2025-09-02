@@ -1,0 +1,8 @@
+```bash
+# Explore wrappers/python for dependency files; it contains setup.py and is the likely main Python source.
+pip install -e wrappers/python
+
+# Check for requirements.txt or similar in wrappers/python/tests/ (not present above), so just try pytest in that directory.
+cd wrappers/python/tests
+pytest
+```

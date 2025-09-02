@@ -1,0 +1,271 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── config.yml
+│   │   ├── feature_request.md
+│   │   └── installation_issues.md
+│   ├── workflows/
+│   │   ├── build_docs.yaml
+│   │   ├── release.yaml
+│   │   ├── test_proj_latest.yaml
+│   │   └── tests.yaml
+│   ├── dependabot.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── ci/
+│   ├── proj-compile-wheels.sh
+│   ├── proj-compile.sh
+│   └── vcpkg.json
+├── docs/
+│   ├── api/
+│   │   ├── crs/
+│   │   │   ├── coordinate_operation.rst
+│   │   │   ├── coordinate_system.rst
+│   │   │   ├── crs.rst
+│   │   │   ├── datum.rst
+│   │   │   ├── enums.rst
+│   │   │   └── index.rst
+│   │   │       └── ... (1 more files)
+│   │   ├── aoi.rst
+│   │   ├── database.rst
+│   │   ├── datadir.rst
+│   │   ├── enums.rst
+│   │   ├── exceptions.rst
+│   │   ├── geod.rst
+│   │   ├── global_context.rst
+│   │   ├── index.rst
+│   │   ├── list.rst
+│   │   ├── network.rst
+│   │   ├── proj.rst
+│   │   ├── show_versions.rst
+│   │   ├── sync.rst
+│   │   └── transformer.rst
+│   │       └── ... (9 more files)
+│   ├── media/
+│   │   ├── icon.png
+│   │   ├── icon.svg
+│   │   ├── logo.png
+│   │   └── logo.svg
+│   ├── advanced_examples.rst
+│   ├── build_crs.rst
+│   ├── build_crs_cf.rst
+│   ├── cli.rst
+│   ├── conf.py
+│   ├── crs_compatibility.rst
+│   ├── examples.rst
+│   ├── gotchas.rst
+│   ├── history.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── optimize_transformations.rst
+│   ├── past_versions.rst
+│   └── transformation_grids.rst
+│       └── ... (11 more files)
+├── flake8/
+│   └── cython.cfg
+├── pyproj/
+│   ├── crs/
+│   │   ├── __init__.py
+│   │   ├── _cf1x8.py
+│   │   ├── coordinate_operation.py
+│   │   ├── coordinate_system.py
+│   │   ├── crs.py
+│   │   ├── datum.py
+│   │   └── enums.py
+│   │       └── ... (2 more files)
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── _compat.pxd
+│   ├── _compat.pyi
+│   ├── _compat.pyx
+│   ├── _context.pxd
+│   ├── _context.pyi
+│   ├── _context.pyx
+│   ├── _crs.pxd
+│   ├── _crs.pyi
+│   ├── _crs.pyx
+│   ├── _geod.pxd
+│   ├── _geod.pyi
+│   ├── _geod.pyx
+│   ├── _network.pyi
+│   ├── _network.pyx
+│   ├── _show_versions.py
+│   ├── _sync.pyi
+│   ├── _sync.pyx
+│   ├── _transformer.pxd
+│   ├── _transformer.pyi
+│   ├── _transformer.pyx
+│   ├── _version.pyi
+│   ├── _version.pyx
+│   ├── aoi.py
+│   ├── base.pxi
+│   ├── database.pyi
+│   ├── database.pyx
+│   ├── datadir.py
+│   ├── enums.py
+│   ├── exceptions.py
+│   ├── geod.py
+│   ├── list.pyi
+│   ├── list.pyx
+│   ├── network.py
+│   ├── proj.pxi
+│   ├── proj.py
+│   ├── py.typed
+│   ├── sync.py
+│   ├── transformer.py
+│   └── utils.py
+│       └── ... (36 more files)
+├── test/
+│   ├── crs/
+│   │   ├── test_crs.py
+│   │   ├── test_crs_cf.py
+│   │   ├── test_crs_coordinate_operation.py
+│   │   ├── test_crs_coordinate_system.py
+│   │   ├── test_crs_datum.py
+│   │   ├── test_crs_json.py
+│   │   └── test_crs_maker.py
+│   │       └── ... (2 more files)
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── sample.out
+│   ├── test_aoi.py
+│   ├── test_awips221.py
+│   ├── test_cli.py
+│   ├── test_database.py
+│   ├── test_datadir.py
+│   ├── test_datum.py
+│   ├── test_datum_shift.py
+│   ├── test_doctest_wrapper.py
+│   ├── test_exception_logging.py
+│   ├── test_geod.py
+│   ├── test_list.py
+│   ├── test_network.py
+│   ├── test_pickle.py
+│   ├── test_proj.py
+│   ├── test_show_versions.py
+│   ├── test_sync.py
+│   ├── test_transform.py
+│   ├── test_transformer.py
+│   └── test_utils.py
+│       └── ... (17 more files)
+├── .all-contributorsrc
+├── .coveragerc
+├── .flake8
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .pylintrc
+├── CODE_OF_CONDUCT.md
+├── codecov.yml
+├── CONTRIBUTING.md
+├── HOW_TO_RELEASE.md
+├── LICENSE
+├── LICENSE_proj
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── pytest.ini
+├── README.md
+├── requirements-dev.txt
+├── requirements-docs.txt
+├── requirements-test.txt
+└── setup.py
+    └── ... (16 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: apt-get update ---
+SUCCESS: False
+STDOUT:
+Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Err:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+  502  Bad Gateway [IP: 185.125.190.81 80]
+Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:4 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3207 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:6 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [48.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1575 kB]
+Get:8 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1270 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3518 kB]
+Get:10 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [5103 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [5290 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [75.9 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
+Reading package lists...
+
+STDERR:
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/jammy/InRelease  502  Bad Gateway [IP: 185.125.190.81 80]
+E: The repository 'http://archive.ubuntu.com/ubuntu jammy InRelease' is not signed.
+
+
+--- Command: apt-get install -y proj-bin proj-data libproj-dev ---
+SUCCESS: False
+STDOUT:
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+STDERR:
+E: Unable to locate package proj-bin
+E: Unable to locate package proj-data
+E: Unable to locate package libproj-dev
+
+
+--- Command: pip install . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'error'
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [1 lines of output]
+      proj executable not found. Please set the PROJ_DIR variable. For more information see: https://pyproj4.github.io/pyproj/stable/installation.html
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× Getting requirements to build wheel did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDERR:
+ImportError while loading conftest '/app/repo_to_process/test/conftest.py'.
+test/conftest.py:10: in <module>
+    import pyproj
+pyproj/__init__.py:34: in <module>
+    import pyproj.network
+pyproj/network.py:10: in <module>
+    from pyproj._context import _set_context_ca_bundle_path
+E   ModuleNotFoundError: No module named 'pyproj._context'
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

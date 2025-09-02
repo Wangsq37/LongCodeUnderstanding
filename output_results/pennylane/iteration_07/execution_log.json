@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip install -e .[all]",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nObtaining file:///app/repo_to_process\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nINFO: pip is looking at multiple versions of pennylane to determine which version is compatible with other requirements. This could take a while.\n",
+    "stderr": "ERROR: Package 'pennylane' requires a different Python: 3.10.12 not in '>=3.11'\n",
+    "execution_time": 2.5546658039093018
+  },
+  {
+    "command": "pip install -e .",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nObtaining file:///app/repo_to_process\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nINFO: pip is looking at multiple versions of pennylane to determine which version is compatible with other requirements. This could take a while.\n",
+    "stderr": "ERROR: Package 'pennylane' requires a different Python: 3.10.12 not in '>=3.11'\n",
+    "execution_time": 2.450258493423462
+  }
+]

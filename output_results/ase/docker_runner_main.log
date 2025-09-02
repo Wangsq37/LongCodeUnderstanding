@@ -1,0 +1,45 @@
+08/10/2025 23:11:19 - INFO - __main__ - --- Processing repository: ase ---
+08/10/2025 23:11:20 - INFO - __main__ - No existing container found. Creating new container 'agent-run-ase'...
+08/10/2025 23:11:20 - INFO - __main__ - Copying 'python_repos\ase' to new container 'agent-run-ase:/app/repo_to_process'...
+08/10/2025 23:11:23 - INFO - __main__ - Executing agent inside the container...
+08/10/2025 23:11:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:24 - INFO - __main__ - --- Starting Agent inside Container ---
+08/10/2025 23:11:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:24 - INFO - __main__ - Repository Name: ase
+08/10/2025 23:11:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:24 - INFO - __main__ - Repository: /app/repo_to_process
+08/10/2025 23:11:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:24 - INFO - __main__ - Language: Python
+08/10/2025 23:11:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:24 - INFO - __main__ - Model: gpt-4.1
+08/10/2025 23:11:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:24 - INFO - __main__ - Max Iterations: 15
+08/10/2025 23:11:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:24 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/10/2025 23:11:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:27 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/10/2025 23:11:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:27 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 23:11:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:27 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 23:11:36 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:36 - INFO - __main__ - Executing 2 command(s)...
+08/10/2025 23:11:36 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:36 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e .
+08/10/2025 23:11:57 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:57 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 23:11:57 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:11:57 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 23:12:05 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:05 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 23:12:05 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:05 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/10/2025 23:12:05 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:05 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 23:12:05 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:05 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 23:12:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:11 - INFO - __main__ - Executing 2 command(s)...
+08/10/2025 23:12:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:11 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install tk
+08/10/2025 23:12:12 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:12 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 23:12:12 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:12 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 23:12:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:16 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 23:12:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:17 - INFO - __main__ - === Starting Iteration 3/15 [Phase: SETUP] ===
+08/10/2025 23:12:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:17 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 23:12:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:17 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 23:12:26 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:26 - INFO - __main__ - ❌ Model reported failure. Terminating.
+08/10/2025 23:12:26 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:26 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed
+08/10/2025 23:12:26 - INFO - __main__ - [AGENT-LOG] 08/10/2025 15:12:26 - INFO - __main__ - ❌ Agent finished with non-success status: failed
+08/10/2025 23:12:26 - INFO - __main__ - Agent finished with exit code: 1
+08/10/2025 23:12:26 - INFO - __main__ - Copying all generated files from container 'agent-run-ase:/app/new_test_detection_logs/ase'...
+08/10/2025 23:12:26 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\ase'.
+08/10/2025 23:12:26 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-ase:/app/repo_to_process'...
+08/10/2025 23:12:26 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/10/2025 23:12:27 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/10/2025 23:12:27 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/10/2025 23:12:27 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/10/2025 23:12:27 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/10/2025 23:12:27 - INFO - __main__ - Deleting container 'agent-run-ase' due to failure or missing required files.
+08/10/2025 23:12:38 - INFO - __main__ - --- Finished processing repository: ase ---
+

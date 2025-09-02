@@ -1,0 +1,17 @@
+The output from `scons` says:
+
+```
+ERROR: Missing command argument: type 'scons help' for information.
+```
+
+There is still no `pytest` output, so we have not yet run or analyzed actual test collection results. Therefore, our next step is to investigate how to build Python bindings and/or dependencies for this repo (which appears to be Cantera or a Cantera fork).
+
+Let's do exactly as the error message says and run:
+
+```bash
+scons help
+```
+
+This will show possible arguments/targets and usage, likely including the correct way to build the Python bindings.
+
+After that, we will look for test directories or test invocation instructions, possibly in a `INSTALL.md` or `README.md`. But first, let's get the available SCons targets.

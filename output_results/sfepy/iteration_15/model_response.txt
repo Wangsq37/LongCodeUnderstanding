@@ -1,0 +1,30 @@
+The `pytest` output shows multiple `ModuleNotFoundError: No module named 'sfepy.discrete.common.extmods.cmapping'`. This is not a PyPI package, but a Cython extension that the build process failed to produce, likely due to missing Cython.
+
+The critical line in the error output:
+```
+CMake Error at /usr/local/lib/python3.10/dist-packages/skbuild/resources/cmake/FindCython.cmake:71 (message):
+  Command "/tmp/pip-build-env-x_mqgj_d/overlay/local/bin/cython;--version"
+  failed with output:
+```
+
+This means **Cython is missing** and you need it to build the extension modules (`cmapping`).
+
+Proceed to install Cython:
+
+```bash
+pip install cython
+```
+
+Then try building again:
+
+```bash
+python setup.py build_ext --inplace
+```
+
+If successful, re-run:
+
+```bash
+pytest
+```
+
+to check test collection.

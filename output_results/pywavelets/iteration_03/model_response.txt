@@ -1,0 +1,22 @@
+The persistent error is:
+
+```
+ModuleNotFoundError: No module named 'pywt._extensions._pywt'
+```
+
+This is a Cython-compiled extension required by the `pywt` package. The build fails because Meson cannot find the Python runtime dependency:
+
+```
+Run-time dependency python found: NO (tried pkgconfig, pkgconfig and sysconfig)
+../meson.build:17:12: ERROR: Python dependency not found
+```
+
+This is a known issue when `pkg-config` is not installed in the environment. The error isn't about a missing pip package, but a missing system binary (`pkg-config`) and sometimes also Python development headers (`python3-dev`).
+
+Since this container explicitly forbids using `apt`, `apk`, or system package managers—and `pkg-config` is not installable via pip—**it is not possible to build the Cython extensions required for this package in this environment.**
+
+PyWavelets cannot be tested without its compiled extensions.
+
+```status
+failed
+```

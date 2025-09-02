@@ -1,0 +1,466 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   ├── config.yml
+│   │   ├── documentation.yml
+│   │   └── feature_request.yml
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   ├── docs-ci.yml
+│   │   ├── docs.yml
+│   │   ├── lint_python.yml
+│   │   └── publish.yml
+│   ├── codecov.yml
+│   ├── environment-ci.yml
+│   ├── environment-docs.yml
+│   ├── environment-lint.yml
+│   ├── environment-minimal.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+│       └── ... (1 more files)
+├── docs/
+│   ├── _static/
+│   │   ├── css/
+│   │   │   └── custom.css
+│   │   └── playback-thumbnail.png
+│   ├── _templates/
+│   │   ├── page.html
+│   │   └── versions.html
+│   ├── examples/
+│   │   ├── audio/
+│   │   │   ├── README.md
+│   │   │   ├── sir_duke_fast.ogg
+│   │   │   ├── sir_duke_slow.ogg
+│   │   │   └── snare-accelerate.ogg
+│   │   ├── plot_audio_playback.py
+│   │   ├── plot_chroma.py
+│   │   ├── plot_display.py
+│   │   ├── plot_dynamic_beat.py
+│   │   ├── plot_hprss.py
+│   │   ├── plot_music_sync.py
+│   │   ├── plot_patch_generation.py
+│   │   ├── plot_pcen_stream.py
+│   │   ├── plot_presets.py
+│   │   ├── plot_rainbowgram.py
+│   │   ├── plot_segmentation.py
+│   │   ├── plot_spectral_harmonics.py
+│   │   ├── plot_superflux.py
+│   │   ├── plot_viterbi.py
+│   │   ├── plot_vocal_separation.py
+│   │   └── README.txt
+│   │       └── ... (11 more files)
+│   ├── img/
+│   │   ├── librosa_logo_text.png
+│   │   └── librosa_logo_text.svg
+│   ├── advanced.rst
+│   ├── beat.rst
+│   ├── BUILD.md
+│   ├── cache.rst
+│   ├── changelog.rst
+│   ├── conf.py
+│   ├── core.rst
+│   ├── decompose.rst
+│   ├── display.rst
+│   ├── docsite-index-redirect.html
+│   ├── effects.rst
+│   ├── feature.rst
+│   ├── filters.rst
+│   ├── genindex.rst
+│   ├── glossary.rst
+│   ├── index.rst
+│   ├── install.rst
+│   ├── ioformats.rst
+│   ├── Makefile
+│   ├── multichannel.rst
+│   ├── onset.rst
+│   ├── recordings.rst
+│   ├── segment.rst
+│   ├── sequence.rst
+│   ├── troubleshooting.rst
+│   ├── tutorial.rst
+│   └── util.rst
+│       └── ... (22 more files)
+├── librosa/
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── __init__.pyi
+│   │   ├── audio.py
+│   │   ├── constantq.py
+│   │   ├── convert.py
+│   │   ├── fft.py
+│   │   ├── harmonic.py
+│   │   ├── intervals.msgpack
+│   │   ├── intervals.py
+│   │   ├── notation.py
+│   │   ├── pitch.py
+│   │   └── spectrum.py
+│   │       └── ... (7 more files)
+│   ├── feature/
+│   │   ├── __init__.py
+│   │   ├── __init__.pyi
+│   │   ├── inverse.py
+│   │   ├── rhythm.py
+│   │   ├── spectral.py
+│   │   └── utils.py
+│   │       └── ... (1 more files)
+│   ├── util/
+│   │   ├── example_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── index.json
+│   │   │   └── registry.txt
+│   │   ├── __init__.py
+│   │   ├── __init__.pyi
+│   │   ├── _nnls.py
+│   │   ├── decorators.py
+│   │   ├── deprecation.py
+│   │   ├── exceptions.py
+│   │   ├── files.py
+│   │   ├── matching.py
+│   │   └── utils.py
+│   │       └── ... (4 more files)
+│   ├── __init__.py
+│   ├── __init__.pyi
+│   ├── _cache.py
+│   ├── _typing.py
+│   ├── beat.py
+│   ├── decompose.py
+│   ├── display.py
+│   ├── effects.py
+│   ├── filters.py
+│   ├── onset.py
+│   ├── py.typed
+│   ├── segment.py
+│   ├── sequence.py
+│   └── version.py
+│       └── ... (9 more files)
+├── scripts/
+│   ├── audit_docstring_examples.py
+│   ├── create_author_list.py
+│   ├── create_intervals.py
+│   ├── get_latest_release.sh
+│   └── pull_dois.py
+├── tests/
+│   ├── baseline_images/
+│   │   └── test_display/
+│   │       ├── test_abs_input.png
+│   │       ├── test_chroma.png
+│   │       ├── test_chroma_svara.png
+│   │       ├── test_complex_input.png
+│   │       ├── test_coords.png
+│   │       ├── test_cqt_hz.png
+│   │       ├── test_cqt_note.png
+│   │       ├── test_display_cqt_svara.png
+│   │       ├── test_display_fft_odd.png
+│   │       ├── test_display_fft_svara.png
+│   │       ├── test_display_fourier_tempo_odd.png
+│   │       ├── test_double_chroma.png
+│   │       ├── test_fft_note.png
+│   │       ├── test_fourier_tempo.png
+│   │       ├── test_sharex_specshow_ms.png
+│   │       ├── test_sharex_waveplot_ms.png
+│   │       ├── test_specshow_chromafjs.png
+│   │       ├── test_specshow_ext_axes.png
+│   │       ├── test_specshow_unicode_false.png
+│   │       ├── test_specshow_unicode_true.png
+│   │       ├── test_specshow_vqt.png
+│   │       ├── test_tempo.png
+│   │       ├── test_time_scales_auto.png
+│   │       ├── test_time_unit.png
+│   │       ├── test_time_unit_lag.png
+│   │       ├── test_tonnetz.png
+│   │       ├── test_waveshow_ext_axes.png
+│   │       ├── test_waveshow_mono.png
+│   │       ├── test_waveshow_mono_trans.png
+│   │       ├── test_waveshow_mono_zoom.png
+│   │       ├── test_waveshow_mono_zoom_out.png
+│   │       ├── test_waveshow_mono_zoom_trans.png
+│   │       ├── test_waveshow_stereo.png
+│   │       ├── test_x_mel.png
+│   │       ├── test_xaxis_frames_yaxis_none.png
+│   │       ├── test_xaxis_lag_yaxis_none.png
+│   │       ├── test_xaxis_linear_yaxis_none.png
+│   │       ├── test_xaxis_log_yaxis_none.png
+│   │       ├── test_xaxis_none_yaxis_frames.png
+│   │       ├── test_xaxis_none_yaxis_linear.png
+│   │       ├── test_xaxis_none_yaxis_log.png
+│   │       ├── test_xaxis_none_yaxis_time.png
+│   │       ├── test_xaxis_time_yaxis_lag.png
+│   │       ├── test_xaxis_time_yaxis_none.png
+│   │       ├── test_y_mel.png
+│   │       └── test_y_mel_bounded.png
+│   │           └── ... (41 more files)
+│   ├── data/
+│   ├── .coveragerc
+│   ├── conftest.py
+│   ├── make_mel_norm_test_data.ipynb
+│   ├── makeCTData.m
+│   ├── makeMETdata.m
+│   ├── makeTestData.m
+│   ├── README.md
+│   ├── test_beat.py
+│   ├── test_cache.py
+│   ├── test_constantq.py
+│   ├── test_convert.py
+│   ├── test_core.py
+│   ├── test_decompose.py
+│   ├── test_display.py
+│   ├── test_dtw.py
+│   ├── test_effects.py
+│   ├── test_failures.py
+│   ├── test_features.py
+│   ├── test_filters.py
+│   ├── test_intervals.py
+│   ├── test_met_features.py
+│   ├── test_multichannel.py
+│   ├── test_notation.py
+│   ├── test_onset.py
+│   ├── test_segment.py
+│   ├── test_sequence.py
+│   └── test_util.py
+│       └── ... (22 more files)
+├── .coveragerc
+├── .gitattributes
+├── .gitignore
+├── .gitmodules
+├── .zenodo.json
+├── AUTHORS.md
+├── CODE_OF_CONDUCT.md
+├── conftest.py
+├── CONTRIBUTING.md
+├── coverage.xml
+├── LICENSE.md
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+├── report_files.jsonl
+├── report_functions.jsonl
+├── setup.cfg
+└── setup.py
+    └── ... (13 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pytest --maxfail=10 --disable-warnings ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+Matplotlib: 3.10.5
+Freetype: 2.6.1
+rootdir: /app/repo_to_process
+configfile: setup.cfg
+plugins: cov-6.2.1, mpl-0.17.0
+collected 14200 items
+
+tests/test_beat.py s.................................................... [  0%]
+........................................................................ [  0%]
+....x.........EEEEEEEEEE
+--- Writing function-level test call chains report to report_functions.jsonl ---
+Successfully wrote 139 records to report_functions.jsonl
+
+--- Writing aggregated file-level test call chains report to report_files.jsonl ---
+Successfully wrote 1 records to report_files.jsonl
+
+--- End of Reports ---
+
+
+==================================== ERRORS ====================================
+___ ERROR at setup of test_beat[22050-None-100.0-None-60-False-False-False] ____
+
+path = 'tests/data/test1_22050.wav'
+
+    def load(
+        path: Union[
+            str, int, os.PathLike[Any], sf.SoundFile, audioread.AudioFile, BinaryIO
+        ],
+        *,
+        sr: Optional[float] = 22050,
+        mono: bool = True,
+        offset: float = 0.0,
+        duration: Optional[float] = None,
+        dtype: DTypeLike = np.float32,
+        res_type: str = "soxr_hq",
+    ) -> Tuple[np.ndarray, Union[int, float]]:
+        """Load an audio file as a floating point time series.
+    
+        Audio will be automatically resampled to the given rate
+        (default ``sr=22050``).
+    
+        To preserve the native sampling rate of the file, use ``sr=None``.
+    
+        Parameters
+        ----------
+        path : string, int, pathlib.Path, soundfile.SoundFile, audioread object, or file-like object
+            path to the input file.
+    
+            Any codec supported by `soundfile` or `audioread` will work.
+    
+            Any string file paths, or any object implementing Python's
+            file interface (e.g. `pathlib.Path`) are supported as `path`.
+    
+            If the codec is supported by `soundfile`, then `path` can also be
+            an open file descriptor (int) or an existing `soundfile.SoundFile` object.
+    
+            Pre-constructed audioread decoders are also supported here, see the example
+            below.  This can be used, for example, to force a specific decoder rather
+            than relying upon audioread to select one for you.
+    
+            .. warning:: audioread support is deprecated as of version 0.10.0.
+                audioread support be removed in version 1.0.
+    
+        sr : number > 0 [scalar]
+            target sampling rate
+    
+            'None' uses the native sampling rate
+    
+        mono : bool
+            convert signal to mono
+    
+        offset : float
+            start reading after this time (in seconds)
+    
+        duration : float
+            only load up to this much audio (in seconds)
+    
+        dtype : numeric type
+            data type of ``y``
+    
+        res_type : str
+            resample type (see note)
+    
+            .. note::
+                By default, this uses `soxr`'s high-quality mode ('HQ').
+    
+                For alternative resampling modes, see `resample`
+    
+            .. note::
+               `audioread` may truncate the precision of the audio data to 16 bits.
+    
+               See :ref:`ioformats` for alternate loading methods.
+    
+        Returns
+        -------
+        y : np.ndarray [shape=(n,) or (..., n)]
+            audio time series. Multi-channel is supported.
+        sr : number > 0 [scalar]
+            sampling rate of ``y``
+    
+        Examples
+        --------
+        >>> # Load an ogg vorbis file
+        >>> filename = librosa.ex('trumpet')
+        >>> y, sr = librosa.load(filename)
+        >>> y
+        array([-1.407e-03, -4.461e-04, ..., -3.042e-05,  1.277e-05],
+              dtype=float32)
+        >>> sr
+        22050
+    
+        >>> # Load a file and resample to 11 KHz
+        >>> filename = librosa.ex('trumpet')
+        >>> y, sr = librosa.load(filename, sr=11025)
+        >>> y
+        array([-8.746e-04, -3.363e-04, ..., -1.301e-05,  0.000e+00],
+              dtype=float32)
+        >>> sr
+        11025
+    
+        >>> # Load 5 seconds of a file, starting 15 seconds in
+        >>> filename = librosa.ex('brahms')
+        >>> y, sr = librosa.load(filename, offset=15.0, duration=5.0)
+        >>> y
+        array([0.146, 0.144, ..., 0.128, 0.015], dtype=float32)
+        >>> sr
+        22050
+    
+        >>> # Load using an already open SoundFile object
+        >>> import soundfile
+        >>> sfo = soundfile.SoundFile(librosa.ex('brahms'))
+        >>> y, sr = librosa.load(sfo)
+    
+        >>> # Load using an already open audioread object
+        >>> import audioread.ffdec  # Use ffmpeg decoder
+        >>> aro = audioread.ffdec.FFmpegAudioFile(librosa.ex('brahms'))
+        >>> y, sr = librosa.load(aro)
+        """
+        if isinstance(path, tuple(audioread.available_backends())):
+            # Force the audioread loader if we have a reader object already
+            y, sr_native = __audioread_load(path, offset, duration, dtype)
+        else:
+            # Otherwise try soundfile first, and then fall back if necessary
+            try:
+>               y, sr_native = __soundfile_load(path, offset, duration, dtype)
+
+librosa/core/audio.py:176: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+librosa/core/audio.py:209: in __soundfile_load
+    context = sf.SoundFile(path)
+/usr/local/lib/python3.10/dist-packages/soundfile.py:690: in __init__
+    self._file = self._open(file, mode_int, closefd)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SoundFile('tests/data/test1_22050.wav', mode='r', samplerate=0, channels=0, format='FILE', subtype='FILE', endian='FILE')
+file = b'tests/data/test1_22050.wav', mode_int = 16, closefd = True
+
+    def _open(self, file, mode_int, closefd):
+        """Call the appropriate sf_open*() function from libsndfile."""
+        if isinstance(file, (_unicode, bytes)):
+            if _os.path.isfile(file):
+                if 'x' in self.mode:
+                    raise OSError("File exists: {0!r}".format(self.name))
+                elif set(self.mode).issuperset('w+'):
+                    # truncate the file, because SFM_RDWR doesn't:
+                    _os.close(_os.open(file, _os.O_WRONLY | _os.O_TRUNC))
+            openfunction = _snd.sf_open
+            if isinstance(file, _unicode):
+                if _sys.platform == 'win32':
+                    openfunction = _snd.sf_wchar_open
+                else:
+                    file = file.encode(_sys.getfilesystemencoding())
+            file_ptr = openfunction(file, mode_int, self._info)
+        elif isinstance(file, int):
+            file_ptr = _snd.sf_open_fd(file, mode_int, self._info, closefd)
+        elif _has_virtual_io_attrs(file, mode_int):
+            file_ptr = _snd.sf_open_virtual(self._init_virtual_io(file),
+                                            mode_int, self._info, _ffi.NULL)
+        else:
+            raise TypeError("Invalid file: {0!r}".format(self.name))
+        if file_ptr == _ffi.NULL:
+            # get the actual error code
+            err = _snd.sf_error(file_ptr)
+>           raise LibsndfileError(err, prefix="Error opening {0!r}: ".format(self.name))
+E           soundfile.LibsndfileError: Error opening 'tests/data/test1_22050.wav': System error.
+
+/usr/local/lib/python3.10/dist-packages/soundfile.py:1265: LibsndfileError
+
+During handling of the above exception, another exception occurred:
+
+request = <SubRequest 'ysr' for <Function test_beat[22050-None-100.0-None-60-False-False-False]>>
+
+    @pytest.fixture(scope="module", params=[22050, 44100])
+    def ysr(request):
+>       return librosa.load(__EXAMPLE_FILE, sr=request.param)
+
+tests/test_beat.py:27: 
+_ _ _ _ _ _ _ _ _ _
+... (1815 lines omitted)
+
+
+## Your Task (Phase 2: Call Chain Tracing)
+`pytest` is now executable without collection errors. Your task is to set up call chain tracing.
+1.  **Identify the main source code directory/directories.** Based on the structure, this is likely `skimage`.
+2.  **Create a `conftest.py` file** in the project root to trace this directory.
+3.  **Run `pytest`** one last time to generate the reports.
+4.  If the reports are generated, declare success with ```status
+success
+```.
+
+**REMINDER:** When creating `conftest.py`, you only need to provide the line defining `SOURCE_DIRS_TO_TRACK`. For example:
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['skimage']
+```

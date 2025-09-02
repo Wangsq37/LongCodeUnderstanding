@@ -1,0 +1,1274 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug.yml
+│   │   ├── config.yml
+│   │   ├── documentation.yml
+│   │   └── feature.yml
+│   ├── workflows/
+│   │   ├── scripts/
+│   │   │   ├── backport_reminder.py
+│   │   │   ├── flexci_dispatcher.py
+│   │   │   └── pretest-rocm-test.sh
+│   │   ├── auto-cc.yml
+│   │   ├── backport-reminder.yml
+│   │   ├── backport.yml
+│   │   ├── docker.yml
+│   │   ├── flexci.yml
+│   │   ├── pr-project.yml
+│   │   ├── pr-updated.yml
+│   │   ├── pretest.yml
+│   │   ├── publish.yml
+│   │   └── self-hosted-ci.yml
+│   │       └── ... (5 more files)
+│   ├── CODEOWNERS
+│   └── CONTRIBUTING.md
+├── .pfnci/
+│   ├── linux/
+│   │   ├── tests/
+│   │   │   ├── actions/
+│   │   │   ├── setup/
+│   │   │   ├── array-api.Dockerfile
+│   │   │   ├── array-api.sh
+│   │   │   ├── benchmark.Dockerfile
+│   │   │   ├── benchmark.head.Dockerfile
+│   │   │   ├── benchmark.head.sh
+│   │   │   ├── benchmark.sh
+│   │   │   ├── cuda-build.Dockerfile
+│   │   │   ├── cuda-build.sh
+│   │   │   ├── cuda-doctest.Dockerfile
+│   │   │   ├── cuda-doctest.sh
+│   │   │   ├── cuda-example.Dockerfile
+│   │   │   ├── cuda-example.sh
+│   │   │   ├── cuda-head.Dockerfile
+│   │   │   ├── cuda-head.sh
+│   │   │   ├── cuda-rapids.Dockerfile
+│   │   │   ├── cuda-rapids.sh
+│   │   │   ├── cuda-slow.Dockerfile
+│   │   │   ├── cuda-slow.sh
+│   │   │   ├── cuda112.Dockerfile
+│   │   │   ├── cuda112.multi.Dockerfile
+│   │   │   ├── cuda112.multi.sh
+│   │   │   ├── cuda112.sh
+│   │   │   ├── cuda113.Dockerfile
+│   │   │   ├── cuda113.multi.Dockerfile
+│   │   │   ├── cuda113.multi.sh
+│   │   │   ├── cuda113.sh
+│   │   │   ├── cuda114.Dockerfile
+│   │   │   ├── cuda114.multi.Dockerfile
+│   │   │   ├── cuda114.multi.sh
+│   │   │   ├── cuda114.sh
+│   │   │   ├── cuda115.Dockerfile
+│   │   │   ├── cuda115.multi.Dockerfile
+│   │   │   ├── cuda115.multi.sh
+│   │   │   ├── cuda115.sh
+│   │   │   ├── cuda116.Dockerfile
+│   │   │   ├── cuda116.multi.Dockerfile
+│   │   │   ├── cuda116.multi.sh
+│   │   │   ├── cuda116.sh
+│   │   │   ├── cuda117.Dockerfile
+│   │   │   ├── cuda117.multi.Dockerfile
+│   │   │   ├── cuda117.multi.sh
+│   │   │   ├── cuda117.sh
+│   │   │   ├── cuda118.Dockerfile
+│   │   │   ├── cuda118.multi.Dockerfile
+│   │   │   ├── cuda118.multi.sh
+│   │   │   ├── cuda118.sh
+│   │   │   ├── cuda11x-cuda-python.Dockerfile
+│   │   │   ├── cuda11x-cuda-python.sh
+│   │   │   ├── cuda120.Dockerfile
+│   │   │   ├── cuda120.multi.Dockerfile
+│   │   │   ├── cuda120.multi.sh
+│   │   │   ├── cuda120.sh
+│   │   │   ├── cuda121.Dockerfile
+│   │   │   ├── cuda121.multi.Dockerfile
+│   │   │   ├── cuda121.multi.sh
+│   │   │   ├── cuda121.sh
+│   │   │   ├── cuda122.Dockerfile
+│   │   │   ├── cuda122.multi.Dockerfile
+│   │   │   ├── cuda122.multi.sh
+│   │   │   ├── cuda122.sh
+│   │   │   ├── cuda123.Dockerfile
+│   │   │   ├── cuda123.multi.Dockerfile
+│   │   │   ├── cuda123.multi.sh
+│   │   │   ├── cuda123.sh
+│   │   │   ├── cuda124.Dockerfile
+│   │   │   ├── cuda124.multi.Dockerfile
+│   │   │   ├── cuda124.multi.sh
+│   │   │   ├── cuda124.sh
+│   │   │   ├── cuda125.Dockerfile
+│   │   │   ├── cuda125.multi.Dockerfile
+│   │   │   ├── cuda125.multi.sh
+│   │   │   ├── cuda125.sh
+│   │   │   ├── cuda126.Dockerfile
+│   │   │   ├── cuda126.multi.Dockerfile
+│   │   │   ├── cuda126.multi.sh
+│   │   │   ├── cuda126.sh
+│   │   │   ├── cuda128.Dockerfile
+│   │   │   ├── cuda128.multi.Dockerfile
+│   │   │   ├── cuda128.multi.sh
+│   │   │   ├── cuda128.sh
+│   │   │   ├── cuda129.Dockerfile
+│   │   │   ├── cuda129.multi.Dockerfile
+│   │   │   ├── cuda129.multi.sh
+│   │   │   ├── cuda129.sh
+│   │   │   ├── rocm-4-0.sh
+│   │   │   ├── rocm-4-3.Dockerfile
+│   │   │   ├── rocm-4-3.sh
+│   │   │   ├── rocm-5-0.Dockerfile
+│   │   │   ├── rocm-5-0.sh
+│   │   │   ├── rocm-5-3.Dockerfile
+│   │   │   ├── rocm-5-3.sh
+│   │   │   ├── rocm-6-2.Dockerfile
+│   │   │   └── rocm-6-2.sh
+│   │   │       └── ... (88 more files)
+│   │   ├── main-flexci-prep.sh
+│   │   ├── main-flexci-stable.sh
+│   │   ├── main-flexci.sh
+│   │   ├── main-self-hosted-ci.sh
+│   │   ├── README.md
+│   │   ├── run.sh
+│   │   └── update-cuda-driver.sh
+│   │       └── ... (2 more files)
+│   ├── windows/
+│   │   ├── _error_handler.ps1
+│   │   ├── _flexci.ps1
+│   │   ├── run.bat
+│   │   └── test.ps1
+│   ├── BRANCH
+│   ├── BRANCH_STABLE
+│   ├── config.pbtxt
+│   ├── config.tags.json
+│   ├── coverage.rst
+│   ├── flexci_notify.py
+│   ├── generate.py
+│   ├── matrix.yaml
+│   ├── README.md
+│   ├── schema.yaml
+│   └── trim_cupy_kernel_cache.py
+│       └── ... (6 more files)
+├── cupy/
+│   ├── _binary/
+│   │   ├── __init__.py
+│   │   ├── elementwise.py
+│   │   └── packing.py
+│   ├── _core/
+│   │   ├── include/
+│   │   │   └── cupy/
+│   │   ├── __init__.pxd
+│   │   ├── __init__.py
+│   │   ├── _accelerator.pxd
+│   │   ├── _accelerator.pyx
+│   │   ├── _carray.pxd
+│   │   ├── _carray.pyx
+│   │   ├── _codeblock.py
+│   │   ├── _cub_reduction.pxd
+│   │   ├── _cub_reduction.pyx
+│   │   ├── _dtype.pxd
+│   │   ├── _dtype.pyx
+│   │   ├── _fusion_interface.py
+│   │   ├── _fusion_kernel.pyx
+│   │   ├── _fusion_op.py
+│   │   ├── _fusion_optimization.py
+│   │   ├── _fusion_thread_local.pyx
+│   │   ├── _fusion_trace.pyx
+│   │   ├── _fusion_variable.pxd
+│   │   ├── _fusion_variable.pyx
+│   │   ├── _gufuncs.py
+│   │   ├── _kernel.pxd
+│   │   ├── _kernel.pyx
+│   │   ├── _memory_range.pxd
+│   │   ├── _memory_range.pyx
+│   │   ├── _optimize_config.pxd
+│   │   ├── _optimize_config.pyx
+│   │   ├── _reduction.pxd
+│   │   ├── _reduction.pyx
+│   │   ├── _routines_binary.pxd
+│   │   ├── _routines_binary.pyx
+│   │   ├── _routines_indexing.pxd
+│   │   ├── _routines_indexing.pyx
+│   │   ├── _routines_linalg.pxd
+│   │   ├── _routines_linalg.pyx
+│   │   ├── _routines_logic.pxd
+│   │   ├── _routines_logic.pyx
+│   │   ├── _routines_manipulation.pxd
+│   │   ├── _routines_manipulation.pyx
+│   │   ├── _routines_math.pxd
+│   │   ├── _routines_math.pyx
+│   │   ├── _routines_sorting.pxd
+│   │   ├── _routines_sorting.pyx
+│   │   ├── _routines_statistics.pxd
+│   │   ├── _routines_statistics.pyx
+│   │   ├── _scalar.pxd
+│   │   ├── _scalar.pyx
+│   │   ├── _ufuncs.py
+│   │   ├── core.pxd
+│   │   ├── core.pyx
+│   │   ├── dlpack.pxd
+│   │   ├── dlpack.pyx
+│   │   ├── flags.pyx
+│   │   ├── fusion.pyx
+│   │   ├── halffloat.h
+│   │   ├── internal.pxd
+│   │   ├── internal.pyx
+│   │   ├── new_fusion.pyx
+│   │   ├── numpy_allocator.pyx
+│   │   ├── raw.pxd
+│   │   ├── raw.pyx
+│   │   └── syncdetect.py
+│   │       └── ... (56 more files)
+│   ├── _creation/
+│   │   ├── __init__.py
+│   │   ├── basic.py
+│   │   ├── from_data.py
+│   │   ├── matrix.py
+│   │   └── ranges.py
+│   ├── _functional/
+│   │   ├── __init__.py
+│   │   ├── piecewise.py
+│   │   └── vectorize.py
+│   ├── _indexing/
+│   │   ├── __init__.py
+│   │   ├── generate.py
+│   │   ├── indexing.py
+│   │   ├── insert.py
+│   │   └── iterate.py
+│   ├── _io/
+│   │   ├── __init__.py
+│   │   ├── formatting.py
+│   │   ├── npz.py
+│   │   └── text.py
+│   ├── _logic/
+│   │   ├── __init__.py
+│   │   ├── comparison.py
+│   │   ├── content.py
+│   │   ├── ops.py
+│   │   ├── truth.py
+│   │   └── type_testing.py
+│   │       └── ... (1 more files)
+│   ├── _manipulation/
+│   │   ├── __init__.py
+│   │   ├── add_remove.py
+│   │   ├── basic.py
+│   │   ├── dims.py
+│   │   ├── join.py
+│   │   ├── kind.py
+│   │   ├── rearrange.py
+│   │   ├── shape.py
+│   │   ├── split.py
+│   │   ├── tiling.py
+│   │   └── transpose.py
+│   │       └── ... (6 more files)
+│   ├── _math/
+│   │   ├── __init__.py
+│   │   ├── arithmetic.py
+│   │   ├── explog.py
+│   │   ├── floating.py
+│   │   ├── hyperbolic.py
+│   │   ├── misc.py
+│   │   ├── rational.py
+│   │   ├── rounding.py
+│   │   ├── special.py
+│   │   ├── sumprod.py
+│   │   ├── trigonometric.py
+│   │   ├── ufunc.py
+│   │   └── window.py
+│   │       └── ... (8 more files)
+│   ├── _misc/
+│   │   ├── __init__.py
+│   │   ├── byte_bounds.py
+│   │   ├── memory_ranges.py
+│   │   └── who.py
+│   ├── _padding/
+│   │   ├── __init__.py
+│   │   └── pad.py
+│   ├── _sorting/
+│   │   ├── __init__.py
+│   │   ├── count.py
+│   │   ├── search.py
+│   │   └── sort.py
+│   ├── _statistics/
+│   │   ├── __init__.py
+│   │   ├── correlation.py
+│   │   ├── histogram.py
+│   │   ├── meanvar.py
+│   │   └── order.py
+│   ├── array_api/
+│   │   ├── __init__.py
+│   │   ├── _array_object.py
+│   │   ├── _constants.py
+│   │   ├── _creation_functions.py
+│   │   ├── _data_type_functions.py
+│   │   ├── _dtypes.py
+│   │   ├── _elementwise_functions.py
+│   │   ├── _indexing_functions.py
+│   │   ├── _manipulation_functions.py
+│   │   ├── _searching_functions.py
+│   │   ├── _set_functions.py
+│   │   ├── _sorting_functions.py
+│   │   ├── _statistical_functions.py
+│   │   ├── _typing.py
+│   │   ├── _utility_functions.py
+│   │   └── linalg.py
+│   │       └── ... (11 more files)
+│   ├── cuda/
+│   │   ├── memory_hooks/
+│   │   │   ├── __init__.py
+│   │   │   ├── debug_print.py
+│   │   │   └── line_profile.py
+│   │   ├── __init__.pxd
+│   │   ├── __init__.py
+│   │   ├── common.pxd
+│   │   ├── common.pyx
+│   │   ├── compiler.py
+│   │   ├── cub.pxd
+│   │   ├── cub.pyx
+│   │   ├── cudnn.py
+│   │   ├── cufft.pxd
+│   │   ├── cufft.pyx
+│   │   ├── cupy_cub.cu
+│   │   ├── cupy_cub.h
+│   │   ├── cupy_cufft.h
+│   │   ├── cupy_cufftXt.cu
+│   │   ├── cupy_cufftXt.h
+│   │   ├── cupy_jitify.h
+│   │   ├── cupy_thrust.cu
+│   │   ├── cupy_thrust.h
+│   │   ├── cutensor.py
+│   │   ├── device.pxd
+│   │   ├── device.pyx
+│   │   ├── function.pxd
+│   │   ├── function.pyx
+│   │   ├── graph.pxd
+│   │   ├── graph.pyx
+│   │   ├── jitify.pyx
+│   │   ├── memory.pxd
+│   │   ├── memory.pyx
+│   │   ├── memory_hook.pxd
+│   │   ├── memory_hook.pyx
+│   │   ├── nccl.py
+│   │   ├── nvtx.py
+│   │   ├── pinned_memory.pxd
+│   │   ├── pinned_memory.pyx
+│   │   ├── profiler.py
+│   │   ├── runtime.py
+│   │   ├── stream.pxd
+│   │   ├── stream.pyx
+│   │   ├── texture.pxd
+│   │   ├── texture.pyx
+│   │   └── thrust.pyx
+│   │       └── ... (36 more files)
+│   ├── exceptions/
+│   │   └── __init__.py
+│   ├── fft/
+│   │   ├── __init__.pxd
+│   │   ├── __init__.py
+│   │   ├── _cache.pyx
+│   │   ├── _callback.pyx
+│   │   ├── _fft.py
+│   │   └── config.py
+│   │       └── ... (1 more files)
+│   ├── lib/
+│   │   ├── __init__.py
+│   │   ├── _polynomial.pyx
+│   │   ├── _routines_poly.py
+│   │   ├── _shape_base.py
+│   │   └── stride_tricks.py
+│   ├── linalg/
+│   │   ├── __init__.py
+│   │   ├── _decomposition.py
+│   │   ├── _eigenvalue.py
+│   │   ├── _einsum.py
+│   │   ├── _einsum_cutn.py
+│   │   ├── _einsum_opt.py
+│   │   ├── _norms.py
+│   │   ├── _product.py
+│   │   ├── _solve.py
+│   │   └── _util.py
+│   │       └── ... (5 more files)
+│   ├── polynomial/
+│   │   ├── __init__.py
+│   │   ├── polynomial.py
+│   │   └── polyutils.py
+│   ├── prof/
+│   │   ├── __init__.py
+│   │   └── _time_range.py
+│   ├── random/
+│   │   ├── __init__.py
+│   │   ├── _bit_generator.pyx
+│   │   ├── _distributions.py
+│   │   ├── _generator.py
+│   │   ├── _generator_api.pyx
+│   │   ├── _kernels.py
+│   │   ├── _permutations.py
+│   │   ├── _sample.py
+│   │   ├── cupy_distributions.cu
+│   │   ├── cupy_distributions.cuh
+│   │   └── LICENSE
+│   │       └── ... (6 more files)
+│   ├── sparse/
+│   │   ├── linalg/
+│   │   │   └── __init__.py
+│   │   └── __init__.py
+│   ├── testing/
+│   │   ├── __init__.py
+│   │   ├── _array.py
+│   │   ├── _attr.py
+│   │   ├── _bundle.py
+│   │   ├── _condition.py
+│   │   ├── _helper.py
+│   │   ├── _hypothesis.py
+│   │   ├── _loops.py
+│   │   ├── _parameterized.py
+│   │   ├── _pytest_impl.py
+│   │   └── _random.py
+│   │       └── ... (6 more files)
+│   ├── typing/
+│   │   ├── __init__.py
+│   │   └── _types.py
+│   ├── __init__.py
+│   ├── _environment.py
+│   ├── _util.pyi
+│   ├── _util.pyx
+│   ├── _version.py
+│   ├── cublas.py
+│   ├── cudnn.py
+│   ├── cusolver.py
+│   ├── cusparse.py
+│   └── cutensor.py
+│       └── ... (5 more files)
+├── cupy_backends/
+│   ├── cuda/
+│   │   ├── api/
+│   │   │   ├── __init__.pxd
+│   │   │   ├── __init__.py
+│   │   │   ├── _driver_enum.pxd
+│   │   │   ├── _driver_enum.pyx
+│   │   │   ├── _driver_extern.pxi
+│   │   │   ├── _driver_typedef.pxi
+│   │   │   ├── _runtime_enum.pxd
+│   │   │   ├── _runtime_enum.pyx
+│   │   │   ├── _runtime_extern.pxi
+│   │   │   ├── _runtime_softlink.pxi
+│   │   │   ├── _runtime_typedef.pxi
+│   │   │   ├── driver.pxd
+│   │   │   ├── driver.pyx
+│   │   │   ├── runtime.pxd
+│   │   │   └── runtime.pyx
+│   │   │       └── ... (10 more files)
+│   │   ├── libs/
+│   │   │   ├── __init__.pxd
+│   │   │   ├── __init__.py
+│   │   │   ├── _cnvrtc.pxi
+│   │   │   ├── cublas.pxd
+│   │   │   ├── cublas.pyx
+│   │   │   ├── cudnn.pxd
+│   │   │   ├── cudnn.pyx
+│   │   │   ├── curand.pxd
+│   │   │   ├── curand.pyx
+│   │   │   ├── cusolver.pxd
+│   │   │   ├── cusolver.pyx
+│   │   │   ├── cusparse.pxd
+│   │   │   ├── cusparse.pyx
+│   │   │   ├── cusparselt.pxd
+│   │   │   ├── cusparselt.pyx
+│   │   │   ├── cutensor.pxd
+│   │   │   ├── cutensor.pyx
+│   │   │   ├── nccl.pxd
+│   │   │   ├── nccl.pyx
+│   │   │   ├── nvrtc.pxd
+│   │   │   ├── nvrtc.pyx
+│   │   │   └── nvtx.pyx
+│   │   │       └── ... (17 more files)
+│   │   ├── __init__.pxd
+│   │   ├── __init__.py
+│   │   ├── _softlink.pxd
+│   │   ├── _softlink.pyx
+│   │   ├── cupy_cublas.h
+│   │   ├── cupy_cuda.h
+│   │   ├── cupy_cuda_profiler_api.h
+│   │   ├── cupy_cuda_runtime.h
+│   │   ├── cupy_cudnn.h
+│   │   ├── cupy_cusolver.h
+│   │   ├── cupy_cusparse.h
+│   │   ├── cupy_cutensor.h
+│   │   ├── cupy_nccl.h
+│   │   ├── stream.pxd
+│   │   └── stream.pyx
+│   │       └── ... (10 more files)
+│   ├── hip/
+│   │   ├── cupy_cuComplex.h
+│   │   ├── cupy_hip.h
+│   │   ├── cupy_hip_common.h
+│   │   ├── cupy_hip_runtime.h
+│   │   ├── cupy_hipblas.h
+│   │   ├── cupy_hiprand.h
+│   │   ├── cupy_hipsparse.h
+│   │   ├── cupy_profiler.h
+│   │   ├── cupy_rccl.h
+│   │   ├── cupy_rocsolver.h
+│   │   └── cupy_roctx.h
+│   │       └── ... (6 more files)
+│   ├── stub/
+│   │   ├── cupy_cublas.h
+│   │   ├── cupy_cuComplex.h
+│   │   ├── cupy_cuda.h
+│   │   ├── cupy_cuda_common.h
+│   │   ├── cupy_cuda_runtime.h
+│   │   ├── cupy_cudnn.h
+│   │   ├── cupy_curand.h
+│   │   ├── cupy_cusolver.h
+│   │   ├── cupy_cusparse.h
+│   │   ├── cupy_cusparselt.h
+│   │   ├── cupy_cutensor.h
+│   │   ├── cupy_nccl.h
+│   │   ├── cupy_nvrtc.h
+│   │   ├── cupy_nvtx.h
+│   │   └── cupy_profiler.h
+│   │       └── ... (10 more files)
+│   ├── __init__.pxd
+│   ├── __init__.py
+│   ├── cupy_backend.h
+│   ├── cupy_backend_runtime.h
+│   ├── cupy_blas.h
+│   ├── cupy_complex.h
+│   ├── cupy_cudnn.h
+│   ├── cupy_cusparselt.h
+│   ├── cupy_cutensor.h
+│   ├── cupy_lapack.h
+│   ├── cupy_nccl.h
+│   ├── cupy_profiler.h
+│   ├── cupy_rand.h
+│   ├── cupy_sparse.h
+│   └── cupy_tx.h
+│       └── ... (10 more files)
+├── cupyx/
+│   ├── distributed/
+│   │   ├── array/
+│   │   │   ├── __init__.py
+│   │   │   ├── _array.py
+│   │   │   ├── _chunk.py
+│   │   │   ├── _data_transfer.py
+│   │   │   ├── _elementwise.py
+│   │   │   ├── _index_arith.py
+│   │   │   ├── _linalg.py
+│   │   │   ├── _modes.py
+│   │   │   └── _reduction.py
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── _comm.py
+│   │   ├── _init.py
+│   │   ├── _klv_utils.py
+│   │   ├── _nccl_comm.py
+│   │   ├── _store.py
+│   │   └── _store_actions.py
+│   │       └── ... (2 more files)
+│   ├── jit/
+│   │   ├── __init__.py
+│   │   ├── _builtin_funcs.py
+│   │   ├── _compile.py
+│   │   ├── _cuda_typerules.py
+│   │   ├── _cuda_types.py
+│   │   ├── _interface.py
+│   │   ├── _internal_types.py
+│   │   ├── cg.py
+│   │   ├── cub.py
+│   │   └── thrust.py
+│   │       └── ... (5 more files)
+│   ├── linalg/
+│   │   ├── sparse/
+│   │   │   ├── __init__.py
+│   │   │   └── _solve.py
+│   │   ├── __init__.py
+│   │   └── _solve.py
+│   ├── optimizing/
+│   │   ├── __init__.py
+│   │   └── _optimize.py
+│   ├── profiler/
+│   │   ├── __init__.py
+│   │   ├── _time.py
+│   │   └── _time_range.py
+│   ├── scipy/
+│   │   ├── _lib/
+│   │   │   ├── __init__.py
+│   │   │   └── _util.py
+│   │   ├── fft/
+│   │   │   ├── __init__.py
+│   │   │   ├── _fft.py
+│   │   │   ├── _fftlog.py
+│   │   │   ├── _helper.py
+│   │   │   └── _realtransforms.py
+│   │   ├── fftpack/
+│   │   │   ├── __init__.py
+│   │   │   └── _fft.py
+│   │   ├── interpolate/
+│   │   │   ├── __init__.py
+│   │   │   ├── _bspline.py
+│   │   │   ├── _bspline2.py
+│   │   │   ├── _cubic.py
+│   │   │   ├── _fitpack_repro.py
+│   │   │   ├── _interpnd.py
+│   │   │   ├── _interpolate.py
+│   │   │   ├── _ndbspline.py
+│   │   │   ├── _ndgriddata.py
+│   │   │   ├── _polyint.py
+│   │   │   ├── _rbfinterp.py
+│   │   │   └── _rgi.py
+│   │   │       └── ... (7 more files)
+│   │   ├── linalg/
+│   │   │   ├── __init__.py
+│   │   │   ├── _array_utils.py
+│   │   │   ├── _decomp_lu.py
+│   │   │   ├── _matfuncs.py
+│   │   │   ├── _solve_triangular.py
+│   │   │   ├── _special_matrices.py
+│   │   │   └── _uarray.py
+│   │   │       └── ... (2 more files)
+│   │   ├── ndimage/
+│   │   │   ├── cuda/
+│   │   │   ├── __init__.py
+│   │   │   ├── _bbox_slices.pxd
+│   │   │   ├── _bbox_slices.pyx
+│   │   │   ├── _distance_transform.py
+│   │   │   ├── _filters.py
+│   │   │   ├── _filters_core.py
+│   │   │   ├── _filters_generic.py
+│   │   │   ├── _fourier.py
+│   │   │   ├── _interp_kernels.py
+│   │   │   ├── _interpolation.py
+│   │   │   ├── _measurements.py
+│   │   │   ├── _morphology.py
+│   │   │   ├── _pba_2d.py
+│   │   │   ├── _pba_3d.py
+│   │   │   ├── _spline_kernel_weights.py
+│   │   │   ├── _spline_prefilter_core.py
+│   │   │   └── _util.py
+│   │   │       └── ... (12 more files)
+│   │   ├── signal/
+│   │   │   ├── windows/
+│   │   │   ├── __init__.py
+│   │   │   ├── _arraytools.py
+│   │   │   ├── _bsplines.py
+│   │   │   ├── _czt.py
+│   │   │   ├── _filter_design.py
+│   │   │   ├── _fir_filter_design.py
+│   │   │   ├── _iir_filter_conversions.py
+│   │   │   ├── _iir_filter_design.py
+│   │   │   ├── _iir_utils.py
+│   │   │   ├── _lti_conversion.py
+│   │   │   ├── _ltisys.py
+│   │   │   ├── _max_len_seq.py
+│   │   │   ├── _optimize.py
+│   │   │   ├── _peak_finding.py
+│   │   │   ├── _polyutils.py
+│   │   │   ├── _resample.py
+│   │   │   ├── _savitzky_golay.py
+│   │   │   ├── _signaltools.py
+│   │   │   ├── _signaltools_core.py
+│   │   │   ├── _spectral.py
+│   │   │   ├── _spectral_impl.py
+│   │   │   ├── _splines.py
+│   │   │   ├── _upfirdn.py
+│   │   │   ├── _waveforms.py
+│   │   │   └── _wavelets.py
+│   │   │       └── ... (20 more files)
+│   │   ├── sparse/
+│   │   │   ├── csgraph/
+│   │   │   ├── linalg/
+│   │   │   ├── __init__.py
+│   │   │   ├── _base.py
+│   │   │   ├── _compressed.py
+│   │   │   ├── _construct.py
+│   │   │   ├── _coo.py
+│   │   │   ├── _csc.py
+│   │   │   ├── _csr.py
+│   │   │   ├── _data.py
+│   │   │   ├── _dia.py
+│   │   │   ├── _extract.py
+│   │   │   ├── _index.py
+│   │   │   ├── _sputils.py
+│   │   │   └── _util.py
+│   │   │       └── ... (8 more files)
+│   │   ├── spatial/
+│   │   │   ├── delaunay_2d/
+│   │   │   ├── __init__.py
+│   │   │   ├── _delaunay.py
+│   │   │   ├── _kdtree.py
+│   │   │   ├── _kdtree_utils.py
+│   │   │   └── distance.py
+│   │   ├── special/
+│   │   │   ├── __init__.py
+│   │   │   ├── _basic.py
+│   │   │   ├── _bessel.py
+│   │   │   ├── _beta.py
+│   │   │   ├── _binom.py
+│   │   │   ├── _complexstuff.py
+│   │   │   ├── _convex_analysis.py
+│   │   │   ├── _digamma.py
+│   │   │   ├── _ellip.py
+│   │   │   ├── _erf.py
+│   │   │   ├── _exp1.py
+│   │   │   ├── _expi.py
+│   │   │   ├── _expn.py
+│   │   │   ├── _gamma.py
+│   │   │   ├── _gammainc.py
+│   │   │   ├── _gammaln.py
+│   │   │   ├── _gammasgn.py
+│   │   │   ├── _lambertw.py
+│   │   │   ├── _loggamma.py
+│   │   │   ├── _logsoftmax.py
+│   │   │   ├── _logsumexp.py
+│   │   │   ├── _lpmv.py
+│   │   │   ├── _poch.py
+│   │   │   ├── _polygamma.py
+│   │   │   ├── _sici.py
+│   │   │   ├── _softmax.py
+│   │   │   ├── _sph_harm.py
+│   │   │   ├── _spherical_bessel.py
+│   │   │   ├── _statistics.py
+│   │   │   ├── _stats_distributions.py
+│   │   │   ├── _trig.py
+│   │   │   ├── _wright_bessel.py
+│   │   │   ├── _xlogy.py
+│   │   │   ├── _zeta.py
+│   │   │   └── _zetac.py
+│   │   │       └── ... (30 more files)
+│   │   ├── stats/
+│   │   │   ├── __init__.py
+│   │   │   ├── _distributions.py
+│   │   │   ├── _morestats.py
+│   │   │   ├── _stats.py
+│   │   │   └── _stats_py.py
+│   │   └── __init__.py
+│   ├── signal/
+│   │   ├── _acoustics/
+│   │   │   ├── __init__.py
+│   │   │   └── _cepstrum.py
+│   │   ├── _convolution/
+│   │   │   ├── __init__.py
+│   │   │   └── _convolve.py
+│   │   ├── _filtering/
+│   │   │   ├── __init__.py
+│   │   │   └── _filtering.py
+│   │   ├── _radartools/
+│   │   │   ├── __init__.py
+│   │   │   ├── _beamformers.py
+│   │   │   └── _radartools.py
+│   │   └── __init__.py
+│   ├── tools/
+│   │   ├── __init__.py
+│   │   ├── _generate_wheel_metadata.py
+│   │   ├── _hipsparse_stub_mapper.py
+│   │   └── install_library.py
+│   ├── __init__.py
+│   ├── _gufunc.py
+│   ├── _pinned_array.py
+│   ├── _rsqrt.py
+│   ├── _runtime.py
+│   ├── _scatter.py
+│   ├── _texture.py
+│   ├── _ufunc_config.py
+│   ├── cudnn.pyx
+│   ├── cusolver.pyx
+│   ├── cusparse.py
+│   ├── cutensor.pyx
+│   ├── lapack.py
+│   └── time.py
+│       └── ... (9 more files)
+├── docker/
+│   ├── python3/
+│   │   └── Dockerfile
+│   └── rocm/
+│       ├── Dockerfile
+│       └── README.md
+├── docs/
+│   ├── image/
+│   │   ├── cupy_logo.svg
+│   │   └── cupy_logo_1000px.png
+│   ├── source/
+│   │   ├── _static/
+│   │   │   └── favicon.ico
+│   │   ├── _templates/
+│   │   │   └── autosummary/
+│   │   ├── reference/
+│   │   │   ├── _deprecated.rst
+│   │   │   ├── _private.rst
+│   │   │   ├── array_api.rst
+│   │   │   ├── array_api_array.rst
+│   │   │   ├── array_api_functions.rst
+│   │   │   ├── binary.rst
+│   │   │   ├── comparison.rst
+│   │   │   ├── creation.rst
+│   │   │   ├── cuda.rst
+│   │   │   ├── distributed.rst
+│   │   │   ├── dtype.rst
+│   │   │   ├── environment.rst
+│   │   │   ├── ext.rst
+│   │   │   ├── fft.rst
+│   │   │   ├── fftpack.rst
+│   │   │   ├── functional.rst
+│   │   │   ├── index.rst
+│   │   │   ├── indexing.rst
+│   │   │   ├── io.rst
+│   │   │   ├── kernel.rst
+│   │   │   ├── linalg.rst
+│   │   │   ├── logic.rst
+│   │   │   ├── manipulation.rst
+│   │   │   ├── math.rst
+│   │   │   ├── misc.rst
+│   │   │   ├── ndarray.rst
+│   │   │   ├── ndimage.rst
+│   │   │   ├── polynomials.rst
+│   │   │   ├── random.rst
+│   │   │   ├── routines.rst
+│   │   │   ├── scipy.rst
+│   │   │   ├── scipy_fft.rst
+│   │   │   ├── scipy_fftpack.rst
+│   │   │   ├── scipy_interpolate.rst
+│   │   │   ├── scipy_linalg.rst
+│   │   │   ├── scipy_ndimage.rst
+│   │   │   ├── scipy_signal.rst
+│   │   │   ├── scipy_signal_windows.rst
+│   │   │   ├── scipy_sparse.rst
+│   │   │   ├── scipy_sparse_csgraph.rst
+│   │   │   ├── scipy_sparse_linalg.rst
+│   │   │   ├── scipy_spatial.rst
+│   │   │   ├── scipy_spatial_distance.rst
+│   │   │   ├── scipy_special.rst
+│   │   │   ├── scipy_stats.rst
+│   │   │   ├── set.rst
+│   │   │   ├── signal.rst
+│   │   │   ├── sorting.rst
+│   │   │   ├── sparse.rst
+│   │   │   ├── special.rst
+│   │   │   ├── statistics.rst
+│   │   │   ├── stats.rst
+│   │   │   ├── testing.rst
+│   │   │   ├── ufunc.rst
+│   │   │   └── window.rst
+│   │   │       └── ... (50 more files)
+│   │   ├── user_guide/
+│   │   │   ├── basic.rst
+│   │   │   ├── compatibility.rst
+│   │   │   ├── cuda_api.rst
+│   │   │   ├── difference.rst
+│   │   │   ├── fft.rst
+│   │   │   ├── index.rst
+│   │   │   ├── interoperability.rst
+│   │   │   ├── kernel.rst
+│   │   │   ├── memory.rst
+│   │   │   └── performance.rst
+│   │   │       └── ... (5 more files)
+│   │   ├── .gitignore
+│   │   ├── _comparison_generator.py
+│   │   ├── conf.py
+│   │   ├── contribution.rst
+│   │   ├── index.rst
+│   │   ├── install.rst
+│   │   ├── license.rst
+│   │   ├── overview.rst
+│   │   ├── spelling_wordlist.txt
+│   │   └── upgrade.rst
+│   │       └── ... (5 more files)
+│   ├── make.bat
+│   ├── Makefile
+│   └── requirements.txt
+├── examples/
+│   ├── cg/
+│   │   └── cg.py
+│   ├── cusparselt/
+│   │   └── matmul.py
+│   ├── custom_struct/
+│   │   ├── builtin_vectors.py
+│   │   ├── complex_struct.py
+│   │   ├── packed_matrix.py
+│   │   └── README.md
+│   ├── cutensor/
+│   │   ├── contraction.py
+│   │   ├── elementwise_binary.py
+│   │   ├── elementwise_trinary.py
+│   │   └── reduction.py
+│   ├── finance/
+│   │   ├── black_scholes.py
+│   │   ├── monte_carlo.py
+│   │   └── monte_carlo_multigpu.py
+│   ├── gemm/
+│   │   ├── README.md
+│   │   ├── sgemm.cu
+│   │   ├── sgemm.py
+│   │   └── utils.py
+│   ├── gmm/
+│   │   ├── gmm.py
+│   │   └── README.md
+│   ├── interoperability/
+│   │   └── mpi4py_multiple_devices.py
+│   ├── jit/
+│   │   ├── elmentwise_op.py
+│   │   ├── reduction_atomic.py
+│   │   └── reduction_simple.py
+│   ├── kmeans/
+│   │   ├── kmeans.py
+│   │   └── README.md
+│   ├── peer/
+│   │   └── peer_matrix.py
+│   └── stream/
+│       ├── cublas.py
+│       ├── cudnn.py
+│       ├── cufft.py
+│       ├── cupy_event.py
+│       ├── cupy_kernel.py
+│       ├── cupy_memcpy.py
+│       ├── curand.py
+│       ├── cusolver.py
+│       ├── cusparse.py
+│       ├── map_reduce.py
+│       └── thrust.py
+│           └── ... (6 more files)
+├── install/
+│   ├── cupy_builder/
+│   │   ├── __init__.py
+│   │   ├── _command.py
+│   │   ├── _compiler.py
+│   │   ├── _context.py
+│   │   ├── _environment.py
+│   │   ├── _features.py
+│   │   ├── _preflight.py
+│   │   ├── cupy_setup_build.py
+│   │   ├── install_build.py
+│   │   └── install_utils.py
+│   │       └── ... (5 more files)
+│   └── mypy.ini
+├── tests/
+│   ├── cupy_tests/
+│   │   ├── array_api_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_array_object.py
+│   │   │   ├── test_creation_functions.py
+│   │   │   ├── test_data_type_functions.py
+│   │   │   ├── test_elementwise_functions.py
+│   │   │   ├── test_indexing_functions.py
+│   │   │   ├── test_set_functions.py
+│   │   │   ├── test_sorting_functions.py
+│   │   │   └── test_validation.py
+│   │   │       └── ... (4 more files)
+│   │   ├── binary_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_elementwise.py
+│   │   │   └── test_packing.py
+│   │   ├── core_tests/
+│   │   │   ├── fusion_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_array_function.py
+│   │   │   ├── test_carray.py
+│   │   │   ├── test_core.py
+│   │   │   ├── test_cub_reduction.py
+│   │   │   ├── test_dlpack.py
+│   │   │   ├── test_elementwise.py
+│   │   │   ├── test_flags.py
+│   │   │   ├── test_function.py
+│   │   │   ├── test_gufuncs.py
+│   │   │   ├── test_include.py
+│   │   │   ├── test_internal.py
+│   │   │   ├── test_iter.py
+│   │   │   ├── test_ndarray.py
+│   │   │   ├── test_ndarray_adv_indexing.py
+│   │   │   ├── test_ndarray_complex_ops.py
+│   │   │   ├── test_ndarray_contiguity.py
+│   │   │   ├── test_ndarray_conversion.py
+│   │   │   ├── test_ndarray_copy_and_view.py
+│   │   │   ├── test_ndarray_cuda_array_interface.py
+│   │   │   ├── test_ndarray_elementwise_op.py
+│   │   │   ├── test_ndarray_get.py
+│   │   │   ├── test_ndarray_indexing.py
+│   │   │   ├── test_ndarray_math.py
+│   │   │   ├── test_ndarray_owndata.py
+│   │   │   ├── test_ndarray_reduction.py
+│   │   │   ├── test_ndarray_scatter.py
+│   │   │   ├── test_ndarray_ufunc.py
+│   │   │   ├── test_ndarray_unary_op.py
+│   │   │   ├── test_nep50_examples.py
+│   │   │   ├── test_raw.py
+│   │   │   ├── test_reduction.py
+│   │   │   ├── test_scan.py
+│   │   │   ├── test_syncdetect.py
+│   │   │   ├── test_ufunc_methods.py
+│   │   │   └── test_userkernel.py
+│   │   │       └── ... (31 more files)
+│   │   ├── creation_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_basic.py
+│   │   │   ├── test_from_data.py
+│   │   │   ├── test_matrix.py
+│   │   │   └── test_ranges.py
+│   │   ├── cuda_tests/
+│   │   │   ├── memory_hooks_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_compiler.py
+│   │   │   ├── test_cublas.py
+│   │   │   ├── test_cudnn.py
+│   │   │   ├── test_cufft.py
+│   │   │   ├── test_curand.py
+│   │   │   ├── test_cusolver.py
+│   │   │   ├── test_cusparse.py
+│   │   │   ├── test_cutensor.py
+│   │   │   ├── test_device.py
+│   │   │   ├── test_driver.py
+│   │   │   ├── test_graph.py
+│   │   │   ├── test_memory.py
+│   │   │   ├── test_memory_hook.py
+│   │   │   ├── test_nccl.py
+│   │   │   ├── test_nvrtc.py
+│   │   │   ├── test_nvtx.py
+│   │   │   ├── test_pinned_memory.py
+│   │   │   ├── test_profile.py
+│   │   │   ├── test_runtime.py
+│   │   │   ├── test_stream.py
+│   │   │   └── test_texture.py
+│   │   │       └── ... (17 more files)
+│   │   ├── fft_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_cache.py
+│   │   │   ├── test_callback.py
+│   │   │   └── test_fft.py
+│   │   ├── functional_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_piecewise.py
+│   │   │   └── test_vectorize.py
+│   │   ├── indexing_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_generate.py
+│   │   │   ├── test_indexing.py
+│   │   │   ├── test_insert.py
+│   │   │   └── test_iterate.py
+│   │   ├── io_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_base_n.py
+│   │   │   ├── test_formatting.py
+│   │   │   ├── test_npz.py
+│   │   │   └── test_text.py
+│   │   ├── lib_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_polynomial.py
+│   │   │   ├── test_shape_base.py
+│   │   │   └── test_strided_tricks.py
+│   │   ├── linalg_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_decomposition.py
+│   │   │   ├── test_eigenvalue.py
+│   │   │   ├── test_einsum.py
+│   │   │   ├── test_norms.py
+│   │   │   ├── test_product.py
+│   │   │   └── test_solve.py
+│   │   │       └── ... (2 more files)
+│   │   ├── logic_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_comparison.py
+│   │   │   ├── test_content.py
+│   │   │   ├── test_ops.py
+│   │   │   ├── test_truth.py
+│   │   │   └── test_type_test.py
+│   │   │       └── ... (1 more files)
+│   │   ├── manipulation_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_add_remove.py
+│   │   │   ├── test_basic.py
+│   │   │   ├── test_dims.py
+│   │   │   ├── test_join.py
+│   │   │   ├── test_kind.py
+│   │   │   ├── test_rearrange.py
+│   │   │   ├── test_shape.py
+│   │   │   ├── test_split.py
+│   │   │   ├── test_tiling.py
+│   │   │   └── test_transpose.py
+│   │   │       └── ... (6 more files)
+│   │   ├── math_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_arithmetic.py
+│   │   │   ├── test_explog.py
+│   │   │   ├── test_floating.py
+│   │   │   ├── test_hyperbolic.py
+│   │   │   ├── test_matmul.py
+│   │   │   ├── test_misc.py
+│   │   │   ├── test_rational.py
+│   │   │   ├── test_rounding.py
+│   │   │   ├── test_special.py
+│   │   │   ├── test_sumprod.py
+│   │   │   ├── test_trigonometric.py
+│   │   │   └── test_window.py
+│   │   │       └── ... (8 more files)
+│   │   ├── misc_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_byte_bounds.py
+│   │   │   ├── test_memory_ranges.py
+│   │   │   └── test_who.py
+│   │   ├── padding_tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_pad.py
+│   │   ├── polynomial_tests/
+│   │   │   ├── test_polynomial.py
+│   │   │   └── test_polyutils.py
+│   │   ├── prof_tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_range.py
+│   │   ├── random_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── common_distributions.py
+│   │   │   ├── test_bit_generator.py
+│   │   │   ├── test_distributions.py
+│   │   │   ├── test_generator.py
+│   │   │   ├── test_generator_api.py
+│   │   │   ├── test_init.py
+│   │   │   ├── test_permutations.py
+│   │   │   ├── test_random.py
+│   │   │   └── test_sample.py
+│   │   │       └── ... (5 more files)
+│   │   ├── sorting_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_count.py
+│   │   │   ├── test_search.py
+│   │   │   └── test_sort.py
+│   │   ├── statistics_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_correlation.py
+│   │   │   ├── test_histogram.py
+│   │   │   ├── test_meanvar.py
+│   │   │   └── test_order.py
+│   │   ├── testing_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_array.py
+│   │   │   ├── test_condition.py
+│   │   │   ├── test_helper.py
+│   │   │   ├── test_loops.py
+│   │   │   └── test_parameterized.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── test_cublas.py
+│   │   ├── test_init.py
+│   │   ├── test_ndim.py
+│   │   ├── test_numpy_interop.py
+│   │   ├── test_type_routines.py
+│   │   └── test_typing.py
+│   │       └── ... (2 more files)
+│   ├── cupyx_tests/
+│   │   ├── distributed_tests/
+│   │   │   ├── comm_runner.py
+│   │   │   ├── test_array_nccl.py
+│   │   │   ├── test_array_no_nccl.py
+│   │   │   ├── test_comm.py
+│   │   │   ├── test_index_arith.py
+│   │   │   ├── test_linalg.py
+│   │   │   └── test_store.py
+│   │   │       └── ... (2 more files)
+│   │   ├── jit_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_cooperative_groups.py
+│   │   │   ├── test_cub.py
+│   │   │   ├── test_device_function.py
+│   │   │   ├── test_raw.py
+│   │   │   └── test_thrust.py
+│   │   │       └── ... (1 more files)
+│   │   ├── linalg_tests/
+│   │   │   ├── sparse_tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_solve.py
+│   │   ├── profiler_tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_benchmark.py
+│   │   │   ├── test_profile.py
+│   │   │   └── test_time_range.py
+│   │   ├── scipy_tests/
+│   │   │   ├── fft_tests/
+│   │   │   ├── fftpack_tests/
+│   │   │   ├── interpolate_tests/
+│   │   │   ├── linalg_tests/
+│   │   │   ├── ndimage_tests/
+│   │   │   ├── signal_tests/
+│   │   │   ├── sparse_tests/
+│   │   │   ├── spatial_tests/
+│   │   │   ├── special_tests/
+│   │   │   ├── stats_tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_get_array_module.py
+│   │   ├── signal_tests/
+│   │   │   ├── acoustics_tests/
+│   │   │   ├── convolution_tests/
+│   │   │   ├── filtering_tests/
+│   │   │   ├── radartools_tests/
+│   │   │   └── __init__.py
+│   │   ├── tools_tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_install_library.py
+│   │   ├── __init__.py
+│   │   ├── test_cudnn.py
+│   │   ├── test_cupyx.py
+│   │   ├── test_cusolver.py
+│   │   ├── test_cusparse.py
+│   │   ├── test_cutensor.py
+│   │   ├── test_lapack.py
+│   │   ├── test_optimize.py
+│   │   ├── test_pinned_array.py
+│   │   ├── test_rsqrt.py
+│   │   ├── test_runtime.py
+│   │   └── test_time.py
+│   │       └── ... (7 more files)
+│   ├── example_tests/
+│   │   ├── __init__.py
+│   │   ├── example_test.py
+│   │   ├── test_custom_struct.py
+│   │   ├── test_finance.py
+│   │   ├── test_gemm.py
+│   │   ├── test_gmm.py
+│   │   └── test_kmeans.py
+│   │       └── ... (2 more files)
+│   ├── import_tests/
+│   │   └── test_import.py
+│   ├── install_tests/
+│   │   ├── test_cupy_builder/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_command.py
+│   │   │   ├── test_context.py
+│   │   │   └── test_features.py
+│   │   ├── __init__.py
+│   │   ├── test_build.py
+│   │   └── test_utils.py
+│   ├── typing_tests/
+│   │   ├── cupy_tests/
+│   │   │   └── creation_tests/
+│   │   ├── mypy.ini
+│   │   ├── test_run.py
+│   │   └── test_typing.py
+│   └── conftest.py
+├── third_party/
+│   ├── cccl/
+│   ├── dlpack/
+│   ├── jitify/
+│   ├── xsf/
+│   └── README.md
+├── .gitignore
+├── .gitmodules
+├── .mergify.yml
+├── .pre-commit-config.yaml
+├── .readthedocs.yaml
+├── CITATION.bib
+├── CODE_OF_CONDUCT.md
+├── codecov.yml
+├── LICENSE
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+└── setup.py
+    └── ... (8 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

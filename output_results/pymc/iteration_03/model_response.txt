@@ -1,0 +1,14 @@
+The error is now:
+
+```
+fatal error: Python.h: No such file or directory
+```
+
+This means the Python development headers are missing. On Ubuntu, they are provided by the package `python3-dev`.
+
+Let's install them and rerun pytest.
+
+```bash
+apt-get install -y python3-dev
+pytest
+```

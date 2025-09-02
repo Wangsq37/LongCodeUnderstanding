@@ -1,0 +1,17 @@
+The error is:
+
+```
+ERROR: Could not find a version that satisfies the requirement llvmlite>=0.45.0 (from versions: ...)
+ERROR: No matching distribution found for llvmlite>=0.45.0
+```
+
+This means the pip index you are using (https://repo.huaweicloud.com/repository/pypi/simple/) does not have compatible wheels/sources for llvmlite>=0.45.0 for Python 3.10.
+
+Before declaring failure, try to install with the default PyPI index by disabling the mirror:
+
+```bash
+pip install --upgrade --index-url https://pypi.org/simple llvmlite
+pytest
+```
+
+If this still fails, additional debugging may be needed.

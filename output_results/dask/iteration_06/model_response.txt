@@ -1,0 +1,15 @@
+Since `import dask.tests` works with PYTHONPATH set, but pytest still crashes with the warning filter referring to `dask.tests.warning_aliases.RemovedIn20Warning`, it is possible this is an incompatibility between pytest and the project's warning configurations, or that the dask source tree's `conftest.py` (found at `dask/conftest.py`) is being auto-detected and misapplied when tests are run from the repo root.
+
+Let's try to run pytest explicitly in the dask directory instead of repo root. That is, from the repo root run:
+
+```bash
+pytest dask
+```
+
+If this doesn't work, let's try running only a simple test file (e.g., just the tests in `dask/tests/test_base.py`) to see if the warning configuration triggers only for some combinations.
+
+```bash
+pytest dask/tests/test_base.py
+```
+
+If either command allows the test collection phase to complete, that will pinpoint how to proceed.

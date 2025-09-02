@@ -1,0 +1,9 @@
+```bash
+# Check for Python requirements/dependency files
+ls requirements.txt
+ls setup.py
+ls pyproject.toml
+
+# Run pytest to see if there are any built-in or "unittest" style Python tests discoverable at top-level
+pytest || true
+```

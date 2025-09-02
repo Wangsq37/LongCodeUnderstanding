@@ -1,0 +1,423 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug-report.md
+│   │   ├── config.yml
+│   │   ├── documentation.md
+│   │   ├── feature-request.md
+│   │   └── issue.md
+│   ├── workflows/
+│   │   ├── composite/
+│   │   │   ├── cartopy-cache/
+│   │   │   ├── conda-env-cache/
+│   │   │   ├── conda-pkg-cache/
+│   │   │   ├── iris-data-cache/
+│   │   │   └── nox-cache/
+│   │   ├── benchmarks_report.yml
+│   │   ├── benchmarks_run.yml
+│   │   ├── benchmarks_validate.yml
+│   │   ├── ci-citation.yml
+│   │   ├── ci-linkchecks.yml
+│   │   ├── ci-manifest.yml
+│   │   ├── ci-template-check.yml
+│   │   ├── ci-tests.yml
+│   │   ├── ci-wheels.yml
+│   │   ├── labeler.yml
+│   │   ├── refresh-lockfiles.yml
+│   │   └── stale.yml
+│   │       └── ... (7 more files)
+│   ├── CONTRIBUTING.md
+│   ├── dependabot.yml
+│   ├── labeler.yml
+│   └── pull_request_template.md
+├── benchmarks/
+│   ├── benchmarks/
+│   │   ├── cperf/
+│   │   │   ├── __init__.py
+│   │   │   ├── equality.py
+│   │   │   ├── load.py
+│   │   │   └── save.py
+│   │   ├── generate_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── stock.py
+│   │   │   ├── ugrid.py
+│   │   │   └── um_files.py
+│   │   ├── load/
+│   │   │   ├── __init__.py
+│   │   │   └── ugrid.py
+│   │   ├── mesh/
+│   │   │   ├── utils/
+│   │   │   └── __init__.py
+│   │   ├── sperf/
+│   │   │   ├── __init__.py
+│   │   │   ├── combine_regions.py
+│   │   │   ├── equality.py
+│   │   │   ├── load.py
+│   │   │   └── save.py
+│   │   ├── unit_style/
+│   │   │   ├── __init__disabled.py
+│   │   │   ├── aux_factory.py
+│   │   │   ├── coords.py
+│   │   │   ├── cube.py
+│   │   │   ├── mesh.py
+│   │   │   ├── metadata_manager_factory.py
+│   │   │   └── mixin.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── aggregate_collapse.py
+│   │   ├── cube.py
+│   │   ├── import_iris.py
+│   │   ├── iterate.py
+│   │   ├── merge_concat.py
+│   │   ├── plot.py
+│   │   ├── regridding.py
+│   │   ├── save.py
+│   │   ├── stats.py
+│   │   └── trajectory.py
+│   │       └── ... (6 more files)
+│   ├── custom_bms/
+│   │   ├── install.py
+│   │   ├── README.md
+│   │   └── tracemallocbench.py
+│   ├── _asv_delegated_abc.py
+│   ├── asv.conf.json
+│   ├── asv_delegated.py
+│   ├── bm_runner.py
+│   └── README.md
+├── docs/
+│   ├── gallery_code/
+│   │   ├── general/
+│   │   │   ├── plot_anomaly_log_colouring.py
+│   │   │   ├── plot_coriolis.py
+│   │   │   ├── plot_cross_section.py
+│   │   │   ├── plot_custom_aggregation.py
+│   │   │   ├── plot_custom_file_loading.py
+│   │   │   ├── plot_global_map.py
+│   │   │   ├── plot_inset.py
+│   │   │   ├── plot_lineplot_with_legend.py
+│   │   │   ├── plot_polar_stereo.py
+│   │   │   ├── plot_polynomial_fit.py
+│   │   │   ├── plot_projections_and_annotations.py
+│   │   │   ├── plot_rotated_pole_mapping.py
+│   │   │   ├── plot_SOI_filtering.py
+│   │   │   ├── plot_zonal_means.py
+│   │   │   └── README.rst
+│   │   │       └── ... (10 more files)
+│   │   ├── meteorology/
+│   │   │   ├── plot_COP_1d.py
+│   │   │   ├── plot_COP_maps.py
+│   │   │   ├── plot_deriving_phenomena.py
+│   │   │   ├── plot_hovmoller.py
+│   │   │   ├── plot_lagged_ensemble.py
+│   │   │   ├── plot_TEC.py
+│   │   │   ├── plot_wind_barbs.py
+│   │   │   ├── plot_wind_speed.py
+│   │   │   └── README.rst
+│   │   │       └── ... (4 more files)
+│   │   ├── oceanography/
+│   │   │   ├── plot_atlantic_profiles.py
+│   │   │   ├── plot_load_nemo.py
+│   │   │   ├── plot_orca_projection.py
+│   │   │   └── README.rst
+│   │   └── README.rst
+│   ├── gallery_tests/
+│   │   ├── __init__.py
+│   │   ├── conftest.py
+│   │   └── test_gallery_examples.py
+│   ├── src/
+│   │   ├── _static/
+│   │   │   ├── icon_api.svg
+│   │   │   ├── icon_development.svg
+│   │   │   ├── icon_instructions.svg
+│   │   │   ├── icon_new_product.svg
+│   │   │   ├── icon_shuttle.svg
+│   │   │   ├── icon_support.png
+│   │   │   ├── icon_thumb.png
+│   │   │   ├── iris-logo-title-dark.svg
+│   │   │   ├── iris-logo-title.svg
+│   │   │   ├── iris-logo.svg
+│   │   │   ├── README.md
+│   │   │   └── theme_override.css
+│   │   │       └── ... (7 more files)
+│   │   ├── _templates/
+│   │   │   ├── custom_footer.html
+│   │   │   ├── custom_sidebar_logo_version.html
+│   │   │   └── imagehash.html
+│   │   ├── community/
+│   │   │   ├── index.rst
+│   │   │   ├── iris_xarray.rst
+│   │   │   ├── phrasebook.rst
+│   │   │   └── plugins.rst
+│   │   ├── developers_guide/
+│   │   │   ├── assets/
+│   │   │   ├── asv_example_images/
+│   │   │   ├── documenting/
+│   │   │   ├── gitwash/
+│   │   │   ├── ci_checks.png
+│   │   │   ├── contributing_benchmarks.rst
+│   │   │   ├── contributing_changes.rst
+│   │   │   ├── contributing_ci_tests.rst
+│   │   │   ├── contributing_code_formatting.rst
+│   │   │   ├── contributing_codebase_index.rst
+│   │   │   ├── contributing_deprecations.rst
+│   │   │   ├── contributing_documentation.rst
+│   │   │   ├── contributing_documentation_easy.rst
+│   │   │   ├── contributing_documentation_full.rst
+│   │   │   ├── contributing_getting_involved.rst
+│   │   │   ├── contributing_graphics_tests.rst
+│   │   │   ├── contributing_pull_request_checklist.rst
+│   │   │   ├── contributing_pytest_conversions.rst
+│   │   │   ├── contributing_running_tests.rst
+│   │   │   ├── contributing_testing_index.rst
+│   │   │   ├── contributing_tests.rst
+│   │   │   ├── edit_button.png
+│   │   │   ├── edit_on_github.png
+│   │   │   ├── find_main.png
+│   │   │   ├── fork_banner.png
+│   │   │   ├── github_app.rst
+│   │   │   ├── propose_changes.png
+│   │   │   ├── pull_request.png
+│   │   │   ├── release.rst
+│   │   │   └── release_do_nothing.rst
+│   │   │       └── ... (21 more files)
+│   │   ├── further_topics/
+│   │   │   ├── dask_best_practices/
+│   │   │   ├── ugrid/
+│   │   │   ├── controlling_merge.rst
+│   │   │   ├── filtering_warnings.rst
+│   │   │   ├── index.rst
+│   │   │   ├── lenient_maths.rst
+│   │   │   ├── lenient_metadata.rst
+│   │   │   ├── metadata.rst
+│   │   │   ├── missing_data_handling.rst
+│   │   │   ├── netcdf_io.rst
+│   │   │   ├── um_files_loading.rst
+│   │   │   └── which_regridder_to_use.rst
+│   │   │       └── ... (5 more files)
+│   │   ├── IEP/
+│   │   │   └── IEP001.adoc
+│   │   ├── sphinxext/
+│   │   │   └── api_rst_formatting.py
+│   │   ├── userguide/
+│   │   │   ├── plotting_examples/
+│   │   │   ├── regridding_plots/
+│   │   │   ├── change_management_goals.txt
+│   │   │   ├── citation.rst
+│   │   │   ├── concat.svg
+│   │   │   ├── cube_maths.rst
+│   │   │   ├── cube_statistics.rst
+│   │   │   ├── glossary.rst
+│   │   │   ├── index.rst
+│   │   │   ├── interpolation_and_regridding.rst
+│   │   │   ├── iris_cubes.rst
+│   │   │   ├── iris_philosophy.rst
+│   │   │   ├── loading_iris_cubes.rst
+│   │   │   ├── merge.svg
+│   │   │   ├── merge_and_concat.rst
+│   │   │   ├── merge_and_concat.svg
+│   │   │   ├── multi_array.svg
+│   │   │   ├── multi_array_to_cube.svg
+│   │   │   ├── navigating_a_cube.rst
+│   │   │   ├── plotting_a_cube.rst
+│   │   │   ├── real_and_lazy_data.rst
+│   │   │   ├── saving_iris_cubes.rst
+│   │   │   └── subsetting_a_cube.rst
+│   │   │       └── ... (16 more files)
+│   │   ├── whatsnew/
+│   │   │   ├── images/
+│   │   │   ├── 1.0.rst
+│   │   │   ├── 1.1.rst
+│   │   │   ├── 1.10.rst
+│   │   │   ├── 1.11.rst
+│   │   │   ├── 1.12.rst
+│   │   │   ├── 1.13.rst
+│   │   │   ├── 1.2.rst
+│   │   │   ├── 1.3.rst
+│   │   │   ├── 1.4.rst
+│   │   │   ├── 1.5.rst
+│   │   │   ├── 1.6.rst
+│   │   │   ├── 1.7.rst
+│   │   │   ├── 1.8.rst
+│   │   │   ├── 1.9.rst
+│   │   │   ├── 2.0.rst
+│   │   │   ├── 2.1.rst
+│   │   │   ├── 2.2.rst
+│   │   │   ├── 2.3.rst
+│   │   │   ├── 2.4.rst
+│   │   │   ├── 3.0.rst
+│   │   │   ├── 3.1.rst
+│   │   │   ├── 3.10.rst
+│   │   │   ├── 3.11.rst
+│   │   │   ├── 3.12.rst
+│   │   │   ├── 3.13.rst
+│   │   │   ├── 3.2.rst
+│   │   │   ├── 3.3.rst
+│   │   │   ├── 3.4.rst
+│   │   │   ├── 3.5.rst
+│   │   │   ├── 3.6.rst
+│   │   │   ├── 3.7.rst
+│   │   │   ├── 3.8.rst
+│   │   │   ├── 3.9.rst
+│   │   │   ├── index.rst
+│   │   │   ├── latest.rst
+│   │   │   └── latest.rst.template
+│   │   │       └── ... (31 more files)
+│   │   ├── common_links.inc
+│   │   ├── conf.py
+│   │   ├── copyright.rst
+│   │   ├── getting_started.rst
+│   │   ├── index.rst
+│   │   ├── installing.rst
+│   │   ├── Makefile
+│   │   ├── voted_issues.rst
+│   │   └── why_iris.rst
+│   │       └── ... (4 more files)
+│   └── Makefile
+├── etc/
+│   ├── area-type-table.xml
+│   └── cf-standard-name-table.xml
+├── lib/
+│   └── iris/
+│       ├── _representation/
+│       │   ├── __init__.py
+│       │   ├── cube_printout.py
+│       │   └── cube_summary.py
+│       ├── analysis/
+│       │   ├── __init__.py
+│       │   ├── _area_weighted.py
+│       │   ├── _grid_angles.py
+│       │   ├── _interpolation.py
+│       │   ├── _regrid.py
+│       │   ├── _scipy_interpolate.py
+│       │   ├── calculus.py
+│       │   ├── cartography.py
+│       │   ├── geometry.py
+│       │   ├── maths.py
+│       │   ├── stats.py
+│       │   └── trajectory.py
+│       │       └── ... (7 more files)
+│       ├── common/
+│       │   ├── __init__.py
+│       │   ├── _split_attribute_dicts.py
+│       │   ├── lenient.py
+│       │   ├── metadata.py
+│       │   ├── mixin.py
+│       │   └── resolve.py
+│       │       └── ... (1 more files)
+│       ├── etc/
+│       │   ├── palette/
+│       │   └── site.cfg.template
+│       ├── experimental/
+│       │   ├── __init__.py
+│       │   ├── animate.py
+│       │   ├── geovista.py
+│       │   ├── raster.py
+│       │   ├── regrid.py
+│       │   ├── regrid_conservative.py
+│       │   ├── representation.py
+│       │   ├── stratify.py
+│       │   └── ugrid.py
+│       │       └── ... (4 more files)
+│       ├── fileformats/
+│       │   ├── _nc_load_rules/
+│       │   ├── netcdf/
+│       │   ├── um/
+│       │   ├── __init__.py
+│       │   ├── _ff.py
+│       │   ├── _ff_cross_references.py
+│       │   ├── _pp_lbproc_pairs.py
+│       │   ├── _structured_array_identification.py
+│       │   ├── abf.py
+│       │   ├── cf.py
+│       │   ├── dot.py
+│       │   ├── name.py
+│       │   ├── name_loaders.py
+│       │   ├── nimrod.py
+│       │   ├── nimrod_load_rules.py
+│       │   ├── pp.py
+│       │   ├── pp_load_rules.py
+│       │   ├── pp_save_rules.py
+│       │   ├── rules.py
+│       │   └── um_cf_map.py
+│       │       └── ... (12 more files)
+│       ├── io/
+│       │   ├── __init__.py
+│       │   └── format_picker.py
+│       ├── mesh/
+│       │   ├── __init__.py
+│       │   ├── components.py
+│       │   └── utils.py
+│       ├── plugins/
+│       │   └── README.md
+│       ├── tests/
+│       │   ├── experimental/
+│       │   ├── graphics/
+│       │   ├── integration/
+│       │   ├── results/
+│       │   ├── stock/
+│       │   ├── unit/
+│       │   ├── __init__.py
+│       │   ├── _shared_utils.py
+│       │   ├── conftest.py
+│       │   ├── system_test.py
+│       │   ├── test_abf.py
+│       │   ├── test_aggregate_by.py
+│       │   ├── test_analysis.py
+│       │   ├── test_analysis_calculus.py
+│       │   ├── test_basic_maths.py
+│       │   ├── test_cartography.py
+│       │   ├── test
+... (104 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install pytest-mock ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting pytest-mock
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b2/05/77b60e520511c53d1c1ca75f1930c7dd8e971d0c4379b7f4b3f9644685ba/pytest_mock-3.14.1-py3-none-any.whl (9.9 kB)
+Requirement already satisfied: pytest>=6.2.5 in /usr/local/lib/python3.10/dist-packages (from pytest-mock) (8.4.1)
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (1.3.0)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (2.1.0)
+Requirement already satisfied: packaging>=20 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (25.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (2.19.2)
+Requirement already satisfied: tomli>=1 in /usr/local/lib/python3.10/dist-packages (from pytest>=6.2.5->pytest-mock) (2.2.1)
+Requirement already satisfied: typing-extensions>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from exceptiongroup>=1->pytest>=6.2.5->pytest-mock) (4.14.1)
+Installing collected packages: pytest-mock
+Successfully installed pytest-mock-3.14.1
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDERR:
+ImportError while loading conftest '/app/repo_to_process/lib/iris/tests/conftest.py'.
+lib/iris/__init__.py:109: in <module>
+    from iris.loading import (
+lib/iris/loading.py:14: in <module>
+    from iris.common import CFVariableMixin
+lib/iris/common/__init__.py:9: in <module>
+    from .mixin import *
+lib/iris/common/mixin.py:18: in <module>
+    import iris.std_names
+E   ModuleNotFoundError: No module named 'iris.std_names'
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

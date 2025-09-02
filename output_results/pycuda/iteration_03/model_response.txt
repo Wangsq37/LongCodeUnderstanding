@@ -1,0 +1,16 @@
+The problem remains: `ModuleNotFoundError: No module named 'pycuda'`
+
+Attempts to install via `pip install .` fail because building the C++ extension requires headers (`pyconfig.h`), and probably the CUDA toolkit (`nvcc` is not in path). Without these, the package can't install and the module isn't available for import.
+
+**Options to workaround for basic test collection:**
+- Add the `pycuda` directory to `PYTHONPATH` so Python can find it as a namespace package (even if some runtime errors occur later).
+
+Let me try setting the environment so Python can import the source tree directly, and see if pytest can proceed past collection:
+
+```bash
+export PYTHONPATH="$PYTHONPATH:/app/repo_to_process/pycuda"
+pytest
+```
+If this fails again with the same error (because `pycuda` can't be found or Python doesn't recognize `pycuda` as a proper package), there's no way to get past test collection errors without a successful build. If the tests require compiled extensions, but these cannot be built due to missing system dependencies (like CUDA and Python/C++ dev headers), the environment is not sufficent.
+
+Trying this step before declaring failure.

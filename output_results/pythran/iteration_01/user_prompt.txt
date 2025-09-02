@@ -1,0 +1,2089 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── core.yml
+│       ├── dist.yml
+│       ├── doc.yml
+│       ├── freethreading.yml
+│       ├── icc.yml
+│       ├── no-setuptools.yml
+│       ├── parallel.yml
+│       ├── system-dep.yml
+│       └── windows.yml
+│           └── ... (4 more files)
+├── docs/
+│   ├── examples/
+│   │   ├── Distutils Sample Project.ipynb
+│   │   └── Third Party Libraries.ipynb
+│   ├── papers/
+│   │   ├── cpc2013/
+│   │   │   ├── biblio.bib
+│   │   │   ├── llncs.cls
+│   │   │   ├── Makefile
+│   │   │   ├── paper.tex
+│   │   │   └── splncs.bst
+│   │   ├── iop2014/
+│   │   │   ├── xp/
+│   │   │   ├── biblio.bib
+│   │   │   ├── Makefile
+│   │   │   ├── paper.tex
+│   │   │   └── sigplanconf.cls
+│   │   ├── renpar2013/
+│   │   │   ├── bench-cpython.dat
+│   │   │   ├── bench-pypy.dat
+│   │   │   ├── bench-pythran+omp.dat
+│   │   │   ├── bench-pythran.dat
+│   │   │   ├── biblio.bib
+│   │   │   ├── compas.bst
+│   │   │   ├── compas2013.cls
+│   │   │   ├── Makefile
+│   │   │   └── papier.tex
+│   │   │       └── ... (4 more files)
+│   │   ├── sc2013/
+│   │   │   ├── bench/
+│   │   │   ├── arc_distance.dat
+│   │   │   ├── benchmark.sh
+│   │   │   ├── biblio.bib
+│   │   │   ├── cython.dat
+│   │   │   ├── cython.pdf
+│   │   │   ├── cython.py
+│   │   │   ├── growcut.dat
+│   │   │   ├── growcut.pdf
+│   │   │   ├── hyantes.c
+│   │   │   ├── hyantes.c.omp
+│   │   │   ├── hyantes.c.seq
+│   │   │   ├── hyantes.dat
+│   │   │   ├── hyantes.pdf
+│   │   │   ├── hyantes.py
+│   │   │   ├── hyantes.python.seq
+│   │   │   ├── hyantes.pythran.omp
+│   │   │   ├── hyantes_core.py
+│   │   │   ├── hyantes_omp_bench.pdf
+│   │   │   ├── IEEEtran.cls
+│   │   │   ├── IEEEtranS.bst
+│   │   │   ├── julia.dat
+│   │   │   ├── julia.pdf
+│   │   │   ├── Makefile
+│   │   │   ├── pairwise.dat
+│   │   │   ├── pairwise.pdf
+│   │   │   ├── paper.tex
+│   │   │   ├── parsetab.py
+│   │   │   ├── pi.c.omp
+│   │   │   ├── pi.c.seq
+│   │   │   ├── pi.cc
+│   │   │   ├── pi.cpp
+│   │   │   ├── pi.py
+│   │   │   ├── pi.python.seq
+│   │   │   ├── pi.pythran.omp
+│   │   │   ├── pi.pythran.seq
+│   │   │   ├── pi_buffon.py
+│   │   │   ├── pi_omp_bench.pdf
+│   │   │   ├── Pythran with OpenMP.ipynb
+│   │   │   ├── pythran.pythran.seq
+│   │   │   ├── pythranmagic.py
+│   │   │   ├── Rhone-alpesXYLongLat_pop.txt
+│   │   │   ├── rosen_der.dat
+│   │   │   └── rosen_der.pdf
+│   │   │       └── ... (38 more files)
+│   │   └── wpmvp14/
+│   │       ├── experiments/
+│   │       ├── bench.sh
+│   │       ├── biblio.bib
+│   │       ├── Makefile
+│   │       ├── paper.tex
+│   │       └── sigplanconf.cls
+│   ├── CLI.rst
+│   ├── conf.py
+│   ├── DEVGUIDE.rst
+│   ├── EXAMPLES.rst
+│   ├── INTERNAL.rst
+│   ├── Makefile
+│   ├── MANUAL.rst
+│   └── TUTORIAL.rst
+│       └── ... (3 more files)
+├── omp/
+│   └── __init__.py
+├── pythran/
+│   ├── analyses/
+│   │   ├── __init__.py
+│   │   ├── aliases.py
+│   │   ├── ancestors.py
+│   │   ├── argument_effects.py
+│   │   ├── argument_read_once.py
+│   │   ├── ast_matcher.py
+│   │   ├── cfg.py
+│   │   ├── constant_expressions.py
+│   │   ├── dependencies.py
+│   │   ├── extended_syntax_check.py
+│   │   ├── fixed_size_list.py
+│   │   ├── global_declarations.py
+│   │   ├── global_effects.py
+│   │   ├── globals_analysis.py
+│   │   ├── has_return.py
+│   │   ├── identifiers.py
+│   │   ├── immediates.py
+│   │   ├── imported_ids.py
+│   │   ├── inlinable.py
+│   │   ├── intrinsics.py
+│   │   ├── is_assigned.py
+│   │   ├── lazyness_analysis.py
+│   │   ├── literals.py
+│   │   ├── local_declarations.py
+│   │   ├── locals_analysis.py
+│   │   ├── node_count.py
+│   │   ├── optimizable_comprehension.py
+│   │   ├── ordered_global_declarations.py
+│   │   ├── parallel_maps.py
+│   │   ├── potential_iterator.py
+│   │   ├── pure_expressions.py
+│   │   ├── pure_functions.py
+│   │   ├── range_values.py
+│   │   ├── scope.py
+│   │   ├── static_expressions.py
+│   │   ├── use_def_chain.py
+│   │   ├── use_omp.py
+│   │   └── yield_points.py
+│   │       └── ... (33 more files)
+│   ├── boost/
+│   │   ├── atomic/
+│   │   │   ├── detail/
+│   │   │   ├── atomic.hpp
+│   │   │   ├── atomic_flag.hpp
+│   │   │   ├── capabilities.hpp
+│   │   │   └── fences.hpp
+│   │   ├── concept/
+│   │   │   ├── detail/
+│   │   │   ├── assert.hpp
+│   │   │   └── usage.hpp
+│   │   ├── config/
+│   │   │   ├── abi/
+│   │   │   ├── compiler/
+│   │   │   ├── detail/
+│   │   │   ├── no_tr1/
+│   │   │   ├── platform/
+│   │   │   ├── stdlib/
+│   │   │   ├── abi_prefix.hpp
+│   │   │   ├── abi_suffix.hpp
+│   │   │   ├── auto_link.hpp
+│   │   │   ├── header_deprecated.hpp
+│   │   │   ├── helper_macros.hpp
+│   │   │   ├── pragma_message.hpp
+│   │   │   ├── requires_threads.hpp
+│   │   │   ├── user.hpp
+│   │   │   ├── warning_disable.hpp
+│   │   │   └── workaround.hpp
+│   │   │       └── ... (5 more files)
+│   │   ├── container/
+│   │   │   ├── detail/
+│   │   │   └── container_fwd.hpp
+│   │   ├── core/
+│   │   │   ├── addressof.hpp
+│   │   │   ├── checked_delete.hpp
+│   │   │   ├── demangle.hpp
+│   │   │   ├── enable_if.hpp
+│   │   │   ├── explicit_operator_bool.hpp
+│   │   │   ├── ignore_unused.hpp
+│   │   │   ├── noncopyable.hpp
+│   │   │   ├── ref.hpp
+│   │   │   ├── swap.hpp
+│   │   │   ├── typeinfo.hpp
+│   │   │   └── use_default.hpp
+│   │   │       └── ... (6 more files)
+│   │   ├── detail/
+│   │   │   ├── basic_pointerbuf.hpp
+│   │   │   ├── fenv.hpp
+│   │   │   ├── indirect_traits.hpp
+│   │   │   ├── iterator.hpp
+│   │   │   ├── lcast_precision.hpp
+│   │   │   ├── lightweight_mutex.hpp
+│   │   │   ├── reference_content.hpp
+│   │   │   ├── select_type.hpp
+│   │   │   └── workaround.hpp
+│   │   │       └── ... (4 more files)
+│   │   ├── exception/
+│   │   │   └── exception.hpp
+│   │   ├── format/
+│   │   │   ├── detail/
+│   │   │   ├── alt_sstream.hpp
+│   │   │   ├── alt_sstream_impl.hpp
+│   │   │   ├── exceptions.hpp
+│   │   │   ├── feed_args.hpp
+│   │   │   ├── format_class.hpp
+│   │   │   ├── format_fwd.hpp
+│   │   │   ├── format_implementation.hpp
+│   │   │   ├── free_funcs.hpp
+│   │   │   ├── group.hpp
+│   │   │   ├── internals.hpp
+│   │   │   ├── internals_fwd.hpp
+│   │   │   └── parsing.hpp
+│   │   │       └── ... (7 more files)
+│   │   ├── fusion/
+│   │   │   ├── adapted/
+│   │   │   ├── algorithm/
+│   │   │   ├── container/
+│   │   │   ├── include/
+│   │   │   ├── iterator/
+│   │   │   ├── mpl/
+│   │   │   ├── sequence/
+│   │   │   ├── support/
+│   │   │   ├── tuple/
+│   │   │   ├── view/
+│   │   │   └── tuple.hpp
+│   │   ├── iterator/
+│   │   │   ├── detail/
+│   │   │   ├── advance.hpp
+│   │   │   ├── distance.hpp
+│   │   │   ├── interoperable.hpp
+│   │   │   ├── iterator_adaptor.hpp
+│   │   │   ├── iterator_categories.hpp
+│   │   │   ├── iterator_concepts.hpp
+│   │   │   ├── iterator_facade.hpp
+│   │   │   ├── iterator_traits.hpp
+│   │   │   └── reverse_iterator.hpp
+│   │   │       └── ... (4 more files)
+│   │   ├── lexical_cast/
+│   │   │   ├── detail/
+│   │   │   ├── bad_lexical_cast.hpp
+│   │   │   └── try_lexical_convert.hpp
+│   │   ├── math/
+│   │   │   ├── constants/
+│   │   │   ├── distributions/
+│   │   │   ├── policies/
+│   │   │   ├── special_functions/
+│   │   │   └── tools/
+│   │   ├── move/
+│   │   │   ├── detail/
+│   │   │   ├── core.hpp
+│   │   │   ├── traits.hpp
+│   │   │   ├── utility.hpp
+│   │   │   └── utility_core.hpp
+│   │   ├── mpl/
+│   │   │   ├── aux_/
+│   │   │   ├── limits/
+│   │   │   ├── list/
+│   │   │   ├── vector/
+│   │   │   ├── advance.hpp
+│   │   │   ├── advance_fwd.hpp
+│   │   │   ├── always.hpp
+│   │   │   ├── and.hpp
+│   │   │   ├── apply.hpp
+│   │   │   ├── apply_fwd.hpp
+│   │   │   ├── apply_wrap.hpp
+│   │   │   ├── arg.hpp
+│   │   │   ├── arg_fwd.hpp
+│   │   │   ├── assert.hpp
+│   │   │   ├── at.hpp
+│   │   │   ├── at_fwd.hpp
+│   │   │   ├── back_fwd.hpp
+│   │   │   ├── back_inserter.hpp
+│   │   │   ├── begin.hpp
+│   │   │   ├── begin_end.hpp
+│   │   │   ├── begin_end_fwd.hpp
+│   │   │   ├── bind.hpp
+│   │   │   ├── bind_fwd.hpp
+│   │   │   ├── bool.hpp
+│   │   │   ├── bool_fwd.hpp
+│   │   │   ├── clear.hpp
+│   │   │   ├── clear_fwd.hpp
+│   │   │   ├── comparison.hpp
+│   │   │   ├── contains.hpp
+│   │   │   ├── contains_fwd.hpp
+│   │   │   ├── deref.hpp
+│   │   │   ├── distance.hpp
+│   │   │   ├── distance_fwd.hpp
+│   │   │   ├── divides.hpp
+│   │   │   ├── empty_base.hpp
+│   │   │   ├── empty_fwd.hpp
+│   │   │   ├── end.hpp
+│   │   │   ├── equal_to.hpp
+│   │   │   ├── eval_if.hpp
+│   │   │   ├── find.hpp
+│   │   │   ├── find_if.hpp
+│   │   │   ├── fold.hpp
+│   │   │   ├── front_fwd.hpp
+│   │   │   ├── front_inserter.hpp
+│   │   │   ├── greater.hpp
+│   │   │   ├── greater_equal.hpp
+│   │   │   ├── has_xxx.hpp
+│   │   │   ├── identity.hpp
+│   │   │   ├── if.hpp
+│   │   │   ├── inherit.hpp
+│   │   │   ├── inserter.hpp
+│   │   │   ├── int.hpp
+│   │   │   ├── int_fwd.hpp
+│   │   │   ├── integral_c.hpp
+│   │   │   ├── integral_c_fwd.hpp
+│   │   │   ├── integral_c_tag.hpp
+│   │   │   ├── is_placeholder.hpp
+│   │   │   ├── is_sequence.hpp
+│   │   │   ├── iter_fold.hpp
+│   │   │   ├── iter_fold_if.hpp
+│   │   │   ├── iterator_range.hpp
+│   │   │   ├── iterator_tags.hpp
+│   │   │   ├── lambda.hpp
+│   │   │   ├── lambda_fwd.hpp
+│   │   │   ├── less.hpp
+│   │   │   ├── less_equal.hpp
+│   │   │   ├── list.hpp
+│   │   │   ├── logical.hpp
+│   │   │   ├── long.hpp
+│   │   │   ├── long_fwd.hpp
+│   │   │   ├── minus.hpp
+│   │   │   ├── multiplies.hpp
+│   │   │   ├── negate.hpp
+│   │   │   ├── next.hpp
+│   │   │   ├── next_prior.hpp
+│   │   │   ├── not.hpp
+│   │   │   ├── not_equal_to.hpp
+│   │   │   ├── numeric_cast.hpp
+│   │   │   ├── O1_size.hpp
+│   │   │   ├── O1_size_fwd.hpp
+│   │   │   ├── or.hpp
+│   │   │   ├── pair.hpp
+│   │   │   ├── placeholders.hpp
+│   │   │   ├── plus.hpp
+│   │   │   ├── pop_back_fwd.hpp
+│   │   │   ├── pop_front_fwd.hpp
+│   │   │   ├── prior.hpp
+│   │   │   ├── protect.hpp
+│   │   │   ├── push_back.hpp
+│   │   │   ├── push_back_fwd.hpp
+│   │   │   ├── push_front.hpp
+│   │   │   ├── push_front_fwd.hpp
+│   │   │   ├── quote.hpp
+│   │   │   ├── remove_if.hpp
+│   │   │   ├── reverse_fold.hpp
+│   │   │   ├── same_as.hpp
+│   │   │   ├── sequence_tag.hpp
+│   │   │   ├── sequence_tag_fwd.hpp
+│   │   │   ├── size.hpp
+│   │   │   ├── size_fwd.hpp
+│   │   │   ├── size_t.hpp
+│   │   │   ├── size_t_fwd.hpp
+│   │   │   ├── tag.hpp
+│   │   │   ├── times.hpp
+│   │   │   ├── vector.hpp
+│   │   │   ├── void.hpp
+│   │   │   └── void_fwd.hpp
+│   │   │       └── ... (98 more files)
+│   │   ├── numeric/
+│   │   │   └── conversion/
+│   │   ├── optional/
+│   │   │   ├── detail/
+│   │   │   ├── bad_optional_access.hpp
+│   │   │   ├── optional.hpp
+│   │   │   └── optional_fwd.hpp
+│   │   ├── predef/
+│   │   │   ├── architecture/
+│   │   │   ├── compiler/
+│   │   │   ├── detail/
+│   │   │   ├── hardware/
+│   │   │   ├── language/
+│   │   │   ├── library/
+│   │   │   ├── os/
+│   │   │   ├── other/
+│   │   │   ├── platform/
+│   │   │   ├── architecture.h
+│   │   │   ├── compiler.h
+│   │   │   ├── hardware.h
+│   │   │   ├── language.h
+│   │   │   ├── library.h
+│   │   │   ├── make.h
+│   │   │   ├── os.h
+│   │   │   ├── other.h
+│   │   │   ├── platform.h
+│   │   │   ├── version.h
+│   │   │   └── version_number.h
+│   │   │       └── ... (6 more files)
+│   │   ├── preprocessor/
+│   │   │   ├── arithmetic/
+│   │   │   ├── array/
+│   │   │   ├── comparison/
+│   │   │   ├── config/
+│   │   │   ├── control/
+│   │   │   ├── debug/
+│   │   │   ├── detail/
+│   │   │   ├── facilities/
+│   │   │   ├── iteration/
+│   │   │   ├── list/
+│   │   │   ├── logical/
+│   │   │   ├── punctuation/
+│   │   │   ├── repetition/
+│   │   │   ├── seq/
+│   │   │   ├── slot/
+│   │   │   ├── tuple/
+│   │   │   ├── variadic/
+│   │   │   ├── cat.hpp
+│   │   │   ├── comma_if.hpp
+│   │   │   ├── dec.hpp
+│   │   │   ├── empty.hpp
+│   │   │   ├── enum.hpp
+│   │   │   ├── enum_params.hpp
+│   │   │   ├── enum_params_with_a_default.hpp
+│   │   │   ├── enum_shifted_params.hpp
+│   │   │   ├── expr_if.hpp
+│   │   │   ├── identity.hpp
+│   │   │   ├── if.hpp
+│   │   │   ├── inc.hpp
+│   │   │   ├── iterate.hpp
+│   │   │   ├── repeat.hpp
+│   │   │   ├── repeat_from_to.hpp
+│   │   │   └── stringize.hpp
+│   │   │       └── ... (11 more files)
+│   │   ├── range/
+│   │   │   ├── algorithm/
+│   │   │   ├── detail/
+│   │   │   ├── begin.hpp
+│   │   │   ├── concepts.hpp
+│   │   │   ├── config.hpp
+│   │   │   ├── const_iterator.hpp
+│   │   │   ├── difference_type.hpp
+│   │   │   ├── distance.hpp
+│   │   │   ├── empty.hpp
+│   │   │   ├── end.hpp
+│   │   │   ├── functions.hpp
+│   │   │   ├── has_range_iterator.hpp
+│   │   │   ├── iterator.hpp
+│   │   │   ├── iterator_range_core.hpp
+│   │   │   ├── mutable_iterator.hpp
+│   │   │   ├── range_fwd.hpp
+│   │   │   ├── rbegin.hpp
+│   │   │   ├── rend.hpp
+│   │   │   ├── reverse_iterator.hpp
+│   │   │   ├── size.hpp
+│   │   │   ├── size_type.hpp
+│   │   │   └── value_type.hpp
+│   │   │       └── ... (15 more files)
+│   │   ├── smart_ptr/
+│   │   │   ├── detail/
+│   │   │   ├── bad_weak_ptr.hpp
+│   │   │   └── shared_ptr.hpp
+│   │   ├── tuple/
+│   │   │   ├── detail/
+│   │   │   ├── tuple.hpp
+│   │   │   └── tuple_comparison.hpp
+│   │   ├── type_traits/
+│   │   │   ├── detail/
+│   │   │   ├── add_const.hpp
+│   │   │   ├── add_cv.hpp
+│   │   │   ├── add_lvalue_reference.hpp
+│   │   │   ├── add_pointer.hpp
+│   │   │   ├── add_reference.hpp
+│   │   │   ├── add_rvalue_reference.hpp
+│   │   │   ├── add_volatile.hpp
+│   │   │   ├── alignment_of.hpp
+│   │   │   ├── conditional.hpp
+│   │   │   ├── conversion_traits.hpp
+│   │   │   ├── cv_traits.hpp
+│   │   │   ├── decay.hpp
+│   │   │   ├── declval.hpp
+│   │   │   ├── enable_if.hpp
+│   │   │   ├── function_traits.hpp
+│   │   │   ├── has_left_shift.hpp
+│   │   │   ├── has_minus.hpp
+│   │   │   ├── has_minus_assign.hpp
+│   │   │   ├── has_nothrow_assign.hpp
+│   │   │   ├── has_nothrow_constructor.hpp
+│   │   │   ├── has_nothrow_copy.hpp
+│   │   │   ├── has_plus.hpp
+│   │   │   ├── has_plus_assign.hpp
+│   │   │   ├── has_right_shift.hpp
+│   │   │   ├── has_trivial_assign.hpp
+│   │   │   ├── has_trivial_constructor.hpp
+│   │   │   ├── has_trivial_copy.hpp
+│   │   │   ├── has_trivial_move_assign.hpp
+│   │   │   ├── has_trivial_move_constructor.hpp
+│   │   │   ├── integral_constant.hpp
+│   │   │   ├── intrinsics.hpp
+│   │   │   ├── is_abstract.hpp
+│   │   │   ├── is_arithmetic.hpp
+│   │   │   ├── is_array.hpp
+│   │   │   ├── is_assignable.hpp
+│   │   │   ├── is_base_and_derived.hpp
+│   │   │   ├── is_base_of.hpp
+│   │   │   ├── is_class.hpp
+│   │   │   ├── is_complete.hpp
+│   │   │   ├── is_complex.hpp
+│   │   │   ├── is_const.hpp
+│   │   │   ├── is_constructible.hpp
+│   │   │   ├── is_convertible.hpp
+│   │   │   ├── is_copy_constructible.hpp
+│   │   │   ├── is_default_constructible.hpp
+│   │   │   ├── is_destructible.hpp
+│   │   │   ├── is_detected.hpp
+│   │   │   ├── is_empty.hpp
+│   │   │   ├── is_enum.hpp
+│   │   │   ├── is_float.hpp
+│   │   │   ├── is_floating_point.hpp
+│   │   │   ├── is_function.hpp
+│   │   │   ├── is_fundamental.hpp
+│   │   │   ├── is_integral.hpp
+│   │   │   ├── is_lvalue_reference.hpp
+│   │   │   ├── is_member_function_pointer.hpp
+│   │   │   ├── is_member_pointer.hpp
+│   │   │   ├── is_noncopyable.hpp
+│   │   │   ├── is_nothrow_move_assignable.hpp
+│   │   │   ├── is_nothrow_move_constructible.hpp
+│   │   │   ├── is_pod.hpp
+│   │   │   ├── is_pointer.hpp
+│   │   │   ├── is_polymorphic.hpp
+│   │   │   ├── is_reference.hpp
+│   │   │   ├── is_rvalue_reference.hpp
+│   │   │   ├── is_same.hpp
+│   │   │   ├── is_scalar.hpp
+│   │   │   ├── is_signed.hpp
+│   │   │   ├── is_union.hpp
+│   │   │   ├── is_unsigned.hpp
+│   │   │   ├── is_void.hpp
+│   │   │   ├── is_volatile.hpp
+│   │   │   ├── make_signed.hpp
+│   │   │   ├── make_unsigned.hpp
+│   │   │   ├── make_void.hpp
+│   │   │   ├── nonesuch.hpp
+│   │   │   ├── remove_all_extents.hpp
+│   │   │   ├── remove_bounds.hpp
+│   │   │   ├── remove_const.hpp
+│   │   │   ├── remove_cv.hpp
+│   │   │   ├── remove_cv_ref.hpp
+│   │   │   ├── remove_extent.hpp
+│   │   │   ├── remove_pointer.hpp
+│   │   │   ├── remove_reference.hpp
+│   │   │   ├── remove_volatile.hpp
+│   │   │   ├── type_identity.hpp
+│   │   │   └── type_with_alignment.hpp
+│   │   │       └── ... (82 more files)
+│   │   ├── typeof/
+│   │   │   ├── dmc/
+│   │   │   ├── msvc/
+│   │   │   ├── constant.hpp
+│   │   │   ├── decltype.hpp
+│   │   │   ├── encode_decode.hpp
+│   │   │   ├── encode_decode_params.hpp
+│   │   │   ├── int_encoding.hpp
+│   │   │   ├── integral_template_param.hpp
+│   │   │   ├── message.hpp
+│   │   │   ├── modifiers.hpp
+│   │   │   ├── native.hpp
+│   │   │   ├── pointers_data_members.hpp
+│   │   │   ├── register_functions.hpp
+│   │   │   ├── register_functions_iterate.hpp
+│   │   │   ├── register_fundamental.hpp
+│   │   │   ├── register_mem_functions.hpp
+│   │   │   ├── template_encoding.hpp
+│   │   │   ├── template_template_param.hpp
+│   │   │   ├── type_encoding.hpp
+│   │   │   ├── type_template_param.hpp
+│   │   │   ├── typeof.hpp
+│   │   │   ├── typeof_impl.hpp
+│   │   │   ├── unsupported.hpp
+│   │   │   ├── vector.hpp
+│   │   │   ├── vector100.hpp
+│   │   │   ├── vector150.hpp
+│   │   │   ├── vector200.hpp
+│   │   │   └── vector50.hpp
+│   │   │       └── ... (21 more files)
+│   │   ├── utility/
+│   │   │   ├── detail/
+│   │   │   ├── base_from_member.hpp
+│   │   │   ├── binary.hpp
+│   │   │   ├── compare_pointees.hpp
+│   │   │   ├── declval.hpp
+│   │   │   ├── enable_if.hpp
+│   │   │   ├── identity_type.hpp
+│   │   │   ├── result_of.hpp
+│   │   │   └── swap.hpp
+│   │   │       └── ... (3 more files)
+│   │   ├── array.hpp
+│   │   ├── assert.hpp
+│   │   ├── atomic.hpp
+│   │   ├── checked_delete.hpp
+│   │   ├── concept_check.hpp
+│   │   ├── config.hpp
+│   │   ├── cstdint.hpp
+│   │   ├── current_function.hpp
+│   │   ├── format.hpp
+│   │   ├── integer.hpp
+│   │   ├── integer_fwd.hpp
+│   │   ├── integer_traits.hpp
+│   │   ├── lexical_cast.hpp
+│   │   ├── limits.hpp
+│   │   ├── memory_order.hpp
+│   │   ├── next_prior.hpp
+│   │   ├── non_type.hpp
+│   │   ├── noncopyable.hpp
+│   │   ├── none.hpp
+│   │   ├── none_t.hpp
+│   │   ├── optional.hpp
+│   │   ├── predef.h
+│   │   ├── ref.hpp
+│   │   ├── shared_ptr.hpp
+│   │   ├── static_assert.hpp
+│   │   ├── swap.hpp
+│   │   ├── throw_exception.hpp
+│   │   ├── type.hpp
+│   │   ├── utility.hpp
+│   │   └── version.hpp
+│   │       └── ... (25 more files)
+│   ├── optimizations/
+│   │   ├── __init__.py
+│   │   ├── comprehension_patterns.py
+│   │   ├── constant_folding.py
+│   │   ├── copyto.py
+│   │   ├── dead_code_elimination.py
+│   │   ├── fast_gexpr.py
+│   │   ├── forward_substitution.py
+│   │   ├── inline_builtins.py
+│   │   ├── inlining.py
+│   │   ├── iter_transformation.py
+│   │   ├── list_comp_to_genexp.py
+│   │   ├── list_to_tuple.py
+│   │   ├── loop_full_unrolling.py
+│   │   ├── modindex.py
+│   │   ├── pattern_transform.py
+│   │   ├── range_based_simplify.py
+│   │   ├── range_loop_unfolding.py
+│   │   ├── remove_dead_functions.py
+│   │   ├── simplify_except.py
+│   │   ├── square.py
+│   │   └── tuple_to_shape.py
+│   │       └── ... (16 more files)
+│   ├── pythonic/
+│   │   ├── __dispatch__/
+│   │   │   ├── append.hpp
+│   │   │   ├── clear.hpp
+│   │   │   ├── conjugate.hpp
+│   │   │   ├── copy.hpp
+│   │   │   ├── count.hpp
+│   │   │   ├── extend.hpp
+│   │   │   ├── index.hpp
+│   │   │   ├── insert.hpp
+│   │   │   ├── pop.hpp
+│   │   │   ├── remove.hpp
+│   │   │   ├── reverse.hpp
+│   │   │   ├── sort.hpp
+│   │   │   ├── tolist.hpp
+│   │   │   └── update.hpp
+│   │   │       └── ... (9 more files)
+│   │   ├── array/
+│   │   │   ├── array/
+│   │   │   ├── array.hpp
+│   │   │   └── typecodes.hpp
+│   │   ├── bisect/
+│   │   │   ├── bisect.hpp
+│   │   │   ├── bisect_left.hpp
+│   │   │   └── bisect_right.hpp
+│   │   ├── builtins/
+│   │   │   ├── complex/
+│   │   │   ├── dict/
+│   │   │   ├── file/
+│   │   │   ├── float_/
+│   │   │   ├── list/
+│   │   │   ├── pythran/
+│   │   │   ├── set/
+│   │   │   ├── str/
+│   │   │   ├── abs.hpp
+│   │   │   ├── all.hpp
+│   │   │   ├── any.hpp
+│   │   │   ├── ArithmeticError.hpp
+│   │   │   ├── assert.hpp
+│   │   │   ├── AssertionError.hpp
+│   │   │   ├── AttributeError.hpp
+│   │   │   ├── BaseException.hpp
+│   │   │   ├── bin.hpp
+│   │   │   ├── bool_.hpp
+│   │   │   ├── BufferError.hpp
+│   │   │   ├── BytesWarning.hpp
+│   │   │   ├── chr.hpp
+│   │   │   ├── complex.hpp
+│   │   │   ├── DeprecationWarning.hpp
+│   │   │   ├── dict.hpp
+│   │   │   ├── divmod.hpp
+│   │   │   ├── enumerate.hpp
+│   │   │   ├── EnvironmentError.hpp
+│   │   │   ├── EOFError.hpp
+│   │   │   ├── Exception.hpp
+│   │   │   ├── False.hpp
+│   │   │   ├── file.hpp
+│   │   │   ├── FileNotFoundError.hpp
+│   │   │   ├── filter.hpp
+│   │   │   ├── float_.hpp
+│   │   │   ├── FloatingPointError.hpp
+│   │   │   ├── FutureWarning.hpp
+│   │   │   ├── GeneratorExit.hpp
+│   │   │   ├── getattr.hpp
+│   │   │   ├── hex.hpp
+│   │   │   ├── id.hpp
+│   │   │   ├── ImportError.hpp
+│   │   │   ├── ImportWarning.hpp
+│   │   │   ├── in.hpp
+│   │   │   ├── IndentationError.hpp
+│   │   │   ├── IndexError.hpp
+│   │   │   ├── int_.hpp
+│   │   │   ├── IOError.hpp
+│   │   │   ├── isinstance.hpp
+│   │   │   ├── iter.hpp
+│   │   │   ├── KeyboardInterrupt.hpp
+│   │   │   ├── KeyError.hpp
+│   │   │   ├── len.hpp
+│   │   │   ├── list.hpp
+│   │   │   ├── LookupError.hpp
+│   │   │   ├── map.hpp
+│   │   │   ├── max.hpp
+│   │   │   ├── MemoryError.hpp
+│   │   │   ├── min.hpp
+│   │   │   ├── minmax.hpp
+│   │   │   ├── NameError.hpp
+│   │   │   ├── next.hpp
+│   │   │   ├── None.hpp
+│   │   │   ├── NotImplementedError.hpp
+│   │   │   ├── oct.hpp
+│   │   │   ├── open.hpp
+│   │   │   ├── ord.hpp
+│   │   │   ├── OSError.hpp
+│   │   │   ├── OverflowError.hpp
+│   │   │   ├── PendingDeprecationWarning.hpp
+│   │   │   ├── pow.hpp
+│   │   │   ├── print.hpp
+│   │   │   ├── range.hpp
+│   │   │   ├── reduce.hpp
+│   │   │   ├── ReferenceError.hpp
+│   │   │   ├── reversed.hpp
+│   │   │   ├── round.hpp
+│   │   │   ├── RuntimeError.hpp
+│   │   │   ├── RuntimeWarning.hpp
+│   │   │   ├── set.hpp
+│   │   │   ├── slice.hpp
+│   │   │   ├── sorted.hpp
+│   │   │   ├── StopIteration.hpp
+│   │   │   ├── str.hpp
+│   │   │   ├── sum.hpp
+│   │   │   ├── SyntaxError.hpp
+│   │   │   ├── SyntaxWarning.hpp
+│   │   │   ├── SystemError.hpp
+│   │   │   ├── SystemExit.hpp
+│   │   │   ├── TabError.hpp
+│   │   │   ├── True.hpp
+│   │   │   ├── tuple.hpp
+│   │   │   ├── type.hpp
+│   │   │   ├── TypeError.hpp
+│   │   │   ├── UnboundLocalError.hpp
+│   │   │   ├── UnicodeError.hpp
+│   │   │   ├── UnicodeWarning.hpp
+│   │   │   ├── UserWarning.hpp
+│   │   │   ├── ValueError.hpp
+│   │   │   ├── Warning.hpp
+│   │   │   ├── xrange.hpp
+│   │   │   ├── ZeroDivisionError.hpp
+│   │   │   └── zip.hpp
+│   │   │       └── ... (89 more files)
+│   │   ├── cmath/
+│   │   │   ├── acos.hpp
+│   │   │   ├── acosh.hpp
+│   │   │   ├── asin.hpp
+│   │   │   ├── asinh.hpp
+│   │   │   ├── atan.hpp
+│   │   │   ├── atanh.hpp
+│   │   │   ├── cos.hpp
+│   │   │   ├── cosh.hpp
+│   │   │   ├── e.hpp
+│   │   │   ├── exp.hpp
+│   │   │   ├── isinf.hpp
+│   │   │   ├── isnan.hpp
+│   │   │   ├── log.hpp
+│   │   │   ├── log10.hpp
+│   │   │   ├── pi.hpp
+│   │   │   ├── sin.hpp
+│   │   │   ├── sinh.hpp
+│   │   │   ├── sqrt.hpp
+│   │   │   ├── tan.hpp
+│   │   │   └── tanh.hpp
+│   │   │       └── ... (15 more files)
+│   │   ├── functools/
+│   │   │   ├── partial.hpp
+│   │   │   └── reduce.hpp
+│   │   ├── include/
+│   │   │   ├── __dispatch__/
+│   │   │   ├── array/
+│   │   │   ├── bisect/
+│   │   │   ├── builtins/
+│   │   │   ├── cmath/
+│   │   │   ├── functools/
+│   │   │   ├── io/
+│   │   │   ├── itertools/
+│   │   │   ├── math/
+│   │   │   ├── numpy/
+│   │   │   ├── omp/
+│   │   │   ├── operator_/
+│   │   │   ├── os/
+│   │   │   ├── random/
+│   │   │   ├── scipy/
+│   │   │   ├── string/
+│   │   │   ├── time/
+│   │   │   ├── types/
+│   │   │   └── utils/
+│   │   ├── io/
+│   │   │   └── _io/
+│   │   ├── itertools/
+│   │   │   ├── combinations.hpp
+│   │   │   ├── common.hpp
+│   │   │   ├── count.hpp
+│   │   │   ├── ifilter.hpp
+│   │   │   ├── islice.hpp
+│   │   │   ├── permutations.hpp
+│   │   │   ├── product.hpp
+│   │   │   └── repeat.hpp
+│   │   │       └── ... (3 more files)
+│   │   ├── math/
+│   │   │   ├── acos.hpp
+│   │   │   ├── acosh.hpp
+│   │   │   ├── asin.hpp
+│   │   │   ├── asinh.hpp
+│   │   │   ├── atan.hpp
+│   │   │   ├── atan2.hpp
+│   │   │   ├── atanh.hpp
+│   │   │   ├── ceil.hpp
+│   │   │   ├── copysign.hpp
+│   │   │   ├── cos.hpp
+│   │   │   ├── cosh.hpp
+│   │   │   ├── degrees.hpp
+│   │   │   ├── e.hpp
+│   │   │   ├── erf.hpp
+│   │   │   ├── erfc.hpp
+│   │   │   ├── exp.hpp
+│   │   │   ├── expm1.hpp
+│   │   │   ├── fabs.hpp
+│   │   │   ├── factorial.hpp
+│   │   │   ├── floor.hpp
+│   │   │   ├── fmod.hpp
+│   │   │   ├── frexp.hpp
+│   │   │   ├── gamma.hpp
+│   │   │   ├── hypot.hpp
+│   │   │   ├── isinf.hpp
+│   │   │   ├── isnan.hpp
+│   │   │   ├── ldexp.hpp
+│   │   │   ├── lgamma.hpp
+│   │   │   ├── log.hpp
+│   │   │   ├── log10.hpp
+│   │   │   ├── log1p.hpp
+│   │   │   ├── modf.hpp
+│   │   │   ├── pi.hpp
+│   │   │   ├── pow.hpp
+│   │   │   ├── radians.hpp
+│   │   │   ├── sin.hpp
+│   │   │   ├── sinh.hpp
+│   │   │   ├── sqrt.hpp
+│   │   │   ├── tan.hpp
+│   │   │   ├── tanh.hpp
+│   │   │   └── trunc.hpp
+│   │   │       └── ... (36 more files)
+│   │   ├── numpy/
+│   │   │   ├── add/
+│   │   │   ├── arctan2/
+│   │   │   ├── bitwise_and/
+│   │   │   ├── bitwise_or/
+│   │   │   ├── bitwise_xor/
+│   │   │   ├── copysign/
+│   │   │   ├── ctypeslib/
+│   │   │   ├── divide/
+│   │   │   ├── dtype/
+│   │   │   ├── equal/
+│   │   │   ├── fft/
+│   │   │   ├── floor_divide/
+│   │   │   ├── fmax/
+│   │   │   ├── fmin/
+│   │   │   ├── fmod/
+│   │   │   ├── greater/
+│   │   │   ├── greater_equal/
+│   │   │   ├── heaviside/
+│   │   │   ├── hypot/
+│   │   │   ├── ldexp/
+│   │   │   ├── left_shift/
+│   │   │   ├── less/
+│   │   │   ├── less_equal/
+│   │   │   ├── linalg/
+│   │   │   ├── logaddexp/
+│   │   │   ├── logaddexp2/
+│   │   │   ├── logical_and/
+│   │   │   ├── logical_or/
+│   │   │   ├── logical_xor/
+│   │   │   ├── maximum/
+│   │   │   ├── minimum/
+│   │   │   ├── mod/
+│   │   │   ├── multiply/
+│   │   │   ├── ndarray/
+│   │   │   ├── negative/
+│   │   │   ├── nextafter/
+│   │   │   ├── not_equal/
+│   │   │   ├── power/
+│   │   │   ├── random/
+│   │   │   ├── remainder/
+│   │   │   ├── right_shift/
+│   │   │   ├── subtract/
+│   │   │   ├── true_divide/
+│   │   │   ├── .hpp
+│   │   │   ├── abs.hpp
+│   │   │   ├── absolute.hpp
+│   │   │   ├── add.hpp
+│   │   │   ├── alen.hpp
+│   │   │   ├── all.hpp
+│   │   │   ├── allclose.hpp
+│   │   │   ├── alltrue.hpp
+│   │   │   ├── amax.hpp
+│   │   │   ├── amin.hpp
+│   │   │   ├── angle.hpp
+│   │   │   ├── angle_in_deg.hpp
+│   │   │   ├── angle_in_rad.hpp
+│   │   │   ├── any.hpp
+│   │   │   ├── append.hpp
+│   │   │   ├── arange.hpp
+│   │   │   ├── arccos.hpp
+│   │   │   ├── arccosh.hpp
+│   │   │   ├── arcsin.hpp
+│   │   │   ├── arcsinh.hpp
+│   │   │   ├── arctan.hpp
+│   │   │   ├── arctan2.hpp
+│   │   │   ├── arctanh.hpp
+│   │   │   ├── argmax.hpp
+│   │   │   ├── argmin.hpp
+│   │   │   ├── argminmax.hpp
+│   │   │   ├── argsort.hpp
+│   │   │   ├── argwhere.hpp
+│   │   │   ├── around.hpp
+│   │   │   ├── array.hpp
+│   │   │   ├── array2string.hpp
+│   │   │   ├── array_equal.hpp
+│   │   │   ├── array_equiv.hpp
+│   │   │   ├── array_split.hpp
+│   │   │   ├── array_str.hpp
+│   │   │   ├── asarray.hpp
+│   │   │   ├── asarray_chkfinite.hpp
+│   │   │   ├── ascontiguousarray.hpp
+│   │   │   ├── asfarray.hpp
+│   │   │   ├── asscalar.hpp
+│   │   │   ├── atleast_1d.hpp
+│   │   │   ├── atleast_2d.hpp
+│   │   │   ├── atleast_3d.hpp
+│   │   │   ├── average.hpp
+│   │   │   ├── base_repr.hpp
+│   │   │   ├── binary_repr.hpp
+│   │   │   ├── bincount.hpp
+│   │   │   ├── bitwise_and.hpp
+│   │   │   ├── bitwise_not.hpp
+│   │   │   ├── bitwise_or.hpp
+│   │   │   ├── bitwise_xor.hpp
+│   │   │   ├── bool_.hpp
+│   │   │   ├── broadcast_to.hpp
+│   │   │   ├── byte.hpp
+│   │   │   ├── cbrt.hpp
+│   │   │   ├── ceil.hpp
+│   │   │   ├── clip.hpp
+│   │   │   ├── complex.hpp
+│   │   │   ├── complex128.hpp
+│   │   │   ├── complex256.hpp
+│   │   │   ├── complex64.hpp
+│   │   │   ├── concatenate.hpp
+│   │   │   ├── conj.hpp
+│   │   │   ├── conjugate.hpp
+│   │   │   ├── convolve.hpp
+│   │   │   ├── copy.hpp
+│   │   │   ├── copysign.hpp
+│   │   │   ├── copyto.hpp
+│   │   │   ├── correlate.hpp
+│   │   │   ├── cos.hpp
+│   │   │   ├── cosh.hpp
+│   │   │   ├── count_nonzero.hpp
+│   │   │   ├── cross.hpp
+│   │   │   ├── cumprod.hpp
+│   │   │   ├── cumproduct.hpp
+│   │   │   ├── cumsum.hpp
+│   │   │   ├── deg2rad.hpp
+│   │   │   ├── degrees.hpp
+│   │   │   ├── delete_.hpp
+│   │   │   ├── diag.hpp
+│   │   │   ├── diagflat.hpp
+│   │   │   ├── diagonal.hpp
+│   │   │   ├── diff.hpp
+│   │   │   ├── digitize.hpp
+│   │   │   ├── divide.hpp
+│   │   │   ├── dot.hpp
+│   │   │   ├── double_.hpp
+│   │   │   ├── e.hpp
+│   │   │   ├── ediff1d.hpp
+│   │   │   ├── empty.hpp
+│   │   │   ├── empty_like.hpp
+│   │   │   ├── equal.hpp
+│   │   │   ├── exp.hpp
+│   │   │   ├── expand_dims.hpp
+│   │   │   ├── expm1.hpp
+│   │   │   ├── eye.hpp
+│   │   │   ├── fabs.hpp
+│   │   │   ├── fill_diagonal.hpp
+│   │   │   ├── finfo.hpp
+│   │   │   ├── fix.hpp
+│   │   │   ├── flatnonzero.hpp
+│   │   │   ├── flip.hpp
+│   │   │   ├── fliplr.hpp
+│   │   │   ├── flipud.hpp
+│   │   │   ├── float128.hpp
+│   │   │   ├── float32.hpp
+│   │   │   ├── float64.hpp
+│   │   │   ├── float_.hpp
+│   │   │   ├── floor.hpp
+│   │   │   ├── floor_divide.hpp
+│   │   │   ├── fmax.hpp
+│   │   │   ├── fmin.hpp
+│   │   │   ├── fmod.hpp
+│   │   │   ├── frexp.hpp
+│   │   │   ├── frombuffer.hpp
+│   │   │   ├── fromfile.hpp
+│   │   │   ├── fromfunction.hpp
+│   │   │   ├── fromiter.hpp
+│   │   │   ├── fromstring.hpp
+│   │   │   ├── full.hpp
+│   │   │   ├── full_like.hpp
+│   │   │   ├── greater.hpp
+│   │   │   ├── greater_equal.hpp
+│   │   │   ├── heaviside.hpp
+│   │   │   ├── hstack.hpp
+│   │   │   ├── hypot.hpp
+│   │   │   ├── identity.hpp
+│   │   │   ├── imag.hpp
+│   │   │   ├── indices.hpp
+│   │   │   ├── inf.hpp
+│   │   │   ├── inner.hpp
+│   │   │   ├── insert.hpp
+│   │   │   ├── int16.hpp
+│   │   │   ├── int32.hpp
+│   │   │   ├── int64.hpp
+│   │   │   ├── int8.hpp
+│   │   │   ├── int_.hpp
+│   │   │   ├── intc.hpp
+│   │   │   ├── interp.hpp
+│   │   │   ├── interp_core.hpp
+│   │   │   ├── intersect1d.hpp
+│   │   │   ├── intp.hpp
+│   │   │   ├── invert.hpp
+│   │   │   ├── isclose.hpp
+│   │   │   ├── iscomplex.hpp
+│   │   │   ├── isfinite.hpp
+│   │   │   ├── isinf.hpp
+│   │   │   ├── isnan.hpp
+│   │   │   ├── isneginf.hpp
+│   │   │   ├── isposinf.hpp
+│   │   │   ├── isreal.hpp
+│   │   │   ├── isrealobj.hpp
+│   │   │   ├── isscalar.hpp
+│   │   │   ├── issctype.hpp
+│   │   │   ├── ldexp.hpp
+│   │   │   ├── left_shift.hpp
+│   │   │   ├── less.hpp
+│   │   │   ├── less_equal.hpp
+│   │   │   ├── lexsort.hpp
+│   │   │   ├── linspace.hpp
+│   │   │   ├── log.hpp
+│   │   │   ├── log10.hpp
+│   │   │   ├── log1p.hpp
+│   │   │   ├── log2.hpp
+│   │   │   ├── logaddexp.hpp
+│   │   │   ├── logaddexp2.hpp
+│   │   │   ├── logical_and.hpp
+│   │   │   ├── logical_not.hpp
+│   │   │   ├── logical_or.hpp
+│   │   │   ├── logical_xor.hpp
+│   │   │   ├── logspace.hpp
+│   │   │   ├── longlong.hpp
+│   │   │   ├── max.hpp
+│   │   │   ├── maximum.hpp
+│   │   │   ├── mean.hpp
+│   │   │   ├── median.hpp
+│   │   │   ├── min.hpp
+│   │   │   ├── minimum.hpp
+│   │   │   ├── mod.hpp
+│   │   │   ├── multiply.hpp
+│   │   │   ├── nan.hpp
+│   │   │   ├── nan_to_num.hpp
+│   │   │   ├── nanargmax.hpp
+│   │   │   ├── nanargmin.hpp
+│   │   │   ├── nanmax.hpp
+│   │   │   ├── nanmin.hpp
+│   │   │   ├── nansum.hpp
+│   │   │   ├── ndarray.hpp
+│   │   │   ├── ndenumerate.hpp
+│   │   │   ├── ndim.hpp
+│   │   │   ├── ndindex.hpp
+│   │   │   ├── negative.hpp
+│   │   │   ├── newaxis.hpp
+│   │   │   ├── nextafter.hpp
+│   │   │   ├── NINF.hpp
+│   │   │   ├── nonzero.hpp
+│   │   │   ├── not_equal.hpp
+│   │   │   ├── ones.hpp
+│   │   │   ├── ones_like.hpp
+│   │   │   ├── outer.hpp
+│   │   │   ├── partial_sum.hpp
+│   │   │   ├── pi.hpp
+│   │   │   ├── place.hpp
+│   │   │   ├── power.hpp
+│   │   │   ├── prod.hpp
+│   │   │   ├── product.hpp
+│   │   │   ├── ptp.hpp
+│   │   │   ├── put.hpp
+│   │   │   ├── putmask.hpp
+│   │   │   ├── rad2deg.hpp
+│   │   │   ├── radians.hpp
+│   │   │   ├── ravel.hpp
+│   │   │   ├── real.hpp
+│   │   │   ├── reciprocal.hpp
+│   │   │   ├── reduce.hpp
+│   │   │   ├── remainder.hpp
+│   │   │   ├── repeat.hpp
+│   │   │   ├── resize.hpp
+│   │   │   ├── right_shift.hpp
+│   │   │   ├── rint.hpp
+│   │   │   ├── roll.hpp
+│   │   │   ├── rollaxis.hpp
+│   │   │   ├── rot90.hpp
+│   │   │   ├── round.hpp
+│   │   │   ├── round_.hpp
+│   │   │   ├── searchsorted.hpp
+│   │   │   ├── select.hpp
+│   │   │   ├── setdiff1d.hpp
+│   │   │   ├── shape.hpp
+│   │   │   ├── short_.hpp
+│   │   │   ├── sign.hpp
+│   │   │   ├── signbit.hpp
+│   │   │   ├── sin.hpp
+│   │   │   ├── sinh.hpp
+│   │   │   ├── size.hpp
+│   │   │   ├── sometrue.hpp
+│   │   │   ├── sort.hpp
+│   │   │   ├── sort_complex.hpp
+│   │   │   ├── spacing.hpp
+│   │   │   ├── split.hpp
+│   │   │   ├── sqrt.hpp
+│   │   │   ├── square.hpp
+│   │   │   ├── stack.hpp
+│   │   │   ├── std_.hpp
+│   │   │   ├── subtract.hpp
+│   │   │   ├── sum.hpp
+│   │   │   ├── swapaxes.hpp
+│   │   │   ├── take.hpp
+│   │   │   ├── tan.hpp
+│   │   │   ├── tanh.hpp
+│   │   │   ├── tile.hpp
+│   │   │   ├── trace.hpp
+│   │   │   ├── transpose.hpp
+│   │   │   ├── tri.hpp
+│   │   │   ├── tril.hpp
+│   │   │   ├── trim_zeros.hpp
+│   │   │   ├── triu.hpp
+│   │   │   ├── true_divide.hpp
+│   │   │   ├── trunc.hpp
+│   │   │   ├── ubyte.hpp
+│   │   │   ├── ufunc_accumulate.hpp
+│   │   │   ├── ufunc_reduce.hpp
+│   │   │   ├── uint.hpp
+│   │   │   ├── uint16.hpp
+│   │   │   ├── uint32.hpp
+│   │   │   ├── uint64.hpp
+│   │   │   ├── uint8.hpp
+│   │   │   ├── uintc.hpp
+│   │   │   ├── uintp.hpp
+│   │   │   ├── ulonglong.hpp
+│   │   │   ├── union1d.hpp
+│   │   │   ├── unique.hpp
+│   │   │   ├── unravel_index.hpp
+│   │   │   ├── unwrap.hpp
+│   │   │   ├── ushort.hpp
+│   │   │   ├── var.hpp
+│   │   │   ├── vdot.hpp
+│   │   │   ├── vectorize.hpp
+│   │   │   ├── vstack.hpp
+│   │   │   ├── where.hpp
+│   │   │   ├── zeros.hpp
+│   │   │   └── zeros_like.hpp
+│   │   │       └── ... (277 more files)
+│   │   ├── omp/
+│   │   │   ├── get_num_threads.hpp
+│   │   │   ├── get_thread_num.hpp
+│   │   │   ├── get_wtick.hpp
+│   │   │   ├── get_wtime.hpp
+│   │   │   ├── in_parallel.hpp
+│   │   │   ├── set_nested.hpp
+│   │   │   └── set_num_threads.hpp
+│   │   │       └── ... (2 more files)
+│   │   ├── operator_/
+│   │   │   ├── __abs__.hpp
+│   │   │   ├── __add__.hpp
+│   │   │   ├── __and__.hpp
+│   │   │   ├── __concat__.hpp
+│   │   │   ├── __contains__.hpp
+│   │   │   ├── __delitem__.hpp
+│   │   │   ├── __div__.hpp
+│   │   │   ├── __eq__.hpp
+│   │   │   ├── __floordiv__.hpp
+│   │   │   ├── __ge__.hpp
+│   │   │   ├── __getitem__.hpp
+│   │   │   ├── __gt__.hpp
+│   │   │   ├── __iadd__.hpp
+│   │   │   ├── __iand__.hpp
+│   │   │   ├── __iconcat__.hpp
+│   │   │   ├── __idiv__.hpp
+│   │   │   ├── __ifloordiv__.hpp
+│   │   │   ├── __ilshift__.hpp
+│   │   │   ├── __imod__.hpp
+│   │   │   ├── __imul__.hpp
+│   │   │   ├── __inv__.hpp
+│   │   │   ├── __invert__.hpp
+│   │   │   ├── __ior__.hpp
+│   │   │   ├── __ipow__.hpp
+│   │   │   ├── __irshift__.hpp
+│   │   │   ├── __isub__.hpp
+│   │   │   ├── __itruediv__.hpp
+│   │   │   ├── __ixor__.hpp
+│   │   │   ├── __le__.hpp
+│   │   │   ├── __lshift__.hpp
+│   │   │   ├── __lt__.hpp
+│   │   │   ├── __matmul__.hpp
+│   │   │   ├── __mod__.hpp
+│   │   │   ├── __mul__.hpp
+│   │   │   ├── __ne__.hpp
+│   │   │   ├── __neg__.hpp
+│   │   │   ├── __not__.hpp
+│   │   │   ├── __or__.hpp
+│   │   │   ├── __pos__.hpp
+│   │   │   ├── __rshift__.hpp
+│   │   │   ├── __sub__.hpp
+│   │   │   ├── __truediv__.hpp
+│   │   │   ├── __xor__.hpp
+│   │   │   ├── abs.hpp
+│   │   │   ├── add.hpp
+│   │   │   ├── and_.hpp
+│   │   │   ├── concat.hpp
+│   │   │   ├── contains.hpp
+│   │   │   ├── countOf.hpp
+│   │   │   ├── delitem.hpp
+│   │   │   ├── div.hpp
+│   │   │   ├── eq.hpp
+│   │   │   ├── floordiv.hpp
+│   │   │   ├── ge.hpp
+│   │   │   ├── getitem.hpp
+│   │   │   ├── gt.hpp
+│   │   │   ├── iadd.hpp
+│   │   │   ├── iand.hpp
+│   │   │   ├── icommon.hpp
+│   │   │   ├── iconcat.hpp
+│   │   │   ├── idiv.hpp
+│   │   │   ├── ifloordiv.hpp
+│   │   │   ├── ilshift.hpp
+│   │   │   ├── imatmul.hpp
+│   │   │   ├── imax.hpp
+│   │   │   ├── imin.hpp
+│   │   │   ├── imod.hpp
+│   │   │   ├── imul.hpp
+│   │   │   ├── indexOf.hpp
+│   │   │   ├── inv.hpp
+│   │   │   ├── invert.hpp
+│   │   │   ├── ior.hpp
+│   │   │   ├── ipow.hpp
+│   │   │   ├── irshift.hpp
+│   │   │   ├── is_.hpp
+│   │   │   ├── is_not.hpp
+│   │   │   ├── isub.hpp
+│   │   │   ├── itemgetter.hpp
+│   │   │   ├── itruediv.hpp
+│   │   │   ├── ixor.hpp
+│   │   │   ├── le.hpp
+│   │   │   ├── lshift.hpp
+│   │   │   ├── lt.hpp
+│   │   │   ├── matmul.hpp
+│   │   │   ├── mod.hpp
+│   │   │   ├── mul.hpp
+│   │   │   ├── ne.hpp
+│   │   │   ├── neg.hpp
+│   │   │   ├── not_.hpp
+│   │   │   ├── or_.hpp
+│   │   │   ├── overloads.hpp
+│   │   │   ├── pos.hpp
+│   │   │   ├── pow.hpp
+│   │   │   ├── rshift.hpp
+│   │   │   ├── sub.hpp
+│   │   │   ├── truediv.hpp
+│   │   │   ├── truth.hpp
+│   │   │   └── xor_.hpp
+│   │   │       └── ... (93 more files)
+│   │   ├── os/
+│   │   │   └── path/
+│   │   ├── patch/
+│   │   │   ├── complex
+│   │   │   └── README.rst
+│   │   ├── python/
+│   │   │   ├── core.hpp
+│   │   │   └── exception_handler.hpp
+│   │   ├── random/
+│   │   │   ├── choice.hpp
+│   │   │   ├── expovariate.hpp
+│   │   │   ├── gauss.hpp
+│   │   │   ├── randint.hpp
+│   │   │   ├── random.hpp
+│   │   │   ├── randrange.hpp
+│   │   │   ├── sample.hpp
+│   │   │   ├── seed.hpp
+│   │   │   ├── shuffle.hpp
+│   │   │   └── uniform.hpp
+│   │   │       └── ... (5 more files)
+│   │   ├── scipy/
+│   │   │   └── special/
+│   │   ├── string/
+│   │   │   ├── ascii_letters.hpp
+│   │   │   ├── ascii_lowercase.hpp
+│   │   │   ├── ascii_uppercase.hpp
+│   │   │   ├── digits.hpp
+│   │   │   ├── find.hpp
+│   │   │   ├── hexdigits.hpp
+│   │   │   └── octdigits.hpp
+│   │   │       └── ... (2 more files)
+│   │   ├── time/
+│   │   │   ├── sleep.hpp
+│   │   │   └── time.hpp
+│   │   ├── types/
+│   │   │   ├── array.hpp
+│   │   │   ├── assignable.hpp
+│   │   │   ├── attr.hpp
+│   │   │   ├── bool.hpp
+│   │   │   ├── cfun.hpp
+│   │   │   ├── clongdouble.hpp
+│   │   │   ├── combined.hpp
+│   │   │   ├── complex.hpp
+│   │   │   ├── complex128.hpp
+│   │   │   ├── complex256.hpp
+│   │   │   ├── complex64.hpp
+│   │   │   ├── dict.hpp
+│   │   │   ├── dynamic_tuple.hpp
+│   │   │   ├── empty_iterator.hpp
+│   │   │   ├── exceptions.hpp
+│   │   │   ├── file.hpp
+│   │   │   ├── finfo.hpp
+│   │   │   ├── float.hpp
+│   │   │   ├── float128.hpp
+│   │   │   ├── float32.hpp
+│   │   │   ├── float64.hpp
+│   │   │   ├── generator.hpp
+│   │   │   ├── int.hpp
+│   │   │   ├── int16.hpp
+│   │   │   ├── int32.hpp
+│   │   │   ├── int64.hpp
+│   │   │   ├── int8.hpp
+│   │   │   ├── intc.hpp
+│   │   │   ├── intp.hpp
+│   │   │   ├── list.hpp
+│   │   │   ├── longdouble.hpp
+│   │   │   ├── ndarray.hpp
+│   │   │   ├── nditerator.hpp
+│   │   │   ├── NoneType.hpp
+│   │   │   ├── numpy_binary_op.hpp
+│   │   │   ├── numpy_broadcast.hpp
+│   │   │   ├── numpy_expr.hpp
+│   │   │   ├── numpy_gexpr.hpp
+│   │   │   ├── numpy_iexpr.hpp
+│   │   │   ├── numpy_nary_expr.hpp
+│   │   │   ├── numpy_op_helper.hpp
+│   │   │   ├── numpy_operators.hpp
+│   │   │   ├── numpy_texpr.hpp
+│   │   │   ├── numpy_unary_op.hpp
+│   │   │   ├── numpy_vexpr.hpp
+│   │   │   ├── pointer.hpp
+│   │   │   ├── raw_array.hpp
+│   │   │   ├── set.hpp
+│   │   │   ├── slice.hpp
+│   │   │   ├── static_if.hpp
+│   │   │   ├── str.hpp
+│   │   │   ├── traits.hpp
+│   │   │   ├── tuple.hpp
+│   │   │   ├── uint16.hpp
+│   │   │   ├── uint32.hpp
+│   │   │   ├── uint64.hpp
+│   │   │   ├── uint8.hpp
+│   │   │   ├── uintc.hpp
+│   │   │   ├── uintp.hpp
+│   │   │   ├── variant_functor.hpp
+│   │   │   └── vectorizable_type.hpp
+│   │   │       └── ... (56 more files)
+│   │   ├── utils/
+│   │   │   ├── allocate.hpp
+│   │   │   ├── array_helper.hpp
+│   │   │   ├── boost_local_config.hpp
+│   │   │   ├── broadcast_copy.hpp
+│   │   │   ├── functor.hpp
+│   │   │   ├── fwd.hpp
+│   │   │   ├── int_.hpp
+│   │   │   ├── iterator.hpp
+│   │   │   ├── meta.hpp
+│   │   │   ├── nested_container.hpp
+│   │   │   ├── neutral.hpp
+│   │   │   ├── numpy_conversion.hpp
+│   │   │   ├── numpy_traits.hpp
+│   │   │   ├── pdqsort.hpp
+│   │   │   ├── reserve.hpp
+│   │   │   ├── seq.hpp
+│   │   │   ├── shared_ref.hpp
+│   │   │   ├── tags.hpp
+│   │   │   └── yield.hpp
+│   │   │       └── ... (14 more files)
+│   │   └── core.hpp
+│   ├── tests/
+│   │   ├── cases/
+│   │   │   ├── _histogram.py
+│   │   │   ├── allpairs.py
+│   │   │   ├── allpairs_distances.py
+│   │   │   ├── allpairs_distances_loops.py
+│   │   │   ├── another_quicksort.py
+│   │   │   ├── approximated_callgraph.py
+│   │   │   ├── arc_distance.py
+│   │   │   ├── arc_distance_list.py
+│   │   │   ├── babylonian.py
+│   │   │   ├── blacksholes.py
+│   │   │   ├── brownian.py
+│   │   │   ├── bubble_sort.py
+│   │   │   ├── calculate_u.py
+│   │   │   ├── caxpy.py
+│   │   │   ├── ccopy.py
+│   │   │   ├── cdotc.py
+│   │   │   ├── cdotu.py
+│   │   │   ├── check_mask.py
+│   │   │   ├── clip.py
+│   │   │   ├── clip2.py
+│   │   │   ├── collatz.py
+│   │   │   ├── collatz_modified.py
+│   │   │   ├── comp_unrolling.py
+│   │   │   ├── compute_subpix_2d_gaussian2.py
+│   │   │   ├── convnet.py
+│   │   │   ├── count_perm_sig.py
+│   │   │   ├── create_grid.py
+│   │   │   ├── cronbach.py
+│   │   │   ├── crotg.py
+│   │   │   ├── d2q9_nxnyns.py
+│   │   │   ├── deriv.py
+│   │   │   ├── descent.py
+│   │   │   ├── deuxd_convolution.py
+│   │   │   ├── diffusion_numpy.py
+│   │   │   ├── diffusion_pure_python.py
+│   │   │   ├── emin.py
+│   │   │   ├── empirical.py
+│   │   │   ├── euclidean_distance_square.py
+│   │   │   ├── euler_challenge13.py
+│   │   │   ├── euler_challenge14.py
+│   │   │   ├── extrema.py
+│   │   │   ├── factorize_naive.py
+│   │   │   ├── fannkuch.py
+│   │   │   ├── fannkuch.pythran
+│   │   │   ├── fbcorr.py
+│   │   │   ├── fbcorr_numpy.py
+│   │   │   ├── fdtd.py
+│   │   │   ├── fft.py
+│   │   │   ├── fibo.py
+│   │   │   ├── fibo_seq.py
+│   │   │   ├── frequent_itemsets.py
+│   │   │   ├── gauss.py
+│   │   │   ├── goodExpoMeasure.py
+│   │   │   ├── grayscott.py
+│   │   │   ├── grouping.py
+│   │   │   ├── growcut.py
+│   │   │   ├── guerre.py
+│   │   │   ├── harris.py
+│   │   │   ├── hasting.py
+│   │   │   ├── histogram.py
+│   │   │   ├── hyantes_core.py
+│   │   │   ├── hyantes_core_numpy.py
+│   │   │   ├── insertion_sort.py
+│   │   │   ├── ising.py
+│   │   │   ├── julia_pure_python.py
+│   │   │   ├── kmeans.py
+│   │   │   ├── l2norm.py
+│   │   │   ├── lap.py
+│   │   │   ├── lapl2d.py
+│   │   │   ├── lapl3d.py
+│   │   │   ├── laplace.py
+│   │   │   ├── ldpc_decoder.py
+│   │   │   ├── ln.py
+│   │   │   ├── log_likelihood.py
+│   │   │   ├── loopy_jacob.py
+│   │   │   ├── lttb_pt.py
+│   │   │   ├── lu.py
+│   │   │   ├── make_circle_two_points.py
+│   │   │   ├── make_decision.py
+│   │   │   ├── mandel.py
+│   │   │   ├── matmul.py
+│   │   │   ├── matrix_class_distance.py
+│   │   │   ├── monte_carlo.py
+│   │   │   ├── monte_carlo_pricer.py
+│   │   │   ├── morphology.py
+│   │   │   ├── mulmod.py
+│   │   │   ├── multi_export.py
+│   │   │   ├── multitype.py
+│   │   │   ├── nd_local_maxima.py
+│   │   │   ├── nqueens.py
+│   │   │   ├── pairwise.py
+│   │   │   ├── pairwise_numpy.py
+│   │   │   ├── periodic_bc.py
+│   │   │   ├── periodic_dist.py
+│   │   │   ├── perm.py
+│   │   │   ├── pi_buffon.py
+│   │   │   ├── pivot.py
+│   │   │   ├── primes_sieve.py
+│   │   │   ├── primes_sieve2.py
+│   │   │   ├── projection_simplex.py
+│   │   │   ├── pselect.py
+│   │   │   ├── pythagorean_triples.py
+│   │   │   ├── queens_numba.py
+│   │   │   ├── quicksort.py
+│   │   │   ├── ramsurf.py
+│   │   │   ├── rand_mat_stat.py
+│   │   │   ├── rc4.py
+│   │   │   ├── repeating.py
+│   │   │   ├── reverse_cumsum.py
+│   │   │   ├── roman_decode.py
+│   │   │   ├── rosen.py
+│   │   │   ├── scrabble.py
+│   │   │   ├── Scribus.gif
+│   │   │   ├── sexy_primes.py
+│   │   │   ├── shallow_water.py
+│   │   │   ├── slowparts.py
+│   │   │   ├── smoothing.py
+│   │   │   ├── sobelfilter.py
+│   │   │   ├── specialconvolve.py
+│   │   │   ├── spectralDNS.py
+│   │   │   ├── stone.py
+│   │   │   ├── sum_primes.py
+│   │   │   ├── sumarray3d.py
+│   │   │   ├── tax.py
+│   │   │   ├── train_eq.py
+│   │   │   ├── train_equalizer.py
+│   │   │   ├── value_index.py
+│   │   │   ├── vibr_energy.py
+│   │   │   ├── wave_simulation.py
+│   │   │   ├── wdist.py
+│   │   │   ├── weights.py
+│   │   │   └── zero.py
+│   │   │       └── ... (127 more files)
+│   │   ├── cython/
+│   │   │   ├── add.pyx
+│   │   │   ├── diffuse.pyx
+│   │   │   ├── indexing.pyx
+│   │   │   ├── setup_add.py
+│   │   │   ├── setup_diffuse.py
+│   │   │   ├── setup_indexing.py
+│   │   │   ├── setup_tax.py
+│   │   │   └── tax.pyx
+│   │   │       └── ... (3 more files)
+│   │   ├── euler/
+│   │   │   ├── euler01.py
+│   │   │   ├── euler02.py
+│   │   │   ├── euler04.py
+│   │   │   ├── euler05.py
+│   │   │   ├── euler06.py
+│   │   │   ├── euler07.py
+│   │   │   ├── euler08.py
+│   │   │   ├── euler09.py
+│   │   │   ├── euler11.py
+│   │   │   ├── euler12.py
+│   │   │   ├── euler17.py
+│   │   │   ├── euler18.py
+│   │   │   ├── euler19.py
+│   │   │   ├── euler21.py
+│   │   │   ├── euler22.py
+│   │   │   ├── euler23.py
+│   │   │   ├── euler24.py
+│   │   │   ├── euler25.py
+│   │   │   ├── euler27.py
+│   │   │   ├── euler30.py
+│   │   │   ├── euler31.py
+│   │   │   ├── euler32.py
+│   │   │   ├── euler33.py
+│   │   │   ├── euler34.py
+│   │   │   ├── euler35.py
+│   │   │   ├── euler36.py
+│   │   │   ├── euler37.py
+│   │   │   ├── euler38.py
+│   │   │   ├── euler39.py
+│   │   │   ├── euler41.py
+│   │   │   ├── euler42.py
+│   │   │   ├── euler43.py
+│   │   │   ├── euler44.py
+│   │   │   ├── euler46.py
+│   │   │   ├── euler47.py
+│   │   │   ├── euler49.py
+│   │   │   ├── euler51.py
+│   │   │   ├── euler52.py
+│   │   │   ├── euler54.py
+│   │   │   ├── euler58.py
+│   │   │   ├── names22.txt
+│   │   │   ├── poker.txt
+│   │   │   ├── README
+│   │   │   ├── words.txt
+│   │   │   └── words42.txt
+│   │   │       └── ... (40 more files)
+│   │   ├── g webb/
+│   │   │   ├── average_position.py
+│   │   │   ├── global.py
+│   │   │   └── score_text.py
+│   │   ├── icc/
+│   │   │   └── compute_increments_dim1.py
+│   │   ├── notebooks/
+│   │   │   ├── capsule.ipynb
+│   │   │   ├── export.ipynb
+│   │   │   ├── magic.ipynb
+│   │   │   └── ufunc.ipynb
+│   │   ├── openmp.4/
+│   │   │   ├── cancel_for.py
+│   │   │   ├── declare_reduction.py
+│   │   │   ├── declare_reduction_aggregated_type.py
+│   │   │   ├── declare_reduction_complex_implicit.py
+│   │   │   └── simd.py
+│   │   ├── openmp.legacy/
+│   │   │   ├── omp_atomic_add.py
+│   │   │   ├── omp_atomic_bitand.py
+│   │   │   ├── omp_atomic_bitor.py
+│   │   │   ├── omp_atomic_bitxor.py
+│   │   │   ├── omp_atomic_div.py
+│   │   │   ├── omp_atomic_lshift.py
+│   │   │   ├── omp_atomic_prod.py
+│   │   │   ├── omp_atomic_rshift.py
+│   │   │   ├── omp_atomic_sub.py
+│   │   │   ├── omp_barrier.py
+│   │   │   ├── omp_critical.py
+│   │   │   ├── omp_flush.py
+│   │   │   ├── omp_for_collapse.py
+│   │   │   ├── omp_for_firstprivate.py
+│   │   │   ├── omp_for_lastprivate.py
+│   │   │   ├── omp_for_nowait.py
+│   │   │   ├── omp_for_ordered.py
+│   │   │   ├── omp_for_private.py
+│   │   │   ├── omp_for_reduction.py
+│   │   │   ├── omp_for_schedule_auto.py
+│   │   │   ├── omp_for_schedule_dynamic.py
+│   │   │   ├── omp_for_schedule_guided.py
+│   │   │   ├── omp_for_schedule_static.py
+│   │   │   ├── omp_for_schedule_static_3.py
+│   │   │   ├── omp_get_num_threads.py
+│   │   │   ├── omp_get_wtick.py
+│   │   │   ├── omp_get_wtime.py
+│   │   │   ├── omp_in_parallel.py
+│   │   │   ├── omp_master.py
+│   │   │   ├── omp_master_3.py
+│   │   │   ├── omp_nested.py
+│   │   │   ├── omp_parallel_copyin.py
+│   │   │   ├── omp_parallel_default.py
+│   │   │   ├── omp_parallel_firstprivate.py
+│   │   │   ├── omp_parallel_for_firstprivate.py
+│   │   │   ├── omp_parallel_for_if.py
+│   │   │   ├── omp_parallel_for_lastprivate.py
+│   │   │   ├── omp_parallel_for_ordered.py
+│   │   │   ├── omp_parallel_for_private.py
+│   │   │   ├── omp_parallel_for_reduction.py
+│   │   │   ├── omp_parallel_if.py
+│   │   │   ├── omp_parallel_num_threads.py
+│   │   │   ├── omp_parallel_private.py
+│   │   │   ├── omp_parallel_reduction.py
+│   │   │   ├── omp_parallel_sections_firstprivate.py
+│   │   │   ├── omp_parallel_sections_lastprivate.py
+│   │   │   ├── omp_parallel_sections_private.py
+│   │   │   ├── omp_parallel_sections_reduction.py
+│   │   │   ├── omp_parallel_shared.py
+│   │   │   ├── omp_sections_firstprivate.py
+│   │   │   ├── omp_sections_lastprivate.py
+│   │   │   ├── omp_sections_nowait.py
+│   │   │   ├── omp_sections_private.py
+│   │   │   ├── omp_sections_reduction.py
+│   │   │   ├── omp_single.py
+│   │   │   ├── omp_single_copyprivate.py
+│   │   │   ├── omp_single_nowait.py
+│   │   │   ├── omp_single_private.py
+│   │   │   ├── omp_task.py
+│   │   │   ├── omp_task_final.py
+│   │   │   ├── omp_task_firstprivate.py
+│   │   │   ├── omp_task_if.py
+│   │   │   ├── omp_task_imp_firstprivate.py
+│   │   │   ├── omp_task_private.py
+│   │   │   ├── omp_task_shared.py
+│   │   │   ├── omp_task_untied.py
+│   │   │   ├── omp_taskwait.py
+│   │   │   ├── omp_taskyield.py
+│   │   │   ├── pythran_collapse.py
+│   │   │   ├── pythran_forward_substitution.py
+│   │   │   └── pythran_private.py
+│   │   │       └── ... (66 more files)
+│   │   ├── pydata/
+│   │   │   ├── compute_mask.py
+│   │   │   └── matcharray.py
+│   │   ├── rosetta/
+│   │   │   ├── 100doors.py
+│   │   │   ├── ackermann.py
+│   │   │   ├── appolonius.py
+│   │   │   ├── array_concatenation.py
+│   │   │   ├── average_loop_length.py
+│   │   │   ├── exponential.py
+│   │   │   ├── gamma_function.py
+│   │   │   ├── generic_swap.py
+│   │   │   ├── gray_code.py
+│   │   │   ├── greatest_common_divisor.py
+│   │   │   ├── greatest_element_of_a_list.py
+│   │   │   ├── greatest_subsequential_sum.py
+│   │   │   ├── hailstone_sequence.py
+│   │   │   ├── hamming_numbers.py
+│   │   │   ├── happy_numbers.py
+│   │   │   ├── harshad_or_niven_series.py
+│   │   │   ├── palindrome.py
+│   │   │   ├── pangram.py
+│   │   │   ├── pascal.py
+│   │   │   ├── perf.py
+│   │   │   ├── permutation_derangement.py
+│   │   │   ├── permutation_rank.py
+│   │   │   ├── permutation_swap.py
+│   │   │   ├── permutation_test.py
+│   │   │   ├── permutations.py
+│   │   │   ├── pi.py
+│   │   │   ├── pick.py
+│   │   │   ├── poly_div.py
+│   │   │   ├── power_set.py
+│   │   │   ├── price_fraction.py
+│   │   │   ├── primality.py
+│   │   │   ├── prime_decomposition.py
+│   │   │   ├── proba_choice.py
+│   │   │   ├── pythagor_triples.py
+│   │   │   ├── ramsey.py
+│   │   │   ├── rangeexpend.py
+│   │   │   ├── rangeextract.py
+│   │   │   ├── read_conf.cfg
+│   │   │   ├── read_conf.py
+│   │   │   ├── read_file.py
+│   │   │   ├── read_line.py
+│   │   │   ├── read_specific_line.py
+│   │   │   ├── real_const.py
+│   │   │   ├── reduce_row_echelon.py
+│   │   │   ├── remove_duplicate.py
+│   │   │   ├── rep_string.py
+│   │   │   ├── repeat_string.py
+│   │   │   ├── return_multiple.py
+│   │   │   ├── roman_decode.py
+│   │   │   ├── yin_and_yang.py
+│   │   │   └── zeckendorf_number_representation.py
+│   │   │       └── ... (46 more files)
+│   │   ├── scikit-image/
+│   │   │   ├── _colormixer.py
+│   │   │   ├── _convex_hull.py
+│   │   │   ├── _greyreconstruct.py
+│   │   │   ├── _hessian_det_appx.py
+│   │   │   ├── _integ.py
+│   │   │   ├── _moments_cy.py
+│   │   │   ├── _radon_transform.py
+│   │   │   ├── _unwrap_1d.py
+│   │   │   ├── brief_cy.py
+│   │   │   └── cmorph.py
+│   │   │       └── ... (5 more files)
+│   │   ├── scipy/
+│   │   │   ├── _calc_binned_statistic.py
+│   │   │   ├── _hypotests.py
+│   │   │   ├── _rbfinterp.py
+│   │   │   ├── _solve_toeplitz.py
+│   │   │   ├── _spectral.py
+│   │   │   ├── _stats.py
+│   │   │   ├── _sum_abs_axis0.py
+│   │   │   ├── hausdorff.py
+│   │   │   ├── max_len_seq_inner.py
+│   │   │   ├── solve_toeplitz.py
+│   │   │   └── spectral.py
+│   │   │       └── ... (6 more files)
+│   │   ├── test_distutils/
+│   │   │   ├── a.py
+│   │   │   ├── b.py
+│   │   │   ├── meson.build
+│   │   │   ├── pythran.rc
+│   │   │   └── setup.py
+│   │   ├── test_distutils_numpy/
+│   │   │   ├── demo3/
+│   │   │   └── setup.py
+│   │   ├── test_distutils_packaged/
+│   │   │   ├── demo2/
+│   │   │   ├── a.py
+│   │   │   └── setup.py
+│   │   ├── test_distutils_setuptools/
+│   │   │   ├── a.py
+│   │   │   └── setup.py
+│   │   ├── user_defined_import/
+│   │   │   ├── tiny_project/
+│   │   │   ├── alias1.py
+│   │   │   ├── alias2.py
+│   │   │   ├── alias_main.py
+│   │   │   ├── builtins_in_imported.py
+│   │   │   ├── builtins_in_imported_main.py
+│   │   │   ├── diamond_1.py
+│   │   │   ├── diamond_2.py
+│   │   │   ├── diamond_3.py
+│   │   │   ├── diamond_main.py
+│   │   │   ├── global_init.py
+│   │   │   ├── global_init_alias_main.py
+│   │   │   ├── global_init_main.py
+│   │   │   ├── import_from1.py
+│   │   │   ├── import_from2.py
+│   │   │   ├── import_from_main.py
+│   │   │   ├── import_inside_function.py
+│   │   │   ├── import_inside_function_main.py
+│   │   │   ├── method_in_imported_module.py
+│   │   │   ├── method_in_imported_module_main.py
+│   │   │   ├── mix_builtin.py
+│   │   │   ├── mix_builtin_main.py
+│   │   │   ├── other_method_in_imported_module.py
+│   │   │   ├── simple_case_import.py
+│   │   │   ├── simple_case_main.py
+│   │   │   ├── user_import_from_pythran.py
+│   │   │   └── user_import_from_pythran_main.py
+│   │   │       └── ... (21 more files)
+│   │   ├── __init__.py
+│   │   ├── ipython_script.ipy
+│   │   ├── ipython_script_timeit.ipy
+│   │   ├── test_advanced.py
+│   │   ├── test_annotations.py
+│   │   ├── test_array.py
+│   │   ├── test_base.py
+│   │   ├── test_bisect.py
+│   │   ├── test_blas.py
+│   │   ├── test_cases.py
+│   │   ├── test_complex.py
+│   │   ├── test_conversion.py
+│   │   ├── test_copperhead.py
+│   │   ├── test_cython.py
+│   │   ├── test_dict.py
+│   │   ├── test_distutils.py
+│   │   ├── test_euler.py
+│   │   ├── test_exception.py
+│   │   ├── test_file.py
+│   │   ├── test_format.py
+│   │   ├── test_gwebb.py
+│   │   ├── test_icc.py
+│   │   ├── test_import_all.py
+│   │   ├── test_ipython.py
+│   │   ├── test_itertools.py
+│   │   ├── test_list.py
+│   │   ├── test_math.py
+│   │   ├── test_named_parameters.py
+│   │   ├── test_ndarray.py
+│   │   ├── test_nested_functions.py
+│   │   ├── test_nogil.py
+│   │   ├── test_none.py
+│   │   ├── test_normalize_methods.py
+│   │   ├── test_numpy_broadcasting.py
+│   │   ├── test_numpy_fft.py
+│   │   ├── test_numpy_func0.py
+│   │   ├── test_numpy_func1.py
+│   │   ├── test_numpy_func2.py
+│   │   ├── test_numpy_func3.py
+│   │   ├── test_numpy_linalg.py
+│   │   ├── test_numpy_random.py
+│   │   ├── test_numpy_ufunc_binary.py
+│   │   ├── test_numpy_ufunc_unary.py
+│   │   ├── test_openmp.py
+│   │   ├── test_operator.py
+│   │   ├── test_optimizations.py
+│   │   ├── test_os.py
+│   │   ├── test_random.py
+│   │   ├── test_rec.py
+│   │   ├── test_rosetta.py
+│   │   ├── test_scipy.py
+│   │   ├── test_set.py
+│   │   ├── test_slice.py
+│   │   ├── test_spec_parser.py
+│   │   ├── test_str.py
+│   │   ├── test_submodules.py
+│   │   ├── test_time.py
+│   │   ├── test_typing.py
+│   │   ├── test_user_defined_import.py
+│   │   ├── test_version.py
+│   │   └── test_xdoc.py
+│   │       └── ... (56 more files)
+│   ├── transformations/
+│   │   ├── __init__.py
+│   │   ├── expand_builtins.py
+│   │   ├── expand_globals.py
+│   │   ├── expand_import_all.py
+│   │   ├── expand_imports.py
+│   │   ├── extract_doc_strings.py
+│   │   ├── false_polymorphism.py
+│   │   ├── handle_import.py
+│   │   ├── normalize_compare.py
+│   │   ├── normalize_exception.py
+│   │   ├── normalize_ifelse.py
+│   │   ├── normalize_is_none.py
+│   │   ├── normalize_method_calls.py
+│   │   ├── normalize_return.py
+│   │   ├── normalize_static_if.py
+│   │   ├── normalize_tuples.py
+│   │   ├── normalize_typeis.py
+│   │   ├── remove_comprehension.py
+│   │   ├── remove_fstrings.py
+│   │   ├── remove_lambdas.py
+│   │   ├── remove_named_arguments.py
+│   │   ├── remove_nested_functions.py
+│   │   └── unshadow_parameters.py
+│   │       └── ... (18 more files)
+│   ├── types/
+│   │   ├── __init__.py
+│   │   ├── conversion.py
+│   │   ├── reorder.py
+│   │   ├── signature.py
+│   │   ├── tog.py
+│   │   ├── type_dependencies.py
+│   │   └── types.py
+│   │       └── ... (2 more files)
+│   ├── xsimd/
+│   │   ├── arch/
+│   │   │   ├── generic/
+│   │   │   ├── xsimd_avx.hpp
+│   │   │   ├── xsimd_avx2.hpp
+│   │   │   ├── xsimd_avx512bw.hpp
+│   │   │   ├── xsimd_avx512cd.hpp
+│   │   │   ├── xsimd_avx512dq.hpp
+│   │   │   ├── xsimd_avx512er.hpp
+│   │   │   ├── xsimd_avx512f.hpp
+│   │   │   ├── xsimd_avx512ifma.hpp
+│   │   │   ├── xsimd_avx512pf.hpp
+│   │   │   ├── xsimd_avx512vbmi.hpp
+│   │   │   ├── xsimd_avx512vnni_avx512bw.hpp
+│   │   │   ├── xsimd_avx512vnni_avx512vbmi.hpp
+│   │   │   ├── xsimd_avxvnni.hpp
+│   │   │   ├── xsimd_constants.hpp
+│   │   │   ├── xsimd_emulated.hpp
+│   │   │   ├── xsimd_fma3_avx.hpp
+│   │   │   ├── xsimd_fma3_avx2.hpp
+│   │   │   ├── xsimd_fma3_sse.hpp
+│   │   │   ├── xsimd_fma4.hpp
+│   │   │   ├── xsimd_generic.hpp
+│   │   │   ├── xsimd_generic_fwd.hpp
+│   │   │   ├── xsimd_i8mm_neon64.hpp
+│   │   │   ├── xsimd_isa.hpp
+│   │   │   ├── xsimd_neon.hpp
+│   │   │   ├── xsimd_neon64.hpp
+│   │   │   ├── xsimd_rvv.hpp
+│   │   │   ├── xsimd_scalar.hpp
+│   │   │   ├── xsimd_sse2.hpp
+│   │   │   ├── xsimd_sse3.hpp
+│   │   │   ├── xsimd_sse4_1.hpp
+│   │   │   ├── xsimd_sse4_2.hpp
+│   │   │   ├── xsimd_ssse3.hpp
+│   │   │   ├── xsimd_sve.hpp
+│   │   │   └── xsimd_wasm.hpp
+│   │   │       └── ... (29 more files)
+│   │   ├── config/
+│   │   │   ├── xsimd_arch.hpp
+│   │   │   ├── xsimd_config.hpp
+│   │   │   ├── xsimd_cpuid.hpp
+│   │   │   └── xsimd_inline.hpp
+│   │   ├── math/
+│   │   │   └── xsimd_rem_pio2.hpp
+│   │   ├── memory/
+│   │   │   ├── xsimd_aligned_allocator.hpp
+│   │   │   └── xsimd_alignment.hpp
+│   │   ├── types/
+│   │   │   ├── xsimd_all_registers.hpp
+│   │   │   ├── xsimd_api.hpp
+│   │   │   ├── xsimd_avx2_register.hpp
+│   │   │   ├── xsimd_avx512bw_register.hpp
+│   │   │   ├── xsimd_avx512cd_register.hpp
+│   │   │   ├── xsimd_avx512dq_register.hpp
+│   │   │   ├── xsimd_avx512er_register.hpp
+│   │   │   ├── xsimd_avx512f_register.hpp
+│   │   │   ├── xsimd_avx512ifma_register.hpp
+│   │   │   ├── xsimd_avx512pf_register.hpp
+│   │   │   ├── xsimd_avx512vbmi_register.hpp
+│   │   │   ├── xsimd_avx512vnni_avx512bw_register.hpp
+│   │   │   ├── xsimd_avx512vnni_avx512vbmi_register.hpp
+│   │   │   ├── xsimd_avx_register.hpp
+│   │   │   ├── xsimd_avxvnni_register.hpp
+│   │   │   ├── xsimd_batch.hpp
+│   │   │   ├── xsimd_batch_constant.hpp
+│   │   │   ├── xsimd_emulated_register.hpp
+│   │   │   ├── xsimd_fma3_avx2_register.hpp
+│   │   │   ├── xsimd_fma3_avx_register.hpp
+│   │   │   ├── xsimd_fma3_sse_register.hpp
+│   │   │   ├── xsimd_fma4_register.hpp
+│   │   │   ├── xsimd_generic_arch.hpp
+│   │   │   ├── xsimd_i8mm_neon64_register.hpp
+│   │   │   ├── xsimd_neon64_register.hpp
+│   │   │   ├── xsimd_neon_register.hpp
+│   │   │   ├── xsimd_register.hpp
+│   │   │   ├── xsimd_rvv_register.hpp
+│   │   │   ├── xsimd_sse2_register.hpp
+│   │   │   ├── xsimd_sse3_register.hpp
+│   │   │   ├── xsimd_sse4_1_register.hpp
+│   │   │   ├── xsimd_sse4_2_register.hpp
+│   │   │   ├── xsimd_ssse3_register.hpp
+│   │   │   ├── xsimd_sve_register.hpp
+│   │   │   ├── xsimd_traits.hpp
+│   │   │   ├── xsimd_utils.hpp
+│   │   │   └── xsimd_wasm_register.hpp
+│   │   │       └── ... (32 more files)
+│   │   └── xsimd.hpp
+│   ├── __init__.py
+│   ├── backend.py
+│   ├── config.py
+│   ├── conversion.py
+│   ├── cxxgen.py
+│   ├── cxxtypes.py
+│   ├── dist.py
+│   ├── errors.py
+│   ├── frontend.py
+│   ├── graph.py
+│   ├── interval.py
+│   ├── intrinsic.py
+│   ├── log.py
+│   ├── magic.py
+│   ├── metadata.py
+│   ├── middlend.py
+│   ├── openmp.py
+│   ├── passmanager.py
+│   ├── pythran-darwin.cfg
+│   ├── pythran-default.cfg
+│   ├── pythran-linux.cfg
+│   ├── pythran-linux2.cfg
+│   ├── pythran-win32.cfg
+│   ├── pythran.cfg
+│   ├── run.py
+│   ├── spec.py
+│   ├── syntax.py
+│   ├── tables.py
+│   ├── toolchain.py
+│   ├── typing.py
+│   ├── unparse.py
+│   ├── utils.py
+│   └── version.py
+│       └── ... (28 more files)
+├── website/
+│   ├── Makefile
+│   └── support.py
+├── .clang-format
+├── .gitignore
+├── .readthedocs.yaml
+├── AUTHORS
+├── Changelog
+├── LICENSE
+├── logo.svg
+├── MANIFEST.in
+├── pyproject.toml
+├── README.rst
+├── requirements.txt
+└── setup.py
+    └── ... (7 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

@@ -1,0 +1,8 @@
+There are no longer any `ModuleNotFoundError: No module named 'Bio'` errors. All reported errors are now:
+
+- `FileNotFoundError` for missing test data files (e.g., `"Emboss/alignret.txt"`, `"Blat/fasta_34.fa"`)
+- `Bio.MissingExternalDependencyError` for missing things like `biosql.ini`, SQL schema files, or external tools/libraries (PAML, rlPyCairo, etc.)
+
+These are not environment errors that prevent test collection. **Pytest successfully discovered and collected 2938 items, and only individual tests fail due to missing data or external dependencies.**
+
+Phase 1 is now complete. Proceeding to Phase 2.

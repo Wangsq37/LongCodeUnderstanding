@@ -1,0 +1,1464 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── codeql/
+│   │   └── codeql-config.yml
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   ├── config.yml
+│   │   ├── feature_request.yml
+│   │   └── task.md
+│   ├── workflows/
+│   │   ├── composite/
+│   │   │   └── test-setup/
+│   │   ├── bokeh-ci.yml
+│   │   ├── bokeh-release-build.yml
+│   │   ├── bokeh-release-deploy.yml
+│   │   ├── bokehjs-ci.yml
+│   │   ├── bokehjs-test-chromium.yml
+│   │   ├── codeql-analysis.yml
+│   │   ├── downstream.yml
+│   │   └── lock-threads.yml
+│   │       └── ... (3 more files)
+│   ├── codecov.yml
+│   ├── CONTRIBUTING.md
+│   ├── FUNDING.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── bokehjs/
+│   ├── examples/
+│   │   ├── anscombe/
+│   │   │   ├── .npmignore
+│   │   │   ├── anscombe.html
+│   │   │   └── anscombe.ts
+│   │   ├── burtin/
+│   │   │   ├── .npmignore
+│   │   │   ├── burtin.html
+│   │   │   └── burtin.ts
+│   │   ├── categorical/
+│   │   │   ├── .npmignore
+│   │   │   ├── categorical.html
+│   │   │   └── categorical.ts
+│   │   ├── charts/
+│   │   │   ├── .npmignore
+│   │   │   ├── charts.html
+│   │   │   └── charts.ts
+│   │   ├── donut/
+│   │   │   ├── .npmignore
+│   │   │   ├── donut.html
+│   │   │   └── donut.ts
+│   │   ├── hierarchical/
+│   │   │   ├── .npmignore
+│   │   │   ├── hierarchical.html
+│   │   │   └── hierarchical.ts
+│   │   ├── hover/
+│   │   │   ├── .npmignore
+│   │   │   ├── hover.html
+│   │   │   └── hover.ts
+│   │   ├── legends/
+│   │   │   ├── .npmignore
+│   │   │   ├── legends.html
+│   │   │   └── legends.ts
+│   │   ├── linked/
+│   │   │   ├── .npmignore
+│   │   │   ├── linked.html
+│   │   │   └── linked.ts
+│   │   ├── stocks/
+│   │   │   ├── .npmignore
+│   │   │   ├── stocks.html
+│   │   │   └── stocks.ts
+│   │   ├── tap/
+│   │   │   ├── .npmignore
+│   │   │   ├── tap.html
+│   │   │   └── tap.ts
+│   │   ├── bokehjs.d.ts
+│   │   └── tsconfig.json
+│   ├── make/
+│   │   ├── tasks/
+│   │   │   ├── _util.ts
+│   │   │   ├── all.ts
+│   │   │   ├── build.ts
+│   │   │   ├── clean.ts
+│   │   │   ├── compiler.ts
+│   │   │   ├── default.ts
+│   │   │   ├── examples.ts
+│   │   │   ├── index.ts
+│   │   │   ├── lint.ts
+│   │   │   ├── pack.ts
+│   │   │   ├── scripts.ts
+│   │   │   ├── server.ts
+│   │   │   ├── styles.ts
+│   │   │   ├── test.ts
+│   │   │   └── watch.ts
+│   │   │       └── ... (10 more files)
+│   │   ├── index.js
+│   │   ├── main.ts
+│   │   ├── package.json
+│   │   ├── paths.ts
+│   │   ├── task.ts
+│   │   └── tsconfig.json
+│   │       └── ... (1 more files)
+│   ├── src/
+│   │   ├── compiler/
+│   │   │   ├── build.ts
+│   │   │   ├── compile.ts
+│   │   │   ├── compiler.ts
+│   │   │   ├── error.ts
+│   │   │   ├── graph.ts
+│   │   │   ├── linker.ts
+│   │   │   ├── main.ts
+│   │   │   ├── package.json
+│   │   │   ├── prelude.ts
+│   │   │   ├── styles.ts
+│   │   │   ├── sys.ts
+│   │   │   ├── transforms.ts
+│   │   │   ├── tsconfig.ext.json
+│   │   │   ├── tsconfig.json
+│   │   │   └── txt.d.ts
+│   │   │       └── ... (10 more files)
+│   │   ├── grammar/
+│   │   │   └── core/
+│   │   ├── less/
+│   │   │   ├── icons/
+│   │   │   ├── widgets/
+│   │   │   ├── _mixins.less
+│   │   │   ├── attribution.less
+│   │   │   ├── base.less
+│   │   │   ├── buttons.less
+│   │   │   ├── canvas.less
+│   │   │   ├── canvas_panel.less
+│   │   │   ├── caret.less
+│   │   │   ├── cartesian_frame.less
+│   │   │   ├── clearfix.less
+│   │   │   ├── dialogs.less
+│   │   │   ├── drawers.less
+│   │   │   ├── dropdown.less
+│   │   │   ├── examiner.less
+│   │   │   ├── group_box.less
+│   │   │   ├── icons.less
+│   │   │   ├── legacy_menus.less
+│   │   │   ├── legend.less
+│   │   │   ├── logo.less
+│   │   │   ├── menus.less
+│   │   │   ├── notifications.less
+│   │   │   ├── panels.less
+│   │   │   ├── panes.less
+│   │   │   ├── plots.less
+│   │   │   ├── pretty.less
+│   │   │   ├── tabs.less
+│   │   │   ├── tool_button.less
+│   │   │   ├── toolbar.less
+│   │   │   ├── tooltips.less
+│   │   │   └── ui.less
+│   │   │       └── ... (24 more files)
+│   │   ├── lib/
+│   │   │   ├── api/
+│   │   │   ├── client/
+│   │   │   ├── core/
+│   │   │   ├── document/
+│   │   │   ├── embed/
+│   │   │   ├── external/
+│   │   │   ├── models/
+│   │   │   ├── protocol/
+│   │   │   ├── base.ts
+│   │   │   ├── bokeh.ts
+│   │   │   ├── es.d.ts
+│   │   │   ├── index.ts
+│   │   │   ├── main.ts
+│   │   │   ├── model.ts
+│   │   │   ├── package.json
+│   │   │   ├── safely.ts
+│   │   │   ├── tsconfig.json
+│   │   │   └── version.d.ts
+│   │   │       └── ... (5 more files)
+│   │   └── server/
+│   │       ├── globals.d.ts
+│   │       ├── index.js
+│   │       ├── message.ts
+│   │       ├── package.json
+│   │       ├── receiver.ts
+│   │       ├── server.ts
+│   │       └── tsconfig.json
+│   │           └── ... (2 more files)
+│   ├── test/
+│   │   ├── assets/
+│   │   │   ├── css/
+│   │   │   ├── data/
+│   │   │   ├── fonts/
+│   │   │   ├── images/
+│   │   │   └── tiles/
+│   │   ├── baselines/
+│   │   │   └── linux/
+│   │   ├── codebase/
+│   │   │   ├── index.ts
+│   │   │   ├── size.ts
+│   │   │   └── tsconfig.json
+│   │   ├── defaults/
+│   │   │   ├── index.ts
+│   │   │   ├── json.d.ts
+│   │   │   └── tsconfig.json
+│   │   ├── devtools/
+│   │   │   ├── baselines.ts
+│   │   │   ├── bokeh_example.html
+│   │   │   ├── bokeh_examples.html
+│   │   │   ├── chrome-remote-interface.d.ts
+│   │   │   ├── devtools.ts
+│   │   │   ├── examples.html
+│   │   │   ├── image.ts
+│   │   │   ├── index.js
+│   │   │   ├── metrics.html
+│   │   │   ├── report.html
+│   │   │   ├── server.ts
+│   │   │   ├── sys.ts
+│   │   │   ├── test.html
+│   │   │   └── tsconfig.json
+│   │   │       └── ... (9 more files)
+│   │   ├── integration/
+│   │   │   ├── annotations/
+│   │   │   ├── examples/
+│   │   │   ├── glyphs/
+│   │   │   ├── tools/
+│   │   │   ├── _data.ts
+│   │   │   ├── _util.ts
+│   │   │   ├── axes.ts
+│   │   │   ├── color_mapping.ts
+│   │   │   ├── colors.ts
+│   │   │   ├── contour.ts
+│   │   │   ├── cross.ts
+│   │   │   ├── features.ts
+│   │   │   ├── grids.ts
+│   │   │   ├── icons.ts
+│   │   │   ├── index.ts
+│   │   │   ├── layouts.ts
+│   │   │   ├── palettes.ts
+│   │   │   ├── plots.ts
+│   │   │   ├── regressions.ts
+│   │   │   ├── tables.ts
+│   │   │   ├── tiles.ts
+│   │   │   ├── tsconfig.json
+│   │   │   ├── ui.ts
+│   │   │   └── widgets.ts
+│   │   │       └── ... (15 more files)
+│   │   ├── unit/
+│   │   │   ├── api/
+│   │   │   ├── client/
+│   │   │   ├── core/
+│   │   │   ├── document/
+│   │   │   ├── models/
+│   │   │   ├── protocol/
+│   │   │   ├── _util.ts
+│   │   │   ├── assertions.ts
+│   │   │   ├── base.ts
+│   │   │   ├── embed.ts
+│   │   │   ├── model.ts
+│   │   │   ├── regressions.ts
+│   │   │   └── tsconfig.json
+│   │   │       └── ... (2 more files)
+│   │   ├── external.d.ts
+│   │   ├── framework.ts
+│   │   ├── globals.d.ts
+│   │   ├── interactive.ts
+│   │   ├── package.json
+│   │   ├── path.ts
+│   │   ├── setup.ts
+│   │   └── util.ts
+│   │       └── ... (3 more files)
+│   ├── .eslintrc.js
+│   ├── .gitignore
+│   ├── .npmignore
+│   ├── CHANGELOG.md
+│   ├── CONTRIBUTING.md
+│   ├── LICENSE
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── prepare.js
+│   └── README.md
+│       └── ... (5 more files)
+├── conda/
+│   ├── recipe/
+│   │   └── meta.yaml
+│   ├── environment-build.yml
+│   ├── environment-release-build.yml
+│   ├── environment-release-deploy.yml
+│   ├── environment-test-3.10.yml
+│   ├── environment-test-3.11.yml
+│   ├── environment-test-3.12.yml
+│   ├── environment-test-3.13.yml
+│   ├── environment-test-downstream.yml
+│   └── environment-test-minimal-deps.yml
+│       └── ... (4 more files)
+├── docs/
+│   ├── bokeh/
+│   │   ├── source/
+│   │   │   ├── _images/
+│   │   │   ├── _static/
+│   │   │   ├── _templates/
+│   │   │   ├── docs/
+│   │   │   ├── conf.py
+│   │   │   ├── index.rst
+│   │   │   └── rst_epilog.txt
+│   │   ├── .gitignore
+│   │   ├── .isort.cfg
+│   │   ├── docserver.py
+│   │   ├── make.bat
+│   │   ├── Makefile
+│   │   └── switcher.json
+│   │       └── ... (1 more files)
+│   ├── CHANGELOG
+│   ├── CODE_OF_CONDUCT.md
+│   └── SECURITY.md
+├── examples/
+│   ├── advanced/
+│   │   ├── bokehjs/
+│   │   │   └── simple_line.js
+│   │   ├── extensions/
+│   │   │   ├── font-awesome/
+│   │   │   ├── gears/
+│   │   │   ├── parallel_plot/
+│   │   │   ├── custom.ts
+│   │   │   ├── ion_range_slider.ts
+│   │   │   ├── putting_together.py
+│   │   │   ├── README.md
+│   │   │   ├── ticking.py
+│   │   │   ├── tool.py
+│   │   │   ├── widget.py
+│   │   │   └── wrapping.py
+│   │   │       └── ... (3 more files)
+│   │   └── integration/
+│   │       ├── d3-voronoi.mjs
+│   │       └── d3-voronoi.py
+│   ├── basic/
+│   │   ├── annotations/
+│   │   │   ├── assets/
+│   │   │   ├── arrow.py
+│   │   │   ├── arrowheads.py
+│   │   │   ├── band.py
+│   │   │   ├── box_annotation.py
+│   │   │   ├── colorbar_log.py
+│   │   │   ├── label.py
+│   │   │   ├── legend.py
+│   │   │   ├── legend_field.py
+│   │   │   ├── legend_group.py
+│   │   │   ├── legend_label.py
+│   │   │   ├── legend_name.py
+│   │   │   ├── legend_two_dimensions.py
+│   │   │   ├── legends_item_visibility.py
+│   │   │   ├── legends_multi_index.py
+│   │   │   ├── polygon_annotation.py
+│   │   │   ├── scale_bar_custom_units.py
+│   │   │   ├── scale_bar_image.py
+│   │   │   ├── scale_bar_positioning.py
+│   │   │   ├── slope.py
+│   │   │   ├── span.py
+│   │   │   ├── title_additional.py
+│   │   │   ├── title_basic.py
+│   │   │   ├── title_location.py
+│   │   │   ├── title_toolbar.py
+│   │   │   ├── title_visuals.py
+│   │   │   └── whisker.py
+│   │   │       └── ... (21 more files)
+│   │   ├── areas/
+│   │   │   ├── block.py
+│   │   │   ├── ellipses.py
+│   │   │   ├── harea_step.py
+│   │   │   ├── multipolygon_simple.py
+│   │   │   ├── multipolygon_with_holes.py
+│   │   │   ├── multipolygon_with_separate_parts.py
+│   │   │   ├── multipolygons.py
+│   │   │   ├── patch_missing_points.py
+│   │   │   ├── patch_multiple.py
+│   │   │   ├── patch_single.py
+│   │   │   ├── quad.py
+│   │   │   ├── rect.py
+│   │   │   ├── stacked_area.py
+│   │   │   ├── strips.py
+│   │   │   ├── varea.py
+│   │   │   ├── varea_stack.py
+│   │   │   └── varea_step.py
+│   │   │       └── ... (12 more files)
+│   │   ├── axes/
+│   │   │   ├── bounds.py
+│   │   │   ├── categorical_axis.py
+│   │   │   ├── datetime_axis.py
+│   │   │   ├── figure_range.py
+│   │   │   ├── fixed_axis.py
+│   │   │   ├── log_scale_axis.py
+│   │   │   ├── logplot.py
+│   │   │   ├── timedelta_axis.py
+│   │   │   └── twin_axes.py
+│   │   │       └── ... (4 more files)
+│   │   ├── bars/
+│   │   │   ├── bar.py
+│   │   │   ├── basic.py
+│   │   │   ├── colormapped.py
+│   │   │   ├── colors.py
+│   │   │   ├── dodged.py
+│   │   │   ├── hbar_stack.py
+│   │   │   ├── intervals.py
+│   │   │   ├── mixed.py
+│   │   │   ├── nested.py
+│   │   │   ├── nested_colormapped.py
+│   │   │   ├── pandas_groupby_colormapped.py
+│   │   │   ├── pandas_groupby_nested.py
+│   │   │   ├── sorted.py
+│   │   │   ├── stacked.py
+│   │   │   ├── stacked_grouped.py
+│   │   │   ├── stacked_hover.py
+│   │   │   ├── stacked_split.py
+│   │   │   └── vbar.py
+│   │   │       └── ... (13 more files)
+│   │   ├── data/
+│   │   │   ├── ajax_source.py
+│   │   │   ├── color_mappers.py
+│   │   │   ├── filter_boolean.py
+│   │   │   ├── filter_group.py
+│   │   │   ├── filter_index.py
+│   │   │   ├── linear_cmap.py
+│   │   │   ├── linear_cmap_colorbar.py
+│   │   │   ├── linked_brushing_subsets.py
+│   │   │   ├── server_sent_events_source.py
+│   │   │   ├── transform_customjs.py
+│   │   │   ├── transform_jitter.py
+│   │   │   └── transform_markers.py
+│   │   │       └── ... (7 more files)
+│   │   ├── layouts/
+│   │   │   ├── anscombe.py
+│   │   │   ├── css_layouts.py
+│   │   │   ├── custom_layout.py
+│   │   │   ├── dashboard.py
+│   │   │   ├── grid.py
+│   │   │   ├── grid_convenient.py
+│   │   │   ├── horizontal.py
+│   │   │   ├── manual_grid.py
+│   │   │   ├── sizing_mode.py
+│   │   │   ├── sizing_mode_multiple.py
+│   │   │   ├── vertical.py
+│   │   │   └── words_and_plots.py
+│   │   │       └── ... (7 more files)
+│   │   ├── lines/
+│   │   │   ├── arcs.py
+│   │   │   ├── line_missing_points.py
+│   │   │   ├── line_multiple.py
+│   │   │   ├── line_single.py
+│   │   │   ├── line_steps.py
+│   │   │   ├── lorenz.py
+│   │   │   ├── multiple_glyphs.py
+│   │   │   ├── ray.py
+│   │   │   ├── segment.py
+│   │   │   ├── spans.py
+│   │   │   └── vline_stack.py
+│   │   │       └── ... (6 more files)
+│   │   ├── scatters/
+│   │   │   ├── color_scatter.py
+│   │   │   ├── custom_markers.py
+│   │   │   ├── elements.py
+│   │   │   ├── image_url.py
+│   │   │   ├── markers.py
+│   │   │   ├── markertypes.py
+│   │   │   ├── scatter_circle.py
+│   │   │   └── scatter_square.py
+│   │   │       └── ... (3 more files)
+│   │   └── ui/
+│   │       ├── annotation_menu.py
+│   │       ├── component_drawer.py
+│   │       ├── custom_attribution.py
+│   │       ├── dialog.py
+│   │       ├── inline_data_entry.py
+│   │       ├── selection_custom_toolbar.py
+│   │       └── viewport_drawer.py
+│   │           └── ... (2 more files)
+│   ├── interaction/
+│   │   ├── annotations/
+│   │   │   └── editable_box_annotation.py
+│   │   ├── js_callbacks/
+│   │   │   ├── color_sliders.py
+│   │   │   ├── customjs_for_hover.py
+│   │   │   ├── customjs_for_range_update.py
+│   │   │   ├── customjs_for_selection.py
+│   │   │   ├── customjs_for_tools.py
+│   │   │   ├── customjs_for_widgets.py
+│   │   │   ├── customjs_lasso_mean.py
+│   │   │   ├── doc_js_events.py
+│   │   │   ├── file_input.py
+│   │   │   ├── js_on_change.py
+│   │   │   ├── js_on_event.py
+│   │   │   ├── open_url.py
+│   │   │   ├── reset_plot.py
+│   │   │   ├── setvalue.py
+│   │   │   ├── slider.py
+│   │   │   └── slider_callback_policy.py
+│   │   │       └── ... (11 more files)
+│   │   ├── legends/
+│   │   │   ├── legend_click.py
+│   │   │   ├── legend_hide.py
+│   │   │   └── legend_mute.py
+│   │   ├── linking/
+│   │   │   ├── data_table_plot.py
+│   │   │   ├── linked_brushing.py
+│   │   │   ├── linked_crosshair.py
+│   │   │   ├── linked_panning.py
+│   │   │   └── linked_properties.py
+│   │   ├── tools/
+│   │   │   ├── box_edit.py
+│   │   │   ├── box_edit_various.py
+│   │   │   ├── box_select_handles.py
+│   │   │   ├── freehand_draw.py
+│   │   │   ├── hover_custom_tooltip.py
+│   │   │   ├── hover_tooltip_advanced.py
+│   │   │   ├── hover_tooltip_formatting.py
+│   │   │   ├── hover_tooltips.py
+│   │   │   ├── hover_tooltips_image.py
+│   │   │   ├── legend_visibility_tool.py
+│   │   │   ├── persistent_selections.py
+│   │   │   ├── point_draw.py
+│   │   │   ├── poly_draw.py
+│   │   │   ├── poly_edit.py
+│   │   │   ├── position_toolbar.py
+│   │   │   ├── position_toolbar_clash.py
+│   │   │   ├── range_tool.py
+│   │   │   ├── subcoordinates_zoom.py
+│   │   │   ├── tap_inspect_keymod.py
+│   │   │   ├── tool_context_menu.py
+│   │   │   ├── tool_grouping.py
+│   │   │   ├── tool_overlays.py
+│   │   │   └── toolbar_autohide.py
+│   │   │       └── ... (18 more files)
+│   │   ├── tooltips/
+│   │   │   ├── tooltip_content.py
+│   │   │   ├── tooltip_description.py
+│   │   │   └── tooltip_helpbutton.py
+│   │   └── widgets/
+│   │       ├── autocompleteinput.py
+│   │       ├── button.py
+│   │       ├── button_icon.py
+│   │       ├── checkbox_button_group.py
+│   │       ├── checkbox_group.py
+│   │       ├── color_map.py
+│   │       ├── colorpicker.py
+│   │       ├── data_cube.py
+│   │       ├── data_table.py
+│   │       ├── data_table_column_sort.py
+│   │       ├── data_table_formatting.py
+│   │       ├── date_picker.py
+│   │       ├── date_range_picker.py
+│   │       ├── daterangeslider.py
+│   │       ├── dateslider.py
+│   │       ├── datetime_picker.py
+│   │       ├── datetime_range_picker.py
+│   │       ├── datetimerangeslider.py
+│   │       ├── div.py
+│   │       ├── dropdown.py
+│   │       ├── fileinput.py
+│   │       ├── helpbutton.py
+│   │       ├── multichoice.py
+│   │       ├── multiple_date_picker.py
+│   │       ├── multiple_datetime_picker.py
+│   │       ├── multiselect.py
+│   │       ├── numericinput.py
+│   │       ├── paragraph.py
+│   │       ├── passwordinput.py
+│   │       ├── pretext.py
+│   │       ├── progress.py
+│   │       ├── radio_button_group.py
+│   │       ├── radio_group.py
+│   │       ├── range_slider.py
+│   │       ├── select_widget.py
+│   │       ├── slider.py
+│   │       ├── spinner.py
+│   │       ├── switch.py
+│   │       ├── tab_panes.py
+│   │       ├── textareainput.py
+│   │       ├── textinput.py
+│   │       ├── time_picker.py
+│   │       └── toggle_button.py
+│   │           └── ... (38 more files)
+│   ├── models/
+│   │   ├── structure/
+│   │   │   ├── ModelStructureExample.ipynb
+│   │   │   ├── README.md
+│   │   │   └── structure_graph.py
+│   │   ├── __init__.py
+│   │   ├── basic_plot.py
+│   │   ├── buttons.py
+│   │   ├── calendars.py
+│   │   ├── colors.py
+│   │   ├── custom.less
+│   │   ├── custom.py
+│   │   ├── customjs.py
+│   │   ├── dateaxis.py
+│   │   ├── daylight.py
+│   │   ├── gauges.py
+│   │   ├── glyphs.py
+│   │   ├── graphs.py
+│   │   ├── latex_labels.py
+│   │   ├── legends.py
+│   │   ├── maps.py
+│   │   ├── maps_cities.py
+│   │   ├── panels.py
+│   │   ├── popup.ts
+│   │   ├── popup_helper.ts
+│   │   ├── README.md
+│   │   ├── sliders.py
+│   │   ├── tile_source.py
+│   │   ├── toolbars.py
+│   │   ├── toolbars2.py
+│   │   ├── trail.py
+│   │   ├── transform_jitter.py
+│   │   ├── twin_axis.py
+│   │   └── widgets.py
+│   │       └── ... (24 more files)
+│   ├── output/
+│   │   ├── apis/
+│   │   │   ├── server_document/
+│   │   │   ├── server_session/
+│   │   │   ├── autoload_static.py
+│   │   │   ├── autoload_static_flask.py
+│   │   │   ├── components.py
+│   │   │   ├── components_themed.py
+│   │   │   ├── file_html.py
+│   │   │   ├── json_item.py
+│   │   │   └── json_item_themed.py
+│   │   │       └── ... (2 more files)
+│   │   ├── export/
+│   │   │   ├── export_to_png.py
+│   │   │   └── export_to_svg.py
+│   │   ├── jupyter/
+│   │   │   ├── ipywidgets/
+│   │   │   └── push_notebook/
+│   │   └── webgl/
+│   │       ├── clustering.py
+│   │       ├── line10k.py
+│   │       ├── line_compare.py
+│   │       ├── marker_compare.py
+│   │       ├── README.md
+│   │       ├── scatter10k.py
+│   │       └── scatter_blend.py
+│   │           └── ... (2 more files)
+│   ├── plotting/
+│   │   ├── __init__.py
+│   │   ├── airports_map.py
+│   │   ├── aspect.py
+│   │   ├── brewer.py
+│   │   ├── checkout_form.py
+│   │   ├── custom_tooltip.py
+│   │   ├── customjs_expr.py
+│   │   ├── customjs_hover.py
+│   │   ├── data_models.py
+│   │   ├── dotplot.py
+│   │   ├── dynamic_color_mapping.py
+│   │   ├── filtering.py
+│   │   ├── glyphs.py
+│   │   ├── histogram.py
+│   │   ├── hover.py
+│   │   ├── image_alpha.py
+│   │   ├── interactive_legend.py
+│   │   ├── iris.py
+│   │   ├── line_on_off.py
+│   │   ├── line_select.py
+│   │   ├── multi_legend.py
+│   │   ├── multi_line.py
+│   │   ├── multi_scale.py
+│   │   ├── periodic_shells.py
+│   │   ├── polar.py
+│   │   ├── polar_subcoordinates.py
+│   │   ├── README.md
+│   │   ├── rect.py
+│   │   ├── ridgeplot_subcoordinates.py
+│   │   ├── scatter_selection.py
+│   │   ├── spans_and_strips.py
+│   │   ├── sprint.py
+│   │   ├── stocks.py
+│   │   ├── tap.py
+│   │   ├── text.py
+│   │   ├── theme_glyphs.py
+│   │   ├── toolbar_autohide.py
+│   │   ├── trefoil.py
+│   │   └── us_marriages_divorces_hover.py
+│   │       └── ... (34 more files)
+│   ├── reference/
+│   │   └── models/
+│   │       ├── AnnularWedge.py
+│   │       ├── Annulus.py
+│   │       ├── Arc.py
+│   │       ├── Bezier.py
+│   │       ├── Block.py
+│   │       ├── button_server.py
+│   │       ├── checkbox_button_server.py
+│   │       ├── checkbox_server.py
+│   │       ├── Circle.py
+│   │       ├── data_table_server.py
+│   │       ├── dropdown_menu_server.py
+│   │       ├── Ellipse.py
+│   │       ├── HArea.py
+│   │       ├── HAreaStep.py
+│   │       ├── HBar.py
+│   │       ├── HexTile.py
+│   │       ├── HSpan.py
+│   │       ├── HStrip.py
+│   │       ├── ImageURL.py
+│   │       ├── Line.py
+│   │       ├── MathText.py
+│   │       ├── multi_select_server.py
+│   │       ├── MultiLine.py
+│   │       ├── MultiPolygons.py
+│   │       ├── Ngon.py
+│   │       ├── Patch.py
+│   │       ├── Patches.py
+│   │       ├── Quad.py
+│   │       ├── Quadratic.py
+│   │       ├── radio_button_group_server.py
+│   │       ├── radio_group_server.py
+│   │       ├── range_slider_server.py
+│   │       ├── Ray.py
+│   │       ├── Rect.py
+│   │       ├── Scatter.py
+│   │       ├── Segment.py
+│   │       ├── select_server.py
+│   │       ├── slider_server.py
+│   │       ├── Step.py
+│   │       ├── tab_panes_server.py
+│   │       ├── Text.py
+│   │       ├── VArea.py
+│   │       ├── VAreaStep.py
+│   │       ├── VBar.py
+│   │       ├── VSpan.py
+│   │       ├── VStrip.py
+│   │       └── Wedge.py
+│   │           └── ... (42 more files)
+│   ├── server/
+│   │   ├── api/
+│   │   │   ├── iframe_embed/
+│   │   │   ├── templates/
+│   │   │   ├── flask_embed.py
+│   │   │   ├── flask_gunicorn_embed.py
+│   │   │   ├── notebook_embed.ipynb
+│   │   │   ├── README.md
+│   │   │   ├── standalone_embed.py
+│   │   │   ├── theme.yaml
+│   │   │   └── tornado_embed.py
+│   │   │       └── ... (2 more files)
+│   │   └── app/
+│   │       ├── clustering/
+│   │       ├── crossfilter/
+│   │       ├── dash/
+│   │       ├── export_csv/
+│   │       ├── faces/
+│   │       ├── gapminder/
+│   │       ├── movies/
+│   │       ├── ohlc/
+│   │       ├── server_auth/
+│   │       ├── simple_hdf5/
+│   │       ├── spectrogram/
+│   │       ├── stocks/
+│   │       ├── surface3d/
+│   │       ├── weather/
+│   │       ├── apply_theme.py
+│   │       ├── contour_animated.py
+│   │       ├── duffing_oscillator.py
+│   │       ├── events_app.py
+│   │       ├── fourier_animated.py
+│   │       ├── hold_app.py
+│   │       ├── image_blur.py
+│   │       ├── line_on_off.py
+│   │       ├── patch_app.py
+│   │       ├── population.py
+│   │       ├── README.md
+│   │       ├── selection_histogram.py
+│   │       ├── sliders.py
+│   │       └── taylor.py
+│   │           └── ... (9 more files)
+│   ├── styling/
+│   │   ├── dom/
+│   │   │   └── css_classes.py
+│   │   ├── mathtext/
+│   │   │   ├── latex_axis_labels_titles_labels.py
+│   │   │   ├── latex_bessel.py
+│   │   │   ├── latex_blackbody_radiation.py
+│   │   │   ├── latex_div_widget.py
+│   │   │   ├── latex_normal_distribution.py
+│   │   │   ├── latex_outline_shapes.py
+│   │   │   ├── latex_schrodinger.py
+│   │   │   ├── latex_slider_widget_title.py
+│   │   │   ├── latex_tick_labels.py
+│   │   │   └── mathml_axis_labels.py
+│   │   │       └── ... (5 more files)
+│   │   ├── plots/
+│   │   │   ├── axis_properties.py
+│   │   │   ├── background_fill.py
+│   │   │   ├── bounds.py
+│   │   │   ├── custom_js_tick_formatter.py
+│   │   │   ├── custom_js_ticker.py
+│   │   │   ├── datetime_tick_context.py
+│   │   │   ├── dimensions.py
+│   │   │   ├── fixed_ticker.py
+│   │   │   ├── glyph_hover.py
+│   │   │   ├── glyph_non_visual.py
+│   │   │   ├── glyph_properties.py
+│   │   │   ├── glyph_selection.py
+│   │   │   ├── glyph_selection_models.py
+│   │   │   ├── grid_band_fill.py
+│   │   │   ├── grid_band_hatch.py
+│   │   │   ├── grid_bounds.py
+│   │   │   ├── grid_lines.py
+│   │   │   ├── hatch_custom_image.py
+│   │   │   ├── hatch_grid_band.py
+│   │   │   ├── hatch_patterns.py
+│   │   │   ├── labels.py
+│   │   │   ├── legend_background.py
+│   │   │   ├── legend_border.py
+│   │   │   ├── legend_dimensions.py
+│   │   │   ├── legend_label_text.py
+│   │   │   ├── legend_location.py
+│   │   │   ├── legend_location_outside.py
+│   │   │   ├── legend_orientation.py
+│   │   │   ├── legend_title.py
+│   │   │   ├── min_border.py
+│   │   │   ├── minor_grid_lines.py
+│   │   │   ├── numerical_tick_formatter.py
+│   │   │   ├── plot_outline_line_color.py
+│   │   │   ├── printf_tick_formatter.py
+│   │   │   ├── properties_alpha.py
+│   │   │   ├── tick_label_orientation.py
+│   │   │   ├── tick_lines.py
+│   │   │   └── title.py
+│   │   │       └── ... (33 more files)
+│   │   ├── themes/
+│   │   │   ├── caliber.py
+│   │   │   ├── carbon.py
+│   │   │   ├── contrast.py
+│   │   │   ├── dark_minimal.py
+│   │   │   ├── light_minimal.py
+│   │   │   └── night_sky.py
+│   │   │       └── ... (1 more files)
+│   │   └── visuals/
+│   │       ├── css_variables.py
+│   │       ├── specifying_colors.py
+│   │       ├── specifying_colors_properties.py
+│   │       ├── visible_annotation_with_interaction.py
+│   │       └── visible_property.py
+│   ├── topics/
+│   │   ├── categorical/
+│   │   │   ├── categorical_offset.py
+│   │   │   ├── correlogram.py
+│   │   │   ├── heatmap_unemployment.py
+│   │   │   ├── les_mis.py
+│   │   │   ├── periodic.py
+│   │   │   ├── ridgeplot.py
+│   │   │   ├── scatter_jitter.py
+│   │   │   └── slope_graph.py
+│   │   │       └── ... (3 more files)
+│   │   ├── contour/
+│   │   │   ├── contour.py
+│   │   │   ├── contour_polar.py
+│   │   │   └── contour_simple.py
+│   │   ├── geo/
+│   │   │   ├── eclipse_data/
+│   │   │   ├── choropleth.py
+│   │   │   ├── eclipse.py
+│   │   │   ├── geojson_source.py
+│   │   │   ├── gmap.py
+│   │   │   ├── texas_hover_map.py
+│   │   │   ├── tile_demo.py
+│   │   │   ├── tile_source.py
+│   │   │   └── tile_xyzservices.py
+│   │   │       └── ... (3 more files)
+│   │   ├── graph/
+│   │   │   ├── airports_graph.py
+│   │   │   ├── from_networkx.py
+│   │   │   ├── graph_customize.py
+│   │   │   ├── graph_interaction.py
+│   │   │   ├── interaction_edgeslinkednodes.py
+│   │   │   ├── interaction_nodesadjacentnodes.py
+│   │   │   ├── interaction_nodeslinkededges.py
+│   │   │   ├── node_and_edge_attributes.py
+│   │   │   └── static_paths.py
+│   │   │       └── ... (4 more files)
+│   │   ├── hex/
+│   │   │   ├── hex_coords.py
+│   │   │   ├── hex_tile.py
+│   │   │   └── hexbin.py
+│   │   ├── hierarchical/
+│   │   │   ├── crosstab.py
+│   │   │   └── treemap.py
+│   │   ├── images/
+│   │   │   ├── image.py
+│   │   │   ├── image_origin_anchor.py
+│   │   │   └── image_rgba.py
+│   │   ├── pie/
+│   │   │   ├── annular_wedge.py
+│   │   │   ├── annulus.py
+│   │   │   ├── burtin.py
+│   │   │   ├── donut.py
+│   │   │   ├── pie.py
+│   │   │   └── wedge.py
+│   │   │       └── ... (1 more files)
+│   │   ├── stats/
+│   │   │   ├── boxplot.py
+│   │   │   ├── density.py
+│   │   │   ├── histogram.py
+│   │   │   ├── kde2d.py
+│   │   │   ├── pyramid.py
+│   │   │   ├── sinaplot.py
+│   │   │   └── splom.py
+│   │   │       └── ... (2 more files)
+│   │   └── timeseries/
+│   │       ├── candlestick.py
+│   │       └── missing_dates.py
+│   ├── .isort.cfg
+│   └── README.md
+├── release/
+│   ├── .isort.cfg
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── action.py
+│   ├── build.py
+│   ├── checks.py
+│   ├── config.py
+│   ├── credentials.py
+│   ├── deploy.py
+│   ├── enums.py
+│   ├── git.py
+│   ├── logger.py
+│   ├── pipeline.py
+│   ├── remote.py
+│   ├── stages.py
+│   ├── system.py
+│   ├── ui.py
+│   └── util.py
+│       └── ... (13 more files)
+├── scripts/
+│   ├── ci/
+│   │   ├── build_conda_package.sh
+│   │   ├── build_docs.sh
+│   │   ├── install_downstream_packages.sh
+│   │   ├── install_node_modules.sh
+│   │   ├── run_downstream_tests.sh
+│   │   ├── verify_conda_install.sh
+│   │   ├── verify_pip_install_from_sdist.sh
+│   │   ├── verify_pip_install_using_sdist.sh
+│   │   └── verify_pip_install_using_wheel.sh
+│   │       └── ... (4 more files)
+│   ├── hooks/
+│   │   ├── install.py
+│   │   ├── protect_branches.py
+│   │   └── uninstall.py
+│   ├── milestone.py
+│   └── sri.py
+├── src/
+│   ├── bokeh/
+│   │   ├── _sri/
+│   │   │   ├── 0.1.0.json
+│   │   │   ├── 0.10.0.json
+│   │   │   ├── 0.11.0.json
+│   │   │   ├── 0.11.1.json
+│   │   │   ├── 0.12.0.json
+│   │   │   ├── 0.12.1.json
+│   │   │   ├── 0.12.10.json
+│   │   │   ├── 0.12.11.json
+│   │   │   ├── 0.12.12.json
+│   │   │   ├── 0.12.13.json
+│   │   │   ├── 0.12.14.json
+│   │   │   ├── 0.12.15.json
+│   │   │   ├── 0.12.16.json
+│   │   │   ├── 0.12.2.json
+│   │   │   ├── 0.12.3.json
+│   │   │   ├── 0.12.4.json
+│   │   │   ├── 0.12.5.json
+│   │   │   ├── 0.12.6.json
+│   │   │   ├── 0.12.7.json
+│   │   │   ├── 0.12.8.json
+│   │   │   ├── 0.12.9.json
+│   │   │   ├── 0.13.0.json
+│   │   │   ├── 0.2.0.json
+│   │   │   ├── 0.3.0.json
+│   │   │   ├── 0.4.0.json
+│   │   │   ├── 0.4.1.json
+│   │   │   ├── 0.4.2.json
+│   │   │   ├── 0.4.3.json
+│   │   │   ├── 0.4.4.json
+│   │   │   ├── 0.5.0.json
+│   │   │   ├── 0.5.1.json
+│   │   │   ├── 0.5.2.json
+│   │   │   ├── 0.6.0.json
+│   │   │   ├── 0.6.1.json
+│   │   │   ├── 0.7.0.json
+│   │   │   ├── 0.7.1.json
+│   │   │   ├── 0.8.0.json
+│   │   │   ├── 0.8.1.json
+│   │   │   ├── 0.8.2.json
+│   │   │   ├── 0.9.0.json
+│   │   │   ├── 0.9.1.json
+│   │   │   ├── 0.9.2.json
+│   │   │   ├── 0.9.3.json
+│   │   │   ├── 1.0.0.json
+│   │   │   ├── 1.0.1.json
+│   │   │   ├── 1.0.2.json
+│   │   │   ├── 1.0.3.json
+│   │   │   ├── 1.0.4.json
+│   │   │   ├── 1.1.0.json
+│   │   │   ├── 1.2.0.json
+│   │   │   ├── 1.3.0.json
+│   │   │   ├── 1.3.1.json
+│   │   │   ├── 1.3.2.json
+│   │   │   ├── 1.3.4.json
+│   │   │   ├── 1.4.0.json
+│   │   │   ├── 2.0.0.json
+│   │   │   ├── 2.0.1.json
+│   │   │   ├── 2.0.2.json
+│   │   │   ├── 2.1.0.json
+│   │   │   ├── 2.1.1.json
+│   │   │   ├── 2.2.0.json
+│   │   │   ├── 2.2.1.json
+│   │   │   ├── 2.2.2.json
+│   │   │   ├── 2.3.0.json
+│   │   │   ├── 2.3.1.json
+│   │   │   ├── 2.3.2.json
+│   │   │   ├── 2.3.3.json
+│   │   │   ├── 2.4.0.json
+│   │   │   ├── 2.4.1.json
+│   │   │   ├── 2.4.2.json
+│   │   │   ├── 2.4.3.json
+│   │   │   ├── 3.0.0.json
+│   │   │   ├── 3.0.1.json
+│   │   │   ├── 3.0.2.json
+│   │   │   ├── 3.1.0.json
+│   │   │   ├── 3.1.1.json
+│   │   │   ├── 3.2.0.json
+│   │   │   ├── 3.2.1.json
+│   │   │   ├── 3.2.2.json
+│   │   │   ├── 3.3.0.json
+│   │   │   ├── 3.4.0.json
+│   │   │   ├── 3.5.0.json
+│   │   │   └── 3.6.0.json
+│   │   │       └── ... (78 more files)
+│   │   ├── application/
+│   │   │   ├── handlers/
+│   │   │   ├── __init__.py
+│   │   │   └── application.py
+│   │   ├── client/
+│   │   │   ├── __init__.py
+│   │   │   ├── connection.py
+│   │   │   ├── session.py
+│   │   │   ├── states.py
+│   │   │   ├── util.py
+│   │   │   └── websocket.py
+│   │   │       └── ... (1 more files)
+│   │   ├── colors/
+│   │   │   ├── __init__.py
+│   │   │   ├── color.py
+│   │   │   ├── groups.py
+│   │   │   ├── named.py
+│   │   │   └── util.py
+│   │   ├── command/
+│   │   │   ├── subcommands/
+│   │   │   ├── __init__.py
+│   │   │   ├── bootstrap.py
+│   │   │   ├── subcommand.py
+│   │   │   └── util.py
+│   │   ├── core/
+│   │   │   ├── _templates/
+│   │   │   ├── property/
+│   │   │   ├── validation/
+│   │   │   ├── __init__.py
+│   │   │   ├── enums.py
+│   │   │   ├── has_props.py
+│   │   │   ├── has_props.pyi
+│   │   │   ├── json_encoder.py
+│   │   │   ├── properties.py
+│   │   │   ├── property_aliases.py
+│   │   │   ├── property_aliases.pyi
+│   │   │   ├── property_mixins.py
+│   │   │   ├── property_mixins.pyi
+│   │   │   ├── query.py
+│   │   │   ├── serialization.py
+│   │   │   ├── templates.py
+│   │   │   └── types.py
+│   │   │       └── ... (9 more files)
+│   │   ├── document/
+│   │   │   ├── __init__.py
+│   │   │   ├── callbacks.py
+│   │   │   ├── document.py
+│   │   │   ├── events.py
+│   │   │   ├── json.py
+│   │   │   ├── locking.py
+│   │   │   ├── models.py
+│   │   │   └── modules.py
+│   │   │       └── ... (3 more files)
+│   │   ├── embed/
+│   │   │   ├── __init__.py
+│   │   │   ├── bundle.py
+│   │   │   ├── elements.py
+│   │   │   ├── notebook.py
+│   │   │   ├── server.py
+│   │   │   ├── standalone.py
+│   │   │   ├── util.py
+│   │   │   └── wrappers.py
+│   │   │       └── ... (3 more files)
+│   │   ├── io/
+│   │   │   ├── __init__.py
+│   │   │   ├── doc.py
+│   │   │   ├── export.py
+│   │   │   ├── notebook.py
+│   │   │   ├── output.py
+│   │   │   ├── saving.py
+│   │   │   ├── showing.py
+│   │   │   ├── state.py
+│   │   │   ├── util.py
+│   │   │   └── webdriver.py
+│   │   │       └── ... (5 more files)
+│   │   ├── model/
+│   │   │   ├── __init__.py
+│   │   │   ├── data_model.py
+│   │   │   ├── docs.py
+│   │   │   ├── model.py
+│   │   │   ├── model.pyi
+│   │   │   └── util.py
+│   │   │       └── ... (1 more files)
+│   │   ├── models/
+│   │   │   ├── annotations/
+│   │   │   ├── common/
+│   │   │   ├── misc/
+│   │   │   ├── renderers/
+│   │   │   ├── ui/
+│   │   │   ├── util/
+│   │   │   ├── widgets/
+│   │   │   ├── __init__.py
+│   │   │   ├── axes.py
+│   │   │   ├── axes.pyi
+│   │   │   ├── callbacks.py
+│   │   │   ├── callbacks.pyi
+│   │   │   ├── canvas.py
+│   │   │   ├── canvas.pyi
+│   │   │   ├── comparisons.py
+│   │   │   ├── comparisons.pyi
+│   │   │   ├── coordinates.py
+│   │   │   ├── coordinates.pyi
+│   │   │   ├── css.py
+│   │   │   ├── css.pyi
+│   │   │   ├── dom.py
+│   │   │   ├── dom.pyi
+│   │   │   ├── expressions.py
+│   │   │   ├── expressions.pyi
+│   │   │   ├── filters.py
+│   │   │   ├── filters.pyi
+│   │   │   ├── formatters.py
+│   │   │   ├── formatters.pyi
+│   │   │   ├── glyph.py
+│   │   │   ├── glyph.pyi
+│   │   │   ├── glyphs.py
+│   │   │   ├── glyphs.pyi
+│   │   │   ├── graphics.py
+│   │   │   ├── graphics.pyi
+│   │   │   ├── graphs.py
+│   │   │   ├── graphs.pyi
+│   │   │   ├── grids.py
+│   │   │   ├── grids.pyi
+│   │   │   ├── labeling.py
+│   │   │   ├── labeling.pyi
+│   │   │   ├── layouts.py
+│   │   │   ├── layouts.pyi
+│   │   │   ├── map_plots.py
+│   │   │   ├── map_plots.pyi
+│   │   │   ├── mappers.py
+│   │   │   ├── mappers.pyi
+│   │   │   ├── nodes.py
+│   │   │   ├── nodes.pyi
+│   │   │   ├── plots.py
+│   │   │   ├── plots.pyi
+│   │   │   ├── ranges.py
+│   │   │   ├── ranges.pyi
+│   │   │   ├── scales.py
+│   │   │   ├── scales.pyi
+│   │   │   ├── selections.py
+│   │   │   ├── selections.pyi
+│   │   │   ├── selectors.py
+│   │   │   ├── selectors.pyi
+│   │   │   ├── sources.py
+│   │   │   ├── sources.pyi
+│   │   │   ├── text.py
+│   │   │   ├── text.pyi
+│   │   │   ├── textures.py
+│   │   │   ├── textures.pyi
+│   │   │   ├── tickers.py
+│   │   │   ├── tickers.pyi
+│   │   │   ├── tiles.py
+│   │   │   ├── tiles.pyi
+│   │   │   ├── tools.py
+│   │   │   ├── tools.pyi
+│   │   │   ├── transforms.py
+│   │   │   └── transforms.pyi
+│   │   │       └── ... (60 more files)
+│   │   ├── plotting/
+│   │   │   ├── __init__.py
+│   │   │   ├── _decorators.py
+│   │   │   ├── _docstring.py
+│   │   │   ├── _figure.py
+│   │   │   ├── _figure.pyi
+│   │   │   ├── _graph.py
+│   │   │   ├── _legends.py
+│   │   │   ├── _plot.py
+│   │   │   ├── _renderer.py
+│   │   │   ├── _stack.py
+│   │   │   ├── _tools.py
+│   │   │   ├── contour.py
+│   │   │   ├── glyph_api.py
+│   │   │   ├── glyph_api.pyi
+│   │   │   ├── gmap.py
+│   │   │   └── graph.py
+│   │   │       └── ... (11 more files)
+│   │   ├── protocol/
+│   │   │   ├── messages/
+│   │   │   ├── __init__.py
+│   │   │   ├── exceptions.py
+│   │   │   ├── message.py
+│   │   │   └── receiver.py
+│   │   ├── sampledata/
+│   │   │   ├── __init__.py
+│   │   │   ├── airport_routes.py
+│   │   │   ├── airports.py
+│   │   │   ├── anscombe.py
+│   │   │   ├── antibiotics.py
+│   │   │   ├── autompg.py
+│   │   │   ├── autompg2.py
+│   │   │   ├── browsers.py
+│   │   │   ├── commits.py
+│   │   │   ├── cows.py
+│   │   │   ├── cycling.py
+│   │   │   ├── daylight.py
+│   │   │   ├── degrees.py
+│   │   │   ├── emissions.py
+│   │   │   ├── forensic_glass.py
+│   │   │   ├── gapminder.py
+│   │   │   ├── glucose.py
+│   │   │   ├── haar_cascade.py
+│   │   │   ├── iris.py
+│   │   │   ├── les_mis.py
+│   │   │   ├── lincoln.py
+│   │   │   ├── movies_data.py
+│   │   │   ├── mtb.py
+│   │   │   ├── olympics2014.py
+│   │   │   ├── penguins.py
+│   │   │   ├── perceptions.py
+│   │   │   ├── periodic_table.py
+│   │   │   ├── population.py
+│   │   │   ├── sample_geojson.py
+│   │   │   ├── sample_superstore.py
+│   │   │   ├── sea_surface_temperature.py
+│   │   │   ├── sprint.py
+│   │   │   ├── stocks.py
+│   │   │   ├── titanic.py
+│   │   │   ├── unemployment.py
+│   │   │   ├── unemployment1948.py
+│   │   │   ├── us_cities.py
+│   │   │   ├── us_counties.py
+│   │   │   ├── us_holidays.py
+│   │   │   ├── us_marriages_divorces.py
+│   │   │   ├── us_states.py
+│   │   │   └── world_cities.py
+│   │   │       └── ... (37 more files)
+│   │   ├── server/
+│   │   │   ├── static/
+│   │   │   ├── views/
+│   │   │   ├── .gitignore
+│   │   │   ├── __init__.py
+│   │   │   ├── auth_provider.py
+│   │   │   ├── callbacks.py
+│   │   │   ├── connection.py
+│   │   │   ├── contexts.py
+│   │   │   ├── protocol_handler.py
+│   │   │   ├── server.py
+│   │   │   ├── session.py
+│   │   │   ├── tornado.py
+│   │   │   ├── urls.py
+│   │   │   └── util.py
+│   │   │       └── ... (7 more files)
+│   │   ├── sphinxext/
+│   │   │   ├── _internal/
+│   │   │   ├── __init__.py
+│   │   │   └── bokeh_plot.py
+│   │   ├── themes/
+│   │   │   ├── __init__.py
+│   │   │   ├── _caliber.py
+│   │   │   ├── _carbon.py
+│   │   │   ├── _contrast.py
+│   │   │   ├── _dark_minimal.py
+│   │   │   ├── _light_minimal.py
+│   │   │   ├── _night_sky.py
+│   │   │   └── theme.py
+│   │   │       └── ... (3 more files)
+│   │   ├── util/
+│   │   │   ├── __init__.py
+│   │   │   ├── browser.py
+│   │   │   ├── callback_manager.py
+│   │   │   ├── compiler.py
+│   │   │   ├── dataclasses.py
+│   │   │   ├── datatypes.py
+│   │   │   ├── dependencies.py
+│   │   │   ├── deprecation.py
+│   │   │   ├── functions.py
+│   │   │   ├── hex.py
+│   │   │   ├── info.py
+│   │   │   ├── logconfig.py
+│   │   │   ├── options.py
+│   │   │   ├── package.py
+│   │   │   ├── paths.py
+│   │   │   ├── sampledata.json
+│   │   │   ├── serialization.py
+│   │   │   ├── strings.py
+│   │   │   ├── terminal.py
+│   │   │   ├── token.py
+│   │   │   ├── tornado.py
+│   │   │   ├── version.py
+│   │   │   └── warnings.py
+│   │   │       └── ... (18 more files)
+│   │   ├── .isort.cfg
+│   │   ├── .ruff.toml
+│   │   ├── __init__.py
+│   │   ├── __main__.py
+│   │   ├── _specs.pyi
+│   │   ├── _types.pyi
+│   │   ├── driving.py
+│   │   ├── events.py
+│   │   ├── ext.py
+│   │   ├── layouts.py
+│   │   ├── LICENSE.txt
+│   │   ├── palettes.py
+│   │   ├── py.typed
+│   │   ├── resources.py
+│   │   ├── settings.py
+│   │   └── transform.py
+│   │       └── ... (11 more files)
+│   └── typings/
+│       ├── ipykernel/
+│       │   ├── comm/
+│       │   └── __init__.pyi
+│       ├── IPython/
+│       │   ├── core/
+│       │   ├── __init__.pyi
+│       │   └── display.pyi
+│       ├── jupyter_core/
+│       │   ├── __init__.pyi
+│       │   └── paths.pyi
+│       ├── selenium/
+│       │   ├── common/
+│       │   ├── webdriver/
+│       │   └── __init__.pyi
+│       ├── bs4.pyi
+│       ├── json5.pyi
+│       └── psutil.pyi
+├── tests/
+│   ├── baselines/
+│   │   ├── cross/
+│   │   │   └── regressions/
+│   │   └── defaults.json5
+│   ├── codebase/
+│   │   ├── __init__.py
+│   │   ├── test_code_quality.py
+│   │   ├── test_eslint.py
+│   │   ├── test_importlib_metadata.py
+│   │   ├── test_isort.py
+│   │   ├── test_js_license_set.py
+│   │   ├── test_license.py
+│   │   ├── test_no_client_server_common.py
+│   │   ├── test_no_request_host.py
+│   │   ├── test_no_tornado_common.py
+│   │   ├── test_python_execution_with_OO.py
+│   │   ├── test_ruff.py
+│   │   ├── test_vermin.py
+│   │   └── test_windows_reserved_filenames.py
+│   │       └── ... (9 more files)
+│   ├── cross/
+│   │   └── cases/
+│   │       └── regressions/
+│   ├── support/
+│   │   ├── plugins/
+│   │   │   ├── __init__.py
+│   │   │   ├── bokeh_server.py
+│   │   │   ├── file_server.py
+│   │   │   ├── ipython.py
+│   │   │   ├── jupyter_notebook.py
+│   │   │   ├── log_file.py
+│   │   │   ├── managed_server_loop.py
+│   │   │   ├── networkx.py
+│   │   │   ├── project.py
+│   │   │   └── selenium.py
+│   │   │       └── ... (5 more files)
+│   │   ├── util/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── chrome_screenshot.js
+│   │   │   ├── compare.py
+│   │   │   ├── env.py
+│   │   │   ├── examples.py
+│   │   │   ├── filesystem.py
+│   │   │   ├── project.py
+│   │   │   ├── screenshot.py
+│   │   │   └── types.py
+│   │   │       └── ... (5 more files)
+│   │   ├── __init__.py
+│   │   └── defaults.py
+│   ├── unit/
+│   │   └── bokeh/
+│   │       ├── _testing/
+│   │       ├── application/
+│   │       ├── client/
+│   │       ├── colors/
+│   │       ├── command/
+│   │       ├── core/
+│   │       ├── document/
+│   │       ├── embed/
+│   │       ├── io/
+│   │       ├── model/
+│   │       ├── models/
+│   │       ├── plotting/
+│   │       ├── protocol/
+│   │       ├── server/
+│   │       ├── util/
+│   │       ├── auto-mpg.csv
+│   │       ├── test___init__.py
+│   │       ├── test___main__.py
+│   │       ├── test_client_server.py
+│   │       ├── test_driving.py
+│   │       ├── test_events.py
+│   │       ├── test_ext.py
+│   │       ├── test_layouts.py
+│   │       ├── test_layouts__typing.py
+│   │       ├── test_objects.py
+│   │       ├── test_palettes.py
+│   │       ├── test_regressions.py
+│   │       ├── test_resources.py
+│   │       ├── test_server.py
+│   │       ├── test_settings.py
+│   │       ├── test_themes.py
+│   │       ├── test_transform.py
+│   │       └── test_typing.py
+│   │           └── ... (13 more files)
+│   ├── .isort.cfg
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── examples.yaml
+│   ├── test_bokehjs.py
+│   ├── test_cross.py
+│   ├── test_defaults.py
+│   └── test_examples.py
+│       └── ... (3 more files)
+├── .gitignore
+├── .pre-commit-config.yaml
+├── LICENSE.txt
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+└── setup.py
+    └── ... (2 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

@@ -1,0 +1,19 @@
+The underlying wheel build error is:
+
+```
+fatal error: Python.h: No such file or directory
+compilation terminated.
+error: command '/usr/bin/x86_64-linux-gnu-gcc' failed with exit code 1
+```
+
+This means the Python C headers (needed for Cython/ext modules) are missing.
+
+**Solution:** Install the Python development headers for your environment.
+
+```bash
+apt-get update
+apt-get install -y python3-dev
+pip install -e .
+pytest
+```
+This will allow the C extensions to compile correctly for pymatgen and resolve the `No module named 'pymatgen'` errors.

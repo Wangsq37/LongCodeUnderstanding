@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip install skbase packaging",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nCollecting skbase\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/58/d2/af231e0668d8c42b3096891abf8463ce3a1a1594d402dca9d3985e5e01bf/skbase-0.4.6-py3-none-any.whl (119 kB)\nRequirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (25.0)\nInstalling collected packages: skbase\nSuccessfully installed skbase-0.4.6\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 5.901105880737305
+  },
+  {
+    "command": "pytest",
+    "success": true,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\nconfigfile: pyproject.toml\ncollected 37 items\n\npykalman/sqrt/tests/test_unscented.py ......                             [ 16%]\npykalman/tests/test_standard.py .....................                    [ 72%]\npykalman/tests/test_unscented.py ..........                              [100%]\n\n=============================== warnings summary ===============================\npykalman/tests/test_standard.py: 7989 warnings\n  /app/repo_to_process/pykalman/standard.py:178: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)\n    loglikelihoods[t] = log_multivariate_normal_density(\n\npykalman/tests/test_standard.py::TestKalmanFilter::test_kalman_fit[BiermanKalmanFilter]\npykalman/tests/test_standard.py::TestKalmanFilter::test_kalman_fit[CholeskyKalmanFilter]\n  /app/repo_to_process/pykalman/tests/test_standard.py:149: UserWarning: transition_offsets has 2 dimensions now; after fitting, it will have dimension 1\n    kf.em(X=data.observations[0:n_timesteps], n_iter=1)\n\npykalman/tests/test_standard.py::TestKalmanFilter::test_kalman_pickle[KalmanFilter]\npykalman/tests/test_standard.py::TestKalmanFilter::test_kalman_pickle[BiermanKalmanFilter]\npykalman/tests/test_standard.py::TestKalmanFilter::test_kalman_pickle[CholeskyKalmanFilter]\n  /app/repo_to_process/pykalman/tests/test_standard.py:202: UserWarning: transition_offsets has 2 dimensions now; after fitting, it will have dimension 1\n    kf = kf.em(X, n_iter=5)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n====================== 37 passed, 7994 warnings in 9.78s =======================\n",
+    "stderr": "",
+    "execution_time": 10.14333724975586
+  }
+]

@@ -1,0 +1,12 @@
+The error is now:
+
+```
+ModuleNotFoundError: No module named 'pooch'
+```
+
+This means the Python package `pooch` is missing and must be installed.
+
+```bash
+pip install pooch
+pytest
+```

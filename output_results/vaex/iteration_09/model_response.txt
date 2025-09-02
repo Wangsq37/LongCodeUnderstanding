@@ -1,0 +1,7 @@
+```bash
+pip install -e packages/vaex-astro
+pip install -e packages/vaex-viz
+pip install -e packages/vaex-hdf5
+pip install -e packages/vaex-jupyter
+pytest
+```

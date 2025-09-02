@@ -1,0 +1,736 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   ├── config.yml
+│   │   ├── feature_request.yml
+│   │   └── misc_task.yml
+│   ├── scripts/
+│   │   ├── get_poem_message.py
+│   │   └── install_latest_deps.sh
+│   ├── workflows/
+│   │   ├── openmdao_audit.yml
+│   │   ├── openmdao_docs_workflow.yml
+│   │   ├── openmdao_latest_workflow.yml
+│   │   ├── openmdao_test_workflow.yml
+│   │   ├── openmdao_update_poem.yml
+│   │   ├── publish-image.yml
+│   │   └── release_workflow.yml
+│   │       └── ... (2 more files)
+│   └── PULL_REQUEST_TEMPLATE.md
+├── benchmark/
+│   ├── benchmark_beam.py
+│   ├── benchmark_manycomps.py
+│   ├── benchmark_manyvars.py
+│   ├── benchmark_multipoint.py
+│   ├── benchmark_parallel_GA.py
+│   ├── benchmark_param_cycle.py
+│   ├── benchmark_trees.py
+│   └── discrete_bench.py
+│       └── ... (3 more files)
+├── openmdao/
+│   ├── approximation_schemes/
+│   │   ├── __init__.py
+│   │   ├── approximation_scheme.py
+│   │   ├── complex_step.py
+│   │   └── finite_difference.py
+│   ├── code_review/
+│   │   ├── __init__.py
+│   │   ├── test_common_problems.py
+│   │   ├── test_lint_attributes.py
+│   │   ├── test_lint_docstrings.py
+│   │   └── test_lint_peps.py
+│   ├── components/
+│   │   ├── interp_util/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── interp.py
+│   │   │   ├── interp_akima.py
+│   │   │   ├── interp_algorithm.py
+│   │   │   ├── interp_bsplines.py
+│   │   │   ├── interp_cubic.py
+│   │   │   ├── interp_lagrange2.py
+│   │   │   ├── interp_lagrange3.py
+│   │   │   ├── interp_scipy.py
+│   │   │   ├── interp_semi.py
+│   │   │   ├── interp_slinear.py
+│   │   │   └── outofbounds_error.py
+│   │   │       └── ... (7 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── extcode_example.py
+│   │   │   ├── extcode_mach.py
+│   │   │   ├── extcode_node.py
+│   │   │   ├── extcode_paraboloid.py
+│   │   │   ├── extcode_paraboloid_derivs.py
+│   │   │   ├── extcode_resistor.py
+│   │   │   ├── test_add_subtract_comp.py
+│   │   │   ├── test_balance_comp.py
+│   │   │   ├── test_cross_product_comp.py
+│   │   │   ├── test_dot_product_comp.py
+│   │   │   ├── test_eq_constraint_comp.py
+│   │   │   ├── test_exec_comp.py
+│   │   │   ├── test_explicit_func_comp.py
+│   │   │   ├── test_external_code_comp.py
+│   │   │   ├── test_implicit_func_comp.py
+│   │   │   ├── test_input_resids_comp.py
+│   │   │   ├── test_ks_comp.py
+│   │   │   ├── test_linear_system_comp.py
+│   │   │   ├── test_matrix_vector_product_comp.py
+│   │   │   ├── test_meta_model_semi_structured_comp.py
+│   │   │   ├── test_meta_model_structured_comp.py
+│   │   │   ├── test_meta_model_unstructured_comp.py
+│   │   │   ├── test_multifi_meta_model_unstructured_comp.py
+│   │   │   ├── test_mux_comp.py
+│   │   │   ├── test_spline_comp.py
+│   │   │   ├── test_submodel_comp.py
+│   │   │   └── test_vector_magnitude_comp.py
+│   │   │       └── ... (23 more files)
+│   │   ├── __init__.py
+│   │   ├── add_subtract_comp.py
+│   │   ├── balance_comp.py
+│   │   ├── cross_product_comp.py
+│   │   ├── dot_product_comp.py
+│   │   ├── eq_constraint_comp.py
+│   │   ├── exec_comp.py
+│   │   ├── explicit_func_comp.py
+│   │   ├── external_code_comp.py
+│   │   ├── func_comp_common.py
+│   │   ├── implicit_func_comp.py
+│   │   ├── input_resids_comp.py
+│   │   ├── jax_explicit_comp.py
+│   │   ├── jax_implicit_comp.py
+│   │   ├── ks_comp.py
+│   │   ├── linear_system_comp.py
+│   │   ├── matrix_vector_product_comp.py
+│   │   ├── meta_model_semi_structured_comp.py
+│   │   ├── meta_model_structured_comp.py
+│   │   ├── meta_model_unstructured_comp.py
+│   │   ├── multifi_meta_model_unstructured_comp.py
+│   │   ├── mux_comp.py
+│   │   ├── spline_comp.py
+│   │   ├── submodel_comp.py
+│   │   └── vector_magnitude_comp.py
+│   │       └── ... (20 more files)
+│   ├── core/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_add_var.py
+│   │   │   ├── test_approx_derivs.py
+│   │   │   ├── test_auto_ivc.py
+│   │   │   ├── test_aviary_mpi_bug.py
+│   │   │   ├── test_check_partials.py
+│   │   │   ├── test_check_totals.py
+│   │   │   ├── test_coloring.py
+│   │   │   ├── test_coloring2.py
+│   │   │   ├── test_coloring4.py
+│   │   │   ├── test_component.py
+│   │   │   ├── test_component_io_independence_from_prob.py
+│   │   │   ├── test_compute_jacvec_prod.py
+│   │   │   ├── test_connections.py
+│   │   │   ├── test_connections_in_configure.py
+│   │   │   ├── test_constants.py
+│   │   │   ├── test_core_simple.py
+│   │   │   ├── test_cp_rev_matrix_free_dist.py
+│   │   │   ├── test_deriv_transfers.py
+│   │   │   ├── test_des_vars_responses.py
+│   │   │   ├── test_direct_nondistrib_comp.py
+│   │   │   ├── test_discrete.py
+│   │   │   ├── test_discrete_mpi.py
+│   │   │   ├── test_distrib_adder.py
+│   │   │   ├── test_distrib_derivs.py
+│   │   │   ├── test_distrib_derivs2.py
+│   │   │   ├── test_distrib_driver_debug_print_options.py
+│   │   │   ├── test_distrib_list_vars.py
+│   │   │   ├── test_distribcomp.py
+│   │   │   ├── test_driver.py
+│   │   │   ├── test_dyn_sizing.py
+│   │   │   ├── test_expl_comp.py
+│   │   │   ├── test_fd_color_chk_partials.py
+│   │   │   ├── test_feature_cache_linear_solution.py
+│   │   │   ├── test_func_api.py
+│   │   │   ├── test_getset_vars.py
+│   │   │   ├── test_global_shape_err.py
+│   │   │   ├── test_group.py
+│   │   │   ├── test_impl_comp.py
+│   │   │   ├── test_impl_comp_mpi.py
+│   │   │   ├── test_indep_var_comp.py
+│   │   │   ├── test_leaks.py
+│   │   │   ├── test_masking.py
+│   │   │   ├── test_matrix_free.py
+│   │   │   ├── test_mixed_dist.py
+│   │   │   ├── test_mpi_coloring_bug.py
+│   │   │   ├── test_multi_setup.py
+│   │   │   ├── test_mwe_matmat.py
+│   │   │   ├── test_parallel_derivatives.py
+│   │   │   ├── test_parallel_fd.py
+│   │   │   ├── test_parallel_groups.py
+│   │   │   ├── test_parallel_src_indices.py
+│   │   │   ├── test_partial_color.py
+│   │   │   ├── test_pre_post_iter.py
+│   │   │   ├── test_prob_remote.py
+│   │   │   ├── test_problem.py
+│   │   │   ├── test_proc_alloc.py
+│   │   │   ├── test_remote_vois.py
+│   │   │   ├── test_renamed_resids.py
+│   │   │   ├── test_run_root_only.py
+│   │   │   ├── test_scaling.py
+│   │   │   ├── test_scaling_report.py
+│   │   │   ├── test_scaling_report_mpi.py
+│   │   │   ├── test_semitotals.py
+│   │   │   ├── test_serial_implicit_deriv_consist.py
+│   │   │   ├── test_serialize.py
+│   │   │   ├── test_set_val_bug.py
+│   │   │   ├── test_setup_memleak.py
+│   │   │   ├── test_simple_impl_comp.py
+│   │   │   ├── test_src_indices.py
+│   │   │   ├── test_system.py
+│   │   │   ├── test_system_set_solver_bounds_scaling_options.py
+│   │   │   ├── test_theory_rev_derivs.py
+│   │   │   └── test_units.py
+│   │   │       └── ... (69 more files)
+│   │   ├── __init__.py
+│   │   ├── analysis_error.py
+│   │   ├── component.py
+│   │   ├── configinfo.py
+│   │   ├── constants.py
+│   │   ├── driver.py
+│   │   ├── explicitcomponent.py
+│   │   ├── group.py
+│   │   ├── implicitcomponent.py
+│   │   ├── indepvarcomp.py
+│   │   ├── parallel_group.py
+│   │   ├── problem.py
+│   │   ├── system.py
+│   │   └── total_jac.py
+│   │       └── ... (9 more files)
+│   ├── devtools/
+│   │   ├── iprofile_app/
+│   │   │   ├── templates/
+│   │   │   ├── __init__.py
+│   │   │   └── iprofile_app.py
+│   │   ├── scripts/
+│   │   │   └── memplot.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── mem_model.py
+│   │   │   ├── test_debug.py
+│   │   │   └── test_iprof_mem.py
+│   │   ├── __init__.py
+│   │   ├── debug.py
+│   │   ├── docutils.py
+│   │   ├── dump_sqlite_recorder_file.py
+│   │   ├── iprof_mem.py
+│   │   ├── iprof_utils.py
+│   │   ├── iprofile.py
+│   │   ├── itrace.py
+│   │   ├── memory.py
+│   │   ├── run_test.py
+│   │   ├── wing_proj_template.wpr
+│   │   └── wingproj.py
+│   │       └── ... (7 more files)
+│   ├── docs/
+│   │   ├── openmdao_book/
+│   │   │   ├── _static/
+│   │   │   ├── advanced_user_guide/
+│   │   │   ├── basic_user_guide/
+│   │   │   ├── examples/
+│   │   │   ├── features/
+│   │   │   ├── getting_started/
+│   │   │   ├── om-theme/
+│   │   │   ├── other/
+│   │   │   ├── other_useful_docs/
+│   │   │   ├── tests/
+│   │   │   ├── theory_manual/
+│   │   │   ├── __init__.py
+│   │   │   ├── _config.yml
+│   │   │   ├── _toc.yml
+│   │   │   ├── favicon.svg
+│   │   │   ├── logo.png
+│   │   │   ├── main.ipynb
+│   │   │   ├── OpenMDAO_Logo.png
+│   │   │   └── references.bib
+│   │   │       └── ... (3 more files)
+│   │   ├── __init__.py
+│   │   ├── build_all_docs.sh
+│   │   ├── build_jupyter_book.py
+│   │   ├── build_source_docs.py
+│   │   ├── copy_build_artifacts.py
+│   │   ├── ipcluster_start.sh
+│   │   ├── readme.md
+│   │   └── upload_doc_version.py
+│   │       └── ... (3 more files)
+│   ├── drivers/
+│   │   ├── sampling/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── pyDOE_generators.py
+│   │   │   ├── sampling_util.py
+│   │   │   └── uniform_generator.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_analysis_driver.py
+│   │   │   ├── test_analysis_errors.py
+│   │   │   ├── test_compute_lagrange_multipliers.py
+│   │   │   ├── test_differential_evolution_driver.py
+│   │   │   ├── test_doe_driver.py
+│   │   │   ├── test_genetic_algorithm_driver.py
+│   │   │   ├── test_pyoptsparse_driver.py
+│   │   │   └── test_scipy_optimizer.py
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── analysis_driver.py
+│   │   ├── analysis_generator.py
+│   │   ├── differential_evolution_driver.py
+│   │   ├── doe_driver.py
+│   │   ├── doe_generators.py
+│   │   ├── genetic_algorithm_driver.py
+│   │   ├── pyoptsparse_driver.py
+│   │   └── scipy_optimizer.py
+│   │       └── ... (4 more files)
+│   ├── error_checking/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_check_config.py
+│   │   │   └── test_check_solvers.py
+│   │   ├── __init__.py
+│   │   └── check_config.py
+│   ├── jacobians/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_jacobian.py
+│   │   │   └── test_jacobian_features.py
+│   │   ├── __init__.py
+│   │   ├── dictionary_jacobian.py
+│   │   ├── jacobian.py
+│   │   └── subjac.py
+│   ├── jax/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_jax.py
+│   │   │   ├── test_jax_explicit.py
+│   │   │   ├── test_jax_group.py
+│   │   │   └── test_jax_implicit.py
+│   │   ├── __init__.py
+│   │   ├── ks.py
+│   │   └── smooth.py
+│   ├── matrices/
+│   │   ├── __init__.py
+│   │   ├── coo_matrix.py
+│   │   ├── csc_matrix.py
+│   │   ├── csr_matrix.py
+│   │   ├── dense_matrix.py
+│   │   └── matrix.py
+│   │       └── ... (1 more files)
+│   ├── proc_allocators/
+│   │   ├── __init__.py
+│   │   ├── default_allocator.py
+│   │   └── proc_allocator.py
+│   ├── recorders/
+│   │   ├── assets/
+│   │   │   └── view_case_recorder_styles.css
+│   │   ├── tests/
+│   │   │   ├── legacy_sql/
+│   │   │   ├── __init__.py
+│   │   │   ├── recorder_test_utils.py
+│   │   │   ├── sqlite_recorder_test_utils.py
+│   │   │   ├── test_distrib_sqlite_recorder.py
+│   │   │   ├── test_list_vars.py
+│   │   │   ├── test_load_case.py
+│   │   │   ├── test_sqlite_reader.py
+│   │   │   ├── test_sqlite_recorder.py
+│   │   │   └── test_view_cases.py
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── base_case_reader.py
+│   │   ├── case.py
+│   │   ├── case_reader.py
+│   │   ├── case_recorder.py
+│   │   ├── recording_iteration_stack.py
+│   │   ├── recording_manager.py
+│   │   ├── sqlite_reader.py
+│   │   ├── sqlite_recorder.py
+│   │   └── view_cases.py
+│   │       └── ... (5 more files)
+│   ├── solvers/
+│   │   ├── linear/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── direct.py
+│   │   │   ├── linear_block_gs.py
+│   │   │   ├── linear_block_jac.py
+│   │   │   ├── linear_rhs_checker.py
+│   │   │   ├── linear_runonce.py
+│   │   │   ├── petsc_direct_solver.py
+│   │   │   ├── petsc_ksp.py
+│   │   │   ├── scipy_iter_solver.py
+│   │   │   └── user_defined.py
+│   │   │       └── ... (5 more files)
+│   │   ├── linesearch/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── backtracking.py
+│   │   ├── nonlinear/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── broyden.py
+│   │   │   ├── newton.py
+│   │   │   ├── nonlinear_block_gs.py
+│   │   │   ├── nonlinear_block_jac.py
+│   │   │   └── nonlinear_runonce.py
+│   │   │       └── ... (1 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_output_cache.py
+│   │   │   ├── test_solver_debug_print.py
+│   │   │   ├── test_solver_features.py
+│   │   │   ├── test_solver_iprint.py
+│   │   │   └── test_solver_parametric_suite.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   └── solver.py
+│   ├── surrogate_models/
+│   │   ├── nn_interpolators/
+│   │   │   ├── __init__.py
+│   │   │   ├── linear_interpolator.py
+│   │   │   ├── nn_base.py
+│   │   │   ├── rbf_interpolator.py
+│   │   │   └── weighted_interpolator.py
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_kriging.py
+│   │   │   ├── test_map.py
+│   │   │   ├── test_multifi_cokriging.py
+│   │   │   ├── test_nearest_neighbor.py
+│   │   │   └── test_response_surface.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── kriging.py
+│   │   ├── multifi_cokriging.py
+│   │   ├── nearest_neighbor.py
+│   │   ├── response_surface.py
+│   │   └── surrogate_model.py
+│   │       └── ... (1 more files)
+│   ├── test_suite/
+│   │   ├── components/
+│   │   │   ├── __init__.py
+│   │   │   ├── ae_tests.py
+│   │   │   ├── array_comp.py
+│   │   │   ├── branin.py
+│   │   │   ├── coupled_implicit.py
+│   │   │   ├── cycle_comps.py
+│   │   │   ├── distributed_components.py
+│   │   │   ├── double_sellar.py
+│   │   │   ├── eggcrate.py
+│   │   │   ├── exec_comp_for_test.py
+│   │   │   ├── expl_comp_array.py
+│   │   │   ├── expl_comp_simple.py
+│   │   │   ├── impl_comp_array.py
+│   │   │   ├── impl_comp_simple.py
+│   │   │   ├── implicit_newton_linesearch.py
+│   │   │   ├── matmultcomp.py
+│   │   │   ├── misc_components.py
+│   │   │   ├── options_feature_array.py
+│   │   │   ├── options_feature_function.py
+│   │   │   ├── options_feature_lincomb.py
+│   │   │   ├── options_feature_vector.py
+│   │   │   ├── paraboloid.py
+│   │   │   ├── paraboloid_distributed.py
+│   │   │   ├── paraboloid_feature.py
+│   │   │   ├── paraboloid_invalid_region.py
+│   │   │   ├── paraboloid_mat_vec.py
+│   │   │   ├── paraboloid_problem.py
+│   │   │   ├── partial_check_feature.py
+│   │   │   ├── polynomial_fit.py
+│   │   │   ├── quad_implicit.py
+│   │   │   ├── rectangle.py
+│   │   │   ├── sellar.py
+│   │   │   ├── sellar_feature.py
+│   │   │   ├── simple_comps.py
+│   │   │   ├── sparsity_comp.py
+│   │   │   ├── three_bar_truss.py
+│   │   │   └── unit_conv.py
+│   │   │       └── ... (32 more files)
+│   │   ├── groups/
+│   │   │   ├── __init__.py
+│   │   │   ├── cycle_group.py
+│   │   │   ├── implicit_group.py
+│   │   │   ├── parallel_groups.py
+│   │   │   ├── parametric_group.py
+│   │   │   └── sin_fitter.py
+│   │   │       └── ... (1 more files)
+│   │   ├── matrices/
+│   │   │   ├── af23560.npz
+│   │   │   ├── ash331.npz
+│   │   │   ├── ash608.npz
+│   │   │   ├── bibd_12_5.npz
+│   │   │   ├── can_715.npz
+│   │   │   ├── color_mats.py
+│   │   │   ├── D_6.npz
+│   │   │   ├── dl_matrix.py
+│   │   │   ├── e40r0100.npz
+│   │   │   ├── Harvard500.npz
+│   │   │   ├── illc1033.npz
+│   │   │   ├── lp_cre_a.npz
+│   │   │   ├── lp_dfl001.npz
+│   │   │   ├── lp_finnis.npz
+│   │   │   ├── lp_maros_r7.npz
+│   │   │   ├── m3plates.npz
+│   │   │   ├── ml2np.py
+│   │   │   └── n4c6-b15.npz
+│   │   │       └── ... (13 more files)
+│   │   ├── scripts/
+│   │   │   ├── __init__.py
+│   │   │   ├── bad_connection.py
+│   │   │   ├── beam_opt.py
+│   │   │   ├── circle_coloring_dynpartials.py
+│   │   │   ├── circle_coloring_needs_args.py
+│   │   │   ├── circle_opt.py
+│   │   │   ├── circle_opt_with_driver_recording.py
+│   │   │   ├── circuit.py
+│   │   │   ├── circuit_analysis.py
+│   │   │   ├── circuit_with_unconnected_input.py
+│   │   │   ├── dyn_system.py
+│   │   │   ├── jaxprof.py
+│   │   │   ├── multipoint_beam_opt.py
+│   │   │   └── sellar.py
+│   │   │       └── ... (9 more files)
+│   │   ├── test_examples/
+│   │   │   ├── beam_optimization/
+│   │   │   ├── cannonball/
+│   │   │   ├── meta_model_examples/
+│   │   │   ├── __init__.py
+│   │   │   ├── basic_opt_paraboloid.py
+│   │   │   ├── test_betz_limit.py
+│   │   │   ├── test_circuit_analysis.py
+│   │   │   ├── test_circuit_analysis_derivs.py
+│   │   │   ├── test_hohmann_transfer.py
+│   │   │   ├── test_keplers_equation.py
+│   │   │   ├── test_sellar_mda_promote_connect.py
+│   │   │   ├── test_sellar_opt.py
+│   │   │   └── test_tldr_paraboloid.py
+│   │   │       └── ... (5 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_auto_ivc_api_conversion.py
+│   │   │   ├── test_feature_sellar.py
+│   │   │   ├── test_general.py
+│   │   │   ├── test_paraboloid_feature.py
+│   │   │   ├── test_polynomial_fit.py
+│   │   │   ├── test_quad_implicit.py
+│   │   │   └── test_warnings.py
+│   │   │       └── ... (3 more files)
+│   │   ├── __init__.py
+│   │   ├── build4test.py
+│   │   ├── comp_tester.py
+│   │   ├── mpi_scaling.py
+│   │   ├── parametric_suite.py
+│   │   └── tot_jac_builder.py
+│   │       └── ... (1 more files)
+│   ├── utils/
+│   │   ├── scaffolding_templates/
+│   │   │   ├── BaseCaseReader_template
+│   │   │   ├── CaseRecorder_template
+│   │   │   ├── command_template
+│   │   │   ├── Driver_template
+│   │   │   ├── ExplicitComponent_template
+│   │   │   ├── Group_template
+│   │   │   ├── ImplicitComponent_template
+│   │   │   ├── LinearSolver_template
+│   │   │   ├── NonlinearSolver_template
+│   │   │   ├── README_template
+│   │   │   ├── setup_template
+│   │   │   ├── SurrogateModel_template
+│   │   │   └── test_template
+│   │   │       └── ... (8 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_abs_from_tol_violation.py
+│   │   │   ├── test_array_utils.py
+│   │   │   ├── test_assert_utils.py
+│   │   │   ├── test_cmdline.py
+│   │   │   ├── test_code_utils.py
+│   │   │   ├── test_cs_safe.py
+│   │   │   ├── test_entry_points.py
+│   │   │   ├── test_file_utils.py
+│   │   │   ├── test_file_wrap.py
+│   │   │   ├── test_find_citations.py
+│   │   │   ├── test_general_utils.py
+│   │   │   ├── test_graph_utils.py
+│   │   │   ├── test_hooks.py
+│   │   │   ├── test_indexer.py
+│   │   │   ├── test_iter_utils.py
+│   │   │   ├── test_jax_utils.py
+│   │   │   ├── test_name_maps.py
+│   │   │   ├── test_notebook_utils.py
+│   │   │   ├── test_om_warnings.py
+│   │   │   ├── test_options_dictionary.py
+│   │   │   ├── test_options_dictionary_feature.py
+│   │   │   ├── test_options_dictionary_units.py
+│   │   │   ├── test_rangemapper.py
+│   │   │   ├── test_relevance.py
+│   │   │   ├── test_reports_system.py
+│   │   │   ├── test_rich_utils.py
+│   │   │   ├── test_scaffold.py
+│   │   │   ├── test_shell_proc.py
+│   │   │   ├── test_spline_distributions.py
+│   │   │   ├── test_testing_utils.py
+│   │   │   ├── test_units.py
+│   │   │   ├── test_vartable.py
+│   │   │   └── test_visualization.py
+│   │   │       └── ... (29 more files)
+│   │   ├── __init__.py
+│   │   ├── array_utils.py
+│   │   ├── assert_utils.py
+│   │   ├── class_util.py
+│   │   ├── code_utils.py
+│   │   ├── coloring.py
+│   │   ├── concurrent_utils.py
+│   │   ├── cs_safe.py
+│   │   ├── deriv_display.py
+│   │   ├── entry_points.py
+│   │   ├── file_utils.py
+│   │   ├── file_wrap.py
+│   │   ├── find_cite.py
+│   │   ├── general_utils.py
+│   │   ├── graph_utils.py
+│   │   ├── gui_testing_utils.py
+│   │   ├── hooks.py
+│   │   ├── indexer.py
+│   │   ├── iter_utils.py
+│   │   ├── jax_utils.py
+│   │   ├── logger_utils.py
+│   │   ├── mpi.py
+│   │   ├── name_maps.py
+│   │   ├── notebook_utils.py
+│   │   ├── om.py
+│   │   ├── om_warnings.py
+│   │   ├── omnumba.py
+│   │   ├── options_dictionary.py
+│   │   ├── rangemapper.py
+│   │   ├── record_util.py
+│   │   ├── relevance.py
+│   │   ├── reports_system.py
+│   │   ├── rich_utils.py
+│   │   ├── scaffold.py
+│   │   ├── shell_proc.py
+│   │   ├── spline_distributions.py
+│   │   ├── testing_utils.py
+│   │   ├── unit_library.ini
+│   │   ├── units.py
+│   │   ├── variable_table.py
+│   │   └── webview.py
+│   │       └── ... (36 more files)
+│   ├── vectors/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_vector.py
+│   │   ├── __init__.py
+│   │   ├── default_transfer.py
+│   │   ├── default_vector.py
+│   │   ├── petsc_transfer.py
+│   │   ├── petsc_vector.py
+│   │   ├── transfer.py
+│   │   └── vector.py
+│   │       └── ... (2 more files)
+│   ├── visualization/
+│   │   ├── case_viewer/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── case_viewer.py
+│   │   ├── common/
+│   │   │   ├── libs/
+│   │   │   └── style/
+│   │   ├── connection_viewer/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── connect_table.html
+│   │   │   └── viewconns.py
+│   │   ├── inputs_report/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── inputs_report.py
+│   │   ├── meta_model_viewer/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── meta_model_visualization.py
+│   │   ├── n2_viewer/
+│   │   │   ├── assets/
+│   │   │   ├── gen/
+│   │   │   ├── libs/
+│   │   │   ├── src/
+│   │   │   ├── style/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── index.html
+│   │   │   └── n2_viewer.py
+│   │   ├── opt_report/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── opt_report.py
+│   │   │   └── opt_report_template.html
+│   │   ├── realtime_opt_plot/
+│   │   │   └── realtime_opt_plot.py
+│   │   ├── scaling_viewer/
+│   │   │   ├── __init__.py
+│   │   │   ├── scaling_report.py
+│   │   │   └── scaling_table.html
+│   │   ├── tables/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── generic_table.template
+│   │   │   └── table_builder.py
+│   │   ├── timing_viewer/
+│   │   │   ├── __init__.py
+│   │   │   ├── timer.py
+│   │   │   ├── timing_table.html
+│   │   │   └── timing_viewer.py
+│   │   ├── __init__.py
+│   │   ├── dyn_shape_plot.py
+│   │   ├── graph_viewer.py
+│   │   ├── htmlpp.py
+│   │   ├── options_widget.py
+│   │   └── partial_deriv_plot.py
+│   │       └── ... (1 more files)
+│   ├── .pylintrc
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── api.py
+│   ├── func_api.py
+│   └── parallel_api.py
+│       └── ... (1 more files)
+├── roadmaps/
+│   ├── 2020roadmap.md
+│   ├── 2021roadmap.md
+│   ├── 2022roadmap.md
+│   ├── 2023roadmap.md
+│   └── 2025roadmap.md
+├── .bumpversion.cfg
+├── .coveragerc
+├── .gitattributes
+├── .gitignore
+├── .pre-commit-config.yaml
+├── bandit.yml
+├── CONTRIBUTING.md
+├── Dockerfile
+├── Dockerfile.arm
+├── LICENSE.txt
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+└── release_notes.md
+    └── ... (9 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

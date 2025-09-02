@@ -1,0 +1,36 @@
+08/11/2025 15:14:49 - INFO - __main__ - --- Processing repository: snap ---
+08/11/2025 15:14:49 - INFO - __main__ - No existing container found. Creating new container 'agent-run-snap'...
+08/11/2025 15:14:49 - INFO - __main__ - Copying 'python_repos\snap' to new container 'agent-run-snap:/app/repo_to_process'...
+08/11/2025 15:14:55 - INFO - __main__ - Executing agent inside the container...
+08/11/2025 15:14:55 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:14:55 - INFO - __main__ - --- Starting Agent inside Container ---
+08/11/2025 15:14:55 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:14:55 - INFO - __main__ - Repository Name: snap
+08/11/2025 15:14:55 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:14:55 - INFO - __main__ - Repository: /app/repo_to_process
+08/11/2025 15:14:55 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:14:55 - INFO - __main__ - Language: Python
+08/11/2025 15:14:55 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:14:55 - INFO - __main__ - Model: gpt-4.1
+08/11/2025 15:14:55 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:14:55 - INFO - __main__ - Max Iterations: 15
+08/11/2025 15:14:55 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:14:55 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/11/2025 15:14:58 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:14:58 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/11/2025 15:14:58 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:14:58 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 15:14:58 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:14:58 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 15:15:05 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:15:05 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 15:15:05 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:15:05 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 15:15:05 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:15:05 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 15:15:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:15:06 - INFO - __main__ - ✅ Phase 1 (SETUP) complete: `pytest` is now executable without collection errors.
+08/11/2025 15:15:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:15:06 - INFO - __main__ - === Starting Iteration 2/15 [Phase: TRACING] ===
+08/11/2025 15:15:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:15:06 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 15:15:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:15:06 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 15:15:11 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:15:11 - INFO - __main__ - ❌ Model reported failure. Terminating.
+08/11/2025 15:15:11 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:15:11 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed
+08/11/2025 15:15:11 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:15:11 - INFO - __main__ - ❌ Agent finished with non-success status: failed
+08/11/2025 15:15:11 - INFO - __main__ - Agent finished with exit code: 1
+08/11/2025 15:15:11 - INFO - __main__ - Copying all generated files from container 'agent-run-snap:/app/new_test_detection_logs/snap'...
+08/11/2025 15:15:11 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\snap'.
+08/11/2025 15:15:11 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-snap:/app/repo_to_process'...
+08/11/2025 15:15:11 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 15:15:12 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 15:15:12 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/11/2025 15:15:12 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/11/2025 15:15:12 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/11/2025 15:15:12 - INFO - __main__ - Deleting container 'agent-run-snap' due to failure or missing required files.
+08/11/2025 15:15:22 - INFO - __main__ - --- Finished processing repository: snap ---
+

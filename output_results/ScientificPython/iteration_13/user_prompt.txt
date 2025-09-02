@@ -1,0 +1,229 @@
+## Current Project Structure
+```
+repo_to_process/
+├── Doc/
+│   ├── BSP_Tutorial.pdf
+│   └── CHANGELOG
+├── epydoc/
+│   ├── make_html.conf
+│   └── make_pdf.conf
+├── Examples/
+│   ├── BSP/
+│   │   ├── example1.py
+│   │   ├── example1_array.py
+│   │   ├── example2.py
+│   │   ├── example3.py
+│   │   └── example4.py
+│   ├── demomodule.c
+│   ├── master.py
+│   ├── master_slave_demo.py
+│   ├── mpi.py
+│   ├── netcdf_demo.py
+│   ├── README
+│   └── slave.py
+│       └── ... (2 more files)
+├── Include/
+│   ├── Scientific/
+│   │   ├── arrayobject.h
+│   │   ├── bspmodule.h
+│   │   ├── mpimodule.h
+│   │   ├── netcdfmodule.h
+│   │   ├── PyBSP_API.h
+│   │   └── PyMPI_API.h
+│   │       └── ... (1 more files)
+│   └── scientific_netcdfmodule.h
+├── Scientific/
+│   ├── BSP/
+│   │   ├── __init__.py
+│   │   ├── Console.py
+│   │   ├── core.py
+│   │   ├── IO.py
+│   │   └── Tasks.py
+│   ├── Clustering/
+│   │   ├── __init__.py
+│   │   └── AffinityPropagation.py
+│   ├── DistributedComputing/
+│   │   ├── __init__.py
+│   │   ├── MasterSlave.py
+│   │   └── TaskManager.py
+│   ├── Functions/
+│   │   ├── __init__.py
+│   │   ├── Derivatives.py
+│   │   ├── FindRoot.py
+│   │   ├── FirstDerivatives.py
+│   │   ├── Interpolation.py
+│   │   ├── LeastSquares.py
+│   │   ├── Polynomial.py
+│   │   ├── Rational.py
+│   │   └── Romberg.py
+│   │       └── ... (4 more files)
+│   ├── Geometry/
+│   │   ├── __init__.py
+│   │   ├── Objects3D.py
+│   │   ├── Quaternion.py
+│   │   ├── TensorAnalysis.py
+│   │   ├── TensorModule.py
+│   │   ├── Transformation.py
+│   │   └── VectorModule.py
+│   │       └── ... (2 more files)
+│   ├── IO/
+│   │   ├── __init__.py
+│   │   ├── ArrayIO.py
+│   │   ├── FortranFormat.py
+│   │   ├── NetCDF.py
+│   │   ├── PDB.py
+│   │   ├── PDBExportFilters.py
+│   │   ├── PDBSpaceGroups.py
+│   │   └── TextFile.py
+│   │       └── ... (3 more files)
+│   ├── MPI/
+│   │   ├── __init__.py
+│   │   ├── core.py
+│   │   └── IO.py
+│   ├── Physics/
+│   │   ├── __init__.py
+│   │   ├── PhysicalQuantities.py
+│   │   └── Potential.py
+│   ├── QtWidgets/
+│   │   ├── __init__.py
+│   │   ├── qt_fake.py
+│   │   ├── QtPlotCanvas.py
+│   │   └── QtVisualizationCanvas.py
+│   ├── Signals/
+│   │   ├── __init__.py
+│   │   └── Models.py
+│   ├── Statistics/
+│   │   ├── __init__.py
+│   │   └── Histogram.py
+│   ├── Threading/
+│   │   ├── __init__.py
+│   │   └── TaskManager.py
+│   ├── TkWidgets/
+│   │   ├── __init__.py
+│   │   ├── TkPlotCanvas.py
+│   │   ├── TkVisualizationCanvas.py
+│   │   └── Utility.py
+│   ├── Visualization/
+│   │   ├── __init__.py
+│   │   ├── Chimera.py
+│   │   ├── Color.py
+│   │   ├── PyMOL.py
+│   │   ├── VMD.py
+│   │   ├── VPython.py
+│   │   ├── VRML.py
+│   │   └── VRML2.py
+│   │       └── ... (3 more files)
+│   ├── .gitignore
+│   ├── __init__.py
+│   ├── __pkginfo__.py
+│   ├── _affinitypropagation.pyx
+│   ├── _interpolation.pyx
+│   ├── _netcdf.c
+│   ├── _vector.py
+│   ├── _vector.pyx
+│   ├── DictWithDefault.py
+│   ├── FFT.py
+│   ├── indexing.py
+│   ├── LA.py
+│   ├── Mathematica.py
+│   ├── N.py
+│   ├── NRNG.py
+│   └── NumberDict.py
+│       └── ... (11 more files)
+├── Src/
+│   ├── BSPlib/
+│   │   ├── bsppython.c
+│   │   ├── compile_bsponmpi.py
+│   │   ├── compile_oxford_toolset.py
+│   │   ├── ibsppython
+│   │   ├── Scientific_bsplib.c
+│   │   └── Scientific_bsplib.export
+│   │       └── ... (1 more files)
+│   └── MPI/
+│       ├── compile.py
+│       ├── impipython
+│       ├── mpipython.c
+│       ├── Scientific_mpi.c
+│       └── Scientific_mpi.export
+├── tests/
+│   ├── test_clustering.py
+│   ├── test_intepolation.py
+│   ├── test_signal.py
+│   └── test_vector.py
+├── Tools/
+│   ├── makeheader.py
+│   └── makePDBSpaceGroups.py
+├── .gitignore
+├── .travis.yml
+├── bsp_virtual
+├── bsp_virtual_stackless
+├── LICENCE
+├── LICENSE
+├── MANIFEST.in
+├── README
+├── README.BSP
+├── README.BSPlib
+├── README.MPI
+├── requirements-build.txt
+├── scientific_win32_postinstall.py
+├── setup.cfg
+├── setup.py
+└── task_manager
+    └── ... (11 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+✅ Created file: Scientific/Signals/Models.py
+✅ Created file: Scientific/_vector.py
+✅ Created file: Scientific/Geometry/__init__.py
+### Command Execution:
+--- Command: PYTHONPATH=. pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 4 items / 1 error
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_vector.py _____________________
+/usr/local/lib/python3.10/dist-packages/_pytest/python.py:498: in importtestmodule
+    mod = import_path(
+/usr/local/lib/python3.10/dist-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+/usr/local/lib/python3.10/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+tests/test_vector.py:11: in <module>
+    from Scientific.Geometry import Tensor
+Scientific/Geometry/__init__.py:7: in <module>
+    from . import VectorModule
+E     File "/app/repo_to_process/Scientific/Geometry/VectorModule.py", line 65
+E       return 'Vector(%s,%s,%s)' % (`self.array[0]`,\
+E                                    ^
+E   SyntaxError: invalid syntax
+=========================== short test summary info ============================
+ERROR tests/test_vector.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.16s ===============================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

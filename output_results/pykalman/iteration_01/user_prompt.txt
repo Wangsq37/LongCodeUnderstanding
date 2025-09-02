@@ -1,0 +1,91 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── release.yml
+│   │   └── run-ci.yml
+│   └── dependabot.yml
+├── build_tools/
+│   ├── changelog.py
+│   └── fail_on_missing_init_files.sh
+├── doc/
+│   ├── source/
+│   │   ├── images/
+│   │   │   ├── pykalman-logo-with-name.png
+│   │   │   └── pykalman-logo.png
+│   │   ├── class_docs.rst
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── kf_users_guide.rst
+│   │   ├── numerical_stability.rst
+│   │   ├── plot_em.ipynb
+│   │   └── ukf_users_guide.rst
+│   │       └── ... (2 more files)
+│   └── Makefile
+├── examples/
+│   ├── standard/
+│   │   ├── plot_em.py
+│   │   ├── plot_filter.py
+│   │   ├── plot_missing.py
+│   │   ├── plot_online.py
+│   │   └── plot_sin.py
+│   └── unscented/
+│       ├── plot_additive.py
+│       └── plot_filter.py
+├── pykalman/
+│   ├── datasets/
+│   │   ├── data/
+│   │   │   └── robot.mat
+│   │   ├── descr/
+│   │   │   ├── __init__.py
+│   │   │   └── robot.rst
+│   │   ├── __init__.py
+│   │   └── base.py
+│   ├── sqrt/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   └── test_unscented.py
+│   │   ├── __init__.py
+│   │   ├── bierman.py
+│   │   ├── cholesky.py
+│   │   └── unscented.py
+│   ├── tests/
+│   │   ├── __init__.py
+│   │   ├── test_standard.py
+│   │   ├── test_unscented.py
+│   │   └── ukf_tests.m
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── _numpy.py
+│   │   └── _sklearn.py
+│   ├── __init__.py
+│   ├── _nopytest_tests.py
+│   ├── standard.py
+│   ├── unscented.py
+│   └── utils_numpy.py
+├── .all-contributorsrc
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .readthedocs.yml
+├── CHANGELOG
+├── CHANGELOG.md
+├── LICENSE
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+└── setup.cfg
+    └── ... (7 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

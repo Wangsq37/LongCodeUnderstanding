@@ -1,0 +1,89 @@
+08/11/2025 03:26:27 - INFO - __main__ - --- Processing repository: yt ---
+08/11/2025 03:26:27 - INFO - __main__ - No existing container found. Creating new container 'agent-run-yt'...
+08/11/2025 03:26:28 - INFO - __main__ - Copying 'python_repos\yt' to new container 'agent-run-yt:/app/repo_to_process'...
+08/11/2025 03:26:41 - INFO - __main__ - Executing agent inside the container...
+08/11/2025 03:26:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:41 - INFO - __main__ - --- Starting Agent inside Container ---
+08/11/2025 03:26:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:41 - INFO - __main__ - Repository Name: yt
+08/11/2025 03:26:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:41 - INFO - __main__ - Repository: /app/repo_to_process
+08/11/2025 03:26:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:41 - INFO - __main__ - Language: Python
+08/11/2025 03:26:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:41 - INFO - __main__ - Model: gpt-4.1
+08/11/2025 03:26:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:41 - INFO - __main__ - Max Iterations: 15
+08/11/2025 03:26:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:41 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/11/2025 03:26:44 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:44 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/11/2025 03:26:44 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:44 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:26:44 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:44 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:26:47 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:47 - INFO - __main__ - Executing 5 command(s)...
+08/11/2025 03:26:47 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:26:47 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r minimal_requirements.txt
+08/11/2025 03:27:15 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:27:15 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r requirements/docs.txt
+08/11/2025 03:27:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:27:39 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r requirements/typecheck.txt
+08/11/2025 03:27:45 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:27:45 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e .
+08/11/2025 03:28:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:10 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:28:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:10 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:28:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:10 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:28:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:10 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/11/2025 03:28:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:10 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:28:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:10 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:28:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:16 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 03:28:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:16 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:28:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:16 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:28:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:16 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:28:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:16 - INFO - __main__ - === Starting Iteration 3/15 [Phase: SETUP] ===
+08/11/2025 03:28:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:16 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:28:16 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:16 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:28:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:19 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 03:28:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:19 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install pyyaml
+08/11/2025 03:28:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:20 - INFO - __main__ - === Starting Iteration 4/15 [Phase: SETUP] ===
+08/11/2025 03:28:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:20 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:28:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:20 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:28:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:23 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 03:28:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:23 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:28:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:23 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:28:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:24 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:28:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:24 - INFO - __main__ - === Starting Iteration 5/15 [Phase: SETUP] ===
+08/11/2025 03:28:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:24 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:28:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:24 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:28:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:28 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 03:28:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:28 - INFO - __main__ - Executing command in '/app/repo_to_process': ls yt/geometry/
+08/11/2025 03:28:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:28 - INFO - __main__ - === Starting Iteration 6/15 [Phase: SETUP] ===
+08/11/2025 03:28:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:28 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:28:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:28 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:28:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:33 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 03:28:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:33 - INFO - __main__ - Executing command in '/app/repo_to_process': ls -l
+08/11/2025 03:28:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:33 - INFO - __main__ - === Starting Iteration 7/15 [Phase: SETUP] ===
+08/11/2025 03:28:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:33 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:28:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:33 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:28:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:37 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 03:28:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:37 - INFO - __main__ - Executing command in '/app/repo_to_process': python setup.py build_ext --inplace
+08/11/2025 03:28:38 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:38 - INFO - __main__ - === Starting Iteration 8/15 [Phase: SETUP] ===
+08/11/2025 03:28:38 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:38 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:28:38 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:38 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:28:40 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:40 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 03:28:40 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:40 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install cython
+08/11/2025 03:28:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:42 - INFO - __main__ - === Starting Iteration 9/15 [Phase: SETUP] ===
+08/11/2025 03:28:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:42 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:28:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:42 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:28:45 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:45 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 03:28:45 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:45 - INFO - __main__ - Executing command in '/app/repo_to_process': python setup.py build_ext --inplace
+08/11/2025 03:28:58 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:58 - INFO - __main__ - === Starting Iteration 10/15 [Phase: SETUP] ===
+08/11/2025 03:28:58 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:58 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:28:58 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:28:58 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:29:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:29:01 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 03:29:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:29:01 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install python3-dev
+08/11/2025 03:29:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:29:03 - INFO - __main__ - === Starting Iteration 11/15 [Phase: SETUP] ===
+08/11/2025 03:29:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:29:03 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:29:03 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:29:03 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:29:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:29:08 - INFO - __main__ - ❌ Model reported failure. Terminating.
+08/11/2025 03:29:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:29:08 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed
+08/11/2025 03:29:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:29:08 - INFO - __main__ - ❌ Agent finished with non-success status: failed
+08/11/2025 03:29:08 - INFO - __main__ - Agent finished with exit code: 1
+08/11/2025 03:29:08 - INFO - __main__ - Copying all generated files from container 'agent-run-yt:/app/new_test_detection_logs/yt'...
+08/11/2025 03:29:08 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\yt'.
+08/11/2025 03:29:08 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-yt:/app/repo_to_process'...
+08/11/2025 03:29:08 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 03:29:09 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 03:29:09 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/11/2025 03:29:09 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/11/2025 03:29:09 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/11/2025 03:29:09 - INFO - __main__ - Deleting container 'agent-run-yt' due to failure or missing required files.
+08/11/2025 03:29:20 - INFO - __main__ - --- Finished processing repository: yt ---
+

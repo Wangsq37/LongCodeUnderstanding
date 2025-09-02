@@ -1,0 +1,457 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug-report.md
+│   │   ├── config.yml
+│   │   ├── documentation.md
+│   │   ├── feature-request.md
+│   │   └── issue.md
+│   ├── workflows/
+│   │   ├── composite/
+│   │   │   ├── cartopy-cache/
+│   │   │   ├── conda-env-cache/
+│   │   │   ├── conda-pkg-cache/
+│   │   │   ├── iris-data-cache/
+│   │   │   └── nox-cache/
+│   │   ├── benchmarks_report.yml
+│   │   ├── benchmarks_run.yml
+│   │   ├── benchmarks_validate.yml
+│   │   ├── ci-citation.yml
+│   │   ├── ci-linkchecks.yml
+│   │   ├── ci-manifest.yml
+│   │   ├── ci-template-check.yml
+│   │   ├── ci-tests.yml
+│   │   ├── ci-wheels.yml
+│   │   ├── labeler.yml
+│   │   ├── refresh-lockfiles.yml
+│   │   └── stale.yml
+│   │       └── ... (7 more files)
+│   ├── CONTRIBUTING.md
+│   ├── dependabot.yml
+│   ├── labeler.yml
+│   └── pull_request_template.md
+├── benchmarks/
+│   ├── benchmarks/
+│   │   ├── cperf/
+│   │   │   ├── __init__.py
+│   │   │   ├── equality.py
+│   │   │   ├── load.py
+│   │   │   └── save.py
+│   │   ├── generate_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── stock.py
+│   │   │   ├── ugrid.py
+│   │   │   └── um_files.py
+│   │   ├── load/
+│   │   │   ├── __init__.py
+│   │   │   └── ugrid.py
+│   │   ├── mesh/
+│   │   │   ├── utils/
+│   │   │   └── __init__.py
+│   │   ├── sperf/
+│   │   │   ├── __init__.py
+│   │   │   ├── combine_regions.py
+│   │   │   ├── equality.py
+│   │   │   ├── load.py
+│   │   │   └── save.py
+│   │   ├── unit_style/
+│   │   │   ├── __init__disabled.py
+│   │   │   ├── aux_factory.py
+│   │   │   ├── coords.py
+│   │   │   ├── cube.py
+│   │   │   ├── mesh.py
+│   │   │   ├── metadata_manager_factory.py
+│   │   │   └── mixin.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── aggregate_collapse.py
+│   │   ├── cube.py
+│   │   ├── import_iris.py
+│   │   ├── iterate.py
+│   │   ├── merge_concat.py
+│   │   ├── plot.py
+│   │   ├── regridding.py
+│   │   ├── save.py
+│   │   ├── stats.py
+│   │   └── trajectory.py
+│   │       └── ... (6 more files)
+│   ├── custom_bms/
+│   │   ├── install.py
+│   │   ├── README.md
+│   │   └── tracemallocbench.py
+│   ├── _asv_delegated_abc.py
+│   ├── asv.conf.json
+│   ├── asv_delegated.py
+│   ├── bm_runner.py
+│   └── README.md
+├── docs/
+│   ├── gallery_code/
+│   │   ├── general/
+│   │   │   ├── plot_anomaly_log_colouring.py
+│   │   │   ├── plot_coriolis.py
+│   │   │   ├── plot_cross_section.py
+│   │   │   ├── plot_custom_aggregation.py
+│   │   │   ├── plot_custom_file_loading.py
+│   │   │   ├── plot_global_map.py
+│   │   │   ├── plot_inset.py
+│   │   │   ├── plot_lineplot_with_legend.py
+│   │   │   ├── plot_polar_stereo.py
+│   │   │   ├── plot_polynomial_fit.py
+│   │   │   ├── plot_projections_and_annotations.py
+│   │   │   ├── plot_rotated_pole_mapping.py
+│   │   │   ├── plot_SOI_filtering.py
+│   │   │   ├── plot_zonal_means.py
+│   │   │   └── README.rst
+│   │   │       └── ... (10 more files)
+│   │   ├── meteorology/
+│   │   │   ├── plot_COP_1d.py
+│   │   │   ├── plot_COP_maps.py
+│   │   │   ├── plot_deriving_phenomena.py
+│   │   │   ├── plot_hovmoller.py
+│   │   │   ├── plot_lagged_ensemble.py
+│   │   │   ├── plot_TEC.py
+│   │   │   ├── plot_wind_barbs.py
+│   │   │   ├── plot_wind_speed.py
+│   │   │   └── README.rst
+│   │   │       └── ... (4 more files)
+│   │   ├── oceanography/
+│   │   │   ├── plot_atlantic_profiles.py
+│   │   │   ├── plot_load_nemo.py
+│   │   │   ├── plot_orca_projection.py
+│   │   │   └── README.rst
+│   │   └── README.rst
+│   ├── gallery_tests/
+│   │   ├── __init__.py
+│   │   ├── conftest.py
+│   │   └── test_gallery_examples.py
+│   ├── src/
+│   │   ├── _static/
+│   │   │   ├── icon_api.svg
+│   │   │   ├── icon_development.svg
+│   │   │   ├── icon_instructions.svg
+│   │   │   ├── icon_new_product.svg
+│   │   │   ├── icon_shuttle.svg
+│   │   │   ├── icon_support.png
+│   │   │   ├── icon_thumb.png
+│   │   │   ├── iris-logo-title-dark.svg
+│   │   │   ├── iris-logo-title.svg
+│   │   │   ├── iris-logo.svg
+│   │   │   ├── README.md
+│   │   │   └── theme_override.css
+│   │   │       └── ... (7 more files)
+│   │   ├── _templates/
+│   │   │   ├── custom_footer.html
+│   │   │   ├── custom_sidebar_logo_version.html
+│   │   │   └── imagehash.html
+│   │   ├── community/
+│   │   │   ├── index.rst
+│   │   │   ├── iris_xarray.rst
+│   │   │   ├── phrasebook.rst
+│   │   │   └── plugins.rst
+│   │   ├── developers_guide/
+│   │   │   ├── assets/
+│   │   │   ├── asv_example_images/
+│   │   │   ├── documenting/
+│   │   │   ├── gitwash/
+│   │   │   ├── ci_checks.png
+│   │   │   ├── contributing_benchmarks.rst
+│   │   │   ├── contributing_changes.rst
+│   │   │   ├── contributing_ci_tests.rst
+│   │   │   ├── contributing_code_formatting.rst
+│   │   │   ├── contributing_codebase_index.rst
+│   │   │   ├── contributing_deprecations.rst
+│   │   │   ├── contributing_documentation.rst
+│   │   │   ├── contributing_documentation_easy.rst
+│   │   │   ├── contributing_documentation_full.rst
+│   │   │   ├── contributing_getting_involved.rst
+│   │   │   ├── contributing_graphics_tests.rst
+│   │   │   ├── contributing_pull_request_checklist.rst
+│   │   │   ├── contributing_pytest_conversions.rst
+│   │   │   ├── contributing_running_tests.rst
+│   │   │   ├── contributing_testing_index.rst
+│   │   │   ├── contributing_tests.rst
+│   │   │   ├── edit_button.png
+│   │   │   ├── edit_on_github.png
+│   │   │   ├── find_main.png
+│   │   │   ├── fork_banner.png
+│   │   │   ├── github_app.rst
+│   │   │   ├── propose_changes.png
+│   │   │   ├── pull_request.png
+│   │   │   ├── release.rst
+│   │   │   └── release_do_nothing.rst
+│   │   │       └── ... (21 more files)
+│   │   ├── further_topics/
+│   │   │   ├── dask_best_practices/
+│   │   │   ├── ugrid/
+│   │   │   ├── controlling_merge.rst
+│   │   │   ├── filtering_warnings.rst
+│   │   │   ├── index.rst
+│   │   │   ├── lenient_maths.rst
+│   │   │   ├── lenient_metadata.rst
+│   │   │   ├── metadata.rst
+│   │   │   ├── missing_data_handling.rst
+│   │   │   ├── netcdf_io.rst
+│   │   │   ├── um_files_loading.rst
+│   │   │   └── which_regridder_to_use.rst
+│   │   │       └── ... (5 more files)
+│   │   ├── IEP/
+│   │   │   └── IEP001.adoc
+│   │   ├── sphinxext/
+│   │   │   └── api_rst_formatting.py
+│   │   ├── userguide/
+│   │   │   ├── plotting_examples/
+│   │   │   ├── regridding_plots/
+│   │   │   ├── change_management_goals.txt
+│   │   │   ├── citation.rst
+│   │   │   ├── concat.svg
+│   │   │   ├── cube_maths.rst
+│   │   │   ├── cube_statistics.rst
+│   │   │   ├── glossary.rst
+│   │   │   ├── index.rst
+│   │   │   ├── interpolation_and_regridding.rst
+│   │   │   ├── iris_cubes.rst
+│   │   │   ├── iris_philosophy.rst
+│   │   │   ├── loading_iris_cubes.rst
+│   │   │   ├── merge.svg
+│   │   │   ├── merge_and_concat.rst
+│   │   │   ├── merge_and_concat.svg
+│   │   │   ├── multi_array.svg
+│   │   │   ├── multi_array_to_cube.svg
+│   │   │   ├── navigating_a_cube.rst
+│   │   │   ├── plotting_a_cube.rst
+│   │   │   ├── real_and_lazy_data.rst
+│   │   │   ├── saving_iris_cubes.rst
+│   │   │   └── subsetting_a_cube.rst
+│   │   │       └── ... (16 more files)
+│   │   ├── whatsnew/
+│   │   │   ├── images/
+│   │   │   ├── 1.0.rst
+│   │   │   ├── 1.1.rst
+│   │   │   ├── 1.10.rst
+│   │   │   ├── 1.11.rst
+│   │   │   ├── 1.12.rst
+│   │   │   ├── 1.13.rst
+│   │   │   ├── 1.2.rst
+│   │   │   ├── 1.3.rst
+│   │   │   ├── 1.4.rst
+│   │   │   ├── 1.5.rst
+│   │   │   ├── 1.6.rst
+│   │   │   ├── 1.7.rst
+│   │   │   ├── 1.8.rst
+│   │   │   ├── 1.9.rst
+│   │   │   ├── 2.0.rst
+│   │   │   ├── 2.1.rst
+│   │   │   ├── 2.2.rst
+│   │   │   ├── 2.3.rst
+│   │   │   ├── 2.4.rst
+│   │   │   ├── 3.0.rst
+│   │   │   ├── 3.1.rst
+│   │   │   ├── 3.10.rst
+│   │   │   ├── 3.11.rst
+│   │   │   ├── 3.12.rst
+│   │   │   ├── 3.13.rst
+│   │   │   ├── 3.2.rst
+│   │   │   ├── 3.3.rst
+│   │   │   ├── 3.4.rst
+│   │   │   ├── 3.5.rst
+│   │   │   ├── 3.6.rst
+│   │   │   ├── 3.7.rst
+│   │   │   ├── 3.8.rst
+│   │   │   ├── 3.9.rst
+│   │   │   ├── index.rst
+│   │   │   ├── latest.rst
+│   │   │   └── latest.rst.template
+│   │   │       └── ... (31 more files)
+│   │   ├── common_links.inc
+│   │   ├── conf.py
+│   │   ├── copyright.rst
+│   │   ├── getting_started.rst
+│   │   ├── index.rst
+│   │   ├── installing.rst
+│   │   ├── Makefile
+│   │   ├── voted_issues.rst
+│   │   └── why_iris.rst
+│   │       └── ... (4 more files)
+│   └── Makefile
+├── etc/
+│   ├── area-type-table.xml
+│   └── cf-standard-name-table.xml
+├── lib/
+│   └── iris/
+│       ├── _representation/
+│       │   ├── __init__.py
+│       │   ├── cube_printout.py
+│       │   └── cube_summary.py
+│       ├── analysis/
+│       │   ├── __init__.py
+│       │   ├── _area_weighted.py
+│       │   ├── _grid_angles.py
+│       │   ├── _interpolation.py
+│       │   ├── _regrid.py
+│       │   ├── _scipy_interpolate.py
+│       │   ├── calculus.py
+│       │   ├── cartography.py
+│       │   ├── geometry.py
+│       │   ├── maths.py
+│       │   ├── stats.py
+│       │   └── trajectory.py
+│       │       └── ... (7 more files)
+│       ├── common/
+│       │   ├── __init__.py
+│       │   ├── _split_attribute_dicts.py
+│       │   ├── lenient.py
+│       │   ├── metadata.py
+│       │   ├── mixin.py
+│       │   └── resolve.py
+│       │       └── ... (1 more files)
+│       ├── etc/
+│       │   ├── palette/
+│       │   └── site.cfg.template
+│       ├── experimental/
+│       │   ├── __init__.py
+│       │   ├── animate.py
+│       │   ├── geovista.py
+│       │   ├── raster.py
+│       │   ├── regrid.py
+│       │   ├── regrid_conservative.py
+│       │   ├── representation.py
+│       │   ├── stratify.py
+│       │   └── ugrid.py
+│       │       └── ... (4 more files)
+│       ├── fileformats/
+│       │   ├── _nc_load_rules/
+│       │   ├── netcdf/
+│       │   ├── um/
+│       │   ├── __init__.py
+│       │   ├── _ff.py
+│       │   ├── _ff_cross_references.py
+│       │   ├── _pp_lbproc_pairs.py
+│       │   ├── _structured_array_identification.py
+│       │   ├── abf.py
+│       │   ├── cf.py
+│       │   ├── dot.py
+│       │   ├── name.py
+│       │   ├── name_loaders.py
+│       │   ├── nimrod.py
+│       │   ├── nimrod_load_rules.py
+│       │   ├── pp.py
+│       │   ├── pp_load_rules.py
+│       │   ├── pp_save_rules.py
+│       │   ├── rules.py
+│       │   └── um_cf_map.py
+│       │       └── ... (12 more files)
+│       ├── io/
+│       │   ├── __init__.py
+│       │   └── format_picker.py
+│       ├── mesh/
+│       │   ├── __init__.py
+│       │   ├── components.py
+│       │   └── utils.py
+│       ├── plugins/
+│       │   └── README.md
+│       ├── tests/
+│       │   ├── experimental/
+│       │   ├── graphics/
+│       │   ├── integration/
+│       │   ├── results/
+│       │   ├── stock/
+│       │   ├── unit/
+│       │   ├── __init__.py
+│       │   ├── _shared_utils.py
+│       │   ├── conftest.py
+│       │   ├── system_test.py
+│       │   ├── test_abf.py
+│       │   ├── test_aggregate_by.py
+│       │   ├── test_analysis.py
+│       │   ├── test_analysis_calculus.py
+│       │   ├── test_basic_maths.py
+│       │   ├── test_cartography.py
+│       │   ├── test
+... (104 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -r requirements/pypi-core.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting cartopy>=0.21 (from -r requirements/pypi-core.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/5b/89/37439b3b5764a8440a951168230d801da920fd9840972bdcdd62619709cb/cartopy-0.25.0-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.8/11.8 MB 12.1 MB/s  0:00:01
+Collecting cf-units>=3.1 (from -r requirements/pypi-core.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/0d/ef/c3587e6528856d5107d428191bafe5398dec6ccde405b606c44f6e7477ac/cf_units-3.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (709 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 709.4/709.4 kB 9.1 MB/s  0:00:00
+Collecting cftime>=1.5.0 (from -r requirements/pypi-core.txt (line 3))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/5c/aa/f62ce24417ecb19f5ba1aa1dbe72394d11f11f5e53fc53497ccfaab83d3c/cftime-1.6.4.post1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 13.4 MB/s  0:00:00
+Collecting dask>=2025.1.0 (from dask[array]>=2025.1.0->-r requirements/pypi-core.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b3/f9/3e04725358c17329652da8c1b2dbd88de723f3dc78bf52ca6d28d52c9279/dask-2025.7.0-py3-none-any.whl (1.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 12.1 MB/s  0:00:00
+Collecting matplotlib>=3.5 (from -r requirements/pypi-core.txt (line 6))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ac/64/8d0c8937dee86c286625bddb1902efacc3e22f2b619f5b5a8df29fe5217b/matplotlib-3.10.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 14.7 MB/s  0:00:00
+Collecting netcdf4 (from -r requirements/pypi-core.txt (line 7))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/db/a6/54f0f335b28228b89e1598fda950382c83b1d7b1f75d28c5eebbcb7f113e/netCDF4-1.7.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (9.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.1/9.1 MB 14.9 MB/s  0:00:00
+Requirement already satisfied: numpy!=1.24.3,>=1.24 in /usr/local/lib/python3.10/dist-packages (from -r requirements/pypi-core.txt (line 8)) (2.2.6)
+Collecting pyproj (from -r requirements/pypi-core.txt (line 9))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/76/a5/c6e11b9a99ce146741fb4d184d5c468446c6d6015b183cae82ac822a6cfa/pyproj-3.7.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (9.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 13.8 MB/s  0:00:00
+Collecting scipy (from -r requirements/pypi-core.txt (line 10))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 14.7 MB/s  0:00:02
+Collecting shapely!=1.8.3 (from -r requirements/pypi-core.txt (line 11))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/a9/4f/6c9bb4bd7b1a14d7051641b9b479ad2a643d5cbc382bcf5bd52fd0896974/shapely-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 13.2 MB/s  0:00:00
+Collecting xxhash (from -r requirements/pypi-core.txt (line 12))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/f2/07/d9a3059f702dec5b3b703737afb6dda32f304f6e9da181a229dafd052c29/xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
+Requirement already satisfied: packaging>=21 in /usr/local/lib/python3.10/dist-packages (from cartopy>=0.21->-r requirements/pypi-core.txt (line 1)) (25.0)
+Collecting pyshp>=2.3 (from cartopy>=0.21->-r requirements/pypi-core.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/98/2f/68116db5b36b895c0450e3072b8cb6c2fac0359279b182ea97014d3c8ac0/pyshp-2.3.1-py2.py3-none-any.whl (46 kB)
+Collecting jinja2 (from cf-units>=3.1->-r requirements/pypi-core.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Collecting click>=8.1 (from dask>=2025.1.0->dask[array]>=2025.1.0->-r requirements/pypi-core.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ec/85/e7297e34133ae1cfde3bffd30c24e1ef055248251baa877834e048687a28/click-8.2.2-py3-none-any.whl (103
+... (40 lines omitted)
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+INFO: pip is looking at multiple versions of scitools-iris to determine which version is compatible with other requirements. This could take a while.
+
+STDERR:
+ERROR: Package 'scitools-iris' requires a different Python: 3.10.12 not in '>=3.11'
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDERR:
+ERROR: Missing required plugins: pytest-mock
+
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

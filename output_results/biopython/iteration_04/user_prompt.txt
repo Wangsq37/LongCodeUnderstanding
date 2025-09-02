@@ -1,0 +1,629 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .circleci/
+│   ├── config.yml
+│   └── requirements-sphinx.txt
+├── .github/
+│   ├── workflows/
+│   │   └── ci.yml
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CODEOWNERS
+│   ├── dependabot.yml
+│   ├── deploy_docs.sh
+│   ├── ISSUE_TEMPLATE.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── SECURITY.md
+│   └── ssh_via_deploy_key.sh
+│       └── ... (3 more files)
+├── Bio/
+│   ├── Affy/
+│   │   ├── __init__.py
+│   │   └── CelFile.py
+│   ├── Align/
+│   │   ├── substitution_matrices/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── _arraycore.c
+│   │   │   └── _arraycore.h
+│   │   ├── __init__.py
+│   │   ├── _aligncore.c
+│   │   ├── _alignmentcounts.c
+│   │   ├── _codonaligner.c
+│   │   ├── _pairwisealigner.c
+│   │   ├── _pairwisealigner.h
+│   │   ├── a2m.py
+│   │   ├── AlignInfo.py
+│   │   ├── analysis.py
+│   │   ├── bed.py
+│   │   ├── bigbed.py
+│   │   ├── bigmaf.py
+│   │   ├── bigpsl.py
+│   │   ├── chain.py
+│   │   ├── clustal.py
+│   │   ├── emboss.py
+│   │   ├── exonerate.py
+│   │   ├── fasta.py
+│   │   ├── hhr.py
+│   │   ├── interfaces.py
+│   │   ├── maf.py
+│   │   ├── mauve.py
+│   │   ├── msf.py
+│   │   ├── nexus.py
+│   │   ├── phylip.py
+│   │   ├── psl.py
+│   │   ├── sam.py
+│   │   ├── stockholm.py
+│   │   └── tabular.py
+│   │       └── ... (24 more files)
+│   ├── AlignIO/
+│   │   ├── __init__.py
+│   │   ├── ClustalIO.py
+│   │   ├── EmbossIO.py
+│   │   ├── FastaIO.py
+│   │   ├── Interfaces.py
+│   │   ├── MafIO.py
+│   │   ├── MauveIO.py
+│   │   ├── MsfIO.py
+│   │   ├── NexusIO.py
+│   │   ├── PhylipIO.py
+│   │   └── StockholmIO.py
+│   │       └── ... (6 more files)
+│   ├── Alphabet/
+│   │   └── __init__.py
+│   ├── Blast/
+│   │   ├── __init__.py
+│   │   ├── _parser.py
+│   │   ├── _writers.py
+│   │   ├── NCBIWWW.py
+│   │   └── NCBIXML.py
+│   ├── CAPS/
+│   │   └── __init__.py
+│   ├── Cluster/
+│   │   ├── __init__.py
+│   │   ├── cluster.c
+│   │   ├── cluster.h
+│   │   └── clustermodule.c
+│   ├── codonalign/
+│   │   ├── __init__.py
+│   │   ├── codonalignment.py
+│   │   └── codonseq.py
+│   ├── Compass/
+│   │   └── __init__.py
+│   ├── Data/
+│   │   ├── __init__.py
+│   │   ├── CodonTable.py
+│   │   ├── IUPACData.py
+│   │   └── PDBData.py
+│   ├── Emboss/
+│   │   ├── __init__.py
+│   │   ├── Primer3.py
+│   │   └── PrimerSearch.py
+│   ├── Entrez/
+│   │   ├── DTDs/
+│   │   │   ├── archivearticle.dtd
+│   │   │   ├── archivecustom-classes.ent
+│   │   │   ├── archivecustom-mixes.ent
+│   │   │   ├── archivecustom-models.ent
+│   │   │   ├── archivecustom-modules.ent
+│   │   │   ├── articlemeta.ent
+│   │   │   ├── backmatter.ent
+│   │   │   ├── BITS-embedded-index2.ent
+│   │   │   ├── BITS-question-answer2.ent
+│   │   │   ├── bookdoc_100301.dtd
+│   │   │   ├── bookdoc_110101.dtd
+│   │   │   ├── bookdoc_120101.dtd
+│   │   │   ├── bookdoc_130101.dtd
+│   │   │   ├── bookdoc_140101.dtd
+│   │   │   ├── bookdoc_150101.dtd
+│   │   │   ├── chars.ent
+│   │   │   ├── common.ent
+│   │   │   ├── default-classes.ent
+│   │   │   ├── default-mixes.ent
+│   │   │   ├── display.ent
+│   │   │   ├── Docsum_3_0.dtd
+│   │   │   ├── Docsum_3_0.mod.dtd
+│   │   │   ├── Docsum_3_1.dtd
+│   │   │   ├── Docsum_3_1.mod.dtd
+│   │   │   ├── Docsum_3_2.dtd
+│   │   │   ├── Docsum_3_2.mod.dtd
+│   │   │   ├── Docsum_3_3.dtd
+│   │   │   ├── Docsum_3_3.mod.dtd
+│   │   │   ├── Docsum_3_4.dtd
+│   │   │   ├── Docsum_3_4.mod.dtd
+│   │   │   ├── egquery.dtd
+│   │   │   ├── einfo.dtd
+│   │   │   ├── eInfo_020511.dtd
+│   │   │   ├── elink.dtd
+│   │   │   ├── elink_020122.dtd
+│   │   │   ├── eLink_090910.dtd
+│   │   │   ├── eLink_101123.dtd
+│   │   │   ├── EMBL_General.dtd
+│   │   │   ├── EMBL_General.mod.dtd
+│   │   │   ├── epost.dtd
+│   │   │   ├── ePost_020511.dtd
+│   │   │   ├── esearch.dtd
+│   │   │   ├── eSearch_020511.dtd
+│   │   │   ├── eSpell.dtd
+│   │   │   ├── esummary-v1.dtd
+│   │   │   ├── eSummary_041029.dtd
+│   │   │   ├── esummary_clinvar.dtd
+│   │   │   ├── esummary_gene.dtd
+│   │   │   ├── format.ent
+│   │   │   ├── GenBank_General.dtd
+│   │   │   ├── GenBank_General.mod.dtd
+│   │   │   ├── HomoloGene.dtd
+│   │   │   ├── HomoloGene.mod.dtd
+│   │   │   ├── htmltable.dtd
+│   │   │   ├── INSD_INSDSeq.dtd
+│   │   │   ├── INSD_INSDSeq.mod.dtd
+│   │   │   ├── isoamsa.ent
+│   │   │   ├── isoamsb.ent
+│   │   │   ├── isoamsc.ent
+│   │   │   ├── isoamsn.ent
+│   │   │   ├── isoamso.ent
+│   │   │   ├── isoamsr.ent
+│   │   │   ├── isobox.ent
+│   │   │   ├── isocyr1.ent
+│   │   │   ├── isocyr2.ent
+│   │   │   ├── isodia.ent
+│   │   │   ├── isogrk1.ent
+│   │   │   ├── isogrk2.ent
+│   │   │   ├── isogrk3.ent
+│   │   │   ├── isogrk4.ent
+│   │   │   ├── isolat1.ent
+│   │   │   ├── isolat2.ent
+│   │   │   ├── isomfrk.ent
+│   │   │   ├── isomopf.ent
+│   │   │   ├── isomscr.ent
+│   │   │   ├── isonum.ent
+│   │   │   ├── isopub.ent
+│   │   │   ├── isotech.ent
+│   │   │   ├── JATS-ali-namespace1-3.ent
+│   │   │   ├── JATS-archivearticle1-3-mathml3.dtd
+│   │   │   ├── JATS-archivecustom-classes1-3.ent
+│   │   │   ├── JATS-archivecustom-mixes1-3.ent
+│   │   │   ├── JATS-archivecustom-models1-3.ent
+│   │   │   ├── JATS-archivecustom-modules1-3.ent
+│   │   │   ├── JATS-articlemeta1-3.ent
+│   │   │   ├── JATS-backmatter1-3.ent
+│   │   │   ├── JATS-chars1-3.ent
+│   │   │   ├── JATS-common-atts1-3.ent
+│   │   │   ├── JATS-common1-3.ent
+│   │   │   ├── JATS-default-classes1-3.ent
+│   │   │   ├── JATS-default-mixes1-3.ent
+│   │   │   ├── JATS-display1-3.ent
+│   │   │   ├── JATS-format1-3.ent
+│   │   │   ├── JATS-funding1-3.ent
+│   │   │   ├── JATS-journalmeta1-3.ent
+│   │   │   ├── JATS-link1-3.ent
+│   │   │   ├── JATS-list1-3.ent
+│   │   │   ├── JATS-math1-3.ent
+│   │   │   ├── JATS-mathml3-mathmlsetup1-3.ent
+│   │   │   ├── JATS-mathml3-modules1-3.ent
+│   │   │   ├── JATS-modules1-3.ent
+│   │   │   ├── JATS-nlmcitation1-3.ent
+│   │   │   ├── JATS-notat1-3.ent
+│   │   │   ├── JATS-para1-3.ent
+│   │   │   ├── JATS-phrase1-3.ent
+│   │   │   ├── JATS-references1-3.ent
+│   │   │   ├── JATS-related-object1-3.ent
+│   │   │   ├── JATS-section1-3.ent
+│   │   │   ├── JATS-XHTMLtablesetup1-3.ent
+│   │   │   ├── JATS-xmlspecchars1-3.ent
+│   │   │   ├── journalmeta.ent
+│   │   │   ├── link.ent
+│   │   │   ├── list.ent
+│   │   │   ├── math.ent
+│   │   │   ├── mathml-in-pubmed.mod
+│   │   │   ├── mathml2-qname-1.mod
+│   │   │   ├── mathml2.dtd
+│   │   │   ├── mathml3-qname1.mod
+│   │   │   ├── mathml3.dtd
+│   │   │   ├── mathmlsetup.ent
+│   │   │   ├── MMDB.dtd
+│   │   │   ├── MMDB.mod.dtd
+│   │   │   ├── MMDB_Chemical_graph.dtd
+│   │   │   ├── MMDB_Chemical_graph.mod.dtd
+│   │   │   ├── MMDB_Features.dtd
+│   │   │   ├── MMDB_Features.mod.dtd
+│   │   │   ├── MMDB_Structural_model.dtd
+│   │   │   ├── MMDB_Structural_model.mod.dtd
+│   │   │   ├── mmlalias.ent
+│   │   │   ├── mmlextra.ent
+│   │   │   ├── modules.ent
+│   │   │   ├── NCBI_Access.dtd
+│   │   │   ├── NCBI_Access.mod.dtd
+│   │   │   ├── NCBI_all.dtd
+│   │   │   ├── NCBI_Biblio.dtd
+│   │   │   ├── NCBI_Biblio.mod.dtd
+│   │   │   ├── NCBI_BioSource.dtd
+│   │   │   ├── NCBI_BioSource.mod.dtd
+│   │   │   ├── NCBI_BioTree.dtd
+│   │   │   ├── NCBI_BioTree.mod.dtd
+│   │   │   ├── NCBI_Blast4.dtd
+│   │   │   ├── NCBI_Blast4.mod.dtd
+│   │   │   ├── NCBI_BlastDL.dtd
+│   │   │   ├── NCBI_BlastDL.mod.dtd
+│   │   │   ├── NCBI_BlastOutput.dtd
+│   │   │   ├── NCBI_BlastOutput.mod.dtd
+│   │   │   ├── NCBI_Cdd.dtd
+│   │   │   ├── NCBI_Cdd.mod.dtd
+│   │   │   ├── NCBI_Cn3d.dtd
+│   │   │   ├── NCBI_Cn3d.mod.dtd
+│   │   │   ├── NCBI_Entity.mod.dtd
+│   │   │   ├── NCBI_Entrez2.dtd
+│   │   │   ├── NCBI_Entrez2.mod.dtd
+│   │   │   ├── NCBI_Entrezgene.dtd
+│   │   │   ├── NCBI_Entrezgene.mod.dtd
+│   │   │   ├── NCBI_FeatDef.dtd
+│   │   │   ├── NCBI_FeatDef.mod.dtd
+│   │   │   ├── NCBI_GBSeq.dtd
+│   │   │   ├── NCBI_GBSeq.mod.dtd
+│   │   │   ├── NCBI_Gene.dtd
+│   │   │   ├── NCBI_Gene.mod.dtd
+│   │   │   ├── NCBI_General.dtd
+│   │   │   ├── NCBI_General.mod.dtd
+│   │   │   ├── NCBI_ID1Access.dtd
+│   │   │   ├── NCBI_ID1Access.mod.dtd
+│   │   │   ├── NCBI_ID2Access.dtd
+│   │   │   ├── NCBI_ID2Access.mod.dtd
+│   │   │   ├── NCBI_MedArchive.dtd
+│   │   │   ├── NCBI_MedArchive.mod.dtd
+│   │   │   ├── NCBI_Medlars.dtd
+│   │   │   ├── NCBI_Medlars.mod.dtd
+│   │   │   ├── NCBI_Medline.dtd
+│   │   │   ├── NCBI_Medline.mod.dtd
+│   │   │   ├── NCBI_Mim.dtd
+│   │   │   ├── NCBI_Mim.mod.dtd
+│   │   │   ├── NCBI_Mime.dtd
+│   │   │   ├── NCBI_Mime.mod.dtd
+│   │   │   ├── NCBI_ObjPrt.dtd
+│   │   │   ├── NCBI_ObjPrt.mod.dtd
+│   │   │   ├── NCBI_Organism.dtd
+│   │   │   ├── NCBI_Organism.mod.dtd
+│   │   │   ├── NCBI_PCAssay.dtd
+│   │   │   ├── NCBI_PCAssay.mod.dtd
+│   │   │   ├── NCBI_PCSubstance.dtd
+│   │   │   ├── NCBI_PCSubstance.mod.dtd
+│   │   │   ├── NCBI_Project.dtd
+│   │   │   ├── NCBI_Project.mod.dtd
+│   │   │   ├── NCBI_Protein.dtd
+│   │   │   ├── NCBI_Protein.mod.dtd
+│   │   │   ├── NCBI_Pub.dtd
+│   │   │   ├── NCBI_Pub.mod.dtd
+│   │   │   ├── NCBI_PubMed.dtd
+│   │   │   ├── NCBI_PubMed.mod.dtd
+│   │   │   ├── NCBI_Remap.dtd
+│   │   │   ├── NCBI_Remap.mod.dtd
+│   │   │   ├── NCBI_RNA.dtd
+│   │   │   ├── NCBI_RNA.mod.dtd
+│   │   │   ├── NCBI_Rsite.dtd
+│   │   │   ├── NCBI_Rsite.mod.dtd
+│   │   │   ├── NCBI_ScoreMat.dtd
+│   │   │   ├── NCBI_ScoreMat.mod.dtd
+│   │   │   ├── NCBI_Seq_split.dtd
+│   │   │   ├── NCBI_Seq_split.mod.dtd
+│   │   │   ├── NCBI_Seqalign.dtd
+│   │   │   ├── NCBI_Seqalign.mod.dtd
+│   │   │   ├── NCBI_SeqCode.dtd
+│   │   │   ├── NCBI_SeqCode.mod.dtd
+│   │   │   ├── NCBI_Seqfeat.dtd
+│   │   │   ├── NCBI_Seqfeat.mod.dtd
+│   │   │   ├── NCBI_Seqloc.dtd
+│   │   │   ├── NCBI_Seqloc.mod.dtd
+│   │   │   ├── NCBI_Seqres.dtd
+│   │   │   ├── NCBI_Seqres.mod.dtd
+│   │   │   ├── NCBI_Seqset.dtd
+│   │   │   ├── NCBI_Seqset.mod.dtd
+│   │   │   ├── NCBI_SeqTable.dtd
+│   │   │   ├── NCBI_SeqTable.mod.dtd
+│   │   │   ├── NCBI_Sequence.dtd
+│   │   │   ├── NCBI_Sequence.mod.dtd
+│   │   │   ├── NCBI_Submit.dtd
+│
+... (2047 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install Cython ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting Cython
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b4/eb/8c47ba21177929f9122e7aceca9fe1f9f5a037e705226f8a5a9113fb53ba/cython-3.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 13.6 MB/s  0:00:00
+Installing collected packages: Cython
+Successfully installed Cython-3.1.2
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: apt-get update && apt-get install -y python3.10-dev ---
+SUCCESS: False
+STDOUT:
+Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Err:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+  502  Bad Gateway [IP: 185.125.190.83 80]
+Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:4 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1270 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:6 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [5103 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [5290 kB]
+Get:8 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [48.5 kB]
+Get:9 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3207 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3518 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1575 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [75.9 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
+Reading package lists...
+
+STDERR:
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/jammy/InRelease  502  Bad Gateway [IP: 185.125.190.83 80]
+E: The repository 'http://archive.ubuntu.com/ubuntu jammy InRelease' is not signed.
+
+
+--- Command: pip install --editable . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Obtaining file:///app/repo_to_process
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from biopython==1.86.dev0) (2.2.6)
+Installing collected packages: biopython
+  Running setup.py develop for biopython
+
+STDERR:
+  DEPRECATION: Legacy editable install of biopython==1.86.dev0 from file:///app/repo_to_process (setup.py develop) is deprecated. pip 25.3 will enforce this behaviour change. A possible replacement is to add a pyproject.toml or enable --use-pep517, and use setuptools >= 64. If the resulting installation is not behaving as expected, try using --config-settings editable_mode=compat. Please consult the setuptools documentation for more information. Discussion can be found at https://github.com/pypa/pip/issues/11457
+    error: subprocess-exited-with-error
+    
+    × python setup.py develop did not run successfully.
+    │ exit code: 1
+    ╰─> [31 lines of output]
+        running develop
+        /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+          warnings.warn(
+        /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+          warnings.warn(
+        running egg_info
+        writing biopython.egg-info/PKG-INFO
+        writing dependency_links to biopython.egg-info/dependency_links.txt
+        writing requirements to biopython.egg-info/requires.txt
+        writing top-level names to biopython.egg-info/top_level.txt
+        package init file 'Bio/Align/substitution_matrices/data/__init__.py' not found (or not a regular file)
+        package init file 'Bio/Entrez/DTDs/__init__.py' not found (or not a regular file)
+        package init file 'Bio/Entrez/XSDs/__init__.py' not found (or not a regular file)
+        reading manifest file 'biopython.egg-info/SOURCES.txt'
+        reading manifest template 'MANIFEST.in'
+        warning: no previously-included files found matching 'Doc/_build/'
+        warning: no previously-included files found matching 'Tests/Gck/DGVC_GCK.zip'
+        warning: no previously-included files matching '*.pyo' found anywhere in distribution
+        warning: no previously-included files matching '*.py{}' found anywhere in distribution
+        warning: no previously-included files matching '*.py-e' found anywhere in distribution
+        adding license file 'LICENSE'
+        adding license file 'LICENSE.rst'
+        writing manifest file 'biopython.egg-info/SOURCES.txt'
+        running build_ext
+        building 'Bio.Align._aligncore' extension
+        x86_64-linux-gnu-gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I/usr/include/python3.10 -c Bio/Align/_aligncore.c -o build/temp.linux-x86_64-3.10/Bio/Align/_aligncore.o
+        Bio/Align/_aligncore.c:9:10: fatal error: Python.h: No such file or directory
+            9 | #include <Python.h>
+              |          ^~~~~~~~~~
+        compilation terminated.
+        error: command '/usr/bin/x86_64-linux-gnu-gcc' failed with exit code 1
+        [end of output]
+    
+    note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× python setup.py develop did not run successfully.
+│ exit code: 1
+╰─> [31 lines of output]
+    running develop
+    /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+      warnings.warn(
+    /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+      warnings.warn(
+    running egg_info
+    writing biopython.egg-info/PKG-INFO
+    writing dependency_links to biopython.egg-info/dependency_links.txt
+    writing requirements to biopython.egg-info/requires.txt
+    writing top-level names to biopython.egg-info/top_level.txt
+    package init file 'Bio/Align/substitution_matrices/data/__init__.py' not found (or not a regular file)
+    package init file 'Bio/Entrez/DTDs/__init__.py' not found (or not a regular file)
+    package init file 'Bio/Entrez/XSDs/__init__.py' not found (or not a regular file)
+    reading manifest file 'biopython.egg-info/SOURCES.txt'
+    reading manifest template 'MANIFEST.in'
+    warning: no previously-included files found matching 'Doc/_build/'
+    warning: no previously-included files found matching 'Tests/Gck/DGVC_GCK.zip'
+    warning: no previously-included files matching '*.pyo' found anywhere in distribution
+    warning: no previously-included files matching '*.py{}' found anywhere in distribution
+    warning: no previously-included files matching '*.py-e' found anywhere in distribution
+    adding license file 'LICENSE'
+    adding license file 'LICENSE.rst'
+    writing manifest file 'biopython.egg-info/SOURCES.txt'
+    running build_ext
+    building 'Bio.Align._aligncore' extension
+    x86_64-linux-gnu-gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I/usr/include/python3.10 -c Bio/Align/_aligncore.c -o build/temp.linux-x86_64-3.10/Bio/Align/_aligncore.o
+    Bio/Align/_aligncore.c:9:10: fatal error: Python.h: No such file or directory
+        9 | #include <Python.h>
+          |          ^~~~~~~~~~
+    compilation terminated.
+    error: command '/usr/bin/x86_64-linux-gnu-gcc' failed with exit code 1
+    [end of output]
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 17 items / 208 errors
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting Tests/test_Ace.py ______________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_Ace.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_Ace.py:12: in <module>
+    from Bio.Sequencing import Ace
+E   ModuleNotFoundError: No module named 'Bio'
+_____________________ ERROR collecting Tests/test_Affy.py ______________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_Affy.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_Affy.py:21: in <module>
+    from Bio.Affy import CelFile
+E   ModuleNotFoundError: No module named 'Bio'
+____________________ ERROR collecting Tests/test_AlignIO.py ____________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_AlignIO.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_AlignIO.py:11: in <module>
+    from Bio import AlignIO
+E   ModuleNotFoundError: No module named 'Bio'
+_______________ ERROR collecting Tests/test_AlignIO_ClustalIO.py _______________
+ImportError while importing test module '/app/repo_to_process/Tests/test_AlignIO_ClustalIO.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_AlignIO_ClustalIO.py:9: in <module>
+    from Bio.AlignIO.ClustalIO import ClustalIterator
+E   ModuleNotFoundError: No module named 'Bio'
+_______________ ERROR collecting Tests/test_AlignIO_EmbossIO.py ________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_AlignIO_EmbossIO.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_AlignIO_EmbossIO.py:10: in <module>
+    from Bio.AlignIO.EmbossIO import EmbossIterator
+E   ModuleNotFoundError: No module named 'Bio'
+________________ ERROR collecting Tests/test_AlignIO_FastaIO.py ________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_AlignIO_FastaIO.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_AlignIO_FastaIO.py:8: in <module>
+    from Bio.AlignIO import FastaIO
+E   ModuleNotFoundError: No module named 'Bio'
+________________ ERROR collecting Tests/test_AlignIO_MauveIO.py ________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_AlignIO_MauveIO.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_AlignIO_MauveIO.py:11: in <module>
+    from Bio import SeqIO
+E   ModuleNotFoundError: No module named 'Bio'
+_______________ ERROR collecting Tests/test_AlignIO_PhylipIO.py ________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_AlignIO_PhylipIO.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_AlignIO_PhylipIO.py:10: in <module>
+    from Bio.AlignIO.PhylipIO import PhylipIterator
+E   ModuleNotFoundError: No module named 'Bio'
+________________ ERROR collecting Tests/test_AlignIO_convert.py ________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_AlignIO_convert.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_AlignIO_convert.py:9: in <module>
+    from Bio import AlignIO
+E   ModuleNotFoundError: No module named 'Bio'
+________________ ERROR collecting Tests/test_Align_Alignment.py ________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_Align_Alignment.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_Align_Alignment.py:21: in <module>
+    from Bio import Align
+E   ModuleNotFoundError: No module named 'Bio'
+___________________ ERROR collecting Tests/test_Align_a2m.py ___________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_Align_a2m.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_Align_a2m.py:12: in <module>
+    from Bio import Align
+E   ModuleNotFoundError: No module named 'Bio'
+___________________ ERROR collecting Tests/test_Align_bed.py ___________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_Align_bed.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_Align_bed.py:13: in <module>
+    from Bio import Align
+E   ModuleNotFoundError: No module named 'Bio'
+_________________ ERROR collecting Tests/test_Align_bigbed.py __________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_Align_bigbed.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_Align_bigbed.py:12: in <module>
+    from Bio import Align
+E   ModuleNotFoundError: No module named 'Bio'
+_________________ ERROR collecting Tests/test_Align_bigmaf.py __________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_Align_bigmaf.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_Align_bigmaf.py:12: in <module>
+    from Bio import Align
+E   ModuleNotFoundError: No module named 'Bio'
+_________________ ERROR collecting Tests/test_Align_bigpsl.py __________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_Align_bigpsl.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_Align_bigpsl.py:9: in <module>
+    from Bio import Align
+E   ModuleNotFoundError: No module named 'Bio'
+__________________ ERROR collecting Tests/test_Align_chain.py __________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_Align_chain.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+Tests/test_Align_chain.py:10: in <module>
+    from Bio import Align
+E   ModuleNotFoundError: No module named 'Bio'
+_________________ ERROR collecting Tests/test_Align_clustal.py _________________
+ImportError while importing test module '/app/repo_to_process/Tests/test_Align_clustal
+... (2052 lines omitted)
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

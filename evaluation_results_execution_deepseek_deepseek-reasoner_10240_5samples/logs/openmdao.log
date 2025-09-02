@@ -1,0 +1,151 @@
+08/27/2025 23:51:36 - INFO - [openmdao] - 正在为仓库 'openmdao' 启动并准备容器 'agent-run-openmdao'...
+08/27/2025 23:51:37 - INFO - [openmdao] - 容器 'agent-run-openmdao' 已就绪。
+08/27/2025 23:51:37 - INFO - [openmdao] - --- 开始评估组合: ORIGINAL / ORACLE for repo openmdao ---
+08/27/2025 23:51:37 - INFO - [openmdao] - --- 正在处理任务 1/6: openmdao_4 ---
+08/27/2025 23:51:38 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:38 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:39 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:40 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:41 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:41 - INFO - [openmdao] - --- 正在处理任务 2/6: openmdao_5 ---
+08/27/2025 23:51:41 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:42 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:43 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:44 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:44 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:44 - INFO - [openmdao] - --- 正在处理任务 3/6: openmdao_6 ---
+08/27/2025 23:51:45 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:46 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:46 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:47 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:48 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:48 - INFO - [openmdao] - --- 正在处理任务 4/6: openmdao_7 ---
+08/27/2025 23:51:49 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:49 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:50 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:51 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:52 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:51:52 - INFO - [openmdao] - --- 正在处理任务 5/6: openmdao_8 ---
+08/27/2025 23:51:56 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:52:01 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:52:05 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:52:09 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:52:10 - INFO - [openmdao] -   [成功] 任务 openmdao_8 测试通过。
+08/27/2025 23:52:11 - INFO - [openmdao] - --- 正在处理任务 6/6: openmdao_9 ---
+08/27/2025 23:52:15 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:52:19 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:52:23 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:52:28 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:52:29 - INFO - [openmdao] -   [成功] 任务 openmdao_9 测试通过。
+08/27/2025 23:52:29 - INFO - [openmdao] - --- 开始评估组合: ORIGINAL / RETRIEVAL for repo openmdao ---
+08/27/2025 23:52:29 - INFO - [openmdao] - --- 正在处理任务 1/6: openmdao_4 ---
+08/27/2025 23:52:30 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:31 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:31 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:32 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:33 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:33 - INFO - [openmdao] - --- 正在处理任务 2/6: openmdao_5 ---
+08/27/2025 23:52:34 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:34 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:35 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:36 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:37 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:37 - INFO - [openmdao] - --- 正在处理任务 3/6: openmdao_6 ---
+08/27/2025 23:52:37 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:38 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:39 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:40 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:40 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:41 - INFO - [openmdao] - --- 正在处理任务 4/6: openmdao_7 ---
+08/27/2025 23:52:41 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:42 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:43 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:44 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:44 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/27/2025 23:52:44 - INFO - [openmdao] - --- 正在处理任务 5/6: openmdao_8 ---
+08/27/2025 23:52:46 - INFO - [openmdao] -   [成功] 任务 openmdao_8 测试通过。
+08/27/2025 23:52:47 - INFO - [openmdao] -   [成功] 任务 openmdao_8 测试通过。
+08/27/2025 23:52:51 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:52:55 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:00 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:00 - INFO - [openmdao] - --- 正在处理任务 6/6: openmdao_9 ---
+08/27/2025 23:53:01 - INFO - [openmdao] -   [成功] 任务 openmdao_9 测试通过。
+08/27/2025 23:53:05 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:10 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:14 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:18 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:18 - INFO - [openmdao] - --- 开始评估组合: REWRITE / ORACLE for repo openmdao ---
+08/27/2025 23:53:18 - INFO - [openmdao] - --- 正在处理任务 1/6: openmdao_4 ---
+08/27/2025 23:53:19 - INFO - [openmdao] -   [成功] 任务 openmdao_4 测试通过。
+08/27/2025 23:53:21 - INFO - [openmdao] -   [成功] 任务 openmdao_4 测试通过。
+08/27/2025 23:53:25 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:29 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:33 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:34 - INFO - [openmdao] - --- 正在处理任务 2/6: openmdao_5 ---
+08/27/2025 23:53:35 - INFO - [openmdao] -   [成功] 任务 openmdao_5 测试通过。
+08/27/2025 23:53:39 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:43 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:48 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:52 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:53:52 - INFO - [openmdao] - --- 正在处理任务 3/6: openmdao_6 ---
+08/27/2025 23:53:56 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:00 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:04 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:06 - INFO - [openmdao] -   [成功] 任务 openmdao_6 测试通过。
+08/27/2025 23:54:10 - WARNING - [openmdao] -   [失败] 任务 openmdao_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:10 - INFO - [openmdao] - --- 正在处理任务 4/6: openmdao_7 ---
+08/27/2025 23:54:11 - INFO - [openmdao] -   [成功] 任务 openmdao_7 测试通过。
+08/27/2025 23:54:16 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:17 - INFO - [openmdao] -   [成功] 任务 openmdao_7 测试通过。
+08/27/2025 23:54:21 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:22 - INFO - [openmdao] -   [成功] 任务 openmdao_7 测试通过。
+08/27/2025 23:54:23 - INFO - [openmdao] - --- 正在处理任务 5/6: openmdao_8 ---
+08/27/2025 23:54:24 - INFO - [openmdao] -   [成功] 任务 openmdao_8 测试通过。
+08/27/2025 23:54:28 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:29 - INFO - [openmdao] -   [成功] 任务 openmdao_8 测试通过。
+08/27/2025 23:54:34 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:35 - INFO - [openmdao] -   [成功] 任务 openmdao_8 测试通过。
+08/27/2025 23:54:35 - INFO - [openmdao] - --- 正在处理任务 6/6: openmdao_9 ---
+08/27/2025 23:54:39 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:41 - INFO - [openmdao] -   [成功] 任务 openmdao_9 测试通过。
+08/27/2025 23:54:42 - INFO - [openmdao] -   [成功] 任务 openmdao_9 测试通过。
+08/27/2025 23:54:46 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:51 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:51 - INFO - [openmdao] - --- 开始评估组合: REWRITE / RETRIEVAL for repo openmdao ---
+08/27/2025 23:54:51 - INFO - [openmdao] - --- 正在处理任务 1/6: openmdao_4 ---
+08/27/2025 23:54:55 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:54:59 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:55:00 - INFO - [openmdao] -   [成功] 任务 openmdao_4 测试通过。
+08/27/2025 23:55:05 - WARNING - [openmdao] -   [失败] 任务 openmdao_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:55:06 - INFO - [openmdao] -   [成功] 任务 openmdao_4 测试通过。
+08/27/2025 23:55:06 - INFO - [openmdao] - --- 正在处理任务 2/6: openmdao_5 ---
+08/27/2025 23:55:07 - INFO - [openmdao] -   [成功] 任务 openmdao_5 测试通过。
+08/27/2025 23:55:11 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:55:16 - WARNING - [openmdao] -   [失败] 任务 openmdao_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:55:17 - INFO - [openmdao] -   [成功] 任务 openmdao_5 测试通过。
+08/27/2025 23:55:18 - INFO - [openmdao] -   [成功] 任务 openmdao_5 测试通过。
+08/27/2025 23:55:19 - INFO - [openmdao] - --- 正在处理任务 3/6: openmdao_6 ---
+08/27/2025 23:55:20 - INFO - [openmdao] -   [成功] 任务 openmdao_6 测试通过。
+08/27/2025 23:55:21 - INFO - [openmdao] -   [成功] 任务 openmdao_6 测试通过。
+08/27/2025 23:55:22 - INFO - [openmdao] -   [成功] 任务 openmdao_6 测试通过。
+08/27/2025 23:55:24 - INFO - [openmdao] -   [成功] 任务 openmdao_6 测试通过。
+08/27/2025 23:55:25 - INFO - [openmdao] -   [成功] 任务 openmdao_6 测试通过。
+08/27/2025 23:55:25 - INFO - [openmdao] - --- 正在处理任务 4/6: openmdao_7 ---
+08/27/2025 23:55:29 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:55:30 - INFO - [openmdao] -   [成功] 任务 openmdao_7 测试通过。
+08/27/2025 23:55:32 - INFO - [openmdao] -   [成功] 任务 openmdao_7 测试通过。
+08/27/2025 23:55:33 - INFO - [openmdao] -   [成功] 任务 openmdao_7 测试通过。
+08/27/2025 23:55:37 - WARNING - [openmdao] -   [失败] 任务 openmdao_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:55:38 - INFO - [openmdao] - --- 正在处理任务 5/6: openmdao_8 ---
+08/27/2025 23:55:42 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:55:46 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:55:47 - INFO - [openmdao] -   [成功] 任务 openmdao_8 测试通过。
+08/27/2025 23:55:48 - INFO - [openmdao] -   [成功] 任务 openmdao_8 测试通过。
+08/27/2025 23:55:53 - WARNING - [openmdao] -   [失败] 任务 openmdao_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:55:53 - INFO - [openmdao] - --- 正在处理任务 6/6: openmdao_9 ---
+08/27/2025 23:55:54 - INFO - [openmdao] -   [成功] 任务 openmdao_9 测试通过。
+08/27/2025 23:55:58 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:02 - WARNING - [openmdao] -   [失败] 任务 openmdao_9 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 23:56:04 - INFO - [openmdao] -   [成功] 任务 openmdao_9 测试通过。
+08/27/2025 23:56:05 - INFO - [openmdao] -   [成功] 任务 openmdao_9 测试通过。
+08/27/2025 23:56:05 - INFO - [openmdao] - 仓库 'openmdao' 处理完毕，正在停止容器 'agent-run-openmdao'...

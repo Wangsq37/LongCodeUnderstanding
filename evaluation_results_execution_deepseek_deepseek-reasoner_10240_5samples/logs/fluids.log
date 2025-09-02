@@ -1,0 +1,103 @@
+08/27/2025 22:24:35 - INFO - [fluids] - 正在为仓库 'fluids' 启动并准备容器 'agent-run-fluids'...
+08/27/2025 22:24:36 - INFO - [fluids] - 容器 'agent-run-fluids' 已就绪。
+08/27/2025 22:24:36 - INFO - [fluids] - --- 开始评估组合: ORIGINAL / ORACLE for repo fluids ---
+08/27/2025 22:24:36 - INFO - [fluids] - --- 正在处理任务 1/4: fluids_107 ---
+08/27/2025 22:24:37 - WARNING - [fluids] -   [失败] 任务 fluids_107 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:38 - WARNING - [fluids] -   [失败] 任务 fluids_107 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:39 - WARNING - [fluids] -   [失败] 任务 fluids_107 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:40 - WARNING - [fluids] -   [失败] 任务 fluids_107 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:41 - WARNING - [fluids] -   [失败] 任务 fluids_107 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:41 - INFO - [fluids] - --- 正在处理任务 2/4: fluids_135 ---
+08/27/2025 22:24:42 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:43 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:44 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:45 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:46 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:47 - INFO - [fluids] - --- 正在处理任务 3/4: fluids_136 ---
+08/27/2025 22:24:47 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:48 - WARNING - [fluids] -   任务 fluids_136 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:24:48 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:50 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:51 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:51 - INFO - [fluids] - --- 正在处理任务 4/4: fluids_137 ---
+08/27/2025 22:24:51 - WARNING - [fluids] -   任务 fluids_137 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:24:51 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:24:52 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:24:53 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:24:54 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:24:54 - INFO - [fluids] - --- 开始评估组合: ORIGINAL / RETRIEVAL for repo fluids ---
+08/27/2025 22:24:54 - INFO - [fluids] - --- 正在处理任务 1/4: fluids_107 ---
+08/27/2025 22:24:55 - WARNING - [fluids] -   [失败] 任务 fluids_107 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:56 - WARNING - [fluids] -   [失败] 任务 fluids_107 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:57 - WARNING - [fluids] -   [失败] 任务 fluids_107 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:58 - WARNING - [fluids] -   [失败] 任务 fluids_107 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:59 - WARNING - [fluids] -   [失败] 任务 fluids_107 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:24:59 - INFO - [fluids] - --- 正在处理任务 2/4: fluids_135 ---
+08/27/2025 22:25:00 - INFO - [fluids] -   [成功] 任务 fluids_135 测试通过。
+08/27/2025 22:25:01 - INFO - [fluids] -   [成功] 任务 fluids_135 测试通过。
+08/27/2025 22:25:01 - INFO - [fluids] -   [成功] 任务 fluids_135 测试通过。
+08/27/2025 22:25:02 - INFO - [fluids] -   [成功] 任务 fluids_135 测试通过。
+08/27/2025 22:25:03 - INFO - [fluids] -   [成功] 任务 fluids_135 测试通过。
+08/27/2025 22:25:03 - INFO - [fluids] - --- 正在处理任务 3/4: fluids_136 ---
+08/27/2025 22:25:04 - INFO - [fluids] -   [成功] 任务 fluids_136 测试通过。
+08/27/2025 22:25:05 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:06 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:07 - INFO - [fluids] -   [成功] 任务 fluids_136 测试通过。
+08/27/2025 22:25:08 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:08 - INFO - [fluids] - --- 正在处理任务 4/4: fluids_137 ---
+08/27/2025 22:25:09 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:09 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:10 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:11 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:12 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:12 - INFO - [fluids] - --- 开始评估组合: REWRITE / ORACLE for repo fluids ---
+08/27/2025 22:25:12 - INFO - [fluids] - --- 正在处理任务 1/4: fluids_107 ---
+08/27/2025 22:25:13 - INFO - [fluids] -   [成功] 任务 fluids_107 测试通过。
+08/27/2025 22:25:13 - INFO - [fluids] -   [成功] 任务 fluids_107 测试通过。
+08/27/2025 22:25:14 - INFO - [fluids] -   [成功] 任务 fluids_107 测试通过。
+08/27/2025 22:25:15 - INFO - [fluids] -   [成功] 任务 fluids_107 测试通过。
+08/27/2025 22:25:16 - INFO - [fluids] -   [成功] 任务 fluids_107 测试通过。
+08/27/2025 22:25:16 - INFO - [fluids] - --- 正在处理任务 2/4: fluids_135 ---
+08/27/2025 22:25:17 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:18 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:19 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:20 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:21 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:22 - INFO - [fluids] - --- 正在处理任务 3/4: fluids_136 ---
+08/27/2025 22:25:22 - WARNING - [fluids] -   任务 fluids_136 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:25:22 - WARNING - [fluids] -   任务 fluids_136 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:25:22 - WARNING - [fluids] -   任务 fluids_136 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:25:22 - WARNING - [fluids] -   任务 fluids_136 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:25:22 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:23 - INFO - [fluids] - --- 正在处理任务 4/4: fluids_137 ---
+08/27/2025 22:25:23 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:24 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:25 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:26 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:27 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:27 - INFO - [fluids] - --- 开始评估组合: REWRITE / RETRIEVAL for repo fluids ---
+08/27/2025 22:25:27 - INFO - [fluids] - --- 正在处理任务 1/4: fluids_107 ---
+08/27/2025 22:25:27 - INFO - [fluids] -   [成功] 任务 fluids_107 测试通过。
+08/27/2025 22:25:28 - INFO - [fluids] -   [成功] 任务 fluids_107 测试通过。
+08/27/2025 22:25:29 - INFO - [fluids] -   [成功] 任务 fluids_107 测试通过。
+08/27/2025 22:25:30 - INFO - [fluids] -   [成功] 任务 fluids_107 测试通过。
+08/27/2025 22:25:30 - INFO - [fluids] -   [成功] 任务 fluids_107 测试通过。
+08/27/2025 22:25:31 - INFO - [fluids] - --- 正在处理任务 2/4: fluids_135 ---
+08/27/2025 22:25:32 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:33 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:34 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:35 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:36 - WARNING - [fluids] -   [失败] 任务 fluids_135 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:36 - INFO - [fluids] - --- 正在处理任务 3/4: fluids_136 ---
+08/27/2025 22:25:37 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:38 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:38 - WARNING - [fluids] -   任务 fluids_136 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/27/2025 22:25:39 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:40 - WARNING - [fluids] -   [失败] 任务 fluids_136 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/27/2025 22:25:40 - INFO - [fluids] - --- 正在处理任务 4/4: fluids_137 ---
+08/27/2025 22:25:41 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:42 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:42 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:43 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:44 - INFO - [fluids] -   [成功] 任务 fluids_137 测试通过。
+08/27/2025 22:25:44 - INFO - [fluids] - 仓库 'fluids' 处理完毕，正在停止容器 'agent-run-fluids'...

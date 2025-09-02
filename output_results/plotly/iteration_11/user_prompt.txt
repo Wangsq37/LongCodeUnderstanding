@@ -1,0 +1,561 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .circleci/
+│   └── config.yml
+├── .github/
+│   ├── workflows/
+│   │   ├── check-js-build.yml
+│   │   └── test-release.yml
+│   ├── FUNDING.yml
+│   ├── ISSUE_TEMPLATE.md
+│   └── pull_request_template.md
+├── _plotly_utils/
+│   ├── colors/
+│   │   ├── __init__.py
+│   │   ├── _swatches.py
+│   │   ├── carto.py
+│   │   ├── cmocean.py
+│   │   ├── colorbrewer.py
+│   │   ├── cyclical.py
+│   │   ├── diverging.py
+│   │   ├── plotlyjs.py
+│   │   ├── qualitative.py
+│   │   └── sequential.py
+│   │       └── ... (5 more files)
+│   ├── __init__.py
+│   ├── basevalidators.py
+│   ├── data_utils.py
+│   ├── exceptions.py
+│   ├── files.py
+│   ├── importers.py
+│   ├── optional_imports.py
+│   ├── png.py
+│   ├── README.md
+│   └── utils.py
+│       └── ... (5 more files)
+├── codegen/
+│   ├── resources/
+│   │   └── plot-schema.json
+│   ├── __init__.py
+│   ├── compatibility.py
+│   ├── datatypes.py
+│   ├── figure.py
+│   ├── utils.py
+│   └── validators.py
+│       └── ... (1 more files)
+├── doc/
+│   ├── apidoc/
+│   │   ├── _static/
+│   │   │   ├── favicon.ico
+│   │   │   ├── logo.png
+│   │   │   └── plotly-style.css
+│   │   ├── _templates/
+│   │   │   ├── class_figure.rst
+│   │   │   ├── function.rst
+│   │   │   ├── layout.html
+│   │   │   └── trace.rst
+│   │   ├── basefigure.rst
+│   │   ├── conf.py
+│   │   ├── helper_go_names.py
+│   │   ├── index.rst
+│   │   ├── Makefile
+│   │   ├── plotly.express.rst
+│   │   ├── plotly.figure_factory.rst
+│   │   ├── plotly.graph_objects.rst
+│   │   ├── plotly.io.rst
+│   │   ├── plotly.subplots.rst
+│   │   └── README.rst
+│   │       └── ... (6 more files)
+│   ├── python/
+│   │   ├── 2d-histogram-contour.md
+│   │   ├── 2D-Histogram.md
+│   │   ├── 3d-axes.md
+│   │   ├── 3d-bubble-charts.md
+│   │   ├── 3d-camera-controls.md
+│   │   ├── 3d-isosurface-plots.md
+│   │   ├── 3d-line-plots.md
+│   │   ├── 3d-mesh.md
+│   │   ├── 3d-scatter-plots.md
+│   │   ├── 3d-subplots.md
+│   │   ├── 3d-surface-plots.md
+│   │   ├── 3d-volume.md
+│   │   ├── animations.md
+│   │   ├── annotated-heatmap.md
+│   │   ├── axes.md
+│   │   ├── bar-charts.md
+│   │   ├── bio-alignment-chart.md
+│   │   ├── bio-clustergram.md
+│   │   ├── bio-manhattanplot.md
+│   │   ├── bio-volcano-plot.md
+│   │   ├── box-plots.md
+│   │   ├── bubble-charts.md
+│   │   ├── bubble-maps.md
+│   │   ├── builtin-colorscales.md
+│   │   ├── bullet-charts.md
+│   │   ├── candlestick-charts.md
+│   │   ├── carpet-contour.md
+│   │   ├── carpet-plot.md
+│   │   ├── carpet-scatter.md
+│   │   ├── categorical-axes.md
+│   │   ├── choropleth-maps.md
+│   │   ├── click-events.md
+│   │   ├── colorscales.md
+│   │   ├── cone-plot.md
+│   │   ├── configuration-options.md
+│   │   ├── continuous-error-bars.md
+│   │   ├── contour-plots.md
+│   │   ├── county-choropleth.md
+│   │   ├── creating-and-updating-figures.md
+│   │   ├── custom-buttons.md
+│   │   ├── dash.md
+│   │   ├── dendrogram.md
+│   │   ├── density-heatmaps.md
+│   │   ├── discrete-color.md
+│   │   ├── distplot.md
+│   │   ├── dot-plots.md
+│   │   ├── dropdowns.md
+│   │   ├── dumbbell-plots.md
+│   │   ├── ecdf-plots.md
+│   │   ├── error-bars.md
+│   │   ├── facet-plots.md
+│   │   ├── figure-factories.md
+│   │   ├── figure-factory-subplots.md
+│   │   ├── figure-factory-table.md
+│   │   ├── figure-introspection.md
+│   │   ├── figure-labels.md
+│   │   ├── figure-structure.md
+│   │   ├── figurewidget-app.md
+│   │   ├── figurewidget.md
+│   │   ├── filled-area-plots.md
+│   │   ├── filled-area-tile-maps.md
+│   │   ├── funnel-charts.md
+│   │   ├── gantt.md
+│   │   ├── gauge-charts.md
+│   │   ├── getting-started.md
+│   │   ├── graph-objects.md
+│   │   ├── graphing-multiple-chart-types.md
+│   │   ├── heatmaps.md
+│   │   ├── hexbin-mapbox.md
+│   │   ├── histograms.md
+│   │   ├── horizontal-bar-charts.md
+│   │   ├── horizontal-vertical-shapes.md
+│   │   ├── hover-text-and-formatting.md
+│   │   ├── icicle-charts.md
+│   │   ├── images.md
+│   │   ├── imshow.md
+│   │   ├── indicator.md
+│   │   ├── interactive-html-export.md
+│   │   ├── ipython-vs-python.md
+│   │   ├── jupyter-lab-tools.md
+│   │   ├── LaTeX.md
+│   │   ├── legend.md
+│   │   ├── line-and-scatter.md
+│   │   ├── line-charts.md
+│   │   ├── linear-fits.md
+│   │   ├── lines-on-maps.md
+│   │   ├── lines-on-tile-maps.md
+│   │   ├── log-plot.md
+│   │   ├── map-configuration.md
+│   │   ├── map-subplots-and-small-multiples.md
+│   │   ├── marginal-plots.md
+│   │   ├── marker-style.md
+│   │   ├── migrate-to-maplibre.md
+│   │   ├── mixed-subplots.md
+│   │   ├── ml-knn.md
+│   │   ├── ml-pca.md
+│   │   ├── ml-regression.md
+│   │   ├── ml-roc-pr.md
+│   │   ├── ml-tsne-umap-projections.md
+│   │   ├── ml_apps.md
+│   │   ├── multiple-axes.md
+│   │   ├── network-graphs.md
+│   │   ├── ohlc-charts.md
+│   │   ├── orca-management.md
+│   │   ├── pandas-backend.md
+│   │   ├── parallel-categories-diagram.md
+│   │   ├── parallel-coordinates-plot.md
+│   │   ├── pattern-hatching-texture.md
+│   │   ├── peak-finding.md
+│   │   ├── performance.md
+│   │   ├── pie-charts.md
+│   │   ├── plot-data-from-csv.md
+│   │   ├── plotly-express.md
+│   │   ├── polar-chart.md
+│   │   ├── px-arguments.md
+│   │   ├── quiver-plots.md
+│   │   ├── radar-chart.md
+│   │   ├── random-walk.md
+│   │   ├── range-slider.md
+│   │   ├── renderers.md
+│   │   ├── sankey-diagram.md
+│   │   ├── scatter-plots-on-maps.md
+│   │   ├── selections.md
+│   │   ├── setting-graph-size.md
+│   │   ├── shapes.md
+│   │   ├── sliders.md
+│   │   ├── smith-charts.md
+│   │   ├── smoothing.md
+│   │   ├── splom.md
+│   │   ├── static-image-export.md
+│   │   ├── static-image-generation-migration.md
+│   │   ├── streamline-plots.md
+│   │   ├── streamtube-plot.md
+│   │   ├── strip-charts.md
+│   │   ├── styling-plotly-express.md
+│   │   ├── subplots.md
+│   │   ├── sunburst-charts.md
+│   │   ├── supported-colors.md
+│   │   ├── table-subplots.md
+│   │   ├── table.md
+│   │   ├── templates.md
+│   │   ├── ternary-contour.md
+│   │   ├── ternary-plots.md
+│   │   ├── ternary-scatter-contour.md
+│   │   ├── text-and-annotations.md
+│   │   ├── tick-formatting.md
+│   │   ├── tile-county-choropleth.md
+│   │   ├── tile-map-layers.md
+│   │   ├── tile-scatter-maps.md
+│   │   ├── time-series.md
+│   │   ├── tree-plots.md
+│   │   ├── treemaps.md
+│   │   ├── trisurf.md
+│   │   ├── troubleshooting.md
+│   │   ├── v4-migration.md
+│   │   ├── v6-changes.md
+│   │   ├── violin.md
+│   │   ├── waterfall-charts.md
+│   │   ├── wide-form.md
+│   │   └── wind-rose-charts.md
+│   │       └── ... (155 more files)
+│   ├── unconverted/
+│   │   └── python/
+│   │       ├── 1d-correlation.md
+│   │       ├── 2d-projection-of-3d-surface.md
+│   │       ├── 3d-filled-line-plots.md
+│   │       ├── 3d-network-graph.md
+│   │       ├── 3d-parametric-plots.md
+│   │       ├── 3d-point-clustering.md
+│   │       ├── 3d-wireframe-plots.md
+│   │       ├── amazon-redshift.md
+│   │       ├── anova.md
+│   │       ├── apache-spark.md
+│   │       ├── average_multiple_curves.md
+│   │       ├── baseline-detection.md
+│   │       ├── baseline-subtraction.md
+│   │       ├── basic-statistics.md
+│   │       ├── big-data-analytics-with-pandas-and-sqlite.md
+│   │       ├── cars-exploration.md
+│   │       ├── change-callbacks-datashader.md
+│   │       ├── chord-diagram.md
+│   │       ├── cmocean-colorscales.md
+│   │       ├── convolution.md
+│   │       ├── create-online-dashboard-legacy.md
+│   │       ├── density-plots.md
+│   │       ├── discrete-frequency.md
+│   │       ├── exponential-fits.md
+│   │       ├── fft-filters.md
+│   │       ├── filled-area-animation.md
+│   │       ├── filled-chord-diagram.md
+│   │       ├── frequency-counts.md
+│   │       ├── gapminder-example.md
+│   │       ├── google_big_query.md
+│   │       ├── graph-data-from-mysql-database-in-python.md
+│   │       ├── heatmap-animation.md
+│   │       ├── html-reports.md
+│   │       ├── igraph-networkx-comparison.md
+│   │       ├── insets.md
+│   │       ├── interact-decorator.md
+│   │       ├── interpolation-and-extrapolation-in-1d.md
+│   │       ├── interpolation-and-extrapolation-in-2d.md
+│   │       ├── legacy-polar-chart.md
+│   │       ├── linear-algebra.md
+│   │       ├── linear-gauge-chart.md
+│   │       ├── logos.md
+│   │       ├── matplotlib-colorscales.md
+│   │       ├── normality-test.md
+│   │       ├── normalization.md
+│   │       ├── numerical-differentiation.md
+│   │       ├── numerical-integration.md
+│   │       ├── outlier-test.md
+│   │       ├── pdf-reports.md
+│   │       ├── peak-fitting.md
+│   │       ├── peak-integration.md
+│   │       ├── polygon-area.md
+│   │       ├── polynomial-fits.md
+│   │       ├── population-pyramid-charts.md
+│   │       ├── ribbon-plots.md
+│   │       ├── salesforce.md
+│   │       ├── simple-mathematics-operations.md
+│   │       ├── statistics-charts.md
+│   │       ├── streaming-tutorial.md
+│   │       ├── surface-triangulation.md
+│   │       ├── t-test.md
+│   │       ├── tesla-supercharging-stations.md
+│   │       ├── triangulation.md
+│   │       ├── userguide.md
+│   │       └── webgl-text-and-annotations.md
+│   │           └── ... (60 more files)
+│   ├── Makefile
+│   ├── nb.tpl
+│   ├── next_redirect.tpl
+│   ├── README.md
+│   ├── requirements.txt
+│   └── what_about_dash.md
+│       └── ... (1 more files)
+├── iframe_figures/
+│   ├── figure_0.html
+│   └── figure_1.html
+├── js/
+│   ├── lib/
+│   │   └── mimeExtension.js
+│   ├── src/
+│   │   ├── mimeExtension.ts
+│   │   └── widget.ts
+│   ├── install.json
+│   ├── package-lock.json
+│   ├── package.json
+│   └── tsconfig.json
+├── plotly/
+│   ├── api/
+│   │   └── __init__.py
+│   ├── colors/
+│   │   └── __init__.py
+│   ├── data/
+│   │   └── __init__.py
+│   ├── express/
+│   │   ├── colors/
+│   │   │   └── __init__.py
+│   │   ├── data/
+│   │   │   └── __init__.py
+│   │   ├── trendline_functions/
+│   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── _chart_types.py
+│   │   ├── _core.py
+│   │   ├── _doc.py
+│   │   ├── _imshow.py
+│   │   ├── _special_inputs.py
+│   │   └── imshow_utils.py
+│   │       └── ... (2 more files)
+│   ├── figure_factory/
+│   │   ├── _2d_density.py
+│   │   ├── __init__.py
+│   │   ├── _annotated_heatmap.py
+│   │   ├── _bullet.py
+│   │   ├── _candlestick.py
+│   │   ├── _county_choropleth.py
+│   │   ├── _dendrogram.py
+│   │   ├── _distplot.py
+│   │   ├── _facet_grid.py
+│   │   ├── _gantt.py
+│   │   ├── _hexbin_mapbox.py
+│   │   ├── _ohlc.py
+│   │   ├── _quiver.py
+│   │   ├── _scatterplot.py
+│   │   ├── _streamline.py
+│   │   ├── _table.py
+│   │   ├── _ternary_contour.py
+│   │   ├── _trisurf.py
+│   │   ├── _violin.py
+│   │   ├── README.md
+│   │   └── utils.py
+│   │       └── ... (16 more files)
+│   ├── graph_objects/
+│   │   └── __init__.py
+│   ├── graph_objs/
+│   │   ├── bar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _error_x.py
+│   │   │   ├── _error_y.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _outsidetextfont.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (7 more files)
+│   │   ├── barpolar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │
+... (1116 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+✅ Created file: conftest.py
+### Command Execution:
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+plugins: dash-3.2.0, anyio-4.10.0
+collected 3384 items
+
+plotly/matplotlylib/mplexporter/tests/test_basic.py .......s.F.          [  0%]
+test_init/test_dependencies_not_imported.py F                            [  0%]
+test_init/test_lazy_imports.py F                                         [  0%]
+tests/test_core/test_colors/test_colors.py ........                      [  0%]
+tests/test_core/test_errors/test_dict_path_errors.py ................    [  1%]
+tests/test_core/test_figure_messages/test_add_traces.py ......           [  1%]
+tests/test_core/test_figure_messages/test_batch_animate.py .             [  1%]
+tests/test_core/test_figure_messages/test_move_delete_traces.py ........ [  1%]
+                                                                         [  1%]
+tests/test_core/test_figure_messages/test_on_change.py ................  [  2%]
+tests/test_core/test_figure_messages/test_plotly_relayout.py .........   [  2%]
+tests/test_core/test_figure_messages/test_plotly_restyle.py ........     [  2%]
+tests/test_core/test_figure_messages/test_plotly_update.py ..            [  2%]
+tests/test_core/test_figure_widget_backend/test_missing_anywidget.py .   [  2%]
+tests/test_core/test_figure_widget_backend/test_validate_initialization.py . [  2%]
+.                                                                        [  2%]
+tests/test_core/test_figure_widget_backend/test_validate_no_frames.py .. [  2%]
+....                                                                     [  2%]
+tests/test_core/test_graph_objs/test_annotations.py .......              [  3%]
+tests/test_core/test_graph_objs/test_append_trace.py ......              [  3%]
+tests/test_core/test_graph_objs/test_constructor.py .........            [  3%]
+tests/test_core/test_graph_objs/test_data.py .........                   [  3%]
+tests/test_core/test_graph_objs/test_error_bars.py ...                   [  3%]
+tests/test_core/test_graph_objs/test_figure.py .................         [  4%]
+tests/test_core/test_graph_objs/test_figure_properties.py .............. [  4%]
+..............                                                           [  5%]
+tests/test_core/test_graph_objs/test_frames.py .....                     [  5%]
+tests/test_core/test_graph_objs/test_graph_objs.py ..........            [  5%]
+tests/test_core/test_graph_objs/test_instantiate_hierarchy.py .          [  5%]
+tests/test_core/test_graph_objs/test_layout_subplots.py ............     [  5%]
+tests/test_core/test_graph_objs/test_properties_validated.py ........... [  6%]
+.                                                                        [  6%]
+tests/test_core/test_graph_objs/test_property_assignment.py ............ [  6%]
+................                                                         [  7%]
+tests/test_core/test_graph_objs/test_repr.py ..                          [  7%]
+tests/test_core/test_graph_objs/test_scatter.py .                        [  7%]
+tests/test_core/test_graph_objs/test_template.py ....................... [  7%]
+..........                                                               [  8%]
+tests/test_core/test_graph_objs/test_to_ordered_dict.py ..               [  8%]
+tests/test_core/test_graph_objs/test_update.py .........s.               [  8%]
+tests/test_core/test_graph_objs/test_validate.py .                       [  8%]
+tests/test_core/test_offline/test_offline.py ....F...F.F.F...F.....F.    [  9%]
+tests/test_core/test_optional_imports/test_optional_imports.py ....      [  9%]
+tests/test_core/test_subplots/test_find_nonempty_subplots.py .           [  9%]
+tests/test_core/test_subplots/test_get_subplot.py ..                     [  9%]
+tests/test_core/test_subplots/test_make_subplots.py .................... [ 10%]
+..............................................                           [ 11%]
+tests/test_core/test_update_objects/test_row_col_subplot_addressing.py . [ 11%]
+.........................                                                [ 12%]
+tests/test_core/test_update_objects/test_selector_matches.py ........... [ 12%]
+                                                                         [ 12%]
+tests/test_core/test_update_objects/test_update_annotations.py ......... [ 12%]
+.........                                                                [ 13%]
+tests/test_core/test_update_objects/test_update_layout.py ...            [ 13%]
+tests/test_core/test_update_objects/test_update_subplots.py ..........   [ 13%]
+tests/test_core/test_update_objects/test_update_traces.py .............  [ 13%]
+tests/test_core/test_utils/test_utils.py ....                            [ 14%]
+tests/test_io/test_deepcopy_pickle.py ......                             [ 14%]
+tests/test_io/test_html.py ....                                          [ 14%]
+tests/test_io/test_pathlib.py .                                          [ 14%]
+tests/test_io/test_renderers.py ........................................ [ 15%]
+...............                                                          [ 15%]
+tests/test_io/test_to_from_json.py ..................................... [ 17%]
+                                                                         [ 17%]
+tests/test_io/test_to_from_plotly_json.py .............................. [ 17%]
+........................................................................ [ 20%]
+...............................................................          [ 21%]
+tests/test_optional/test_autoshapes/test_annotated_shapes.py ..........  [ 22%]
+tests/test_optional/test_autoshapes/test_axis_span_shapes.py ........... [ 22%]
+.......                                                                  [ 22%]
+tests/test_optional/test_figure_factory/test_figure_factory.py ......... [ 23%]
+............................................................             [ 24%]
+tests/test_optional/test_graph_objs/test_skipped_b64_keys.py ...         [ 24%]
+tests/test_optional/test_kaleido/test_kaleido.py FFFFFFFFFF...           [ 25%]
+tests/test_optional/test_matplotlylib/test_annotations.py s              [ 25%]
+tests/test_optional/test_matplotlylib/test_axis_scales.py s              [ 25%]
+tests/test_optional/test_matplotlylib/test_bars.py sss                   [ 25%]
+tests/test_optional/test_matplotlylib/test_data.py ssss                  [ 25%]
+tests/test_optional/test_matplotlylib/test_date_times.py ss              [ 25%]
+tests/test_optional/test_matplotlylib/test_lines.py ss                   [ 25%]
+tests/test_optional/test_matplotlylib/test_scatter.py ss                 [ 25%]
+tests/test_optional/test_matplotlylib/test_subplots.py s                 [ 25%]
+tests/test_optional/test_offline/test_offline.py ...F                    [ 25%]
+tests/test_optional/test_px/test_colors.py ...                           [ 25%]
+tests/test_optional/test_px/test_facets.py ...........                   [ 26%]
+tests/test_optional/test_px/test_imshow.py ............................. [ 27%]
+..............................................                           [ 28%]
+tests/test_optional/test_px/test_marginals.py .......................... [ 29%]
+........................................................................ [ 31%]
+..................................                                       [ 32%]
+tests/test_optional/test_px/test_pandas_backend.py ..................... [ 33%]
+...                                                                      [ 33%]
+tests/test_optional/test_px/test_px.py ................................. [ 34%]
+........................................................................ [ 36%]
+........................................................................ [ 38%]
+........................................................................ [ 40%]
+........................................................................ [ 42%]
+........                                                                 [ 42%]
+tests/test_optional/test_px/test_px_functions.py ....................... [ 43%]
+.........................................                                [ 44%]
+tests/test_optional/test_px/test_px_hover.py ..................F...      [ 45%]
+tests/test_optional/test_px/test_px_input.py ....x..x....x.............. [ 46%]
+....................................x................................... [ 48%]
+........................................................................ [ 50%]
+..................................................................       [ 52%]
+tests/test_optional/test_px/test_px_wide.py ............................ [ 53%]
+........................................................................ [ 55%]
+........................................................................ [ 57%]
+.................                                                        [ 57%]
+tests/test_optional/test_px/test_trendline.py .......................... [ 58%]
+...........................FFFFFFF..........                             [ 60%]
+tests/test_optional/test_subplots/test_make_subplots.py ...              [ 60%]
+tests/test_optional/test_tools/test_figure_factory.py .................. [ 60%]
+..............                                                           [ 61%]
+tests/test_optional/test_utils/test_utils.py ..........................  [ 61%]
+tests/test_plotly_utils/validators/test_angle_validator.py ............. [ 62%]
+............................................................             [ 64%]
+tests/test_plotly_utils/validators/test_any_validator.py ..............  [ 64%]
+tests/test_plotly_utils/validators/test_basetraces_validator.py ........ [ 64%]
+                                                                         [ 64%]
+tests/test_plotly_utils/validators/test_boolean_validator.py ........... [ 64%]
+.......                                                                  [ 65%]
+tests/test_plotly_utils/validators/test_color_validator.py ............. [ 65%]
+....................................................                     [ 67%]
+tests/test_plotly_utils/validators/test_colorlist_validator.py ......... [ 67%]
+......                                                                   [ 67%]
+tests/test_plotly_utils/validators/test_colorscale_validator.py ........ [ 67%]
+.................................F...................................... [ 69%]
+........................................................................ [ 72%]
+........................................................................ [ 74
+... (5673 lines omitted)
+
+
+## Your Task (Phase 2: Call Chain Tracing)
+`pytest` is now executable without collection errors. Your task is to set up call chain tracing.
+1.  **Identify the main source code directory/directories.** Based on the structure, this is likely `skimage`.
+2.  **Create a `conftest.py` file** in the project root to trace this directory.
+3.  **Run `pytest`** one last time to generate the reports.
+4.  If the reports are generated, declare success with ```status
+success
+```.
+
+**REMINDER:** When creating `conftest.py`, you only need to provide the line defining `SOURCE_DIRS_TO_TRACK`. For example:
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['skimage']
+```

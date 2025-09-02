@@ -1,0 +1,26 @@
+The critical error here is:
+```
+pytest: error: unrecognized arguments: --doctest-rst
+  inifile: /app/repo_to_process/pyproject.toml
+```
+This means `pytest` is trying to use options from pyproject.toml that require a plugin (here, for `--doctest-rst` — provided by `pytest-astropy`).
+
+This suggests that the required plugin `pytest-astropy` is not installed.
+
+From the `pyproject.toml [project.optional-dependencies]` section:
+```
+test = [
+    "coverage[toml]",
+    "pytest>=7.0",
+    "pytest-astropy>=0.10",
+    "pytest-xdist",
+]
+```
+You need `pytest-astropy` and potentially `pytest-xdist` installed.
+
+So, let's install **all the test dependencies** as specified.
+
+```bash
+pip install pytest-astropy pytest-xdist coverage[toml]
+pytest
+```

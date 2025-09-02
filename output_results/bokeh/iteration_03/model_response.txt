@@ -1,0 +1,12 @@
+Node.js was not successfully installed due to a `502 Bad Gateway` error on fetching some required Debian/Ubuntu packages (`libtext-iconv-perl`). As a result, the `node` command wasn't available when the Bokeh JS build step tried to execute, so `pip install .` failed again at exactly the same place.
+
+Without a successful install of Node.js, and thus a completed build of `bokeh`, we cannot proceed with environment setup nor get pytest to collect tests.
+
+Let's try to fix the broken apt-get by adding `--fix-missing` and retrying installation:
+
+```bash
+apt-get update
+apt-get install -y --fix-missing nodejs npm
+```
+
+After this, I'll retry `pip install .` again. If it still fails, I may need to declare failure.

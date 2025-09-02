@@ -1,0 +1,11 @@
+```bash
+# 1. Install dependencies from requirements.txt and dev-requirements.txt (if present)
+pip install -r requirements.txt || true
+pip install -r dev-requirements.txt || true
+
+# 2. Also try pyproject.toml via PEP 517/518 if needed.
+if [ -f pyproject.toml ]; then pip install . || true; fi
+
+# 3. Run pytest to check for import errors/collection
+pytest
+```

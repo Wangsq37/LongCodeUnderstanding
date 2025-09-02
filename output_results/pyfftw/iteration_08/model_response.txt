@@ -1,0 +1,26 @@
+The error persists:  
+`ModuleNotFoundError: No module named 'pyfftw.pyfftw'`
+
+And from the `ls pyfftw/ | grep pyfftw` output, the compiled extension (`pyfftw.so`/`pyfftw.*.so` or `.pyd`) does not exist. Only sources (`pyfftw.c`, `pyfftw.pxd`, `pyfftw.pyx`) are present.
+
+This means the Cython extension was NOT built. The editable install failed, with a critical FileNotFoundError in the wheel build step:
+```
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmp8xl4d7f2.build-lib/pyfftw/_version.py'
+```
+
+This is often due to needing a Versioneer version file, OR because the C extension hasn't been built (`python setup.py build_ext --inplace`).
+
+Next actions:
+1. Build Cython extension in-place.
+2. If `build_ext` fails, review/setup build requirements: Cython, FFTW dev libraries (libfftw3-dev), etc.
+3. After build, ensure `pyfftw/pyfftw.*.so` exists.
+4. Test `pytest` and try installation again.
+
+Let's first try building the extension in-place.
+
+```bash
+pip install cython
+python setup.py build_ext --inplace
+ls pyfftw/ | grep pyfftw
+pytest
+```

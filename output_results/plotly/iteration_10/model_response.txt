@@ -1,0 +1,17 @@
+Based on the project structure, the main source directories are:
+
+- `_plotly_utils`
+- `plotly`
+- `codegen`
+
+These house the bulk of Python source code that's tested.
+
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['_plotly_utils', 'plotly', 'codegen']
+```
+
+Now run pytest to generate the call chain reports:
+
+```bash
+pytest
+```

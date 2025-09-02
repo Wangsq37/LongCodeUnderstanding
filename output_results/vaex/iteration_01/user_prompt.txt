@@ -1,0 +1,613 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .circleci/
+│   └── config.yml
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   └── workflows/
+│       ├── pythonpackage.yml
+│       ├── wheel-universal.yml
+│       └── wheel.yml
+├── benchmarks/
+│   ├── __init__.py
+│   ├── aggregates.py
+│   ├── bookkeeping.py
+│   ├── export.py
+│   ├── filter.py
+│   ├── fixtures.py
+│   ├── from_csv.py
+│   ├── groupby.py
+│   ├── groupbyh2o.py
+│   ├── hashmap.py
+│   ├── isin.py
+│   ├── README.rst
+│   ├── sort.py
+│   └── strings.py
+│       └── ... (9 more files)
+├── bin/
+│   ├── benchmark_new_commits.sh
+│   ├── build_binary_osx.sh
+│   ├── get_vaex.sh
+│   ├── install_pcre.sh
+│   ├── make_dropbox_uploader_conf.py
+│   ├── vaex
+│   ├── vaex_benchmark.py
+│   ├── vaex_benchmark_memory.py
+│   ├── vaex_benchmark_mmap.py
+│   ├── virtualenv_link.py
+│   ├── virtualenv_link2.py
+│   └── webveax
+│       └── ... (7 more files)
+├── binder/
+│   └── requirements.txt
+├── ci/
+│   ├── actions/
+│   │   └── windll/
+│   │       └── action.yml
+│   ├── 01-setup-conda.sh
+│   ├── 02-create-vaex-dev-env.sh
+│   ├── 03-install-vaex.sh
+│   ├── 04-run-test-suite.sh
+│   ├── 05-run-notebooks.sh
+│   ├── 06-run-contrib-tests.sh
+│   ├── docker-test.sh
+│   └── runs-in-docker.sh
+│       └── ... (3 more files)
+├── docs/
+│   ├── screenshots/
+│   │   ├── main-clean.png
+│   │   └── main-overview.png
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── logo-grey.svg
+│   │   │   └── vaex_alt.png
+│   │   ├── _theme/
+│   │   │   └── vaex_theme/
+│   │   ├── data/
+│   │   │   ├── io/
+│   │   │   └── rest/
+│   │   ├── guides/
+│   │   │   ├── advanced_plotting.ipynb
+│   │   │   ├── arrow.ipynb
+│   │   │   ├── async.ipynb
+│   │   │   ├── caching.ipynb
+│   │   │   ├── dask.ipynb
+│   │   │   ├── data_types.ipynb
+│   │   │   ├── graphql.ipynb
+│   │   │   ├── io.ipynb
+│   │   │   ├── missing_or_invalid_data.ipynb
+│   │   │   ├── ml_iris.ipynb
+│   │   │   ├── ml_titanic.ipynb
+│   │   │   ├── performance.ipynb
+│   │   │   ├── progressbars.ipynb
+│   │   │   └── server.md
+│   │   │       └── ... (9 more files)
+│   │   ├── images/
+│   │   │   ├── linked_views.png
+│   │   │   ├── overview.png
+│   │   │   ├── Screen Shot 2014-08-26 at 14.58.23 PM.png
+│   │   │   ├── screenshot_samp_broadcast_option.png
+│   │   │   ├── screenshot_samp_pick.png
+│   │   │   ├── screenshot_samp_selection.png
+│   │   │   ├── ss1-large.png
+│   │   │   ├── ss1-small.png
+│   │   │   ├── ss2-large.png
+│   │   │   ├── ss2-small.png
+│   │   │   ├── tensor_2d.png
+│   │   │   ├── topcat_broadcast.gif
+│   │   │   ├── vector_2d.png
+│   │   │   └── volume_rendering_vector.png
+│   │   │       └── ... (9 more files)
+│   │   ├── screenshot/
+│   │   │   ├── example_jupyter_ipyvolume.png
+│   │   │   └── example_jupyter_plotly.png
+│   │   ├── api.rst
+│   │   ├── ascii_to_hdf5.c
+│   │   ├── ascii_to_hdf5.pro
+│   │   ├── conf.md
+│   │   ├── conf.py
+│   │   ├── datasets.ipynb
+│   │   ├── example1.py
+│   │   ├── example_jupyter_ipyvolume.ipynb
+│   │   ├── example_jupyter_plotly.ipynb
+│   │   ├── faq.ipynb
+│   │   ├── guides.rst
+│   │   ├── index.ipynb
+│   │   ├── installing.rst
+│   │   ├── redirects.txt
+│   │   ├── tutorial.ipynb
+│   │   ├── tutorial_jupyter.ipynb
+│   │   ├── tutorial_ml.ipynb
+│   │   └── tutorials.rst
+│   │       └── ... (13 more files)
+│   ├── make.bat
+│   └── Makefile
+├── licenses/
+│   ├── GLUEVIZ_LICENSE.txt
+│   ├── PYQT_GPL_EXCEPTION.TXT
+│   ├── PYQT_GPL_EXCEPTION_ADDENDUM.TXT
+│   └── PYQT_LICENSE.GPL2.txt
+├── misc/
+│   ├── experiments/
+│   │   ├── setup.py
+│   │   ├── softvolume_test.py
+│   │   ├── test_gl.py
+│   │   └── testvtk.py
+│   ├── gist/
+│   │   ├── promises_exceptions.py
+│   │   └── qt_and_tornado.py
+│   ├── git/
+│   │   ├── hooks/
+│   │   │   ├── post-checkout
+│   │   │   └── post-commit
+│   │   └── README
+│   ├── license/
+│   │   └── jprops
+│   ├── test/
+│   │   ├── testgavifast.py
+│   │   └── webserver.py
+│   ├── web/
+│   │   ├── css/
+│   │   │   ├── bootstrap.min.css
+│   │   │   └── vaex.css
+│   │   ├── fonts/
+│   │   │   ├── glyphicons-halflings-regular.eot
+│   │   │   ├── glyphicons-halflings-regular.svg
+│   │   │   ├── glyphicons-halflings-regular.ttf
+│   │   │   ├── glyphicons-halflings-regular.woff
+│   │   │   ├── glyphicons-halflings-regular.woff2
+│   │   │   ├── icomoon.svg
+│   │   │   └── icomoon.woff
+│   │   │       └── ... (2 more files)
+│   │   ├── image/
+│   │   │   ├── aq_nytaxi.png
+│   │   │   ├── aq_nytaxi_b.png
+│   │   │   ├── linked_views.png
+│   │   │   ├── Lz-E.png
+│   │   │   ├── notebook.png
+│   │   │   ├── nyc_taxi_full.png
+│   │   │   ├── nyc_taxi_square.png
+│   │   │   └── volr.png
+│   │   │       └── ... (3 more files)
+│   │   ├── js/
+│   │   │   ├── bootstrap.js
+│   │   │   ├── bootstrap.min.js
+│   │   │   ├── jquery.client.js
+│   │   │   ├── jquery.easing.min.js
+│   │   │   └── npm.js
+│   │   ├── logos/
+│   │   │   ├── erc.jpg
+│   │   │   ├── erc2.jpg
+│   │   │   ├── nova.jpg
+│   │   │   ├── rug.gif
+│   │   │   └── vaex_alt.png
+│   │   ├── bqplot.js
+│   │   ├── hello.js
+│   │   ├── index.php
+│   │   ├── install_pip.sh
+│   │   ├── nyt.html
+│   │   ├── underscore.js
+│   │   └── vaex.ext.bqplot.js
+│   │       └── ... (2 more files)
+│   ├── dmgbuild_settings.py
+│   ├── RELEASE.md
+│   └── vaex.spec
+├── packages/
+│   ├── vaex/
+│   │   ├── vaex/
+│   │   │   └── meta/
+│   │   ├── LICENSE.txt
+│   │   ├── MANIFEST.in
+│   │   ├── README.md
+│   │   └── setup.py
+│   ├── vaex-arrow/
+│   │   └── setup.py
+│   ├── vaex-astro/
+│   │   ├── vaex/
+│   │   │   └── astro/
+│   │   ├── LICENSE.txt
+│   │   ├── MANIFEST.in
+│   │   └── setup.py
+│   ├── vaex-contrib/
+│   │   ├── vaex/
+│   │   │   └── contrib/
+│   │   ├── LICENSE.txt
+│   │   ├── MANIFEST.in
+│   │   ├── README.md
+│   │   └── setup.py
+│   ├── vaex-core/
+│   │   ├── src/
+│   │   │   ├── .clang-format
+│   │   │   ├── agg.cpp
+│   │   │   ├── agg.hpp
+│   │   │   ├── agg_base.hpp
+│   │   │   ├── agg_count.cpp
+│   │   │   ├── agg_first.cpp
+│   │   │   ├── agg_list.cpp
+│   │   │   ├── agg_minmax.cpp
+│   │   │   ├── agg_nunique.cpp
+│   │   │   ├── agg_nunique_string.cpp
+│   │   │   ├── agg_sum.cpp
+│   │   │   ├── binner_combined.cpp
+│   │   │   ├── binner_hash.cpp
+│   │   │   ├── binner_ordinal.cpp
+│   │   │   ├── binners.cpp
+│   │   │   ├── create_alltypes.hpp
+│   │   │   ├── hash.hpp
+│   │   │   ├── hash_object.cpp
+│   │   │   ├── hash_primitives.cpp
+│   │   │   ├── hash_primitives.hpp
+│   │   │   ├── hash_primitives_pot.cpp
+│   │   │   ├── hash_primitives_prime.cpp
+│   │   │   ├── hash_string.cpp
+│   │   │   ├── hash_string.hpp
+│   │   │   ├── string_utils.cpp
+│   │   │   ├── string_utils.hpp
+│   │   │   ├── strings.cpp
+│   │   │   ├── superstring.hpp
+│   │   │   ├── superutils.cpp
+│   │   │   ├── utils.hpp
+│   │   │   └── vaexfast.cpp
+│   │   │       └── ... (26 more files)
+│   │   ├── vaex/
+│   │   │   ├── arrow/
+│   │   │   ├── core/
+│   │   │   ├── datasets/
+│   │   │   ├── ext/
+│   │   │   ├── file/
+│   │   │   ├── icons/
+│   │   │   ├── misc/
+│   │   │   ├── plotting/
+│   │   │   ├── test/
+│   │   │   ├── __init__.py
+│   │   │   ├── __main__.py
+│   │   │   ├── _version.py
+│   │   │   ├── agg.py
+│   │   │   ├── array_types.py
+│   │   │   ├── asyncio.py
+│   │   │   ├── benchmark.py
+│   │   │   ├── cache.py
+│   │   │   ├── column.py
+│   │   │   ├── config.py
+│   │   │   ├── convert.py
+│   │   │   ├── cpu.py
+│   │   │   ├── csv.py
+│   │   │   ├── dataframe.py
+│   │   │   ├── dataframe_protocol.py
+│   │   │   ├── dataset.py
+│   │   │   ├── dataset_misc.py
+│   │   │   ├── dataset_mmap.py
+│   │   │   ├── dataset_utils.py
+│   │   │   ├── datatype.py
+│   │   │   ├── datatype_test.py
+│   │   │   ├── delayed.py
+│   │   │   ├── docstrings.py
+│   │   │   ├── encoding.py
+│   │   │   ├── events.py
+│   │   │   ├── execution.py
+│   │   │   ├── export.py
+│   │   │   ├── expression.py
+│   │   │   ├── expresso.py
+│   │   │   ├── formatting.py
+│   │   │   ├── functions.py
+│   │   │   ├── geo.py
+│   │   │   ├── grids.py
+│   │   │   ├── groupby.py
+│   │   │   ├── hash.py
+│   │   │   ├── image.py
+│   │   │   ├── itertools.py
+│   │   │   ├── join.py
+│   │   │   ├── json.py
+│   │   │   ├── kld.py
+│   │   │   ├── legacy.py
+│   │   │   ├── logging.py
+│   │   │   ├── memory.py
+│   │   │   ├── meta.py
+│   │   │   ├── metal.py
+│   │   │   ├── minisettings.py
+│   │   │   ├── misc_cmdline.py
+│   │   │   ├── multiprocessing.py
+│   │   │   ├── multithreading.py
+│   │   │   ├── parallelize.py
+│   │   │   ├── progress.py
+│   │   │   ├── promise.py
+│   │   │   ├── registry.py
+│   │   │   ├── rolling.py
+│   │   │   ├── samp.py
+│   │   │   ├── schema.py
+│   │   │   ├── scopes.py
+│   │   │   ├── selections.py
+│   │   │   ├── serialize.py
+│   │   │   ├── settings.py
+│   │   │   ├── shift.py
+│   │   │   ├── stat.py
+│   │   │   ├── strings.py
+│   │   │   ├── struct.py
+│   │   │   ├── tasks.py
+│   │   │   ├── utils.py
+│   │   │   └── version.py
+│   │   │       └── ... (62 more files)
+│   │   ├── vendor/
+│   │   │   ├── boost/
+│   │   │   ├── flat_hash_map/
+│   │   │   ├── hopscotch-map/
+│   │   │   ├── pybind11/
+│   │   │   └── string-view-lite/
+│   │   ├── CMakeLists.txt
+│   │   ├── LICENSE.txt
+│   │   ├── MANIFEST.in
+│   │   ├── pyproject.toml
+│   │   └── setup.py
+│   ├── vaex-distributed/
+│   │   └── README.md
+│   ├── vaex-graphql/
+│   │   ├── vaex/
+│   │   │   └── graphql/
+│   │   ├── LICENSE.txt
+│   │   ├── MANIFEST.in
+│   │   └── setup.py
+│   ├── vaex-hdf5/
+│   │   ├── vaex/
+│   │   │   └── hdf5/
+│   │   ├── LICENSE.txt
+│   │   ├── MANIFEST.in
+│   │   └── setup.py
+│   ├── vaex-jupyter/
+│   │   ├── vaex/
+│   │   │   └── jupyter/
+│   │   ├── LICENSE.txt
+│   │   ├── MANIFEST.in
+│   │   └── setup.py
+│   ├── vaex-ml/
+│   │   ├── vaex/
+│   │   │   └── ml/
+│   │   ├── LICENSE.txt
+│   │   ├── MANIFEST.in
+│   │   ├── SCIKIT_LEARN_LICENSE.txt
+│   │   └── setup.py
+│   ├── vaex-server/
+│   │   ├── vaex/
+│   │   │   └── server/
+│   │   ├── LICENSE.txt
+│   │   ├── MANIFEST.in
+│   │   └── setup.py
+│   ├── vaex-ui/
+│   │   ├── vaex/
+│   │   │   └── ui/
+│   │   ├── LICENSE.txt
+│   │   ├── MANIFEST.in
+│   │   └── setup.py
+│   └── vaex-viz/
+│       ├── vaex/
+│       │   └── viz/
+│       ├── LICENSE.txt
+│       ├── MANIFEST.in
+│       └── setup.py
+├── tests/
+│   ├── arrow/
+│   │   ├── __init__.py
+│   │   ├── assumptions_test.py
+│   │   ├── cat_test.py
+│   │   ├── compute_test.py
+│   │   ├── conversion_test.py
+│   │   ├── convert_test.py
+│   │   ├── dataset_test.py
+│   │   ├── dict_test.py
+│   │   ├── io_test.py
+│   │   ├── partitioned_test.py
+│   │   └── to_arrow_table_test.py
+│   │       └── ... (6 more files)
+│   ├── astro/
+│   │   ├── __init__.py
+│   │   └── coordinates_test.py
+│   ├── data/
+│   │   ├── badname.csv
+│   │   ├── difficult_schema.csv
+│   │   ├── empty.csv
+│   │   ├── galaxy_littleendian.dat
+│   │   ├── gassphere_bigendian.dat
+│   │   ├── gassphere_littleendian.dat
+│   │   ├── noheader.csv
+│   │   ├── non-unicode.csv
+│   │   ├── sample_1.csv
+│   │   ├── sample_2.csv
+│   │   ├── sample_arrow_dict.parquet
+│   │   ├── small2.csv
+│   │   ├── small2.csv.gz
+│   │   ├── small2.nocsv
+│   │   ├── small3.csv
+│   │   ├── smæll2.csv
+│   │   └── with_alias.hdf5
+│   │       └── ... (12 more files)
+│   ├── geo/
+│   │   └── __init__.py
+│   ├── internal/
+│   │   ├── __init__.py
+│   │   ├── accessor_test.py
+│   │   ├── chunking_test.py
+│   │   ├── filecache_test.py
+│   │   ├── groupby_test.py
+│   │   ├── hash_test.py
+│   │   ├── strings_module_test.py
+│   │   └── superagg_tests.py
+│   │       └── ... (3 more files)
+│   ├── jupyter/
+│   │   ├── __init__.py
+│   │   ├── async_test.py
+│   │   ├── conftest.py
+│   │   ├── model_test.py
+│   │   ├── plot_widget_test.py
+│   │   ├── remote_test.py
+│   │   ├── traitlets_test.py
+│   │   ├── widget_core_test.py
+│   │   └── widgets_test.py
+│   │       └── ... (4 more files)
+│   ├── ml/
+│   │   ├── annoy_test.py
+│   │   ├── catboost_test.py
+│   │   ├── cluster_test.py
+│   │   ├── conftest.py
+│   │   ├── lightgbm_test.py
+│   │   ├── linear_model_test.py
+│   │   ├── metrics_test.py
+│   │   ├── ml_test.py
+│   │   ├── pipeline_test.py
+│   │   ├── pygbm_test.py
+│   │   ├── river_test.py
+│   │   ├── sklearn_test.py
+│   │   ├── tensorflow_test.py
+│   │   ├── test_utils.py
+│   │   ├── ui_test.py
+│   │   └── xgboost_test.py
+│   │       └── ... (11 more files)
+│   ├── server/
+│   │   ├── __init__.py
+│   │   ├── basics_test.py
+│   │   ├── conftest.py
+│   │   ├── performance_test.py
+│   │   ├── rest_test.py
+│   │   └── token_test.py
+│   │       └── ... (1 more files)
+│   ├── agg_test.py
+│   ├── apply_test.py
+│   ├── astype_test.py
+│   ├── async_test.py
+│   ├── cache_test.py
+│   ├── cast_to_array_test.py
+│   ├── category_test.py
+│   ├── cloud_dataset_test.py
+│   ├── column_names_test.py
+│   ├── column_test.py
+│   ├── common.py
+│   ├── compute_test.py
+│   ├── concat_test.py
+│   ├── conftest.py
+│   ├── copy_test.py
+│   ├── cornercases_test.py
+│   ├── correlation_test.py
+│   ├── count_test.py
+│   ├── countna_test.py
+│   ├── csv_test.py
+│   ├── dask_array_test.py
+│   ├── dataframe_protocol_test.py
+│   ├── dataset_test.py
+│   ├── datetime_test.py
+│   ├── derivative_test.py
+│   ├── describe_test.py
+│   ├── dot_product_test.py
+│   ├── drop_test.py
+│   ├── dropinf_test.py
+│   ├── dropna_test.py
+│   ├── dtypes_test.py
+│   ├── encoding_test.py
+│   ├── evaluate_test.py
+│   ├── execution_test.py
+│   ├── export_test.py
+│   ├── expression_expand_test.py
+│   ├── expression_variables_test.py
+│   ├── expresso_test.py
+│   ├── extract_test.py
+│   ├── file_test.py
+│   ├── fillna_test.py
+│   ├── filter_test.py
+│   ├── fingerprint_test.py
+│   ├── first_test.py
+│   ├── from_csv_test.py
+│   ├── from_dict_test.py
+│   ├── from_json_test.py
+│   ├── from_pandas_test.py
+│   ├── from_test.py
+│   ├── gadget_test.py
+│   ├── geo_test.py
+│   ├── getattr_test.py
+│   ├── graph_test.py
+│   ├── graphql_test.py
+│   ├── grid_test.py
+│   ├── groupby_test.py
+│   ├── hashmap_unique_test.py
+│   ├── hdf5_test.py
+│   ├── indexing_test.py
+│   ├── info_test.py
+│   ├── ipython_test.py
+│   ├── isin_test.py
+│   ├── isna_test.py
+│   ├── jit_test.py
+│   ├── join_test.py
+│   ├── json_export_test.py
+│   ├── limits_test.py
+│   ├── map_test.py
+│   ├── masked_values_filters_test.py
+│   ├── materialize_test.py
+│   ├── mutual_information_test.py
+│   ├── nop_test.py
+│   ├── obj_test.py
+│   ├── open_test.py
+│   ├── percentile_approx_test.py
+│   ├── pickle_test.py
+│   ├── progress_test.py
+│   ├── propagate_uncertainty_test.py
+│   ├── rename_test.py
+│   ├── repr_test.py
+│   ├── rolling_test.py
+│   ├── row_test.py
+│   ├── sample_test.py
+│   ├── selection_test.py
+│   ├── serialize_test.py
+│   ├── settings_test.py
+│   ├── shape_test.py
+│   ├── shift_test.py
+│   ├── slice_test.py
+│   ├── sort_test.py
+│   ├── sparse_test.py
+│   ├── split_test.py
+│   ├── stack_test.py
+│   ├── state_test.py
+│   ├── strings_test.py
+│   ├── struct_test.py
+│   ├── timedelta_test.py
+│   ├── to_test.py
+│   ├── trim_test.py
+│   ├── unique_test.py
+│   ├── utils_test.py
+│   ├── value_counts_test.py
+│   ├── values_test.py
+│   ├── variables_test.py
+│   ├── virtual_columns_test.py
+│   └── viz_test.py
+│       └── ... (101 more files)
+├── .gitattributes
+├── .gitignore
+├── .gitmodules
+├── .readthedocs.yaml
+├── .releash.py
+├── .travis.yml
+├── AUTHORS.txt
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── credits.md
+├── dodo.py
+├── LICENSE.txt
+├── Makefile
+├── MANIFEST.in
+├── py2app.py
+├── pytest.ini
+├── README.md
+├── RELEASE.md
+├── SECURITY.md
+└── setup.py
+    └── ... (15 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

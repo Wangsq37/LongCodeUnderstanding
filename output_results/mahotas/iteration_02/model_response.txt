@@ -1,0 +1,19 @@
+The error messages indicate `ImportError` for modules such as `_bbox`, `_convolve`, `_distance`, etc. These are C++ extension modules that need to be built/installed. This is a common situation for packages with C/C++ extensions, and simply installing Python dependencies is not enough. The error message also hints at this:
+
+> "the most common one is that you have either not built the packages ... Try installing and then changing to another directory before importing mahotas."
+
+So, we must build and install the package before running tests. Generally, we'd run:
+```bash
+pip install .
+```
+or, if editable is needed for development:
+```bash
+pip install -e .
+```
+
+Let's install the package, then try `pytest` again.
+
+```bash
+pip install .
+pytest
+```

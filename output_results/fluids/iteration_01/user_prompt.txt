@@ -1,0 +1,560 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── build-multiarch.yaml
+│       ├── build.yml
+│       ├── build_multi_numpy_scipy.yml
+│       └── build_nuitka_library.yml
+├── benchmarks/
+│   └── benchmarks.py
+├── dev/
+│   └── prerelease.py
+├── docs/
+│   ├── _static/
+│   │   └── copybutton.js
+│   ├── _templates/
+│   │   └── layout.html
+│   ├── Data/
+│   │   ├── Friction.ipynb
+│   │   ├── Pipe Schedules.ipynb
+│   │   └── Sieve Sizes for Particle Size Distributions.ipynb
+│   ├── Examples/
+│   │   └── Crane TP 410 Solved Problems/
+│   │       ├── 7.1 Smooth Pipe (Plastic).ipynb
+│   │       ├── 7.10 Piping Systems - Steam.ipynb
+│   │       ├── 7.11 Flat heating Coils - Water.ipynb
+│   │       ├── 7.12 Orifice Size for Given Pressure Drop and Velocity.ipynb
+│   │       ├── 7.13 Flow given in English Units - Oil.ipynb
+│   │       ├── 7.14 Bernoulli's Theorem-Water.ipynb
+│   │       ├── 7.15 Power Required for Pumping.ipynb
+│   │       ├── 7.16 Air Lines.ipynb
+│   │       ├── 7.17 Sizing of Pump for Oil Pipelines.ipynb
+│   │       ├── 7.18 Gas.ipynb
+│   │       ├── 7.19 Water.ipynb
+│   │       ├── 7.2 L, L over D and K from Kv for Conventional Type Valves.ipynb
+│   │       ├── 7.20 Steam at Sonic Velocity.ipynb
+│   │       ├── 7.21 Gases at Sonic Velocity.ipynb
+│   │       ├── 7.22 Compressible Fluids at Subsonic Velocity.ipynb
+│   │       ├── 7.23 Flow Through Orifice Meters.ipynb
+│   │       ├── 7.24 Laminar Flow.ipynb
+│   │       ├── 7.25 Rectangular Duct - Application of Hydraulic Radius to Flow Problems.ipynb
+│   │       ├── 7.26 Pipe Partially Filled with Flowing Water.ipynb
+│   │       ├── 7.27 Sizing Control Valves for Liquid Service.ipynb
+│   │       ├── 7.28 Checking for Choked Flow Conditions in a Control Valve.ipynb
+│   │       ├── 7.29 Orifice Flow Rate Calculation.ipynb
+│   │       ├── 7.3 L, L over D, K, and Kv for Conventional Type Valves.ipynb
+│   │       ├── 7.30 Nozzle Sizing Calculations.ipynb
+│   │       ├── 7.32 NPSH Available Calculation.ipynb
+│   │       ├── 7.33 Pump Affinity Rules.ipynb
+│   │       ├── 7.34 Pump Power and Operating Cost.ipynb
+│   │       ├── 7.35 Hydraulic Resistance of a Converging Tee.ipynb
+│   │       ├── 7.36 Hydraulic Resistance of a Diverging Wye.ipynb
+│   │       ├── 7.4 Venturi Type Valves.ipynb
+│   │       ├── 7.5 Lift Check Valves.ipynb
+│   │       ├── 7.6 Reduced Port Ball Valve.ipynb
+│   │       ├── 7.7 Laminar flow in Valves, Fittings, and Pipe - System from Example 7.6.ipynb
+│   │       ├── 7.8 Laminar flow in Valves, Fittings, and Pipe - SAE oil through a pipe and globe valve.ipynb
+│   │       └── 7.9 Laminar Flow in Valves, Fittings, and Pipe.ipynb
+│   │           └── ... (30 more files)
+│   ├── fittings/
+│   │   ├── bend_miter.png
+│   │   ├── bend_rounded.png
+│   │   ├── contraction_beveled.png
+│   │   ├── contraction_conical.png
+│   │   ├── contraction_round.png
+│   │   ├── contraction_sharp.png
+│   │   ├── curved_wall_diffuser.png
+│   │   ├── diffuser_conical.png
+│   │   ├── entrance_mounted_at_an_angle.png
+│   │   ├── flush_mounted_beveled_entrance.png
+│   │   ├── flush_mounted_beveled_orifice_entrance.png
+│   │   ├── flush_mounted_exit.png
+│   │   ├── flush_mounted_rounded_entrance.png
+│   │   ├── flush_mounted_sharp_edged_entrance.png
+│   │   └── sharp_edged_entrace_extended_mount.png
+│   │       └── ... (10 more files)
+│   ├── language_examples/
+│   │   ├── C/
+│   │   │   ├── fluids_test.c
+│   │   │   └── Makefile
+│   │   ├── cpp/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── D/
+│   │   │   ├── source/
+│   │   │   ├── dub.json
+│   │   │   └── dub.selections.json
+│   │   ├── fortran/
+│   │   │   └── fluids_test.f90
+│   │   ├── go/
+│   │   │   ├── go.mod
+│   │   │   └── main.go
+│   │   ├── haskell/
+│   │   │   ├── app/
+│   │   │   ├── CHANGELOG.md
+│   │   │   └── haskell-fluids-test.cabal
+│   │   ├── nim/
+│   │   │   └── check_fluids_can_be_called_from_nim.nim
+│   │   ├── c.rst
+│   │   ├── check_fluids_can_be_called_from_julia.jl
+│   │   ├── check_fluids_can_be_called_from_lisp.lisp
+│   │   ├── check_fluids_can_be_called_from_octave.m
+│   │   ├── check_fluids_can_be_called_from_perl.pl
+│   │   ├── check_fluids_can_be_called_from_r.R
+│   │   ├── check_fluids_can_be_called_from_ruby.rb
+│   │   ├── cpp.rst
+│   │   ├── d.rst
+│   │   ├── fortran.rst
+│   │   ├── go.rst
+│   │   ├── haskell.rst
+│   │   ├── index.rst
+│   │   ├── julia.rst
+│   │   ├── lisp.rst
+│   │   ├── nim.rst
+│   │   ├── octave.rst
+│   │   ├── perl.rst
+│   │   ├── r.rst
+│   │   └── ruby.rst
+│   │       └── ... (15 more files)
+│   ├── plots/
+│   │   ├── bend_miter_plot.py
+│   │   ├── bend_rounded_Crane_plot.py
+│   │   ├── contraction_conical_plot.py
+│   │   ├── contraction_round_plot.py
+│   │   ├── diffuser_conical_plot.py
+│   │   ├── entrance_beveled_plot.py
+│   │   ├── entrance_distance_plot.py
+│   │   ├── entrance_rounded_plot.py
+│   │   └── ft_Crane_plot.py
+│   │       └── ... (4 more files)
+│   ├── Samples/
+│   │   └── Tank.ipynb
+│   ├── conf.py
+│   ├── data.rst
+│   ├── developers.rst
+│   ├── examples.rst
+│   ├── fluids.atmosphere.rst
+│   ├── fluids.compressible.rst
+│   ├── fluids.control_valve.rst
+│   ├── fluids.core.rst
+│   ├── fluids.drag.rst
+│   ├── fluids.filters.rst
+│   ├── fluids.fittings.rst
+│   ├── fluids.flow_meter.rst
+│   ├── fluids.friction.rst
+│   ├── fluids.geometry.rst
+│   ├── fluids.jet_pump.rst
+│   ├── fluids.mixing.rst
+│   ├── fluids.numba.rst
+│   ├── fluids.open_flow.rst
+│   ├── fluids.packed_bed.rst
+│   ├── fluids.packed_tower.rst
+│   ├── fluids.particle_size_distribution.rst
+│   ├── fluids.piping.rst
+│   ├── fluids.pump.rst
+│   ├── fluids.rst
+│   ├── fluids.safety_valve.rst
+│   ├── fluids.saltation.rst
+│   ├── fluids.separator.rst
+│   ├── fluids.two_phase.rst
+│   ├── fluids.two_phase_voidage.rst
+│   ├── fluids.units.rst
+│   ├── fluids.vectorized.rst
+│   ├── index.rst
+│   ├── modules.rst
+│   ├── robots.txt
+│   ├── sample_programs.rst
+│   ├── test_documentation.py
+│   └── tutorial.rst
+│       └── ... (32 more files)
+├── fluids/
+│   ├── constants/
+│   │   ├── __init__.py
+│   │   └── constants.py
+│   ├── data/
+│   │   ├── 3 phase power.csv
+│   │   ├── ASTM E11 sieves.csv
+│   │   ├── isd-history-cleaned.tsv
+│   │   ├── ISO 3310-1 sieves.csv
+│   │   ├── Miller 2E 1990 abrupt contraction K.csv
+│   │   ├── Miller 2E 1990 conical contractions K part 1.csv
+│   │   ├── Miller 2E 1990 conical contractions K part 2.csv
+│   │   ├── Miller 2E 1990 conical diffuser Kd.csv
+│   │   ├── Miller 2E 1990 entrances rounded beveled K.csv
+│   │   ├── Miller 2E 1990 Kb mitre bend.csv
+│   │   ├── Miller 2E 1990 smooth bends Kb.csv
+│   │   ├── Miller 2E 1990 smooth bends outlet tangent length correction.csv
+│   │   ├── Miller 2E 1990 smooth bends Re correction.csv
+│   │   └── residential power.csv
+│   │       └── ... (9 more files)
+│   ├── nrlmsise00/
+│   │   ├── __init__.py
+│   │   ├── LICENSE
+│   │   ├── nrlmsise_00.py
+│   │   ├── nrlmsise_00_data.py
+│   │   ├── nrlmsise_00_header.py
+│   │   └── README
+│   │       └── ... (1 more files)
+│   ├── numerics/
+│   │   ├── __init__.py
+│   │   ├── arrays.py
+│   │   ├── doubledouble.py
+│   │   ├── polynomial_evaluation.py
+│   │   ├── polynomial_roots.py
+│   │   ├── polynomial_utils.py
+│   │   └── special.py
+│   │       └── ... (2 more files)
+│   ├── optional/
+│   │   ├── __init__.py
+│   │   ├── irradiance.py
+│   │   ├── pychebfun.py
+│   │   └── spa.py
+│   ├── __init__.py
+│   ├── atmosphere.py
+│   ├── atmosphere.pyi
+│   ├── compressible.py
+│   ├── compressible.pyi
+│   ├── control_valve.py
+│   ├── control_valve.pyi
+│   ├── core.py
+│   ├── core.pyi
+│   ├── design_climate.py
+│   ├── drag.py
+│   ├── drag.pyi
+│   ├── filters.py
+│   ├── filters.pyi
+│   ├── fittings.py
+│   ├── fittings.pyi
+│   ├── flow_meter.py
+│   ├── flow_meter.pyi
+│   ├── friction.py
+│   ├── friction.pyi
+│   ├── geometry.py
+│   ├── geometry.pyi
+│   ├── jet_pump.py
+│   ├── jet_pump.pyi
+│   ├── mixing.py
+│   ├── mixing.pyi
+│   ├── numba.py
+│   ├── numba_vectorized.py
+│   ├── open_flow.py
+│   ├── open_flow.pyi
+│   ├── packed_bed.py
+│   ├── packed_bed.pyi
+│   ├── packed_tower.py
+│   ├── packed_tower.pyi
+│   ├── particle_size_distribution.py
+│   ├── particle_size_distribution.pyi
+│   ├── piping.py
+│   ├── piping.pyi
+│   ├── pump.py
+│   ├── pump.pyi
+│   ├── py.typed
+│   ├── safety_valve.py
+│   ├── safety_valve.pyi
+│   ├── saltation.py
+│   ├── saltation.pyi
+│   ├── separator.py
+│   ├── separator.pyi
+│   ├── two_phase.py
+│   ├── two_phase.pyi
+│   ├── two_phase_voidage.py
+│   ├── two_phase_voidage.pyi
+│   ├── typing_utils.py
+│   ├── units.py
+│   └── vectorized.py
+│       └── ... (49 more files)
+├── tests/
+│   ├── gsod/
+│   │   ├── 1936/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1937/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1938/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1939/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1940/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1941/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1942/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1943/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1944/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1945/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1946/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1947/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1948/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1949/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1950/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1951/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1952/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1953/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1954/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1955/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1956/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1957/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1958/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1959/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1960/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1961/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1962/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1963/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1964/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1965/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1966/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1967/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1968/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1969/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1970/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1971/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1972/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1973/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1974/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1975/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1976/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1977/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1978/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1979/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1980/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1981/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1982/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1983/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1984/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1985/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1986/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1987/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1988/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1989/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1990/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1991/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1992/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1993/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1994/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1995/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1996/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1997/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1998/
+│   │   │   └── 724050-13743.op
+│   │   ├── 1999/
+│   │   │   └── 724050-13743.op
+│   │   ├── 2000/
+│   │   │   └── 724050-13743.op
+│   │   ├── 2001/
+│   │   │   └── 724050-13743.op
+│   │   ├── 2002/
+│   │   │   └── 724050-13743.op
+│   │   ├── 2003/
+│   │   │   └── 724050-13743.op
+│   │   ├── 2004/
+│   │   │   └── 724050-13743.op
+│   │   ├── 2005/
+│   │   │   └── 724050-13743.op
+│   │   ├── 2006/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2007/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2008/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2009/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2010/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2011/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2012/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2013/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2014/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2015/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2016/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2017/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2018/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2019/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2020/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2021/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2022/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   ├── 2023/
+│   │   │   ├── 722324-03071.op
+│   │   │   └── 724050-13743.op
+│   │   └── 2024/
+│   │       ├── 722324-03071.op
+│   │       └── 724050-13743.op
+│   ├── nrlmsise00/
+│   │   ├── __init__.py
+│   │   ├── data_from_C_version.txt
+│   │   ├── known_data_day_of_year.txt
+│   │   ├── known_data_height.txt
+│   │   ├── known_data_high_height.txt
+│   │   ├── known_data_hours.txt
+│   │   ├── known_data_latitudes.txt
+│   │   └── known_data_longitudes.txt
+│   │       └── ... (3 more files)
+│   ├── particle_size_distribution/
+│   │   └── unsoda_distributions_20140206.csv
+│   ├── spa/
+│   │   └── test_spa.py
+│   ├── __init__.py
+│   ├── make_test_stubs.py
+│   ├── manual_runner.py
+│   ├── test_atmosphere.py
+│   ├── test_compressible.py
+│   ├── test_control_valve.py
+│   ├── test_core.py
+│   ├── test_design_climate.py
+│   ├── test_drag.py
+│   ├── test_filters.py
+│   ├── test_fittings.py
+│   ├── test_fittings_fits.py
+│   ├── test_flow_meter.py
+│   ├── test_friction.py
+│   ├── test_geometry.py
+│   ├── test_jet_pump.py
+│   ├── test_mixing.py
+│   ├── test_nrlmsise00_file_output.py
+│   ├── test_nrlmsise00_full.py
+│   ├── test_numba.py
+│   ├── test_numerics.py
+│   ├── test_numerics_arrays.py
+│   ├── test_numerics_doubledouble.py
+│   ├── test_numerics_polynomial_evaluation.py
+│   ├── test_numerics_polynomial_roots.py
+│   ├── test_numerics_polynomial_utils.py
+│   ├── test_numerics_special.py
+│   ├── test_open_flow.py
+│   ├── test_packed_bed.py
+│   ├── test_packed_tower.py
+│   ├── test_particle_size_distribution.py
+│   ├── test_piping.py
+│   ├── test_pump.py
+│   ├── test_safety_valve.py
+│   ├── test_saltation.py
+│   ├── test_separator.py
+│   ├── test_two_phase.py
+│   ├── test_two_phase_voidage.py
+│   ├── test_units.py
+│   ├── test_utils.py
+│   └── test_vectorized.py
+│       └── ... (36 more files)
+├── .coveragerc
+├── .gitignore
+├── .readthedocs.yaml
+├── .ruff.toml
+├── appveyor.yml
+├── asv.conf.json
+├── AUTHORS
+├── changelog.md
+├── conftest.py
+├── CONTRIBUTING.md
+├── environment.yml
+├── LICENSE.txt
+├── Makefile
+├── MANIFEST.in
+├── mypy.ini
+├── py.typed
+├── pytest.ini
+├── README.rst
+├── requirements.txt
+├── requirements_docs.txt
+├── requirements_test.txt
+├── requirements_test_multiarch.txt
+├── SECURITY.md
+└── setup.py
+    └── ... (19 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

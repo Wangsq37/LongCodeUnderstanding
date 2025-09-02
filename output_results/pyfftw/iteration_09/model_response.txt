@@ -1,0 +1,16 @@
+The error `ModuleNotFoundError: No module named 'pyfftw.pyfftw'` persists.
+
+After running `python setup.py build_ext --inplace`, the dynamic module (`pyfftw.pyfftw.so` or similar) still does not appear in the `pyfftw/` directory.
+
+This suggests the build is failing to produce the required C extension. Most likely cause: **missing FFTW development libraries (`libfftw3-dev`, `libfftw3-omp-dev`), or compiler/linker issues.**
+
+The repo also has `bin/ci/linux_install_libfftw.sh`, which likely installs these dependencies for CI. Let's inspect that script and attempt to install FFTW dev libraries manually since typical usage is `apt-get install libfftw3-dev libfftw3-omp-dev`.
+
+```bash
+cat bin/ci/linux_install_libfftw.sh
+apt-get update
+apt-get install -y libfftw3-dev libfftw3-omp-dev
+python setup.py build_ext --inplace
+ls pyfftw/ | grep pyfftw
+pytest
+```

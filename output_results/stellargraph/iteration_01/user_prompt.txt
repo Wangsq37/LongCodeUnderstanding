@@ -1,0 +1,476 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .buildkite/
+│   ├── hooks/
+│   │   └── pre-command
+│   ├── steps/
+│   │   ├── check-copyright-headers.sh
+│   │   ├── conda-build.sh
+│   │   ├── script.sh
+│   │   ├── test-demo-notebooks.sh
+│   │   ├── test-documentation.sh
+│   │   ├── test-neo4j-notebooks.sh
+│   │   └── test-single-notebook.sh
+│   │       └── ... (2 more files)
+│   ├── docker-compose.yml
+│   ├── notebook-parameters.yml
+│   └── pipeline.yml
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── new_feature.md
+│   ├── workflows/
+│   │   └── ci.yml
+│   └── issue_template.md
+├── demos/
+│   ├── basics/
+│   │   ├── loading-networkx.ipynb
+│   │   ├── loading-numpy.ipynb
+│   │   ├── loading-pandas.ipynb
+│   │   ├── loading-saving-neo4j.ipynb
+│   │   └── README.md
+│   ├── calibration/
+│   │   ├── calibration-link-prediction.ipynb
+│   │   ├── calibration-node-classification.ipynb
+│   │   └── README.md
+│   ├── community_detection/
+│   │   ├── attacks_clustering_analysis.ipynb
+│   │   ├── README.md
+│   │   └── utils.py
+│   ├── connector/
+│   │   └── neo4j/
+│   │       ├── cluster-gcn-on-cora-neo4j-example.ipynb
+│   │       ├── directed-graphsage-on-cora-neo4j-example.ipynb
+│   │       ├── load-cora-into-neo4j.ipynb
+│   │       ├── README.md
+│   │       └── undirected-graphsage-on-cora-neo4j-example.ipynb
+│   ├── embeddings/
+│   │   ├── attri2vec-embeddings.ipynb
+│   │   ├── attri2vec-illustration.png
+│   │   ├── deep-graph-infomax-embeddings.ipynb
+│   │   ├── gcn-unsupervised-graph-embeddings.ipynb
+│   │   ├── graphsage-unsupervised-sampler-embeddings.ipynb
+│   │   ├── graphwave-embeddings.ipynb
+│   │   ├── keras-node2vec-embeddings.ipynb
+│   │   ├── metapath2vec-embeddings.ipynb
+│   │   ├── node2vec-embeddings.ipynb
+│   │   ├── README.md
+│   │   ├── watch-your-step-embeddings.ipynb
+│   │   └── word2vec-illustration.png
+│   │       └── ... (7 more files)
+│   ├── ensembles/
+│   │   ├── ensemble-link-prediction-example.ipynb
+│   │   ├── ensemble-node-classification-example.ipynb
+│   │   └── README.md
+│   ├── graph-classification/
+│   │   ├── dgcnn-graph-classification.ipynb
+│   │   ├── dgcnn_architecture.png
+│   │   ├── gcn-supervised-graph-classification.ipynb
+│   │   ├── graph_classification_architecture.png
+│   │   └── README.md
+│   ├── interpretability/
+│   │   ├── gat-node-link-importance.ipynb
+│   │   ├── gcn-node-link-importance.ipynb
+│   │   ├── gcn-sparse-node-link-importance.ipynb
+│   │   ├── hateful-twitters-interpretability.ipynb
+│   │   └── README.md
+│   ├── link-prediction/
+│   │   ├── attri2vec-link-prediction.ipynb
+│   │   ├── complex-link-prediction.ipynb
+│   │   ├── ctdne-link-prediction.ipynb
+│   │   ├── distmult-link-prediction.ipynb
+│   │   ├── gcn-link-prediction.ipynb
+│   │   ├── graphsage-link-prediction.ipynb
+│   │   ├── hinsage-link-prediction.ipynb
+│   │   ├── homogeneous-comparison-link-prediction.ipynb
+│   │   ├── metapath2vec-link-prediction.ipynb
+│   │   ├── node2vec-link-prediction.ipynb
+│   │   └── README.md
+│   │       └── ... (6 more files)
+│   ├── node-classification/
+│   │   ├── gcn/
+│   │   │   └── gcn-cora-node-classification-example.ipynb
+│   │   ├── attri2vec-illustration.png
+│   │   ├── attri2vec-node-classification.ipynb
+│   │   ├── cluster-gcn-node-classification.ipynb
+│   │   ├── Cora-features.png
+│   │   ├── directed-graphsage-node-classification.ipynb
+│   │   ├── gat-node-classification.ipynb
+│   │   ├── gcn-deep-graph-infomax-fine-tuning-node-classification.ipynb
+│   │   ├── gcn-node-classification.ipynb
+│   │   ├── graphsage-inductive-node-classification.ipynb
+│   │   ├── graphsage-node-classification.ipynb
+│   │   ├── keras-node2vec-node-classification.ipynb
+│   │   ├── node2vec-node-classification.ipynb
+│   │   ├── node2vec-weighted-node-classification.ipynb
+│   │   ├── ppnp-node-classification.ipynb
+│   │   ├── README.md
+│   │   ├── rgcn-node-classification.ipynb
+│   │   ├── sgc-node-classification.ipynb
+│   │   └── word2vec-illustration.png
+│   │       └── ... (13 more files)
+│   ├── time-series/
+│   │   ├── gcn-lstm-time-series.ipynb
+│   │   └── README.md
+│   ├── use-cases/
+│   │   └── hateful-twitters.ipynb
+│   ├── zzz-internal-developers/
+│   │   ├── graph-resource-usage.ipynb
+│   │   └── README.md
+│   └── README.md
+├── docker/
+│   ├── stellargraph/
+│   │   ├── build.sh
+│   │   └── Dockerfile
+│   ├── stellargraph-ci-runner/
+│   │   ├── Dockerfile
+│   │   └── install-packages.sh
+│   ├── stellargraph-neo4j/
+│   │   ├── build.sh
+│   │   ├── Dockerfile
+│   │   ├── install-lib.sh
+│   │   └── README.md
+│   └── stellargraph-treon/
+│       ├── build.sh
+│       └── Dockerfile
+├── docs/
+│   ├── _static/
+│   │   └── custom.css
+│   ├── _templates/
+│   │   └── layout.html
+│   ├── demos/
+│   │   ├── basics/
+│   │   │   ├── index.rst
+│   │   │   ├── loading-networkx.nblink
+│   │   │   ├── loading-numpy.nblink
+│   │   │   ├── loading-pandas.nblink
+│   │   │   └── loading-saving-neo4j.nblink
+│   │   ├── calibration/
+│   │   │   ├── calibration-link-prediction.nblink
+│   │   │   ├── calibration-node-classification.nblink
+│   │   │   └── index.rst
+│   │   ├── community_detection/
+│   │   │   ├── attacks_clustering_analysis.nblink
+│   │   │   └── index.rst
+│   │   ├── connector/
+│   │   │   ├── neo4j/
+│   │   │   └── index.rst
+│   │   ├── embeddings/
+│   │   │   ├── attri2vec-embeddings.nblink
+│   │   │   ├── attri2vec-illustration.png
+│   │   │   ├── deep-graph-infomax-embeddings.nblink
+│   │   │   ├── gcn-unsupervised-graph-embeddings.nblink
+│   │   │   ├── graphsage-unsupervised-sampler-embeddings.nblink
+│   │   │   ├── graphwave-embeddings.nblink
+│   │   │   ├── index.rst
+│   │   │   ├── keras-node2vec-embeddings.nblink
+│   │   │   ├── metapath2vec-embeddings.nblink
+│   │   │   ├── node2vec-embeddings.nblink
+│   │   │   ├── watch-your-step-embeddings.nblink
+│   │   │   └── word2vec-illustration.png
+│   │   │       └── ... (7 more files)
+│   │   ├── ensembles/
+│   │   │   ├── ensemble-link-prediction-example.nblink
+│   │   │   ├── ensemble-node-classification-example.nblink
+│   │   │   └── index.rst
+│   │   ├── graph-classification/
+│   │   │   ├── dgcnn-graph-classification.nblink
+│   │   │   ├── dgcnn_architecture.png
+│   │   │   ├── gcn-supervised-graph-classification.nblink
+│   │   │   ├── graph_classification_architecture.png
+│   │   │   └── index.rst
+│   │   ├── interpretability/
+│   │   │   ├── gat-node-link-importance.nblink
+│   │   │   ├── gcn-node-link-importance.nblink
+│   │   │   ├── gcn-sparse-node-link-importance.nblink
+│   │   │   ├── hateful-twitters-interpretability.nblink
+│   │   │   └── index.rst
+│   │   ├── link-prediction/
+│   │   │   ├── attri2vec-link-prediction.nblink
+│   │   │   ├── complex-link-prediction.nblink
+│   │   │   ├── ctdne-link-prediction.nblink
+│   │   │   ├── distmult-link-prediction.nblink
+│   │   │   ├── gcn-link-prediction.nblink
+│   │   │   ├── graphsage-link-prediction.nblink
+│   │   │   ├── hinsage-link-prediction.nblink
+│   │   │   ├── homogeneous-comparison-link-prediction.nblink
+│   │   │   ├── index.rst
+│   │   │   ├── metapath2vec-link-prediction.nblink
+│   │   │   └── node2vec-link-prediction.nblink
+│   │   │       └── ... (6 more files)
+│   │   ├── node-classification/
+│   │   │   ├── attri2vec-illustration.png
+│   │   │   ├── attri2vec-node-classification.nblink
+│   │   │   ├── cluster-gcn-node-classification.nblink
+│   │   │   ├── Cora-features.png
+│   │   │   ├── directed-graphsage-node-classification.nblink
+│   │   │   ├── gat-node-classification.nblink
+│   │   │   ├── gcn-deep-graph-infomax-fine-tuning-node-classification.nblink
+│   │   │   ├── gcn-node-classification.nblink
+│   │   │   ├── graphsage-inductive-node-classification.nblink
+│   │   │   ├── graphsage-node-classification.nblink
+│   │   │   ├── index.rst
+│   │   │   ├── keras-node2vec-node-classification.nblink
+│   │   │   ├── node2vec-node-classification.nblink
+│   │   │   ├── node2vec-weighted-node-classification.nblink
+│   │   │   ├── ppnp-node-classification.nblink
+│   │   │   ├── rgcn-node-classification.nblink
+│   │   │   ├── sgc-node-classification.nblink
+│   │   │   └── word2vec-illustration.png
+│   │   │       └── ... (13 more files)
+│   │   ├── time-series/
+│   │   │   ├── gcn-lstm-time-series.nblink
+│   │   │   └── index.rst
+│   │   ├── use-cases/
+│   │   │   ├── hateful-twitters.nblink
+│   │   │   └── index.rst
+│   │   ├── zzz-internal-developers/
+│   │   │   ├── graph-resource-usage.nblink
+│   │   │   └── index.rst
+│   │   └── index.rst
+│   ├── images/
+│   │   └── hinsage-tree.png
+│   ├── 404.rst
+│   ├── api.rst
+│   ├── banner.png
+│   ├── conf.py
+│   ├── glossary.rst
+│   ├── hinsage.rst
+│   ├── index.rst
+│   ├── Makefile
+│   ├── README.md
+│   ├── requirements.txt
+│   └── spelling_wordlist.txt
+│       └── ... (6 more files)
+├── scripts/
+│   ├── ci/
+│   │   ├── actions-docker-compose.yml
+│   │   ├── check-copyright-headers.sh
+│   │   ├── format-dockerfiles.sh
+│   │   ├── junit_to_github_checks.py
+│   │   ├── run_notebook.sh
+│   │   └── validate_ci_workflow.py
+│   │       └── ... (1 more files)
+│   ├── create-nbsphinx-links.sh
+│   ├── demo_indexing.py
+│   ├── format_notebooks.py
+│   ├── notebook_text_checker.py
+│   ├── README.md
+│   ├── test_demos.py
+│   └── whitespace.sh
+│       └── ... (2 more files)
+├── stellargraph/
+│   ├── connector/
+│   │   ├── neo4j/
+│   │   │   ├── __init__.py
+│   │   │   ├── graph.py
+│   │   │   ├── mapper.py
+│   │   │   └── sampler.py
+│   │   └── __init__.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── convert.py
+│   │   ├── element_data.py
+│   │   ├── experimental.py
+│   │   ├── graph.py
+│   │   ├── indexed_array.py
+│   │   ├── schema.py
+│   │   ├── utils.py
+│   │   └── validation.py
+│   │       └── ... (4 more files)
+│   ├── data/
+│   │   ├── __init__.py
+│   │   ├── converter.py
+│   │   ├── edge_splitter.py
+│   │   ├── epgm.py
+│   │   ├── explorer.py
+│   │   ├── loader.py
+│   │   ├── node_splitter.py
+│   │   └── unsupervised_sampler.py
+│   │       └── ... (3 more files)
+│   ├── datasets/
+│   │   ├── __init__.py
+│   │   ├── dataset_loader.py
+│   │   └── datasets.py
+│   ├── interpretability/
+│   │   ├── saliency_maps/
+│   │   │   ├── __init__.py
+│   │   │   ├── integrated_gradients.py
+│   │   │   ├── integrated_gradients_gat.py
+│   │   │   └── saliency_gat.py
+│   │   └── __init__.py
+│   ├── layer/
+│   │   ├── __init__.py
+│   │   ├── appnp.py
+│   │   ├── attri2vec.py
+│   │   ├── cluster_gcn.py
+│   │   ├── deep_graph_infomax.py
+│   │   ├── gcn.py
+│   │   ├── gcn_lstm.py
+│   │   ├── graph_attention.py
+│   │   ├── graph_classification.py
+│   │   ├── graphsage.py
+│   │   ├── hinsage.py
+│   │   ├── knowledge_graph.py
+│   │   ├── link_inference.py
+│   │   ├── misc.py
+│   │   ├── node2vec.py
+│   │   ├── ppnp.py
+│   │   ├── preprocessing_layer.py
+│   │   ├── rgcn.py
+│   │   ├── sort_pooling.py
+│   │   └── watch_your_step.py
+│   │       └── ... (15 more files)
+│   ├── mapper/
+│   │   ├── __init__.py
+│   │   ├── adjacency_generators.py
+│   │   ├── base.py
+│   │   ├── corrupted.py
+│   │   ├── full_batch_generators.py
+│   │   ├── graphwave_generator.py
+│   │   ├── knowledge_graph.py
+│   │   ├── mini_batch_node_generators.py
+│   │   ├── padded_graph_generator.py
+│   │   ├── sampled_link_generators.py
+│   │   ├── sampled_node_generators.py
+│   │   ├── sequences.py
+│   │   └── sliding.py
+│   │       └── ... (8 more files)
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── history.py
+│   │   ├── hyperbolic.py
+│   │   └── version_validation.py
+│   ├── __init__.py
+│   ├── calibration.py
+│   ├── ensemble.py
+│   ├── globalvar.py
+│   ├── losses.py
+│   ├── random.py
+│   └── version.py
+│       └── ... (2 more files)
+├── tests/
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── test_convert.py
+│   │   ├── test_element_data.py
+│   │   ├── test_experimental.py
+│   │   ├── test_graph.py
+│   │   ├── test_indexed_array.py
+│   │   ├── test_schema.py
+│   │   └── test_utils.py
+│   │       └── ... (3 more files)
+│   ├── data/
+│   │   ├── __init__.py
+│   │   ├── test_biased_random_walker.py
+│   │   ├── test_breadth_first_walker.py
+│   │   ├── test_directed_breadth_first_sampler.py
+│   │   ├── test_edge_splitter.py
+│   │   ├── test_epgm.py
+│   │   ├── test_heterogeneous_breadth_first_walker.py
+│   │   ├── test_metapath_walker.py
+│   │   ├── test_temporal_random_walker.py
+│   │   ├── test_uniform_random_walker.py
+│   │   └── test_unsupervised_sampler.py
+│   │       └── ... (6 more files)
+│   ├── datasets/
+│   │   ├── __init__.py
+│   │   └── test_datasets.py
+│   ├── interpretability/
+│   │   ├── __init__.py
+│   │   ├── test_saliency_maps_gat.py
+│   │   └── test_saliency_maps_gcn.py
+│   ├── layer/
+│   │   ├── __init__.py
+│   │   ├── test_appnp.py
+│   │   ├── test_attri2vec.py
+│   │   ├── test_cluster_gcn.py
+│   │   ├── test_cluster_models.py
+│   │   ├── test_deep_graph_infomax.py
+│   │   ├── test_gcn.py
+│   │   ├── test_gcn_lstm.py
+│   │   ├── test_graph_attention.py
+│   │   ├── test_graph_classification.py
+│   │   ├── test_graphsage.py
+│   │   ├── test_hinsage.py
+│   │   ├── test_knowledge_graph.py
+│   │   ├── test_link_inference.py
+│   │   ├── test_misc.py
+│   │   ├── test_node2vec.py
+│   │   ├── test_ppnp.py
+│   │   ├── test_rgcn.py
+│   │   ├── test_sort_pooling.py
+│   │   └── test_watch_your_step.py
+│   │       └── ... (15 more files)
+│   ├── mapper/
+│   │   ├── __init__.py
+│   │   ├── test_adjacency_generators.py
+│   │   ├── test_benchmark_generators.py
+│   │   ├── test_cluster_gcn_node_mapper.py
+│   │   ├── test_corrupted.py
+│   │   ├── test_directed_node_generator.py
+│   │   ├── test_full_batch_generators.py
+│   │   ├── test_graphwave_generator.py
+│   │   ├── test_knowledge_graph.py
+│   │   ├── test_link_mappers.py
+│   │   ├── test_node_mappers.py
+│   │   ├── test_padded_graph_generator.py
+│   │   ├── test_relational_node_mappers.py
+│   │   └── test_sliding.py
+│   │       └── ... (9 more files)
+│   ├── reproducibility/
+│   │   ├── __init__.py
+│   │   ├── fixtures.py
+│   │   ├── test_deep_graph_infomax.py
+│   │   └── test_graphsage.py
+│   ├── resources/
+│   │   └── data/
+│   │       ├── cora/
+│   │       └── hin_random/
+│   ├── test_utils/
+│   │   ├── __init__.py
+│   │   ├── alloc.py
+│   │   └── graphs.py
+│   ├── utils/
+│   │   ├── test_hyperbolic.py
+│   │   └── test_version_validation.py
+│   ├── __init__.py
+│   ├── test_aaa_on_gpu.py
+│   ├── test_calibration.py
+│   ├── test_ensemble.py
+│   ├── test_losses.py
+│   └── test_random.py
+│       └── ... (1 more files)
+├── .codeclimate.yml
+├── .dockerignore
+├── .gitignore
+├── .readthedocs.yaml
+├── .yamllint.yml
+├── AUTHORS
+├── CHANGELOG.md
+├── codecov.yml
+├── CONTRIBUTING.md
+├── docker-compose.yml
+├── LICENSE
+├── MANIFEST.in
+├── meta.yaml
+├── pytest.ini
+├── README.md
+├── RELEASE_PROCEDURE.md
+├── requirements.txt
+├── setup.py
+└── stellar-graph-banner.png
+    └── ... (14 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

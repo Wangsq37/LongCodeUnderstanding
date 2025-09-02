@@ -1,0 +1,433 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── pre-commit.yml
+│   │   ├── release.yml
+│   │   └── tests.yml
+│   └── dependabot.yml
+├── benchmarks/
+│   ├── __init__.py
+│   └── benchmarks.py
+├── ci/
+│   ├── wheelbuilder/
+│   │   ├── LICENSE_GEOS
+│   │   └── LICENSE_win32
+│   ├── Dockerfile
+│   ├── install_geos.cmd
+│   └── install_geos.sh
+├── docker/
+│   ├── Dockerfile.arm64
+│   └── Dockerfile.valgrind
+├── docs/
+│   ├── _templates/
+│   │   └── autosummary/
+│   │       └── class.rst
+│   ├── code/
+│   │   ├── buffer.py
+│   │   ├── buffer_single_side.py
+│   │   ├── convex_hull.py
+│   │   ├── coverage_simplify.py
+│   │   ├── difference.py
+│   │   ├── figures.py
+│   │   ├── geometrycollection.py
+│   │   ├── intersection-sym-difference.py
+│   │   ├── linearring.py
+│   │   ├── linestring.py
+│   │   ├── make_valid_geometrycollection.py
+│   │   ├── make_valid_methods.py
+│   │   ├── make_valid_multipolygon.py
+│   │   ├── minimum_rotated_rectangle.py
+│   │   ├── multilinestring.py
+│   │   ├── multipolygon.py
+│   │   ├── parallel_offset.py
+│   │   ├── parallel_offset_mitre.py
+│   │   ├── polygon.py
+│   │   ├── polygon2.py
+│   │   ├── rotate.py
+│   │   ├── scale.py
+│   │   ├── simplify.py
+│   │   ├── skew.py
+│   │   ├── triangulate.py
+│   │   ├── unary_union.py
+│   │   ├── union.py
+│   │   └── voronoi_diagram.py
+│   │       └── ... (23 more files)
+│   ├── release/
+│   │   ├── 1.x.rst
+│   │   └── 2.x.rst
+│   ├── conf.py
+│   ├── constructive.rst
+│   ├── coordinates.rst
+│   ├── coverage.rst
+│   ├── creation.rst
+│   ├── design.rst
+│   ├── environment.yml
+│   ├── geometry.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── io.rst
+│   ├── linear.rst
+│   ├── Makefile
+│   ├── manual.rst
+│   ├── measurement.rst
+│   ├── migration.rst
+│   ├── migration_pygeos.rst
+│   ├── plotting.rst
+│   ├── predicates.rst
+│   ├── properties.rst
+│   ├── release.rst
+│   ├── set_operations.rst
+│   ├── strtree.rst
+│   └── testing.rst
+│       └── ... (19 more files)
+├── shapely/
+│   ├── algorithms/
+│   │   ├── __init__.py
+│   │   ├── _oriented_envelope.py
+│   │   ├── cga.py
+│   │   └── polylabel.py
+│   ├── geometry/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── collection.py
+│   │   ├── geo.py
+│   │   ├── linestring.py
+│   │   ├── multilinestring.py
+│   │   ├── multipoint.py
+│   │   ├── multipolygon.py
+│   │   ├── point.py
+│   │   └── polygon.py
+│   │       └── ... (5 more files)
+│   ├── tests/
+│   │   ├── geometry/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_collection.py
+│   │   │   ├── test_coords.py
+│   │   │   ├── test_decimal.py
+│   │   │   ├── test_emptiness.py
+│   │   │   ├── test_equality.py
+│   │   │   ├── test_format.py
+│   │   │   ├── test_geometry_base.py
+│   │   │   ├── test_hash.py
+│   │   │   ├── test_linestring.py
+│   │   │   ├── test_multi.py
+│   │   │   ├── test_multilinestring.py
+│   │   │   ├── test_multipoint.py
+│   │   │   ├── test_multipolygon.py
+│   │   │   ├── test_point.py
+│   │   │   └── test_polygon.py
+│   │   │       └── ... (11 more files)
+│   │   ├── legacy/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── rungrind.dist
+│   │   │   ├── test_affinity.py
+│   │   │   ├── test_box.py
+│   │   │   ├── test_buffer.py
+│   │   │   ├── test_cga.py
+│   │   │   ├── test_clip_by_rect.py
+│   │   │   ├── test_create_inconsistent_dimensionality.py
+│   │   │   ├── test_delaunay.py
+│   │   │   ├── test_empty_polygons.py
+│   │   │   ├── test_equality.py
+│   │   │   ├── test_geointerface.py
+│   │   │   ├── test_invalid_geometries.py
+│   │   │   ├── test_linear_referencing.py
+│   │   │   ├── test_linemerge.py
+│   │   │   ├── test_locale.py
+│   │   │   ├── test_make_valid.py
+│   │   │   ├── test_mapping.py
+│   │   │   ├── test_minimum_clearance.py
+│   │   │   ├── test_ndarrays.py
+│   │   │   ├── test_nearest.py
+│   │   │   ├── test_operations.py
+│   │   │   ├── test_operators.py
+│   │   │   ├── test_orient.py
+│   │   │   ├── test_parallel_offset.py
+│   │   │   ├── test_persist.py
+│   │   │   ├── test_pickle.py
+│   │   │   ├── test_polygonize.py
+│   │   │   ├── test_polylabel.py
+│   │   │   ├── test_predicates.py
+│   │   │   ├── test_prepared.py
+│   │   │   ├── test_products_z.py
+│   │   │   ├── test_shape.py
+│   │   │   ├── test_shared_paths.py
+│   │   │   ├── test_singularity.py
+│   │   │   ├── test_snap.py
+│   │   │   ├── test_split.py
+│   │   │   ├── test_substring.py
+│   │   │   ├── test_svg.py
+│   │   │   ├── test_transform.py
+│   │   │   ├── test_union.py
+│   │   │   ├── test_validation.py
+│   │   │   ├── test_vectorized.py
+│   │   │   ├── test_voronoi_diagram.py
+│   │   │   ├── test_wkb.py
+│   │   │   ├── test_wkt.py
+│   │   │   ├── threading_test.py
+│   │   │   └── valgrind-python.supp
+│   │   │       └── ... (44 more files)
+│   │   ├── __init__.py
+│   │   ├── common.py
+│   │   ├── test_constructive.py
+│   │   ├── test_coordinates.py
+│   │   ├── test_coverage.py
+│   │   ├── test_creation.py
+│   │   ├── test_creation_indices.py
+│   │   ├── test_decorators.py
+│   │   ├── test_geometry.py
+│   │   ├── test_io.py
+│   │   ├── test_linear.py
+│   │   ├── test_measurement.py
+│   │   ├── test_misc.py
+│   │   ├── test_plotting.py
+│   │   ├── test_predicates.py
+│   │   ├── test_ragged_array.py
+│   │   ├── test_set_operations.py
+│   │   ├── test_strtree.py
+│   │   └── test_testing.py
+│   │       └── ... (14 more files)
+│   ├── vectorized/
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── _coverage.py
+│   ├── _enum.py
+│   ├── _geometry.py
+│   ├── _geometry_helpers.c
+│   ├── _geometry_helpers.pyx
+│   ├── _geos.c
+│   ├── _geos.pxd
+│   ├── _geos.pyx
+│   ├── _pygeos_api.pxd
+│   ├── _ragged_array.py
+│   ├── _version.py
+│   ├── affinity.py
+│   ├── conftest.py
+│   ├── constructive.py
+│   ├── coordinates.py
+│   ├── coords.py
+│   ├── creation.py
+│   ├── decorators.py
+│   ├── errors.py
+│   ├── geos.py
+│   ├── io.py
+│   ├── linear.py
+│   ├── measurement.py
+│   ├── ops.py
+│   ├── plotting.py
+│   ├── predicates.py
+│   ├── prepared.py
+│   ├── set_operations.py
+│   ├── speedups.py
+│   ├── strtree.py
+│   ├── testing.py
+│   ├── validation.py
+│   ├── wkb.py
+│   └── wkt.py
+│       └── ... (30 more files)
+├── src/
+│   ├── c_api.c
+│   ├── c_api.h
+│   ├── coords.c
+│   ├── coords.h
+│   ├── fast_loop_macros.h
+│   ├── geos.c
+│   ├── geos.h
+│   ├── kvec.h
+│   ├── lib.c
+│   ├── pygeom.c
+│   ├── pygeom.h
+│   ├── pygeos.c
+│   ├── pygeos.h
+│   ├── strtree.c
+│   ├── strtree.h
+│   ├── ufuncs.c
+│   ├── ufuncs.h
+│   ├── vector.c
+│   └── vector.h
+│       └── ... (14 more files)
+├── .clang-format
+├── .dockerignore
+├── .gitattributes
+├── .gitignore
+├── .mailmap
+├── .pre-commit-config.yaml
+├── .readthedocs.yml
+├── asv.conf.json
+├── CHANGES.txt
+├── CITATION.cff
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── CREDITS.txt
+├── FAQ.rst
+├── ISSUE_TEMPLATE.md
+├── LICENSE.txt
+├── MANIFEST.in
+├── pyproject.toml
+├── README.rst
+├── setup.cfg
+├── setup.py
+└── versioneer.py
+    └── ... (17 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -e . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Obtaining file:///app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy>=1.21 in /usr/local/lib/python3.10/dist-packages (from shapely==2.1.1+7.g6ea1547.dirty) (2.2.6)
+Building wheels for collected packages: shapely
+  Building editable for shapely (pyproject.toml): started
+  Building editable for shapely (pyproject.toml): finished with status 'error'
+Failed to build shapely
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Building editable for shapely (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [66 lines of output]
+      Could not find geos-config executable. Either append the path to geos-config to PATH or manually provide the include_dirs, library_dirs, libraries and other link args for compiling against a GEOS version >=3.10.
+      /tmp/pip-build-env-d69_g7ua/overlay/local/lib/python3.10/dist-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+      !!
+      
+              ********************************************************************************
+              Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+      
+              By 2026-Feb-18, you need to update your project and remove deprecated calls
+              or your builds will no longer be supported.
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        corresp(dist, value, root_dir)
+      /tmp/pip-build-env-d69_g7ua/overlay/local/lib/python3.10/dist-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: BSD License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        dist._finalize_license_expression()
+      /tmp/pip-build-env-d69_g7ua/overlay/local/lib/python3.10/dist-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: BSD License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        self._finalize_license_expression()
+      running editable_wheel
+      creating /tmp/pip-wheel-xs3rbw80/.tmp-h5qgmcld/shapely.egg-info
+      writing /tmp/pip-wheel-xs3rbw80/.tmp-h5qgmcld/shapely.egg-info/PKG-INFO
+      writing dependency_links to /tmp/pip-wheel-xs3rbw80/.tmp-h5qgmcld/shapely.egg-info/dependency_links.txt
+      writing requirements to /tmp/pip-wheel-xs3rbw80/.tmp-h5qgmcld/shapely.egg-info/requires.txt
+      writing top-level names to /tmp/pip-wheel-xs3rbw80/.tmp-h5qgmcld/shapely.egg-info/top_level.txt
+      writing manifest file '/tmp/pip-wheel-xs3rbw80/.tmp-h5qgmcld/shapely.egg-info/SOURCES.txt'
+      reading manifest file '/tmp/pip-wheel-xs3rbw80/.tmp-h5qgmcld/shapely.egg-info/SOURCES.txt'
+      reading manifest template 'MANIFEST.in'
+      no previously-included directories found matching 'docs'
+      warning: no previously-included files found matching '*.txt'
+      adding license file 'LICENSE.txt'
+      writing manifest file '/tmp/pip-wheel-xs3rbw80/.tmp-h5qgmcld/shapely.egg-info/SOURCES.txt'
+      creating '/tmp/pip-wheel-xs3rbw80/.tmp-h5qgmcld/shapely-2.1.1+7.g6ea1547.dirty.dist-info'
+      creating /tmp/pip-wheel-xs3rbw80/.tmp-h5qgmcld/shapely-2.1.1+7.g6ea1547.dirty.dist-info/WHEEL
+      running build_py
+      running build_ext
+      building 'shapely.lib' extension
+      creating /tmp/tmpvozzy1pl.build-temp/src
+      x86_64-linux-gnu-gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -fPIC -I/usr/include/python3.10 -c src/c_api.c -o /tmp/tmpvozzy1pl.build-temp/src/c_api.o
+      src/c_api.c:11:10: fatal error: Python.h: No such file or directory
+         11 | #include <Python.h>
+            |          ^~~~~~~~~~
+      compilation terminated.
+      error: command '/usr/bin/x86_64-linux-gnu-gcc' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building editable for shapely
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> shapely
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: setup.cfg
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+___________________________ ERROR collecting shapely ___________________________
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:992: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:883: in exec_module
+    ???
+<frozen importlib._bootstrap>:241: in _call_with_frames_removed
+    ???
+shapely/__init__.py:3: in <module>
+    from shapely.lib import GEOSException
+E   ModuleNotFoundError: No module named 'shapely.lib'
+=========================== short test summary info ============================
+ERROR shapely - ModuleNotFoundError: No module named 'shapely.lib'
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.10s ===============================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

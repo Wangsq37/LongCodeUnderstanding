@@ -1,0 +1,9 @@
+[
+  {
+    "command": "PYTHONPATH=. pytest",
+    "success": false,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\ncollected 4 items / 1 error\n\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_vector.py _____________________\nImportError while importing test module '/app/repo_to_process/tests/test_vector.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_vector.py:11: in <module>\n    from Scientific.Geometry import Tensor\nE   ImportError: cannot import name 'Tensor' from 'Scientific.Geometry' (/app/repo_to_process/Scientific/Geometry/__init__.py)\n=========================== short test summary info ============================\nERROR tests/test_vector.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n=============================== 1 error in 0.12s ===============================\n",
+    "stderr": "",
+    "execution_time": 0.30037903785705566
+  }
+]

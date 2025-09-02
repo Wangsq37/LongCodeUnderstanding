@@ -1,0 +1,22 @@
+The output indicates the root cause is not a missing Python package, but a missing compiled extension:  
+```
+ModuleNotFoundError: No module named 'pyfftw.pyfftw'
+```  
+The editable build failed because:
+```
+error: Could not find the FFTW header 'fftw3.h'
+/tmp/pyfftw-mvkhoe04/None.c:1:10: fatal error: fftw3.h: No such file or directory
+#include <fftw3.h>
+         ^~~~~~~~~
+```
+
+This project requires the system package for FFTW (header files), which is not something `pip` can install. The header should be provided by e.g. `libfftw3-dev` (on Ubuntu/Debian).
+
+Let's install the Linux development package for FFTW, then try `pip install -e .` again.
+
+```bash
+apt-get update
+apt-get install -y libfftw3-dev
+pip install -e .
+pytest
+```

@@ -1,0 +1,8 @@
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['mahotas']
+```
+```bash
+cd /tmp
+pytest --pyargs mahotas.tests
+```
+Once the call chain reports have been generated, I will declare success.

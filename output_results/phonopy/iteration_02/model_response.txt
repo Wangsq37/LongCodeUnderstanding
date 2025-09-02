@@ -1,0 +1,16 @@
+```bash
+# The error is: ModuleNotFoundError: No module named 'phonopy'
+# This means the phonopy Python package is not installed in the environment in an importable location.
+
+# Previous pip install . failed due to missing Python development headers required for building C extensions (CMake error: Cannot find the directory "/usr/include/python3.10").
+
+# The fix is to install the system package python3.10-dev, which provides the Python.h and related files so the wheel can build.
+
+apt-get update
+apt-get install -y python3.10-dev
+
+# Now, retry installing the repo as a package (which will create the module for import)
+pip install .
+# Then, rerun pytest to test if the error is fixed
+pytest
+```

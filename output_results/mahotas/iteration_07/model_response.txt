@@ -1,0 +1,6 @@
+The main source directory to trace for call chain reporting is clearly `mahotas`.
+
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['mahotas']
+```
+Now, please rerun `pytest` from the project root to generate the call chain reports.

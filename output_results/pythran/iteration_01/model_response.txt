@@ -1,0 +1,5 @@
+```bash
+cat requirements.txt
+cat setup.py
+cat pyproject.toml
+```

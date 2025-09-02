@@ -1,0 +1,11 @@
+The issue is:
+```
+ERROR: Package '21cmfast' requires a different Python: 3.10.12 not in '>=3.11'
+```
+The package requires Python >=3.11, but the environment is running Python 3.10.12.
+
+This is a fundamental incompatibility; the package cannot be installed or its code imported/tested under the current Python version.
+
+```status
+failed
+```

@@ -1,0 +1,16 @@
+`pytest` reports multiple missing dependencies:  
+- `ModuleNotFoundError: No module named 'boto3'`
+- `ModuleNotFoundError: No module named 'runfiles'`
+- `ModuleNotFoundError: No module named 'pybuildkite'`
+- `ModuleNotFoundError: No module named 'sphinx'`
+- `ModuleNotFoundError: No module named 'ray_release'`
+
+Next, let's install them one by one. Start with the ones pip can provide directly.
+
+```bash
+pip install boto3 pybuildkite sphinx
+```
+
+After these are installed, re-run pytest (with `PYTHONPATH=.`).  
+If `runfiles` is still missing and pip cannot install it, a stub may be needed.  
+If `ray_release` fails pip install, we'll inspect its usage afterwards.

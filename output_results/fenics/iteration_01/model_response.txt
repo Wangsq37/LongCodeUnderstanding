@@ -1,0 +1,9 @@
+```bash
+# 1. Install dependencies from requirements/build files in likely Python test source directory
+pip install -r python/build-requirements.txt || true
+# Some projects may rely on pyproject.toml as well, so attempt installing via that (ignoring build isolation for speed)
+pip install -e ./python
+
+# 2. Run pytest. Primary tests likely in python/test/unit, but default root run covers everything.
+pytest
+```

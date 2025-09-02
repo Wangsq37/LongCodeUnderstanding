@@ -1,0 +1,492 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug-report.yml
+│   │   ├── config.yml
+│   │   ├── developer.yml
+│   │   ├── documentation.yml
+│   │   └── feature-request.yml
+│   ├── workflows/
+│   │   ├── devcontainer-docker-image.yml
+│   │   ├── docker-image.yml
+│   │   ├── mypy.yml
+│   │   ├── pr-auto-label.yml
+│   │   ├── publish-release-notes-to-discourse.yml
+│   │   ├── release.yml
+│   │   ├── rtd-link-preview.yml
+│   │   ├── slash_dispatch.yml
+│   │   ├── tests.yml
+│   │   └── zizmor.yml
+│   │       └── ... (5 more files)
+│   ├── config.yml
+│   ├── dependabot.yml
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── release.yml
+├── benchmarks/
+│   ├── benchmarks/
+│   │   ├── __init__.py
+│   │   └── benchmarks.py
+│   └── asv.conf.json
+├── binder/
+│   ├── apt.txt
+│   ├── requirements.txt
+│   └── trigger_binder.sh
+├── conda-envs/
+│   ├── environment-alternative-backends.yml
+│   ├── environment-dev.yml
+│   ├── environment-docs.yml
+│   ├── environment-test.yml
+│   ├── windows-environment-dev.yml
+│   └── windows-environment-test.yml
+│       └── ... (1 more files)
+├── docs/
+│   ├── logos/
+│   │   ├── sponsors/
+│   │   │   ├── numfocus.png
+│   │   │   ├── odsc.png
+│   │   │   └── pymc-labs.png
+│   │   ├── svg/
+│   │   │   ├── PyMC_banner.svg
+│   │   │   ├── PyMC_circle.svg
+│   │   │   └── PyMC_square.svg
+│   │   ├── PyMC.ai
+│   │   ├── PyMC.eps
+│   │   ├── PyMC.ico
+│   │   ├── PyMC.jpg
+│   │   ├── PyMC.pdf
+│   │   └── PyMC.png
+│   │       └── ... (1 more files)
+│   ├── source/
+│   │   ├── _templates/
+│   │   │   ├── autosummary/
+│   │   │   └── distribution.rst
+│   │   ├── api/
+│   │   │   ├── dims/
+│   │   │   ├── distributions/
+│   │   │   ├── gp/
+│   │   │   ├── model/
+│   │   │   ├── backends.rst
+│   │   │   ├── data.rst
+│   │   │   ├── dims.rst
+│   │   │   ├── distributions.rst
+│   │   │   ├── gp.rst
+│   │   │   ├── logprob.rst
+│   │   │   ├── math.rst
+│   │   │   ├── misc.rst
+│   │   │   ├── model.rst
+│   │   │   ├── ode.rst
+│   │   │   ├── pytensorf.rst
+│   │   │   ├── samplers.rst
+│   │   │   ├── shape_utils.rst
+│   │   │   ├── smc.rst
+│   │   │   ├── testing.rst
+│   │   │   ├── tuning.rst
+│   │   │   └── vi.rst
+│   │   │       └── ... (12 more files)
+│   │   ├── contributing/
+│   │   │   ├── gitpod/
+│   │   │   ├── build_docs.md
+│   │   │   ├── developer_guide.md
+│   │   │   ├── docker_container.md
+│   │   │   ├── implementing_distribution.md
+│   │   │   ├── index.md
+│   │   │   ├── jupyter_style.md
+│   │   │   ├── pr_checklist.md
+│   │   │   ├── pr_tutorial.md
+│   │   │   ├── python_style.md
+│   │   │   ├── release_checklist.md
+│   │   │   ├── review_pr_pymc_examples.md
+│   │   │   ├── running_the_test_suite.md
+│   │   │   ├── using_gitpod.md
+│   │   │   └── versioning_schemes_explanation.md
+│   │   │       └── ... (9 more files)
+│   │   ├── guides/
+│   │   │   ├── Gaussian_Processes.rst
+│   │   │   └── Probability_Distributions.rst
+│   │   ├── images/
+│   │   │   ├── forestplot.png
+│   │   │   └── model_to_graphviz.png
+│   │   ├── learn/
+│   │   │   ├── core_notebooks/
+│   │   │   ├── books.md
+│   │   │   ├── consulting.md
+│   │   │   ├── usage_overview.rst
+│   │   │   └── videos_and_podcasts.md
+│   │   ├── 404.md
+│   │   ├── api.rst
+│   │   ├── conf.py
+│   │   ├── glossary.md
+│   │   ├── index.md
+│   │   ├── installation.md
+│   │   └── learn.md
+│   │       └── ... (2 more files)
+│   ├── Architecture.png
+│   └── community_diagram.png
+├── pymc/
+│   ├── backends/
+│   │   ├── __init__.py
+│   │   ├── arviz.py
+│   │   ├── base.py
+│   │   ├── mcbackend.py
+│   │   ├── ndarray.py
+│   │   ├── report.py
+│   │   └── zarr.py
+│   │       └── ... (2 more files)
+│   ├── dims/
+│   │   ├── distributions/
+│   │   │   ├── __init__.py
+│   │   │   ├── core.py
+│   │   │   ├── scalar.py
+│   │   │   ├── transforms.py
+│   │   │   └── vector.py
+│   │   ├── __init__.py
+│   │   ├── math.py
+│   │   └── model.py
+│   ├── distributions/
+│   │   ├── moments/
+│   │   │   ├── __init__.py
+│   │   │   └── means.py
+│   │   ├── __init__.py
+│   │   ├── censored.py
+│   │   ├── continuous.py
+│   │   ├── custom.py
+│   │   ├── discrete.py
+│   │   ├── dist_math.py
+│   │   ├── distribution.py
+│   │   ├── mixture.py
+│   │   ├── multivariate.py
+│   │   ├── shape_utils.py
+│   │   ├── simulator.py
+│   │   ├── timeseries.py
+│   │   ├── transforms.py
+│   │   └── truncated.py
+│   │       └── ... (9 more files)
+│   ├── gp/
+│   │   ├── __init__.py
+│   │   ├── cov.py
+│   │   ├── gp.py
+│   │   ├── hsgp_approx.py
+│   │   ├── mean.py
+│   │   └── util.py
+│   │       └── ... (1 more files)
+│   ├── logprob/
+│   │   ├── __init__.py
+│   │   ├── abstract.py
+│   │   ├── basic.py
+│   │   ├── binary.py
+│   │   ├── censoring.py
+│   │   ├── checks.py
+│   │   ├── cumsum.py
+│   │   ├── LICENSE_AEPPL.txt
+│   │   ├── linalg.py
+│   │   ├── mixture.py
+│   │   ├── order.py
+│   │   ├── rewriting.py
+│   │   ├── scan.py
+│   │   ├── tensor.py
+│   │   ├── transform_value.py
+│   │   ├── transforms.py
+│   │   └── utils.py
+│   │       └── ... (12 more files)
+│   ├── model/
+│   │   ├── transform/
+│   │   │   ├── __init__.py
+│   │   │   ├── basic.py
+│   │   │   ├── conditioning.py
+│   │   │   └── optimization.py
+│   │   ├── __init__.py
+│   │   ├── core.py
+│   │   └── fgraph.py
+│   ├── ode/
+│   │   ├── __init__.py
+│   │   ├── ode.py
+│   │   └── utils.py
+│   ├── plots/
+│   │   └── __init__.py
+│   ├── sampling/
+│   │   ├── __init__.py
+│   │   ├── deterministic.py
+│   │   ├── forward.py
+│   │   ├── jax.py
+│   │   ├── mcmc.py
+│   │   ├── parallel.py
+│   │   └── population.py
+│   │       └── ... (2 more files)
+│   ├── smc/
+│   │   ├── __init__.py
+│   │   ├── kernels.py
+│   │   └── sampling.py
+│   ├── stats/
+│   │   ├── __init__.py
+│   │   ├── convergence.py
+│   │   └── log_density.py
+│   ├── step_methods/
+│   │   ├── hmc/
+│   │   │   ├── __init__.py
+│   │   │   ├── base_hmc.py
+│   │   │   ├── hmc.py
+│   │   │   ├── integration.py
+│   │   │   ├── nuts.py
+│   │   │   └── quadpotential.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── arraystep.py
+│   │   ├── compound.py
+│   │   ├── metropolis.py
+│   │   ├── slicer.py
+│   │   ├── state.py
+│   │   └── step_sizes.py
+│   │       └── ... (2 more files)
+│   ├── tuning/
+│   │   ├── __init__.py
+│   │   ├── scaling.py
+│   │   └── starting.py
+│   ├── variational/
+│   │   ├── __init__.py
+│   │   ├── approximations.py
+│   │   ├── callbacks.py
+│   │   ├── inference.py
+│   │   ├── minibatch_rv.py
+│   │   ├── operators.py
+│   │   ├── opvi.py
+│   │   ├── stein.py
+│   │   ├── test_functions.py
+│   │   └── updates.py
+│   │       └── ... (5 more files)
+│   ├── __init__.py
+│   ├── _version.py
+│   ├── blocking.py
+│   ├── data.py
+│   ├── exceptions.py
+│   ├── func_utils.py
+│   ├── initial_point.py
+│   ├── math.py
+│   ├── model_graph.py
+│   ├── printing.py
+│   ├── progress_bar.py
+│   ├── pytensorf.py
+│   ├── testing.py
+│   ├── util.py
+│   └── vartypes.py
+│       └── ... (10 more files)
+├── scripts/
+│   ├── slowest_tests/
+│   │   ├── extract-slow-tests.py
+│   │   └── update-slowest-times-issue.sh
+│   ├── check_all_tests_are_covered.py
+│   ├── dev.Dockerfile
+│   ├── docker_container.sh
+│   ├── Dockerfile
+│   ├── generate_pip_deps_from_conda.py
+│   ├── publish_release_notes_to_discourse.py
+│   ├── run_mypy.py
+│   └── test.sh
+│       └── ... (3 more files)
+├── tests/
+│   ├── backends/
+│   │   ├── __init__.py
+│   │   ├── fixtures.py
+│   │   ├── test_arviz.py
+│   │   ├── test_base.py
+│   │   ├── test_mcbackend.py
+│   │   ├── test_ndarray.py
+│   │   └── test_zarr.py
+│   │       └── ... (2 more files)
+│   ├── dims/
+│   │   ├── distributions/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_core.py
+│   │   │   ├── test_scalar.py
+│   │   │   └── test_vector.py
+│   │   ├── __init__.py
+│   │   ├── test_model.py
+│   │   └── utils.py
+│   ├── distributions/
+│   │   ├── moments/
+│   │   │   ├── __init__.py
+│   │   │   └── test_means.py
+│   │   ├── __init__.py
+│   │   ├── test_censored.py
+│   │   ├── test_continuous.py
+│   │   ├── test_custom.py
+│   │   ├── test_discrete.py
+│   │   ├── test_dist_math.py
+│   │   ├── test_distribution.py
+│   │   ├── test_mixture.py
+│   │   ├── test_multivariate.py
+│   │   ├── test_random_alternative_backends.py
+│   │   ├── test_shape_utils.py
+│   │   ├── test_simulator.py
+│   │   ├── test_timeseries.py
+│   │   ├── test_transform.py
+│   │   └── test_truncated.py
+│   │       └── ... (10 more files)
+│   ├── gp/
+│   │   ├── __init__.py
+│   │   ├── test_cov.py
+│   │   ├── test_gp.py
+│   │   ├── test_hsgp_approx.py
+│   │   ├── test_mean.py
+│   │   └── test_util.py
+│   │       └── ... (1 more files)
+│   ├── logprob/
+│   │   ├── __init__.py
+│   │   ├── test_abstract.py
+│   │   ├── test_basic.py
+│   │   ├── test_binary.py
+│   │   ├── test_censoring.py
+│   │   ├── test_checks.py
+│   │   ├── test_composite_logprob.py
+│   │   ├── test_cumsum.py
+│   │   ├── test_linalg.py
+│   │   ├── test_mixture.py
+│   │   ├── test_order.py
+│   │   ├── test_rewriting.py
+│   │   ├── test_scan.py
+│   │   ├── test_tensor.py
+│   │   ├── test_transform_value.py
+│   │   ├── test_transforms.py
+│   │   ├── test_utils.py
+│   │   └── utils.py
+│   │       └── ... (13 more files)
+│   ├── model/
+│   │   ├── transform/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_basic.py
+│   │   │   ├── test_conditioning.py
+│   │   │   └── test_optimization.py
+│   │   ├── __init__.py
+│   │   ├── test_core.py
+│   │   └── test_fgraph.py
+│   ├── ode/
+│   │   ├── __init__.py
+│   │   ├── test_ode.py
+│   │   └── test_utils.py
+│   ├── sampling/
+│   │   ├── __init__.py
+│   │   ├── test_deterministic.py
+│   │   ├── test_forward.py
+│   │   ├── test_jax.py
+│   │   ├── test_mcmc.py
+│   │   ├── test_mcmc_external.py
+│   │   ├── test_parallel.py
+│   │   └── test_population.py
+│   │       └── ... (3 more files)
+│   ├── smc/
+│   │   ├── __init__.py
+│   │   └── test_smc.py
+│   ├── stats/
+│   │   ├── __init__.py
+│   │   ├── test_convergence.py
+│   │   └── test_log_density.py
+│   ├── step_methods/
+│   │   ├── hmc/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_hmc.py
+│   │   │   ├── test_nuts.py
+│   │   │   └── test_quadpotential.py
+│   │   ├── __init__.py
+│   │   ├── test_compound.py
+│   │   ├── test_metropolis.py
+│   │   ├── test_slicer.py
+│   │   └── test_state.py
+│   ├── tuning/
+│   │   ├── __init__.py
+│   │   ├── test_scaling.py
+│   │   └── test_starting.py
+│   ├── variational/
+│   │   ├── __init__.py
+│   │   ├── test_approximations.py
+│   │   ├── test_callbacks.py
+│   │   ├── test_inference.py
+│   │   ├── test_minibatch_rv.py
+│   │   ├── test_opvi.py
+│   │   └── test_updates.py
+│   │       └── ... (2 more files)
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── helpers.py
+│   ├── models.py
+│   ├── sampler_fixtures.py
+│   ├── test_data.py
+│   ├── test_func_utils.py
+│   ├── test_initial_point.py
+│   ├── test_math.py
+│   ├── test_model_graph.py
+│   ├── test_printing.py
+│   ├── test_progress_bar.py
+│   ├── test_pytensorf.py
+│   ├── test_testing.py
+│   └── test_util.py
+│       └── ... (10 more files)
+├── .dockerignore
+├── .git-blame-ignore-revs
+├── .gitattributes
+�
+... (18 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install numpyro ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting numpyro
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/88/31/9b5da5995988437756bc3f1eead2e314d8916259875c6924cb41692f2b41/numpyro-0.19.0-py3-none-any.whl (370 kB)
+Requirement already satisfied: jax>=0.4.25 in /usr/local/lib/python3.10/dist-packages (from numpyro) (0.6.2)
+Requirement already satisfied: jaxlib>=0.4.25 in /usr/local/lib/python3.10/dist-packages (from numpyro) (0.6.2)
+Requirement already satisfied: multipledispatch in /usr/local/lib/python3.10/dist-packages (from numpyro) (1.0.0)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from numpyro) (2.2.6)
+Collecting tqdm (from numpyro)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/d0/30/dc54f88dd4a2b5dc8a0279bdd7270e735851848b762aeb1c1184ed1f6b14/tqdm-4.67.1-py3-none-any.whl (78 kB)
+Requirement already satisfied: ml_dtypes>=0.5.0 in /usr/local/lib/python3.10/dist-packages (from jax>=0.4.25->numpyro) (0.5.3)
+Requirement already satisfied: opt_einsum in /usr/local/lib/python3.10/dist-packages (from jax>=0.4.25->numpyro) (3.4.0)
+Requirement already satisfied: scipy>=1.12 in /usr/local/lib/python3.10/dist-packages (from jax>=0.4.25->numpyro) (1.15.3)
+Installing collected packages: tqdm, numpyro
+
+Successfully installed numpyro-0.19.0 tqdm-4.67.1
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+testpaths: tests
+plugins: cov-6.2.1
+collected 3731 items
+
+tests/backends/test_arviz.py [31mE[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[32m.[0m[32m.[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[32m.[0m[32m.[0m[31mF[0m[31mF[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[31mE[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[31m [  1%]
+[0m[31mF[0m[31mF[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31m                                                                 [  1%][0m
+tests/backends/test_base.py [32m.[0m[32m.[0m[32m.[0m[31m                                          [  1%][0m
+tests/backends/test_mcbackend.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31m                             [  1%][0m
+tests/backends/test_ndarray.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31m [  2%]
+[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31m [  4%]
+[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31m                   [  6%][0m
+tests/backends/test_zarr.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32
+... (25399 lines omitted)
+
+
+## Your Task (Phase 2: Call Chain Tracing)
+`pytest` is now executable without collection errors. Your task is to set up call chain tracing.
+1.  **Identify the main source code directory/directories.** Based on the structure, this is likely `skimage`.
+2.  **Create a `conftest.py` file** in the project root to trace this directory.
+3.  **Run `pytest`** one last time to generate the reports.
+4.  If the reports are generated, declare success with ```status
+success
+```.
+
+**REMINDER:** When creating `conftest.py`, you only need to provide the line defining `SOURCE_DIRS_TO_TRACK`. For example:
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['skimage']
+```

@@ -1,0 +1,36 @@
+First, let’s gather and install all dependencies. Because this repo is a monorepo with many subprojects (each with their own `requirements.txt` and `setup.py`), we should install requirements from all core subproject `requirements.txt` files and `setup.py`.
+
+Let’s collect the relevant dependency files to install:
+- Project root: `requirements.txt`, `setup.py`, `pyproject.toml`
+- `cirq-core/requirements.txt`,  `cirq-core/setup.py`
+- `cirq-google/requirements.txt`, `cirq-google/setup.py`
+- `cirq-aqt/requirements.txt`, `cirq-aqt/setup.py`
+- `cirq-ionq/requirements.txt`, `cirq-ionq/setup.py`
+- `cirq-pasqal/requirements.txt`, `cirq-pasqal/setup.py`
+- `cirq-web/requirements.txt`, `cirq-web/setup.py`
+- `examples/requirements.txt` (if it exists)
+- Maybe: `dev_tools/requirements/deps/pytest.txt` (support tools)
+
+Let’s install all these, then run `pytest` to collect tests.
+
+```bash
+pip install -e .
+pip install -r cirq-core/requirements.txt
+pip install -e cirq-core
+pip install -r cirq-google/requirements.txt
+pip install -e cirq-google
+pip install -r cirq-aqt/requirements.txt
+pip install -e cirq-aqt
+pip install -r cirq-ionq/requirements.txt
+pip install -e cirq-ionq
+pip install -r cirq-pasqal/requirements.txt
+pip install -e cirq-pasqal
+pip install -r cirq-web/requirements.txt
+pip install -e cirq-web
+
+# Try installing the pytest utilities as well for completeness.
+pip install -r dev_tools/requirements/deps/pytest.txt
+
+# Now run pytest (from repo root) and capture collection output.
+pytest
+```

@@ -1,0 +1,38 @@
+The errors now indicate:  
+`ModuleNotFoundError: No module named '__pkginfo__'`  
+This is because inside `Scientific/__init__.py`, there is a line:
+```python
+from __pkginfo__ import __version__
+```
+However, `__pkginfo__.py` is present in `Scientific/`, so it should be imported as:
+```python
+from Scientific.__pkginfo__ import __version__
+```
+But the package is being imported directly from its directory and not as an installed package.
+
+To fix this quickly for test collection, update `Scientific/__init__.py`:
+Change:
+```python
+from __pkginfo__ import __version__
+```
+to:
+```python
+from .__pkginfo__ import __version__
+```
+
+Let's do this:
+
+```file:Scientific/__init__.py
+# -- original import (broken) --
+# from __pkginfo__ import __version__
+# -- corrected --
+from .__pkginfo__ import __version__
+
+# (retain all other file content unchanged)
+```
+
+Then re-run pytest with PYTHONPATH set:
+
+```bash
+PYTHONPATH=. pytest
+```

@@ -1,0 +1,8 @@
+The error is still `ModuleNotFoundError: No module named 'Scientific'`, despite explicitly setting `PYTHONPATH` to the project root. This suggests that either the source directory is not properly recognized as a package (although a `Scientific/__init__.py` exists), or other environment setup is required.
+
+There is a `setup.py` in the project root, which typically defines how to install the project as a package (so that things like `Scientific` become importable). The next logical action is to install the package in "editable" mode using pip.
+
+```bash
+pip install -e .
+pytest
+```

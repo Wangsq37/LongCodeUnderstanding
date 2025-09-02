@@ -1,0 +1,402 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── config/
+│       │   ├── make.inc.gfort
+│       │   └── make.inc.gfort+openmpi
+│       ├── ci.yaml
+│       ├── run_tests.sh
+│       ├── step_docs.yaml
+│       ├── step_pre-commit.yaml
+│       ├── step_test-makefile.yaml
+│       └── step_test.yaml
+│           └── ... (1 more files)
+├── autodoc/
+│   ├── media/
+│   │   └── favicon16x16.png
+│   ├── .gitignore
+│   ├── fast.md
+│   ├── project.md
+│   └── README.txt
+├── cmake/
+│   ├── CMakePresets-CI.json
+│   ├── CMakePresets-defaults.json
+│   ├── wannier90.pc.in
+│   └── Wannier90Config.cmake.in
+├── config/
+│   ├── make.inc.alpha
+│   ├── make.inc.g95
+│   ├── make.inc.gfort
+│   ├── make.inc.gfort.dynlib
+│   ├── make.inc.ifort
+│   ├── make.inc.ifort_tcm
+│   ├── make.inc.ifx
+│   ├── make.inc.macosx.homebrew
+│   ├── make.inc.macosx.macports
+│   ├── make.inc.nag
+│   ├── make.inc.pathscale
+│   ├── make.inc.pgf90
+│   ├── make.inc.qe
+│   ├── make.inc.sun
+│   └── make.inc.xlf
+│       └── ... (10 more files)
+├── docs/
+│   ├── compiled_docs/
+│   │   └── solution_booklet.pdf
+│   ├── docs/
+│   │   ├── assets/
+│   │   │   ├── wannier-logo-squared.png
+│   │   │   ├── wannier-logo-squared.svg
+│   │   │   ├── wannier-logo.png
+│   │   │   └── wannier-logo.svg
+│   │   ├── javascripts/
+│   │   │   ├── katex.js
+│   │   │   └── mathjax.js
+│   │   ├── parameters/
+│   │   │   ├── generate-parameter-tables.py
+│   │   │   ├── parameters.xml
+│   │   │   ├── postw90-berry-parameters.csv
+│   │   │   ├── postw90-boltzwann-parameters.csv
+│   │   │   ├── postw90-dos-parameters.csv
+│   │   │   ├── postw90-geninterp-parameters.csv
+│   │   │   ├── postw90-global-parameters.csv
+│   │   │   ├── postw90-gyrotropic-parameters.csv
+│   │   │   ├── postw90-kpath-parameters.csv
+│   │   │   ├── postw90-kslice-parameters.csv
+│   │   │   ├── w90-disentanglement-parameters.csv
+│   │   │   ├── w90-job-parameters.csv
+│   │   │   ├── w90-plot-parameters.csv
+│   │   │   ├── w90-system-parameters.csv
+│   │   │   ├── w90-transport-parameters.csv
+│   │   │   └── w90-wannierise-parameters.csv
+│   │   │       └── ... (11 more files)
+│   │   ├── stylesheets/
+│   │   │   └── custom.css
+│   │   ├── tutorials/
+│   │   │   ├── cnt_qc.webp
+│   │   │   ├── cnt_tran.webp
+│   │   │   ├── cnt_win.webp
+│   │   │   ├── cu.webp
+│   │   │   ├── Fe-spread.webp
+│   │   │   ├── graphene_bandsdiff.webp
+│   │   │   ├── graphene_projbands.webp
+│   │   │   ├── kdotp_bands_SX.webp
+│   │   │   ├── LaVO3.webp
+│   │   │   ├── lead.webp
+│   │   │   ├── Na_qc.webp
+│   │   │   ├── preliminaries.md
+│   │   │   ├── si.webp
+│   │   │   ├── silicon_bandsdiff_spd.webp
+│   │   │   ├── tutorial_1.md
+│   │   │   ├── tutorial_10.md
+│   │   │   ├── tutorial_11.md
+│   │   │   ├── tutorial_12.md
+│   │   │   ├── tutorial_13.md
+│   │   │   ├── tutorial_14.md
+│   │   │   ├── tutorial_15.md
+│   │   │   ├── tutorial_16.md
+│   │   │   ├── tutorial_17.md
+│   │   │   ├── tutorial_18.md
+│   │   │   ├── tutorial_19.md
+│   │   │   ├── tutorial_2.md
+│   │   │   ├── tutorial_20.md
+│   │   │   ├── tutorial_21.md
+│   │   │   ├── tutorial_22.md
+│   │   │   ├── tutorial_23.md
+│   │   │   ├── tutorial_24.md
+│   │   │   ├── tutorial_25.md
+│   │   │   ├── tutorial_26.md
+│   │   │   ├── tutorial_27.md
+│   │   │   ├── tutorial_28.md
+│   │   │   ├── tutorial_29.md
+│   │   │   ├── tutorial_3.md
+│   │   │   ├── tutorial_30.md
+│   │   │   ├── tutorial_31.md
+│   │   │   ├── tutorial_32.md
+│   │   │   ├── tutorial_33.md
+│   │   │   ├── tutorial_34.md
+│   │   │   ├── tutorial_35.md
+│   │   │   ├── tutorial_36.md
+│   │   │   ├── tutorial_37.md
+│   │   │   ├── tutorial_4.md
+│   │   │   ├── tutorial_5.md
+│   │   │   ├── tutorial_6.md
+│   │   │   ├── tutorial_7.md
+│   │   │   ├── tutorial_8.md
+│   │   │   ├── tutorial_9.md
+│   │   │   ├── W_bs.webp
+│   │   │   ├── W_fit.webp
+│   │   │   └── with_pwscf.md
+│   │   │       └── ... (49 more files)
+│   │   ├── user_guide/
+│   │   │   ├── appendices/
+│   │   │   ├── postw90/
+│   │   │   ├── wannier90/
+│   │   │   └── introduction.md
+│   │   └── index.md
+│   ├── logos/
+│   │   ├── inkscape-source-files/
+│   │   │   ├── wannier-logo-inkscape-lato-font.svg
+│   │   │   ├── wannier-logo-inkscape-outlined-font.svg
+│   │   │   ├── wannier-logo-square-inkscape-lato-font.svg
+│   │   │   └── wannier-logo-square-inkscape-outlined-font.svg
+│   │   ├── README.md
+│   │   ├── wannier-logo-squared.png
+│   │   ├── wannier-logo-squared.svg
+│   │   ├── wannier-logo.png
+│   │   └── wannier-logo.svg
+│   ├── solution_booklet/
+│   │   ├── figure/
+│   │   │   ├── example01/
+│   │   │   ├── example02/
+│   │   │   ├── example03/
+│   │   │   ├── example04/
+│   │   │   ├── example05/
+│   │   │   ├── example06/
+│   │   │   ├── example07/
+│   │   │   ├── example08/
+│   │   │   ├── example09/
+│   │   │   ├── example10/
+│   │   │   ├── example11/
+│   │   │   ├── example12/
+│   │   │   ├── example13/
+│   │   │   ├── example14/
+│   │   │   ├── example16/
+│   │   │   ├── example17/
+│   │   │   ├── example18/
+│   │   │   ├── example19/
+│   │   │   ├── example20/
+│   │   │   ├── example21/
+│   │   │   ├── example22/
+│   │   │   ├── example29/
+│   │   │   └── example30/
+│   │   ├── .gitignore
+│   │   ├── about.tex
+│   │   ├── biblio.bib
+│   │   ├── contacts.tex
+│   │   ├── Example1.tex
+│   │   ├── Example10.tex
+│   │   ├── Example11.tex
+│   │   ├── Example12.tex
+│   │   ├── Example13.tex
+│   │   ├── Example14.tex
+│   │   ├── Example15.tex
+│   │   ├── Example16.tex
+│   │   ├── Example17.tex
+│   │   ├── Example18.tex
+│   │   ├── Example19.tex
+│   │   ├── Example2.tex
+│   │   ├── Example20.tex
+│   │   ├── Example21.tex
+│   │   ├── Example22.tex
+│   │   ├── Example29.tex
+│   │   ├── Example3.tex
+│   │   ├── Example30.tex
+│   │   ├── Example4.tex
+│   │   ├── Example5.tex
+│   │   ├── Example6.tex
+│   │   ├── Example7.tex
+│   │   ├── Example8.tex
+│   │   ├── Example9.tex
+│   │   ├── Makefile
+│   │   ├── newcommands.tex
+│   │   ├── Packages.tex
+│   │   ├── preliminaries.tex
+│   │   ├── solution_booklet.tex
+│   │   └── Style.tex
+│   │       └── ... (29 more files)
+│   ├── .gitignore
+│   ├── mkdocs.yml
+│   ├── README.md
+│   ├── refs.bib
+│   └── requirements.txt
+├── pseudo/
+│   ├── As.pbe-n-kjpaw_psl.0.2.UPF
+│   ├── As.rel-pbe-n-kjpaw_psl.0.2.UPF
+│   ├── B.pbe-n-kjpaw_psl.0.1.UPF
+│   ├── Ba-vdb-usp-pbe.UPF
+│   ├── C.pbe-n-kjpaw_psl.0.1.UPF
+│   ├── C.pbe-rrkjus.UPF
+│   ├── C.pz-vbc.UPF
+│   ├── Cu.pbe-dn-kjpaw_psl.0.2.UPF
+│   ├── Cu.pz-n-van_ak.UPF
+│   ├── Fe.jry.pbe.UPF
+│   ├── Ga.pbe-dn-kjpaw_psl.0.2.UPF
+│   ├── Ga.rel-pbe-dn-kjpaw_psl.0.2.UPF
+│   ├── H.pbe-rrkjus.UPF
+│   ├── H.pz-vbc.UPF
+│   ├── La.pbe-nsp-van.UPF
+│   ├── Mn.pbe-sp-van.UPF
+│   ├── N.pbe-n-kjpaw_psl.0.1.UPF
+│   ├── Na.pz-n-vbc.UPF
+│   ├── O.pbe-rrkjus.UPF
+│   ├── O.pbe-van_ak.UPF
+│   ├── Pt.rel-pbe-n-kjpaw_psl.0.1.UPF
+│   ├── Si.pbe-n-van.UPF
+│   ├── Si.pz-vbc.UPF
+│   ├── Si_ONCV_PBE-1.0.upf
+│   ├── Sr.pbe-nsp-van.UPF
+│   ├── Te.rel-pbe-n-nc.UPF
+│   ├── Ti.pbe-sp-van_ak.UPF
+│   ├── V.pbe-sp-van.UPF
+│   └── W_pbe_v1.2.uspp.F.UPF
+│       └── ... (24 more files)
+├── pwscf/
+│   ├── v3.2.3/
+│   │   ├── pw2wannier90.f90
+│   │   └── wannier.f90
+│   ├── v4.0/
+│   │   ├── pw2wannier90.f90
+│   │   └── wannier.f90
+│   ├── v4.1/
+│   │   ├── pw2wannier90.f90
+│   │   └── wannier.f90
+│   ├── v5.0/
+│   │   └── pw2wannier90.f90
+│   ├── v5.1/
+│   │   └── README
+│   ├── v6.0/
+│   │   └── pw2wannier90.f90
+│   ├── v6.2.1/
+│   │   └── pw2wannier90.f90
+│   ├── v6.3/
+│   │   ├── pw2wannier90.f90
+│   │   ├── pw2wannier90_legacy.f90
+│   │   └── README
+│   ├── v6.4/
+│   │   └── pw2wannier90.f90
+│   ├── v6.5/
+│   │   └── pw2wannier90.f90
+│   └── README
+├── src/
+│   ├── postw90/
+│   │   ├── berry.F90
+│   │   ├── boltzwann.F90
+│   │   ├── CMakeLists.txt
+│   │   ├── dos.F90
+│   │   ├── geninterp.F90
+│   │   ├── get_oper.F90
+│   │   ├── gyrotropic.F90
+│   │   ├── kpath.F90
+│   │   ├── kslice.F90
+│   │   ├── postw90.F90
+│   │   ├── postw90_common.F90
+│   │   ├── postw90_readwrite.F90
+│   │   ├── postw90_types.F90
+│   │   ├── pw90_library.F90
+│   │   ├── spin.F90
+│   │   └── wan_ham.F90
+│   │       └── ... (11 more files)
+│   ├── .gitignore
+│   ├── c_interface.F90
+│   ├── CMakeLists.txt
+│   ├── comms.F90
+│   ├── constants.F90
+│   ├── disentangle.F90
+│   ├── error.F90
+│   ├── error_base.F90
+│   ├── hamiltonian.F90
+│   ├── io.F90
+│   ├── kmesh.F90
+│   ├── library_extra.F90
+│   ├── library_interface.F90
+│   ├── Makefile
+│   ├── Makefile.2
+│   ├── Makefile.header
+│   ├── overlap.F90
+│   ├── plot.F90
+│   ├── readwrite.F90
+│   ├── sitesym.F90
+│   ├── transport.F90
+│   ├── types.F90
+│   ├── utility.F90
+│   ├── w90chk2chk.F90
+│   ├── w90spn2spn.F90
+│   ├── wannier90.h
+│   ├── wannier90_readwrite.F90
+│   ├── wannier90_types.F90
+│   ├── wannier_prog.F90
+│   ├── wannierise.F90
+│   └── ws_distance.F90
+│       └── ... (26 more files)
+├── test-suite/
+│   ├── checkpoints/
+│   │   ├── cu_postw90/
+│   │   │   └── copper.chk.fmt.bz2
+│   │   ├── example02/
+│   │   │   ├── lead.amn
+│   │   │   ├── lead.chk.fmt.bz2
+│   │   │   ├── lead.eig
+│   │   │   ├── lead.mmn
+│   │   │   ├── lead.win
+│   │   │   └── Makefile
+│   │   │       └── ... (1 more files)
+│   │   ├── fe_morb_higher_postw90/
+│   │   │   ├── Fe.amn
+│   │   │   ├── Fe.chk.fmt.bz2
+│   │   │   ├── Fe.eig
+│   │   │   ├── Fe.mmn.bz2
+│   │   │   ├── Fe.uHu.bz2
+│   │   │   └── Makefile
+│   │   │       └── ... (1 more files)
+│   │   ├── fe_postw90/
+│   │   │   ├── Fe.amn
+│   │   │   ├── Fe.chk.fmt.bz2
+│   │   │   ├── Fe.eig
+│   │   │   ├── Fe.mmn.bz2
+│   │   │   ├── Fe.uHu.bz2
+│   │   │   ├── Fe.win
+│   │   │   └── Makefile
+│   │   │       └── ... (2 more files)
+│   │   ├── gaas_postw90/
+│   │   │   ├── gaas.amn
+│   │   │   ├── gaas.chk.fmt.bz2
+│   │   │   ├── gaas.eig
+│   │   │   ├── gaas.mmn
+│   │   │   ├── gaas.mmn.bz2
+│   │   │   ├── gaas.win
+│   │   │   └── Makefile
+│   │   │       └── ... (2 more files)
+│   │   ├── gaas_shc_postw90/
+│   │   │   ├── GaAs.amn.bz2
+│   │   │   ├── GaAs.chk.fmt.bz2
+│   │   │   ├── GaAs.eig
+│   │   │   ├── GaAs.mmn.bz2
+│   │  
+... (1335 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+✅ Created file: conftest.py
+### Command Execution:
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 0 items
+
+--- Call Chain Report ---
+No call chains were recorded. (Hint: Check SOURCE_DIRS_TO_TRACK in conftest.py)
+
+============================ no tests ran in 0.25s =============================
+
+
+
+## Your Task (Phase 2: Call Chain Tracing)
+`pytest` is now executable without collection errors. Your task is to set up call chain tracing.
+1.  **Identify the main source code directory/directories.** Based on the structure, this is likely `skimage`.
+2.  **Create a `conftest.py` file** in the project root to trace this directory.
+3.  **Run `pytest`** one last time to generate the reports.
+4.  If the reports are generated, declare success with ```status
+success
+```.
+
+**REMINDER:** When creating `conftest.py`, you only need to provide the line defining `SOURCE_DIRS_TO_TRACK`. For example:
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['skimage']
+```

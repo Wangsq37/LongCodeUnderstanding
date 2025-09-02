@@ -1,0 +1,16 @@
+The build failed because of a missing header file:
+
+```
+mahotas/numpypp/numpy.hpp:10:10: fatal error: Python.h: No such file or directory
+```
+
+This means that the Python development headers are not installed. For Python 3.10, the appropriate package is `python3.10-dev` (or on some systems, `python3-dev` for the currently active version). In a Debian/Ubuntu-based docker, you install this with `apt-get`.
+
+Let's install the development headers and try again.
+
+```bash
+apt-get update
+apt-get install -y python3.10-dev
+pip install .
+pytest
+```

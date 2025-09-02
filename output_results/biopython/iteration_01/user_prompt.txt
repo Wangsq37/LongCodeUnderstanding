@@ -1,0 +1,2383 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .circleci/
+│   ├── config.yml
+│   └── requirements-sphinx.txt
+├── .github/
+│   ├── workflows/
+│   │   └── ci.yml
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CODEOWNERS
+│   ├── dependabot.yml
+│   ├── deploy_docs.sh
+│   ├── ISSUE_TEMPLATE.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── SECURITY.md
+│   └── ssh_via_deploy_key.sh
+│       └── ... (3 more files)
+├── Bio/
+│   ├── Affy/
+│   │   ├── __init__.py
+│   │   └── CelFile.py
+│   ├── Align/
+│   │   ├── substitution_matrices/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── _arraycore.c
+│   │   │   └── _arraycore.h
+│   │   ├── __init__.py
+│   │   ├── _aligncore.c
+│   │   ├── _alignmentcounts.c
+│   │   ├── _codonaligner.c
+│   │   ├── _pairwisealigner.c
+│   │   ├── _pairwisealigner.h
+│   │   ├── a2m.py
+│   │   ├── AlignInfo.py
+│   │   ├── analysis.py
+│   │   ├── bed.py
+│   │   ├── bigbed.py
+│   │   ├── bigmaf.py
+│   │   ├── bigpsl.py
+│   │   ├── chain.py
+│   │   ├── clustal.py
+│   │   ├── emboss.py
+│   │   ├── exonerate.py
+│   │   ├── fasta.py
+│   │   ├── hhr.py
+│   │   ├── interfaces.py
+│   │   ├── maf.py
+│   │   ├── mauve.py
+│   │   ├── msf.py
+│   │   ├── nexus.py
+│   │   ├── phylip.py
+│   │   ├── psl.py
+│   │   ├── sam.py
+│   │   ├── stockholm.py
+│   │   └── tabular.py
+│   │       └── ... (24 more files)
+│   ├── AlignIO/
+│   │   ├── __init__.py
+│   │   ├── ClustalIO.py
+│   │   ├── EmbossIO.py
+│   │   ├── FastaIO.py
+│   │   ├── Interfaces.py
+│   │   ├── MafIO.py
+│   │   ├── MauveIO.py
+│   │   ├── MsfIO.py
+│   │   ├── NexusIO.py
+│   │   ├── PhylipIO.py
+│   │   └── StockholmIO.py
+│   │       └── ... (6 more files)
+│   ├── Alphabet/
+│   │   └── __init__.py
+│   ├── Blast/
+│   │   ├── __init__.py
+│   │   ├── _parser.py
+│   │   ├── _writers.py
+│   │   ├── NCBIWWW.py
+│   │   └── NCBIXML.py
+│   ├── CAPS/
+│   │   └── __init__.py
+│   ├── Cluster/
+│   │   ├── __init__.py
+│   │   ├── cluster.c
+│   │   ├── cluster.h
+│   │   └── clustermodule.c
+│   ├── codonalign/
+│   │   ├── __init__.py
+│   │   ├── codonalignment.py
+│   │   └── codonseq.py
+│   ├── Compass/
+│   │   └── __init__.py
+│   ├── Data/
+│   │   ├── __init__.py
+│   │   ├── CodonTable.py
+│   │   ├── IUPACData.py
+│   │   └── PDBData.py
+│   ├── Emboss/
+│   │   ├── __init__.py
+│   │   ├── Primer3.py
+│   │   └── PrimerSearch.py
+│   ├── Entrez/
+│   │   ├── DTDs/
+│   │   │   ├── archivearticle.dtd
+│   │   │   ├── archivecustom-classes.ent
+│   │   │   ├── archivecustom-mixes.ent
+│   │   │   ├── archivecustom-models.ent
+│   │   │   ├── archivecustom-modules.ent
+│   │   │   ├── articlemeta.ent
+│   │   │   ├── backmatter.ent
+│   │   │   ├── BITS-embedded-index2.ent
+│   │   │   ├── BITS-question-answer2.ent
+│   │   │   ├── bookdoc_100301.dtd
+│   │   │   ├── bookdoc_110101.dtd
+│   │   │   ├── bookdoc_120101.dtd
+│   │   │   ├── bookdoc_130101.dtd
+│   │   │   ├── bookdoc_140101.dtd
+│   │   │   ├── bookdoc_150101.dtd
+│   │   │   ├── chars.ent
+│   │   │   ├── common.ent
+│   │   │   ├── default-classes.ent
+│   │   │   ├── default-mixes.ent
+│   │   │   ├── display.ent
+│   │   │   ├── Docsum_3_0.dtd
+│   │   │   ├── Docsum_3_0.mod.dtd
+│   │   │   ├── Docsum_3_1.dtd
+│   │   │   ├── Docsum_3_1.mod.dtd
+│   │   │   ├── Docsum_3_2.dtd
+│   │   │   ├── Docsum_3_2.mod.dtd
+│   │   │   ├── Docsum_3_3.dtd
+│   │   │   ├── Docsum_3_3.mod.dtd
+│   │   │   ├── Docsum_3_4.dtd
+│   │   │   ├── Docsum_3_4.mod.dtd
+│   │   │   ├── egquery.dtd
+│   │   │   ├── einfo.dtd
+│   │   │   ├── eInfo_020511.dtd
+│   │   │   ├── elink.dtd
+│   │   │   ├── elink_020122.dtd
+│   │   │   ├── eLink_090910.dtd
+│   │   │   ├── eLink_101123.dtd
+│   │   │   ├── EMBL_General.dtd
+│   │   │   ├── EMBL_General.mod.dtd
+│   │   │   ├── epost.dtd
+│   │   │   ├── ePost_020511.dtd
+│   │   │   ├── esearch.dtd
+│   │   │   ├── eSearch_020511.dtd
+│   │   │   ├── eSpell.dtd
+│   │   │   ├── esummary-v1.dtd
+│   │   │   ├── eSummary_041029.dtd
+│   │   │   ├── esummary_clinvar.dtd
+│   │   │   ├── esummary_gene.dtd
+│   │   │   ├── format.ent
+│   │   │   ├── GenBank_General.dtd
+│   │   │   ├── GenBank_General.mod.dtd
+│   │   │   ├── HomoloGene.dtd
+│   │   │   ├── HomoloGene.mod.dtd
+│   │   │   ├── htmltable.dtd
+│   │   │   ├── INSD_INSDSeq.dtd
+│   │   │   ├── INSD_INSDSeq.mod.dtd
+│   │   │   ├── isoamsa.ent
+│   │   │   ├── isoamsb.ent
+│   │   │   ├── isoamsc.ent
+│   │   │   ├── isoamsn.ent
+│   │   │   ├── isoamso.ent
+│   │   │   ├── isoamsr.ent
+│   │   │   ├── isobox.ent
+│   │   │   ├── isocyr1.ent
+│   │   │   ├── isocyr2.ent
+│   │   │   ├── isodia.ent
+│   │   │   ├── isogrk1.ent
+│   │   │   ├── isogrk2.ent
+│   │   │   ├── isogrk3.ent
+│   │   │   ├── isogrk4.ent
+│   │   │   ├── isolat1.ent
+│   │   │   ├── isolat2.ent
+│   │   │   ├── isomfrk.ent
+│   │   │   ├── isomopf.ent
+│   │   │   ├── isomscr.ent
+│   │   │   ├── isonum.ent
+│   │   │   ├── isopub.ent
+│   │   │   ├── isotech.ent
+│   │   │   ├── JATS-ali-namespace1-3.ent
+│   │   │   ├── JATS-archivearticle1-3-mathml3.dtd
+│   │   │   ├── JATS-archivecustom-classes1-3.ent
+│   │   │   ├── JATS-archivecustom-mixes1-3.ent
+│   │   │   ├── JATS-archivecustom-models1-3.ent
+│   │   │   ├── JATS-archivecustom-modules1-3.ent
+│   │   │   ├── JATS-articlemeta1-3.ent
+│   │   │   ├── JATS-backmatter1-3.ent
+│   │   │   ├── JATS-chars1-3.ent
+│   │   │   ├── JATS-common-atts1-3.ent
+│   │   │   ├── JATS-common1-3.ent
+│   │   │   ├── JATS-default-classes1-3.ent
+│   │   │   ├── JATS-default-mixes1-3.ent
+│   │   │   ├── JATS-display1-3.ent
+│   │   │   ├── JATS-format1-3.ent
+│   │   │   ├── JATS-funding1-3.ent
+│   │   │   ├── JATS-journalmeta1-3.ent
+│   │   │   ├── JATS-link1-3.ent
+│   │   │   ├── JATS-list1-3.ent
+│   │   │   ├── JATS-math1-3.ent
+│   │   │   ├── JATS-mathml3-mathmlsetup1-3.ent
+│   │   │   ├── JATS-mathml3-modules1-3.ent
+│   │   │   ├── JATS-modules1-3.ent
+│   │   │   ├── JATS-nlmcitation1-3.ent
+│   │   │   ├── JATS-notat1-3.ent
+│   │   │   ├── JATS-para1-3.ent
+│   │   │   ├── JATS-phrase1-3.ent
+│   │   │   ├── JATS-references1-3.ent
+│   │   │   ├── JATS-related-object1-3.ent
+│   │   │   ├── JATS-section1-3.ent
+│   │   │   ├── JATS-XHTMLtablesetup1-3.ent
+│   │   │   ├── JATS-xmlspecchars1-3.ent
+│   │   │   ├── journalmeta.ent
+│   │   │   ├── link.ent
+│   │   │   ├── list.ent
+│   │   │   ├── math.ent
+│   │   │   ├── mathml-in-pubmed.mod
+│   │   │   ├── mathml2-qname-1.mod
+│   │   │   ├── mathml2.dtd
+│   │   │   ├── mathml3-qname1.mod
+│   │   │   ├── mathml3.dtd
+│   │   │   ├── mathmlsetup.ent
+│   │   │   ├── MMDB.dtd
+│   │   │   ├── MMDB.mod.dtd
+│   │   │   ├── MMDB_Chemical_graph.dtd
+│   │   │   ├── MMDB_Chemical_graph.mod.dtd
+│   │   │   ├── MMDB_Features.dtd
+│   │   │   ├── MMDB_Features.mod.dtd
+│   │   │   ├── MMDB_Structural_model.dtd
+│   │   │   ├── MMDB_Structural_model.mod.dtd
+│   │   │   ├── mmlalias.ent
+│   │   │   ├── mmlextra.ent
+│   │   │   ├── modules.ent
+│   │   │   ├── NCBI_Access.dtd
+│   │   │   ├── NCBI_Access.mod.dtd
+│   │   │   ├── NCBI_all.dtd
+│   │   │   ├── NCBI_Biblio.dtd
+│   │   │   ├── NCBI_Biblio.mod.dtd
+│   │   │   ├── NCBI_BioSource.dtd
+│   │   │   ├── NCBI_BioSource.mod.dtd
+│   │   │   ├── NCBI_BioTree.dtd
+│   │   │   ├── NCBI_BioTree.mod.dtd
+│   │   │   ├── NCBI_Blast4.dtd
+│   │   │   ├── NCBI_Blast4.mod.dtd
+│   │   │   ├── NCBI_BlastDL.dtd
+│   │   │   ├── NCBI_BlastDL.mod.dtd
+│   │   │   ├── NCBI_BlastOutput.dtd
+│   │   │   ├── NCBI_BlastOutput.mod.dtd
+│   │   │   ├── NCBI_Cdd.dtd
+│   │   │   ├── NCBI_Cdd.mod.dtd
+│   │   │   ├── NCBI_Cn3d.dtd
+│   │   │   ├── NCBI_Cn3d.mod.dtd
+│   │   │   ├── NCBI_Entity.mod.dtd
+│   │   │   ├── NCBI_Entrez2.dtd
+│   │   │   ├── NCBI_Entrez2.mod.dtd
+│   │   │   ├── NCBI_Entrezgene.dtd
+│   │   │   ├── NCBI_Entrezgene.mod.dtd
+│   │   │   ├── NCBI_FeatDef.dtd
+│   │   │   ├── NCBI_FeatDef.mod.dtd
+│   │   │   ├── NCBI_GBSeq.dtd
+│   │   │   ├── NCBI_GBSeq.mod.dtd
+│   │   │   ├── NCBI_Gene.dtd
+│   │   │   ├── NCBI_Gene.mod.dtd
+│   │   │   ├── NCBI_General.dtd
+│   │   │   ├── NCBI_General.mod.dtd
+│   │   │   ├── NCBI_ID1Access.dtd
+│   │   │   ├── NCBI_ID1Access.mod.dtd
+│   │   │   ├── NCBI_ID2Access.dtd
+│   │   │   ├── NCBI_ID2Access.mod.dtd
+│   │   │   ├── NCBI_MedArchive.dtd
+│   │   │   ├── NCBI_MedArchive.mod.dtd
+│   │   │   ├── NCBI_Medlars.dtd
+│   │   │   ├── NCBI_Medlars.mod.dtd
+│   │   │   ├── NCBI_Medline.dtd
+│   │   │   ├── NCBI_Medline.mod.dtd
+│   │   │   ├── NCBI_Mim.dtd
+│   │   │   ├── NCBI_Mim.mod.dtd
+│   │   │   ├── NCBI_Mime.dtd
+│   │   │   ├── NCBI_Mime.mod.dtd
+│   │   │   ├── NCBI_ObjPrt.dtd
+│   │   │   ├── NCBI_ObjPrt.mod.dtd
+│   │   │   ├── NCBI_Organism.dtd
+│   │   │   ├── NCBI_Organism.mod.dtd
+│   │   │   ├── NCBI_PCAssay.dtd
+│   │   │   ├── NCBI_PCAssay.mod.dtd
+│   │   │   ├── NCBI_PCSubstance.dtd
+│   │   │   ├── NCBI_PCSubstance.mod.dtd
+│   │   │   ├── NCBI_Project.dtd
+│   │   │   ├── NCBI_Project.mod.dtd
+│   │   │   ├── NCBI_Protein.dtd
+│   │   │   ├── NCBI_Protein.mod.dtd
+│   │   │   ├── NCBI_Pub.dtd
+│   │   │   ├── NCBI_Pub.mod.dtd
+│   │   │   ├── NCBI_PubMed.dtd
+│   │   │   ├── NCBI_PubMed.mod.dtd
+│   │   │   ├── NCBI_Remap.dtd
+│   │   │   ├── NCBI_Remap.mod.dtd
+│   │   │   ├── NCBI_RNA.dtd
+│   │   │   ├── NCBI_RNA.mod.dtd
+│   │   │   ├── NCBI_Rsite.dtd
+│   │   │   ├── NCBI_Rsite.mod.dtd
+│   │   │   ├── NCBI_ScoreMat.dtd
+│   │   │   ├── NCBI_ScoreMat.mod.dtd
+│   │   │   ├── NCBI_Seq_split.dtd
+│   │   │   ├── NCBI_Seq_split.mod.dtd
+│   │   │   ├── NCBI_Seqalign.dtd
+│   │   │   ├── NCBI_Seqalign.mod.dtd
+│   │   │   ├── NCBI_SeqCode.dtd
+│   │   │   ├── NCBI_SeqCode.mod.dtd
+│   │   │   ├── NCBI_Seqfeat.dtd
+│   │   │   ├── NCBI_Seqfeat.mod.dtd
+│   │   │   ├── NCBI_Seqloc.dtd
+│   │   │   ├── NCBI_Seqloc.mod.dtd
+│   │   │   ├── NCBI_Seqres.dtd
+│   │   │   ├── NCBI_Seqres.mod.dtd
+│   │   │   ├── NCBI_Seqset.dtd
+│   │   │   ├── NCBI_Seqset.mod.dtd
+│   │   │   ├── NCBI_SeqTable.dtd
+│   │   │   ├── NCBI_SeqTable.mod.dtd
+│   │   │   ├── NCBI_Sequence.dtd
+│   │   │   ├── NCBI_Sequence.mod.dtd
+│   │   │   ├── NCBI_Submit.dtd
+│   │   │   ├── NCBI_Submit.mod.dtd
+│   │   │   ├── NCBI_Systems.dtd
+│   │   │   ├── NCBI_TSeq.dtd
+│   │   │   ├── NCBI_TSeq.mod.dtd
+│   │   │   ├── NCBI_TxInit.dtd
+│   │   │   ├── NCBI_TxInit.mod.dtd
+│   │   │   ├── NCBI_Variation.dtd
+│   │   │   ├── NCBI_Variation.mod.dtd
+│   │   │   ├── nlm-articleset-2.0.dtd
+│   │   │   ├── nlmcatalogrecordset_170601.dtd
+│   │   │   ├── nlmcommon_011101.dtd
+│   │   │   ├── nlmcommon_080101.dtd
+│   │   │   ├── nlmcommon_090101.dtd
+│   │   │   ├── nlmmedline_011101.dtd
+│   │   │   ├── nlmmedline_080101.dtd
+│   │   │   ├── nlmmedline_090101.dtd
+│   │   │   ├── nlmmedlinecitation_011101.dtd
+│   │   │   ├── nlmmedlinecitation_080101.dtd
+│   │   │   ├── nlmmedlinecitation_090101.dtd
+│   │   │   ├── nlmmedlinecitationset_100101.dtd
+│   │   │   ├── nlmmedlinecitationset_100301.dtd
+│   │   │   ├── nlmmedlinecitationset_110101.dtd
+│   │   │   ├── nlmmedlinecitationset_120101.dtd
+│   │   │   ├── nlmmedlinecitationset_130101.dtd
+│   │   │   ├── nlmmedlinecitationset_130501.dtd
+│   │   │   ├── nlmmedlinecitationset_140101.dtd
+│   │   │   ├── nlmmedlinecitationset_150101.dtd
+│   │   │   ├── nlmserials_080101.dtd
+│   │   │   ├── nlmserials_100101.dtd
+│   │   │   ├── nlmsharedcatcit_080101.dtd
+│   │   │   ├── nlmsharedcatcit_090101.dtd
+│   │   │   ├── notat.ent
+│   │   │   ├── NSE.dtd
+│   │   │   ├── NSE.mod.dtd
+│   │   │   ├── OMSSA.dtd
+│   │   │   ├── OMSSA.mod.dtd
+│   │   │   ├── para.ent
+│   │   │   ├── PDB_General.dtd
+│   │   │   ├── PDB_General.mod.dtd
+│   │   │   ├── phrase.ent
+│   │   │   ├── PIR_General.dtd
+│   │   │   ├── PIR_General.mod.dtd
+│   │   │   ├── pmc-1.dtd
+│   │   │   ├── PRF_General.dtd
+│   │   │   ├── PRF_General.mod.dtd
+│   │   │   ├── pubmed_020114.dtd
+│   │   │   ├── pubmed_080101.dtd
+│   │   │   ├── pubmed_090101.dtd
+│   │   │   ├── pubmed_100101.dtd
+│   │   │   ├── pubmed_100301.dtd
+│   │   │   ├── pubmed_110101.dtd
+│   │   │   ├── pubmed_120101.dtd
+│   │   │   ├── pubmed_130101.dtd
+│   │   │   ├── pubmed_130501.dtd
+│   │   │   ├── pubmed_140101.dtd
+│   │   │   ├── pubmed_150101.dtd
+│   │   │   ├── pubmed_180101.dtd
+│   │   │   ├── pubmed_180601.dtd
+│   │   │   ├── pubmed_190101.dtd
+│   │   │   ├── references.ent
+│   │   │   ├── section.ent
+│   │   │   ├── SP_General.dtd
+│   │   │   ├── SP_General.mod.dtd
+│   │   │   ├── taxon.dtd
+│   │   │   ├── xhtml-inlstyle-1.mod
+│   │   │   ├── xhtml-table-1.mod
+│   │   │   ├── XHTMLtablesetup.ent
+│   │   │   └── xmlspecchars.ent
+│   │   │       └── ... (283 more files)
+│   │   ├── XSDs/
+│   │   │   ├── IPGReportSet.xsd
+│   │   │   ├── NCBI_BlastOutput2.mod.xsd
+│   │   │   └── NCBI_BlastOutput2.xsd
+│   │   ├── __init__.py
+│   │   └── Parser.py
+│   ├── ExPASy/
+│   │   ├── __init__.py
+│   │   ├── cellosaurus.py
+│   │   ├── Enzyme.py
+│   │   ├── Prodoc.py
+│   │   ├── Prosite.py
+│   │   └── ScanProsite.py
+│   │       └── ... (1 more files)
+│   ├── GenBank/
+│   │   ├── __init__.py
+│   │   ├── Record.py
+│   │   ├── Scanner.py
+│   │   └── utils.py
+│   ├── Geo/
+│   │   ├── __init__.py
+│   │   └── Record.py
+│   ├── Graphics/
+│   │   ├── GenomeDiagram/
+│   │   │   ├── __init__.py
+│   │   │   ├── _AbstractDrawer.py
+│   │   │   ├── _CircularDrawer.py
+│   │   │   ├── _Colors.py
+│   │   │   ├── _CrossLink.py
+│   │   │   ├── _Diagram.py
+│   │   │   ├── _Feature.py
+│   │   │   ├── _FeatureSet.py
+│   │   │   ├── _Graph.py
+│   │   │   ├── _GraphSet.py
+│   │   │   ├── _LinearDrawer.py
+│   │   │   └── _Track.py
+│   │   │       └── ... (7 more files)
+│   │   ├── __init__.py
+│   │   ├── BasicChromosome.py
+│   │   ├── ColorSpiral.py
+│   │   ├── Comparative.py
+│   │   ├── DisplayRepresentation.py
+│   │   ├── Distribution.py
+│   │   └── KGML_vis.py
+│   │       └── ... (2 more files)
+│   ├── HMM/
+│   │   ├── __init__.py
+│   │   ├── DynamicProgramming.py
+│   │   ├── MarkovModel.py
+│   │   ├── Trainer.py
+│   │   └── Utilities.py
+│   ├── KEGG/
+│   │   ├── Compound/
+│   │   │   └── __init__.py
+│   │   ├── Enzyme/
+│   │   │   └── __init__.py
+│   │   ├── Gene/
+│   │   │   └── __init__.py
+│   │   ├── KGML/
+│   │   │   ├── __init__.py
+│   │   │   ├── KGML_parser.py
+│   │   │   └── KGML_pathway.py
+│   │   ├── Map/
+│   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   └── REST.py
+│   ├── Medline/
+│   │   └── __init__.py
+│   ├── motifs/
+│   │   ├── jaspar/
+│   │   │   ├── __init__.py
+│   │   │   └── db.py
+│   │   ├── __init__.py
+│   │   ├── _pwm.c
+│   │   ├── alignace.py
+│   │   ├── clusterbuster.py
+│   │   ├── mast.py
+│   │   ├── matrix.py
+│   │   ├── meme.py
+│   │   ├── minimal.py
+│   │   ├── pfm.py
+│   │   ├── thresholds.py
+│   │   ├── transfac.py
+│   │   └── xms.py
+│   │       └── ... (7 more files)
+│   ├── Nexus/
+│   │   ├── __init__.py
+│   │   ├── cnexus.c
+│   │   ├── Nexus.py
+│   │   ├── Nodes.py
+│   │   ├── StandardData.py
+│   │   └── Trees.py
+│   │       └── ... (1 more files)
+│   ├── NMR/
+│   │   ├── __init__.py
+│   │   ├── NOEtools.py
+│   │   └── xpktools.py
+│   ├── Pathway/
+│   │   ├── Rep/
+│   │   │   ├── __init__.py
+│   │   │   ├── Graph.py
+│   │   │   └── MultiGraph.py
+│   │   └── __init__.py
+│   ├── PDB/
+│   │   ├── mmtf/
+│   │   │   ├── __init__.py
+│   │   │   ├── DefaultParser.py
+│   │   │   └── mmtfio.py
+│   │   ├── __init__.py
+│   │   ├── AbstractPropertyMap.py
+│   │   ├── alphafold_db.py
+│   │   ├── Atom.py
+│   │   ├── bcifhelpermodule.c
+│   │   ├── binary_cif.py
+│   │   ├── ccealignmodule.c
+│   │   ├── cealign.py
+│   │   ├── Chain.py
+│   │   ├── Dice.py
+│   │   ├── DSSP.py
+│   │   ├── Entity.py
+│   │   ├── FragmentMapper.py
+│   │   ├── HSExposure.py
+│   │   ├── ic_data.py
+│   │   ├── ic_rebuild.py
+│   │   ├── internal_coords.py
+│   │   ├── kdtrees.c
+│   │   ├── MMCIF2Dict.py
+│   │   ├── mmcifio.py
+│   │   ├── MMCIFParser.py
+│   │   ├── Model.py
+│   │   ├── NACCESS.py
+│   │   ├── NeighborSearch.py
+│   │   ├── parse_pdb_header.py
+│   │   ├── PDBExceptions.py
+│   │   ├── PDBIO.py
+│   │   ├── PDBList.py
+│   │   ├── PDBMLParser.py
+│   │   ├── PDBParser.py
+│   │   ├── PICIO.py
+│   │   ├── Polypeptide.py
+│   │   ├── PSEA.py
+│   │   ├── qcprot.py
+│   │   ├── Residue.py
+│   │   ├── ResidueDepth.py
+│   │   ├── SASA.py
+│   │   ├── SCADIO.py
+│   │   ├── Selection.py
+│   │   ├── Structure.py
+│   │   ├── StructureAlignment.py
+│   │   ├── StructureBuilder.py
+│   │   ├── Superimposer.py
+│   │   └── vectors.py
+│   │       └── ... (39 more files)
+│   ├── phenotype/
+│   │   ├── __init__.py
+│   │   ├── phen_micro.py
+│   │   └── pm_fitting.py
+│   ├── Phylo/
+│   │   ├── PAML/
+│   │   │   ├── __init__.py
+│   │   │   ├── _paml.py
+│   │   │   ├── _parse_baseml.py
+│   │   │   ├── _parse_codeml.py
+│   │   │   ├── _parse_yn00.py
+│   │   │   ├── baseml.py
+│   │   │   ├── chi2.py
+│   │   │   ├── codeml.py
+│   │   │   └── yn00.py
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── _cdao_owl.py
+│   │   ├── _io.py
+│   │   ├── _utils.py
+│   │   ├── BaseTree.py
+│   │   ├── CDAO.py
+│   │   ├── CDAOIO.py
+│   │   ├── Consensus.py
+│   │   ├── Newick.py
+│   │   ├── NewickIO.py
+│   │   ├── NeXML.py
+│   │   ├── NeXMLIO.py
+│   │   ├── NexusIO.py
+│   │   ├── PhyloXML.py
+│   │   ├── PhyloXMLIO.py
+│   │   └── TreeConstruction.py
+│   │       └── ... (11 more files)
+│   ├── PopGen/
+│   │   ├── GenePop/
+│   │   │   ├── __init__.py
+│   │   │   ├── FileParser.py
+│   │   │   └── LargeFileParser.py
+│   │   └── __init__.py
+│   ├── Restriction/
+│   │   ├── __init__.py
+│   │   ├── PrintFormat.py
+│   │   ├── Restriction.py
+│   │   └── Restriction_Dictionary.py
+│   ├── SCOP/
+│   │   ├── __init__.py
+│   │   ├── Cla.py
+│   │   ├── Des.py
+│   │   ├── Dom.py
+│   │   ├── Hie.py
+│   │   ├── Raf.py
+│   │   └── Residues.py
+│   │       └── ... (2 more files)
+│   ├── SearchIO/
+│   │   ├── _model/
+│   │   │   ├── __init__.py
+│   │   │   ├── _base.py
+│   │   │   ├── hit.py
+│   │   │   ├── hsp.py
+│   │   │   └── query.py
+│   │   ├── BlastIO/
+│   │   │   ├── __init__.py
+│   │   │   ├── blast_tab.py
+│   │   │   └── blast_xml.py
+│   │   ├── ExonerateIO/
+│   │   │   ├── __init__.py
+│   │   │   ├── _base.py
+│   │   │   ├── exonerate_cigar.py
+│   │   │   ├── exonerate_text.py
+│   │   │   └── exonerate_vulgar.py
+│   │   ├── HHsuiteIO/
+│   │   │   ├── __init__.py
+│   │   │   └── hhsuite2_text.py
+│   │   ├── HmmerIO/
+│   │   │   ├── __init__.py
+│   │   │   ├── _base.py
+│   │   │   ├── hmmer2_text.py
+│   │   │   ├── hmmer3_domtab.py
+│   │   │   ├── hmmer3_tab.py
+│   │   │   └── hmmer3_text.py
+│   │   │       └── ... (1 more files)
+│   │   ├── InfernalIO/
+│   │   │   ├── __init__.py
+│   │   │   ├── _base.py
+│   │   │   ├── infernal_tab.py
+│   │   │   └── infernal_text.py
+│   │   ├── InterproscanIO/
+│   │   │   ├── __init__.py
+│   │   │   └── interproscan_xml.py
+│   │   ├── __init__.py
+│   │   ├── _index.py
+│   │   ├── _utils.py
+│   │   ├── BlatIO.py
+│   │   └── FastaIO.py
+│   ├── SeqIO/
+│   │   ├── __init__.py
+│   │   ├── _index.py
+│   │   ├── _twoBitIO.c
+│   │   ├── AbiIO.py
+│   │   ├── AceIO.py
+│   │   ├── FastaIO.py
+│   │   ├── GckIO.py
+│   │   ├── GfaIO.py
+│   │   ├── IgIO.py
+│   │   ├── InsdcIO.py
+│   │   ├── Interfaces.py
+│   │   ├── NibIO.py
+│   │   ├── PdbIO.py
+│   │   ├── PhdIO.py
+│   │   ├── PirIO.py
+│   │   ├── QualityIO.py
+│   │   ├── SeqXmlIO.py
+│   │   ├── SffIO.py
+│   │   ├── SnapGeneIO.py
+│   │   ├── SwissIO.py
+│   │   ├── TabIO.py
+│   │   ├── TwoBitIO.py
+│   │   ├── UniprotIO.py
+│   │   └── XdnaIO.py
+│   │       └── ... (19 more files)
+│   ├── Sequencing/
+│   │   ├── __init__.py
+│   │   ├── Ace.py
+│   │   └── Phd.py
+│   ├── SeqUtils/
+│   │   ├── __init__.py
+│   │   ├── CheckSum.py
+│   │   ├── IsoelectricPoint.py
+│   │   ├── lcc.py
+│   │   ├── MeltingTemp.py
+│   │   ├── ProtParam.py
+│   │   └── ProtParamData.py
+│   │       └── ... (2 more files)
+│   ├── SVDSuperimposer/
+│   │   └── __init__.py
+│   ├── SwissProt/
+│   │   ├── __init__.py
+│   │   └── KeyWList.py
+│   ├── TogoWS/
+│   │   └── __init__.py
+│   ├── UniGene/
+│   │   └── __init__.py
+│   ├── UniProt/
+│   │   ├── __init__.py
+│   │   └── GOA.py
+│   ├── __init__.py
+│   ├── _utils.py
+│   ├── bgzf.py
+│   ├── cpairwise2module.c
+│   ├── File.py
+│   ├── pairwise2.py
+│   ├── py.typed
+│   ├── Seq.py
+│   ├── SeqFeature.py
+│   └── SeqRecord.py
+│       └── ... (5 more files)
+├── BioSQL/
+│   ├── __init__.py
+│   ├── BioSeq.py
+│   ├── BioSeqDatabase.py
+│   ├── DBUtils.py
+│   ├── Loader.py
+│   └── py.typed
+│       └── ... (1 more files)
+├── Doc/
+│   ├── _static/
+│   │   └── biopython.css
+│   ├── _templates/
+│   │   └── versions.html
+│   ├── api/
+│   │   └── index.rst
+│   ├── cookbook/
+│   │   ├── Restriction/
+│   │   │   ├── Restriction.html
+│   │   │   └── Restriction.md
+│   │   └── README
+│   ├── examples/
+│   │   ├── nmr/
+│   │   │   ├── noed.xpk
+│   │   │   └── simplepredict.py
+│   │   ├── ACT_example.py
+│   │   ├── alpha.faa
+│   │   ├── beta.faa
+│   │   ├── clustal_run.py
+│   │   ├── ec_5.4.2.2.txt
+│   │   ├── fasta_dictionary.py
+│   │   ├── fasta_iterator.py
+│   │   ├── ls_orchid.fasta
+│   │   ├── ls_orchid.gbk
+│   │   ├── ls_orchid.gbk.bgz
+│   │   ├── ls_orchid.gbk.bz2
+│   │   ├── ls_orchid.gbk.gz
+│   │   ├── m_cold.fasta
+│   │   ├── my_blast.xml
+│   │   ├── my_blat.psl
+│   │   ├── opuntia.aln
+│   │   ├── opuntia.dnd
+│   │   ├── opuntia.fasta
+│   │   ├── PF05371_seed.sth
+│   │   ├── Plates.csv
+│   │   ├── Proux_et_al_2002_Figure_6.py
+│   │   ├── simple.dnd
+│   │   ├── swissprot.py
+│   │   └── www_blast.py
+│   │       └── ... (19 more files)
+│   ├── images/
+│   │   ├── 1a8o-ca-plot.png
+│   │   ├── biopython_logo.pdf
+│   │   ├── biopython_logo.svg
+│   │   ├── biopython_logo_l.png
+│   │   ├── biopython_logo_m.png
+│   │   ├── biopython_logo_old.jpg
+│   │   ├── biopython_logo_s.png
+│   │   ├── biopython_logo_white.png
+│   │   ├── biopython_logo_xs.png
+│   │   ├── BlastRecord.dia
+│   │   ├── BlastRecord.png
+│   │   ├── dot_plot.png
+│   │   ├── dot_plot_scatter.png
+│   │   ├── gc_plot.png
+│   │   ├── GD_sigil_arrow_heads.png
+│   │   ├── GD_sigil_arrow_shafts.png
+│   │   ├── GD_sigil_labels.png
+│   │   ├── GD_sigils.png
+│   │   ├── hist_plot.png
+│   │   ├── phe-pairs-3pbl.png
+│   │   ├── phylo-apaf-zoom.png
+│   │   ├── phylo-apaf.png
+│   │   ├── phylo-color-draw.png
+│   │   ├── phylo-color.png
+│   │   ├── phylo-dot.png
+│   │   ├── phylo-draw-example.png
+│   │   ├── phylo-rooted.png
+│   │   ├── phylo-simple-draw.png
+│   │   ├── plasmid_circular.png
+│   │   ├── plasmid_circular_nice.png
+│   │   ├── plasmid_linear.png
+│   │   ├── plasmid_linear_nice.png
+│   │   ├── PSIBlastRecord.dia
+│   │   ├── PSIBlastRecord.png
+│   │   ├── simple_chrom.pdf
+│   │   ├── simple_chrom.png
+│   │   ├── smcra.dia
+│   │   ├── smcra.eps
+│   │   ├── smcra.png
+│   │   ├── SRR001666.png
+│   │   ├── three_track_cl.png
+│   │   ├── three_track_cl2a.png
+│   │   ├── three_track_simple.png
+│   │   ├── tRNA_chrom.pdf
+│   │   └── tRNA_chrom.png
+│   │       └── ... (40 more files)
+│   ├── Tutorial/
+│   │   ├── chapter_align.rst
+│   │   ├── chapter_appendix.rst
+│   │   ├── chapter_bibliography.rst
+│   │   ├── chapter_blast.rst
+│   │   ├── chapter_cluster.rst
+│   │   ├── chapter_contributing.rst
+│   │   ├── chapter_cookbook.rst
+│   │   ├── chapter_entrez.rst
+│   │   ├── chapter_graphics.rst
+│   │   ├── chapter_introduction.rst
+│   │   ├── chapter_kegg.rst
+│   │   ├── chapter_motifs.rst
+│   │   ├── chapter_msa.rst
+│   │   ├── chapter_pairwise.rst
+│   │   ├── chapter_pairwise2.rst
+│   │   ├── chapter_pdb.rst
+│   │   ├── chapter_phenotype.rst
+│   │   ├── chapter_phylo.rst
+│   │   ├── chapter_popgen.rst
+│   │   ├── chapter_quick_start.rst
+│   │   ├── chapter_searchio.rst
+│   │   ├── chapter_seq_annot.rst
+│   │   ├── chapter_seq_objects.rst
+│   │   ├── chapter_seqio.rst
+│   │   ├── chapter_testing.rst
+│   │   ├── chapter_uniprot.rst
+│   │   └── index.rst
+│   │       └── ... (22 more files)
+│   ├── biopdb_faq.tex
+│   ├── conf.py
+│   ├── doc.rst
+│   ├── doc.tex
+│   ├── index.rst
+│   ├── Makefile
+│   ├── README.rst
+│   └── version.in
+│       └── ... (3 more files)
+├── Scripts/
+│   ├── GenBank/
+│   │   ├── check_output.py
+│   │   └── check_output_simple.py
+│   ├── PDB/
+│   │   ├── generate_three_to_one_dict.py
+│   │   └── hsexpo.py
+│   ├── Performance/
+│   │   ├── biosql_performance_load.py
+│   │   └── biosql_performance_read.py
+│   ├── Restriction/
+│   │   ├── ranacompiler.py
+│   │   └── rebase_update.py
+│   ├── SeqGui/
+│   │   └── SeqGui.py
+│   ├── xbbtools/
+│   │   ├── nextorf.py
+│   │   ├── README
+│   │   ├── test.fas
+│   │   ├── testrp.fas
+│   │   ├── xbb_blast.py
+│   │   ├── xbb_blastbg.py
+│   │   ├── xbb_help.py
+│   │   ├── xbb_search.py
+│   │   ├── xbb_translations.py
+│   │   ├── xbb_utils.py
+│   │   ├── xbb_widget.py
+│   │   └── xbbtools.py
+│   │       └── ... (7 more files)
+│   ├── query_pubmed.py
+│   ├── scop_pdb.py
+│   └── update_ncbi_codon_table.py
+├── Tests/
+│   ├── Abi/
+│   │   ├── 310.ab1
+│   │   ├── 3100.ab1
+│   │   ├── 3730.ab1
+│   │   ├── A6_1-DB3.ab1
+│   │   ├── empty.ab1
+│   │   ├── fake.ab1
+│   │   ├── no_smpl1.ab1
+│   │   ├── nonascii_encoding.ab1
+│   │   ├── test.fsa
+│   │   └── test_data
+│   │       └── ... (5 more files)
+│   ├── Ace/
+│   │   ├── consed_sample.ace
+│   │   ├── contig1.ace
+│   │   └── seq.cap.ace
+│   ├── Affy/
+│   │   ├── affy_v3_example.CEL
+│   │   └── affy_v4_example.CEL
+│   ├── Align/
+│   │   ├── bsubtilis.fa
+│   │   ├── bsubtilis.txt
+│   │   ├── calJac4.fa
+│   │   ├── cow.fa
+│   │   ├── cow.txt
+│   │   ├── ecoli.fa
+│   │   ├── ecoli.txt
+│   │   ├── hg38.chrom.sizes
+│   │   ├── hg38.fa
+│   │   ├── mm39.fa
+│   │   ├── panTro6.fa
+│   │   ├── pig.fa
+│   │   ├── pig.txt
+│   │   ├── rheMac10.fa
+│   │   └── rn7.fa
+│   │       └── ... (10 more files)
+│   ├── BioSQL/
+│   │   ├── biosqldb-mysql.sql
+│   │   ├── biosqldb-pg.sql
+│   │   ├── biosqldb-sqlite.sql
+│   │   └── cor6_6.db
+│   ├── Blast/
+│   │   ├── broken1.xml
+│   │   ├── broken2.xml
+│   │   ├── broken3.xml
+│   │   ├── broken4.xml
+│   │   ├── broken5.xml
+│   │   ├── html_msgid_29_blastx_001.html
+│   │   ├── megablast_legacy.xml
+│   │   ├── mirna.tab
+│   │   ├── mirna.xml
+│   │   ├── mock_actin.xml
+│   │   ├── mock_disco.xml
+│   │   ├── mock_orchid.xml
+│   │   ├── mock_pcr.xml
+│   │   ├── mock_short_empty.xml
+│   │   ├── mock_short_result.xml
+│   │   ├── mock_wait.html
+│   │   ├── phiblast.xml
+│   │   ├── README.txt
+│   │   ├── tab_2226_tblastn_001.txt
+│   │   ├── tab_2226_tblastn_002.txt
+│   │   ├── tab_2226_tblastn_003.txt
+│   │   ├── tab_2226_tblastn_004.txt
+│   │   ├── tab_2226_tblastn_005.txt
+│   │   ├── tab_2226_tblastn_006.txt
+│   │   ├── tab_2226_tblastn_007.txt
+│   │   ├── tab_2226_tblastn_008.txt
+│   │   ├── tab_2226_tblastn_009.txt
+│   │   ├── tab_2226_tblastn_010.txt
+│   │   ├── tab_2226_tblastn_011.txt
+│   │   ├── tab_2226_tblastn_012.txt
+│   │   ├── tab_2226_tblastn_013.txt
+│   │   ├── tab_2228_tblastn_001.txt
+│   │   ├── tab_2228_tblastx_001.txt
+│   │   ├── wnts.xml
+│   │   ├── wnts.xml.bgz
+│   │   ├── xml2_21500_blastn_001.xml
+│   │   ├── xml2_21500_blastp_001.xml
+│   │   ├── xml2_21500_blastx_001.xml
+│   │   ├── xml2_21500_psiblast_001.xml
+│   │   ├── xml2_21500_rpsblast_001.xml
+│   │   ├── xml2_21500_tblastn_001.xml
+│   │   ├── xml2_21500_tblastx_001.xml
+│   │   ├── xml_21500_blastn_001.xml
+│   │   ├── xml_21500_blastp_001.xml
+│   │   ├── xml_21500_blastx_001.xml
+│   │   ├── xml_21500_psiblast_001.xml
+│   │   ├── xml_21500_rpsblast_001.xml
+│   │   ├── xml_21500_tblastn_001.xml
+│   │   ├── xml_21500_tblastx_001.xml
+│   │   ├── xml_2212L_blastn_001.xml
+│   │   ├── xml_2212L_blastp_001.xml
+│   │   ├── xml_2212L_blastx_001.xml
+│   │   ├── xml_2212L_tblastn_001.xml
+│   │   ├── xml_2212L_tblastx_001.xml
+│   │   ├── xml_2218_blastp_001.xml
+│   │   ├── xml_2218_blastp_002.xml
+│   │   ├── xml_2218L_blastp_001.xml
+│   │   ├── xml_2218L_rpsblast_001.xml
+│   │   ├── xml_2222_blastp_001.xml
+│   │   ├── xml_2222_blastx_001.xml
+│   │   ├── xml_2226_blastn_001.xml
+│   │   ├── xml_2226_blastn_002.xml
+│   │   ├── xml_2226_blastn_003.xml
+│   │   ├── xml_2226_blastn_004.xml
+│   │   ├── xml_2226_blastn_005.xml
+│   │   ├── xml_2226_blastn_006.xml
+│   │   ├── xml_2226_blastp_001.xml
+│   │   ├── xml_2226_blastp_002.xml
+│   │   ├── xml_2226_blastp_003.xml
+│   │   ├── xml_2226_blastp_004.xml
+│   │   ├── xml_2226_blastp_005.xml
+│   │   ├── xml_2226_blastx_001.xml
+│   │   ├── xml_2226_blastx_002.xml
+│   │   ├── xml_2226_blastx_003.xml
+│   │   ├── xml_2226_blastx_004.xml
+│   │   ├── xml_2226_tblastn_001.xml
+│   │   ├── xml_2226_tblastn_002.xml
+│   │   ├── xml_2226_tblastn_003.xml
+│   │   ├── xml_2226_tblastn_004.xml
+│   │   ├── xml_2226_tblastn_005.xml
+│   │   ├── xml_2226_tblastx_001.xml
+│   │   ├── xml_2226_tblastx_002.xml
+│   │   ├── xml_2226_tblastx_003.xml
+│   │   ├── xml_2226_tblastx_004.xml
+│   │   ├── xml_2900_blastn_001.xml
+│   │   ├── xml_2900_blastn_001_v2.xml
+│   │   ├── xml_2900_blastp_001.xml
+│   │   ├── xml_2900_blastp_001_v2.xml
+│   │   ├── xml_2900_blastx_001.xml
+│   │   ├── xml_2900_blastx_001_v2.xml
+│   │   ├── xml_2900_rpsblast_001.xml
+│   │   ├── xml_2900_rpsblast_001_v2.xml
+│   │   ├── xml_2900_tblastn_001.xml
+│   │   ├── xml_2900_tblastn_001_v2.xml
+│   │   ├── xml_2900_tblastx_001.xml
+│   │   └── xml_2900_tblastx_001_v2.xml
+│   │       └── ... (91 more files)
+│   ├── Blat/
+│   │   ├── balAcu1.fa
+│   │   ├── bed12.as
+│   │   ├── bed12.bb
+│   │   ├── bed12.bed
+│   │   ├── bed3.as
+│   │   ├── bed3.bb
+│   │   ├── bed3.bed
+│   │   ├── bed4.as
+│   │   ├── bed4.bb
+│   │   ├── bed4.bed
+│   │   ├── bed5.as
+│   │   ├── bed5.bb
+│   │   ├── bed5.bed
+│   │   ├── bed6.as
+│   │   ├── bed6.bb
+│   │   ├── bed6.bed
+│   │   ├── bed7.as
+│   │   ├── bed7.bb
+│   │   ├── bed7.bed
+│   │   ├── bed8.as
+│   │   ├── bed8.bb
+│   │   ├── bed8.bed
+│   │   ├── bed9.as
+│   │   ├── bed9.bb
+│   │   ├── bed9.bed
+│   │   ├── bedExample2.as
+│   │   ├── bigbed_extended.bigendian.bb
+│   │   ├── bigbed_extended.littleendian.bb
+│   │   ├── bigbedtest.bb
+│   │   ├── bigbedtest.bed
+│   │   ├── bigbedtest.psl.bb
+│   │   ├── bigPsl.as
+│   │   ├── bigPsl.bb
+│   │   ├── bigPsl.cds
+│   │   ├── CAG33136.1.fasta
+│   │   ├── calJac3ToCalJac4.chain
+│   │   ├── dna.fa
+│   │   ├── dna_rna.bb
+│   │   ├── dna_rna.bed
+│   │   ├── dna_rna.chain
+│   │   ├── dna_rna.psl
+│   │   ├── dna_rna.psl.bb
+│   │   ├── dna_rna.sam
+│   │   ├── est.fa
+│   │   ├── est.panTro5.psl
+│   │   ├── fasta_34.fa
+│   │   ├── hg19ToHg38.chain
+│   │   ├── hg38.fa
+│   │   ├── mirna.pslx
+│   │   ├── mm10ToMm39.chain
+│   │   ├── panTro5.fa
+│   │   ├── panTro5.maf
+│   │   ├── panTro5ToPanTro6.chain
+│   │   ├── panTro5ToPanTro6.over.chain
+│   │   ├── panTro6.fa
+│   │   ├── psl_34_001.bb
+│   │   ├── psl_34_001.bed
+│   │   ├── psl_34_001.chain
+│   │   ├── psl_34_001.psl
+│   │   ├── psl_34_001.psl.bb
+│   │   ├── psl_34_001.sam
+│   │   ├── psl_34_002.chain
+│   │   ├── psl_34_002.psl
+│   │   ├── psl_34_003.bb
+│   │   ├── psl_34_003.bed
+│   │   ├── psl_34_003.chain
+│   │   ├── psl_34_003.psl
+│   │   ├── psl_34_003.psl.bb
+│   │   ├── psl_34_003.sam
+│   │   ├── psl_34_004.bb
+│   │   ├── psl_34_004.bed
+│   │   ├── psl_34_004.chain
+│   │   ├── psl_34_004.psl
+│   │   ├── psl_34_004.psl.bb
+│   │   ├── psl_34_004.sam
+│   │   ├── psl_34_005.bb
+│   │   ├── psl_34_005.bed
+│   │   ├── psl_34_005.chain
+│   │   ├── psl_34_005.psl
+│   │   ├── psl_34_005.psl.bb
+│   │   ├── psl_34_005.sam
+│   │   ├── psl_35_001.bb
+│   │   ├── psl_35_001.bed
+│   │   ├── psl_35_001.psl
+│   │   ├── psl_35_001.psl.bb
+│   │   ├── psl_35_002.bed
+│   │   ├── psl_35_002.psl
+│   │   ├── psl_35_002.psl.bb
+│   │   ├── pslx_34_001.pslx
+│   │   ├── pslx_34_002.pslx
+│   │   ├── pslx_34_003.pslx
+│   │   ├── pslx_34_004.pslx
+│   │   ├── pslx_34_005.pslx
+│   │   ├── pslx_35_001.pslx
+│   │   ├── pslx_35_002.pslx
+│   │   ├── README.txt
+│   │   ├── rheMac8ToRheMac10.chain
+│   │   ├── rn6ToRn7.chain
+│   │   └── rna.fa
+│   │       └── ... (94 more files)
+│   ├── BWA/
+│   │   ├── HNSCC1_1_truncated.fastq
+│   │   ├── HNSCC1_2_truncated.fastq
+│   │   └── human_g1k_v37_truncated.fasta
+│   ├── CDAO/
+│   │   └── test.cdao
+│   ├── Cellosaurus/
+│   │   ├── cell_lines_1.txt
+│   │   ├── cell_lines_2.txt
+│   │   └── cell_lines_3.txt
+│   ├── Clustalw/
+│   │   ├── clustalw.a2m
+│   │   ├── clustalw.aln
+│   │   ├── clustalw.fa
+│   │   ├── hedgehog.aln
+│   │   ├── kalign.a2m
+│   │   ├── kalign.aln
+│   │   ├── kalign.fa
+│   │   ├── msaprobs.a2m
+│   │   ├── msaprobs.aln
+│   │   ├── msaprobs.fa
+│   │   ├── muscle.a2m
+│   │   ├── muscle.aln
+│   │   ├── muscle.fa
+│   │   ├── odd_consensus.aln
+│   │   ├── opuntia.aln
+│   │   ├── probcons.a2m
+│   │   ├── probcons.aln
+│   │   ├── probcons.fa
+│   │   ├── promals3d.aln
+│   │   └── protein.aln
+│   │       └── ... (15 more files)
+│   ├── Cluster/
+│   │   ├── cyano.txt
+│   │   └── README
+│   ├── codonalign/
+│   │   ├── adh.aln
+│   │   ├── drosophila.fasta
+│   │   ├── egfr_id
+│   │   ├── egfr_nucl.fa
+│   │   ├── egfr_pro.aln
+│   │   ├── nucl1.fa
+│   │   ├── nucl2.fa
+│   │   ├── nucl3.fa
+│   │   ├── nucl4.fa
+│   │   ├── nucl5.fa
+│   │   ├── pro1.aln
+│   │   ├── pro2.aln
+│   │   ├── pro3.aln
+│   │   ├── pro4.aln
+│   │   └── pro5.aln
+│   │       └── ... (10 more files)
+│   ├── CodonUsage/
+│   │   └── HighlyExpressedGenes.txt
+│   ├── Compass/
+│   │   ├── comtest1
+│   │   └── comtest2
+│   ├── EMBL/
+│   │   ├── 101ma_no_coords.embl
+│   │   ├── A04195.imgt
+│   │   ├── AAA03323.embl
+│   │   ├── AE017046.embl
+│   │   ├── DD231055_edited.embl
+│   │   ├── DD231055_edited2.embl
+│   │   ├── DS830848.embl
+│   │   ├── embl_with_0_line.embl
+│   │   ├── epo_prt_selection.embl
+│   │   ├── hla_3260_sample.imgt
+│   │   ├── Human_contigs.embl
+│   │   ├── kipo_prt_sample.embl
+│   │   ├── location_wrap.embl
+│   │   ├── patents.embl
+│   │   ├── RepBase23.02.embl
+│   │   ├── SC10H5.embl
+│   │   ├── TRBG361.embl
+│   │   ├── U87107.embl
+│   │   └── xx_after_co.embl
+│   │       └── ... (14 more files)
+│   ├── Emboss/
+│   │   ├── alignret.txt
+│   │   ├── bac_find.primer3
+│   │   ├── bac_find.psearch
+│   │   ├── cds_forward.primer3
+│   │   ├── cds_reverse.primer3
+│   │   ├── emboss_pair_aln_full_blank_line.txt
+│   │   ├── internal_oligo.primer3
+│   │   ├── matcher_pair.txt
+│   │   ├── matcher_simple.txt
+│   │   ├── needle.txt
+│   │   ├── needle_asis.txt
+│   │   ├── needle_nobrief_multiple.pair
+│   │   ├── needle_overhang.txt
+│   │   ├── NirK.primer3
+│   │   ├── NirK_full.primer3
+│   │   ├── no_oligo.primer3
+│   │   ├── short.primer3
+│   │   ├── water.txt
+│   │   ├── water2.txt
+│   │   ├── water_reverse1.txt
+│   │   ├── water_reverse2.txt
+│   │   ├── water_reverse3.txt
+│   │   └── water_reverse4.txt
+│   │       └── ... (18 more files)
+│   ├── Entrez/
+│   │   ├── biosample.xml
+│   │   ├── efetch_pmc.xml
+│   │   ├── efetch_schemas.xml
+│   │   ├── egquery1.xml
+│   │   ├── egquery2.xml
+│   │   ├── einfo1.xml
+│   │   ├── einfo2.xml
+│   │   ├── einfo3.xml
+│   │   ├── einfo4.xml
+│   │   ├── elink1.xml
+│   │   ├── elink2.xml
+│   │   ├── elink3.xml
+│   │   ├── elink4.xml
+│   │   ├── elink5.xml
+│   │   ├── elink6.xml
+│   │   ├── elink7.xml
+│   │   ├── elink8.xml
+│   │   ├── epost1.xml
+│   │   ├── epost2.xml
+│   │   ├── epost3.xml
+│   │   ├── esearch1.xml
+│   │   ├── esearch2.xml
+│   │   ├── esearch3.xml
+│   │   ├── esearch4.xml
+│   │   ├── esearch5.xml
+│   │   ├── esearch6.xml
+│   │   ├── esearch7.xml
+│   │   ├── esearch8.xml
+│   │   ├── espell.xml
+│   │   ├── esummary1.xml
+│   │   ├── esummary2.xml
+│   │   ├── esummary3.xml
+│   │   ├── esummary4.xml
+│   │   ├── esummary5.xml
+│   │   ├── esummary6.xml
+│   │   ├── esummary7.xml
+│   │   ├── esummary8.xml
+│   │   ├── esummary9.xml
+│   │   ├── journals.xml
+│   │   ├── ncbi_mim.xml
+│   │   ├── nucleotide1.xml
+│   │   ├── nucleotide2.xml
+│   │   ├── protein.xml
+│   │   ├── pubmed1.xml
+│   │   ├── pubmed2.xml
+│   │   ├── pubmed3.html
+│   │   ├── pubmed4.xml
+│   │   ├── pubmed5.xml
+│   │   ├── pubmed6.xml
+│   │   ├── pubmed7.xml
+│   │   └── taxonomy.xml
+│   │       └── ... (46 more files)
+│   ├── Enzymes/
+│   │   ├── lactate.txt
+│   │   ├── lipoprotein.txt
+│   │   ├── proline.txt
+│   │   └── valine.txt
+│   ├── Exonerate/
+│   │   ├── exn_22_m_affine_local.exn
+│   │   ├── exn_22_m_affine_local_cigar.exn
+│   │   ├── exn_22_m_affine_local_vulgar.exn
+│   │   ├── exn_22_m_cdna2genome.exn
+│   │   ├── exn_22_m_cdna2genome_cigar.exn
+│   │   ├── exn_22_m_cdna2genome_vulgar.exn
+│   │   ├── exn_22_m_cigar_fshifts.exn
+│   │   ├── exn_22_m_coding2coding.exn
+│   │   ├── exn_22_m_coding2coding_cigar.exn
+│   │   ├── exn_22_m_coding2coding_fshifts.exn
+│   │   ├── exn_22_m_coding2coding_vulgar.exn
+│   │   ├── exn_22_m_coding2genome.exn
+│   │   ├── exn_22_m_coding2genome_cigar.exn
+│   │   ├── exn_22_m_coding2genome_vulgar.exn
+│   │   ├── exn_22_m_dna2protein.exn
+│   │   ├── exn_22_m_dna2protein_cigar.exn
+│   │   ├── exn_22_m_dna2protein_vulgar.exn
+│   │   ├── exn_22_m_est2genome.exn
+│   │   ├── exn_22_m_est2genome_cigar.exn
+│   │   ├── exn_22_m_est2genome_vulgar.exn
+│   │   ├── exn_22_m_genome2genome.exn
+│   │   ├── exn_22_m_ner.exn
+│   │   ├── exn_22_m_ner_cigar.exn
+│   │   ├── exn_22_m_ner_vulgar.exn
+│   │   ├── exn_22_m_protein2dna.exn
+│   │   ├── exn_22_m_protein2dna_cigar.exn
+│   │   ├── exn_22_m_protein2dna_fshifts.exn
+│   │   ├── exn_22_m_protein2dna_vulgar.exn
+│   │   ├── exn_22_m_protein2genome.exn
+│   │   ├── exn_22_m_protein2genome_cigar.exn
+│   │   ├── exn_22_m_protein2genome_vulgar.exn
+│   │   ├── exn_22_m_ungapped.exn
+│   │   ├── exn_22_m_ungapped_cigar.exn
+│   │   ├── exn_22_m_ungapped_trans.exn
+│   │   ├── exn_22_m_ungapped_trans_cigar.exn
+│   │   ├── exn_22_m_ungapped_trans_vulgar.exn
+│   │   ├── exn_22_m_ungapped_vulgar.exn
+│   │   ├── exn_22_o_cigar_fshifts2.exn
+│   │   ├── exn_22_o_vulgar.exn
+│   │   ├── exn_22_o_vulgar_cigar.exn
+│   │   ├── exn_22_o_vulgar_fshifts.exn
+│   │   ├── exn_22_o_vulgar_fshifts2.exn
+│   │   ├── exn_22_q_multiple.exn
+│   │   ├── exn_22_q_multiple_cigar.exn
+│   │   ├── exn_22_q_multiple_vulgar.exn
+│   │   ├── exn_22_q_none.exn
+│   │   ├── exn_24_m_protein2genome_met_intron.exn
+│   │   ├── exn_24_m_protein2genome_met_intron_cigar.exn
+│   │   ├── exn_24_m_protein2genome_met_intron_vulgar.exn
+│   │   ├── exn_24_m_protein2genome_revcomp_fshifts.exn
+│   │   ├── exn_24_m_protein2genome_revcomp_fshifts_cigar.exn
+│   │   ├── exn_24_m_protein2genome_revcomp_fshifts_vulgar.exn
+│   │   └── README.txt
+│   │       └── ... (48 more files)
+│   ├── ExtendedPhylip/
+│   │   └── primates.phyx
+│   ├── Fasta/
+│   │   ├── aster.pro
+│   │   ├── aster_blast.pro
+│   │   ├── aster_no_wrap.pro
+│   │   ├── aster_pearson.pro
+│   │   ├── centaurea.nu
+│   │   ├── dups.fasta
+│   │   ├── elderberry.nu
+│   │   ├── f001
+│   │   ├── f002
+│   │   ├── f003.fa
+│   │   ├── fa01
+│   │   ├── flowers.pro.gz
+│   │   ├── lavender.nu
+│   │   ├── loveliesbleeding.pro
+│   │   ├── lupine.nu
+│   │   ├── nucleotide_lib.fa
+│   │   ├── nucleotide_m8CB.txt
+│   │   ├── nucleotide_m8CC.txt
+│   │   ├── output001.m10
+│   │   ├── output002.m10
+│   │   ├── output003.m10
+│   │   ├── output004.m10
+│   │   ├── output005.m10
+│   │   ├── output006.m10
+│   │   ├── output007.m10
+│   │   ├── output008.m10
+│   │   ├── output009.m10
+│   │   ├── output010.m10
+│   │   ├── output011.m10
+│   │   ├── output012.m10
+│   │   ├── output013.m10
+│   │   ├── output014.m10
+│   │   ├── output015.m10
+│   │   ├── output016.m10
+│   │   ├── phlox.nu
+│   │   ├── protein_lib.fa
+│   │   ├── protein_m8CB.txt
+│   │   ├── protein_m8CC.txt
+│   │   ├── README
+│   │   ├── rose.pro
+│   │   ├── rosemary.pro
+│   │   ├── sweetpea.nu
+│   │   └── wisteria.nu
+│   │       └── ... (38 more files)
+│   ├── FSSP/
+│   │   └── 1cnv.fssp
+│   ├── Gck/
+│   │   └── artificial.gck
+│   ├── GenBank/
+│   │   ├── 1MRR_A.gp
+│   │   ├── addgene-plasmid-11664-sequence-180430.gbk
+│   │   ├── addgene-plasmid-39296-sequence-49545.gbk
+│   │   ├── arab1.gb
+│   │   ├── bad_loc_wrap.gb
+│   │   ├── bad_origin_wrap.gb
+│   │   ├── bad_origin_wrap_CDS.gb
+│   │   ├── bad_origin_wrap_fuzzy.gb
+│   │   ├── bad_origin_wrap_linear.gb
+│   │   ├── blank_seq.gb
+│   │   ├── cor6_6.gb
+│   │   ├── cor6_6.gb.bgz
+│   │   ├── dbsource_wrap.gb
+│   │   ├── DS830848.gb
+│   │   ├── empty_accession.gbk
+│   │   ├── empty_feature_qualifier.gb
+│   │   ├── empty_version.gbk
+│   │   ├── EU851978.gbk
+│   │   ├── EU851978_output.gbk
+│   │   ├── extra_keywords.gb
+│   │   ├── EZ116220.gb
+│   │   ├── gbvrl1_start.seq
+│   │   ├── GU949562.1.gb
+│   │   ├── HM138502.gbk
+│   │   ├── HM138502_output.gbk
+│   │   ├── invalid_locus_line_spacing.gb
+│   │   ├── invalid_misc_feature.gb
+│   │   ├── invalid_product.gb
+│   │   ├── invalid_structured_comment.gb
+│   │   ├── iro.gb
+│   │   ├── KF527485.gbk
+│   │   ├── KF527485_output.gbk
+│   │   ├── NC_000932.faa
+│   │   ├── NC_000932.gb
+│   │   ├── NC_000932.gb.bgz
+│   │   ├── NC_005816.faa
+│   │   ├── NC_005816.ffn
+│   │   ├── NC_005816.fna
+│   │   ├── NC_005816.gb
+│   │   ├── NC_005816.tsv
+│   │   ├── negative_location.gb
+│   │   ├── no_end_marker.gb
+│   │   ├── no_origin_no_end.gb
+│   │   ├── noref.gb
+│   │   ├── noref_date_warning.gb
+│   │   ├── NP_416719.gbwithparts
+│   │   ├── NT_019265.gb
+│   │   ├── one_of.gb
+│   │   ├── origin_line.gb
+│   │   ├── pBAD30.gb
+│   │   ├── pri1.gb
+│   │   ├── protein_refseq.gb
+│   │   ├── protein_refseq2.gb
+│   │   ├── qualifier_escaping_read.gb
+│   │   ├── qualifier_escaping_write.gb
+│   │   ├── tls_KDHP01000000.gb
+│   │   ├── tsa_acropora.gb
+│   │   └── wrong_sequence_indent.gb
+│   │       └── ... (53 more files)
+│   ├── Geo/
+│   │   ├── GSE16.txt
+│   │   ├── GSM645.txt
+│   │   ├── GSM691.txt
+│   │   ├── GSM700.txt
+│   │   ├── GSM804.txt
+│   │   ├── soft_ex_affy.txt
+│   │   ├── soft_ex_affy_chp.txt
+│   │   ├── soft_ex_dual.txt
+│   │   ├── soft_ex_family.txt
+│   │   ├── soft_ex_platform.txt
+│   │   └── soft_ex_series.txt
+│   │       └── ... (6 more files)
+│   ├── GFA/
+│   │   ├── corrupt_checksum.gfa
+│   │   ├── corrupt_len.gfa
+│   │   ├── corrupt_segment_fields.gfa
+│   │   ├── corrupt_tag_name.gfa
+│   │   ├── corrupt_tag_type.gfa
+│   │   ├── fake_gfa2.gfa
+│   │   ├── fake_with_checksum.gfa
+│   │   ├── no_seq.gfa
+│   │   ├── seq.gfa
+│   │   └── seq_with_len.gfa
+│   │       └── ... (5 more files)
+│   ├── GFF/
+│   │   ├── multi.fna
+│   │   ├── NC_001422.gbk
+│   │   ├── NC_001802.fna
+│   │   ├── NC_001802lc.fna
+│   │   └── NC_001802x.fna
+│   ├── Graphics/
+│   │   └── README
+│   ├── HHsuite/
+│   │   ├── 2uvo_hhblits.hhr
+│   │   ├── 2uvo_hhblits_emptytable.hhr
+│   │   ├── 2uvo_hhblits_onlyheader.hhr
+│   │   ├── 2uvo_hhsearch.hhr
+│   │   ├── 4p79_hhsearch_server_NOssm.hhr
+│   │   ├── 4y9h_hhsearch_server_NOssm.hhr
+│   │   ├── 7rbx_A_hhsearch_trunc.hhr
+│   │   ├── allx.hhr
+│   │   ├── hhpred_9590198.hhr
+│   │   ├── hhsearch_q9bsu1_uniclust_w_ss_pfamA_30.hhr
+│   │   └── README.txt
+│   │       └── ... (6 more files)
+│   ├── Hmmer/
+│   │   ├── domtab_30_hmmscan_001.out
+│   │   ├── domtab_30_hmmscan_002.out
+│   │   ├── domtab_30_hmmscan_003.out
+│   │   ├── domtab_30_hmmscan_004.out
+│   │   ├── domtab_30_hmmsearch_001.out
+│   │   ├── domtab_31b1_hmmscan_001.out
+│   │   ├── domtab_31b1_hmmsearch_001.out
+│   │   ├── README.txt
+│   │   ├── tab_30_hmmscan_001.out
+│   │   ├── tab_30_hmmscan_002.out
+│   │   ├── tab_30_hmmscan_003.out
+│   │   ├── tab_30_hmmscan_004.out
+│   │   ├── tab_31b1_hmmscan_001.out
+│   │   ├── tab_31b1_hmmsearch_001.out
+│   │   ├── text_20_hmmsearch_001.out
+│   │   ├── text_21_hmmpfam_001.out
+│   │   ├── text_22_hmmpfam_001.out
+│   │   ├── text_22_hmmsearch_001.out
+│   │   ├── text_23_hmmpfam_001.out
+│   │   ├── text_23_hmmpfam_002.out
+│   │   ├── text_23_hmmpfam_003.out
+│   │   ├── text_23_hmmpfam_004.out
+│   │   ├── text_24_hmmpfam_001.out
+│   │   ├── text_30_hmmscan_001.out
+│   │   ├── text_30_hmmscan_002.out
+│   │   ├── text_30_hmmscan_003.out
+│   │   ├── text_30_hmmscan_004.out
+│   │   ├── text_30_hmmscan_005.out
+│   │   ├── text_30_hmmscan_006.out
+│   │   ├── text_30_hmmscan_007.out
+│   │   ├── text_30_hmmscan_008.out
+│   │   ├── text_30_hmmscan_009.out
+│   │   ├── text_30_hmmscan_010.out
+│   │   ├── text_30_hmmscan_011.out
+│   │   ├── text_30_hmmsearch_001.out
+│   │   ├── text_30_hmmsearch_002.out
+│   │   ├── text_30_hmmsearch_003.out
+│   │   ├── text_30_hmmsearch_004.out
+│   │   ├── text_30_hmmsearch_005.out
+│   │   ├── text_31b1_hmmscan_001.out
+│   │   ├── text_31b1_hmmsearch_001.out
+│   │   ├── text_31b2_hmmscan_001.out
+│   │   ├── text_31b2_hmmsearch_001.out
+│   │   ├── text_31b2_hmmsearch_002.out
+│   │   └── text_31b2_phmmer_001.out
+│   │       └── ... (40 more files)
+│   ├── Infernal/
+│   │   ├── cmscan_115_IRES_5S_U2_Yeast.tbl
+│   │   ├── cmscan_115_IRES_5S_U2_Yeast.txt
+│   │   ├── cmscan_115_IRES_5S_U2_Yeast_fmt_2.tbl
+│   │   ├── cmscan_115_IRES_5S_U2_Yeast_fmt_3.tbl
+│   │   ├── cmscan_115_SSU_clan-fmt_2.tbl
+│   │   ├── cmsearch_114_5S_Yeast.tbl
+│   │   ├── cmsearch_114_5S_Yeast.txt
+│   │   ├── cmsearch_114_5S_Yeast_noali.txt
+│   │   ├── cmsearch_114_IRES_5S_U2_Yeast.txt
+│   │   ├── cmsearch_114_IRES_Yeast.tbl
+│   │   ├── cmsearch_114_IRES_Yeast.txt
+│   │   ├── cmsearch_114_U2_Yeast.tbl
+│   │   ├── cmsearch_114_U2_Yeast.txt
+│   │   ├── cmsearch_114_U2_Yeast_full.txt
+│   │   ├── cmsearch_114_U2_Yeast_full_noali.txt
+│   │   ├── cmsearch_114_U2_Yeast_full_shuffled.tbl
+│   │   ├── cmsearch_114_U2_Yeast_full_shuffled.txt
+│   │   ├── cmsearch_114_U2_Yeast_hmmonly.txt
+│   │   ├── cmsearch_114_U2_Yeast_noali.txt
+│   │   └── cmsearch_114_U2_Yeast_notextw.txt
+│   │       └── ... (15 more files)
+│   ├── IntelliGenetics/
+│   │   ├── TAT_mase_nuc.txt
+│   │   ├── VIF_mase-pro.txt
+│   │   └── vpu_nucaligned.txt
+│   ├── InterProScan/
+│   │   └── test_001.xml
+│   ├── KEGG/
+│   │   ├── compound.irregular
+│   │   ├── compound.sample
+│   │   ├── enzyme.4letter
+│   │   ├── enzyme.irregular
+│   │   ├── enzyme.new
+│   │   ├── enzyme.sample
+│   │   ├── gene.sample
+│   │   ├── ko00010.xml
+│   │   ├── ko00253.xml
+│   │   ├── ko01100.xml
+│   │   ├── ko03070.xml
+│   │   ├── map00950.rea
+│   │   ├── map01100.png
+│   │   └── map03070.png
+│   │       └── ... (9 more files)
+│   ├── MAF/
+│   │   ├── bigMaf.as
+│   │   ├── bug2453.maf
+│   │   ├── bundle_without_target.bb
+│   │   ├── bundle_without_target.maf
+│   │   ├── cnksr3.fa
+│   │   ├── corrupt.idx
+│   │   ├── humor.maf
+│   │   ├── invalid.idx
+│   │   ├── length_coords_mismatch.maf
+│   │   ├── ucsc_mm9_chr10.bb
+│   │   ├── ucsc_mm9_chr10.maf
+│   │   ├── ucsc_mm9_chr10.mafindex
+│   │   ├── ucsc_mm9_chr10_bad.maf
+│   │   ├── ucsc_mm9_chr10_bad.mafindex
+│   │   ├── ucsc_mm9_chr10_big.maf
+│   │   ├── ucsc_mm9_chr10_big.mafindex
+│   │   ├── ucsc_test.bb
+│   │   ├── ucsc_test.maf
+│   │   ├── unfinished.idx
+│   │   └── wrong_version.idx
+│   │       └── ... (15 more files)
+│   ├── Mauve/
+│   │   ├── canFam2.fa
+│   │   ├── combined.fa
+│   │   ├── combined.xmfa
+│   │   ├── combined.xmfa.backbone
+│   │   ├── combined.xmfa.bbcols
+│   │   ├── equCab1.fa
+│   │   ├── mm9.fa
+│   │   ├── separate.xmfa
+│   │   ├── separate.xmfa.backbone
+│   │   ├── separate.xmfa.bbcols
+│   │   ├── simple.fa
+│   │   ├── simple.xmfa
+│   │   ├── simple.xmfa.backbone
+│   │   ├── simple.xmfa.bbcols
+│   │   └── simple_short.xmfa
+│   │       └── ... (10 more files)
+│   ├── Medline/
+│   │   ├── pubmed_result1.txt
+│   │   ├── pubmed_result2.txt
+│   │   └── pubmed_result3.txt
+│   ├── MetaTool/
+│   │   ├── meta.out
+│   │   ├── meta2.out
+│   │   ├── Meta3.out
+│   │   ├── Meta4.out
+│   │   ├── Meta6.out
+│   │   ├── Meta7.out
+│   │   ├── Meta8.out
+│   │   └── meta9.out
+│   │       └── ... (3 more files)
+│   ├── motifs/
+│   │   ├── abdb.xms
+│   │   ├── alignace.out
+│   │   ├── Arnt.sites
+│   │   ├── clusterbuster.pfm
+│   │   ├── clusterbuster.pfm.out
+│   │   ├── fourcolumns.pfm
+│   │   ├── fourrows.pfm
+│   │   ├── MA0056.1.transfac
+│   │   ├── mast.adh.de.oops.html.txt
+│   │   ├── mast.adh.de.oops.html.xml
+│   │   ├── mast.crp0.de.oops.txt.txt
+│   │   ├── mast.crp0.de.oops.txt.xml
+│   │   ├── mast.Klf1-200.cd.oops.xml.txt
+│   │   ├── mast.Klf1-200.cd.oops.xml.xml
+│   │   ├── meme.adh.classic.oops.xml
+│   │   ├── meme.farntrans5.classic.anr.xml
+│   │   ├── meme.INO_up800.classic.oops.xml
+│   │   ├── meme.out
+│   │   ├── meme.psp_test.classic.zoops.xml
+│   │   ├── minimal_test.meme
+│   │   ├── minimal_test_rna.meme
+│   │   ├── REB1.pfm
+│   │   ├── SRF.pfm
+│   │   └── transfac.dat
+│   │       └── ... (19 more files)
+│   ├── msf/
+│   │   ├── DOA_prot.msf
+│   │   └── W_prot.msf
+│   ├── NBRF/
+│   │   ├── B_nuc.pir
+│   │   ├── clustalw.pir
+│   │   ├── Cw_prot.pir
+│   │   ├── DMA_nuc.pir
+│   │   └── DMB_prot.pir
+│   ├── NeuralNetwork/
+│   │   ├── enolase.fasta
+│   │   └── repeat.fasta
+│   ├── NeXML/
+│   │   ├── characters.xml
+│   │   ├── edgelabels.xml
+│   │   ├── meta_taxa.xml
+│   │   ├── meta_types.xml
+│   │   ├── nexml.xml
+│   │   ├── phenoscape.xml
+│   │   ├── sets.xml
+│   │   ├── taxa.xml
+│   │   ├── timetree.xml
+│   │   ├── tolweb.xml
+│   │   ├── treebase-record.xml
+│   │   ├── trees-uris.xml
+│   │   └── trees.xml
+│   │       └── ... (8 more files)
+│   ├── Nexus/
+│   │   ├── bats.nex
+│   │   ├── ByteOrderMarkFile.nwk
+│   │   ├── codonposset.nex
+│   │   ├── int_node_labels.nwk
+│   │   ├── test.new
+│   │   ├── test_Nexus_input.nex
+│   │   ├── vSysLab_Ganaspidium_multistate.nex
+│   │   ├── vSysLab_Heptascelio_no-states_10+chars.nex
+│   │   └── vSysLab_Oreiscelio_discrete+continuous.nex
+│   │       └── ... (4 more files)
+│   ├── Nib/
+│   │   ├── test_even.fa
+│   │   ├── test_even_bigendian.nib
+│   │   ├── test_even_littleendian.nib
+│   │   ├── test_odd.fa
+│   │   ├── test_odd_bigendian.nib
+│   │   └── test_odd_littleendian.nib
+│   │       └── ... (1 more files)
+│   ├── NMR/
+│   │   ├── noed.xpk
+│   │   └── out_example.xpk
+│   ├── PAML/
+│   │   ├── Alignments/
+│   │   │   ├── aa_alignment.phylip
+│   │   │   ├── alignment.phylip
+│   │   │   ├── dottednames.phylip
+│   │   │   ├── dottednum.fasta
+│   │   │   ├── longnames.fasta
+│   │   │   └── lysinYangSwanson2002.nuc
+│   │   │       └── ... (1 more files)
+│   │   ├── Control_files/
+│   │   │   ├── baseml/
+│   │   │   ├── codeml/
+│   │   │   ├── yn00/
+│   │   │   ├── bad1.ctl
+│   │   │   ├── bad2.ctl
+│   │   │   ├── bad3.ctl
+│   │   │   ├── baseml.ctl
+│   │   │   ├── README.txt
+│   │   │   ├── species.tree
+│   │   │   └── yn00.ctl
+│   │   │       └── ... (2 more files)
+│   │   ├── Results/
+│   │   │   ├── baseml/
+│   │   │   ├── codeml/
+│   │   │   ├── yn00/
+│   │   │   └── bad_results.out
+│   │   ├── Trees/
+│   │   │   ├── bad.tree
+│   │   │   ├── lysin.trees
+│   │   │   ├── lysin.trees.4.6
+│   │   │   └── species.tree
+│   │   └── gen_results.py
+│   ├── PDB/
+│   │   ├── 1A7G.cif
+│   │   ├── 1A8O.asa
+│   │   ├── 1A8O.cif
+│   │   ├── 1A8O.mmtf
+│   │   ├── 1A8O.rsa
+│   │   ├── 1A8O.xyzr
+│   │   ├── 1AS5.cif
+│   │   ├── 1gbt.bcif.gz
+│   │   ├── 1GBT.cif
+│   │   ├── 1GBT.xml
+│   │   ├── 1LCD.cif
+│   │   ├── 1MOM_min.cif
+│   │   ├── 1SSU_mod.cif
+│   │   ├── 2BEG.cif
+│   │   ├── 2BEG.dssp
+│   │   ├── 2BEG_noheader.dssp
+│   │   ├── 2OFG.cif
+│   │   ├── 2XHE.cif
+│   │   ├── 3jqh.bcif.gz
+│   │   ├── 3JQH.cif
+│   │   ├── 3JQH.xml
+│   │   ├── 4CUP.cif
+│   │   ├── 4CUP.mmtf
+│   │   ├── 4Q9R_min.cif
+│   │   ├── 4ZHL.cif
+│   │   ├── 4ZHL.mmtf
+│   │   ├── 6wg6.bcif.gz
+│   │   ├── 6WG6.cif
+│   │   ├── 6WG6.xml
+│   │   ├── 6WQA.cif
+│   │   ├── 7CFN.cif
+│   │   ├── 7CFN_aligned.cif
+│   │   ├── a_structure.cif
+│   │   ├── Ahmad_RASA.txt
+│   │   ├── alignment_file.fa
+│   │   ├── d256ba_.ent
+│   │   ├── dssp_xtra_Sander.txt
+│   │   ├── lib_10_z_5.txt
+│   │   ├── Miller_RASA.txt
+│   │   ├── Sander_RASA.txt
+│   │   └── Wilke_RASA.txt
+│   │       └── ... (36 more files)
+│   ├── Phd/
+│   │   ├── phd1
+│   │   ├── phd2
+│   │   ├── phd_454
+│   │   └── phd_solexa
+│   ├── phenotype/
+│   │   ├── BadPlate.json
+│   │   ├── Plate.json
+│   │   ├── Plate_2.json
+│   │   ├── Plates.csv
+│   │   ├── SmallPlate.json
+│   │   ├── SmallPlate_2.json
+│   │   └── SmallPlates.csv
+│   │       └── ... (2 more files)
+│   ├── Phylip/
+│   │   ├── five.dat
+│   │   ├── four.dat
+│   │   ├── hennigian.phy
+│   │   ├── horses.phy
+│   │   ├── horses.tree
+│   │   ├── interlaced.phy
+│   │   ├── interlaced2.phy
+│   │   ├── one.dat
+│   │   ├── random.phy
+│   │   ├── reference_dna.phy
+│   │   ├── reference_dna2.phy
+│   │   ├── sequential.phy
+│   │   ├── sequential2.phy
+│   │   ├── six.dat
+│   │   ├── three.dat
+│   │   └── two.dat
+│   │       └── ... (11 more files)
+│   ├── PhyloXML/
+│   │   ├── apaf.xml
+│   │   ├── bcl_2.xml
+│   │   ├── distribution.xml
+│   │   ├── example.xml
+│   │   ├── made_up.xml
+│   │   ├── o_tol_332_d_dollo.xml
+│   │   └── phyloxml_examples.xml
+│   │       └── ... (2 more files)
+│   ├── PopGen/
+│   │   ├── big.gen
+│   │   ├── c2line.gen
+│   │   ├── c2space.gen
+│   │   ├── c3line.gen
+│   │   ├── c3space.gen
+│   │   ├── haplo.gen
+│   │   ├── haplo2.gen
+│   │   ├── haplo3.gen
+│   │   └── README
+│   │       └── ... (4 more files)
+│   ├── PQR/
+│   │   └── 1A80.pqr
+│   ├── Prosite/
+│   │   ├── Doc/
+│   │   │   ├── pdoc00100.txt
+│   │   │   ├── pdoc00113.txt
+│   │   │   ├── pdoc00144.txt
+│   │   │   ├── pdoc00149.txt
+│   │   │   ├── pdoc00340.txt
+│   │   │   ├── pdoc00424.txt
+│   │   │   ├── pdoc00472.txt
+│   │   │   ├── pdoc00640.txt
+│   │   │   ├── pdoc00787.txt
+│   │   │   ├── pdoc00933.txt
+│   │   │   └── prosite.excerpt.doc
+│   │   │       └── ... (6 more files)
+│   │   ├── ps00107.txt
+│   │   ├── ps00159.txt
+│   │   ├── ps00165.txt
+│   │   ├── ps00432.txt
+│   │   ├── ps00488.txt
+│   │   └── ps00546.txt
+│   │       └── ... (1 more files)
+│   ├── Quality/
+│   │   ├── error_diff_ids.fastq
+│   │   ├── error_double_qual.fastq
+│   │   ├── error_double_seq.fastq
+│   │   ├── error_long_qual.fastq
+│   │   ├── error_no_qual.fastq
+│   │   ├── error_qual_del.fastq
+│   │   ├── error_qual_escape.fastq
+│   │   ├── error_qual_null.fastq
+│   │   ├── error_qual_space.fastq
+│   │   ├── error_qual_tab.fastq
+│   │   ├── error_qual_unit_sep.fastq
+│   │   ├── error_qual_vtab.fastq
+│   │   ├── error_short_qual.fastq
+│   │   ├── error_spaces.fastq
+│   │   ├── error_tabs.fastq
+│   │   ├── error_trunc_at_plus.fastq
+│   │   ├── error_trunc_at_qual.fastq
+│   │   ├── error_trunc_at_seq.fastq
+│   │   ├── error_trunc_in_plus.fastq
+│   │   ├── error_trunc_in_qual.fastq
+│   │   ├── error_trunc_in_seq.fastq
+│   │   ├── error_trunc_in_title.fastq
+│   │   ├── example.fasta
+│   │   ├── example.fastq
+│   │   ├── example.fastq.bgz
+│   │   ├── example.fastq.gz
+│   │   ├── example.qual
+│   │   ├── example_dos.fastq
+│   │   ├── example_dos.fastq.bgz
+│   │   ├── illumina_faked.fastq
+│   │   ├── illumina_full_range_as_illumina.fastq
+│   │   ├── illumina_full_range_as_sanger.fastq
+│   │   ├── illumina_full_range_as_solexa.fastq
+│   │   ├── illumina_full_range_original_illumina.fastq
+│   │   ├── longreads_as_illumina.fastq
+│   │   ├── longreads_as_sanger.fastq
+│   │   ├── longreads_as_solexa.fastq
+│   │   ├── longreads_original_sanger.fastq
+│   │   ├── misc_dna_as_illumina.fastq
+│   │   ├── misc_dna_as_sanger.fastq
+│   │   ├── misc_dna_as_solexa.fastq
+│   │   ├── misc_dna_original_sanger.fastq
+│   │   ├── misc_rna_as_illumina.fastq
+│   │   ├── misc_rna_as_sanger.fastq
+│   │   ├── misc_rna_as_solexa.fastq
+│   │   ├── misc_rna_original_sanger.fastq
+│   │   ├── sanger_93.fastq
+│   │   ├── sanger_faked.fastq
+│   │   ├── sanger_full_range_as_illumina.fastq
+│   │   ├── sanger_full_range_as_sanger.fastq
+│   │   ├── sanger_full_range_as_solexa.fastq
+│   │   ├── sanger_full_range_original_sanger.fastq
+│   │   ├── solexa_example.fastq
+│   │   ├── solexa_faked.fastq
+│   │   ├── solexa_full_range_as_illumina.fastq
+│   │   ├── solexa_full_range_as_sanger.fastq
+│   │   ├── solexa_full_range_as_solexa.fastq
+│   │   ├── solexa_full_range_original_solexa.fastq
+│   │   ├── tricky.fastq
+│   │   ├── wrapping_as_illumina.fastq
+│   │   ├── wrapping_as_sanger.fastq
+│   │   ├── wrapping_as_solexa.fastq
+│   │   ├── wrapping_original_sanger.fastq
+│   │   └── zero_length.fastq
+│   │       └── ... (59 more files)
+│   ├── Rebase/
+│   │   ├── bamii.htm
+│   │   ├── bamii.txt
+│   │   ├── cac81.htm
+│   │   ├── cac81.txt
+│   │   ├── crei.htm
+│   │   ├── crei.txt
+│   │   ├── foki.htm
+│   │   ├── foki.txt
+│   │   ├── pvuii.htm
+│   │   ├── pvuii.txt
+│   │   ├── taqi.htm
+│   │   └── taqi.txt
+│   │       └── ... (7 more files)
+│   ├── Registry/
+│   │   ├── bt001
+│   │   ├── EDD_RAT.dat
+│   │   └── seqs.fasta
+│   ├── Roche/
+│   │   ├── E3MFGYR02_alt_index_at_end.sff
+│   │   ├── E3MFGYR02_alt_index_at_start.sff
+│   │   ├── E3MFGYR02_alt_index_in_middle.sff
+│   │   ├── E3MFGYR02_index_at_start.sff
+│   │   ├── E3MFGYR02_index_in_middle.sff
+│   │   ├── E3MFGYR02_no_manifest.sff
+│   │   ├── E3MFGYR02_random_10_reads.fasta
+│   │   ├── E3MFGYR02_random_10_reads.qual
+│   │   ├── E3MFGYR02_random_10_reads.sff
+│   │   ├── E3MFGYR02_random_10_reads.sff.gz
+│   │   ├── E3MFGYR02_random_10_reads_no_trim.fasta
+│   │   ├── E3MFGYR02_random_10_reads_no_trim.qual
+│   │   ├── greek.sff
+│   │   ├── invalid_greek_E3MFGYR02.sff
+│   │   ├── invalid_paired_E3MFGYR02.sff
+│   │   ├── paired.sff
+│   │   ├── README.txt
+│   │   ├── triple_sff.idx
+│   │   └── triple_sff_rel_paths.idx
+│   │       └── ... (14 more files)
+│   ├── Saf/
+│   │   └── saf1.txt
+│   ├── SamBam/
+│   │   ├── bam1.bam
+│   │   ├── bam1_sorted.bam
+│   │   ├── bam2.bam
+│   │   ├── bam2_sorted.bam
+│   │   ├── ex1.bam
+│   │   ├── ex1.fa
+│   │   ├── ex1.sam
+│   │   ├── ex1_header.bam
+│   │   ├── ex1_header.sam
+│   │   ├── ex1_refresh.bam
+│   │   ├── readme.txt
+│   │   ├── sam1.sam
+│   │   └── sam2.sam
+│   │       └── ... (8 more files)
+│   ├── SCOP/
+│   │   ├── scopseq-test/
+│   │   │   ├── astral-scopdom-seqres-all-test.fa
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-10-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-100-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-20-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-25-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-30-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-35-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-40-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-50-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-70-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-90-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-bib-95-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e+0,7-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e+0-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e+1-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-0,3-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-1,3-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-1-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-10-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-15-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-2,3-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-2-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-20-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-25-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-3-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-4-test.id
+│   │   │   ├── astral-scopdom-seqres-sel-gs-e100m-e-5-test.id
+│   │   │   └── astral-scopdom-seqres-sel-gs-e100m-e-50-test.id
+│   │   │       └── ... (23 more files)
+│   │   ├── dir.cla.scop.txt_test
+│   │   ├── dir.des.scop.txt_test
+│   │   ├── dir.hie.scop.txt_test
+│   │   ├── raftest.txt
+│   │   └── testDom.txt
+│   ├── SeqXML/
+│   │   ├── corrupt_example1.xml
+│   │   ├── corrupt_example2.xml
+│   │   ├── corrupt_example3.xml
+│   │   ├── dna_example.xml
+│   │   ├── global_species_example.xml
+│   │   ├── protein_example.xml
+│   │   ├── rna_example.xml
+│   │   ├── version_01_example.xml
+│   │   ├── wrong_version1.xml
+│   │   ├── wrong_version2.xml
+│   │   └── wrong_version3.xml
+│   │       └── ... (6 more files)
+│   ├── SnapGene/
+│   │   ├── pFA-KanMX4.dna
+│   │   ├── sample-d.dna
+│   │   ├── sample-e.dna
+│   │   └── sample-f.dna
+│   ├── Stockholm/
+│   │   ├── cath1.sth
+│   │   ├── cath2.sth
+│   │   ├── cath3.sth
+│   │   ├── example.sth
+│   │   ├── example_nonstandardannotations.sth
+│   │   ├── funny.sth
+│   │   ├── globins45.ali
+│   │   ├── pfam1.seed.txt
+│   │   ├── pfam2.seed.txt
+│   │   ├── pfam3.seed.txt
+│   │   ├── pfam4.seed.txt
+│   │   ├── pfam5.seed.txt
+│   │   ├── pfam6.seed.txt
+│   │   ├── pfam7.seed.txt
+│   │   ├── pfam8.seed.txt
+│   │   ├── pfam9.seed.txt
+│   │   ├── rfam1.seed.txt
+│   │   ├── rfam2.seed.txt
+│   │   ├── rfam3.seed.txt
+│   │   ├── rfam4.seed.txt
+│   │   ├── rfam5.seed.txt
+│   │   └── simple.sth
+│   │       └── ... (17 more files)
+│   ├── SubsMat/
+│   │   ├── aaDistrib.txt
+│   │   ├── acc_rep_mat.pik
+│   │   ├── protein_count.txt
+│   │   ├── protein_freq.txt
+│   │   ├── redAADistrib.txt
+│   │   └── redAltAADistrib.txt
+│   │       └── ... (1 more files)
+│   ├── SwissProt/
+│   │   ├── F2CXE6.txt
+│   │   ├── F2CXE6.xml
+│   │   ├── H2CNN8.txt
+│   │   ├── H2CNN8.xml
+│   │   ├── keywlist.txt
+│   │   ├── keywlist2.txt
+│   │   ├── multi_ex.fasta
+│   │   ├── multi_ex.gff
+│   │   ├── multi_ex.list
+│   │   ├── multi_ex.rdf
+│   │   ├── multi_ex.txt
+│   │   ├── multi_ex.xml
+│   │   ├── multiligand.xml
+│   │   ├── O23729.txt
+│   │   ├── O95832.txt
+│   │   ├── P04439.txt
+│   │   ├── P0A186.txt
+│   │   ├── P0CK95.txt
+│   │   ├── P16235.txt
+│   │   ├── P39896.txt
+│   │   ├── P60137.txt
+│   │   ├── P60904.txt
+│   │   ├── P62258.txt
+│   │   ├── P62330.xml
+│   │   ├── P68308.txt
+│   │   ├── P84001.xml
+│   │   ├── P97881.xml
+│   │   ├── Q13454.txt
+│   │   ├── Q13639.txt
+│   │   ├── Q13639.xml
+│   │   ├── Q7Z739.txt
+│   │   ├── R5HY77.xml
+│   │   ├── README
+│   │   ├── sp012
+│   │   ├── sp013
+│   │   ├── sp015
+│   │   ├── sp016
+│   │   ├── uni001
+│   │   ├── uni002
+│   │   ├── uni003
+│   │   └── UniRef90_P99999.xml
+│   │       └── ... (36 more files)
+│   ├── TreeConstruction/
+│   │   ├── adam_refs.tre
+│   │   ├── consensus_refs.tre
+│   │   ├── majority_ref.tre
+│   │   ├── msa.phy
+│   │   ├── neighbor_trees.tre
+│   │   ├── nj.tre
+│   │   ├── nj_min.tre
+│   │   ├── pars3.tre
+│   │   ├── strict_refs.tre
+│   │   ├── test.log
+│   │   ├── trees.tre
+│   │   └── upgma.tre
+│   │       └── ... (7 more files)
+│   ├── TwoBit/
+│   │   ├── sequence.bigendian.2bit
+│   │   ├── sequence.fa
+│   │   ├── sequence.littleendian.2bit
+│   │   └── sequence.long.2bit
+│   ├── UniGene/
+│   │   ├── Eca.1.2425.data
+│   │   ├── Hs.2.data
+│   │   └── Mdm_partial.data
+│   ├── UniProt/
+│   │   ├── gene_association.goa_yeast.1.gaf
+│   │   ├── goa_human_sample.gpi
+│   │   ├── goa_yeast.gaf
+│   │   ├── goa_yeast.gpa.59.gpa
+│   │   └── gp_information.goa_yeast.28.gpi
+│   ├── Xdna/
+│   │   ├── sample-a.xdna
+│   │   ├── sample-b.xdna
+│   │   └── sample-c.xprt
+│   ├── .coveragerc
+│   ├── biosql.ini.appveyor
+│   ├── biosql.ini.sample
+│   ├── common_BioSQL.py
+│   ├── common_BioSQL_online.py
+│   ├── pairwise2_testCases.py
+│   ├── requires_internet.py
+│   ├── run_tests.py
+│   ├── search_tests_common.py
+│   ├── seq_tests_common.py
+│   ├── test_Ace.py
+│   ├── test_Affy.py
+│   ├── test_align.py
+│   ├── test_Align_a2m.py
+│   ├── test_Align_Alignment.py
+│   ├── test_Align_bed.py
+│   ├── test_Align_bigbed.py
+│   ├── test_Align_bigmaf.py
+│   ├── test_Align_bigpsl.py
+│   ├── test_Align_chain.py
+│   ├── test_Align_clustal.py
+│   ├── test_Align_codonalign.py
+│   ├── test_Align_emboss.py
+│   ├── test_Align_exonerate.py
+│   ├── test_Align_fasta.py
+│   ├── test_Align_hhr.py
+│   ├── test_Align_maf.py
+│   ├── test_Align_mauve.py
+│   ├── test_Align_msf.py
+│   ├── test_Align_nexus.py
+│   ├── test_Align_phylip.py
+│   ├── test_Align_psl.py
+│   ├── test_Align_sam.py
+│   ├── test_Align_stockholm.py
+│   ├── test_align_substitution_matrices.py
+│   ├── test_Align_tabular.py
+│   ├── test_AlignIO.py
+│   ├── test_AlignIO_ClustalIO.py
+│   ├── test_AlignIO_convert.py
+│   ├── test_AlignIO_EmbossIO.py
+│   ├── test_AlignIO_FastaIO.py
+│   ├── test_AlignIO_MauveIO.py
+│   ├── test_AlignIO_PhylipIO.py
+│   ├── test_bgzf.py
+│   ├── test_BioSQL_mysql_connector.py
+│   ├── test_BioSQL_mysql_connector_online.py
+│   ├── test_BioSQL_MySQLdb.py
+│   ├── test_BioSQL_MySQLdb_online.py
+│   ├── test_BioSQL_psycopg2.py
+│   ├── test_BioSQL_psycopg2_online.py
+│   ├── test_BioSQL_sqlite3.py
+│   ├── test_BioSQL_sqlite3_online.py
+│   ├── test_Blast_parser.py
+│   ├── test_Blast_Record.py
+│   ├── test_CAPS.py
+│   ├── test_cellosaurus.py
+│   ├── test_Chi2.py
+│   ├── test_Cluster.py
+│   ├── test_codonalign.py
+│   ├── test_CodonTable.py
+│   ├── test_ColorSpiral.py
+│   ├── test_Compass.py
+│   ├── test_Consensus.py
+│   ├── test_EMBL_unittest.py
+│   ├── test_EmbossPrimer.py
+│   ├── test_Entrez.py
+│   ├── test_Entrez_online.py
+│   ├── test_Entrez_parser.py
+│   ├── test_Enzyme.py
+│   ├── test_ExPASy.py
+│   ├── test_File.py
+│   ├── test_GenBank.py
+│   ├── test_GenomeDiagram.py
+│   ├── test_geo.py
+│   ├── test_GraphicsBitmaps.py
+│   ├── test_GraphicsChromosome.py
+│   ├── test_GraphicsDistribution.py
+│   ├── test_GraphicsGeneral.py
+│   ├── test_HMMCasino.py
+│   ├── test_HMMGeneral.py
+│   ├── test_KEGG.py
+│   ├── test_KEGG_online.py
+│   ├── test_KeyWList.py
+│   ├── test_KGML_graphics.py
+│   ├── test_KGML_graphics_online.py
+│   ├── test_KGML_nographics.py
+│   ├── test_MafIO_index.py
+│   ├── test_Medline.py
+│   ├── test_mmtf.py
+│   ├── test_mmtf_online.py
+│   ├── test_motifs.py
+│   ├── test_motifs_online.py
+│   ├── test_NCBI_qblast.py
+│   ├── test_NCBIXML.py
+│   ├── test_Nexus.py
+│   ├── test_NMR.py
+│   ├── test_pairwise2.py
+│   ├── test_pairwise2_no_C.py
+│   ├── test_pairwise_aligner.py
+│   ├── test_pairwise_alignment_map.py
+│   ├── test_PAML_baseml.py
+│   ├── test_PAML_codeml.py
+│   ├── test_PAML_tools.py
+│   ├── test_PAML_yn00.py
+│   ├── test_Pathway.py
+│   ├── test_PDB_alphafold_db.py
+│   ├── test_PDB_binary_cif.py
+│   ├── test_PDB_CEAligner.py
+│   ├── test_PDB_Dice.py
+│   ├── test_PDB_Disordered.py
+│   ├── test_PDB_DSSP.py
+│   ├── test_PDB_Exposure.py
+│   ├── test_PDB_FragmentMapper.py
+│   ├── test_PDB_internal_coords.py
+│   ├── test_PDB_KDTree.py
+│   ├── test_PDB_MMCIF2Dict.py
+│   ├── test_PDB_MMCIFIO.py
+│   ├── test_PDB_MMCIFParser.py
+│   ├── test_PDB_NACCESS.py
+│   ├── test_PDB_parse_pdb_header.py
+│   ├── test_PDB_PDBIO.py
+│   ├── test_PDB_PDBList.py
+│   ├── test_PDB_PDBMLParser.py
+│   ├── test_PDB_PDBParser.py
+│   ├── test_PDB_Polypeptide.py
+│   ├── test_PDB_PSEA.py
+│   ├── test_PDB_QCPSuperimposer.py
+│   ├── test_PDB_ResidueDepth.py
+│   ├── test_PDB_SASA.py
+│   ├── test_PDB_Selection.py
+│   ├── test_PDB_SMCRA.py
+│   ├── test_PDB_StructureAlignment.py
+│   ├── test_PDB_Superimposer.py
+│   ├── test_PDB_vectors.py
+│   ├── test_Phd.py
+│   ├── test_phenotype.py
+│   ├── test_phenotype_fit.py
+│   ├── test_Phylo.py
+│   ├── test_Phylo_CDAO.py
+│   ├── test_Phylo_igraph.py
+│   ├── test_Phylo_matplotlib.py
+│   ├── test_Phylo_networkx.py
+│   ├── test_Phylo_NeXML.py
+│   ├── test_PhyloXML.py
+│   ├── test_PopGen_GenePop_nodepend.py
+│   ├── test_PQR.py
+│   ├── test_prodoc.py
+│   ├── test_prosite.py
+│   ├── test_ProtParam.py
+│   ├── test_RCSBFormats.py
+│   ├── test_Restriction.py
+│   ├── test_SCOP_Astral.py
+│   ├── test_SCOP_Cla.py
+│   ├── test_SCOP_Des.py
+│   ├── test_SCOP_Dom.py
+│   ├── test_SCOP_Hie.py
+│   ├── test_SCOP_Raf.py
+│   ├── test_SCOP_Residues.py
+│   ├── test_SCOP_Scop.py
+│   ├── test_SearchIO_blast_tab.py
+│   ├── test_SearchIO_blast_tab_index.py
+│   ├── test_SearchIO_blast_xml.py
+│   ├── test_SearchIO_blast_xml_index.py
+│   ├── test_SearchIO_blat_psl.py
+│   ├── test_SearchIO_blat_psl_index.py
+│   ├── test_SearchIO_exonerate.py
+│   ├── test_SearchIO_exonerate_text_index.py
+│   ├── test_SearchIO_exonerate_vulgar_index.py
+│   ├── test_SearchIO_fasta_m10.py
+│   ├── test_SearchIO_fasta_m10_index.py
+│   ├── test_SearchIO_hhsuite2_text.py
+│   ├── test_SearchIO_hmmer2_text.py
+│   ├── test_SearchIO_hmmer2_text_index.py
+│   ├── test_SearchIO_hmmer3_domtab.py
+│   ├── test_SearchIO_hmmer3_domtab_index.py
+│   ├── test_SearchIO_hmmer3_tab.py
+│   ├── test_SearchIO_hmmer3_tab_index.py
+│   ├── test_SearchIO_hmmer3_text.py
+│   ├── test_SearchIO_hmmer3_text_index.py
+│   ├── test_SearchIO_infernal_tab.py
+│   ├── test_SearchIO_infernal_tab_index.py
+│   ├── test_SearchIO_infernal_text.py
+│   ├── test_SearchIO_infernal_text_index.py
+│   ├── test_SearchIO_interproscan_xml.py
+│   ├── test_SearchIO_model.py
+│   ├── test_SearchIO_write.py
+│   ├── test_seq.py
+│   ├── test_Seq_objs.py
+│   ├── test_SeqFeature.py
+│   ├── test_SeqIO.py
+│   ├── test_SeqIO_AbiIO.py
+│   ├── test_SeqIO_FastaIO.py
+│   ├── test_SeqIO_features.py
+│   ├── test_SeqIO_Gck.py
+│   ├── test_SeqIO_Gfa.py
+│   ├── test_SeqIO_index.py
+│   ├── test_SeqIO_Insdc.py
+│   ├── test_SeqIO_NibIO.py
+│   ├── test_SeqIO_online.py
+│   ├── test_SeqIO_PdbIO.py
+│   ├── test_SeqIO_QualityIO.py
+│   ├── test_SeqIO_SeqXML.py
+│   ├── test_SeqIO_SffIO.py
+│   ├── test_SeqIO_SnapGene.py
+│   ├── test_SeqIO_TwoBitIO.py
+│   ├── test_SeqIO_UniprotIO.py
+│   ├── test_SeqIO_write.py
+│   ├── test_SeqIO_Xdna.py
+│   ├── test_SeqRecord.py
+│   ├── test_SeqUtils.py
+│   ├── test_SVDSuperimposer.py
+│   ├── test_SwissProt.py
+│   ├── test_TogoWS.py
+│   ├── test_translate.py
+│   ├── test_TreeConstruction.py
+│   ├── test_Tutorial.py
+│   ├── test_UniGene.py
+│   ├── test_UniProt.py
+│   └── test_UniProt_GOA.py
+│       └── ... (214 more files)
+├── .appveyor.yml
+├── .flake8
+├── .gitattributes
+├── .gitignore
+├── .mypy.ini
+├── .pre-commit-config.yaml
+├── ci-dependencies.txt
+├── CONTRIB.rst
+├── CONTRIBUTING.rst
+├── DEPRECATED.rst
+├── LICENSE
+├── LICENSE.rst
+├── MANIFEST.in
+├── NEWS.rst
+├── README.rst
+└── setup.py
+    └── ... (11 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

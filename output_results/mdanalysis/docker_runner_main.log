@@ -1,0 +1,68 @@
+08/11/2025 01:57:57 - INFO - __main__ - --- Processing repository: mdanalysis ---
+08/11/2025 01:57:58 - INFO - __main__ - No existing container found. Creating new container 'agent-run-mdanalysis'...
+08/11/2025 01:57:58 - INFO - __main__ - Copying 'python_repos\mdanalysis' to new container 'agent-run-mdanalysis:/app/repo_to_process'...
+08/11/2025 01:58:17 - INFO - __main__ - Executing agent inside the container...
+08/11/2025 01:58:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:18 - INFO - __main__ - --- Starting Agent inside Container ---
+08/11/2025 01:58:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:18 - INFO - __main__ - Repository Name: mdanalysis
+08/11/2025 01:58:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:18 - INFO - __main__ - Repository: /app/repo_to_process
+08/11/2025 01:58:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:18 - INFO - __main__ - Language: Python
+08/11/2025 01:58:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:18 - INFO - __main__ - Model: gpt-4.1
+08/11/2025 01:58:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:18 - INFO - __main__ - Max Iterations: 15
+08/11/2025 01:58:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:18 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/11/2025 01:58:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:21 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/11/2025 01:58:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:21 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 01:58:21 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:21 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 01:58:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:23 - INFO - __main__ - Executing 4 command(s)...
+08/11/2025 01:58:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:58:23 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r package/requirements.txt
+08/11/2025 01:59:31 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:59:31 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r testsuite/requirements.txt || true
+08/11/2025 01:59:31 - INFO - __main__ - [AGENT-LOG] 08/10/2025 17:59:31 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e ./package
+08/11/2025 02:00:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:11 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 02:00:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:11 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 02:00:13 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:13 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 02:00:13 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:13 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/11/2025 02:00:13 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:13 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 02:00:13 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:13 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 02:00:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:20 - INFO - __main__ - Executing 3 command(s)...
+08/11/2025 02:00:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:20 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install cython
+08/11/2025 02:00:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:20 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install ./package
+08/11/2025 02:00:56 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:56 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 02:00:56 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:56 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 02:00:58 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:58 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 02:00:58 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:58 - INFO - __main__ - === Starting Iteration 3/15 [Phase: SETUP] ===
+08/11/2025 02:00:58 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:58 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 02:00:58 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:00:58 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 02:01:04 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:01:04 - INFO - __main__ - Executing 4 command(s)...
+08/11/2025 02:01:04 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:01:04 - INFO - __main__ - Executing command in '/app/repo_to_process': apt-get update
+08/11/2025 02:01:49 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:01:49 - INFO - __main__ - Executing command in '/app/repo_to_process': apt-get install -y build-essential python3-dev
+08/11/2025 02:02:22 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:02:22 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install ./package
+08/11/2025 02:04:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:04:30 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 02:04:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:04:30 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 02:19:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:19:37 - INFO - __main__ - ✅ Phase 1 (SETUP) complete: `pytest` is now executable without collection errors.
+08/11/2025 02:19:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:19:37 - INFO - __main__ - === Starting Iteration 4/15 [Phase: TRACING] ===
+08/11/2025 02:19:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:19:37 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 02:19:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:19:37 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 02:19:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:19:41 - INFO - __main__ - Found file block: conftest.py
+08/11/2025 02:19:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:19:41 - INFO - __main__ - Model provided a shorthand for conftest.py. Expanding to full content.
+08/11/2025 02:19:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:19:41 - INFO - __main__ - Created file: /app/repo_to_process/conftest.py
+08/11/2025 02:19:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:19:41 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 02:19:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:19:41 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 02:19:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 18:19:41 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:19:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:19:41 - WARNING - __main__ - Command timed out after 3600 seconds
+08/11/2025 03:19:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:19:41 - INFO - __main__ - === Starting Iteration 5/15 [Phase: TRACING] ===
+08/11/2025 03:19:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:19:41 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:19:41 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:19:41 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:19:47 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:19:47 - INFO - __main__ - 🎉 Model reported final success. Terminating.
+08/11/2025 03:19:47 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:19:47 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: success
+08/11/2025 03:19:47 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:19:47 - INFO - __main__ - ✅ Agent completed successfully.
+08/11/2025 03:19:47 - INFO - __main__ - Agent finished with exit code: 0
+08/11/2025 03:19:47 - INFO - __main__ - Copying all generated files from container 'agent-run-mdanalysis:/app/new_test_detection_logs/mdanalysis'...
+08/11/2025 03:19:47 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\mdanalysis'.
+08/11/2025 03:19:47 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-mdanalysis:/app/repo_to_process'...
+08/11/2025 03:19:47 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 03:19:47 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 03:19:47 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/11/2025 03:19:47 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/11/2025 03:19:47 - WARNING - __main__ - Required report files were not generated successfully. Container will be deleted.
+08/11/2025 03:19:47 - INFO - __main__ - Deleting container 'agent-run-mdanalysis' due to failure or missing required files.
+08/11/2025 03:19:59 - INFO - __main__ - --- Finished processing repository: mdanalysis ---
+

@@ -1,0 +1,16 @@
+The errors all show:  
+`ModuleNotFoundError: No module named 'pyfftw.pyfftw'`
+
+This means the Cython extension `pyfftw/pyfftw.*.so` (or `.pyd`) was not built/installed properly, so test import fails.
+
+The build step `python setup.py build_ext --inplace` should have produced `pyfftw/pyfftw.so` (or similar) in the `pyfftw/` directory. We need to check if that file exists.
+
+If not, try building it again, but also check for missing build dependencies (e.g., Cython, numpy, FFTW library and headers). If the shared object exists, it may require an editable install so import works (e.g., `pip install -e .`).
+
+Let's check for the existence of the extension file and try an editable install.
+
+```bash
+ls pyfftw/ | grep pyfftw
+pip install -e .
+pytest
+```

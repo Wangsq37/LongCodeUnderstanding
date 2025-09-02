@@ -1,0 +1,20 @@
+The pytest error is:
+
+```
+ModuleNotFoundError: No module named 'cantera._cantera'
+```
+
+This means the core Cantera module (presumably a Cython/native extension) is not built or installed, so Python tests cannot load it.
+
+## Next Steps
+
+1. Check if there is a `setup.py`, `pyproject.toml`, or `requirements.txt` for a Python package build (to see if Cantera's Python module can be built/installed via standard Python mechanisms).
+2. If not, check for build instructions/scripts in the project for building the Cantera extension (since it appears to require a native compile).
+3. If present, attempt to build and install the Cantera Python extension in the current environment.
+
+Let’s list the files at the project root to look for `setup.py`, `pyproject.toml`, and similar files.
+
+```bash
+ls -l
+```
+After this, we will inspect for any `setup.py` or other build-related entrypoints.

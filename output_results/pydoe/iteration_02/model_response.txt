@@ -1,0 +1,7 @@
+```bash
+# 1. Install dependencies listed in setup.py.
+pip install numpy scipy
+
+# 2. Run pytest to attempt test collection.
+pytest
+```

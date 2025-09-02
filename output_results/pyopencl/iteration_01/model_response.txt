@@ -1,0 +1,14 @@
+```bash
+pip install -r requirements.txt || true
+pip install .
+pip install -e .
+pip install -r doc/conf.py || true
+pip install -r test/test_algorithm.py || true
+pip install -r test/test_array.py || true
+pip install -r test/test_arrays_in_structs.py || true
+pip install -r test/test_clmath.py || true
+pip install -r test/test_clrandom.py || true
+pip install -r test/test_enqueue_copy.py || true
+pip install -r test/test_wrapper.py || true
+pytest
+```

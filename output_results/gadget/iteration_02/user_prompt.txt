@@ -1,0 +1,411 @@
+## Current Project Structure
+```
+repo_to_process/
+├── buildsystem/
+│   ├── check.py
+│   ├── config.py
+│   ├── git_version.sh
+│   ├── Makefile.comp.cobra
+│   ├── Makefile.comp.cobraopenmpi
+│   ├── Makefile.comp.freya
+│   ├── Makefile.comp.freyaopenmpi
+│   ├── Makefile.comp.gcc
+│   ├── Makefile.comp.gcc-paranoia
+│   ├── Makefile.comp.ravenopenmpi
+│   ├── Makefile.comp.rusty
+│   ├── Makefile.comp.supermuc-ng
+│   ├── Makefile.comp.supermuc-ng-gcc
+│   ├── Makefile.comp.supermuc-ng-openmpi
+│   ├── Makefile.config
+│   ├── Makefile.gen.libs
+│   ├── Makefile.lib
+│   ├── Makefile.path.bwforcluster
+│   ├── Makefile.path.cobra
+│   ├── Makefile.path.default
+│   ├── Makefile.path.freya
+│   ├── Makefile.path.haswell
+│   ├── Makefile.path.hydra
+│   ├── Makefile.path.libs
+│   ├── Makefile.path.macports
+│   ├── Makefile.path.magny
+│   ├── Makefile.path.mpa_desktop
+│   ├── Makefile.path.rusty
+│   ├── Makefile.path.supermuc-ng
+│   └── Makefile.path.supermuc-ng-gcc
+│       └── ... (25 more files)
+├── data/
+│   └── TREECOOL
+├── documentation/
+│   ├── img/
+│   │   ├── fof_subhalo_layout.png
+│   │   ├── ic-code.png
+│   │   ├── lcone.png
+│   │   ├── mergertree.png
+│   │   ├── top.jpg
+│   │   ├── type1.png
+│   │   ├── type10.png
+│   │   ├── type2.png
+│   │   ├── type3.png
+│   │   ├── type4.png
+│   │   ├── type5.png
+│   │   ├── type6.png
+│   │   ├── type7.png
+│   │   ├── type8.png
+│   │   └── type9.png
+│   │       └── ... (10 more files)
+│   ├── 01_index.md
+│   ├── 02_running.md
+│   ├── 03_simtypes.md
+│   ├── 04_config-options.md
+│   ├── 05_parameterfile.md
+│   ├── 06_snapshotformat.md
+│   ├── 07_diagnosticfiles.md
+│   ├── 08_groupfiles.md
+│   ├── 09_special_modules.md
+│   ├── 10_examples.md
+│   └── 11_migration.md
+│       └── ... (6 more files)
+├── examples/
+│   ├── CollidingGalaxiesSFR/
+│   │   ├── Config.sh
+│   │   ├── job.sh
+│   │   ├── param.txt
+│   │   └── TREECOOL
+│   ├── DM-L50-N128/
+│   │   ├── Config.sh
+│   │   ├── job.sh
+│   │   ├── outputs.txt
+│   │   ├── param.txt
+│   │   └── PlotPowerSpec.pro
+│   ├── DM-Zoom-Aq-C-5/
+│   │   ├── Config.sh
+│   │   ├── ExpansionList_16
+│   │   ├── job.sh
+│   │   └── param.txt
+│   ├── G2-cluster/
+│   │   ├── Config.sh
+│   │   ├── job.sh
+│   │   └── param.txt
+│   ├── G2-galaxy/
+│   │   ├── Config.sh
+│   │   ├── job.sh
+│   │   ├── param.txt
+│   │   └── plot_energy.pro
+│   ├── G2-gassphere/
+│   │   ├── ppm_profile/
+│   │   │   └── ppm1oaf
+│   │   ├── analyze_snapshots.py
+│   │   ├── Config.sh
+│   │   ├── create_initial_conditions.py
+│   │   ├── param.txt
+│   │   ├── plot_energy_gassphere.pro
+│   │   └── plot_energy_gassphere.py
+│   │       └── ... (1 more files)
+│   ├── G2-lcdm-gas/
+│   │   ├── Config.sh
+│   │   ├── job.sh
+│   │   ├── outputs_lcdm_gas.txt
+│   │   └── param.txt
+│   └── SantaBarbara-PSPH-64/
+│       ├── Config.sh
+│       ├── job.sh
+│       ├── outputs.txt
+│       └── param.txt
+├── src/
+│   ├── cooling_sfr/
+│   │   ├── cooling.cc
+│   │   ├── cooling.h
+│   │   ├── sfr_eos.cc
+│   │   └── starformation.cc
+│   ├── data/
+│   │   ├── allvars.cc
+│   │   ├── allvars.h
+│   │   ├── constants.h
+│   │   ├── dtypes.h
+│   │   ├── idstorage.h
+│   │   ├── intposconvert.h
+│   │   ├── lcparticles.h
+│   │   ├── lightcone_massmap_data.h
+│   │   ├── lightcone_particle_data.h
+│   │   ├── macros.h
+│   │   ├── mmparticles.h
+│   │   ├── mymalloc.cc
+│   │   ├── mymalloc.h
+│   │   ├── particle_data.h
+│   │   ├── simparticles.h
+│   │   ├── sph_particle_data.h
+│   │   ├── symtensor_indices.h
+│   │   ├── symtensors.h
+│   │   └── test_symtensors.cc
+│   │       └── ... (14 more files)
+│   ├── debug_md5/
+│   │   ├── calc_checksum.cc
+│   │   ├── Md5.cc
+│   │   └── Md5.h
+│   ├── domain/
+│   │   ├── domain.cc
+│   │   ├── domain.h
+│   │   ├── domain_balance.cc
+│   │   ├── domain_box.cc
+│   │   ├── domain_exchange.cc
+│   │   └── domain_toplevel.cc
+│   │       └── ... (1 more files)
+│   ├── fmm/
+│   │   ├── fmm.cc
+│   │   └── fmm.h
+│   ├── fof/
+│   │   ├── fof.cc
+│   │   ├── fof.h
+│   │   ├── fof_findgroups.cc
+│   │   ├── fof_io.cc
+│   │   ├── fof_io.h
+│   │   ├── fof_nearest.cc
+│   │   ├── foftree.h
+│   │   └── foftree_build.cc
+│   │       └── ... (3 more files)
+│   ├── gitversion/
+│   │   ├── version
+│   │   └── version.h
+│   ├── gravity/
+│   │   ├── ewald.cc
+│   │   ├── ewald.h
+│   │   ├── ewald_test.cc
+│   │   ├── ewaldtensors.h
+│   │   ├── grav_direct.cc
+│   │   ├── grav_external.cc
+│   │   ├── grav_forcetest.cc
+│   │   ├── grav_forcetest.h
+│   │   ├── gravity.cc
+│   │   └── second_order_ics.cc
+│   │       └── ... (5 more files)
+│   ├── gravtree/
+│   │   ├── gravtree.cc
+│   │   ├── gravtree.h
+│   │   ├── gravtree_build.cc
+│   │   ├── gwalk.cc
+│   │   └── gwalk.h
+│   ├── half/
+│   │   ├── ChangeLog.txt
+│   │   ├── half.hpp
+│   │   ├── LICENSE.txt
+│   │   └── README.txt
+│   ├── io/
+│   │   ├── hdf5_util.cc
+│   │   ├── hdf5_util.h
+│   │   ├── io.cc
+│   │   ├── io.h
+│   │   ├── io_streamcount.h
+│   │   ├── parameters.cc
+│   │   ├── parameters.h
+│   │   ├── restart.cc
+│   │   ├── restart.h
+│   │   ├── snap_io.cc
+│   │   ├── snap_io.h
+│   │   ├── test_io_bandwidth.cc
+│   │   └── test_io_bandwidth.h
+│   │       └── ... (8 more files)
+│   ├── lightcone/
+│   │   ├── lightcone.cc
+│   │   ├── lightcone.h
+│   │   ├── lightcone_massmap_io.cc
+│   │   ├── lightcone_massmap_io.h
+│   │   ├── lightcone_particle_io.cc
+│   │   └── lightcone_particle_io.h
+│   │       └── ... (1 more files)
+│   ├── logs/
+│   │   ├── logs.cc
+│   │   ├── logs.h
+│   │   └── timer.h
+│   ├── main/
+│   │   ├── begrun.cc
+│   │   ├── init.cc
+│   │   ├── main.cc
+│   │   ├── main.h
+│   │   ├── run.cc
+│   │   └── simulation.h
+│   │       └── ... (1 more files)
+│   ├── mergertree/
+│   │   ├── descendant.cc
+│   │   ├── halotrees.cc
+│   │   ├── io_descendant.cc
+│   │   ├── io_descendant.h
+│   │   ├── io_halotrees.cc
+│   │   ├── io_halotrees.h
+│   │   ├── io_progenitors.cc
+│   │   ├── io_progenitors.h
+│   │   ├── io_readsnap.cc
+│   │   ├── io_readsnap.h
+│   │   ├── io_readtrees_mbound.cc
+│   │   ├── io_readtrees_mbound.h
+│   │   ├── io_treelinks.cc
+│   │   ├── io_treelinks.h
+│   │   ├── mergertree.h
+│   │   ├── postproc_descendants.cc
+│   │   └── rearrange.cc
+│   │       └── ... (12 more files)
+│   ├── mpi_utils/
+│   │   ├── allreduce_debugcheck.cc
+│   │   ├── allreduce_sparse_double_sum.cc
+│   │   ├── generic_comm.h
+│   │   ├── healthtest.cc
+│   │   ├── hypercube_allgatherv.cc
+│   │   ├── mpi_types.cc
+│   │   ├── mpi_utils.h
+│   │   ├── mpi_vars.cc
+│   │   ├── myalltoall.cc
+│   │   ├── setcomm.h
+│   │   ├── shared_mem_handler.cc
+│   │   ├── shared_mem_handler.h
+│   │   ├── sizelimited_sendrecv.cc
+│   │   └── sums_and_minmax.cc
+│   │       └── ... (9 more files)
+│   ├── ngbtree/
+│   │   ├── ngbtree.h
+│   │   └── ngbtree_build.cc
+│   ├── ngenic/
+│   │   ├── grid.cc
+│   │   ├── ngenic.cc
+│   │   ├── ngenic.h
+│   │   └── power.cc
+│   ├── pm/
+│   │   ├── pm.h
+│   │   ├── pm_mpi_fft.cc
+│   │   ├── pm_mpi_fft.h
+│   │   ├── pm_nonperiodic.cc
+│   │   ├── pm_nonperiodic.h
+│   │   ├── pm_periodic.cc
+│   │   └── pm_periodic.h
+│   │       └── ... (2 more files)
+│   ├── sort/
+│   │   ├── cxxsort.h
+│   │   ├── parallel_sort.h
+│   │   ├── peano.cc
+│   │   └── peano.h
+│   ├── sph/
+│   │   ├── artificial_viscosity.cc
+│   │   ├── density.cc
+│   │   ├── hydra.cc
+│   │   ├── init_entropy.cc
+│   │   ├── kernel.h
+│   │   └── sph.h
+│   │       └── ... (1 more files)
+│   ├── subfind/
+│   │   ├── subfind.cc
+│   │   ├── subfind.h
+│   │   ├── subfind_density.cc
+│   │   ├── subfind_distribute.cc
+│   │   ├── subfind_excursionset.cc
+│   │   ├── subfind_findlinkngb.cc
+│   │   ├── subfind_history.cc
+│   │   ├── subfind_nearesttwo.cc
+│   │   ├── subfind_orphanids.cc
+│   │   ├── subfind_processing.cc
+│   │   ├── subfind_properties.cc
+│   │   ├── subfind_readid_io.cc
+│   │   ├── subfind_readid_io.h
+│   │   ├── subfind_so.cc
+│   │   ├── subfind_treepotential.cc
+│   │   └── subfind_unbind.cc
+│   │       └── ... (11 more files)
+│   ├── system/
+│   │   ├── pinning.cc
+│   │   ├── pinning.h
+│   │   ├── system.cc
+│   │   └── system.h
+│   ├── time_integration/
+│   │   ├── driftfac.cc
+│   │   ├── driftfac.h
+│   │   ├── kicks.cc
+│   │   ├── predict.cc
+│   │   ├── timestep.cc
+│   │   ├── timestep.h
+│   │   └── timestep_treebased.cc
+│   │       └── ... (2 more files)
+│   ├── tree/
+│   │   ├── tree.cc
+│   │   └── tree.h
+│   └── vectorclass/
+│       ├── changelog.txt
+│       ├── dispatch_example.cpp
+│       ├── instrset.h
+│       ├── instrset_detect.cpp
+│       ├── license.txt
+│       ├── vectorclass.h
+│       ├── vectorclass.pdf
+│       ├── vectorf128.h
+│       ├── vectorf256.h
+│       ├── vectorf256e.h
+│       ├── vectorf512.h
+│       ├── vectorf512e.h
+│       ├── vectori128.h
+│       ├── vectori256.h
+│       ├── vectori256e.h
+│       ├── vectori512.h
+│       ├── vectori512e.h
+│       ├── vectormath_common.h
+│       ├── vectormath_exp.h
+│       ├── vectormath_hyp.h
+│       ├── vectormath_lib.h
+│       └── vectormath_trig.h
+│           └── ... (17 more files)
+├── .clang-format
+├── .gitignore
+├── defines_extra
+├── DEVELOPERS
+├── Doxyfile
+├── LICENSE
+├── make-examples.sh
+├── Makefile
+├── README.md
+├── Template-Config.sh
+└── Template-Makefile.systype
+    └── ... (6 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: ls requirements.txt ---
+SUCCESS: False
+STDERR:
+ls: cannot access 'requirements.txt': No such file or directory
+
+
+--- Command: ls setup.py ---
+SUCCESS: False
+STDERR:
+ls: cannot access 'setup.py': No such file or directory
+
+
+--- Command: ls pyproject.toml ---
+SUCCESS: False
+STDERR:
+ls: cannot access 'pyproject.toml': No such file or directory
+
+
+--- Command: pytest || true ---
+SUCCESS: True
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 0 items
+
+============================ no tests ran in 0.04s =============================
+
+
+
+## Your Task (Phase 2: Call Chain Tracing)
+`pytest` is now executable without collection errors. Your task is to set up call chain tracing.
+1.  **Identify the main source code directory/directories.** Based on the structure, this is likely `skimage`.
+2.  **Create a `conftest.py` file** in the project root to trace this directory.
+3.  **Run `pytest`** one last time to generate the reports.
+4.  If the reports are generated, declare success with ```status
+success
+```.
+
+**REMINDER:** When creating `conftest.py`, you only need to provide the line defining `SOURCE_DIRS_TO_TRACK`. For example:
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['skimage']
+```

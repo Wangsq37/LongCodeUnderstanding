@@ -1,0 +1,8 @@
+```bash
+# Step 1: Look for central requirements for the repo as a whole.
+# There's no top-level requirements.txt, but there is 'setup.cfg' and 'rdkit/pytest.ini'.
+# Also check for relevant requirements in 'Contrib/FreeWilson/requirements.txt' and similar.
+
+# Step 2: Try to run pytest directly - see what breaks (missing main dependencies will show).
+pytest
+```

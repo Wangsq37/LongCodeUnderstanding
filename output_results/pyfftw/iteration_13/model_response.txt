@@ -1,0 +1,32 @@
+The `ModuleNotFoundError: No module named 'pyfftw.pyfftw'` persists even after system FFTW libraries are installed and the build is attempted. Critically, there is still no `.so` file produced in `pyfftw/` (verified by repeated `ls pyfftw/ | grep pyfftw`—no `.so`). This indicates the C-extension is not actually being built.
+
+This is a common situation if a required Python dependency for building is not installed (e.g., `numpy`). The extension module build will silently fail if the C headers for numpy (i.e., `numpy.get_include()`) are not available at import time.
+
+The solution is to ensure that `numpy` is fully installed before building the extension. Let's check and install build/test dependencies as listed.
+
+### 1. Install build dependencies: pip install -r requirements.txt/pyproject.toml
+- There is a `pyproject.toml`, which with PEP517 means `build-system.requires` may need to be fulfilled.
+- There is a `setup.py` as well. But for development, projects like this commonly require `Cython`, `numpy`, etc. before the native build.
+
+Let’s check for requirements in `pyproject.toml` and `setup.py` quickly and install the minimal set directly.
+
+### 2. Install necessary build dependencies for scientific Python projects
+At minimum:
+```bash
+pip install numpy setuptools wheel
+```
+Optionally, also:
+```bash
+pip install -r requirements.txt
+```
+(if the file exists and is non-empty; but it's safest to do the above as well).
+
+### 3. Clean and rebuild the extension
+```bash
+python setup.py clean --all
+python setup.py build_ext --inplace
+ls pyfftw/ | grep pyfftw
+pytest
+```
+
+Let’s proceed with these steps.

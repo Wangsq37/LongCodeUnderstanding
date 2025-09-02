@@ -1,0 +1,525 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   ├── config.yml
+│   │   └── feature_request.yml
+│   ├── workflows/
+│   │   ├── spack-config/
+│   │   │   ├── gh-actions-env.yaml
+│   │   │   ├── gh-actions-env.yml
+│   │   │   └── gh-actions-rocky.yml
+│   │   ├── build-wheels.yml
+│   │   ├── ccpp.yml
+│   │   ├── ci-spack.yml
+│   │   ├── clang-tidy.yml
+│   │   ├── conda.yml
+│   │   ├── docker-dev-test-env.yml
+│   │   ├── docker-end-user.yml
+│   │   ├── docker-update-stable.yml
+│   │   ├── fenicsx-refs.env
+│   │   ├── macos.yml
+│   │   ├── sonarcloud.yml
+│   │   ├── spack.yml
+│   │   └── windows.yml
+│   │       └── ... (8 more files)
+│   ├── dependabot.yml
+│   └── FUNDING.yml
+├── cpp/
+│   ├── .vcpkg-overlay/
+│   │   ├── intel-mpi/
+│   │   │   ├── mpi-wrapper.cmake
+│   │   │   ├── portfile.cmake
+│   │   │   └── vcpkg.json
+│   │   ├── mpi/
+│   │   │   ├── portfile.cmake
+│   │   │   └── vcpkg.json
+│   │   └── README.md
+│   ├── cmake/
+│   │   ├── modules/
+│   │   │   ├── FindKaHIP.cmake
+│   │   │   ├── FindParMETIS.cmake
+│   │   │   └── FindUFCx.cmake
+│   │   ├── post-install/
+│   │   │   └── CMakeLists.txt
+│   │   ├── scripts/
+│   │   │   └── generate-cmakefiles.py
+│   │   └── templates/
+│   │       ├── cmake_uninstall.cmake.in
+│   │       ├── dolfinx.conf.in
+│   │       ├── dolfinx.pc.in
+│   │       └── DOLFINXConfig.cmake.in
+│   ├── demo/
+│   │   ├── biharmonic/
+│   │   │   ├── biharmonic.py
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── codim_0_assembly/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── main.cpp
+│   │   │   └── mixed_codim0.py
+│   │   ├── custom_kernel/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── hyperelasticity/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── hyperelasticity.py
+│   │   │   └── main.cpp
+│   │   ├── interpolation-io/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── interpolation_different_meshes/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── mixed_poisson/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── main.cpp
+│   │   │   └── mixed_poisson.py
+│   │   ├── poisson/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── main.cpp
+│   │   │   └── poisson.py
+│   │   ├── poisson_matrix_free/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── main.cpp
+│   │   │   └── poisson.py
+│   │   ├── CMakeLists.txt
+│   │   └── README.md
+│   ├── doc/
+│   │   ├── source/
+│   │   │   ├── api.rst
+│   │   │   ├── common.rst
+│   │   │   ├── conf.py
+│   │   │   ├── demo.rst
+│   │   │   ├── fem.rst
+│   │   │   ├── geometry.rst
+│   │   │   ├── graph.rst
+│   │   │   ├── index.rst
+│   │   │   ├── io.rst
+│   │   │   ├── jupytext_process.py
+│   │   │   ├── la.rst
+│   │   │   ├── mesh.rst
+│   │   │   └── refinement.rst
+│   │   │       └── ... (8 more files)
+│   │   ├── Doxyfile
+│   │   ├── Makefile
+│   │   └── README.md
+│   ├── dolfinx/
+│   │   ├── common/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── defines.cpp
+│   │   │   ├── defines.h
+│   │   │   ├── dolfinx_common.h
+│   │   │   ├── dolfinx_doc.h
+│   │   │   ├── IndexMap.cpp
+│   │   │   ├── IndexMap.h
+│   │   │   ├── log.cpp
+│   │   │   ├── log.h
+│   │   │   ├── math.h
+│   │   │   ├── MPI.cpp
+│   │   │   ├── MPI.h
+│   │   │   ├── Scatterer.h
+│   │   │   ├── sort.h
+│   │   │   ├── Table.cpp
+│   │   │   ├── Table.h
+│   │   │   ├── TimeLogger.cpp
+│   │   │   ├── TimeLogger.h
+│   │   │   ├── Timer.h
+│   │   │   ├── timing.cpp
+│   │   │   ├── timing.h
+│   │   │   ├── types.h
+│   │   │   ├── utils.h
+│   │   │   └── version.h.in
+│   │   │       └── ... (19 more files)
+│   │   ├── fem/
+│   │   │   ├── assemble_expression_impl.h
+│   │   │   ├── assemble_matrix_impl.h
+│   │   │   ├── assemble_scalar_impl.h
+│   │   │   ├── assemble_vector_impl.h
+│   │   │   ├── assembler.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Constant.h
+│   │   │   ├── CoordinateElement.cpp
+│   │   │   ├── CoordinateElement.h
+│   │   │   ├── DirichletBC.cpp
+│   │   │   ├── DirichletBC.h
+│   │   │   ├── discreteoperators.h
+│   │   │   ├── DofMap.cpp
+│   │   │   ├── DofMap.h
+│   │   │   ├── dofmapbuilder.cpp
+│   │   │   ├── dofmapbuilder.h
+│   │   │   ├── dolfinx_fem.h
+│   │   │   ├── ElementDofLayout.cpp
+│   │   │   ├── ElementDofLayout.h
+│   │   │   ├── Expression.h
+│   │   │   ├── FiniteElement.cpp
+│   │   │   ├── FiniteElement.h
+│   │   │   ├── Form.h
+│   │   │   ├── Function.h
+│   │   │   ├── FunctionSpace.h
+│   │   │   ├── interpolate.h
+│   │   │   ├── pack.h
+│   │   │   ├── petsc.cpp
+│   │   │   ├── petsc.h
+│   │   │   ├── sparsitybuild.cpp
+│   │   │   ├── sparsitybuild.h
+│   │   │   ├── traits.h
+│   │   │   ├── utils.cpp
+│   │   │   └── utils.h
+│   │   │       └── ... (29 more files)
+│   │   ├── geometry/
+│   │   │   ├── BoundingBoxTree.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_geometry.h
+│   │   │   ├── gjk.h
+│   │   │   └── utils.h
+│   │   ├── graph/
+│   │   │   ├── AdjacencyList.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_graph.h
+│   │   │   ├── ordering.cpp
+│   │   │   ├── ordering.h
+│   │   │   ├── partition.cpp
+│   │   │   ├── partition.h
+│   │   │   ├── partitioners.cpp
+│   │   │   ├── partitioners.h
+│   │   │   ├── utils.cpp
+│   │   │   └── utils.h
+│   │   │       └── ... (6 more files)
+│   │   ├── io/
+│   │   │   ├── ADIOS2Writers.cpp
+│   │   │   ├── ADIOS2Writers.h
+│   │   │   ├── cells.cpp
+│   │   │   ├── cells.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_io.h
+│   │   │   ├── HDF5Interface.cpp
+│   │   │   ├── HDF5Interface.h
+│   │   │   ├── utils.h
+│   │   │   ├── vtk_utils.cpp
+│   │   │   ├── vtk_utils.h
+│   │   │   ├── VTKFile.cpp
+│   │   │   ├── VTKFile.h
+│   │   │   ├── VTKHDF.h
+│   │   │   ├── xdmf_function.cpp
+│   │   │   ├── xdmf_function.h
+│   │   │   ├── xdmf_mesh.cpp
+│   │   │   ├── xdmf_mesh.h
+│   │   │   ├── xdmf_utils.cpp
+│   │   │   ├── xdmf_utils.h
+│   │   │   ├── XDMFFile.cpp
+│   │   │   └── XDMFFile.h
+│   │   │       └── ... (17 more files)
+│   │   ├── la/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_la.h
+│   │   │   ├── matrix_csr_impl.h
+│   │   │   ├── MatrixCSR.h
+│   │   │   ├── petsc.cpp
+│   │   │   ├── petsc.h
+│   │   │   ├── slepc.cpp
+│   │   │   ├── slepc.h
+│   │   │   ├── SparsityPattern.cpp
+│   │   │   ├── SparsityPattern.h
+│   │   │   ├── utils.h
+│   │   │   └── Vector.h
+│   │   │       └── ... (7 more files)
+│   │   ├── mesh/
+│   │   │   ├── cell_types.cpp
+│   │   │   ├── cell_types.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_mesh.h
+│   │   │   ├── EntityMap.cpp
+│   │   │   ├── EntityMap.h
+│   │   │   ├── generation.h
+│   │   │   ├── Geometry.h
+│   │   │   ├── graphbuild.cpp
+│   │   │   ├── graphbuild.h
+│   │   │   ├── Mesh.h
+│   │   │   ├── MeshTags.h
+│   │   │   ├── permutationcomputation.cpp
+│   │   │   ├── permutationcomputation.h
+│   │   │   ├── Topology.cpp
+│   │   │   ├── Topology.h
+│   │   │   ├── topologycomputation.cpp
+│   │   │   ├── topologycomputation.h
+│   │   │   ├── utils.cpp
+│   │   │   └── utils.h
+│   │   │       └── ... (15 more files)
+│   │   ├── nls/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_nls.h
+│   │   │   ├── NewtonSolver.cpp
+│   │   │   └── NewtonSolver.h
+│   │   ├── refinement/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_refinement.h
+│   │   │   ├── interval.h
+│   │   │   ├── option.h
+│   │   │   ├── plaza.cpp
+│   │   │   ├── plaza.h
+│   │   │   ├── refine.h
+│   │   │   ├── uniform.cpp
+│   │   │   ├── uniform.h
+│   │   │   ├── utils.cpp
+│   │   │   └── utils.h
+│   │   │       └── ... (6 more files)
+│   │   ├── CMakeLists.txt
+│   │   └── dolfinx.h
+│   ├── test/
+│   │   ├── common/
+│   │   │   ├── CIFailure.cpp
+│   │   │   ├── index_map.cpp
+│   │   │   ├── sort.cpp
+│   │   │   └── sub_systems_manager.cpp
+│   │   ├── fem/
+│   │   │   ├── expr.py
+│   │   │   ├── form.cpp
+│   │   │   └── functionspace.cpp
+│   │   ├── mesh/
+│   │   │   ├── refinement/
+│   │   │   ├── branching_manifold.cpp
+│   │   │   ├── distributed_mesh.cpp
+│   │   │   ├── generation.cpp
+│   │   │   └── read_named_meshtags.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── graph.cpp
+│   │   ├── io.cpp
+│   │   ├── main.cpp
+│   │   ├── matrix.cpp
+│   │   ├── poisson.py
+│   │   ├── vcpkg.json
+│   │   └── vector.cpp
+│   │       └── ... (3 more files)
+│   ├── CMakeLists.txt
+│   ├── ruff.toml
+│   └── vcpkg.json
+├── docker/
+│   ├── complex-kernel.json
+│   ├── Dockerfile.end-user
+│   ├── Dockerfile.test-env
+│   ├── dolfinx-complex-mode
+│   ├── dolfinx-real-mode
+│   ├── dolfinx_jit_options.json
+│   ├── ffcx_options.json
+│   └── README.md
+│       └── ... (3 more files)
+├── python/
+│   ├── demo/
+│   │   ├── data/
+│   │   │   └── cooks_tri_mesh.xdmf
+│   │   ├── conftest.py
+│   │   ├── demo_axis.py
+│   │   ├── demo_biharmonic.py
+│   │   ├── demo_cahn-hilliard.py
+│   │   ├── demo_comm-pattern.py
+│   │   ├── demo_elasticity.py
+│   │   ├── demo_gmsh.py
+│   │   ├── demo_half_loaded_waveguide.py
+│   │   ├── demo_hdg.py
+│   │   ├── demo_helmholtz.py
+│   │   ├── demo_interpolation-io.py
+│   │   ├── demo_lagrange_variants.py
+│   │   ├── demo_mixed-poisson.py
+│   │   ├── demo_mixed-topology.py
+│   │   ├── demo_navier-stokes.py
+│   │   ├── demo_pml.py
+│   │   ├── demo_poisson.py
+│   │   ├── demo_poisson_matrix_free.py
+│   │   ├── demo_pyamg.py
+│   │   ├── demo_pyvista.py
+│   │   ├── demo_scattering_boundary_conditions.py
+│   │   ├── demo_static-condensation.py
+│   │   ├── demo_stokes.py
+│   │   ├── demo_tnt-elements.py
+│   │   ├── demo_types.py
+│   │   ├── pyproject.toml
+│   │   ├── pytest.ini
+│   │   └── test.py
+│   │       └── ... (23 more files)
+│   ├── doc/
+│   │   ├── source/
+│   │   │   ├── api.rst
+│   │   │   ├── conf.py
+│   │   │   ├── contributing.rst
+│   │   │   ├── demos.rst
+│   │   │   ├── developer.rst
+│   │   │   ├── index.rst
+│   │   │   ├── installation.rst
+│   │   │   ├── jupytext_process.py
+│   │   │   └── styleguide_cpp.rst
+│   │   │       └── ... (4 more files)
+│   │   └── README.md
+│   ├── dolfinx/
+│   │   ├── fem/
+│   │   │   ├── __init__.py
+│   │   │   ├── assemble.py
+│   │   │   ├── bcs.py
+│   │   │   ├── dofmap.py
+│   │   │   ├── element.py
+│   │   │   ├── forms.py
+│   │   │   ├── function.py
+│   │   │   └── petsc.py
+│   │   │       └── ... (3 more files)
+│   │   ├── io/
+│   │   │   ├── __init__.py
+│   │   │   ├── gmshio.py
+│   │   │   ├── utils.py
+│   │   │   └── vtkhdf.py
+│   │   ├── la/
+│   │   │   ├── __init__.py
+│   │   │   └── petsc.py
+... (72 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: apt-get update ---
+SUCCESS: True
+STDOUT:
+Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:4 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1270 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:6 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [48.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+Get:8 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3207 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
+Get:10 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [5103 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3518 kB]
+Ign:14 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [5290 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [75.9 kB]
+Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
+Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1575 kB]
+Fetched 40.6 MB in 39s (1028 kB/s)
+Reading package lists...
+
+
+--- Command: apt-get install -y libopenmpi-dev openmpi-bin ---
+SUCCESS: True
+STDOUT:
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  autoconf automake autotools-dev file gfortran gfortran-11 ibverbs-providers
+  javascript-common libbsd0 libcaf-openmpi-3 libcbor0.8 libcoarrays-dev
+  libcoarrays-openmpi-dev libedit2 libevent-2.1-7 libevent-core-2.1-7
+  libevent-dev libevent-extra-2.1-7 libevent-openssl-2.1-7
+  libevent-pthreads-2.1-7 libfabric1 libfido2-1 libgfortran-11-dev
+  libgfortran5 libhwloc-dev libhwloc-plugins libhwloc15 libibverbs-dev
+  libibverbs1 libicu70 libjs-jquery libjs-jquery-ui libltdl-dev libltdl7
+  libmagic-mgc libmagic1 libmd0 libnl-3-200 libnl-3-dev libnl-route-3-200
+  libnl-route-3-dev libnuma-dev libnuma1 libopenmpi3 libpciaccess0 libpmix-dev
+  libpmix2 libpsm-infinipath1 libpsm2-2 librdmacm1 libsigsegv2 libtool libucx0
+  libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxml2 libxmuu1
+  libxnvctrl0 m4 ocl-icd-libopencl1 openmpi-common openssh-client xauth
+  zlib1g-dev
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc gettext gfortran-multilib
+  gfortran-doc gfortran-11-multilib gfortran-11-doc apache2 | lighttpd | httpd
+  libhwloc-contrib-plugins libjs-jquery-ui-docs libtool-doc openmpi-doc
+  pciutils gcj-jdk m4-doc opencl-icd keychain libpam-ssh monkeysphere
+  ssh-askpass
+The following NEW packages will be installed:
+  autoconf automake autotools-dev file gfortran gfortran-11 ibverbs-providers
+  javascript-common libbsd0 libcaf-openmpi-3 libcbor0.8 libcoarrays-dev
+  libcoarrays-openmpi-dev libedit2 libevent-2.1-7 libevent-core-2.1-7
+  libevent-dev libevent-extra-2.1-7 libevent-openssl-2.1-7
+  libevent-pthreads-2.1-7 libfabric1 libfido2-1 libgfortran-11-dev
+  libgfortran5 libhwloc-dev libhwloc-plugins libhwloc15 libibverbs-dev
+  libibverbs1 libicu70 libjs-jquery libjs-jquery-ui libltdl-dev libltdl7
+  libmagic-mgc libmagic1 libmd0 libnl-3-200 libnl-3-dev libnl-route-3-200
+  libnl-route-3-dev libnuma-dev libnuma1 libopenmpi-dev libopenmpi3
+  libpciaccess0 libpmix-dev libpmix2 libpsm-infinipath1 libpsm2-2 librdmacm1
+  libsigsegv2 libtool libucx0 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6
+  libxext6 libxml2 libxmuu1 libxnvctrl0 m4 ocl-icd-libopencl1 openmpi-bin
+  openmpi-common openssh-client xauth zlib1g-dev
+0 upgraded, 70 newly installed, 0 to remove and 8 not upgraded.
+Need to get 39.3 MB of archives.
+After this operation, 153 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmd0 amd64 1.0.4-1build1 [23.0 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 libbsd0 amd64 0.11.5-1 [44.8 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy/main amd64 libicu70 amd64 70.1-2 [10.6 MB]
+Get:4 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libxml2 amd64 2.9.13+dfsg-1ubuntu0.7 [763 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libmagic-mgc amd64 1:5.41-3ubuntu0.1 [257 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libmagic1 amd64 1:5.41-3ubuntu0.1 [87.2 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 file amd64 1:5.41-3ubuntu0.1 [21.5 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy/main amd64 libcbor0.8 amd64 0.8.0-2ubuntu1 [24.6 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy/main amd64 libedit2 amd64 3.1-20210910-1build1 [96.8 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy/main amd64 libfido2-1 amd64 1.10.0-1 [82.8 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 libnuma1 amd64 2.0.14-3ubuntu2 [22.5 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxau6 amd64 1:1.0.9-1build5 [7634 B]
+Get:13 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxdmcp6 amd64 1:1.1.3-0ubuntu5 [10.9 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxcb1 amd64 1.14-3ubuntu3 [49.0 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libx11-data all 2:1.7.5-1ubuntu0.3 [120 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libx11-6 amd64 2:1.7.5-1ubuntu0.3 [667 kB]
+Get:17 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxext6 amd64 2:1.3.4-1build1 [31.8 kB]
+Get:18 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxmuu1 amd64 2:1.1.3-3 [10.2 kB]
+Get:19 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 openssh-client amd64 1:8.9p1-3ubuntu0.13 [903 kB]
+Get:20 http://archive.ubuntu.com/ubuntu jammy/main amd64 xauth amd64 1:1.1-1build2 [27.5 kB]
+Get:21 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsigsegv2 amd64 2.13-1ubuntu3 [14.6 kB]
+Get:22 http://archive.ubuntu.com/ubuntu jammy/main amd64 m4 amd64 1.4.18-5ubuntu2 [199 kB]
+Get:23 http://archive.ubuntu.com/ubuntu jammy/main amd64 autoconf all 2.71-2 [338 kB]
+Get:24 http://archive.ubuntu.com/ubuntu jammy/main amd64 autotools-dev all 20220109.1 [44.9 kB]
+Get:25 http://archive.ubuntu.com/ubuntu jammy/main amd64 automake all 1:1.16.5-1.3 [558 kB]
+Get:26 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgfortran5 amd64 12.3.0-1ubuntu1~22.04 [879 kB]
+Get:27 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgfortran-11-dev amd64 11.4.0-1ubuntu1~22.04 [842 kB]
+Get:28 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 gfortran-11 amd64 11.4.0-1ubuntu1~22.04 [11.2 MB]
+Get:29 http://archive.ubuntu.com/ubuntu jammy/main amd64 gfortran amd64 4:11.2.0-1ubuntu1 [1182 B]
+Get:30 http://archive.ubuntu.com/ubuntu jammy/main amd64 libnl-3-200 amd64 3.5.0-0.1 [59.1 kB]
+Get:31 http://archive.ubuntu.com/ubuntu jammy/main amd
+... (371 lines omitted)
+STDERR:
+debconf: delaying package configuration, since apt-utils is not installed
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_________________________ ERROR collecting python/test _________________________
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+/usr/local/lib/python3.10/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+python/test/conftest.py:13: in <module>
+    from dolfinx.la import vector as dolfinx_vector
+E   ModuleNotFoundError: No module named 'dolfinx'
+=========================== short test summary info ============================
+ERROR python/test - ModuleNotFoundError: No module named 'dolfinx'
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.53s ===============================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

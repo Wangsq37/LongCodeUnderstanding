@@ -1,0 +1,193 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .coin-or/
+│   └── projDesc.xml
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── Bug_report.md
+│   │   ├── Feature_request.md
+│   │   └── Question.md
+│   ├── workflows/
+│   │   ├── build_docs.yml
+│   │   ├── publish-to-test-pypi.yml
+│   │   └── pythonpackage.yml
+│   ├── CONTRIBUTING.md
+│   ├── dependabot.yml
+│   └── FUNDING.yml
+├── doc/
+│   ├── KPyCon2009/
+│   │   ├── code/
+│   │   │   ├── beerdistribution.py
+│   │   │   ├── wedding.py
+│   │   │   └── whiskas.py
+│   │   ├── images/
+│   │   │   ├── beerdistribution.png
+│   │   │   ├── whiskas_blend.jpg
+│   │   │   ├── whiskas_ingredients.jpg
+│   │   │   ├── whiskas_label.jpg
+│   │   │   └── whiskas_nutrition.jpg
+│   │   ├── arlims.cls
+│   │   ├── arlimsTPP.cls
+│   │   ├── arlimsTPPM.cls
+│   │   ├── arlimsTPPSC.cls
+│   │   ├── IEEEtran.bst
+│   │   ├── PulpForPythonProgrammers.pdf
+│   │   ├── PulpForPythonProgrammers.tex
+│   │   └── references.bib
+│   │       └── ... (3 more files)
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── freebound.jpg
+│   │   │   ├── freebound.pdf
+│   │   │   └── plotter.py
+│   │   ├── CaseStudies/
+│   │   │   ├── images/
+│   │   │   ├── a_blending_problem.rst
+│   │   │   ├── a_set_partitioning_problem.rst
+│   │   │   ├── a_sudoku_problem.rst
+│   │   │   ├── a_transportation_problem.rst
+│   │   │   ├── a_two_stage_production_planning_problem.rst
+│   │   │   └── index.rst
+│   │   │       └── ... (1 more files)
+│   │   ├── develop/
+│   │   │   ├── add_solver.rst
+│   │   │   ├── contribute.rst
+│   │   │   └── index.rst
+│   │   ├── guides/
+│   │   │   ├── how_to_configure_solvers.rst
+│   │   │   ├── how_to_debug.rst
+│   │   │   ├── how_to_elastic_constraints.rst
+│   │   │   ├── how_to_export_models.rst
+│   │   │   ├── how_to_mip_start.rst
+│   │   │   └── index.rst
+│   │   │       └── ... (1 more files)
+│   │   ├── main/
+│   │   │   ├── images/
+│   │   │   ├── amply.rst
+│   │   │   ├── basic_python_coding.rst
+│   │   │   ├── includeme.rst
+│   │   │   ├── index.rst
+│   │   │   ├── installing_pulp_at_home.rst
+│   │   │   ├── optimisation_concepts.rst
+│   │   │   └── the_optimisation_process.rst
+│   │   │       └── ... (2 more files)
+│   │   ├── plugins/
+│   │   │   ├── amply.rst
+│   │   │   ├── index.rst
+│   │   │   ├── lparray.rst
+│   │   │   ├── orloge.rst
+│   │   │   └── pytups.rst
+│   │   ├── technical/
+│   │   │   ├── constants.rst
+│   │   │   ├── index.rst
+│   │   │   ├── pulp.rst
+│   │   │   └── solvers.rst
+│   │   ├── AUTHORS.txt
+│   │   ├── conf.py
+│   │   └── index.rst
+│   ├── _OptimisationWithPuLP.pdf
+│   ├── KiwiPycon.odp
+│   ├── KiwiPycon.pdf
+│   ├── make.bat
+│   ├── Makefile
+│   ├── OpenSourceOptimisation.odp
+│   ├── OpenSourceOptimisation.pdf
+│   ├── pulp.pdf
+│   ├── PulpOptimisation.odp
+│   └── PulpOptimisation.pdf
+│       └── ... (5 more files)
+├── examples/
+│   ├── __init__.py
+│   ├── AmericanSteelProblem.py
+│   ├── BeerDistributionProblem.py
+│   ├── BeerDistributionProblem_resolve.py
+│   ├── BeerDistributionProblemCompetitorExtension.py
+│   ├── BeerDistributionProblemWarehouseExtension.py
+│   ├── CG.py
+│   ├── CGcolumnwise.py
+│   ├── ComputerPlantProblem.py
+│   ├── furniture.py
+│   ├── SpongeRollProblem1.py
+│   ├── SpongeRollProblem2.py
+│   ├── SpongeRollProblem3.py
+│   ├── SpongeRollProblem4.py
+│   ├── SpongeRollProblem5.py
+│   ├── SpongeRollProblem6.py
+│   ├── Sudoku1.py
+│   ├── Sudoku2.py
+│   ├── test1.py
+│   ├── test2.py
+│   ├── test3.py
+│   ├── test4.py
+│   ├── test5.py
+│   ├── test6.py
+│   ├── test7.py
+│   ├── Two_stage_Stochastic_GemstoneTools.py
+│   ├── wedding.py
+│   ├── wedding_initial.py
+│   ├── WhiskasModel1.py
+│   └── WhiskasModel2.py
+│       └── ... (25 more files)
+├── pulp/
+│   ├── apis/
+│   │   ├── __init__.py
+│   │   ├── choco_api.py
+│   │   ├── coin_api.py
+│   │   ├── copt_api.py
+│   │   ├── core.py
+│   │   ├── cplex_api.py
+│   │   ├── cuopt_api.py
+│   │   ├── glpk_api.py
+│   │   ├── gurobi_api.py
+│   │   ├── highs_api.py
+│   │   ├── mipcl_api.py
+│   │   ├── mosek_api.py
+│   │   ├── sas_api.py
+│   │   ├── scip_api.py
+│   │   └── xpress_api.py
+│   │       └── ... (10 more files)
+│   ├── solverdir/
+│   │   ├── cbc/
+│   │   │   ├── linux/
+│   │   │   ├── osx/
+│   │   │   ├── win/
+│   │   │   └── __init__.py
+│   │   └── __init__.py
+│   ├── tests/
+│   │   ├── __init__.py
+│   │   ├── bin_packing_problem.py
+│   │   ├── run_tests.py
+│   │   ├── test_examples.py
+│   │   ├── test_gurobipy_env.py
+│   │   ├── test_lpdot.py
+│   │   ├── test_pulp.py
+│   │   └── test_sparse.py
+│   │       └── ... (3 more files)
+│   ├── __init__.py
+│   ├── constants.py
+│   ├── mps_lp.py
+│   ├── pulp.py
+│   ├── sparse.py
+│   └── utilities.py
+│       └── ... (1 more files)
+├── .gitignore
+├── .pre-commit-config.yaml
+├── AUTHORS
+├── HISTORY
+├── LICENSE
+├── pyproject.toml
+└── README.rst
+    └── ... (2 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

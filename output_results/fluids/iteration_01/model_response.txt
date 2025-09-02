@@ -1,0 +1,9 @@
+```bash
+# Install dependencies from requirements.txt, requirements_test.txt, and requirements_test_multiarch.txt (to be thorough)
+pip install -r requirements.txt
+pip install -r requirements_test.txt
+pip install -r requirements_test_multiarch.txt || true
+
+# Run pytest and capture output for analysis
+pytest
+```

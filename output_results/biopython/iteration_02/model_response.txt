@@ -1,0 +1,21 @@
+The `pytest` output shows hundreds of errors, all of which are:
+
+```
+ModuleNotFoundError: No module named 'Bio'
+```
+
+This means the `Bio` package (the actual repo's source code) is not being found by Python when running tests. This is almost certainly because the package is not installed (the `pip install .` failed to build the wheel), and it wasn't installed in "editable" mode. Alternatively, the source tree layout may not be standard (`Bio` is a top-level directory, not inside `src/`), so we need to make sure `Bio` is importable.
+
+**Correct solution:**  
+Install the package in "editable" mode using `pip install -e .` (this will allow development and tests to find `Bio`). If that fails, add the project root to the `PYTHONPATH` for the current session.
+
+Also, since `pip install .` failed with wheel errors and warnings about the `setup.py`, let's try both editable install and, if needed, set `PYTHONPATH`.
+
+**Try `pip install -e .`, then run pytest.**
+
+```bash
+pip install --editable .
+pytest
+```
+
+If the error remains, I will set the `PYTHONPATH` and retry.

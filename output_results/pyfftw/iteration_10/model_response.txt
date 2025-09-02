@@ -1,0 +1,12 @@
+The main issue remains: `ModuleNotFoundError: No module named 'pyfftw.pyfftw'`. This is because the compiled extension (`pyfftw.pyfftw.so` or `.pyd`) is missing from the `pyfftw/` directory after the build.
+
+The build tools can find FFTW, but the extension isn't getting built, likely due to some missing Python dependencies. Let's check `pyproject.toml`, `requirements.txt`, and `setup.py` for required Python modules (especially Cython, numpy, setuptools, versioneer).
+
+Let’s install core build dependencies per best practice and try the build again.
+
+```bash
+pip install setuptools wheel numpy versioneer
+python setup.py build_ext --inplace
+ls pyfftw/ | grep pyfftw
+pytest
+```

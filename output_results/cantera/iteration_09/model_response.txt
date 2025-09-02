@@ -1,0 +1,23 @@
+The last command used was:
+```bash
+scons build python
+```
+But the error is:
+```
+ERROR: Unrecognized command line target: 'python'
+```
+This means the SCons script for this project does not accept `python` as a target in this way.
+
+### What to do next:
+Let's try running SCons with no target to see what default targets are available and whether it can build the Python extension by default.
+
+```bash
+scons
+```
+
+If this does not display useful output, try:
+```bash
+scons --help
+```
+
+After this, we can decide how to proceed with the environment setup before running `pytest`.

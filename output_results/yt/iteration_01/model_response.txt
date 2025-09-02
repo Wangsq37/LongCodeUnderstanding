@@ -1,0 +1,7 @@
+```bash
+pip install -r minimal_requirements.txt
+pip install -r requirements/docs.txt
+pip install -r requirements/typecheck.txt
+pip install -e .
+pytest
+```

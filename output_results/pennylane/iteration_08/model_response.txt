@@ -1,0 +1,7 @@
+The project's `pennylane` package explicitly requires Python >=3.11, but the current environment’s Python version is 3.10.12. All attempts to install the package in editable mode fail due to this version mismatch.
+
+As a result, the local tests cannot run against the correct codebase, and all subsequent collection or import errors from pytest will persist until Python >=3.11 is available.
+
+```status
+failed
+```

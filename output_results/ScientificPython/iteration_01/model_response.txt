@@ -1,0 +1,10 @@
+```bash
+# Step 1: Install dependencies from setup.py (if possible) and requirements (if any)
+pip install -e .
+
+# Try requirements-build.txt as well, often includes runtime deps
+pip install -r requirements-build.txt
+
+# Step 2: Run pytest -- check for missing imports or errors
+pytest
+```

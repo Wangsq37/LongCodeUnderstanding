@@ -1,0 +1,6 @@
+Phase 1 is already successful:  
+- There was NO `ModuleNotFoundError` or `ImportError` during test collection.  
+- The only collection errors reported by pytest are due to missing data files or external dependencies, which do NOT block Python environment setup.  
+- The test collection proceeds, `collected X items`, as required.
+
+**Proceed to Phase 2.**

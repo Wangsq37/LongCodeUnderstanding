@@ -1,0 +1,16 @@
+```bash
+# The error is: ModuleNotFoundError: No module named 'cantera._cantera'
+# This typically means the binary extension._cantera is missing (not built),
+# likely this package requires building Cython/C/C++ extensions 
+
+# Try to build the Cython extension module manually using setup.py.
+# (If pyproject.toml is present, but editable install sometimes misses binary .so builds.)
+pip install cython numpy  # common build dependencies
+
+cd interfaces/cython
+python setup.py build_ext --inplace
+cd ../..
+
+# Try pytest again, as the binary should now exist.
+pytest test/python
+```

@@ -1,0 +1,296 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── emscripten.yml
+│   │   ├── lint.yml
+│   │   ├── tests.yml
+│   │   └── wheel_tests_and_release.yml
+│   ├── dependabot.yml
+│   └── FUNDING.yml
+├── benchmarks/
+│   ├── benchmarks/
+│   │   ├── __init__.py
+│   │   ├── cwt_benchmarks.py
+│   │   ├── dwt_benchmarks.py
+│   │   └── swt_benchmarks.py
+│   ├── asv.conf.json
+│   └── README.rst
+├── demo/
+│   ├── _dwt_decompose.c
+│   ├── batch_processing.py
+│   ├── benchmark.py
+│   ├── cwt_analysis.py
+│   ├── dwt2_dwtn_image.py
+│   ├── dwt_signal_decomposition.py
+│   ├── dwt_swt_show_coeffs.py
+│   ├── fswavedecn.py
+│   ├── fswavedecn_mondrian.py
+│   ├── image_blender.py
+│   ├── mra2d.py
+│   ├── mra_vs_swt.py
+│   ├── plot_demo_signals.py
+│   ├── plot_wavelets.py
+│   ├── plot_wavelets_pyqtgraph.py
+│   ├── swt2.py
+│   ├── swt_variance.py
+│   ├── waveinfo.py
+│   ├── wp_2d.py
+│   ├── wp_nd.py
+│   ├── wp_scalogram.py
+│   └── wp_visualize_coeffs_distribution.py
+│       └── ... (17 more files)
+├── doc/
+│   ├── paper/
+│   │   ├── paper.bib
+│   │   └── paper.md
+│   ├── release/
+│   │   ├── 0.3.0-notes.rst
+│   │   ├── 0.4.0-notes.rst
+│   │   ├── 0.5.0-notes.rst
+│   │   ├── 0.5.1-notes.rst
+│   │   ├── 0.5.2-notes.rst
+│   │   ├── 1.0.0-notes.rst
+│   │   ├── 1.0.1-notes.rst
+│   │   ├── 1.0.2-notes.rst
+│   │   ├── 1.0.3-notes.rst
+│   │   ├── 1.1.0-notes.rst
+│   │   ├── 1.1.1-notes.rst
+│   │   ├── 1.2.0-notes.rst
+│   │   ├── 1.3.0-notes.rst
+│   │   ├── 1.4.0-notes.rst
+│   │   ├── 1.4.1-notes.rst
+│   │   ├── 1.5.0-notes.rst
+│   │   ├── 1.6.0-notes.rst
+│   │   ├── 1.7.0-notes.rst
+│   │   ├── 1.8.0-notes.rst
+│   │   └── 1.9.0-notes.rst
+│   │       └── ... (15 more files)
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── comments.png
+│   │   │   ├── favicon.ico
+│   │   │   ├── myst-nb.css
+│   │   │   ├── page_edit.png
+│   │   │   ├── pywavelets.css
+│   │   │   └── wave.png
+│   │   │       └── ... (1 more files)
+│   │   ├── dev/
+│   │   │   ├── conduct/
+│   │   │   ├── building_extension.rst
+│   │   │   ├── how_to_build_the_docs.rst
+│   │   │   ├── how_to_release.rst
+│   │   │   ├── index.rst
+│   │   │   ├── installing_build_dependencies.rst
+│   │   │   ├── preparing_linux_build_environment.rst
+│   │   │   ├── preparing_windows_build_environment.rst
+│   │   │   └── testing.rst
+│   │   │       └── ... (3 more files)
+│   │   ├── pyplots/
+│   │   │   ├── camera_approx_detail.py
+│   │   │   ├── cwt_scaling_demo.py
+│   │   │   ├── cwt_wavelet_frequency_bandwidth_demo.py
+│   │   │   ├── plot_2d_bases.py
+│   │   │   ├── plot_boundary_modes.py
+│   │   │   ├── plot_cwt_scaleogram.py
+│   │   │   ├── plot_mallat_2d.py
+│   │   │   ├── plot_thresholds.py
+│   │   │   └── plot_wavelets.py
+│   │   │       └── ... (4 more files)
+│   │   ├── ref/
+│   │   │   ├── 2d-decompositions-overview.rst
+│   │   │   ├── 2d-dwt-and-idwt.rst
+│   │   │   ├── cwt.rst
+│   │   │   ├── dwt-coefficient-handling.rst
+│   │   │   ├── dwt-discrete-wavelet-transform.rst
+│   │   │   ├── idwt-inverse-discrete-wavelet-transform.rst
+│   │   │   ├── index.rst
+│   │   │   ├── iswt-inverse-stationary-wavelet-transform.rst
+│   │   │   ├── mra.rst
+│   │   │   ├── nd-dwt-and-idwt.rst
+│   │   │   ├── other-functions.rst
+│   │   │   ├── signal-extension-modes.rst
+│   │   │   ├── swt-stationary-wavelet-transform.rst
+│   │   │   ├── thresholding-functions.rst
+│   │   │   ├── wavelet-packets.rst
+│   │   │   └── wavelets.rst
+│   │   │       └── ... (11 more files)
+│   │   ├── regression/
+│   │   │   ├── dwt-idwt.md
+│   │   │   ├── gotchas.md
+│   │   │   ├── header.md
+│   │   │   ├── index.rst
+│   │   │   ├── modes.md
+│   │   │   ├── multilevel.md
+│   │   │   ├── README.md
+│   │   │   ├── wavelet.md
+│   │   │   ├── wp.md
+│   │   │   └── wp2d.md
+│   │   │       └── ... (5 more files)
+│   │   ├── common_refs.rst
+│   │   ├── conf.py
+│   │   ├── contributing.rst
+│   │   ├── index.rst
+│   │   ├── install.rst
+│   │   ├── release.0.3.0.rst
+│   │   ├── release.0.4.0.rst
+│   │   ├── release.0.5.0.rst
+│   │   ├── release.0.5.1.rst
+│   │   ├── release.0.5.2.rst
+│   │   ├── release.1.0.0.rst
+│   │   ├── release.1.0.1.rst
+│   │   ├── release.1.0.2.rst
+│   │   ├── release.1.0.3.rst
+│   │   ├── release.1.1.0.rst
+│   │   ├── release.1.1.1.rst
+│   │   ├── release.1.2.0.rst
+│   │   ├── release.1.3.0.rst
+│   │   ├── release.1.4.0.rst
+│   │   ├── release.1.4.1.rst
+│   │   ├── release.1.5.0.rst
+│   │   ├── release.1.6.0.rst
+│   │   ├── release.1.7.0.rst
+│   │   ├── release.1.8.0.rst
+│   │   ├── release.1.9.0.rst
+│   │   ├── releasenotes.rst
+│   │   ├── substitutions.rst
+│   │   └── try_examples.json
+│   │       └── ... (23 more files)
+│   ├── doc2html.bat
+│   ├── make.bat
+│   └── Makefile
+├── licenses_bundled/
+│   ├── LICENSE_numpy.txt
+│   ├── LICENSE_scipy.txt
+│   └── README.txt
+├── pywt/
+│   ├── _extensions/
+│   │   ├── c/
+│   │   │   ├── common.c
+│   │   │   ├── common.h
+│   │   │   ├── convolution.c
+│   │   │   ├── convolution.h
+│   │   │   ├── convolution.template.c
+│   │   │   ├── convolution.template.h
+│   │   │   ├── cwt.c
+│   │   │   ├── cwt.h
+│   │   │   ├── cwt.template.c
+│   │   │   ├── cwt.template.h
+│   │   │   ├── templating.h
+│   │   │   ├── wavelets.c
+│   │   │   ├── wavelets.h
+│   │   │   ├── wavelets_coeffs.h
+│   │   │   ├── wavelets_coeffs.template.h
+│   │   │   ├── wt.c
+│   │   │   ├── wt.h
+│   │   │   ├── wt.template.c
+│   │   │   └── wt.template.h
+│   │   │       └── ... (14 more files)
+│   │   ├── __init__.py
+│   │   ├── _cwt.pxd
+│   │   ├── _cwt.pyx
+│   │   ├── _dwt.pxd
+│   │   ├── _dwt.pyx
+│   │   ├── _pywt.pxd
+│   │   ├── _pywt.pyx
+│   │   ├── _swt.pyx
+│   │   ├── c_wt.pxd
+│   │   ├── common.pxd
+│   │   ├── config.pxi.in
+│   │   ├── meson.build
+│   │   ├── wavelet.pxd
+│   │   └── wavelets_list.pxi
+│   │       └── ... (9 more files)
+│   ├── data/
+│   │   ├── __init__.py
+│   │   ├── _readers.py
+│   │   ├── _wavelab_signals.py
+│   │   ├── aero.npz
+│   │   ├── ascent.npz
+│   │   ├── camera.npz
+│   │   ├── ecg.npz
+│   │   └── sst_nino3.npz
+│   │       └── ... (3 more files)
+│   ├── tests/
+│   │   ├── data/
+│   │   │   ├── cwt_matlabR2015b_result.npz
+│   │   │   ├── dwt_matlabR2012a_result.npz
+│   │   │   ├── generate_matlab_data.py
+│   │   │   ├── generate_matlab_data_cwt.py
+│   │   │   └── wavelab_test_signals.npz
+│   │   ├── test__pywt.py
+│   │   ├── test_concurrent.py
+│   │   ├── test_cwt_wavelets.py
+│   │   ├── test_data.py
+│   │   ├── test_deprecations.py
+│   │   ├── test_doc.py
+│   │   ├── test_dwt_idwt.py
+│   │   ├── test_functions.py
+│   │   ├── test_matlab_compatibility.py
+│   │   ├── test_matlab_compatibility_cwt.py
+│   │   ├── test_modes.py
+│   │   ├── test_mra.py
+│   │   ├── test_multidim.py
+│   │   ├── test_multilevel.py
+│   │   ├── test_perfect_reconstruction.py
+│   │   ├── test_swt.py
+│   │   ├── test_thresholding.py
+│   │   ├── test_wavelet.py
+│   │   ├── test_wp.py
+│   │   ├── test_wp2d.py
+│   │   └── test_wpnd.py
+│   │       └── ... (16 more files)
+│   ├── __init__.py
+│   ├── _c99_config.py.in
+│   ├── _cwt.py
+│   ├── _doc_utils.py
+│   ├── _dwt.py
+│   ├── _functions.py
+│   ├── _mra.py
+│   ├── _multidim.py
+│   ├── _multilevel.py
+│   ├── _pytest.py
+│   ├── _pytesttester.py
+│   ├── _swt.py
+│   ├── _thresholding.py
+│   ├── _utils.py
+│   ├── _wavelet_packets.py
+│   ├── conftest.py
+│   └── meson.build
+│       └── ... (12 more files)
+├── util/
+│   ├── readthedocs/
+│   │   └── requirements.txt
+│   ├── authors.py
+│   ├── create_dat.py
+│   ├── gh_lists.py
+│   └── version_utils.py
+├── .coveragerc
+├── .git-blame-ignore-revs
+├── .gitignore
+├── .mailmap
+├── .pre-commit-config.yaml
+├── .readthedocs.yaml
+├── appveyor.yml
+├── community_guidelines.rst
+├── CONTRIBUTING.rst
+├── LICENSE
+├── meson.build
+├── pyproject.toml
+├── pytest.ini
+├── README.rst
+└── tox.ini
+    └── ... (10 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

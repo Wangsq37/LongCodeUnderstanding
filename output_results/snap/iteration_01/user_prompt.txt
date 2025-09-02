@@ -1,0 +1,1376 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── contrib/
+│   ├── unict_univr-risnap/
+│   │   ├── RI-DSToSnap/
+│   │   │   ├── LICENSE
+│   │   │   ├── Makefile
+│   │   │   ├── rids.h
+│   │   │   ├── risnapds.cpp
+│   │   │   └── timer.h
+│   │   ├── RiToSnap/
+│   │   │   ├── LICENSE
+│   │   │   ├── Makefile
+│   │   │   ├── rinetmatch.h
+│   │   │   ├── risnap.cpp
+│   │   │   └── timer.h
+│   │   ├── Makefile
+│   │   ├── query.snap
+│   │   ├── ReadMe.txt
+│   │   └── reference.snap
+│   └── ReadMe.txt
+├── doxygen/
+│   ├── doxyblock.py
+│   ├── Doxyfile-dev
+│   ├── Doxyfile-user
+│   └── Makefile
+├── examples/
+│   ├── agmfit/
+│   │   ├── agmfit.vcxproj
+│   │   ├── agmfitmain.cpp
+│   │   ├── football.edgelist
+│   │   ├── football.labels
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── agmgen/
+│   │   ├── agmgen.cpp
+│   │   ├── agmgen.vcproj
+│   │   ├── agmgen.vcxproj
+│   │   ├── community_affiliations.txt
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── bigclam/
+│   │   ├── bigclam.cpp
+│   │   ├── bigclam.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (3 more files)
+│   ├── cascadegen/
+│   │   ├── cascadegen.cpp
+│   │   ├── cascadegen.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── reality.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── cascades/
+│   │   ├── cascades.cpp
+│   │   ├── cascades.vcproj
+│   │   ├── cascades.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── centrality/
+│   │   ├── centrality.cpp
+│   │   ├── centrality.vcproj
+│   │   ├── centrality.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── cesna/
+│   │   ├── 1912.edges
+│   │   ├── 1912.nodefeat
+│   │   ├── 1912.nodefeatnames
+│   │   ├── cesna.cpp
+│   │   ├── cesna.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (6 more files)
+│   ├── circles/
+│   │   ├── circles.cpp
+│   │   ├── circles.vcxproj
+│   │   ├── fb1.circles
+│   │   ├── fb1.edges
+│   │   ├── fb1.feat
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── cliques/
+│   │   ├── cliques.vcproj
+│   │   ├── cliques.vcxproj
+│   │   ├── cliquesmain.cpp
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── coda/
+│   │   ├── coda.cpp
+│   │   ├── coda.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (3 more files)
+│   ├── community/
+│   │   ├── community.cpp
+│   │   ├── community.vcproj
+│   │   ├── community.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── concomp/
+│   │   ├── concomp.cpp
+│   │   ├── concomp.vcproj
+│   │   ├── concomp.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── flows/
+│   │   ├── flows.cpp
+│   │   ├── flows.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── small_sample.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── forestfire/
+│   │   ├── forestfire.cpp
+│   │   ├── forestfire.vcproj
+│   │   ├── forestfire.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── graphgen/
+│   │   ├── graphgen.cpp
+│   │   ├── graphgen.vcproj
+│   │   ├── graphgen.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── graphhash/
+│   │   ├── graphhash.cpp
+│   │   ├── graphhash.vcproj
+│   │   ├── graphhash.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── hysgen/
+│   │   ├── synthetic_data/
+│   │   │   ├── ground_truth_comms.txt
+│   │   │   ├── synthetic.description
+│   │   │   ├── synthetic.edges
+│   │   │   └── synthetic.hyperedges
+│   │   ├── .gitignore
+│   │   ├── hysgen_main.cpp
+│   │   ├── LICENSE
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── README.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── infopath/
+│   │   ├── example-cascades.txt
+│   │   ├── example-network.txt
+│   │   ├── generate_nets.cpp
+│   │   ├── infopath.cpp
+│   │   ├── infopath.vcproj
+│   │   ├── infopath.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (7 more files)
+│   ├── kcores/
+│   │   ├── kcores.cpp
+│   │   ├── kcores.vcproj
+│   │   ├── kcores.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── knnjaccardsim/
+│   │   ├── knnjaccardsim.cpp
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── reality.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (3 more files)
+│   ├── kronem/
+│   │   ├── kronem.cpp
+│   │   ├── kronem.vcproj
+│   │   ├── kronem.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── kronfit/
+│   │   ├── kronfit.cpp
+│   │   ├── kronfit.vcproj
+│   │   ├── kronfit.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── krongen/
+│   │   ├── krongen.cpp
+│   │   ├── krongen.vcproj
+│   │   ├── krongen.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── localmotifcluster/
+│   │   ├── C-elegans-frontal.txt
+│   │   ├── localmotifclustermain.cpp
+│   │   ├── localmotifclustermain.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── lshtest/
+│   │   ├── lshtest.cpp
+│   │   ├── Makefile
+│   │   └── Makefile.ex
+│   ├── magfit/
+│   │   ├── init.config
+│   │   ├── magfit.cpp
+│   │   ├── magfit.vcproj
+│   │   ├── magfit.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── maggen/
+│   │   ├── mag.config
+│   │   ├── maggen.cpp
+│   │   ├── maggen.vcproj
+│   │   ├── maggen.vcxproj
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── mkdatasets/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── mkdatasets.cpp
+│   │   ├── mkdatasets.vcproj
+│   │   ├── mkdatasets.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── motifcluster/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── motifclustermain.cpp
+│   │   ├── motifclustermain.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (3 more files)
+│   ├── motifs/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── motifs.cpp
+│   │   ├── motifs.vcproj
+│   │   ├── motifs.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── ncpplot/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ncpplot.cpp
+│   │   ├── ncpplot.vcproj
+│   │   ├── ncpplot.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── netevol/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── netevol.cpp
+│   │   ├── netevol.vcproj
+│   │   ├── netevol.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── netinf/
+│   │   ├── example-cascades.txt
+│   │   ├── example-network.txt
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── netinf.cpp
+│   │   ├── netinf.vcproj
+│   │   ├── netinf.vcxproj
+│   │   ├── network-edge.info
+│   │   ├── network.txt
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (8 more files)
+│   ├── netstat/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── netstat.cpp
+│   │   ├── netstat.vcproj
+│   │   ├── netstat.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── node2vec/
+│   │   ├── emb/
+│   │   │   └── karate.emb
+│   │   ├── graph/
+│   │   │   └── karate.edgelist
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── node2vec.cpp
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (2 more files)
+│   ├── randwalk/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── randwalk.cpp
+│   │   ├── randwalk.vcproj
+│   │   ├── randwalk.vcxproj
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── rolx/
+│   │   ├── graph.txt
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── rolx.vcxproj
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   ├── targetver.h
+│   │   └── testrolx.cpp
+│   │       └── ... (4 more files)
+│   ├── snap-examples.xcodeproj/
+│   │   ├── project.xcworkspace/
+│   │   │   └── contents.xcworkspacedata
+│   │   └── project.pbxproj
+│   ├── temporalmotifs/
+│   │   ├── example-temporal-graph.txt
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   ├── targetver.h
+│   │   ├── temporalmotifsmain.cpp
+│   │   └── temporalmotifsmain.vcxproj
+│   │       └── ... (4 more files)
+│   ├── testgraph/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   ├── targetver.h
+│   │   ├── testgraph.cpp
+│   │   ├── testgraph.vcproj
+│   │   └── testgraph.vcxproj
+│   │       └── ... (4 more files)
+│   ├── XcodeTest/
+│   │   ├── XcodeTest/
+│   │   │   ├── main.cpp
+│   │   │   └── sample.1
+│   │   └── XcodeTest.xcodeproj/
+│   │       └── project.pbxproj
+│   ├── zygote/
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   ├── targetver.h
+│   │   └── zydemo.cpp
+│   │       └── ... (2 more files)
+│   ├── .gitignore
+│   ├── as20graph.txt
+│   ├── Makefile
+│   ├── Makefile.exmain
+│   ├── ReadMe.txt
+│   ├── SnapExamples-VS10.sln
+│   └── SnapExamples-VS19.sln
+│       └── ... (2 more files)
+├── glib-adv/
+│   ├── acquis.cpp
+│   ├── acquis.h
+│   ├── adox.cpp
+│   ├── adox.h
+│   ├── aest.cpp
+│   ├── aest.h
+│   ├── amazon.cpp
+│   ├── amazon.h
+│   ├── appsrv.cpp
+│   ├── appsrv.h
+│   ├── bde.cpp
+│   ├── bde.h
+│   ├── biling.cpp
+│   ├── biling.h
+│   ├── bix.cpp
+│   ├── bix.h
+│   ├── book.cpp
+│   ├── book.h
+│   ├── bowactlearn.cpp
+│   ├── bowactlearn.h
+│   ├── bowbs.cpp
+│   ├── bowbs.h
+│   ├── bowclust.cpp
+│   ├── bowclust.h
+│   ├── bowfl.cpp
+│   ├── bowfl.h
+│   ├── bowflx.cpp
+│   ├── bowflx.h
+│   ├── bowlearn.cpp
+│   ├── bowlearn.h
+│   ├── bowlinalg.cpp
+│   ├── bowlinalg.h
+│   ├── bowmatrix.cpp
+│   ├── bowmatrix.h
+│   ├── bowmd.cpp
+│   ├── bowmd.h
+│   ├── btalarms.cpp
+│   ├── btalarms.h
+│   ├── btaserver.cpp
+│   ├── btaServer.h
+│   ├── cache.h
+│   ├── casino.cpp
+│   ├── casino.h
+│   ├── ccar.cpp
+│   ├── ccar.h
+│   ├── cfyres.cpp
+│   ├── cfyres.h
+│   ├── cgi.cpp
+│   ├── cgi.h
+│   ├── ciawfb.cpp
+│   ├── ciawfb.h
+│   ├── conjgrad.h
+│   ├── cordis.cpp
+│   ├── cordis.h
+│   ├── corrgr.cpp
+│   ├── corrgr.h
+│   ├── cpdoc.cpp
+│   ├── cpdoc.h
+│   ├── crawler.cpp
+│   ├── crawler.h
+│   ├── cyc.cpp
+│   ├── cyc.h
+│   ├── dm.cpp
+│   ├── dm.h
+│   ├── dmhd.cpp
+│   ├── dmhd.h
+│   ├── dmine.cpp
+│   ├── dmine.h
+│   ├── dmoz.cpp
+│   ├── dmoz.h
+│   ├── dnet.cpp
+│   ├── dnet.h
+│   ├── dzs.cpp
+│   ├── dzs.h
+│   ├── email.cpp
+│   ├── email.h
+│   ├── euproj.cpp
+│   ├── euproj.h
+│   ├── exset.cpp
+│   ├── exset.h
+│   ├── fa.cpp
+│   ├── fa.h
+│   ├── flx.cpp
+│   ├── flx.h
+│   ├── ftrgen.cpp
+│   ├── ftrgen.h
+│   ├── geoip.cpp
+│   ├── geoip.h
+│   ├── gix.cpp
+│   ├── gix.h
+│   ├── gks.cpp
+│   ├── gks.h
+│   ├── gksmfc.cpp
+│   ├── gksmfc.h
+│   ├── gksvcl.cpp
+│   ├── gksvcl.h
+│   ├── gksvml.cpp
+│   ├── gksvml.h
+│   ├── gkswf.cpp
+│   ├── gkswf.h
+│   ├── google.cpp
+│   ├── google.h
+│   ├── googlex.cpp
+│   ├── googlex.h
+│   ├── graph.cpp
+│   ├── graph.h
+│   ├── gridvcl.cpp
+│   ├── gridvcl.h
+│   ├── gsearch.cpp
+│   ├── gsearch.h
+│   ├── guid.cpp
+│   ├── guid.h
+│   ├── hashgenericmp.h
+│   ├── hc.cpp
+│   ├── hc.h
+│   ├── hldoc.cpp
+│   ├── hldoc.h
+│   ├── infonet.cpp
+│   ├── infonet.h
+│   ├── kernelmethods.cpp
+│   ├── kernelmethods.h
+│   ├── logreg.cpp
+│   ├── logreg.h
+│   ├── lsionto.cpp
+│   ├── lsionto.h
+│   ├── Makefile
+│   ├── md.cpp
+│   ├── md.h
+│   ├── mdtr.cpp
+│   ├── mdtr.h
+│   ├── medline.cpp
+│   ├── medline.h
+│   ├── mg.cpp
+│   ├── mg.h
+│   ├── mindset.h
+│   ├── mine.cpp
+│   ├── mine.h
+│   ├── mkcca.cpp
+│   ├── mkcca.h
+│   ├── mte.cpp
+│   ├── mte.h
+│   ├── mtr.cpp
+│   ├── mtr.h
+│   ├── net.cpp
+│   ├── net.h
+│   ├── netobj.cpp
+│   ├── netobj.h
+│   ├── nlpwinlf.cpp
+│   ├── nlpwinlf.h
+│   ├── nmen.cpp
+│   ├── nmen.h
+│   ├── nmobj.cpp
+│   ├── nmobj.h
+│   ├── nntp.cpp
+│   ├── nntp.h
+│   ├── nyta.cpp
+│   ├── nyta.h
+│   ├── nytngrams.cpp
+│   ├── nytngrams.h
+│   ├── odbc.cpp
+│   ├── odbc.h
+│   ├── ontolight.cpp
+│   ├── ontolight.h
+│   ├── pest.cpp
+│   ├── pest.h
+│   ├── phrase.cpp
+│   ├── phrase.h
+│   ├── pi.cpp
+│   ├── pi.h
+│   ├── postag.cpp
+│   ├── postag.h
+│   ├── prolog.cpp
+│   ├── prolog.h
+│   ├── prologparser.cpp
+│   ├── prologparser.h
+│   ├── proxy.cpp
+│   ├── proxy.h
+│   ├── pww.cpp
+│   ├── rdbms.cpp
+│   ├── rdbms.h
+│   ├── roget.cpp
+│   ├── roget.h
+│   ├── sappsrv.cpp
+│   ├── sappsrv.h
+│   ├── sch.cpp
+│   ├── sch.h
+│   ├── semspace.cpp
+│   ├── semspace.h
+│   ├── sgraph.cpp
+│   ├── sgraph.h
+│   ├── skygrid.cpp
+│   ├── skygrid.h
+│   ├── smtp.cpp
+│   ├── smtp.h
+│   ├── soap.cpp
+│   ├── soap.h
+│   ├── sock-new.cpp
+│   ├── sock-new.h
+│   ├── sock.cpp
+│   ├── sock.h
+│   ├── sqlite3.c
+│   ├── sqlite3.h
+│   ├── sqlitedb.cpp
+│   ├── sqlitedb.h
+│   ├── ssch.cpp
+│   ├── ssch.h
+│   ├── sskj.cpp
+│   ├── sskj.h
+│   ├── ssql.cpp
+│   ├── ssql.h
+│   ├── ssqldm.cpp
+│   ├── ssqldm.h
+│   ├── stemming.cpp
+│   ├── stemming.h
+│   ├── stopword.cpp
+│   ├── stopword.h
+│   ├── strkernel.cpp
+│   ├── strkernel.h
+│   ├── strut.cpp
+│   ├── strut.h
+│   ├── subprocess.cpp
+│   ├── subprocess.h
+│   ├── svmbasic.cpp
+│   ├── svmbasic.h
+│   ├── svmmodels.cpp
+│   ├── svmmodels.h
+│   ├── svmPrLoqo.cpp
+│   ├── svmPrLoqo.h
+│   ├── tagcloud.cpp
+│   ├── tagcloud.h
+│   ├── tb.cpp
+│   ├── tb.h
+│   ├── tbhc.cpp
+│   ├── tbhc.h
+│   ├── tbval.cpp
+│   ├── tbval.h
+│   ├── term.cpp
+│   ├── term.h
+│   ├── testBase.cpp
+│   ├── tmine.cpp
+│   ├── tmine.h
+│   ├── tnt.cpp
+│   ├── tnt.h
+│   ├── tql.cpp
+│   ├── tql.h
+│   ├── ts.cpp
+│   ├── ts.h
+│   ├── txtbs.cpp
+│   ├── txtbs.h
+│   ├── ultra.cpp
+│   ├── ultra.h
+│   ├── valds.cpp
+│   ├── valds.h
+│   ├── valret.cpp
+│   ├── valret.h
+│   ├── vizmap.cpp
+│   ├── vizmap.h
+│   ├── vizmapgks.cpp
+│   ├── vizmapgks.h
+│   ├── wbmp.cpp
+│   ├── wbmp.h
+│   ├── webbsfetch.cpp
+│   ├── webbsfetch.h
+│   ├── webmb.cpp
+│   ├── webmb.h
+│   ├── webnetobj.cpp
+│   ├── webnetobj.h
+│   ├── webold.cpp
+│   ├── webold.h
+│   ├── webpgfetch.cpp
+│   ├── webpgfetch.h
+│   ├── websrv.cpp
+│   ├── websrv.h
+│   ├── webtrv.cpp
+│   ├── webtrv.h
+│   ├── webtxtbs.cpp
+│   ├── webtxtbs.h
+│   ├── wikipedia.cpp
+│   ├── wikipedia.h
+│   ├── wix.cpp
+│   ├── wix.h
+│   ├── wixexp.cpp
+│   ├── wixexp.h
+│   ├── wmine.cpp
+│   ├── wmine.h
+│   ├── wordco.cpp
+│   ├── wordco.h
+│   ├── wordnet.cpp
+│   ├── wordnet.h
+│   ├── xql.cpp
+│   ├── xql.h
+│   ├── yahoobs.cpp
+│   ├── yahoobs.h
+│   ├── yahoodm.cpp
+│   ├── yahoodm.h
+│   ├── yahooex.cpp
+│   ├── yahooex.h
+│   ├── zipcode.cpp
+│   └── zipcode.h
+│       └── ... (294 more files)
+├── glib-core/
+│   ├── doc/
+│   │   ├── bd.h.txt
+│   │   ├── ds.h.txt
+│   │   ├── ss.h.txt
+│   │   └── ssmp.h.txt
+│   ├── base.cpp
+│   ├── base.h
+│   ├── bd.cpp
+│   ├── bd.h
+│   ├── bits.cpp
+│   ├── bits.h
+│   ├── blobbs.cpp
+│   ├── blobbs.h
+│   ├── ds.h
+│   ├── dt.cpp
+│   ├── dt.h
+│   ├── env.cpp
+│   ├── env.h
+│   ├── fl.cpp
+│   ├── fl.h
+│   ├── gnuplot.cpp
+│   ├── gnuplot.h
+│   ├── hash.cpp
+│   ├── hash.h
+│   ├── hashmp.h
+│   ├── html.cpp
+│   ├── html.h
+│   ├── http.cpp
+│   ├── http.h
+│   ├── json.cpp
+│   ├── json.h
+│   ├── linalg.cpp
+│   ├── linalg.h
+│   ├── lx.cpp
+│   ├── lx.h
+│   ├── md5.cpp
+│   ├── md5.h
+│   ├── os.cpp
+│   ├── os.h
+│   ├── priorityqueue.h
+│   ├── shash.h
+│   ├── ss.cpp
+│   ├── ss.h
+│   ├── ssmp.cpp
+│   ├── ssmp.h
+│   ├── stdafx.h
+│   ├── tm.cpp
+│   ├── tm.h
+│   ├── unicode.cpp
+│   ├── unicode.h
+│   ├── unicodestring.cpp
+│   ├── unicodestring.h
+│   ├── url.cpp
+│   ├── url.h
+│   ├── ut.cpp
+│   ├── ut.h
+│   ├── wch.cpp
+│   ├── wch.h
+│   ├── xfl.cpp
+│   ├── xfl.h
+│   ├── xmath.cpp
+│   ├── xmath.h
+│   ├── xml.cpp
+│   ├── xml.h
+│   ├── xmlser.h
+│   ├── zipfl.cpp
+│   └── zipfl.h
+│       └── ... (57 more files)
+├── snap-adv/
+│   ├── doc/
+│   │   └── ncp.h.txt
+│   ├── agm.cpp
+│   ├── agm.h
+│   ├── agmattr.cpp
+│   ├── agmattr.h
+│   ├── agmdirected.cpp
+│   ├── agmdirected.h
+│   ├── agmfast.cpp
+│   ├── agmfast.h
+│   ├── agmfit.cpp
+│   ├── agmfit.h
+│   ├── biasedrandomwalk.cpp
+│   ├── biasedrandomwalk.h
+│   ├── cascdynetinf.cpp
+│   ├── cascdynetinf.h
+│   ├── cascnetinf.cpp
+│   ├── cascnetinf.h
+│   ├── circles.h
+│   ├── cliques.cpp
+│   ├── cliques.h
+│   ├── graphcounter.cpp
+│   ├── graphcounter.h
+│   ├── hysgen.cpp
+│   ├── hysgen.h
+│   ├── kronecker.cpp
+│   ├── kronecker.h
+│   ├── localmotifcluster.cpp
+│   ├── localmotifcluster.h
+│   ├── mag.cpp
+│   ├── mag.h
+│   ├── motifcluster.cpp
+│   ├── motifcluster.h
+│   ├── n2v.cpp
+│   ├── n2v.h
+│   ├── ncp.cpp
+│   ├── ncp.h
+│   ├── rolx.cpp
+│   ├── rolx.h
+│   ├── subgraphenum.cpp
+│   ├── subgraphenum.h
+│   ├── temporalmotifs.cpp
+│   ├── temporalmotifs.h
+│   ├── word2vec.cpp
+│   └── word2vec.h
+│       └── ... (38 more files)
+├── snap-core/
+│   ├── doc/
+│   │   ├── bfsdfs.h.txt
+│   │   ├── bignet.h.txt
+│   │   ├── cncom.h.txt
+│   │   ├── flow.cpp.txt
+│   │   ├── flow.h.txt
+│   │   ├── gbase.h.txt
+│   │   ├── ghash.h.txt
+│   │   ├── gio.h.txt
+│   │   ├── graph.h.txt
+│   │   ├── graphmp.h.txt
+│   │   ├── gviz.h.txt
+│   │   ├── mmnet.h.txt
+│   │   ├── network.h.txt
+│   │   ├── networkmp.h.txt
+│   │   ├── Snap.h.txt
+│   │   ├── subgraph.h.txt
+│   │   ├── table.h.txt
+│   │   ├── triad.h.txt
+│   │   └── util.h.txt
+│   │       └── ... (14 more files)
+│   ├── snap-core.xcodeproj/
+│   │   └── project.pbxproj
+│   ├── alg.cpp
+│   ├── alg.h
+│   ├── anf.cpp
+│   ├── anf.h
+│   ├── attr.cpp
+│   ├── attr.h
+│   ├── bfsdfs.h
+│   ├── bignet.h
+│   ├── casc.cpp
+│   ├── casc.h
+│   ├── centr.cpp
+│   ├── centr.h
+│   ├── cmty.cpp
+│   ├── cmty.h
+│   ├── cncom.cpp
+│   ├── cncom.h
+│   ├── conv.cpp
+│   ├── conv.h
+│   ├── coreper.cpp
+│   ├── coreper.h
+│   ├── ff.cpp
+│   ├── ff.h
+│   ├── flow.cpp
+│   ├── flow.h
+│   ├── gbase.cpp
+│   ├── gbase.h
+│   ├── ggen.cpp
+│   ├── ggen.h
+│   ├── ghash.cpp
+│   ├── ghash.h
+│   ├── gio.cpp
+│   ├── gio.h
+│   ├── graph.cpp
+│   ├── graph.h
+│   ├── graph.txt
+│   ├── graphmp.cpp
+│   ├── graphmp.h
+│   ├── gstat.cpp
+│   ├── gstat.h
+│   ├── gsvd.cpp
+│   ├── gsvd.h
+│   ├── gviz.cpp
+│   ├── gviz.h
+│   ├── kcore.h
+│   ├── Makefile
+│   ├── mmnet.cpp
+│   ├── mmnet.h
+│   ├── network.cpp
+│   ├── network.h
+│   ├── networkmp.cpp
+│   ├── networkmp.h
+│   ├── numpy.cpp
+│   ├── numpy.h
+│   ├── randwalk.h
+│   ├── sim.cpp
+│   ├── sim.h
+│   ├── Snap.cpp
+│   ├── Snap.h
+│   ├── statplot.cpp
+│   ├── statplot.h
+│   ├── stdafx.h
+│   ├── subgraph.cpp
+│   ├── subgraph.h
+│   ├── table.cpp
+│   ├── table.h
+│   ├── testSnap.cpp
+│   ├── timenet.cpp
+│   ├── timenet.h
+│   ├── triad.cpp
+│   ├── triad.h
+│   ├── util.cpp
+│   └── util.h
+│       └── ... (67 more files)
+├── snap-exp/
+│   ├── bfs-dev/
+│   │   ├── .gitignore
+│   │   ├── bfs-dev.h
+│   │   ├── bfs-hybrid-test.h
+│   │   ├── bfs-hybrid.h
+│   │   ├── bfs-parallel.h
+│   │   ├── bfs-vector.h
+│   │   ├── getScc.cpp
+│   │   ├── livejournal.cpp
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── Makefile.exmain
+│   │   ├── microsoft.cpp
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   ├── targetver.h
+│   │   ├── test.cpp
+│   │   ├── test1.cpp
+│   │   ├── test_parallel.cpp
+│   │   └── twitter.cpp
+│   │       └── ... (14 more files)
+│   ├── cascades-benchmark/
+│   │   ├── baseline.cpp
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── reality.txt
+│   │   ├── sortSource.cpp
+│   │   ├── sortTime.cpp
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (5 more files)
+│   ├── cascades-dev/
+│   │   ├── devBaseline.cpp
+│   │   ├── devBaselineTop.cpp
+│   │   ├── devGraph_v1.2.cpp
+│   │   ├── devSort_v1.4.cpp
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── ReadMe.txt
+│   │   ├── reality.txt
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (6 more files)
+│   ├── circles/
+│   │   ├── circles.cpp
+│   │   ├── circles.h
+│   │   ├── fb1.edges
+│   │   ├── fb1.features
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   └── targetver.h
+│   │       └── ... (4 more files)
+│   ├── multimodal-dev/
+│   │   ├── benchmark-TNEANet-unweighted.cpp
+│   │   ├── benchmark-TNEANet-weighted.cpp
+│   │   ├── benchmark-unweighted.cpp
+│   │   ├── benchmark-util.cpp
+│   │   ├── benchmark-weighted.cpp
+│   │   ├── benchmark.cpp
+│   │   ├── delete-exp.cpp
+│   │   ├── graph-construct-exp.cpp
+│   │   ├── Makefile
+│   │   ├── Makefile.ex
+│   │   ├── multimodal.cpp
+│   │   ├── rand-construct-exp.cpp
+│   │   ├── stdafx.cpp
+│   │   ├── stdafx.h
+│   │   ├── subgraph-exp.cpp
+│   │   ├── targetver.h
+│   │   └── triad-exp.cpp
+│   │       └── ... (12 more files)
+│   ├── test-dev/
+│   │   ├── tests/
+│   │   │   ├── animals.txt
+│   │   │   ├── buildings.txt
+│   │   │   ├── grades.txt
+│   │   │   ├── loc.txt
+│   │   │   ├── more_animals.txt
+│   │   │   ├── places.txt
+│   │   │   ├── products.txt
+│   │   │   └── votes.txt
+│   │   │       └── ... (3 more files)
+│   │   ├── AggrTest.cpp
+│   │   ├── ArithOpsTest.cpp
+│   │   ├── Benchmark.cpp
+│   │   ├── BenchmarkAshton.cpp
+│   │   ├── BenchmarkUtilities.h
+│   │   ├── ConvBenchmark.cpp
+│   │   ├── ConvBenchmarkMP.cpp
+│   │   ├── Engine.cpp
+│   │   ├── Engine.h
+│   │   ├── ExplicitStringTableTest1.cpp
+│   │   ├── ExplicitStringTableTest2.cpp
+│   │   ├── ExplicitStringTableTest3.cpp
+│   │   ├── ExplicitStringTableTest4.cpp
+│   │   ├── ExplicitStringTableTest5.cpp
+│   │   ├── ExplicitStringTableTest6.cpp
+│   │   ├── FilterTest.cpp
+│   │   ├── GraphOperationsTest.cpp
+│   │   ├── GroupTest.cpp
+│   │   ├── HashtagGraphTest.cpp
+│   │   ├── IdTest.cpp
+│   │   ├── LoadTest.cpp
+│   │   ├── Makefile
+│   │   ├── MemoryAllocTest.cpp
+│   │   ├── ParallelGroupByTest.cpp
+│   │   ├── ParGroupAggrTest.cpp
+│   │   ├── ParJoinTest.cpp
+│   │   ├── ParLargeGraph.cpp
+│   │   ├── ParSelect2Test.cpp
+│   │   ├── ParSelectTest.cpp
+│   │   ├── ParToGraphTest.cpp
+│   │   ├── PhysicalOrderSortTest1.cpp
+│   │   ├── PhysicalOrderSortTest2.cpp
+│   │   ├── PredicateTest.cpp
+│   │   ├── SetOperationsTest.cpp
+│   │   ├── SimJoinPerGroupTest.cpp
+│   │   ├── SimJoinTest.cpp
+│   │   ├── TableAttributeTest.cpp
+│   │   ├── TableIndexTest.cpp
+│   │   ├── TablePageRank.cpp
+│   │   ├── TableTest.cpp
+│   │   ├── TableTest1.cpp
+│   │   ├── testPageRank.cpp
+│   │   ├── testTriangleCount.cpp
+│   │   ├── ToGraphSeqTest.cpp
+│   │   └── ToGraphTest.cpp
+│   │       └── ... (40 more files)
+│   ├── alternativetable.cpp
+│   ├── alternativetable.h
+│   ├── arxiv.cpp
+│   ├── arxiv.h
+│   ├── centr-exp.cpp
+│   ├── centr-exp.h
+│   ├── dblp.cpp
+│   ├── dblp.h
+│   ├── graphmp-exp.h
+│   ├── imdbnet.cpp
+│   ├── imdbnet.h
+│   ├── linkpred.cpp
+│   ├── linkpred.h
+│   ├── lsh.cpp
+│   ├── lsh.h
+│   ├── Makefile.exmain
+│   ├── memenet.cpp
+│   ├── memenet.h
+│   ├── memes.cpp
+│   ├── memes.h
+│   ├── mmgraph-exp.cpp
+│   ├── mmgraph-exp.h
+│   ├── mxdag.cpp
+│   ├── mxdag.h
+│   ├── signnet.cpp
+│   ├── signnet.h
+│   ├── sir.cpp
+│   ├── sir.h
+│   ├── spinn3r.cpp
+│   ├── spinn3r.h
+│   ├── trawling.cpp
+│   ├── trawling.h
+│   ├── wgtnet.cpp
+│   ├── wgtnet.h
+│   ├── wikinet.cpp
+│   └── wikinet.h
+│       └── ... (31 more files)
+├── test/
+│   ├── bfsdfs/
+│   │   ├── sample_bfsdfs_ngraph.txt
+│   │   ├── sample_bfsdfs_power.txt
+│   │   └── sample_bfsdfs_unpower.txt
+│   ├── cncom/
+│   │   ├── sample_cncom_ngraph.txt
+│   │   └── sample_cncom_unpower.txt
+│   ├── flow/
+│   │   └── small_sample.txt
+│   ├── graphviz/
+│   │   ├── base_ngraph_Circo.dot
+│   │   ├── base_ngraph_Circo.png
+│   │   ├── base_ngraph_Circo.ps
+│   │   ├── base_ngraph_Circo_col.dot
+│   │   ├── base_ngraph_Circo_col.png
+│   │   ├── base_ngraph_Circo_col.ps
+│   │   ├── base_ngraph_Dot.dot
+│   │   ├── base_ngraph_Dot.png
+│   │   ├── base_ngraph_Dot.ps
+│   │   ├── base_ngraph_Dot_col.dot
+│   │   ├── base_ngraph_Dot_col.png
+│   │   ├── base_ngraph_Dot_col.ps
+│   │   ├── base_ngraph_Neato.dot
+│   │   ├── base_ngraph_Neato.png
+│   │   ├── base_ngraph_Neato.ps
+│   │   ├── base_ngraph_Neato_col.dot
+│   │   ├── base_ngraph_Neato_col.png
+│   │   ├── base_ngraph_Neato_col.ps
+│   │   ├── base_ngraph_Twopi.dot
+│   │   ├── base_ngraph_Twopi.png
+│   │   ├── base_ngraph_Twopi.ps
+│   │   ├── base_ngraph_Twopi_col.dot
+│   │   ├── base_ngraph_Twopi_col.png
+│   │   ├── base_ngraph_Twopi_col.ps
+│   │   ├── base_ungraph_Circo.dot
+│   │   ├── base_ungraph_Circo.png
+│   │   ├── base_ungraph_Circo.ps
+│   │   ├── base_ungraph_Circo_col.dot
+│   │   ├── base_ungraph_Circo_col.png
+│   │   ├── base_ungraph_Circo_col.ps
+│   │   ├── base_ungraph_Dot.dot
+│   │   ├── base_ungraph_Dot.png
+│   │   ├── base_ungraph_Dot.ps
+│   │   ├── base_ungraph_Dot_col.dot
+│   │   ├── base_ungraph_Dot_col.png
+│   │   ├── base_ungraph_Dot_col.ps
+│   │   ├── base_ungraph_Neato.dot
+│   │   ├── base_ungraph_Neato.png
+│   │   ├── base_ungraph_Neato.ps
+│   │   ├── base_ungraph_Neato_col.dot
+│   │   ├── base_ungraph_Neato_col.png
+│   │   ├── base_ungraph_Neato_col.ps
+│   │   ├── base_ungraph_Twopi.dot
+│   │   ├── base_ungraph_Twopi.png
+│   │   ├── base_ungraph_Twopi.ps
+│   │   ├── base_ungraph_Twopi_col.dot
+│   │   ├── base_ungraph_Twopi_col.png
+│   │   ├── base_ungraph_Twopi_col.ps
+│   │   ├── node_colors.txt
+│   │   ├── sample_ngraph1.txt
+│   │   └── sample_ungraph1.txt
+│   │       └── ... (46 more files)
+│   ├── randwalk/
+│   │   ├── test_graph.txt
+│   │   └── test_pprs.txt
+│   ├── snap-test.xcodeproj/
+│   │   └── project.pbxproj
+│   ├── table/
+│   │   ├── grades.txt
+│   │   └── soc-LiveJournal1_small.txt
+│   ├── Makefile
+│   ├── run-all-tests.cpp
+│   ├── test-alg.cpp
+│   ├── test-bfsdfs.cpp
+│   ├── test-cncom.cpp
+│   ├── test-file.cpp
+│   ├── test-flow.cpp
+│   ├── test-ggen.cpp
+│   ├── test-gio.cpp
+│   ├── test-gviz.cpp
+│   ├── test-helper.cpp
+│   ├── test-helper.h
+│   ├── test-multimodal.cpp
+│   ├── test-priority-queue.cpp
+│   ├── test-randwalk.cpp
+│   ├── test-shmio.cpp
+│   ├── test-sim.cpp
+│   ├── test-subgraph.cpp
+│   ├── test-TAttr.cpp
+│   ├── test-TCrossNet.cpp
+│   ├── test-TDirNet.cpp
+│   ├── test-THash.cpp
+│   ├── test-THashSet.cpp
+│   ├── test-TMMNet.cpp
+│   ├── test-TModeNet.cpp
+│   ├── test-TNEANet.cpp
+│   ├── test-TNEGraph.cpp
+│   ├── test-TNGraph.cpp
+│   ├── test-TNodeEDatNet.cpp
+│   ├── test-TNodeEdgeNet.cpp
+│   ├── test-TNodeNet.cpp
+│   ├── test-triad.cpp
+│   ├── test-TStrPool.cpp
+│   ├── test-TSysTm.cpp
+│   ├── test-TTable.cpp
+│   ├── test-TUndirNet.cpp
+│   └── test-TUNGraph.cpp
+│       └── ... (32 more files)
+├── tutorials/
+│   ├── cncom/
+│   │   ├── sample_cncom_ngraph.dot
+│   │   └── sample_cncom_unpower.dot
+│   ├── graphviz/
+│   │   ├── demo_ngraph_Circo.dot
+│   │   ├── demo_ngraph_Circo.gif
+│   │   ├── demo_ngraph_Circo_col.dot
+│   │   ├── demo_ngraph_Circo_col.gif
+│   │   ├── demo_ngraph_Dot.dot
+│   │   ├── demo_ngraph_Dot.gif
+│   │   ├── demo_ngraph_Dot_col.dot
+│   │   ├── demo_ngraph_Dot_col.gif
+│   │   ├── demo_ngraph_Neato.dot
+│   │   ├── demo_ngraph_Neato.gif
+│   │   ├── demo_ngraph_Neato_col.dot
+│   │   ├── demo_ngraph_Neato_col.gif
+│   │   ├── demo_ngraph_Twopi.dot
+│   │   ├── demo_ngraph_Twopi.gif
+│   │   ├── demo_ngraph_Twopi_col.dot
+│   │   ├── demo_ngraph_Twopi_col.gif
+│   │   ├── demo_ungraph_Circo.dot
+│   │   ├── demo_ungraph_Circo.gif
+│   │   ├── demo_ungraph_Circo_col.dot
+│   │   ├── demo_ungraph_Circo_col.gif
+│   │   ├── demo_ungraph_Dot.dot
+│   │   ├── demo_ungraph_Dot.gif
+│   │   ├── demo_ungraph_Dot_col.dot
+│   │   ├── demo_ungraph_Dot_col.gif
+│   │   ├── demo_ungraph_Neato.dot
+│   │   ├── demo_ungraph_Neato.gif
+│   │   ├── demo_ungraph_Neato_col.dot
+│   │   ├── demo_ungraph_Neato_col.gif
+│   │   ├── demo_ungraph_Twopi.dot
+│   │   ├── demo_ungraph_Twopi.gif
+│   │   ├── demo_ungraph_Twopi_col.dot
+│   │   └── demo_ungraph_Twopi_col.gif
+│   │       └── ... (27 more files)
+│   ├── parser/
+│   │   └── TestData.zip
+│   ├── tutorials.xcodeproj/
+│   │   └── project.pbxproj
+│   ├── demo-alg.cpp
+│   ├── demo-bfsdfs.cpp
+│   ├── demo-cncom.cpp
+│   ├── demo-cncom1.cpp
+│   ├── demo-ggen.cpp
+│   ├── demo-gio.cpp
+│   ├── demo-gviz.cpp
+│   ├── demo-hashvec-benchmark.cpp
+│   ├── demo-multimodal.cpp
+│   ├── demo-subgraph.cpp
+│   ├── demo-TAttr.cpp
+│   ├── demo-TDirNet.cpp
+│   ├── demo-THash.cpp
+│   ├── demo-TNEANet.cpp
+│   ├── demo-TNEGraph.cpp
+│   ├── demo-TNGraph.cpp
+│   ├── demo-TNodeEDatNet.cpp
+│   ├── demo-TNodeEdgeNet.cpp
+│   ├── demo-TNodeNet.cpp
+│   ├── demo-topology-benchmark.cpp
+│   ├── demo-triad.cpp
+│   ├── demo-TSsParser.cpp
+│   ├── demo-TUndirNet.cpp
+│   ├── demo-TUNGraph.cpp
+│   └── Makefile
+│       └── ... (20 more files)
+├── .gitignore
+├── Credits.txt
+├── License.txt
+├── Makefile
+├── Makefile.config
+├── ReadMe.txt
+└── Release.txt
+    └── ... (2 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

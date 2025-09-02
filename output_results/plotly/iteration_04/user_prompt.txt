@@ -1,0 +1,617 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .circleci/
+│   └── config.yml
+├── .github/
+│   ├── workflows/
+│   │   ├── check-js-build.yml
+│   │   └── test-release.yml
+│   ├── FUNDING.yml
+│   ├── ISSUE_TEMPLATE.md
+│   └── pull_request_template.md
+├── _plotly_utils/
+│   ├── colors/
+│   │   ├── __init__.py
+│   │   ├── _swatches.py
+│   │   ├── carto.py
+│   │   ├── cmocean.py
+│   │   ├── colorbrewer.py
+│   │   ├── cyclical.py
+│   │   ├── diverging.py
+│   │   ├── plotlyjs.py
+│   │   ├── qualitative.py
+│   │   └── sequential.py
+│   │       └── ... (5 more files)
+│   ├── __init__.py
+│   ├── basevalidators.py
+│   ├── data_utils.py
+│   ├── exceptions.py
+│   ├── files.py
+│   ├── importers.py
+│   ├── optional_imports.py
+│   ├── png.py
+│   ├── README.md
+│   └── utils.py
+│       └── ... (5 more files)
+├── codegen/
+│   ├── resources/
+│   │   └── plot-schema.json
+│   ├── __init__.py
+│   ├── compatibility.py
+│   ├── datatypes.py
+│   ├── figure.py
+│   ├── utils.py
+│   └── validators.py
+│       └── ... (1 more files)
+├── doc/
+│   ├── apidoc/
+│   │   ├── _static/
+│   │   │   ├── favicon.ico
+│   │   │   ├── logo.png
+│   │   │   └── plotly-style.css
+│   │   ├── _templates/
+│   │   │   ├── class_figure.rst
+│   │   │   ├── function.rst
+│   │   │   ├── layout.html
+│   │   │   └── trace.rst
+│   │   ├── basefigure.rst
+│   │   ├── conf.py
+│   │   ├── helper_go_names.py
+│   │   ├── index.rst
+│   │   ├── Makefile
+│   │   ├── plotly.express.rst
+│   │   ├── plotly.figure_factory.rst
+│   │   ├── plotly.graph_objects.rst
+│   │   ├── plotly.io.rst
+│   │   ├── plotly.subplots.rst
+│   │   └── README.rst
+│   │       └── ... (6 more files)
+│   ├── python/
+│   │   ├── 2d-histogram-contour.md
+│   │   ├── 2D-Histogram.md
+│   │   ├── 3d-axes.md
+│   │   ├── 3d-bubble-charts.md
+│   │   ├── 3d-camera-controls.md
+│   │   ├── 3d-isosurface-plots.md
+│   │   ├── 3d-line-plots.md
+│   │   ├── 3d-mesh.md
+│   │   ├── 3d-scatter-plots.md
+│   │   ├── 3d-subplots.md
+│   │   ├── 3d-surface-plots.md
+│   │   ├── 3d-volume.md
+│   │   ├── animations.md
+│   │   ├── annotated-heatmap.md
+│   │   ├── axes.md
+│   │   ├── bar-charts.md
+│   │   ├── bio-alignment-chart.md
+│   │   ├── bio-clustergram.md
+│   │   ├── bio-manhattanplot.md
+│   │   ├── bio-volcano-plot.md
+│   │   ├── box-plots.md
+│   │   ├── bubble-charts.md
+│   │   ├── bubble-maps.md
+│   │   ├── builtin-colorscales.md
+│   │   ├── bullet-charts.md
+│   │   ├── candlestick-charts.md
+│   │   ├── carpet-contour.md
+│   │   ├── carpet-plot.md
+│   │   ├── carpet-scatter.md
+│   │   ├── categorical-axes.md
+│   │   ├── choropleth-maps.md
+│   │   ├── click-events.md
+│   │   ├── colorscales.md
+│   │   ├── cone-plot.md
+│   │   ├── configuration-options.md
+│   │   ├── continuous-error-bars.md
+│   │   ├── contour-plots.md
+│   │   ├── county-choropleth.md
+│   │   ├── creating-and-updating-figures.md
+│   │   ├── custom-buttons.md
+│   │   ├── dash.md
+│   │   ├── dendrogram.md
+│   │   ├── density-heatmaps.md
+│   │   ├── discrete-color.md
+│   │   ├── distplot.md
+│   │   ├── dot-plots.md
+│   │   ├── dropdowns.md
+│   │   ├── dumbbell-plots.md
+│   │   ├── ecdf-plots.md
+│   │   ├── error-bars.md
+│   │   ├── facet-plots.md
+│   │   ├── figure-factories.md
+│   │   ├── figure-factory-subplots.md
+│   │   ├── figure-factory-table.md
+│   │   ├── figure-introspection.md
+│   │   ├── figure-labels.md
+│   │   ├── figure-structure.md
+│   │   ├── figurewidget-app.md
+│   │   ├── figurewidget.md
+│   │   ├── filled-area-plots.md
+│   │   ├── filled-area-tile-maps.md
+│   │   ├── funnel-charts.md
+│   │   ├── gantt.md
+│   │   ├── gauge-charts.md
+│   │   ├── getting-started.md
+│   │   ├── graph-objects.md
+│   │   ├── graphing-multiple-chart-types.md
+│   │   ├── heatmaps.md
+│   │   ├── hexbin-mapbox.md
+│   │   ├── histograms.md
+│   │   ├── horizontal-bar-charts.md
+│   │   ├── horizontal-vertical-shapes.md
+│   │   ├── hover-text-and-formatting.md
+│   │   ├── icicle-charts.md
+│   │   ├── images.md
+│   │   ├── imshow.md
+│   │   ├── indicator.md
+│   │   ├── interactive-html-export.md
+│   │   ├── ipython-vs-python.md
+│   │   ├── jupyter-lab-tools.md
+│   │   ├── LaTeX.md
+│   │   ├── legend.md
+│   │   ├── line-and-scatter.md
+│   │   ├── line-charts.md
+│   │   ├── linear-fits.md
+│   │   ├── lines-on-maps.md
+│   │   ├── lines-on-tile-maps.md
+│   │   ├── log-plot.md
+│   │   ├── map-configuration.md
+│   │   ├── map-subplots-and-small-multiples.md
+│   │   ├── marginal-plots.md
+│   │   ├── marker-style.md
+│   │   ├── migrate-to-maplibre.md
+│   │   ├── mixed-subplots.md
+│   │   ├── ml-knn.md
+│   │   ├── ml-pca.md
+│   │   ├── ml-regression.md
+│   │   ├── ml-roc-pr.md
+│   │   ├── ml-tsne-umap-projections.md
+│   │   ├── ml_apps.md
+│   │   ├── multiple-axes.md
+│   │   ├── network-graphs.md
+│   │   ├── ohlc-charts.md
+│   │   ├── orca-management.md
+│   │   ├── pandas-backend.md
+│   │   ├── parallel-categories-diagram.md
+│   │   ├── parallel-coordinates-plot.md
+│   │   ├── pattern-hatching-texture.md
+│   │   ├── peak-finding.md
+│   │   ├── performance.md
+│   │   ├── pie-charts.md
+│   │   ├── plot-data-from-csv.md
+│   │   ├── plotly-express.md
+│   │   ├── polar-chart.md
+│   │   ├── px-arguments.md
+│   │   ├── quiver-plots.md
+│   │   ├── radar-chart.md
+│   │   ├── random-walk.md
+│   │   ├── range-slider.md
+│   │   ├── renderers.md
+│   │   ├── sankey-diagram.md
+│   │   ├── scatter-plots-on-maps.md
+│   │   ├── selections.md
+│   │   ├── setting-graph-size.md
+│   │   ├── shapes.md
+│   │   ├── sliders.md
+│   │   ├── smith-charts.md
+│   │   ├── smoothing.md
+│   │   ├── splom.md
+│   │   ├── static-image-export.md
+│   │   ├── static-image-generation-migration.md
+│   │   ├── streamline-plots.md
+│   │   ├── streamtube-plot.md
+│   │   ├── strip-charts.md
+│   │   ├── styling-plotly-express.md
+│   │   ├── subplots.md
+│   │   ├── sunburst-charts.md
+│   │   ├── supported-colors.md
+│   │   ├── table-subplots.md
+│   │   ├── table.md
+│   │   ├── templates.md
+│   │   ├── ternary-contour.md
+│   │   ├── ternary-plots.md
+│   │   ├── ternary-scatter-contour.md
+│   │   ├── text-and-annotations.md
+│   │   ├── tick-formatting.md
+│   │   ├── tile-county-choropleth.md
+│   │   ├── tile-map-layers.md
+│   │   ├── tile-scatter-maps.md
+│   │   ├── time-series.md
+│   │   ├── tree-plots.md
+│   │   ├── treemaps.md
+│   │   ├── trisurf.md
+│   │   ├── troubleshooting.md
+│   │   ├── v4-migration.md
+│   │   ├── v6-changes.md
+│   │   ├── violin.md
+│   │   ├── waterfall-charts.md
+│   │   ├── wide-form.md
+│   │   └── wind-rose-charts.md
+│   │       └── ... (155 more files)
+│   ├── unconverted/
+│   │   └── python/
+│   │       ├── 1d-correlation.md
+│   │       ├── 2d-projection-of-3d-surface.md
+│   │       ├── 3d-filled-line-plots.md
+│   │       ├── 3d-network-graph.md
+│   │       ├── 3d-parametric-plots.md
+│   │       ├── 3d-point-clustering.md
+│   │       ├── 3d-wireframe-plots.md
+│   │       ├── amazon-redshift.md
+│   │       ├── anova.md
+│   │       ├── apache-spark.md
+│   │       ├── average_multiple_curves.md
+│   │       ├── baseline-detection.md
+│   │       ├── baseline-subtraction.md
+│   │       ├── basic-statistics.md
+│   │       ├── big-data-analytics-with-pandas-and-sqlite.md
+│   │       ├── cars-exploration.md
+│   │       ├── change-callbacks-datashader.md
+│   │       ├── chord-diagram.md
+│   │       ├── cmocean-colorscales.md
+│   │       ├── convolution.md
+│   │       ├── create-online-dashboard-legacy.md
+│   │       ├── density-plots.md
+│   │       ├── discrete-frequency.md
+│   │       ├── exponential-fits.md
+│   │       ├── fft-filters.md
+│   │       ├── filled-area-animation.md
+│   │       ├── filled-chord-diagram.md
+│   │       ├── frequency-counts.md
+│   │       ├── gapminder-example.md
+│   │       ├── google_big_query.md
+│   │       ├── graph-data-from-mysql-database-in-python.md
+│   │       ├── heatmap-animation.md
+│   │       ├── html-reports.md
+│   │       ├── igraph-networkx-comparison.md
+│   │       ├── insets.md
+│   │       ├── interact-decorator.md
+│   │       ├── interpolation-and-extrapolation-in-1d.md
+│   │       ├── interpolation-and-extrapolation-in-2d.md
+│   │       ├── legacy-polar-chart.md
+│   │       ├── linear-algebra.md
+│   │       ├── linear-gauge-chart.md
+│   │       ├── logos.md
+│   │       ├── matplotlib-colorscales.md
+│   │       ├── normality-test.md
+│   │       ├── normalization.md
+│   │       ├── numerical-differentiation.md
+│   │       ├── numerical-integration.md
+│   │       ├── outlier-test.md
+│   │       ├── pdf-reports.md
+│   │       ├── peak-fitting.md
+│   │       ├── peak-integration.md
+│   │       ├── polygon-area.md
+│   │       ├── polynomial-fits.md
+│   │       ├── population-pyramid-charts.md
+│   │       ├── ribbon-plots.md
+│   │       ├── salesforce.md
+│   │       ├── simple-mathematics-operations.md
+│   │       ├── statistics-charts.md
+│   │       ├── streaming-tutorial.md
+│   │       ├── surface-triangulation.md
+│   │       ├── t-test.md
+│   │       ├── tesla-supercharging-stations.md
+│   │       ├── triangulation.md
+│   │       ├── userguide.md
+│   │       └── webgl-text-and-annotations.md
+│   │           └── ... (60 more files)
+│   ├── Makefile
+│   ├── nb.tpl
+│   ├── next_redirect.tpl
+│   ├── README.md
+│   ├── requirements.txt
+│   └── what_about_dash.md
+│       └── ... (1 more files)
+├── js/
+│   ├── lib/
+│   │   └── mimeExtension.js
+│   ├── src/
+│   │   ├── mimeExtension.ts
+│   │   └── widget.ts
+│   ├── install.json
+│   ├── package-lock.json
+│   ├── package.json
+│   └── tsconfig.json
+├── plotly/
+│   ├── api/
+│   │   └── __init__.py
+│   ├── colors/
+│   │   └── __init__.py
+│   ├── data/
+│   │   └── __init__.py
+│   ├── express/
+│   │   ├── colors/
+│   │   │   └── __init__.py
+│   │   ├── data/
+│   │   │   └── __init__.py
+│   │   ├── trendline_functions/
+│   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── _chart_types.py
+│   │   ├── _core.py
+│   │   ├── _doc.py
+│   │   ├── _imshow.py
+│   │   ├── _special_inputs.py
+│   │   └── imshow_utils.py
+│   │       └── ... (2 more files)
+│   ├── figure_factory/
+│   │   ├── _2d_density.py
+│   │   ├── __init__.py
+│   │   ├── _annotated_heatmap.py
+│   │   ├── _bullet.py
+│   │   ├── _candlestick.py
+│   │   ├── _county_choropleth.py
+│   │   ├── _dendrogram.py
+│   │   ├── _distplot.py
+│   │   ├── _facet_grid.py
+│   │   ├── _gantt.py
+│   │   ├── _hexbin_mapbox.py
+│   │   ├── _ohlc.py
+│   │   ├── _quiver.py
+│   │   ├── _scatterplot.py
+│   │   ├── _streamline.py
+│   │   ├── _table.py
+│   │   ├── _ternary_contour.py
+│   │   ├── _trisurf.py
+│   │   ├── _violin.py
+│   │   ├── README.md
+│   │   └── utils.py
+│   │       └── ... (16 more files)
+│   ├── graph_objects/
+│   │   └── __init__.py
+│   ├── graph_objs/
+│   │   ├── bar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _error_x.py
+│   │   │   ├── _error_y.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _outsidetextfont.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (7 more files)
+│   │   ├── barpolar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   └── _unselected.py
+│   │   │
+... (1109 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install "numpy==1.24.4" ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting numpy==1.24.4
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/10/be/ae5bf4737cb79ba437879915791f6f26d92583c738d7d960ad94e5c36adf/numpy-1.24.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.3/17.3 MB 14.6 MB/s  0:00:01
+Installing collected packages: numpy
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.2.6
+    Uninstalling numpy-2.2.6:
+      Successfully uninstalled numpy-2.2.6
+Successfully installed numpy-1.24.4
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install --force-reinstall --no-cache-dir pandas==2.0.3 scipy numba xarray ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting pandas==2.0.3
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e3/59/35a2892bf09ded9c1bf3804461efe772836a5261ef5dfb4e264ce813ff99/pandas-2.0.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 15.3 MB/s  0:00:00
+Collecting scipy
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 15.6 MB/s  0:00:02
+Collecting numba
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e2/7d/bfb2805bcfbd479f04f835241ecf28519f6e3609912e3a985aed45e21370/numba-0.61.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 14.8 MB/s  0:00:00
+Collecting xarray
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/82/8a/6b50c1dd2260d407c1a499d47cf829f59f07007e0dcebafdabb24d1d26a5/xarray-2025.6.1-py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 16.1 MB/s  0:00:00
+Collecting python-dateutil>=2.8.2 (from pandas==2.0.3)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Collecting pytz>=2020.1 (from pandas==2.0.3)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/81/c4/34e93fe5f5429d7570ec1fa436f1986fb1f00c3e0f43a589fe2bbcd22c3f/pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Collecting tzdata>=2022.1 (from pandas==2.0.3)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/5c/23/c7abc0ca0a1526a0774eca151daeb8de62ec457e77262b66b359c3c7679e/tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Collecting numpy>=1.21.0 (from pandas==2.0.3)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b4/63/3de6a34ad7ad6646ac7d2f55ebc6ad439dbbf9c4370017c50cf403fb19b5/numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 15.2 MB/s  0:00:01
+Collecting llvmlite<0.45,>=0.44.0dev0 (from numba)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/aa/46/8ffbc114def88cc698906bf5acab54ca9fdf9214fe04aed0e71731fb3688/llvmlite-0.44.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (42.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.4/42.4 MB 11.7 MB/s  0:00:03
+Collecting packaging>=23.2 (from xarray)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl (66 kB)
+INFO: pip is looking at multiple versions of xarray to determine which version is compatible with other requirements. This could take a while.
+Collecting xarray
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/57/ed/e737a1c9be5d654b71524ee19ea22376c4d81c50ef2bb5598c9dada74e9a/xarray-2025.6.0-py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 15.0 MB/s  0:00:00
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/a4/1e/96fd96419fec1a37da998a1ca3d558f2cae2f6f3cd5015170371b05a2b6b/xarray-2025.4.0-py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 16.9 MB/s  0:00:00
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/91/fd/973deafd9f87085136a58573600646b408ae7af47859f35151f0d83d5090/xarray-2025.3.1-py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 13.5 MB/s  0:00:00
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/91/19/5dbac77ca82f009f8267d0e7cca4fd3be2a435d83ed98f6f8b9c5cb1747e/xarray-2025.3.0-py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 14.4 MB/s  0:00:00
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/05/79/4e19100342fe13d69fd6e77b343e2269924fec681258e2ea21b55576aad2/xarray-2025.1.2-py3-none-any.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 13.0 MB/s  0:00:00
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/14/78/cd4d5294e0a7294243d332fdd00a020942faa41472e694f2552976a5fe39/xarray-2025.1.1-py3-none-any.whl (1.2 MB)
+     �
+... (60 lines omitted)
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+plugins: dash-3.2.0, anyio-4.10.0
+collected 1500 items / 18 errors
+
+==================================== ERRORS ====================================
+_____ ERROR collecting plotly/matplotlylib/mplexporter/tests/test_utils.py _____
+ImportError while importing test module '/app/repo_to_process/plotly/matplotlylib/mplexporter/tests/test_utils.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+plotly/matplotlylib/mplexporter/tests/test_utils.py:2: in <module>
+    from . import plt
+E   ImportError: cannot import name 'plt' from 'plotly.matplotlylib.mplexporter.tests' (/app/repo_to_process/plotly/matplotlylib/mplexporter/tests/__init__.py)
+__________ ERROR collecting tests/test_io/test_to_from_plotly_json.py __________
+tests/test_io/test_to_from_plotly_json.py:4: in <module>
+    import plotly.express as px
+plotly/express/__init__.py:27: in <module>
+    from ._imshow import imshow
+plotly/express/_imshow.py:11: in <module>
+    import xarray
+/usr/local/lib/python3.10/dist-packages/xarray/__init__.py:3: in <module>
+    from xarray import groupers, testing, tutorial
+/usr/local/lib/python3.10/dist-packages/xarray/groupers.py:15: in <module>
+    import pandas as pd
+/usr/local/lib/python3.10/dist-packages/pandas/__init__.py:22: in <module>
+    from pandas.compat import is_numpy_dev as _is_numpy_dev  # pyright: ignore # noqa:F401
+/usr/local/lib/python3.10/dist-packages/pandas/compat/__init__.py:25: in <module>
+    from pandas.compat.numpy import (
+/usr/local/lib/python3.10/dist-packages/pandas/compat/numpy/__init__.py:4: in <module>
+    from pandas.util.version import Version
+/usr/local/lib/python3.10/dist-packages/pandas/util/__init__.py:2: in <module>
+    from pandas.util._decorators import (  # noqa:F401
+/usr/local/lib/python3.10/dist-packages/pandas/util/_decorators.py:14: in <module>
+    from pandas._libs.properties import cache_readonly
+/usr/local/lib/python3.10/dist-packages/pandas/_libs/__init__.py:13: in <module>
+    from pandas._libs.interval import Interval
+pandas/_libs/interval.pyx:1: in init pandas._libs.interval
+    ???
+E   ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+_ ERROR collecting tests/test_optional/test_autoshapes/test_axis_span_shapes.py _
+tests/test_optional/test_autoshapes/test_axis_span_shapes.py:3: in <module>
+    import plotly.express as px
+plotly/express/__init__.py:27: in <module>
+    from ._imshow import imshow
+plotly/express/_imshow.py:11: in <module>
+    import xarray
+/usr/local/lib/python3.10/dist-packages/xarray/__init__.py:3: in <module>
+    from xarray import groupers, testing, tutorial
+/usr/local/lib/python3.10/dist-packages/xarray/groupers.py:15: in <module>
+    import pandas as pd
+/usr/local/lib/python3.10/dist-packages/pandas/__init__.py:22: in <module>
+    from pandas.compat import is_numpy_dev as _is_numpy_dev  # pyright: ignore # noqa:F401
+/usr/local/lib/python3.10/dist-packages/pandas/compat/__init__.py:25: in <module>
+    from pandas.compat.numpy import (
+/usr/local/lib/python3.10/dist-packages/pandas/compat/numpy/__init__.py:4: in <module>
+    from pandas.util.version import Version
+/usr/local/lib/python3.10/dist-packages/pandas/util/__init__.py:2: in <module>
+    from pandas.util._decorators import (  # noqa:F401
+/usr/local/lib/python3.10/dist-packages/pandas/util/_decorators.py:14: in <module>
+    from pandas._libs.properties import cache_readonly
+/usr/local/lib/python3.10/dist-packages/pandas/_libs/__init__.py:13: in <module>
+    from pandas._libs.interval import Interval
+pandas/_libs/interval.pyx:1: in init pandas._libs.interval
+    ???
+E   ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+_ ERROR collecting tests/test_optional/test_figure_factory/test_figure_factory.py _
+tests/test_optional/test_figure_factory/test_figure_factory.py:7: in <module>
+    from ...test_optional.test_utils.test_utils import np_inf
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+/usr/local/lib/python3.10/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+tests/test_optional/test_utils/test_utils.py:15: in <module>
+    import pandas as pd
+/usr/local/lib/python3.10/dist-packages/pandas/__init__.py:22: in <module>
+    from pandas.compat import is_numpy_dev as _is_numpy_dev  # pyright: ignore # noqa:F401
+/usr/local/lib/python3.10/dist-packages/pandas/compat/__init__.py:25: in <module>
+    from pandas.compat.numpy import (
+/usr/local/lib/python3.10/dist-packages/pandas/compat/numpy/__init__.py:4: in <module>
+    from pandas.util.version import Version
+/usr/local/lib/python3.10/dist-packages/pandas/util/__init__.py:2: in <module>
+    from pandas.util._decorators import (  # noqa:F401
+/usr/local/lib/python3.10/dist-packages/pandas/util/_decorators.py:14: in <module>
+    from pandas._libs.properties import cache_readonly
+/usr/local/lib/python3.10/dist-packages/pandas/_libs/__init__.py:13: in <module>
+    from pandas._libs.interval import Interval
+pandas/_libs/interval.pyx:1: in init pandas._libs.interval
+    ???
+E   ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+__ ERROR collecting tests/test_optional/test_matplotlylib/test_date_times.py ___
+tests/test_optional/test_matplotlylib/test_date_times.py:6: in <module>
+    import pandas as pd
+/usr/local/lib/python3.10/dist-packages/pandas/__init__.py:22: in <module>
+    from pandas.compat import is_numpy_dev as _is_numpy_dev  # pyright: ignore # noqa:F401
+/usr/local/lib/python3.10/dist-packages/pandas/compat/__init__.py:25: in <module>
+    from pandas.compat.numpy import (
+/usr/local/lib/python3.10/dist-packages/pandas/compat/numpy/__init__.py:4: in <module>
+    from pandas.util.version import Version
+/usr/local/lib/python3.10/dist-packages/pandas/util/__init__.py:2: in <module>
+    from pandas.util._decorators import (  # noqa:F401
+/usr/local/lib/python3.10/dist-packages/pandas/util/_decorators.py:14: in <module>
+    from pandas._libs.properties import cache_readonly
+/usr/local/lib/python3.10/dist-packages/pandas/_libs/__init__.py:13: in <module>
+    from pandas._libs.interval import Interval
+pandas/_libs/interval.pyx:1: in init pandas._libs.interval
+    ???
+E   ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+_________________ ERROR collecting tests/test_optional/test_px _________________
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+/usr/local/lib/python3.10/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+tests/test_optional/test_px/conftest.py:1: in <module>
+    import pandas as pd
+/usr/local/lib/python3.10/dist-packages/pandas/__init__.py:22: in <module>
+    from pandas.compat import is
+... (310 lines omitted)
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

@@ -1,0 +1,12 @@
+The pytest output shows multiple errors of the form:
+
+```
+ModuleNotFoundError: No module named 'pandas'
+```
+
+This means the next step is to install pandas.
+
+```bash
+pip install pandas
+pytest
+```

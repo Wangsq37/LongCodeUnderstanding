@@ -1,0 +1,1928 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── durations/
+│   │   ├── core_tests_durations.json
+│   │   ├── jax_tests_durations.json
+│   │   └── tf_tests_durations.json
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   └── feature_request.yml
+│   ├── stable/
+│   │   ├── all_interfaces.txt
+│   │   ├── core.txt
+│   │   ├── doc.txt
+│   │   ├── external.txt
+│   │   ├── jax.txt
+│   │   ├── tf.txt
+│   │   └── torch.txt
+│   │       └── ... (2 more files)
+│   ├── workflows/
+│   │   ├── scripts/
+│   │   │   ├── benchmarks/
+│   │   │   ├── upload_reports/
+│   │   │   └── set_nightly_version.py
+│   │   ├── assign_bugs.yml
+│   │   ├── changelog_reminder.yml
+│   │   ├── check-external-contributor.yml
+│   │   ├── check_in_artifact.yml
+│   │   ├── code_security_scan.yml
+│   │   ├── determine-workflow-runner.yml
+│   │   ├── docker.yml
+│   │   ├── docs.yml
+│   │   ├── format.yml
+│   │   ├── interface-dependency-versions.yml
+│   │   ├── interface-unit-tests.yml
+│   │   ├── module-validation.yml
+│   │   ├── package_warnings_as_errors.yml
+│   │   ├── rc_sync.yml
+│   │   ├── rtd-check.yml
+│   │   ├── test_numpy_1_compat.yml
+│   │   ├── tests-gpu.yml
+│   │   ├── tests-labs.yml
+│   │   ├── tests.yml
+│   │   ├── trigger_benchmarks.yml
+│   │   ├── unit-test.yml
+│   │   ├── update-durations.yml
+│   │   ├── upload-nightly-release.yml
+│   │   └── upload.yml
+│   │       └── ... (19 more files)
+│   ├── CHANGELOG.md
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CODEOWNERS
+│   ├── CONTRIBUTING.md
+│   └── PULL_REQUEST_TEMPLATE.md
+├── doc/
+│   ├── _static/
+│   │   ├── draw_mpl/
+│   │   │   ├── black_white_style.png
+│   │   │   ├── ctrl_gphase.png
+│   │   │   ├── decimals.png
+│   │   │   ├── draw_mpl_examples.py
+│   │   │   ├── gphase_no_wires.png
+│   │   │   ├── gphase_one_wire.png
+│   │   │   ├── level_none.png
+│   │   │   ├── level_slice.png
+│   │   │   ├── level_top.png
+│   │   │   ├── level_user.png
+│   │   │   ├── main_example.png
+│   │   │   ├── max_length1.png
+│   │   │   ├── max_length2.png
+│   │   │   ├── mid_measure.png
+│   │   │   ├── per_wire_options.png
+│   │   │   ├── postprocessing.png
+│   │   │   ├── rcparams.png
+│   │   │   ├── show_all_wires.png
+│   │   │   ├── sketch_style.png
+│   │   │   ├── snapshot.png
+│   │   │   ├── wire_order.png
+│   │   │   └── wires_labels.png
+│   │   │       └── ... (17 more files)
+│   │   ├── drawer/
+│   │   │   ├── black_white_style.png
+│   │   │   ├── box_gates.png
+│   │   │   ├── box_gates_autosized.png
+│   │   │   ├── box_gates_formatted.png
+│   │   │   ├── cnot.png
+│   │   │   ├── cond.png
+│   │   │   ├── ctrl.png
+│   │   │   ├── example_basic.png
+│   │   │   ├── example_formatted.png
+│   │   │   ├── example_rcParams.png
+│   │   │   ├── example_release_notes.png
+│   │   │   ├── float_layer.png
+│   │   │   ├── just_wires.png
+│   │   │   ├── labels.png
+│   │   │   ├── labels_formatted.png
+│   │   │   ├── labels_test.png
+│   │   │   ├── measure.png
+│   │   │   ├── mpldrawer_examples.py
+│   │   │   └── SWAP.png
+│   │   │       └── ... (14 more files)
+│   │   ├── ops/
+│   │   │   ├── f.pdf
+│   │   │   ├── f.svg
+│   │   │   ├── f.tex
+│   │   │   ├── qmc.pdf
+│   │   │   ├── qmc.svg
+│   │   │   ├── qmc.tex
+│   │   │   ├── QubitCarry.pdf
+│   │   │   ├── QubitCarry.svg
+│   │   │   ├── QubitCarry.tex
+│   │   │   ├── QubitSum.pdf
+│   │   │   ├── QubitSum.svg
+│   │   │   └── QubitSum.tex
+│   │   │       └── ... (7 more files)
+│   │   ├── pulse/
+│   │   │   ├── make_pulse_images.py
+│   │   │   ├── parametrized_coefficients_example.png
+│   │   │   ├── pwc_example.png
+│   │   │   └── rect_example.png
+│   │   ├── qchem/
+│   │   │   ├── fig_mult_active_space.png
+│   │   │   ├── hf_references.png
+│   │   │   ├── orbital_rotation.jpeg
+│   │   │   ├── sd_excitations.png
+│   │   │   └── sketch_active_space.png
+│   │   ├── qcircuit/
+│   │   │   ├── main.tex
+│   │   │   ├── Qcircuit.tex
+│   │   │   └── var_circuit.tex
+│   │   ├── readme/
+│   │   │   ├── banner.png
+│   │   │   ├── banner2.png
+│   │   │   ├── code.gif
+│   │   │   ├── code.png
+│   │   │   ├── code2-numpy.png
+│   │   │   ├── code2-tf.png
+│   │   │   ├── code2-torch.png
+│   │   │   ├── code2.png
+│   │   │   ├── demos.png
+│   │   │   ├── dilution.png
+│   │   │   ├── getting-started.png
+│   │   │   ├── gpu_to_qpu.png
+│   │   │   ├── pl-logo-darkmode.png
+│   │   │   ├── pl-logo-lightmode.png
+│   │   │   ├── pl-logo.png
+│   │   │   ├── research.png
+│   │   │   └── videos.png
+│   │   │       └── ... (12 more files)
+│   │   ├── style/
+│   │   │   ├── black_white_dark_style.png
+│   │   │   ├── black_white_style.png
+│   │   │   ├── default_style.png
+│   │   │   ├── pennylane_sketch_style.png
+│   │   │   ├── pennylane_style.png
+│   │   │   ├── sketch_dark_style.png
+│   │   │   ├── sketch_style.png
+│   │   │   ├── solarized_dark_style.png
+│   │   │   ├── solarized_light_style.png
+│   │   │   └── style_examples.py
+│   │   │       └── ... (5 more files)
+│   │   ├── tape_mpl/
+│   │   │   ├── black_white_style.png
+│   │   │   ├── decimals.png
+│   │   │   ├── default.png
+│   │   │   ├── mid_measure.png
+│   │   │   ├── per_wire_options.png
+│   │   │   ├── postprocessing.png
+│   │   │   ├── rcparams.png
+│   │   │   ├── show_all_wires.png
+│   │   │   ├── sketch_style.png
+│   │   │   ├── Solarize_Light2.png
+│   │   │   ├── tape_mpl_examples.py
+│   │   │   ├── wire_order.png
+│   │   │   └── wires_labels.png
+│   │   │       └── ... (8 more files)
+│   │   ├── templates/
+│   │   │   ├── arithmetic/
+│   │   │   ├── embeddings/
+│   │   │   ├── layers/
+│   │   │   ├── prepselprep/
+│   │   │   ├── qrom/
+│   │   │   ├── qubitization/
+│   │   │   ├── state_preparations/
+│   │   │   ├── subroutines/
+│   │   │   ├── swap_networks/
+│   │   │   ├── tensornetworks/
+│   │   │   ├── broadcast_alltoall.png
+│   │   │   ├── broadcast_chain.png
+│   │   │   ├── broadcast_custom.png
+│   │   │   ├── broadcast_double.png
+│   │   │   ├── broadcast_double_odd.png
+│   │   │   ├── broadcast_pyramid.png
+│   │   │   ├── broadcast_ring.png
+│   │   │   └── broadcast_single.png
+│   │   │       └── ... (3 more files)
+│   │   ├── thumbs/
+│   │   │   └── code.png
+│   │   ├── building_blocks.svg
+│   │   ├── building_blocks2.png
+│   │   ├── building_blocks2.svg
+│   │   ├── circuit_embedding.svg
+│   │   ├── classical_quantum_info.svg
+│   │   ├── clements.png
+│   │   ├── code-intro.png
+│   │   ├── code.png
+│   │   ├── concepts.png
+│   │   ├── concepts.svg
+│   │   ├── cvqnn_layer.png
+│   │   ├── draw_mpl.png
+│   │   ├── fable.png
+│   │   ├── favicon.ico
+│   │   ├── fold_global_zne_by-hand.png
+│   │   ├── forest.png
+│   │   ├── fourier.png
+│   │   ├── fourier_vis_bar_plot.png
+│   │   ├── fourier_vis_bar_plot_2.png
+│   │   ├── fourier_vis_box.png
+│   │   ├── fourier_vis_panel.png
+│   │   ├── fourier_vis_radial_box.png
+│   │   ├── fourier_vis_violin.png
+│   │   ├── grad.png
+│   │   ├── grad.svg
+│   │   ├── hamiltonian_expval_h_plot.png
+│   │   ├── header-dark-mode.png
+│   │   ├── header-tall.png
+│   │   ├── header.png
+│   │   ├── hybrid_graph.png
+│   │   ├── hybrid_graph.svg
+│   │   ├── intro.svg
+│   │   ├── jax.png
+│   │   ├── jigsaw.png
+│   │   ├── jigsaw.svg
+│   │   ├── layer_cvqnn.png
+│   │   ├── layer_interferometer.png
+│   │   ├── layer_interferometerpng.png
+│   │   ├── layer_rnd.png
+│   │   ├── layer_sec.png
+│   │   ├── logo.png
+│   │   ├── logo_new.png
+│   │   ├── logo_new_small.png
+│   │   ├── microsoft.png
+│   │   ├── mid-circuit-measurement.png
+│   │   ├── new_return_types.png
+│   │   ├── numpy.png
+│   │   ├── opengraph.png
+│   │   ├── param_shift_broadcast_speedup.png
+│   │   ├── pennylane.svg
+│   │   ├── pl_wordmark.png
+│   │   ├── projectq_logo.png
+│   │   ├── pytorch.png
+│   │   ├── qaoa_layers.png
+│   │   ├── qaoa_layers.svg
+│   │   ├── qcut_graph.svg
+│   │   ├── qiskit_logo.png
+│   │   ├── qnode.png
+│   │   ├── qnode.svg
+│   │   ├── quantum_function.svg
+│   │   ├── quantum_gradient.svg
+│   │   ├── quantum_node.svg
+│   │   ├── quantumnode.png
+│   │   ├── quantumnode.svg
+│   │   ├── quantumnode_detail.png
+│   │   ├── quantumnode_detail.svg
+│   │   ├── reck.png
+│   │   ├── requires_grad.png
+│   │   ├── simple_hybrid_graph.png
+│   │   ├── simple_hybrid_graph.svg
+│   │   ├── sketch_pennylane_qchem.png
+│   │   ├── strawberryfields_logo.png
+│   │   ├── tensorflow.png
+│   │   ├── transforms_order.png
+│   │   ├── transforms_order.svg
+│   │   ├── two_qubit_decomposition_2_cnots.svg
+│   │   ├── two_qubit_decomposition_3_cnots.svg
+│   │   ├── var_circuit.svg
+│   │   ├── varcirc.png
+│   │   ├── varcirc.svg
+│   │   ├── variational_rough.png
+│   │   ├── variational_rough.svg
+│   │   ├── vc_aoa.svg
+│   │   ├── vc_cc.svg
+│   │   ├── vc_cvkernels.svg
+│   │   ├── vc_cvqnn.svg
+│   │   ├── vc_gatearchitecture.svg
+│   │   ├── vc_general.svg
+│   │   ├── vc_iqp.svg
+│   │   ├── vc_iqp_cv.svg
+│   │   ├── vc_mps.svg
+│   │   ├── vc_staticent.svg
+│   │   ├── vc_tree.svg
+│   │   ├── xanadu_gallery.css
+│   │   └── xanadu_x.png
+│   │       └── ... (90 more files)
+│   ├── _templates/
+│   │   ├── autosummary/
+│   │   │   ├── base.rst
+│   │   │   ├── class.rst
+│   │   │   ├── class_no_inherited.rst
+│   │   │   └── module.rst
+│   │   └── autosummary_core/
+│   │       ├── base.rst
+│   │       ├── class.rst
+│   │       └── module.rst
+│   ├── code/
+│   │   ├── qml.rst
+│   │   ├── qml_bose.rst
+│   │   ├── qml_capture.rst
+│   │   ├── qml_compiler.rst
+│   │   ├── qml_concurrency.rst
+│   │   ├── qml_data.rst
+│   │   ├── qml_debugging.rst
+│   │   ├── qml_decomposition.rst
+│   │   ├── qml_devices.rst
+│   │   ├── qml_drawer.rst
+│   │   ├── qml_exceptions.rst
+│   │   ├── qml_fermi.rst
+│   │   ├── qml_fourier.rst
+│   │   ├── qml_ftqc.rst
+│   │   ├── qml_gradients.rst
+│   │   ├── qml_io.rst
+│   │   ├── qml_kernels.rst
+│   │   ├── qml_labs.rst
+│   │   ├── qml_liealg.rst
+│   │   ├── qml_logging.rst
+│   │   ├── qml_math.rst
+│   │   ├── qml_measurements.rst
+│   │   ├── qml_noise.rst
+│   │   ├── qml_numpy.rst
+│   │   ├── qml_operation.rst
+│   │   ├── qml_ops_op_math.rst
+│   │   ├── qml_pauli.rst
+│   │   ├── qml_pulse.rst
+│   │   ├── qml_pytrees.rst
+│   │   ├── qml_qaoa.rst
+│   │   ├── qml_qchem.rst
+│   │   ├── qml_qcut.rst
+│   │   ├── qml_qnn.rst
+│   │   ├── qml_queuing.rst
+│   │   ├── qml_resource.rst
+│   │   ├── qml_shadows.rst
+│   │   ├── qml_spin.rst
+│   │   ├── qml_tape.rst
+│   │   ├── qml_transforms.rst
+│   │   ├── qml_wires.rst
+│   │   └── qml_workflow.rst
+│   │       └── ... (36 more files)
+│   ├── development/
+│   │   ├── guide/
+│   │   │   ├── adr.rst
+│   │   │   ├── architecture.rst
+│   │   │   ├── contributing.rst
+│   │   │   ├── deprecations_removals.rst
+│   │   │   ├── documentation.rst
+│   │   │   ├── example_module_autosummary.txt
+│   │   │   ├── example_module_rst.txt
+│   │   │   ├── example_package_rst.txt
+│   │   │   ├── installation.rst
+│   │   │   ├── logging.rst
+│   │   │   ├── pl_backprop_device.png
+│   │   │   ├── pl_overview.png
+│   │   │   ├── pl_overview.svg
+│   │   │   ├── pl_workflow.png
+│   │   │   ├── pl_workflow.svg
+│   │   │   ├── pullrequests.rst
+│   │   │   ├── tests.rst
+│   │   │   └── view_doc_build.jpeg
+│   │   │       └── ... (13 more files)
+│   │   ├── adding_operators.rst
+│   │   ├── autograph.rst
+│   │   ├── deprecations.rst
+│   │   ├── guide.rst
+│   │   ├── legacy_plugins.rst
+│   │   ├── plugins.rst
+│   │   └── release_notes.md
+│   │       └── ... (2 more files)
+│   ├── introduction/
+│   │   ├── interfaces/
+│   │   │   ├── jax.rst
+│   │   │   ├── numpy.rst
+│   │   │   ├── tf.rst
+│   │   │   └── torch.rst
+│   │   ├── chemistry.rst
+│   │   ├── circuits.rst
+│   │   ├── compiling_circuits.rst
+│   │   ├── compiling_workflows.rst
+│   │   ├── configuration.rst
+│   │   ├── data.rst
+│   │   ├── dynamic_quantum_circuits.rst
+│   │   ├── importing_workflows.rst
+│   │   ├── inspecting_circuits.rst
+│   │   ├── interfaces.rst
+│   │   ├── logging.rst
+│   │   ├── measurements.rst
+│   │   ├── operations.rst
+│   │   ├── pennylane.rst
+│   │   ├── templates.rst
+│   │   └── unsupported_gradients.rst
+│   │       └── ... (11 more files)
+│   ├── news/
+│   │   ├── new_opmath.rst
+│   │   └── program_capture_sharp_bits.rst
+│   ├── releases/
+│   │   ├── changelog-0.1.0.md
+│   │   ├── changelog-0.10.0.md
+│   │   ├── changelog-0.11.0.md
+│   │   ├── changelog-0.12.0.md
+│   │   ├── changelog-0.13.0.md
+│   │   ├── changelog-0.14.0.md
+│   │   ├── changelog-0.14.1.md
+│   │   ├── changelog-0.15.0.md
+│   │   ├── changelog-0.15.1.md
+│   │   ├── changelog-0.16.0.md
+│   │   ├── changelog-0.17.0.md
+│   │   ├── changelog-0.18.0.md
+│   │   ├── changelog-0.19.0.md
+│   │   ├── changelog-0.19.1.md
+│   │   ├── changelog-0.2.0.md
+│   │   ├── changelog-0.20.0.md
+│   │   ├── changelog-0.21.0.md
+│   │   ├── changelog-0.22.0.md
+│   │   ├── changelog-0.22.1.md
+│   │   ├── changelog-0.22.2.md
+│   │   ├── changelog-0.23.0.md
+│   │   ├── changelog-0.23.1.md
+│   │   ├── changelog-0.24.0.md
+│   │   ├── changelog-0.25.0.md
+│   │   ├── changelog-0.25.1.md
+│   │   ├── changelog-0.26.0.md
+│   │   ├── changelog-0.27.0.md
+│   │   ├── changelog-0.28.0.md
+│   │   ├── changelog-0.29.0.md
+│   │   ├── changelog-0.3.0.md
+│   │   ├── changelog-0.3.1.md
+│   │   ├── changelog-0.30.0.md
+│   │   ├── changelog-0.31.0.md
+│   │   ├── changelog-0.31.1.md
+│   │   ├── changelog-0.32.0.md
+│   │   ├── changelog-0.33.0.md
+│   │   ├── changelog-0.33.1.md
+│   │   ├── changelog-0.34.0.md
+│   │   ├── changelog-0.35.0.md
+│   │   ├── changelog-0.35.1.md
+│   │   ├── changelog-0.36.0.md
+│   │   ├── changelog-0.37.0.md
+│   │   ├── changelog-0.38.0.md
+│   │   ├── changelog-0.39.0.md
+│   │   ├── changelog-0.4.0.md
+│   │   ├── changelog-0.40.0.md
+│   │   ├── changelog-0.41.0.md
+│   │   ├── changelog-0.41.1.md
+│   │   ├── changelog-0.42.0.md
+│   │   ├── changelog-0.42.1.md
+│   │   ├── changelog-0.5.0.md
+│   │   ├── changelog-0.6.0.md
+│   │   ├── changelog-0.6.1.md
+│   │   ├── changelog-0.7.0.md
+│   │   ├── changelog-0.8.0.md
+│   │   ├── changelog-0.8.1.md
+│   │   ├── changelog-0.9.0.md
+│   │   └── changelog-dev.md
+│   │       └── ... (53 more files)
+│   ├── bibfile.bib
+│   ├── conf.py
+│   ├── docutils.conf
+│   ├── index.rst
+│   ├── Makefile
+│   ├── requirements.txt
+│   └── robots.txt
+│       └── ... (2 more files)
+├── docker/
+│   ├── interfaces/
+│   │   ├── gpu-cuda/
+│   │   │   ├── build_interface_gpu.dockerfile
+│   │   │   └── cuda-base.dockerfile
+│   │   ├── build_interface.dockerfile
+│   │   ├── install-interface-gpu.sh
+│   │   └── install-interface.sh
+│   ├── plugins/
+│   │   ├── build_plugin.dockerfile
+│   │   └── install-plugin.sh
+│   ├── Makefile
+│   └── pennylane.dockerfile
+├── pennylane/
+│   ├── bose/
+│   │   ├── __init__.py
+│   │   ├── bosonic.py
+│   │   └── bosonic_mapping.py
+│   ├── capture/
+│   │   ├── autograph/
+│   │   │   ├── __init__.py
+│   │   │   ├── ag_primitives.py
+│   │   │   └── transformer.py
+│   │   ├── __init__.py
+│   │   ├── base_interpreter.py
+│   │   ├── capture_meta.py
+│   │   ├── custom_primitives.py
+│   │   ├── dynamic_shapes.py
+│   │   ├── expand_transforms.py
+│   │   ├── explanations.md
+│   │   ├── flatfn.py
+│   │   ├── intro_to_dynamic_shapes.md
+│   │   ├── make_plxpr.py
+│   │   ├── primitives.py
+│   │   └── switches.py
+│   │       └── ... (7 more files)
+│   ├── compiler/
+│   │   ├── python_compiler/
+│   │   │   ├── dialects/
+│   │   │   ├── transforms/
+│   │   │   ├── __init__.py
+│   │   │   ├── compiler.py
+│   │   │   └── jax_utils.py
+│   │   ├── __init__.py
+│   │   ├── compiler.py
+│   │   └── qjit_api.py
+│   ├── concurrency/
+│   │   ├── executors/
+│   │   │   ├── external/
+│   │   │   ├── native/
+│   │   │   ├── __init__.py
+│   │   │   ├── backends.py
+│   │   │   └── base.py
+│   │   └── __init__.py
+│   ├── control_flow/
+│   │   ├── __init__.py
+│   │   ├── _loop_abstract_axes.py
+│   │   ├── for_loop.py
+│   │   └── while_loop.py
+│   ├── data/
+│   │   ├── attributes/
+│   │   │   ├── operator/
+│   │   │   ├── __init__.py
+│   │   │   ├── array.py
+│   │   │   ├── dictionary.py
+│   │   │   ├── json.py
+│   │   │   ├── list.py
+│   │   │   ├── molecule.py
+│   │   │   ├── none.py
+│   │   │   ├── pytree.py
+│   │   │   ├── scalar.py
+│   │   │   ├── serialization.py
+│   │   │   ├── sparse_array.py
+│   │   │   ├── string.py
+│   │   │   └── tuple.py
+│   │   │       └── ... (8 more files)
+│   │   ├── base/
+│   │   │   ├── __init__.py
+│   │   │   ├── _lazy_modules.py
+│   │   │   ├── attribute.py
+│   │   │   ├── dataset.py
+│   │   │   ├── graphql.py
+│   │   │   ├── hdf5.py
+│   │   │   ├── mapper.py
+│   │   │   └── typing_util.py
+│   │   │       └── ... (3 more files)
+│   │   ├── data_manager/
+│   │   │   ├── progress/
+│   │   │   ├── __init__.py
+│   │   │   ├── foldermap.py
+│   │   │   ├── graphql.py
+│   │   │   └── params.py
+│   │   └── __init__.py
+│   ├── debugging/
+│   │   ├── __init__.py
+│   │   ├── debugger.py
+│   │   └── snapshot.py
+│   ├── decomposition/
+│   │   ├── __init__.py
+│   │   ├── collect_resource_ops.py
+│   │   ├── decomposition_graph.py
+│   │   ├── decomposition_rule.py
+│   │   ├── resources.py
+│   │   ├── symbolic_decomposition.py
+│   │   └── utils.py
+│   │       └── ... (2 more files)
+│   ├── devices/
+│   │   ├── modifiers/
+│   │   │   ├── __init__.py
+│   │   │   ├── simulator_tracking.py
+│   │   │   └── single_tape_support.py
+│   │   ├── qubit/
+│   │   │   ├── __init__.py
+│   │   │   ├── adjoint_jacobian.md
+│   │   │   ├── adjoint_jacobian.py
+│   │   │   ├── apply_operation.py
+│   │   │   ├── dq_interpreter.py
+│   │   │   ├── initialize_state.py
+│   │   │   ├── jaxpr_adjoint.py
+│   │   │   ├── measure.py
+│   │   │   ├── sampling.py
+│   │   │   └── simulate.py
+│   │   │       └── ... (5 more files)
+│   │   ├── qubit_mixed/
+│   │   │   ├── __init__.py
+│   │   │   ├── apply_operation.py
+│   │   │   ├── contraction.md
+│   │   │   ├── einsum_manpulation.py
+│   │   │   ├── initialize_state.py
+│   │   │   ├── kraus.drawio.svg
+│   │   │   ├── measure.py
+│   │   │   ├── sampling.py
+│   │   │   └── simulate.py
+│   │   │       └── ... (4 more files)
+│   │   ├── qutrit_mixed/
+│   │   │   ├── __init__.py
+│   │   │   ├── apply_operation.py
+│   │   │   ├── initialize_state.py
+│   │   │   ├── measure.py
+│   │   │   ├── sampling.py
+│   │   │   ├── simulate.py
+│   │   │   └── utils.py
+│   │   │       └── ... (2 more files)
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── pytest.ini
+│   │   │   ├── test_compare_default_qubit.py
+│   │   │   ├── test_gates.py
+│   │   │   ├── test_gates_with_expval.py
+│   │   │   ├── test_gradients_autograd.py
+│   │   │   ├── test_gradients_jax.py
+│   │   │   ├── test_gradients_tf.py
+│   │   │   ├── test_gradients_torch.py
+│   │   │   ├── test_measurements.py
+│   │   │   ├── test_properties.py
+│   │   │   ├── test_return_system.py
+│   │   │   ├── test_templates.py
+│   │   │   ├── test_tracker.py
+│   │   │   └── test_wires.py
+│   │   │       └── ... (11 more files)
+│   │   ├── __init__.py
+│   │   ├── _legacy_device.py
+│   │   ├── _qubit_device.py
+│   │   ├── _qutrit_device.py
+│   │   ├── capabilities.py
+│   │   ├── default_clifford.py
+│   │   ├── default_gaussian.py
+│   │   ├── default_mixed.py
+│   │   ├── default_qubit.py
+│   │   ├── default_qutrit.py
+│   │   ├── default_qutrit_mixed.py
+│   │   ├── default_tensor.py
+│   │   ├── device_api.py
+│   │   ├── device_constructor.py
+│   │   ├── execution_config.py
+│   │   ├── legacy_facade.py
+│   │   ├── null_qubit.py
+│   │   ├── preprocess.py
+│   │   ├── reference_qubit.py
+│   │   ├── toml_check.py
+│   │   └── tracker.py
+│   │       └── ... (16 more files)
+│   ├── drawer/
+│   │   ├── __init__.py
+│   │   ├── _add_obj.py
+│   │   ├── draw.py
+│   │   ├── drawable_layers.py
+│   │   ├── mpldrawer.py
+│   │   ├── plot.mplstyle
+│   │   ├── style.py
+│   │   ├── tape_mpl.py
+│   │   ├── tape_text.py
+│   │   └── utils.py
+│   │       └── ... (5 more files)
+│   ├── fermi/
+│   │   ├── __init__.py
+│   │   ├── conversion.py
+│   │   └── fermionic.py
+│   ├── fourier/
+│   │   ├── __init__.py
+│   │   ├── circuit_spectrum.py
+│   │   ├── coefficients.py
+│   │   ├── qnode_spectrum.py
+│   │   ├── reconstruct.py
+│   │   ├── utils.py
+│   │   └── visualize.py
+│   │       └── ... (2 more files)
+│   ├── ftqc/
+│   │   ├── __init__.py
+│   │   ├── conditional_measure.py
+│   │   ├── decomposition.py
+│   │   ├── graph_state_preparation.py
+│   │   ├── lattice.py
+│   │   ├── operations.py
+│   │   ├── parametric_midmeasure.py
+│   │   ├── pauli_tracker.py
+│   │   ├── primitives.py
+│   │   ├── qubit_graph.py
+│   │   └── utils.py
+│   │       └── ... (6 more files)
+│   ├── gradients/
+│   │   ├── __init__.py
+│   │   ├── adjoint_metric_tensor.py
+│   │   ├── classical_jacobian.py
+│   │   ├── finite_difference.py
+│   │   ├── fisher.py
+│   │   ├── general_shift_rules.py
+│   │   ├── gradient_transform.py
+│   │   ├── hadamard_gradient.py
+│   │   ├── jvp.py
+│   │   ├── metric_tensor.py
+│   │   ├── parameter_shift.py
+│   │   ├── parameter_shift_cv.py
+│   │   ├── parameter_shift_hessian.py
+│   │   ├── pulse_gradient.py
+│   │   ├── pulse_gradient_odegen.py
+│   │   ├── spsa_gradient.py
+│   │   └── vjp.py
+│   │       └── ... (12 more files)
+│   ├── io/
+│   │   ├── __init__.py
+│   │   ├── io.py
+│   │   ├── qasm_interpreter.py
+│   │   └── qualtran_io.py
+│   ├── kernels/
+│   │   ├── __init__.py
+│   │   ├── cost_functions.py
+│   │   ├── postprocessing.py
+│   │   └── utils.py
+│   ├── labs/
+│   │   ├── dla/
+│   │   │   ├── __init__.py
+│   │   │   ├── dense_util.py
+│   │   │   ├── recursive_cartan_decomp.py
+│   │   │   └── variational_kak.py
+│   │   ├── intermediate_reps/
+│   │   │   ├── __init__.py
+│   │   │   ├── parity_matrix.py
+│   │   │   ├── phase_polynomial.py
+│   │   │   └── rowcol.py
+│   │   ├── resource_estimation/
+│   │   │   ├── ops/
+│   │   │   ├── templates/
+│   │   │   ├── __init__.py
+│   │   │   ├── qubit_manager.py
+│   │   │   ├── resource_mapping.py
+│   │   │   ├── resource_operator.py
+│   │   │   ├── resource_tracking.py
+│   │   │   └── resources_base.py
+│   │   │       └── ... (1 more files)
+│   │   ├── tests/
+│   │   │   ├── dla/
+│   │   │   ├── intermediate_reps/
+│   │   │   ├── resource_estimation/
+│   │   │   ├── trotter_error/
+│   │   │   ├── zxopt/
+│   │   │   ├── conftest.py
+│   │   │   ├── pytest.ini
+│   │   │   └── test_placeholder.py
+│   │   ├── trotter_error/
+│   │   │   ├── fragments/
+│   │   │   ├── product_formulas/
+│   │   │   ├── realspace/
+│   │   │   ├── __init__.py
+│   │   │   └── abstract.py
+│   │   ├── zxopt/
+│   │   │   ├── __init__.py
+│   │   │   ├── basic_optimization.py
+│   │   │   ├── full_optimize.py
+│   │   │   ├── full_reduce.py
+│   │   │   ├── todd.py
+│   │   │   └── util.py
+│   │   │       └── ... (1 more files)
+│   │   ├── .coveragerc
+│   │   ├── .pylintrc
+│   │   ├── __init__.py
+│   │   └── README.md
+│   ├── liealg/
+│   │   ├── __init__.py
+│   │   ├── cartan_decomp.py
+│   │   ├── center.py
+│   │   ├── horizontal_cartan_subalgebra.py
+│   │   ├── involutions.py
+│   │   ├── lie_closure.py
+│   │   └── structure_constants.py
+│   │       └── ... (2 more files)
+│   ├── logging/
+│   │   ├── formatters/
+│   │   │   ├── __init__.py
+│   │   │   └── formatter.py
+│   │   ├── __init__.py
+│   │   ├── configuration.py
+│   │   ├── decorators.py
+│   │   ├── filter.py
+│   │   ├── log_config.toml
+│   │   └── utils.py
+│   │       └── ... (1 more files)
+│   ├── math/
+│   │   ├── __init__.py
+│   │   ├── decomp_int_to_powers_of_two.md
+│   │   ├── decomposition.py
+│   │   ├── fidelity.py
+│   │   ├── fidelity_gradient.md
+│   │   ├── grad.py
+│   │   ├── interface_utils.py
+│   │   ├── is_independent.py
+│   │   ├── matrix_manipulation.py
+│   │   ├── multi_dispatch.py
+│   │   ├── quantum.py
+│   │   ├── single_dispatch.py
+│   │   └── utils.py
+│   │       └── ... (8 more files)
+│   ├── measurements/
+│   │   ├── __init__.py
+│   │   ├── capture_measurements.py
+│   │   ├── classical_shadow.py
+│   │   ├── counts.py
+│   │   ├── expval.py
+│   │   ├── measurement_value.py
+│   │   ├── measurements.py
+│   │   ├── mid_measure.py
+│   │   ├── mutual_info.py
+│   │   ├── null_measurement.py
+│   │   ├── probs.py
+│   │   ├── process_samples.py
+│   │   ├── purity.py
+│   │   ├── sample.py
+│   │   ├── shots.py
+│   │   ├── state.py
+│   │   ├── var.py
+│   │   └── vn_entropy.py
+│   │       └── ... (13 more files)
+│   ├── noise/
+│   │   ├── __init__.py
+│   │   ├── add_noise.py
+│   │   ├── conditionals.py
+│   │   ├── insert_ops.py
+│   │   ├── mitigate.py
+│   │   └── noise_model.py
+│   │       └── ... (1 more files)
+│   ├── numpy/
+│   │   ├── __init__.py
+│   │   ├── fft.py
+│   │   ├── linalg.py
+│   │   ├── random.py
+│   │   ├── tensor.py
+│   │   └── wrapper.py
+│   │       └── ... (1 more files)
+│   ├── ops/
+│   │   ├── functions/
+│   │   │   ├── __init__.py
+│   │   │   ├── assert_valid.py
+│   │   │   ├── bind_new_parameters.py
+│   │   │   ├── commutator.py
+│   │   │   ├── dot.py
+│   │   │   ├── eigvals.py
+│   │   │   ├── equal.py
+│   │   │   ├── evolve.py
+│   │   │   ├── generator.py
+│   │   │   ├── is_commuting.py
+│   │   │   ├── is_hermitian.py
+│   │   │   ├── is_unitary.py
+│   │   │   ├── iterative_qpe.py
+│   │   │   ├── map_wires.py
+│   │   │   ├── matrix.py
+│   │   │   └── simplify.py
+│   │   │       └── ... (11 more files)
+│   │   ├── op_math/
+│   │   │   ├── decompositions/
+│   │   │   ├── __init__.py
+│   │   │   ├── adjoint.py
+│   │   │   ├── composite.py
+│   │   │   ├── condition.py
+│   │   │   ├── controlled.py
+│   │   │   ├── controlled_decompositions.py
+│   │   │   ├── controlled_ops.py
+│   │   │   ├── evolution.py
+│   │   │   ├── exp.py
+│   │   │   ├── linear_combination.py
+│   │   │   ├── pow.py
+│   │   │   ├── prod.py
+│   │   │   ├── sprod.py
+│   │   │   ├── sum.py
+│   │   │   └── symbolicop.py
+│   │   │       └── ... (10 more files)
+│   │   ├── qubit/
+│   │   │   ├── __init__.py
+│   │   │   ├── arithmetic_ops.py
+│   │   │   ├── attributes.py
+│   │   │   ├── matrix_ops.py
+│   │   │   ├── non_parametric_ops.py
+│   │   │   ├── observables.py
+│   │   │   ├── parametric_ops_multi_qubit.py
+│   │   │   ├── parametric_ops_single_qubit.py
+│   │   │   ├── pcphase_decomposition.md
+│   │   │   ├── qchem_ops.py
+│   │   │   ├── special_unitary.py
+│   │   │   └── state_preparation.py
+│   │   │       └── ... (7 more files)
+│   │   ├── qutrit/
+│   │   │   ├── __init__.py
+│   │   │   ├── channel.py
+│   │   │   ├── matrix_ops.py
+│   │   │   ├── non_parametric_ops.py
+│   │   │   ├── observables.py
+│   │   │   ├── parametric_ops.py
+│   │   │   └── state_preparation.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── channel.py
+│   │   ├── cv.py
+│   │   ├── identity.py
+│   │   └── meta.py
+│   ├── optimize/
+│   │   ├── __init__.py
+│   │   ├── adagrad.py
+│   │   ├── adam.py
+│   │   ├── adaptive.py
+│   │   ├── gradient_descent.py
+│   │   ├── momentum.py
+│   │   ├── momentum_qng.py
+│   │   ├── momentum_qng_qjit.py
+│   │   ├── nesterov_momentum.py
+│   │   ├── qng.py
+│   │   ├── qng_qjit.py
+│   │   ├── qnspsa.py
+│   │   ├── riemannian_gradient.py
+│   │   ├── rms_prop.py
+│   │   ├── rotoselect.py
+│   │   ├── rotosolve.py
+│   │   ├── shot_adaptive.py
+│   │   └── spsa.py
+│   │       └── ... (13 more files)
+│   ├── pauli/
+│   │   ├── grouping/
+│   │   │   ├── __init__.py
+│   │   │   ├── graph_colouring.py
+│   │   │   ├── group_observables.py
+│   │   │   └── optimize_measurements.py
+│   │   ├── __init__.py
+│   │   ├── conversion.py
+│   │   ├── pauli_arithmetic.py
+│   │   ├── pauli_interface.py
+│   │   ├── pauli_sparse_matrices.md
+│   │   ├── pauli_vspace.py
+│   │   ├── trace_inner_product.py
+│   │   └── utils.py
+│   │       └── ... (3 more files)
+│   ├── pulse/
+│   │   ├── __init__.py
+│   │   ├── convenience_functions.py
+│   │   ├── hardware_hamiltonian.py
+│   │   ├── parametrized_evolution.py
+│   │   ├── parametrized_hamiltonian.py
+│   │   ├── parametrized_hamiltonian_pytree.py
+│   │   ├── rydberg.py
+│   │   └── transmon.py
+│   │       └── ... (3 more files)
+│   ├── pytrees/
+│   │   ├── __init__.py
+│   │   └── pytrees.py
+│   ├── qaoa/
+│   │   ├── __init__.py
+│   │   ├── cost.py
+│   │   ├── cycle.py
+│   │   ├── layers.py
+│   │   └── mixers.py
+│   ├── qchem/
+│   │   ├── vibrational/
+│   │   │   ├── __init__.py
+│   │   │   ├── christiansen_ham.py
+│   │   │   ├── christiansen_utils.py
+│   │   │   ├── localize_modes.py
+│   │   │   ├── pes_generator.py
+│   │   │   ├── taylor_ham.py
+│   │   │   ├── vibrational_class.py
+│   │   │   └── vscf.py
+│   │   │       └── ... (3 more files)
+│   │   ├── __init__.py
+│   │   ├── basis_data.py
+│   │   ├── basis_set.py
+│   │   ├── convert.py
+│   │   ├── convert_openfermion.py
+│   │   ├── dipole.py
+│   │   ├── factorization.py
+│   │   ├── hamiltonian.py
+│   │   ├── hartree_fock.py
+│   │   ├── integrals.py
+│   │   ├── matrices.py
+│   │   ├── molecule.py
+│   │   ├── number.py
+│   │   ├── observable_hf.py
+│   │   ├── openfermion_pyscf.py
+│   │   ├── spin.py
+│   │   ├── structure.py
+│   │   └── tapering.py
+│   │       └── ... (13 more files)
+│   ├── qcut/
+│   │   ├── __init__.py
+│   │   ├── _cut_kKaHyPar_sea20.ini
+│   │   ├── cutcircuit.py
+│   │   ├── cutcircuit_mc.py
+│   │   ├── cutstrategy.py
+│   │   ├── kahypar.py
+│   │   ├── ops.py
+│   │   ├── processing.py
+│   │   ├── tapes.py
+│   │   └── utils.py
+│   │       └── ... (5 more files)
+│   ├── qnn/
+│   │   ├── __init__.py
+│   │   ├── cost.py
+│   │   └── torch.py
+│   ├── resource/
+│   │   ├── error/
+│   │   │   ├── __init__.py
+│   │   │   ├── error.py
+│   │   │   └── trotter_error.py
+│   │   ├── __init__.py
+│   │   ├── first_quantization.py
+│   │   ├── measurement.py
+│   │   ├── resource.py
+│   │   ├── second_quantization.py
+│   │   └── specs.py
+│   │       └── ... (1 more files)
+│   ├── shadows/
+│   │   ├── __init__.py
+│   │   ├── classical_shadow.py
+│   │   └── transforms.py
+│   ├── spin/
+│   │   ├── __init__.py
+│   │   ├── lattice.py
+│   │   └── spin_hamiltonian.py
+│   ├── tape/
+│   │   ├── __init__.py
+│   │   ├── operation_recorder.py
+│   │   ├── plxpr_conversion.py
+│   │   ├── qscript.py
+│   │   └── tape.py
+│   ├── templates/
+│   │   ├── embeddings/
+│   │   │   ├── __init__.py
+│   │   │   ├── amplitude.py
+│   │   │   ├── angle.py
+│   │   │   ├── basis.py
+│   │   │   ├── displacement.py
+│   │   │   ├── iqp.py
+│   │   │   ├── qaoaembedding.py
+│   │   │   └── squeezing.py
+│   │   │       └── ... (3 more files)
+│   │   ├── layers/
+│   │   │   ├── __init__.py
+│   │   │   ├── basic_entangler.py
+│   │   │   ├── cv_neural_net.py
+│   │   │   ├── gate_fabric.py
+│   │   │   ├── particle_conserving_u1.py
+│   │   │   ├── particle_conserving_u2.py
+│   │   │   ├── random.py
+│   │   │   ├── simplified_two_design.py
+│   │   │   └── strongly_entangling.py
+│   │   │       └── ... (4 more files)
+│   │   ├── state_preparations/
+│   │   │   ├── __init__.py
+│   │   │   ├── arbitrary_state_preparation.py
+│   │   │   ├── basis_qutrit.py
+│   │   │   ├── cosine_window.py
+│   │   │   ├── mottonen.py
+│   │   │   ├── qrom_state_prep.py
+│   │   │   ├── state_prep_mps.py
+│   │   │   └── superposition.py
+│   │   │       └── ... (3 more files)
+│   │   ├── subroutines/
+│   │   │   ├── __init__.py
+│   │   │   ├── adder.py
+│   │   │   ├── all_singles_doubles.py
+│   │   │   ├── amplitude_amplification.py
+│   │   │   ├── approx_time_evolution.py
+│   │   │   ├── aqft.py
+│   │   │   ├── arbitrary_unitary.py
+│   │   │   ├── basis_rotation.py
+│   │   │   ├── commuting_evolution.py
+│   │   │   ├── controlled_sequence.py
+│   │   │   ├── fable.py
+│   │   │   ├── fermionic_double_excitation.py
+│   │   │   ├── fermionic_single_excitation.py
+│   │   │   ├── flip_sign.py
+│   │   │   ├── gqsp.py
+│   │   │   ├── grover.py
+│   │   │   ├── hilbert_schmidt.py
+│   │   │   ├── interferometer.py
+│   │   │   ├── kupccgsd.py
+│   │   │   ├── mod_exp.py
+│   │   │   ├── multiplier.py
+│   │   │   ├── out_adder.py
+│   │   │   ├── out_multiplier.py
+│   │   │   ├── out_poly.py
+│   │   │   ├── permute.py
+│   │   │   ├── phase_adder.py
+│   │   │   ├── prepselprep.py
+│   │   │   ├── qdrift.py
+│   │   │   ├── qft.py
+│   │   │   ├── qmc.py
+│   │   │   ├── qpe.py
+│   │   │   ├── qrom.py
+│   │   │   ├── qsvt.py
+│   │   │   ├── qubitization.py
+│   │   │   ├── reflection.py
+│   │   │   ├── select.py
+│   │   │   ├── select_pauli_rot.py
+│   │   │   ├── semi_adder.py
+│   │   │   ├── temporary_and.py
+│   │   │   ├── trotter.py
+│   │   │   └── uccsd.py
+│   │   │       └── ... (36 more files)
+│   │   ├── swapnetworks/
+│   │   │   ├── __init__.py
+│   │   │   └── ccl2.py
+│   │   ├── tensornetworks/
+│   │   │   ├── __init__.py
+│   │   │   ├── mera.py
+│   │   │   ├── mps.py
+│   │   │   └── ttn.py
+│   │   ├── __init__.py
+│   │   └── layer.py
+│   ├── transforms/
+│   │   ├── core/
+│   │   │   ├── __init__.py
+│   │   │   ├── cotransform_cache.py
+│   │   │   ├── transform.py
+│   │   │   ├── transform_dispatcher.py
+│   │   │   └── transform_program.py
+│   │   ├── decompositions/
+│   │   │   ├── __init__.py
+│   │   │   └── clifford_t_transform.py
+│   │   ├── optimization/
+│   │   │   ├── __init__.py
+│   │   │   ├── cancel_inverses.py
+│   │   │   ├── commute_controlled.py
+│   │   │   ├── merge_amplitude_embedding.py
+│   │   │   ├── merge_rotations.py
+│   │   │   ├── optimization_utils.py
+│   │   │   ├── pattern_matching.py
+│   │   │   ├── relative_phases.py
+│   │   │   ├── remove_barrier.py
+│   │   │   ├── single_qubit_fusion.py
+│   │   │   └── undo_swaps.py
+│   │   │       └── ... (6 more files)
+│   │   ├── sign_expand/
+│   │   │   ├── __init__.py
+│   │   │   ├── sign_expand.py
+│   │   │   └── sign_expand_data.json
+│   │   ├── zx/
+│   │   │   ├── __init__.py
+│   │   │   └── converter.py
+│   │   ├── __init__.py
+│   │   ├── batch_input.py
+│   │   ├── batch_params.py
+│   │   ├── batch_partial.py
+│   │   ├── broadcast_expand.py
+│   │   ├── combine_global_phases.py
+│   │   ├── commutation_dag.py
+│   │   ├── compile.py
+│   │   ├── convert_to_numpy_parameters.py
+│   │   ├── decompose.py
+│   │   ├── defer_measurements.py
+│   │   ├── diagonalize_measurements.py
+│   │   ├── dynamic_one_shot.py
+│   │   ├── qmc.py
+│   │   ├── resolve_dynamic_wires.py
+│   │   ├── split_non_commuting.py
+│   │   ├── split_to_single_terms.py
+│   │   ├── tape_expand.py
+│   │   ├── transpile.py
+│   │   └── unitary_to_rot.py
+│   │       └── ... (15 more files)
+│   ├── workflow/
+│   │   ├── interfaces/
+│   │   │   ├── __init__.py
+│   │   │   ├── autograd.py
+│   │   │   ├── jax.py
+│   │   │   ├── jax_jit.py
+│   │   │   ├── tensorflow.py
+│   │   │   ├── tensorflow_autograph.py
+│   │   │   └── torch.py
+│   │   │       └── ... (2 more files)
+│   │   ├── __init__.py
+│   │   ├── _cache_transform.py
+│   │   ├── _capture_qnode.py
+│   │   ├── _setup_transform_program.py
+│   │   ├── construct_batch.py
+│   │   ├── construct_execution_config.py
+│   │   ├── construct_tape.py
+│   │   ├── execution.py
+│   │   ├── get_best_diff_method.py
+│   │   ├── jacobian_products.py
+│   │   ├── qnode.py
+│   │   ├── resolution.py
+│   │   ├── return_types_spec.rst
+│   │   ├── run.py
+│   │   └── set_shots.py
+│   │       └── ... (10 more files)
+│   ├── __init__.py
+│   ├── _grad.py
+│   ├── _version.py
+│   ├── about.py
+│   ├── allocation.py
+│   ├── boolean_fn.py
+│   ├── circuit_graph.py
+│   ├── configuration.py
+│   ├── exceptions.py
+│   ├── operation.py
+│   ├── queuing.py
+│   ├── registers.py
+│   ├── typing.py
+│   └── wires.py
+│       └── ... (9 more files)
+├── tests/
+│   ├── bose/
+│   │   ├── test_binary_mapping.py
+│   │   ├── test_bosonic.py
+│   │   ├── test_christiansen_mapping.py
+│   │   └── test_unary_mapping.py
+│   ├── capture/
+│   │   ├── autograph/
+│   │   │   ├── conftest.py
+│   │   │   ├── test_autograph.py
+│   │   │   ├── test_autograph_for_loop.py
+│   │   │   ├── test_autograph_while_loop.py
+│   │   │   ├── test_helpers.py
+│   │   │   └── test_if_else.py
+│   │   │       └── ... (1 more files)
+│   │   ├── transforms/
+│   │   │   ├── test_capture_cancel_inverses.py
+│   │   │   ├── test_capture_commute_controlled.py
+│   │   │   ├── test_capture_decompose.py
+│   │   │   ├── test_capture_defer_measurements.py
+│   │   │   ├── test_capture_dynamic_decompositions.py
+│   │   │   ├── test_capture_graph_decompose.py
+│   │   │   ├── test_capture_map_wires.py
+│   │   │   ├── test_capture_merge_amplitude_embedding.py
+│   │   │   ├── test_capture_merge_rotations.py
+│   │   │   ├── test_capture_single_qubit_fusion.py
+│   │   │   ├── test_capture_unitary_to_rot.py
+│   │   │   ├── test_expand_plxpr_transforms.py
+│   │   │   └── test_mcm_execution.py
+│   │   │       └── ... (8 more files)
+│   │   ├── workflow/
+│   │   │   ├── test_capture_finite_diff.py
+│   │   │   ├── test_capture_qnode.py
+│   │   │   └── test_jvp_integration.py
+│   │   ├── test_base_interpreter.py
+│   │   ├── test_capture_cond.py
+│   │   ├── test_capture_diff.py
+│   │   ├── test_capture_for_loop.py
+│   │   ├── test_capture_mid_measure.py
+│   │   ├── test_capture_module.py
+│   │   ├── test_capture_transforms.py
+│   │   ├── test_capture_while_loop.py
+│   │   ├── test_custom_primitives.py
+│   │   ├── test_dynamic_shapes.py
+│   │   ├── test_make_plxpr.py
+│   │   ├── test_measurements_capture.py
+│   │   ├── test_meta_type.py
+│   │   ├── test_nested_plxpr.py
+│   │   ├── test_operators.py
+│   │   ├── test_switches.py
+│   │   └── test_templates.py
+│   │       └── ... (12 more files)
+│   ├── circuit_graph/
+│   │   ├── test_circuit_graph.py
+│   │   └── test_circuit_graph_hash.py
+│   ├── concurrency/
+│   │   └── test_executors_local.py
+│   ├── control_flow/
+│   │   ├── test_for_loop.py
+│   │   └── test_while_loop.py
+│   ├── data/
+│   │   ├── attributes/
+│   │   │   ├── operator/
+│   │   │   ├── test_array.py
+│   │   │   ├── test_dict.py
+│   │   │   ├── test_json.py
+│   │   │   ├── test_list.py
+│   │   │   ├── test_molecule_.py
+│   │   │   ├── test_none.py
+│   │   │   ├── test_pytree.py
+│   │   │   ├── test_scalar.py
+│   │   │   ├── test_serialization.py
+│   │   │   ├── test_sparse_array.py
+│   │   │   ├── test_string.py
+│   │   │   └── test_tuple.py
+│   │   │       └── ... (7 more files)
+│   │   ├── base/
+│   │   │   ├── test_attribute.py
+│   │   │   ├── test_hdf5.py
+│   │   │   ├── test_mapper.py
+│   │   │   └── test_typing_util.py
+│   │   ├── data_manager/
+│   │   │   ├── __init__.py
+│   │   │   ├── support.py
+│   │   │   ├── test_dataset_access.py
+│   │   │   ├── test_foldermap.py
+│   │   │   ├── test_graphql.py
+│   │   │   ├── test_params.py
+│   │   │   └── test_progress.py
+│   │   │       └── ... (2 more files)
+│   │   └── test_dataset.py
+│   ├── decomposition/
+│   │   ├── conftest.py
+│   │   ├── test_collect_resource_ops.py
+│   │   ├── test_decomp_utils.py
+│   │   ├── test_decomposition_graph.py
+│   │   ├── test_decomposition_rule.py
+│   │   ├── test_resources.py
+│   │   └── test_symbolic_decomposition.py
+│   │       └── ... (2 more files)
+│   ├── devices/
+│   │   ├── default_qubit/
+│   │   │   ├── test_default_qubit.py
+│   │   │   ├── test_default_qubit_native_mcm.py
+│   │   │   ├── test_default_qubit_plxpr.py
+│   │   │   ├── test_default_qubit_preprocessing.py
+│   │   │   └── test_default_qubit_tracking.py
+│   │   ├── default_tensor/
+│   │   │   ├── test_default_tensor.py
+│   │   │   ├── test_scalability.py
+│   │   │   ├── test_tensor_expval.py
+│   │   │   └── test_tensor_var.py
+│   │   ├── modifiers/
+│   │   │   ├── test_all_modifiers.py
+│   │   │   ├── test_simulator_tracking.py
+│   │   │   └── test_single_tape_support.py
+│   │   ├── qubit/
+│   │   │   ├── test_adjoint_jacobian.py
+│   │   │   ├── test_apply_operation.py
+│   │   │   ├── test_dq_interpreter.py
+│   │   │   ├── test_initialize_state.py
+│   │   │   ├── test_jaxpr_adjoint_jvp.py
+│   │   │   ├── test_measure.py
+│   │   │   ├── test_sampling.py
+│   │   │   └── test_simulate.py
+│   │   │       └── ... (3 more files)
+│   │   ├── qubit_mixed/
+│   │   │   ├── conftest.py
+│   │   │   ├── test_qubit_mixed_apply_operation.py
+│   │   │   ├── test_qubit_mixed_initialize_state.py
+│   │   │   ├── test_qubit_mixed_measure.py
+│   │   │   ├── test_qubit_mixed_preprocessing.py
+│   │   │   ├── test_qubit_mixed_sampling.py
+│   │   │   └── test_qubit_mixed_simulate.py
+│   │   │       └── ... (2 more files)
+│   │   ├── qutrit_mixed/
+│   │   │   ├── conftest.py
+│   │   │   ├── test_qutrit_mixed_apply_operation.py
+│   │   │   ├── test_qutrit_mixed_initialize_state.py
+│   │   │   ├── test_qutrit_mixed_measure.py
+│   │   │   ├── test_qutrit_mixed_preprocessing.py
+│   │   │   ├── test_qutrit_mixed_sampling.py
+│   │   │   ├── test_qutrit_mixed_simulate.py
+│   │   │   └── test_qutrit_mixed_tracking.py
+│   │   │       └── ... (3 more files)
+│   │   ├── conftest.py
+│   │   ├── test_capabilities.py
+│   │   ├── test_default_clifford.py
+│   │   ├── test_default_gaussian.py
+│   │   ├── test_default_mixed.py
+│   │   ├── test_default_qutrit.py
+│   │   ├── test_default_qutrit_mixed.py
+│   │   ├── test_device_api.py
+│   │   ├── test_execution_config.py
+│   │   ├── test_legacy_device.py
+│   │   ├── test_legacy_facade.py
+│   │   ├── test_lightning_qubit.py
+│   │   ├── test_null_qubit.py
+│   │   ├── test_preprocess.py
+│   │   ├── test_qubit_device.py
+│   │   ├── test_qutrit_device.py
+│   │   ├── test_reference_qubit.py
+│   │   └── test_tracker.py
+│   │       └── ... (13 more files)
+│   ├── docs/
+│   │   └── test_supported_confs.py
+│   ├── drawer/
+│   │   ├── test_draw.py
+│   │   ├── test_draw_catalyst.py
+│   │   ├── test_draw_mpl.py
+│   │   ├── test_drawable_layers.py
+│   │   ├── test_drawer_utils.py
+│   │   ├── test_mpldrawer.py
+│   │   ├── test_style.py
+│   │   ├── test_tape_mpl.py
+│   │   └── test_tape_text.py
+│   │       └── ... (4 more files)
+│   ├── fermi/
+│   │   ├── test_bravyi_kitaev.py
+│   │   ├── test_fermi_mapping.py
+│   │   ├── test_fermionic.py
+│   │   ├── test_fermionic_operators.py
+│   │   └── test_parity_mapping.py
+│   ├── fourier/
+│   │   ├── test_circuit_spectrum.py
+│   │   ├── test_coefficients.py
+│   │   ├── test_fourier_utils.py
+│   │   ├── test_qnode_spectrum.py
+│   │   ├── test_reconstruct.py
+│   │   └── test_visualize.py
+│   │       └── ... (1 more files)
+│   ├── ftqc/
+│   │   ├── test_cond_measure.py
+│   │   ├── test_decomposition.py
+│   │   ├── test_ftqc_graph_state_prep.py
+│   │   ├── test_ftqc_lattice.py
+│   │   ├── test_mbqc_gates.py
+│   │   ├── test_operations.py
+│   │   ├── test_parametric_mid_measure.py
+│   │   ├── test_pauli_tracker.py
+│   │   ├── test_primitives.py
+│   │   ├── test_qubit_graph.py
+│   │   └── test_utils.py
+│   │       └── ... (6 more files)
+│   ├── gpu/
+│   │   └── test_gpu_torch.py
+│   ├── gradients/
+│   │   ├── core/
+│   │   │   ├── test_adjoint_diff.py
+│   │   │   ├── test_adjoint_metric_tensor.py
+│   │   │   ├── test_fisher.py
+│   │   │   ├── test_general_shift_rules.py
+│   │   │   ├── test_gradient_transform.py
+│   │   │   ├── test_hadamard_gradient.py
+│   │   │   ├── test_jvp.py
+│   │   │   ├── test_metric_tensor.py
+│   │   │   ├── test_pulse_gradient.py
+│   │   │   ├── test_pulse_odegen.py
+│   │   │   └── test_vjp.py
+│   │   │       └── ... (6 more files)
+│   │   ├── finite_diff/
+│   │   │   ├── test_finite_diff_jvp.py
+│   │   │   ├── test_finite_difference.py
+│   │   │   ├── test_finite_difference_shot_vec.py
+│   │   │   ├── test_spsa_gradient.py
+│   │   │   └── test_spsa_gradient_shot_vec.py
+│   │   └── parameter_shift/
+│   │       ├── test_cv_gradients.py
+│   │       ├── test_parameter_shift.py
+│   │       ├── test_parameter_shift_cv.py
+│   │       ├── test_parameter_shift_hessian.py
+│   │       └── test_parameter_shift_shot_vec.py
+│   ├── helpers/
+│   │   ├── mcm_utils.py
+│   │   └── stat_utils.py
+│   ├── io/
+│   │   ├── qasm_interpreter/
+│   │   │   ├── add_multiple_measurements.qasm
+│   │   │   ├── assignment.qasm
+│   │   │   ├── binary_expressions.qasm
+│   │   │   ├── classical.qasm
+│   │   │   ├── complex_subroutines.qasm
+│   │   │   ├── condition_on_measurement.qasm
+│   │   │   ├── custom_gates.qasm
+│   │   │   ├── end_in_loop.qasm
+│   │   │   ├── end_in_measure_conditioned_branch.qasm
+│   │   │   ├── functions.qasm
+│   │   │   ├── if_else.qasm
+│   │   │   ├── loops.qasm
+│   │   │   ├── measurements.qasm
+│   │   │   ├── nested_control_flow.qasm
+│   │   │   ├── nested_end.qasm
+│   │   │   ├── nested_renaming.qasm
+│   │   │   ├── post_processing.qasm
+│   │   │   ├── repeated_calls.qasm
+│   │   │   ├── resets.qasm
+│   │   │   ├── scoping_const.qasm
+│   │   │   ├── standalone_subroutines.qasm
+│   │   │   ├── subroutines.qasm
+│   │   │   ├── switch.qasm
+│   │   │   ├── test_interpreter.py
+│   │   │   ├── unary_expressions.qasm
+│   │   │   ├── updating_variables.qasm
+│   │   │   └── variables.qasm
+│   │   │       └── ... (22 more files)
+│   │   ├── test_io.py
+│   │   ├── test_qasm.py
+│   │   └── test_qualtran_io.py
+│   ├── kernels/
+│   │   └── test_kernels.py
+│   ├── liealg/
+│   │   ├── test_cartan_decomp.py
+│   │   ├── test_center.py
+│   │   ├── test_horizontal_cartan_subalgebra.py
+│   │   ├── test_involutions.py
+│   │   ├── test_lie_closure.py
+│   │   └── test_structure_constants.py
+│   │       └── ... (1 more files)
+│   ├── logging/
+│   │   └── test_logging_autograd.py
+│   ├── math/
+│   │   ├── test_basic_math.py
+│   │   ├── test_catalyst_math.py
+│   │   ├── test_choi.py
+│   │   ├── test_decomposition_math.py
+│   │   ├── test_density_matrices.py
+│   │   ├── test_entropies_math.py
+│   │   ├── test_expectation_value.py
+│   │   ├── test_fidelity_math.py
+│   │   ├── test_functions.py
+│   │   ├── test_givens_rotations.py
+│   │   ├── test_grad.py
+│   │   ├── test_init.py
+│   │   ├── test_is_abstract.py
+│   │   ├── test_is_independent.py
+│   │   ├── test_matrix_manipulation.py
+│   │   ├── test_multi_dispatch.py
+│   │   └── test_trace_distance_math.py
+│   │       └── ... (12 more files)
+│   ├── measurements/
+│   │   ├── test_classical_shadow.py
+│   │   ├── test_counts.py
+│   │   ├── test_expval.py
+│   │   ├── test_measurements.py
+│   │   ├── test_measurements_legacy.py
+│   │   ├── test_mid_measure.py
+│   │   ├── test_mutual_info.py
+│   │   ├── test_null_measurement.py
+│   │   ├── test_probs.py
+│   │   ├── test_purity_measurement.py
+│   │   ├── test_sample.py
+│   │   ├── test_shots.py
+│   │   ├── test_state.py
+│   │   ├── test_var.py
+│   │   └── test_vn_entropy.py
+│   │       └── ... (10 more files)
+│   ├── noise/
+│   │   ├── test_add_noise.py
+│   │   ├── test_conditionals.py
+│   │   ├── test_insert_ops.py
+│   │   ├── test_mitigate.py
+│   │   └── test_noise_model.py
+│   ├── numpy/
+│   │   ├── test_numpy_random.py
+│   │   ├── test_numpy_wrapper.py
+│   │   └── test_pickling.py
+│   ├── ops/
+│   │   ├── functions/
+│   │   │   ├── conftest.py
+│   │   │   ├── test_assert_valid.py
+│   │   │   ├── test_bind_new_parameters.py
+│   │   │   ├── test_commutator.py
+│   │   │   ├── test_dot.py
+│   │   │   ├── test_eigvals.py
+│   │   │   ├── test_equal.py
+│   │   │   ├── test_evolve.py
+│   │   │   ├── test_generator.py
+│   │   │   ├── test_is_commuting.py
+│   │   │   ├── test_is_hermitian.py
+│   │   │   ├── test_is_unitary.py
+│   │   │   ├── test_iterative_qpe.py
+│   │   │   ├── test_map_wires.py
+│   │   │   ├── test_matrix.py
+│   │   │   └── test_simplify.py
+│   │   │       └── ... (11 more files)
+│   │   ├── op_math/
+│   │   │   ├── decompositions/
+│   │   │   ├── test_adjoint.py
+│   │   │   ├── test_composite.py
+│   │   │   ├── test_condition.py
+│   │   │   ├── test_controlled.py
+│   │   │   ├── test_controlled_decompositions.py
+│   │   │   ├── test_controlled_ops.py
+│   │   │   ├── test_decompositions.py
+│   │   │   ├── test_evolution.py
+│   │   │   ├── test_exp.py
+│   │   │   ├── test_linear_combination.py
+│   │   │   ├── test_pow_op.py
+│   │   │   ├── test_prod.py
+│   │   │   ├── test_solovay_kitaev.py
+│   │   │   ├── test_sprod.py
+│   │   │   ├── test_sum.py
+│   │   │   └── test_symbolic_op.py
+│   │   │       └── ... (11 more files)
+│   │   ├── qubit/
+│   │   │   ├── test_all_qubit_ops.py
+│   │   │   ├── test_arithmetic_ops.py
+│   │   │   ├── test_attributes.py
+│   │   │   ├── test_matrix_ops.py
+│   │   │   ├── test_non_parametric_ops.py
+│   │   │   ├── test_observables.py
+│   │   │   ├── test_parametric_ops.py
+│   │   │   ├── test_qchem_ops.py
+│   │   │   ├── test_sparse.py
+│   │   │   ├── test_special_unitary.py
+│   │   │   └── test_state_prep.py
+│   │   │       └── ... (6 more files)
+│   │   ├── qutrit/
+│   │   │   ├── test_qutrit_channel_ops.py
+│   │   │   ├── test_qutrit_matrix_ops.py
+│   │   │   ├── test_qutrit_non_parametric_ops.py
+│   │   │   ├── test_qutrit_observables.py
+│   │   │   ├── test_qutrit_parametric_ops.py
+│   │   │   └── test_qutrit_state_prep.py
+│   │   │       └── ... (1 more files)
+│   │   ├── test_channel_ops.py
+│   │   ├── test_cv_ops.py
+│   │   ├── test_identity.py
+│   │   └── test_meta.py
+│   ├── optimize/
+│   │   ├── test_adagrad.py
+│   │   ├── test_adam.py
+│   │   ├── test_adaptive.py
+│   │   ├── test_gradient_descent.py
+│   │   ├── test_momentum.py
+│   │   ├── test_momentum_qng.py
+│   │   ├── test_momentum_qng_qjit.py
+│   │   ├── test_nesterov_momentum.py
+│   │   ├── test_optimize.py
+│   │   ├── test_optimize_shot_adaptive.py
+│   │   ├── test_qng.py
+│   │   ├── test_qng_qjit.py
+│   │   ├── test_qnspsa.py
+│   │   ├── test_riemannian_gradient_optimizer.py
+│   │   ├── test_rmsprop.py
+│   │   ├── test_rotoselect.py
+│   │   ├── test_rotosolve.py
+│   │   └── test_spsa.py
+│   │       └── ... (13 more files)
+│   ├── pauli/
+│   │   ├── grouping/
+│   │   │   ├── test_pauli_graph_colouring.py
+│   │   │   ├── test_pauli_group_observables.py
+│   │   │   └── test_pauli_optimize_measurements.py
+│   │   ├── test_conversion.py
+│   │   ├── test_measurement_transformations.py
+│   │   ├── test_pauli_arithmetic.py
+│   │   ├── test_pauli_interface.py
+│   │   ├── test_pauli_utils.py
+│   │   ├── test_pauli_vspace.py
+│   │   └── test_trace_inner_product.py
+│   │       └── ... (2 more files)
+│   ├── pulse/
+│   │   ├── test_convenience_functions.py
+│   │   ├── test_hardware_hamiltonian.py
+│   │   ├── test_parametrized_evolution.py
+│   │   ├── test_parametrized_hamiltonian.py
+│   │   ├── test_parametrized_hamiltonian_pytree.py
+│   │   ├── test_pwc_functions.py
+│   │   ├── test_rydberg.py
+│   │   └── test_transmon.py
+│   │       └── ... (3 more files)
+│   ├── python_compiler/
+│   │   ├── dialects/
+│   │   │   ├── test_catalyst_dialect.py
+│   │   │   ├── test_mbqc_dialect.py
+│   │   │   ├── test_qec_dialect.py
+│   │   │   └── test_quantum_dialect.py
+│   │   ├── transforms/
+│   │   │   ├── test_xdsl_cancel_inverses.py
+│   │   │   ├── test_xdsl_combine_global_phases.py
+│   │   │   ├── test_xdsl_diagonalize_measurements.py
+│   │   │   ├── test_xdsl_measurements_from_samples.py
+│   │   │   └── test_xdsl_merge_rotations.py
+│   │   ├── conftest.py
+│   │   └── test_python_compiler.py
+│   ├── pytrees/
+│   │   └── test_pytrees.py
+│   ├── qchem/
+│   │   ├── openfermion_pyscf_tests/
+│   │   │   ├── test_ref_files/
+│   │   │   ├── conftest.py
+│   │   │   ├── test_convert.py
+│   │   │   ├── test_convert_openfermion.py
+│   │   │   ├── test_decompose.py
+│   │   │   ├── test_dipole_of.py
+│   │   │   ├── test_meanfield.py
+│   │   │   ├── test_molecular_dipole.py
+│   │   │   ├── test_molecular_hamiltonian.py
+│   │   │   ├── test_observable_of.py
+│   │   │   ├── test_one_particle.py
+│   │   │   └── test_two_particle.py
+│   │   │       └── ... (6 more files)
+│   │   ├── test_ref_files/
+│   │   │   └── gdb3.mol5.XYZ
+│   │   ├── vibrational/
+│   │   │   ├── test_ref_files/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── test_christiansen_ham.py
+│   │   │   ├── test_pes_generator.py
+│   │   │   ├── test_taylor_ham.py
+│   │   │   ├── test_vibrational_class.py
+│   │   │   └── test_vscf.py
+│   │   │       └── ... (2 more files)
+│   │   ├── test_basis_set.py
+│   │   ├── test_dipole.py
+│   │   ├── test_factorization.py
+│   │   ├── test_hamiltonians.py
+│   │   ├── test_hartree_fock.py
+│   │   ├── test_integrals.py
+│   │   ├── test_matrices.py
+│   │   ├── test_molecule.py
+│   │   ├── test_observable_hf.py
+│   │   ├── test_particle_number.py
+│   │   ├── test_spin.py
+│   │   ├── test_structure.py
+│   │   └── test_tapering.py
+│   │       └── ... (8 more files)
+│   ├── qnn/
+│   │   ├── conftest.py
+│   │   ├── test_cost.py
+│   │   └── test_qnn_torch.py
+│   ├── resource/
+│   │   ├── test_error/
+│   │   │   ├── test_error.py
+│   │   │   └── test_trotter_error.py
+│   │   ├── test_first_quantization.py
+│   │   ├── test_measurement.py
+│   │   ├── test_resource.py
+│   │   ├── test_second_quantization.py
+│   │   └── test_specs.py
+│   ├── shadow/
+│   │   ├── test_shadow_class.py
+│   │   ├── test_shadow_entropies.py
+│   │   └── test_shadow_transforms.py
+│   ├── spin/
+│   │   ├── test_lattice.py
+│   │   └── test_spin_hamiltonian.py
+│   ├── tape/
+│   │   ├── test_operation_recorder.py
+│   │   ├── test_plxpr_conversion.py
+│   │   ├── test_qscript.py
+│   │   └── test_tape.py
+│   ├── templates/
+│   │   ├── test_embeddings/
+│   │   │   ├── test_amplitude.py
+│   │   │   ├── test_angle.py
+│   │   │   ├── test_basis.py
+│   │   │   ├── test_displacement_emb.py
+│   │   │   ├── test_iqp_emb.py
+│   │   │   ├── test_qaoa_emb.py
+│   │   │   └── test_squeezing_emb.py
+│   │   │       └── ... (2 more files)
+│   │   ├── test_layers/
+│   │   │   ├── test_basic_entangler.py
+│   │   │   ├── test_cv_neural_net.py
+│   │   │   ├── test_gate_fabric.py
+│   │   │   ├── test_particle_conserving_u1.py
+│   │   │   ├── test_particle_conserving_u2.py
+│   │   │   ├── test_random.py
+│   │   │   ├── test_simplified_twodesign.py
+│   │   │   └── test_strongly_entangling.py
+│   │   │       └── ... (3 more files)
+│   │   ├── test_state_preparations/
+│   │   │   ├── test_arbitrary_state_prep.py
+│   │   │   ├── test_cosine_window.py
+│   │   │   ├── test_mottonen_state_prep.py
+│   │   │   ├── test_qrom_state_prep.py
+│   │   │   ├── test_qutrit_basis_state_prep.py
+│   │   │   ├── test_state_prep_mps.py
+│   │   │   └── test_superposition.py
+│   │   │       └── ... (2 more files)
+│   │   ├── test_subroutines/
+│   │   │   ├── test_adder.py
+│   │   │   ├── test_all_singles_doubles.py
+│   │   │   ├── test_amplitude_amplification.py
+│   │   │   ├── test_approx_time_evolution.py
+│   │   │   ├── test_aqft.py
+│   │   │   ├── test_arbitrary_unitary.py
+│   │   │   ├── test_basis_rotation.py
+│   │   │   ├── test_commuting_evolution.py
+│   │   │   ├── test_controlled_sequence.py
+│   │   │   ├── test_double_excitation.py
+│   │   │   ├── test_fable.py
+│   │   │   ├── test_flip_sign.py
+│   │   │   ├── test_gqsp.py
+│   │   │   ├── test_grover.py
+│   │   │   ├── test_hilbert_schmidt.py
+│   │   │   ├── test_interferometer.py
+│   │   │   ├── test_kupccgsd.py
+│   │   │   ├── test_mod_exp.py
+│   │   │   ├── test_multiplier.py
+│   │   │   ├── test_out_adder.py
+│   │   │   ├── test_out_multiplier.py
+│   │   │   ├── test_out_poly.py
+│   │   │   ├── test_permute.py
+│   │   │   ├── test_phase_adder.py
+│   │   │   ├── test_prepselprep.py
+│   │   │   ├── test_qdrift.py
+│   │   │   ├── test_qft.py
+│   │   │   ├── test_qmc.py
+│   │   │   ├── test_qpe.py
+│   │   │   ├── test_qrom.py
+│   │   │   ├── test_qsvt.py
+│   │   │   ├── test_qubitization.py
+│   │   │   ├── test_reflection.py
+│   │   │   ├── test_select.py
+│   │   │   ├── test_select_pauli_rot.py
+│   │   │   ├── test_semi_adder.py
+│   │   │   ├── test_single_excitation.py
+│   │   │   ├── test_temporary_and.py
+│   │   │   ├── test_trotter.py
+│   │   │   └── test_uccsd.py
+│   │   │       └── ... (35 more files)
+│   │   ├── test_swapnetworks/
+│   │   │   └── test_ccl2.py
+│   │   ├── test_tensornetworks/
+│   │   │   ├── test_MERA.py
+│   │   │   ├── test_MPS.py
+│   │   │   └── test_TTN.py
+│   │   └── test_layer.py
+│   ├── transforms/
+│   │   ├── core/
+│   │   │   ├── test_cotransform_cache.py
+│   │   │   ├── test_transform_dispatcher.py
+│   │   │   └── test_transform_program.py
+│   │   ├── test_decompositions/
+│   │   │   └── test_relative_phases.py
+│   │   ├── test_optimization/
+│   │   │   ├── test_cancel_inverses.py
+│   │   │   ├── test_commute_controlled.py
+│   │   │   ├── test_merge_amplitude_embedding.py
+│   │   │   ├── test_merge_rotations.py
+│   │   │   ├── test_optimization_utils.py
+│   │   │   ├── test_pattern_matching.py
+│   │   │   ├── test_single_qubit_fusion.py
+│   │   │   ├── test_undo_swaps.py
+│   │   │   └── utils.py
+│   │   │       └── ... (4 more files)
+│   │   ├── test_batch_input.py
+│   │   ├── test_batch_params.py
+│   │   ├── test_batch_partial.py
+│   │   ├── test_broadcast_expand.py
+│   │   ├── test_classical_jacobian.py
+│   │   ├── test_cliffordt_transform.py
+│   │   ├── test_combine_global_phases.py
+│   │   ├── test_commutation_dag.py
+│   │   ├── test_compile.py
+│   │   ├── test_convert_to_numpy_parameters.py
+│   │   ├── test_decompose_transform.py
+│   │   ├── test_decompose_transform_graph.py
+│   │   ├── test_defer_measurements.py
+│   │   ├── test_diagonalize_measurements.py
+│   │   ├── test_dynamic_one_shot.py
+│   │   ├── test_qmc_transform.py
+│   │   ├── test_resolve_dynamic_wires.py
+│   │   ├── test_sign_expand.py
+│   │   ├── test_split_non_commuting.py
+│   │   ├── test_split_to_single_terms.py
+│   │   ├── test_tape_expand.py
+│   │   ├── test_transform_deprecations.py
+│   │   ├── test_transpile.py
+│   │   ├── test_unitary_to_rot.py
+│   │   └── test_zx.py
+│   │       └── ... (20 more files)
+│   ├── workflow/
+│   │   ├── interfaces/
+│   │   │   ├── execute/
+│   │   │   ├── legacy_devices_integration/
+│   │   │   ├── qnode/
+│   │   │   ├── run/
+│   │   │   ├── test_jacobian_products.py
+│   │   │   └── test_transform_program_integration.py
+│   │   ├── test_cache_transform.py
+│   │   ├── test_construct_batch.py
+│   │   ├── test_construct_execution_config.py
+│   │   ├── test_construct_tape.py
+│   │   ├── test_get_best_diff_method.py
+│   │   ├── test_resolve_diff_method.py
+│   │   ├── test_resolve_execution_config.py
+│   │   ├── test_resolve_interface.py
+│   │   ├── test_resolve_mcm_config.py
+│   │   └── test_setup_transform_program.py
+│   │       └── ... (5 more files)
+│   ├── .pylintrc
+│   ├── conftest.py
+│   ├── default_qubit_legacy.py
+│   ├── device_shots_to_analytic.py
+│   ├── dummy_debugger.py
+│   ├── gate_data.py
+│   ├── param_shift_dev.py
+│   ├── pytest.ini
+│   ├── test_about.py
+│   ├── test_allocation.py
+│   ├── test_autograd_grad.py
+│   ├── test_boolean_fn.py
+│   ├── test_classical_gradients.py
+│   ├── test_compiler.py
+│   ├── test_configuration.py
+│   ├── test_debugging.py
+│   ├── test_hermitian_edge_cases.py
+│   ├── test_observable.py
+│   ├── test_operation.py
+│   ├── test_qaoa.py
+│   ├── test_qcut.py
+│   ├── test_qnode.py
+│   ├── test_qnode_legacy.py
+│   ├── test_queuing.py
+│   ├── test_registers.py
+│   ├── test_return_types.py
+│   ├── test_return_types_legacy.py
+│   ├── test_return_types_qnode.py
+│   ├── test_tensor_measurements.py
+│   ├── test_typing.py
+│   ├── test_vqe.py
+│   └── test_wires.py
+│       └── ... (27 more files)
+├── .coveragerc
+├── .git-blame-ignore-revs
+├── .gitattributes
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .pylintrc
+├── .readthedocs.yml
+├── codecov.yml
+├── example_config.toml
+├── LICENSE
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+├── requirements-ci.txt
+├── requirements-dev.txt
+├── requirements.txt
+├── setup.py
+└── tach.toml
+    └── ... (14 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

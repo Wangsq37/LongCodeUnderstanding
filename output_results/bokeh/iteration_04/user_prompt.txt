@@ -1,0 +1,529 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── codeql/
+│   │   └── codeql-config.yml
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   ├── config.yml
+│   │   ├── feature_request.yml
+│   │   └── task.md
+│   ├── workflows/
+│   │   ├── composite/
+│   │   │   └── test-setup/
+│   │   ├── bokeh-ci.yml
+│   │   ├── bokeh-release-build.yml
+│   │   ├── bokeh-release-deploy.yml
+│   │   ├── bokehjs-ci.yml
+│   │   ├── bokehjs-test-chromium.yml
+│   │   ├── codeql-analysis.yml
+│   │   ├── downstream.yml
+│   │   └── lock-threads.yml
+│   │       └── ... (3 more files)
+│   ├── codecov.yml
+│   ├── CONTRIBUTING.md
+│   ├── FUNDING.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── bokehjs/
+│   ├── examples/
+│   │   ├── anscombe/
+│   │   │   ├── .npmignore
+│   │   │   ├── anscombe.html
+│   │   │   └── anscombe.ts
+│   │   ├── burtin/
+│   │   │   ├── .npmignore
+│   │   │   ├── burtin.html
+│   │   │   └── burtin.ts
+│   │   ├── categorical/
+│   │   │   ├── .npmignore
+│   │   │   ├── categorical.html
+│   │   │   └── categorical.ts
+│   │   ├── charts/
+│   │   │   ├── .npmignore
+│   │   │   ├── charts.html
+│   │   │   └── charts.ts
+│   │   ├── donut/
+│   │   │   ├── .npmignore
+│   │   │   ├── donut.html
+│   │   │   └── donut.ts
+│   │   ├── hierarchical/
+│   │   │   ├── .npmignore
+│   │   │   ├── hierarchical.html
+│   │   │   └── hierarchical.ts
+│   │   ├── hover/
+│   │   │   ├── .npmignore
+│   │   │   ├── hover.html
+│   │   │   └── hover.ts
+│   │   ├── legends/
+│   │   │   ├── .npmignore
+│   │   │   ├── legends.html
+│   │   │   └── legends.ts
+│   │   ├── linked/
+│   │   │   ├── .npmignore
+│   │   │   ├── linked.html
+│   │   │   └── linked.ts
+│   │   ├── stocks/
+│   │   │   ├── .npmignore
+│   │   │   ├── stocks.html
+│   │   │   └── stocks.ts
+│   │   ├── tap/
+│   │   │   ├── .npmignore
+│   │   │   ├── tap.html
+│   │   │   └── tap.ts
+│   │   ├── bokehjs.d.ts
+│   │   └── tsconfig.json
+│   ├── make/
+│   │   ├── tasks/
+│   │   │   ├── _util.ts
+│   │   │   ├── all.ts
+│   │   │   ├── build.ts
+│   │   │   ├── clean.ts
+│   │   │   ├── compiler.ts
+│   │   │   ├── default.ts
+│   │   │   ├── examples.ts
+│   │   │   ├── index.ts
+│   │   │   ├── lint.ts
+│   │   │   ├── pack.ts
+│   │   │   ├── scripts.ts
+│   │   │   ├── server.ts
+│   │   │   ├── styles.ts
+│   │   │   ├── test.ts
+│   │   │   └── watch.ts
+│   │   │       └── ... (10 more files)
+│   │   ├── index.js
+│   │   ├── main.ts
+│   │   ├── package.json
+│   │   ├── paths.ts
+│   │   ├── task.ts
+│   │   └── tsconfig.json
+│   │       └── ... (1 more files)
+│   ├── src/
+│   │   ├── compiler/
+│   │   │   ├── build.ts
+│   │   │   ├── compile.ts
+│   │   │   ├── compiler.ts
+│   │   │   ├── error.ts
+│   │   │   ├── graph.ts
+│   │   │   ├── linker.ts
+│   │   │   ├── main.ts
+│   │   │   ├── package.json
+│   │   │   ├── prelude.ts
+│   │   │   ├── styles.ts
+│   │   │   ├── sys.ts
+│   │   │   ├── transforms.ts
+│   │   │   ├── tsconfig.ext.json
+│   │   │   ├── tsconfig.json
+│   │   │   └── txt.d.ts
+│   │   │       └── ... (10 more files)
+│   │   ├── grammar/
+│   │   │   └── core/
+│   │   ├── less/
+│   │   │   ├── icons/
+│   │   │   ├── widgets/
+│   │   │   ├── _mixins.less
+│   │   │   ├── attribution.less
+│   │   │   ├── base.less
+│   │   │   ├── buttons.less
+│   │   │   ├── canvas.less
+│   │   │   ├── canvas_panel.less
+│   │   │   ├── caret.less
+│   │   │   ├── cartesian_frame.less
+│   │   │   ├── clearfix.less
+│   │   │   ├── dialogs.less
+│   │   │   ├── drawers.less
+│   │   │   ├── dropdown.less
+│   │   │   ├── examiner.less
+│   │   │   ├── group_box.less
+│   │   │   ├── icons.less
+│   │   │   ├── legacy_menus.less
+│   │   │   ├── legend.less
+│   │   │   ├── logo.less
+│   │   │   ├── menus.less
+│   │   │   ├── notifications.less
+│   │   │   ├── panels.less
+│   │   │   ├── panes.less
+│   │   │   ├── plots.less
+│   │   │   ├── pretty.less
+│   │   │   ├── tabs.less
+│   │   │   ├── tool_button.less
+│   │   │   ├── toolbar.less
+│   │   │   ├── tooltips.less
+│   │   │   └── ui.less
+│   │   │       └── ... (24 more files)
+│   │   ├── lib/
+│   │   │   ├── api/
+│   │   │   ├── client/
+│   │   │   ├── core/
+│   │   │   ├── document/
+│   │   │   ├── embed/
+│   │   │   ├── external/
+│   │   │   ├── models/
+│   │   │   ├── protocol/
+│   │   │   ├── base.ts
+│   │   │   ├── bokeh.ts
+│   │   │   ├── es.d.ts
+│   │   │   ├── index.ts
+│   │   │   ├── main.ts
+│   │   │   ├── model.ts
+│   │   │   ├── package.json
+│   │   │   ├── safely.ts
+│   │   │   ├── tsconfig.json
+│   │   │   └── version.d.ts
+│   │   │       └── ... (5 more files)
+│   │   └── server/
+│   │       ├── globals.d.ts
+│   │       ├── index.js
+│   │       ├── message.ts
+│   │       ├── package.json
+│   │       ├── receiver.ts
+│   │       ├── server.ts
+│   │       └── tsconfig.json
+│   │           └── ... (2 more files)
+│   ├── test/
+│   │   ├── assets/
+│   │   │   ├── css/
+│   │   │   ├── data/
+│   │   │   ├── fonts/
+│   │   │   ├── images/
+│   │   │   └── tiles/
+│   │   ├── baselines/
+│   │   │   └── linux/
+│   │   ├── codebase/
+│   │   │   ├── index.ts
+│   │   │   ├── size.ts
+│   │   │   └── tsconfig.json
+│   │   ├── defaults/
+│   │   │   ├── index.ts
+│   │   │   ├── json.d.ts
+│   │   │   └── tsconfig.json
+│   │   ├── devtools/
+│   │   │   ├── baselines.ts
+│   │   │   ├── bokeh_example.html
+│   │   │   ├── bokeh_examples.html
+│   │   │   ├── chrome-remote-interface.d.ts
+│   │   │   ├── devtools.ts
+│   │   │   ├── examples.html
+│   │   │   ├── image.ts
+│   │   │   ├── index.js
+│   │   │   ├── metrics.html
+│   │   │   ├── report.html
+│   │   │   ├── server.ts
+│   │   │   ├── sys.ts
+│   │   │   ├── test.html
+│   │   │   └── tsconfig.json
+│   │   │       └── ... (9 more files)
+│   │   ├── integration/
+│   │   │   ├── annotations/
+│   │   │   ├── examples/
+│   │   │   ├── glyphs/
+│   │   │   ├── tools/
+│   │   │   ├── _data.ts
+│   │   │   ├── _util.ts
+│   │   │   ├── axes.ts
+│   │   │   ├── color_mapping.ts
+│   │   │   ├── colors.ts
+│   │   │   ├── contour.ts
+│   │   │   ├── cross.ts
+│   │   │   ├── features.ts
+│   │   │   ├── grids.ts
+│   │   │   ├── icons.ts
+│   │   │   ├── index.ts
+│   │   │   ├── layouts.ts
+│   │   │   ├── palettes.ts
+│   │   │   ├── plots.ts
+│   │   │   ├── regressions.ts
+│   │   │   ├── tables.ts
+│   │   │   ├── tiles.ts
+│   │   │   ├── tsconfig.json
+│   │   │   ├── ui.ts
+│   │   │   └── widgets.ts
+│   │   │       └── ... (15 more files)
+│   │   ├── unit/
+│   │   │   ├── api/
+│   │   │   ├── client/
+│   │   │   ├── core/
+│   │   │   ├── document/
+│   │   │   ├── models/
+│   │   │   ├── protocol/
+│   │   │   ├── _util.ts
+│   │   │   ├── assertions.ts
+│   │   │   ├── base.ts
+│   │   │   ├── embed.ts
+│   │   │   ├── model.ts
+│   │   │   ├── regressions.ts
+│   │   │   └── tsconfig.json
+│   │   │       └── ... (2 more files)
+│   │   ├── external.d.ts
+│   │   ├── framework.ts
+│   │   ├── globals.d.ts
+│   │   ├── interactive.ts
+│   │   ├── package.json
+│   │   ├── path.ts
+│   │   ├── setup.ts
+│   │   └── util.ts
+│   │       └── ... (3 more files)
+│   ├── .eslintrc.js
+│   ├── .gitignore
+│   ├── .npmignore
+│   ├── CHANGELOG.md
+│   ├── CONTRIBUTING.md
+│   ├── LICENSE
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── prepare.js
+│   └── README.md
+│       └── ... (5 more files)
+├── conda/
+│   ├── recipe/
+│   │   └── meta.yaml
+│   ├── environment-build.yml
+│   ├── environment-release-build.yml
+│   ├── environment-release-deploy.yml
+│   ├── environment-test-3.10.yml
+│   ├── environment-test-3.11.yml
+│   ├── environment-test-3.12.yml
+│   ├── environment-test-3.13.yml
+│   ├── environment-test-downstream.yml
+│   └── environment-test-minimal-deps.yml
+│       └── ... (4 more files)
+├── docs/
+│   ├── bokeh/
+│   │   ├── source/
+│   │   │   ├── _images/
+│   │   │   ├── _static/
+│   │   │   ├── _templates/
+│   │   │   ├── docs/
+│   │   │   ├── conf.py
+│   │   │   ├── index.rst
+│   │   │   └── rst_epilog.txt
+│   │   ├── .gitignore
+│   │   ├── .isort.cfg
+│   │   ├── docserver.py
+│   │   ├── make.bat
+│   │   ├── Makefile
+│   │   └── switcher.json
+│   │       └── ... (1 more files)
+│   ├── CHANGELOG
+│   ├── CODE_OF_CONDUCT.md
+│   └── SECURITY.md
+├── examples/
+│   ├── advanced/
+│   │   ├── bokehjs/
+│   │   │   └── simple_line.js
+│   │   ├── extensions/
+│   │   │   ├── font-awesome/
+│   │   │   ├── gears/
+│   │   │   ├── parallel_plot/
+│   │   │   ├── custom.ts
+│   │   │   ├── ion_range_slider.ts
+│   │   │   ├── putting_together.py
+│   │   │   ├── README.md
+│   │   │   ├── ticking.py
+│   │   │   ├── tool.py
+│   │   │   ├── widget.py
+│   │   │   └── wrapping.py
+│   │   │       └── ... (3 more files)
+│   │   └── integration/
+│   │       ├── d3-voronoi.mjs
+│   │       └── d3-voronoi.py
+│   ├── basic/
+│   │   ├── annotations/
+│   │   │   ├── assets/
+│   │   │   ├── arrow.py
+│   │   │   ├── arrowheads.py
+│   │   │   ├── band.py
+│   │   │   ├── box_annotation.py
+│   │   │   ├── colorbar_log.py
+│   │   │   ├── label.py
+│   │   │   ├── legend.py
+│   │   │   ├── legend_field.py
+│   │   │   ├── legend_group.py
+│   │   │   ├── legend_label.py
+│   │   │   ├── legend_name.py
+│   │   │   ├── legend_two_dimensions.py
+│   │   │   ├── legends_item_visibility.py
+│   │   │   ├── legends_multi_index.py
+│   │   │   ├── polygon_annotation.py
+│   │   │   ├── scale_bar_custom_units.py
+│   │   │   ├── scale_bar_image.py
+│   │   │   ├── scale_bar_positioning.py
+│   │   │   ├── slope.py
+│   │   │   ├── span.py
+│   │   │   ├── title_additional.py
+│   │   │   ├── title_basic.py
+│   │   │   ├── title_location.py
+│   │   │   ├── title_toolbar.py
+│   │   │   ├── title_visuals.py
+│   │   │   └── whisker.py
+│   │   │       └── ... (21 more files)
+│   │   ├── areas/
+│   │   │   ├── block.py
+│   │   │   ├── ellipses.py
+│   │   │   ├── harea_step.py
+│   │   │   ├── multipolygon_simple.py
+│   │   │   ├── multipolygon_with_holes.py
+│   │   │   ├── multipolygon_with_separate_parts.py
+│   │   │   ├── multipolygons.py
+│   │   │   ├── patch_missing_points.py
+│   │   │   ├── patch_multiple.py
+│   │   │   ├── patch_single.py
+│   │   │   ├── quad.py
+│   │   │   ├── rect.py
+│   │   │   ├── stacked_area.py
+│   │   │   ├── strips.py
+│   │   │   ├── varea.py
+│   │   │   ├── varea_stack.py
+│   │   │   └── varea_step.py
+│   │   │       └── ... (12 more files)
+│   │   ├── axes/
+│   │   │   ├── bounds.py
+│   │   │   ├── categorical_axis.py
+│   │   │   ├── datetime_axis.py
+│   │   │   ├── figure_range.py
+│   │   │   ├── fixed_axis.py
+│   │   │   ├── log_scale_axis.py
+│   │   │   ├── logplot.py
+│   │   │   ├── timedelta_axis.py
+│   │   │   └── twin_axes.py
+│   │   │       └── ... (4 more files)
+│   │   ├── bars/
+│   │   │   ├── bar.py
+│   │   │   ├── basic.py
+│   │   │   ├── colormapped.py
+│   │   │   ├── colors.py
+│   │   │   ├── dodged.py
+│   │   │   ├── hbar_stack.py
+│   │   │   ├── intervals.py
+│   │   │   ├── mixed.py
+│   │   │   ├── nested.py
+│   │   │   ├── nested_colormapped.py
+│   │   │   ├──
+... (1051 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: apt-get update ---
+SUCCESS: True
+STDOUT:
+Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Reading package lists...
+
+
+--- Command: apt-get install -y --fix-missing nodejs npm ---
+SUCCESS: False
+STDOUT:
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  adwaita-icon-theme at-spi2-core dbus dbus-user-session
+  dconf-gsettings-backend dconf-service dmsetup fontconfig fontconfig-config
+  fonts-dejavu-core gir1.2-glib-2.0 gsettings-desktop-schemas
+  gtk-update-icon-cache gyp hicolor-icon-theme humanity-icon-theme
+  javascript-common libapparmor1 libargon2-1 libatk-bridge2.0-0 libatk1.0-0
+  libatk1.0-data libatspi2.0-0 libauthen-sasl-perl libavahi-client3
+  libavahi-common-data libavahi-common3 libbsd0 libc-ares2 libcairo-gobject2
+  libcairo2 libclone-perl libcolord2 libcryptsetup12 libcups2
+  libdata-dump-perl libdatrie1 libdbus-1-3 libdconf1 libdeflate0
+  libdevmapper1.02.1 libdrm-amdgpu1 libdrm-common libdrm-intel1
+  libdrm-nouveau2 libdrm-radeon1 libdrm2 libedit2 libelf1
+  libencode-locale-perl libepoxy0 libfile-basedir-perl
+  libfile-desktopentry-perl libfile-listing-perl libfile-mimeinfo-perl
+  libfont-afm-perl libfontconfig1 libfontenc1 libfreetype6 libfribidi0
+  libgdk-pixbuf-2.0-0 libgdk-pixbuf2.0-bin libgdk-pixbuf2.0-common
+  libgirepository-1.0-1 libgl1 libgl1-amber-dri libgl1-mesa-dri libglapi-mesa
+  libglib2.0-0 libglib2.0-data libglvnd0 libglx-mesa0 libglx0 libgraphite2-3
+  libgtk-3-0 libgtk-3-bin libgtk-3-common libgtkd-3-0 libharfbuzz0b
+  libhtml-form-perl libhtml-format-perl libhtml-parser-perl
+  libhtml-tagset-perl libhtml-tree-perl libhttp-cookies-perl
+  libhttp-daemon-perl libhttp-date-perl libhttp-message-perl
+  libhttp-negotiate-perl libice6 libicu70 libio-html-perl
+  libio-socket-ssl-perl libio-stringy-perl libip4tc2 libipc-system-simple-perl
+  libjbig0 libjpeg-turbo8 libjpeg8 libjs-events libjs-highlight.js
+  libjs-inherits libjs-is-typedarray libjs-psl libjs-source-map
+  libjs-sprintf-js libjs-typedarray-to-buffer libjson-c5 libkmod2 liblcms2-2
+  libllvm11 libllvm15 liblwp-mediatypes-perl liblwp-protocol-https-perl
+  libmailtools-perl libmd0 libnet-dbus-perl libnet-http-perl
+  libnet-smtp-ssl-perl libnet-ssleay-perl libnode-dev libnode72 libnotify-bin
+  libnotify4 libnss-systemd libpam-systemd libpango-1.0-0 libpangocairo-1.0-0
+  libpangoft2-1.0-0 libpciaccess0 libphobos2-ldc-shared98 libpixman-1-0
+  libpng16-16 librsvg2-2 librsvg2-common libsensors-config libsensors5 libsm6
+  libssl-dev libtext-iconv-perl libthai-data libthai0 libtie-ixhash-perl
+  libtiff5 libtimedate-perl libtry-tiny-perl libunwind8 liburi-perl libuv1
+  libuv1-dev libvte-2.91-0 libvte-2.91-common libvted-3-0 libwayland-client0
+  libwayland-cursor0 libwayland-egl1 libwebp7 libwww-perl
+  libwww-robotrules-perl libx11-6 libx11-data libx11-protocol-perl libx11-xcb1
+  libxau6 libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+  libxcb-randr0 libxcb-render0 libxcb-shape0 libxcb-shm0 libxcb-sync1
+  libxcb-xfixes0 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxdmcp6
+  libxext6 libxfixes3 libxft2 libxi6 libxinerama1 libxkbcommon0 libxkbfile1
+  libxml-parser-perl libxml-twig-perl libxml-xpathengine-perl libxml2 libxmu6
+  libxmuu1 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6 libxtst6 libxv1
+  libxxf86dga1 libxxf86vm1 netbase networkd-dispatcher node-abab node-abbrev
+  node-agent-base node-ansi-regex node-ansi-styles node-ansistyles node-aproba
+  node-archy node-are-we-there-yet node-argparse node-arrify node-asap
+  node-asynckit node-balanced-match node-brace-expansion node-builtins
+  node-cacache node-chalk node-chownr node-clean-yaml-object node-cli-table
+  node-clone node-color-convert node-color-name node-colors node-columnify
+  node-combined-stream node-commander node-console-control-strings
+  node-copy-concurrently node-core-util-is node-coveralls node-cssom
+  node-cssstyle node-debug node-decompress-response node-defaults
+  node-delayed-stream node-delegates node-depd node-diff node-encoding
+  node-end-of-stream node-err-code node-escape-string-regexp node-esprima
+  node-events node-fancy-log node-fetch node-foreground-child node-form-data
+  node-fs-write-stream-atomic node-fs.realpath node-function-bind node-gauge
+  node-get-stream node-glob node-got node-graceful-fs node-growl node-gyp
+  node-has-flag node-has-unicode node-hosted-git-info node-https-proxy-agent
+  node-iconv-lite node-iferr node-imurmurhash node-indent-string node-inflight
+  node-inherits node-ini node-ip node-ip-regex node-is-buffer
+  node-is-plain-obj node-is-typedarray node-isarray node-isexe node-js-yaml
+  node-jsdom node-json-buffer node-json-parse-better-errors node-jsonparse
+  node-kind-of node-lcov-parse node-lodash-packages node-log-driver
+  node-lowercase-keys node-lru-cache node-mime node-mime-types
+  node-mimic-response node-minimatch node-minimist node-minipass node-mkdirp
+  node-move-concurrently node-ms node-mute-stream node-negotiator node-nopt
+  node-normalize-package-data node-npm-bundled node-npm-package-arg
+  node-npmlog node-object-assign node-once node-opener node-osenv
+  node-p-cancelable node-p-map node-path-is-absolute node-process-nextick-args
+  node-promise-inflight node-promise-retry node-promzard node-psl node-pump
+  node-punycode node-quick-lru node-read node-read-package-json
+  node-readable-stream node-resolve node-retry node-rimraf node-run-queue
+  node-safe-buffer node-semver node-set-blocking node-signal-exit node-slash
+  node-slice-ansi node-source-map node-source-map-support node-spdx-correct
+  node-spdx-exceptions node-spdx-expression-parse node-spdx-license-ids
+  node-sprintf-js node-ssri node-stack-utils node-stealthy-require
+  node-string-decoder node-string-width node-strip-ansi node-supports-color
+  node-tap node-tap-mocha-reporter node-tap-parser node-tar node-text-table
+  node-time-stamp node-tmatch node-tough-cookie node-typedarray-to-buffer
+  node-unique-filename node-universalify node-util-deprecate
+  node-validate-npm-package-license node-validate-npm-package-name
+  node-wcwidth.js node-webidl-conversions node-whatwg-fetch node-which
+  node-wide-align node-wrappy node-write-file-atomic node-ws node-yallist
+  nodejs-doc perl-openssl-defaults python3-dbus python3-gi session-migration
+  shared-mime-info systemd systemd-sysv systemd-timesyncd tilix tilix-common
+  ubuntu-mono ucf x11-common x11-utils x11-xserver-utils xdg-user-dirs
+  xdg-utils xkb-data
+Suggested packages:
+  apache2 | lighttpd | httpd libdigest-hmac-perl libgssapi-perl colord
+... (2090 lines omitted)
+STDERR:
+debconf: delaying package configuration, since apt-utils is not installed
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcomposite/libxcomposite1_0.4.5-1build2_amd64.deb  502  Bad Gateway [IP: 185.125.190.82 80]
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

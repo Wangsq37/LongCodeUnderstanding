@@ -1,0 +1,1006 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── Bug_report.md
+│   │   ├── config.yml
+│   │   ├── Feature_request.md
+│   │   ├── first_rc_checklist.md
+│   │   └── sub_rc_checklist.md
+│   ├── workflows/
+│   │   ├── conda_workflow_matrix.json
+│   │   ├── numba_linux-64_conda_builder.yml
+│   │   ├── numba_linux-64_wheel_builder.yml
+│   │   ├── numba_linux-arm64_conda_builder.yml
+│   │   ├── numba_linux-arm64_wheel_builder.yml
+│   │   ├── numba_osx-64_conda_builder.yml
+│   │   ├── numba_osx-64_wheel_builder.yml
+│   │   ├── numba_osx-arm64_conda_builder.yml
+│   │   ├── numba_osx-arm64_wheel_builder.yml
+│   │   ├── numba_win-64_builder.yml
+│   │   ├── numba_win-64_wheel_builder.yml
+│   │   ├── stale.yml
+│   │   ├── towncrier.yml
+│   │   └── wheel_workflow_matrix.json
+│   │       └── ... (9 more files)
+│   ├── CODEOWNERS
+│   └── PULL_REQUEST_TEMPLATE.md
+├── bin/
+│   └── numba
+├── buildscripts/
+│   ├── azure/
+│   │   ├── azure-linux-macos.yml
+│   │   └── azure-windows.yml
+│   ├── condarecipe.local/
+│   │   ├── bld.bat
+│   │   ├── build.sh
+│   │   ├── conda_build_config.yaml
+│   │   ├── license.txt
+│   │   ├── meta.yaml
+│   │   ├── run_test.bat
+│   │   └── run_test.sh
+│   │       └── ... (2 more files)
+│   ├── github/
+│   │   ├── build_wheel_linux.sh
+│   │   ├── MacOSX10.10.sdk.checksum
+│   │   ├── patch_wheel_dylib.py
+│   │   ├── repair_wheel_linux.sh
+│   │   └── setup_platform.sh
+│   ├── gpuci/
+│   │   ├── axis.yaml
+│   │   └── build.sh
+│   └── incremental/
+│       ├── after_success.sh
+│       ├── build.cmd
+│       ├── build.sh
+│       ├── install_miniconda.sh
+│       ├── MacOSX10.10.sdk.checksum
+│       ├── setup_conda_environment.cmd
+│       ├── setup_conda_environment.sh
+│       └── test.sh
+│           └── ... (3 more files)
+├── contrib/
+│   └── valgrind-numba.supp
+├── docs/
+│   ├── _static/
+│   │   ├── js/
+│   │   │   └── modernizr.min.js
+│   │   ├── numba-blue-icon-rgb.svg
+│   │   ├── numba-white-icon-rgb.svg
+│   │   └── rtd-overrides.css
+│   ├── _templates/
+│   │   └── EMPTY
+│   ├── dagmap/
+│   │   ├── dagmap.yaml
+│   │   ├── jquery.graphviz.svg.js
+│   │   ├── README.md
+│   │   ├── render.py
+│   │   └── template.html
+│   ├── source/
+│   │   ├── _ext/
+│   │   │   └── ghfiles.py
+│   │   ├── cuda/
+│   │   │   ├── bindings.rst
+│   │   │   ├── caching.rst
+│   │   │   ├── cooperative_groups.rst
+│   │   │   ├── cuda_array_interface.rst
+│   │   │   ├── cuda_compilation.rst
+│   │   │   ├── cuda_ffi.rst
+│   │   │   ├── cudapysupported.rst
+│   │   │   ├── device-functions.rst
+│   │   │   ├── device-management.rst
+│   │   │   ├── examples.rst
+│   │   │   ├── external-memory.rst
+│   │   │   ├── faq.rst
+│   │   │   ├── fastmath.rst
+│   │   │   ├── index.rst
+│   │   │   ├── intrinsics.rst
+│   │   │   ├── ipc.rst
+│   │   │   ├── kernels.rst
+│   │   │   ├── laplace_final.svg
+│   │   │   ├── laplace_initial.svg
+│   │   │   ├── memory.rst
+│   │   │   ├── minor_version_compatibility.rst
+│   │   │   ├── overview.rst
+│   │   │   ├── random.rst
+│   │   │   ├── reduction.rst
+│   │   │   ├── simulator.rst
+│   │   │   └── ufunc.rst
+│   │   │       └── ... (21 more files)
+│   │   ├── cuda-reference/
+│   │   │   ├── host.rst
+│   │   │   ├── index.rst
+│   │   │   ├── kernel.rst
+│   │   │   ├── libdevice.rst
+│   │   │   ├── memory.rst
+│   │   │   └── types.rst
+│   │   │       └── ... (1 more files)
+│   │   ├── developer/
+│   │   │   ├── architecture.rst
+│   │   │   ├── bytecode.rst
+│   │   │   ├── caching.rst
+│   │   │   ├── compiler_pass_example.py
+│   │   │   ├── contributing.rst
+│   │   │   ├── custom_pipeline.rst
+│   │   │   ├── debugging.rst
+│   │   │   ├── dispatching.rst
+│   │   │   ├── environment.rst
+│   │   │   ├── event_api.rst
+│   │   │   ├── generators.rst
+│   │   │   ├── hashing.rst
+│   │   │   ├── index.rst
+│   │   │   ├── inline_example.py
+│   │   │   ├── inline_overload_example.py
+│   │   │   ├── inlining.rst
+│   │   │   ├── listings.rst
+│   │   │   ├── literal.rst
+│   │   │   ├── live_variable_analysis.rst
+│   │   │   ├── llvm_timings.rst
+│   │   │   ├── mission.rst
+│   │   │   ├── numba-runtime.rst
+│   │   │   ├── release.rst
+│   │   │   ├── repomap.rst
+│   │   │   ├── rewrites.rst
+│   │   │   ├── stencil.rst
+│   │   │   ├── sys_monitoring.rst
+│   │   │   ├── target_extension.rst
+│   │   │   └── threading_implementation.rst
+│   │   │       └── ... (24 more files)
+│   │   ├── extending/
+│   │   │   ├── entrypoints.rst
+│   │   │   ├── high-level.rst
+│   │   │   ├── index.rst
+│   │   │   ├── interval-example.rst
+│   │   │   ├── low-level.rst
+│   │   │   ├── mynorm.py
+│   │   │   ├── overloading-guide.rst
+│   │   │   └── template.py
+│   │   │       └── ... (3 more files)
+│   │   ├── proposals/
+│   │   │   ├── cfunc.rst
+│   │   │   ├── extension-points.rst
+│   │   │   ├── external-memory-management.rst
+│   │   │   ├── index.rst
+│   │   │   ├── integer-typing.rst
+│   │   │   ├── jit-classes.rst
+│   │   │   ├── np-where-override.py
+│   │   │   ├── recursion_callstack.svg
+│   │   │   ├── type-inference.rst
+│   │   │   └── typing_recursion.rst
+│   │   │       └── ... (5 more files)
+│   │   ├── reference/
+│   │   │   ├── aot-compilation.rst
+│   │   │   ├── deprecation.rst
+│   │   │   ├── envvars.rst
+│   │   │   ├── fpsemantics.rst
+│   │   │   ├── index.rst
+│   │   │   ├── jit-compilation.rst
+│   │   │   ├── numpysupported.rst
+│   │   │   ├── pysemantics.rst
+│   │   │   ├── pysupported.rst
+│   │   │   ├── types.rst
+│   │   │   └── utils.rst
+│   │   │       └── ... (6 more files)
+│   │   ├── release/
+│   │   │   ├── 0.58.0-notes.rst
+│   │   │   ├── 0.58.1-notes.rst
+│   │   │   ├── 0.59.0-notes.rst
+│   │   │   ├── 0.59.1-notes.rst
+│   │   │   ├── 0.60.0-notes.rst
+│   │   │   ├── 0.61.0-notes.rst
+│   │   │   ├── 0.61.1-notes.rst
+│   │   │   └── 0.61.2-notes.rst
+│   │   │       └── ... (3 more files)
+│   │   ├── user/
+│   │   │   ├── 5minguide.rst
+│   │   │   ├── cfunc.rst
+│   │   │   ├── cli.rst
+│   │   │   ├── code_coverage.rst
+│   │   │   ├── examples.rst
+│   │   │   ├── faq.rst
+│   │   │   ├── index.rst
+│   │   │   ├── installing.rst
+│   │   │   ├── jit-module.rst
+│   │   │   ├── jit.rst
+│   │   │   ├── jitclass.rst
+│   │   │   ├── overview.rst
+│   │   │   ├── parallel.rst
+│   │   │   ├── performance-tips.rst
+│   │   │   ├── pycc.rst
+│   │   │   ├── stencil.rst
+│   │   │   ├── talks.rst
+│   │   │   ├── threading-layer.rst
+│   │   │   ├── troubleshoot.rst
+│   │   │   ├── vectorize.rst
+│   │   │   └── withobjmode.rst
+│   │   │       └── ... (16 more files)
+│   │   ├── conf.py
+│   │   ├── glossary.rst
+│   │   ├── index.rst
+│   │   ├── release-notes-overview.rst
+│   │   └── release-notes.rst
+│   ├── upcoming_changes/
+│   │   ├── 10035.improvement.rst
+│   │   ├── 10044.improvement.rst
+│   │   ├── 10047.bug_fix.rst
+│   │   ├── 10050.bug_fix.rst
+│   │   ├── 10052.bug_fix.rst
+│   │   ├── 10079.improvement.rst
+│   │   ├── 10081.bug_fix.rst
+│   │   ├── 10088.bug_fix.rst
+│   │   ├── 10097.np_support.rst
+│   │   ├── 10102.bug_fix.rst
+│   │   ├── 10106.change.rst
+│   │   ├── 10109.highlight.rst
+│   │   ├── 10119.infrastructure.rst
+│   │   ├── 10122.new_feature.rst
+│   │   ├── 9259.bug_fix.rst
+│   │   ├── 9390.np_support.rst
+│   │   ├── 9676.improvement.rst
+│   │   ├── 9805.bug_fix.rst
+│   │   ├── 9861.improvement.rst
+│   │   ├── 9862.bug_fix.rst
+│   │   ├── 9876.bug_fix.rst
+│   │   ├── 9888.bug_fix.rst
+│   │   ├── 9892.improvement.rst
+│   │   ├── 9893.bug_fix.rst
+│   │   ├── 9916.improvement.rst
+│   │   ├── 9926.improvement.rst
+│   │   ├── 9973.bug_fix.rst
+│   │   ├── README.rst
+│   │   └── template.rst
+│   │       └── ... (24 more files)
+│   ├── environment.yml
+│   ├── make.bat
+│   └── Makefile
+├── maint/
+│   ├── git-copy.py
+│   ├── github_weekly_meeting.py
+│   ├── gitlog2changelog.py
+│   ├── towncrier_checker.py
+│   └── towncrier_rst_validator.py
+├── numba/
+│   ├── cext/
+│   │   ├── __init__.py
+│   │   ├── cext.h
+│   │   ├── dictobject.c
+│   │   ├── dictobject.h
+│   │   ├── listobject.c
+│   │   ├── listobject.h
+│   │   └── utils.c
+│   │       └── ... (2 more files)
+│   ├── cloudpickle/
+│   │   ├── __init__.py
+│   │   ├── cloudpickle.py
+│   │   └── cloudpickle_fast.py
+│   ├── core/
+│   │   ├── annotations/
+│   │   │   ├── __init__.py
+│   │   │   ├── pretty_annotate.py
+│   │   │   ├── template.html
+│   │   │   └── type_annotations.py
+│   │   ├── datamodel/
+│   │   │   ├── __init__.py
+│   │   │   ├── manager.py
+│   │   │   ├── models.py
+│   │   │   ├── packer.py
+│   │   │   ├── registry.py
+│   │   │   └── testing.py
+│   │   │       └── ... (1 more files)
+│   │   ├── rewrites/
+│   │   │   ├── __init__.py
+│   │   │   ├── ir_print.py
+│   │   │   ├── registry.py
+│   │   │   ├── static_binop.py
+│   │   │   ├── static_getitem.py
+│   │   │   └── static_raise.py
+│   │   │       └── ... (1 more files)
+│   │   ├── runtime/
+│   │   │   ├── __init__.py
+│   │   │   ├── _nrt_python.c
+│   │   │   ├── _nrt_pythonmod.c
+│   │   │   ├── context.py
+│   │   │   ├── nrt.cpp
+│   │   │   ├── nrt.h
+│   │   │   ├── nrt.py
+│   │   │   ├── nrt_external.h
+│   │   │   ├── nrtdynmod.py
+│   │   │   └── nrtopt.py
+│   │   │       └── ... (5 more files)
+│   │   ├── typeconv/
+│   │   │   ├── __init__.py
+│   │   │   ├── _typeconv.cpp
+│   │   │   ├── castgraph.py
+│   │   │   ├── rules.py
+│   │   │   ├── test.cpp
+│   │   │   ├── typeconv.cpp
+│   │   │   ├── typeconv.hpp
+│   │   │   └── typeconv.py
+│   │   │       └── ... (3 more files)
+│   │   ├── types/
+│   │   │   ├── __init__.py
+│   │   │   ├── __init__.pyi
+│   │   │   ├── abstract.py
+│   │   │   ├── common.py
+│   │   │   ├── containers.py
+│   │   │   ├── function_type.py
+│   │   │   ├── functions.py
+│   │   │   ├── iterators.py
+│   │   │   ├── misc.py
+│   │   │   ├── npytypes.py
+│   │   │   └── scalars.py
+│   │   │       └── ... (6 more files)
+│   │   ├── typing/
+│   │   │   ├── __init__.py
+│   │   │   ├── arraydecl.py
+│   │   │   ├── asnumbatype.py
+│   │   │   ├── bufproto.py
+│   │   │   ├── builtins.py
+│   │   │   ├── cffi_utils.py
+│   │   │   ├── cmathdecl.py
+│   │   │   ├── collections.py
+│   │   │   ├── context.py
+│   │   │   ├── ctypes_utils.py
+│   │   │   ├── dictdecl.py
+│   │   │   ├── enumdecl.py
+│   │   │   ├── listdecl.py
+│   │   │   ├── mathdecl.py
+│   │   │   ├── npdatetime.py
+│   │   │   ├── npydecl.py
+│   │   │   ├── setdecl.py
+│   │   │   ├── templates.py
+│   │   │   └── typeof.py
+│   │   │       └── ... (14 more files)
+│   │   ├── unsafe/
+│   │   │   ├── __init__.py
+│   │   │   ├── bytes.py
+│   │   │   ├── eh.py
+│   │   │   ├── nrt.py
+│   │   │   └── refcount.py
+│   │   ├── __init__.py
+│   │   ├── analysis.py
+│   │   ├── base.py
+│   │   ├── boxing.py
+│   │   ├── bytecode.py
+│   │   ├── byteflow.py
+│   │   ├── caching.py
+│   │   ├── callconv.py
+│   │   ├── callwrapper.py
+│   │   ├── ccallback.py
+│   │   ├── cgutils.py
+│   │   ├── codegen.py
+│   │   ├── compiler.py
+│   │   ├── compiler_lock.py
+│   │   ├── compiler_machinery.py
+│   │   ├── config.py
+│   │   ├── consts.py
+│   │   ├── controlflow.py
+│   │   ├── cpu.py
+│   │   ├── cpu_options.py
+│   │   ├── debuginfo.py
+│   │   ├── decorators.py
+│   │   ├── descriptors.py
+│   │   ├── dispatcher.py
+│   │   ├── entrypoints.py
+│   │   ├── environment.py
+│   │   ├── errors.py
+│   │   ├── event.py
+│   │   ├── extending.py
+│   │   ├── extending.pyi
+│   │   ├── externals.py
+│   │   ├── fastmathpass.py
+│   │   ├── funcdesc.py
+│   │   ├── generators.py
+│   │   ├── imputils.py
+│   │   ├── inline_closurecall.py
+│   │   ├── interpreter.py
+│   │   ├── intrinsics.py
+│   │   ├── ir.py
+│   │   ├── ir_utils.py
+│   │   ├── itanium_mangler.py
+│   │   ├── llvm_bindings.py
+│   │   ├── lowering.py
+│   │   ├── object_mode_passes.py
+│   │   ├── optional.py
+│   │   ├── options.py
+│   │   ├── postproc.py
+│   │   ├── pylowering.py
+│   │   ├── pythonapi.py
+│   │   ├── registry.py
+│   │   ├── removerefctpass.py
+│   │   ├── serialize.py
+│   │   ├── sigutils.py
+│   │   ├── ssa.py
+│   │   ├── target_extension.py
+│   │   ├── targetconfig.py
+│   │   ├── tracing.py
+│   │   ├── transforms.py
+│   │   ├── typed_passes.py
+│   │   ├── typeinfer.py
+│   │   ├── untyped_passes.py
+│   │   ├── utils.py
+│   │   └── withcontexts.py
+│   │       └── ... (58 more files)
+│   ├── cpython/
+│   │   ├── unsafe/
+│   │   │   ├── __init__.py
+│   │   │   ├── numbers.py
+│   │   │   └── tuple.py
+│   │   ├── __init__.py
+│   │   ├── builtins.py
+│   │   ├── charseq.py
+│   │   ├── cmathimpl.py
+│   │   ├── enumimpl.py
+│   │   ├── hashing.py
+│   │   ├── heapq.py
+│   │   ├── iterators.py
+│   │   ├── listobj.py
+│   │   ├── mathimpl.py
+│   │   ├── numbers.py
+│   │   ├── printimpl.py
+│   │   ├── randomimpl.py
+│   │   ├── rangeobj.py
+│   │   ├── setobj.py
+│   │   ├── slicing.py
+│   │   ├── tupleobj.py
+│   │   ├── unicode.py
+│   │   └── unicode_support.py
+│   │       └── ... (14 more files)
+│   ├── cuda/
+│   │   ├── cudadrv/
+│   │   │   ├── __init__.py
+│   │   │   ├── _extras.c
+│   │   │   ├── devicearray.py
+│   │   │   ├── devices.py
+│   │   │   ├── driver.py
+│   │   │   ├── drvapi.py
+│   │   │   ├── dummyarray.py
+│   │   │   ├── enums.py
+│   │   │   ├── error.py
+│   │   │   ├── libs.py
+│   │   │   ├── ndarray.py
+│   │   │   ├── nvrtc.py
+│   │   │   ├── nvvm.py
+│   │   │   ├── rtapi.py
+│   │   │   └── runtime.py
+│   │   │       └── ... (10 more files)
+│   │   ├── kernels/
+│   │   │   ├── __init__.py
+│   │   │   ├── reduction.py
+│   │   │   └── transpose.py
+│   │   ├── simulator/
+│   │   │   ├── cudadrv/
+│   │   │   ├── __init__.py
+│   │   │   ├── api.py
+│   │   │   ├── compiler.py
+│   │   │   ├── kernel.py
+│   │   │   ├── kernelapi.py
+│   │   │   ├── reduction.py
+│   │   │   └── vector_types.py
+│   │   │       └── ... (2 more files)
+│   │   ├── tests/
+│   │   │   ├── cudadrv/
+│   │   │   ├── cudapy/
+│   │   │   ├── cudasim/
+│   │   │   ├── data/
+│   │   │   ├── doc_examples/
+│   │   │   ├── nocuda/
+│   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── api.py
+│   │   ├── api_util.py
+│   │   ├── args.py
+│   │   ├── cg.py
+│   │   ├── codegen.py
+│   │   ├── compiler.py
+│   │   ├── cpp_function_wrappers.cu
+│   │   ├── cuda_fp16.h
+│   │   ├── cuda_fp16.hpp
+│   │   ├── cuda_paths.py
+│   │   ├── cudadecl.py
+│   │   ├── cudaimpl.py
+│   │   ├── cudamath.py
+│   │   ├── decorators.py
+│   │   ├── descriptor.py
+│   │   ├── device_init.py
+│   │   ├── deviceufunc.py
+│   │   ├── dispatcher.py
+│   │   ├── errors.py
+│   │   ├── extending.py
+│   │   ├── initialize.py
+│   │   ├── intrinsic_wrapper.py
+│   │   ├── intrinsics.py
+│   │   ├── libdevice.py
+│   │   ├── libdevicedecl.py
+│   │   ├── libdevicefuncs.py
+│   │   ├── libdeviceimpl.py
+│   │   ├── mathimpl.py
+│   │   ├── models.py
+│   │   ├── nvvmutils.py
+│   │   ├── printimpl.py
+│   │   ├── random.py
+│   │   ├── simulator_init.py
+│   │   ├── stubs.py
+│   │   ├── target.py
+│   │   ├── testing.py
+│   │   ├── types.py
+│   │   ├── ufuncs.py
+│   │   ├── vector_types.py
+│   │   └── vectorizers.py
+│   │       └── ... (36 more files)
+│   ├── experimental/
+│   │   ├── jitclass/
+│   │   │   ├── __init__.py
+│   │   │   ├── _box.c
+│   │   │   ├── base.py
+│   │   │   ├── boxing.py
+│   │   │   ├── decorators.py
+│   │   │   └── overloads.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── function_type.py
+│   │   └── structref.py
+│   ├── misc/
+│   │   ├── help/
+│   │   │   ├── __init__.py
+│   │   │   └── inspector.py
+│   │   ├── __init__.py
+│   │   ├── appdirs.py
+│   │   ├── cffiimpl.py
+│   │   ├── cmdlang.gdb
+│   │   ├── coverage_support.py
+│   │   ├── dump_style.py
+│   │   ├── findlib.py
+│   │   ├── firstlinefinder.py
+│   │   ├── gdb_hook.py
+│   │   ├── gdb_print_extension.py
+│   │   ├── init_utils.py
+│   │   ├── inspection.py
+│   │   ├── literal.py
+│   │   ├── llvm_pass_timings.py
+│   │   ├── mergesort.py
+│   │   ├── numba_entry.py
+│   │   ├── numba_gdbinfo.py
+│   │   ├── numba_sysinfo.py
+│   │   ├── POST.py
+│   │   ├── quicksort.py
+│   │   ├── special.py
+│   │   └── timsort.py
+│   │       └── ... (17 more files)
+│   ├── np/
+│   │   ├── math/
+│   │   │   ├── __init__.py
+│   │   │   ├── cmathimpl.py
+│   │   │   ├── mathimpl.py
+│   │   │   └── numbers.py
+│   │   ├── polynomial/
+│   │   │   ├── __init__.py
+│   │   │   ├── polynomial_core.py
+│   │   │   └── polynomial_functions.py
+│   │   ├── random/
+│   │   │   ├── __init__.py
+│   │   │   ├── _constants.py
+│   │   │   ├── distributions.py
+│   │   │   ├── generator_core.py
+│   │   │   ├── generator_methods.py
+│   │   │   └── random_methods.py
+│   │   │       └── ... (1 more files)
+│   │   ├── ufunc/
+│   │   │   ├── __init__.py
+│   │   │   ├── _internal.c
+│   │   │   ├── _internal.h
+│   │   │   ├── _num_threads.c
+│   │   │   ├── _ufunc.c
+│   │   │   ├── array_exprs.py
+│   │   │   ├── decorators.py
+│   │   │   ├── dufunc.py
+│   │   │   ├── gufunc.py
+│   │   │   ├── gufunc_scheduler.cpp
+│   │   │   ├── gufunc_scheduler.h
+│   │   │   ├── omppool.cpp
+│   │   │   ├── parallel.py
+│   │   │   ├── sigparse.py
+│   │   │   ├── tbbpool.cpp
+│   │   │   ├── ufunc_base.py
+│   │   │   ├── ufuncbuilder.py
+│   │   │   ├── workqueue.c
+│   │   │   ├── workqueue.h
+│   │   │   └── wrappers.py
+│   │   │       └── ... (15 more files)
+│   │   ├── unsafe/
+│   │   │   ├── __init__.py
+│   │   │   └── ndarray.py
+│   │   ├── __init__.py
+│   │   ├── arraymath.py
+│   │   ├── arrayobj.py
+│   │   ├── extensions.py
+│   │   ├── linalg.py
+│   │   ├── npdatetime.py
+│   │   ├── npdatetime_helpers.py
+│   │   ├── npyfuncs.py
+│   │   ├── npyimpl.py
+│   │   ├── numpy_support.py
+│   │   └── ufunc_db.py
+│   │       └── ... (6 more files)
+│   ├── parfors/
+│   │   ├── __init__.py
+│   │   ├── array_analysis.py
+│   │   ├── parfor.py
+│   │   ├── parfor_lowering.py
+│   │   └── parfor_lowering_utils.py
+│   ├── pycc/
+│   │   ├── __init__.py
+│   │   ├── cc.py
+│   │   ├── compiler.py
+│   │   ├── decorators.py
+│   │   ├── llvm_types.py
+│   │   ├── modulemixin.c
+│   │   └── platform.py
+│   │       └── ... (2 more files)
+│   ├── scripts/
+│   │   ├── __init__.py
+│   │   └── generate_lower_listing.py
+│   ├── stencils/
+│   │   ├── __init__.py
+│   │   ├── stencil.py
+│   │   └── stencilparfor.py
+│   ├── testing/
+│   │   ├── __init__.py
+│   │   ├── __main__.py
+│   │   ├── _runtests.py
+│   │   ├── loader.py
+│   │   ├── main.py
+│   │   └── notebook.py
+│   │       └── ... (1 more files)
+│   ├── tests/
+│   │   ├── doc_examples/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_examples.py
+│   │   │   ├── test_interval_example.py
+│   │   │   ├── test_jitclass.py
+│   │   │   ├── test_literal_container_usage.py
+│   │   │   ├── test_literally_usage.py
+│   │   │   ├── test_llvm_pass_timings.py
+│   │   │   ├── test_numpy_generators.py
+│   │   │   ├── test_parallel_chunksize.py
+│   │   │   ├── test_rec_array.py
+│   │   │   ├── test_structref_usage.py
+│   │   │   ├── test_typed_dict_usage.py
+│   │   │   └── test_typed_list_usage.py
+│   │   │       └── ... (8 more files)
+│   │   ├── gdb/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_array_arg.py
+│   │   │   ├── test_basic.py
+│   │   │   ├── test_break_on_symbol.py
+│   │   │   ├── test_break_on_symbol_version.py
+│   │   │   ├── test_conditional_breakpoint.py
+│   │   │   └── test_pretty_print.py
+│   │   │       └── ... (2 more files)
+│   │   ├── npyufunc/
+│   │   │   ├── __init__.py
+│   │   │   ├── cache_usecases.py
+│   │   │   ├── test_caching.py
+│   │   │   ├── test_dufunc.py
+│   │   │   ├── test_errors.py
+│   │   │   ├── test_gufunc.py
+│   │   │   ├── test_parallel_env_variable.py
+│   │   │   ├── test_parallel_low_work.py
+│   │   │   ├── test_parallel_ufunc_issues.py
+│   │   │   ├── test_ufunc.py
+│   │   │   ├── test_ufuncbuilding.py
+│   │   │   ├── test_update_inplace.py
+│   │   │   ├── test_vectorize_decor.py
+│   │   │   └── ufuncbuilding_usecases.py
+│   │   │       └── ... (9 more files)
+│   │   ├── pycc_distutils_usecase/
+│   │   │   ├── nested/
+│   │   │   ├── __init__.py
+│   │   │   ├── setup_distutils.py
+│   │   │   ├── setup_distutils_nested.py
+│   │   │   ├── setup_setuptools.py
+│   │   │   ├── setup_setuptools_nested.py
+│   │   │   └── source_module.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── annotation_usecases.py
+│   │   ├── cache_usecases.py
+│   │   ├── cffi_usecases.py
+│   │   ├── cfunc_cache_usecases.py
+│   │   ├── chained_assign_usecases.py
+│   │   ├── cloudpickle_main_class.py
+│   │   ├── compile_with_pycc.py
+│   │   ├── complex_usecases.py
+│   │   ├── ctypes_usecases.py
+│   │   ├── doctest_usecase.py
+│   │   ├── dummy_module.py
+│   │   ├── enum_usecases.py
+│   │   ├── error_usecases.py
+│   │   ├── errorhandling_usecases.py
+│   │   ├── gdb_support.py
+│   │   ├── inlining_usecases.py
+│   │   ├── matmul_usecase.py
+│   │   ├── orphaned_semaphore_usecase.py
+│   │   ├── overload_usecases.py
+│   │   ├── parfor_iss9490_usecase.py
+│   │   ├── parfors_cache_usecases.py
+│   │   ├── pdlike_usecase.py
+│   │   ├── recursion_usecases.py
+│   │   ├── serialize_usecases.py
+│   │   ├── support.py
+│   │   ├── test_alignment.py
+│   │   ├── test_analysis.py
+│   │   ├── test_annotations.py
+│   │   ├── test_api.py
+│   │   ├── test_array_analysis.py
+│   │   ├── test_array_attr.py
+│   │   ├── test_array_constants.py
+│   │   ├── test_array_exprs.py
+│   │   ├── test_array_iterators.py
+│   │   ├── test_array_manipulation.py
+│   │   ├── test_array_methods.py
+│   │   ├── test_array_reductions.py
+│   │   ├── test_array_return.py
+│   │   ├── test_asnumbatype.py
+│   │   ├── test_auto_constants.py
+│   │   ├── test_blackscholes.py
+│   │   ├── test_boundscheck.py
+│   │   ├── test_buffer_protocol.py
+│   │   ├── test_builtins.py
+│   │   ├── test_byteflow.py
+│   │   ├── test_caching.py
+│   │   ├── test_casting.py
+│   │   ├── test_cffi.py
+│   │   ├── test_cfunc.py
+│   │   ├── test_cgutils.py
+│   │   ├── test_chained_assign.py
+│   │   ├── test_chrome_trace.py
+│   │   ├── test_cli.py
+│   │   ├── test_closure.py
+│   │   ├── test_codegen.py
+│   │   ├── test_compile_cache.py
+│   │   ├── test_compiler_flags.py
+│   │   ├── test_compiler_lock.py
+│   │   ├── test_complex.py
+│   │   ├── test_comprehension.py
+│   │   ├── test_conditions_as_predicates.py
+│   │   ├── test_config.py
+│   │   ├── test_conversion.py
+│   │   ├── test_copy_propagate.py
+│   │   ├── test_ctypes.py
+│   │   ├── test_dataflow.py
+│   │   ├── test_datamodel.py
+│   │   ├── test_debug.py
+│   │   ├── test_debuginfo.py
+│   │   ├── test_deprecations.py
+│   │   ├── test_dictimpl.py
+│   │   ├── test_dictobject.py
+│   │   ├── test_dicts.py
+│   │   ├── test_dispatcher.py
+│   │   ├── test_doctest.py
+│   │   ├── test_dyn_array.py
+│   │   ├── test_dyn_func.py
+│   │   ├── test_entrypoints.py
+│   │   ├── test_enums.py
+│   │   ├── test_errorhandling.py
+│   │   ├── test_errormodels.py
+│   │   ├── test_event.py
+│   │   ├── test_exceptions.py
+│   │   ├── test_extended_arg.py
+│   │   ├── test_extending.py
+│   │   ├── test_extending_types.py
+│   │   ├── test_fancy_indexing.py
+│   │   ├── test_fastmath.py
+│   │   ├── test_findlib.py
+│   │   ├── test_firstlinefinder.py
+│   │   ├── test_flow_control.py
+│   │   ├── test_func_interface.py
+│   │   ├── test_func_lifetime.py
+│   │   ├── test_funcdesc.py
+│   │   ├── test_function_type.py
+│   │   ├── test_gdb_bindings.py
+│   │   ├── test_gdb_dwarf.py
+│   │   ├── test_generators.py
+│   │   ├── test_getitem_on_types.py
+│   │   ├── test_gil.py
+│   │   ├── test_globals.py
+│   │   ├── test_hashing.py
+│   │   ├── test_heapq.py
+│   │   ├── test_help.py
+│   │   ├── test_import.py
+│   │   ├── test_indexing.py
+│   │   ├── test_init_utils.py
+│   │   ├── test_inlining.py
+│   │   ├── test_interpreter.py
+│   │   ├── test_interproc.py
+│   │   ├── test_intwidth.py
+│   │   ├── test_ir.py
+│   │   ├── test_ir_inlining.py
+│   │   ├── test_ir_utils.py
+│   │   ├── test_itanium_mangler.py
+│   │   ├── test_iteration.py
+│   │   ├── test_jit_module.py
+│   │   ├── test_jitclasses.py
+│   │   ├── test_jitmethod.py
+│   │   ├── test_linalg.py
+│   │   ├── test_listimpl.py
+│   │   ├── test_listobject.py
+│   │   ├── test_lists.py
+│   │   ├── test_literal_dispatch.py
+│   │   ├── test_llvm_pass_timings.py
+│   │   ├── test_llvm_version_check.py
+│   │   ├── test_locals.py
+│   │   ├── test_looplifting.py
+│   │   ├── test_make_function_to_jit_function.py
+│   │   ├── test_mandelbrot.py
+│   │   ├── test_mangling.py
+│   │   ├── test_map_filter_reduce.py
+│   │   ├── test_mathlib.py
+│   │   ├── test_maxmin.py
+│   │   ├── test_misc_coverage_support.py
+│   │   ├── test_mixed_tuple_unroller.py
+│   │   ├── test_moved_modules.py
+│   │   ├── test_multi3.py
+│   │   ├── test_nan.py
+│   │   ├── test_ndarray_subclasses.py
+│   │   ├── test_nested_calls.py
+│   │   ├── test_new_type_system.py
+│   │   ├── test_np_functions.py
+│   │   ├── test_np_randomgen.py
+│   │   ├── test_npdatetime.py
+│   │   ├── test_nrt.py
+│   │   ├── test_nrt_refct.py
+│   │   ├── test_num_threads.py
+│   │   ├── test_numberctor.py
+│   │   ├── test_numbers.py
+│   │   ├── test_numconv.py
+│   │   ├── test_numpy_support.py
+│   │   ├── test_numpyadapt.py
+│   │   ├── test_obj_lifetime.py
+│   │   ├── test_object_mode.py
+│   │   ├── test_objects.py
+│   │   ├── test_operators.py
+│   │   ├── test_optimisation_pipelines.py
+│   │   ├── test_optional.py
+│   │   ├── test_overlap.py
+│   │   ├── test_parallel_backend.py
+│   │   ├── test_parfors.py
+│   │   ├── test_parfors_caching.py
+│   │   ├── test_parfors_passes.py
+│   │   ├── test_pipeline.py
+│   │   ├── test_polynomial.py
+│   │   ├── test_practical_lowering_issues.py
+│   │   ├── test_print.py
+│   │   ├── test_profiler.py
+│   │   ├── test_pycc.py
+│   │   ├── test_python_int.py
+│   │   ├── test_pythonapi.py
+│   │   ├── test_random.py
+│   │   ├── test_range.py
+│   │   ├── test_recarray_usecases.py
+│   │   ├── test_record_dtype.py
+│   │   ├── test_recursion.py
+│   │   ├── test_refop_pruning.py
+│   │   ├── test_remove_dead.py
+│   │   ├── test_repr.py
+│   │   ├── test_return_values.py
+│   │   ├── test_runtests.py
+│   │   ├── test_serialize.py
+│   │   ├── test_sets.py
+│   │   ├── test_slices.py
+│   │   ├── test_sort.py
+│   │   ├── test_ssa.py
+│   │   ├── test_stencils.py
+│   │   ├── test_storeslice.py
+│   │   ├── test_struct_ref.py
+│   │   ├── test_support.py
+│   │   ├── test_svml.py
+│   │   ├── test_sys_monitoring.py
+│   │   ├── test_sys_stdin_assignment.py
+│   │   ├── test_sysinfo.py
+│   │   ├── test_target_extension.py
+│   │   ├── test_target_overloadselector.py
+│   │   ├── test_threadsafety.py
+│   │   ├── test_tracing.py
+│   │   ├── test_try_except.py
+│   │   ├── test_tuples.py
+│   │   ├── test_typeconv.py
+│   │   ├── test_typedlist.py
+│   │   ├── test_typedobjectutils.py
+│   │   ├── test_typeguard.py
+│   │   ├── test_typeinfer.py
+│   │   ├── test_typenames.py
+│   │   ├── test_typeof.py
+│   │   ├── test_types.py
+│   │   ├── test_typingerror.py
+│   │   ├── test_ufuncs.py
+│   │   ├── test_unicode.py
+│   │   ├── test_unicode_array.py
+│   │   ├── test_unicode_names.py
+│   │   ├── test_unpack_sequence.py
+│   │   ├── test_unpickle_without_module.py
+│   │   ├── test_unsafe_intrinsics.py
+│   │   ├── test_usecases.py
+│   │   ├── test_vectorization.py
+│   │   ├── test_vectorization_type_inference.py
+│   │   ├── test_warnings.py
+│   │   ├── test_withlifting.py
+│   │   ├── threading_backend_usecases.py
+│   │   ├── typedlist_usecases.py
+│   │   └── usecases.py
+│   │       └── ... (221 more files)
+│   ├── typed/
+│   │   ├── __init__.py
+│   │   ├── dictimpl.py
+│   │   ├── dictobject.py
+│   │   ├── listobject.py
+│   │   ├── py.typed
+│   │   ├── typeddict.py
+│   │   ├── typedlist.py
+│   │   └── typedobjectutils.py
+│   │       └── ... (3 more files)
+│   ├── types/
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── _arraystruct.h
+│   ├── _devicearray.cpp
+│   ├── _devicearray.h
+│   ├── _dispatcher.cpp
+│   ├── _dynfunc.c
+│   ├── _dynfuncmod.c
+│   ├── _hashtable.cpp
+│   ├── _hashtable.h
+│   ├── _helperlib.c
+│   ├── _helperlib.pyi
+│   ├── _helpermod.c
+│   ├── _lapack.c
+│   ├── _numba_common.h
+│   ├── _pymodule.h
+│   ├── _random.c
+│   ├── _typeof.cpp
+│   ├── _typeof.h
+│   ├── _unicodetype_db.h
+│   ├── _version.py
+│   ├── capsulethunk.h
+│   ├── extending.py
+│   ├── mathnames.h
+│   ├── mviewbuf.c
+│   ├── pythoncapi_compat.h
+│   └── runtests.py
+│       └── ... (22 more files)
+├── .coveragerc
+├── .flake8
+├── .gitattributes
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .readthedocs.yml
+├── azure-pipelines.yml
+├── CHANGE_LOG
+├── codecov.yml
+├── CONTRIBUTING.md
+├── LICENSE
+├── LICENSES.third-party
+├── MANIFEST.in
+├── mypy.ini
+├── README.rst
+├── requirements.txt
+├── runtests.py
+├── setup.cfg
+├── setup.py
+├── towncrier.toml
+└── versioneer.py
+    └── ... (16 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

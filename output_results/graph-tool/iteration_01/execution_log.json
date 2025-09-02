@@ -1,0 +1,37 @@
+[
+  {
+    "command": "pip install -r doc/requirements.txt || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'doc/requirements.txt'\n",
+    "execution_time": 0.8134808540344238
+  },
+  {
+    "command": "pip install -r requirements.txt || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'\n",
+    "execution_time": 0.3179950714111328
+  },
+  {
+    "command": "pip install -r src/requirements.txt || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'src/requirements.txt'\n",
+    "execution_time": 0.32888221740722656
+  },
+  {
+    "command": "pip install -e .",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nObtaining file:///app/repo_to_process\n",
+    "stderr": "ERROR: file:///app/repo_to_process does not appear to be a Python project: neither 'setup.py' nor 'pyproject.toml' found.\n",
+    "execution_time": 0.3365180492401123
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n____________________ ERROR collecting doc/test_inference.py ____________________\nImportError while importing test module '/app/repo_to_process/doc/test_inference.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ndoc/test_inference.py:14: in <module>\n    from graph_tool.all import *\nE   ModuleNotFoundError: No module named 'graph_tool'\n_________________ ERROR collecting doc/test_inference_mcmc.py __________________\nImportError while importing test module '/app/repo_to_process/doc/test_inference_mcmc.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ndoc/test_inference_mcmc.py:5: in <module>\n    from pylab import *\nE   ModuleNotFoundError: No module named 'pylab'\n=========================== short test summary info ============================\nERROR doc/test_inference.py\nERROR doc/test_inference_mcmc.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.19s ===============================\n",
+    "stderr": "",
+    "execution_time": 0.3718712329864502
+  }
+]

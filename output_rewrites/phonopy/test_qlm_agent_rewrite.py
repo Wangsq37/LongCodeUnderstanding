@@ -1,0 +1,89 @@
+"""Tests for the QLM calculator interface."""
+
+import os
+import tempfile
+
+import numpy as np
+
+from phonopy.interface.qlm import (
+    parse_set_of_forces,
+    read_qlm,
+)
+
+
+def test_parse_set_of_forces():
+    """Test parse_set_of_forces."""
+    force_ref = """% rows 2 cols 3 real
+    0.00000000   -0.00406659   -0.00406659
+   -0.00000000    0.00406659    0.00406659"""
+
+    # when min py v3.12+ move from try..finally to "with" and delete_on_close=False
+    # for windows
+
+    try:
+        tfl = tempfile.NamedTemporaryFile(delete=False)
+        tfl.write(force_ref.encode())
+        tfl.close()
+
+        frs = parse_set_of_forces(2, (tfl.name,), verbose=False)
+
+        np.testing.assert_allclose(
+            frs,
+            [
+                np.array(
+                    [
+                        [0.00000000, -0.00406659, -0.00406659],
+                        [-0.00000000, 0.00406659, 0.00406659],
+                    ]
+                )
+            ],
+            atol=1e-7,
+        )
+
+    finally:
+        os.unlink(tfl.name)
+
+
+def test_cell2struct_and_read_qlm():
+    """Test read_qlm and get_qlm_structure."""
+
+    # Augmented: Use a larger cell, more diverse symbols and positions, edge-case positions + negative coords
+    sitex_ref = (
+        """% site-data vn=5.0 xpos fast io=20 nbas=10"""
+        + """ alat=24.56789 plat= 1.0 0.0 0.0 0.0 2.0 0.0 0.0 0.0 3.0
+#                            pos
+ Li        0.0000000000   0.0000000000   0.0000000000
+ Li        0.0000000000   1.0000000000   2.0000000000
+ F         1.0000000000   2.0000000000   0.0000000000
+ Xe       -0.5000000000   1.5000000000   2.5000000000
+ Na        2.5000000000   0.0000000000   0.5000000000
+ Clu      -1.0000000000   2.0000000000   1.5000000000
+ Br        0.0000000000   0.0000000000  -1.0000000000
+ Sr        1.2345678900   2.3456789000   1.1111111111
+ P         0.0000000000   0.0000000000   0.0000000000
+ H        -2.0000000000   0.0000000000   3.0000000000
+"""
+    )
+
+    try:
+        fl1 = tempfile.NamedTemporaryFile(delete=False)
+        fl1.write(sitex_ref.encode())
+        fl1.close()
+
+        cell1, (inst1,) = read_qlm(fl1.name)
+
+        fl2 = tempfile.NamedTemporaryFile(delete=False)
+        fl2.write(inst1.to_site_str(cell1).encode())
+        fl2.close()
+
+        cell2, _ = read_qlm(fl2.name)
+
+        np.testing.assert_allclose(cell1.cell, cell2.cell, atol=1e-7)
+        np.testing.assert_allclose(
+            cell1.scaled_positions, cell2.scaled_positions, atol=1e-7
+        )
+        assert cell1.symbols == cell2.symbols
+
+    finally:
+        os.unlink(fl1.name)
+        os.unlink(fl2.name)

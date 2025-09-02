@@ -1,0 +1,13 @@
+```bash
+# Check for requirements files
+ls doc/requirements.txt
+ls requirements.txt
+ls setup.py
+ls pyproject.toml
+
+# Install doc/requirements.txt if present
+pip install -r doc/requirements.txt || true
+
+# Try to run pytest on the default test-discoverable Python files
+pytest
+```

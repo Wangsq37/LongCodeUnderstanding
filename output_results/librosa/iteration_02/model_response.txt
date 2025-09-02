@@ -1,0 +1,14 @@
+The error is:
+```
+pytest: error: unrecognized arguments: --cov-report --cov librosa --cov-report=xml --mpl --mpl-baseline-path=tests/baseline_images/test_display
+```
+This means some pytest plugins/configuration options (e.g., pytest-cov, pytest-mpl) are missing, and pytest is being invoked with arguments it doesn't recognize (either via config or usage defaults).
+
+**Next actions:**
+- Install `pytest-cov` and `pytest-mpl`.
+- Rerun `pytest`.
+
+```bash
+pip install pytest-cov pytest-mpl
+pytest
+```

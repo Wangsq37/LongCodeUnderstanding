@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip install -e .",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nObtaining file:///app/repo_to_process\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'error'\n",
+    "stderr": "  error: subprocess-exited-with-error\n  \n  × Getting requirements to build editable did not run successfully.\n  │ exit code: 1\n  ╰─> [10 lines of output]\n      \n      ===========================================================================\n      The directory third_party/cccl is a git submodule but is currently empty.\n      Please use the command:\n      \n          $ git submodule update --init\n      \n      to populate the directory before building from source.\n      ===========================================================================\n      \n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: subprocess-exited-with-error\n\n× Getting requirements to build editable did not run successfully.\n│ exit code: 1\n╰─> See above for output.\n\nnote: This error originates from a subprocess, and is likely not a problem with pip.\n",
+    "execution_time": 4.010971784591675
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ERROR: while parsing the following warning configuration:\n\n  error::cupy.exceptions.VisibleDeprecationWarning\n\nThis error occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py\", line 1967, in parse_warning_filter\n    category: type[Warning] = _resolve_warning_category(category_)\n  File \"/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py\", line 2012, in _resolve_warning_category\n    m = __import__(module, None, None, [klass])\nModuleNotFoundError: No module named 'cupy'\n\n\n",
+    "execution_time": 0.16341662406921387
+  }
+]

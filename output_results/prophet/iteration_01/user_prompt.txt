@@ -1,0 +1,473 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── build-and-test.yml
+│       └── wheel.yml
+├── docs/
+│   ├── _data/
+│   │   ├── authors.yml
+│   │   ├── features.yml
+│   │   ├── nav.yml
+│   │   ├── nav_docs.yml
+│   │   ├── powered_by.yml
+│   │   ├── powered_by_highlight.yml
+│   │   └── promo.yml
+│   │       └── ... (2 more files)
+│   ├── _docs/
+│   │   ├── additional_topics.md
+│   │   ├── contributing.md
+│   │   ├── diagnostics.md
+│   │   ├── handling_shocks.md
+│   │   ├── holiday_effects.md
+│   │   ├── installation.md
+│   │   ├── multiplicative_seasonality.md
+│   │   ├── non-daily_data.md
+│   │   ├── outliers.md
+│   │   ├── quick_start.md
+│   │   ├── saturating_forecasts.md
+│   │   ├── seasonality,_holiday_effects,_and_regressors.md
+│   │   ├── trend_changepoints.md
+│   │   └── uncertainty_intervals.md
+│   │       └── ... (9 more files)
+│   ├── _includes/
+│   │   ├── content/
+│   │   │   ├── items/
+│   │   │   └── gridblocks.html
+│   │   ├── nav/
+│   │   │   ├── collection_nav.html
+│   │   │   ├── collection_nav_group.html
+│   │   │   ├── collection_nav_group_item.html
+│   │   │   └── header_nav.html
+│   │   ├── plugins/
+│   │   │   ├── all_share.html
+│   │   │   ├── ascii_cinema.html
+│   │   │   ├── button.html
+│   │   │   ├── github_star.html
+│   │   │   ├── github_watch.html
+│   │   │   ├── google_share.html
+│   │   │   ├── iframe.html
+│   │   │   ├── like_button.html
+│   │   │   ├── plugin_row.html
+│   │   │   ├── post_social_plugins.html
+│   │   │   ├── slideshow.html
+│   │   │   ├── twitter_follow.html
+│   │   │   └── twitter_share.html
+│   │   │       └── ... (8 more files)
+│   │   ├── ui/
+│   │   │   └── button.html
+│   │   ├── blog_pagination.html
+│   │   ├── doc.html
+│   │   ├── doc_paging.html
+│   │   ├── footer.html
+│   │   ├── head.html
+│   │   ├── header.html
+│   │   ├── hero.html
+│   │   ├── home_header.html
+│   │   ├── katex_import.html
+│   │   ├── katex_render.html
+│   │   ├── nav.html
+│   │   ├── nav_search.html
+│   │   ├── post.html
+│   │   ├── powered_by.html
+│   │   └── social_plugins.html
+│   │       └── ... (10 more files)
+│   ├── _layouts/
+│   │   ├── basic.html
+│   │   ├── blog.html
+│   │   ├── blog_default.html
+│   │   ├── default.html
+│   │   ├── doc_default.html
+│   │   ├── doc_page.html
+│   │   ├── docs.html
+│   │   ├── home.html
+│   │   ├── page.html
+│   │   ├── plain.html
+│   │   ├── post.html
+│   │   ├── redirect.html
+│   │   └── top-level.html
+│   │       └── ... (8 more files)
+│   ├── _sass/
+│   │   ├── _base.scss
+│   │   ├── _blog.scss
+│   │   ├── _buttons.scss
+│   │   ├── _footer.scss
+│   │   ├── _gridBlock.scss
+│   │   ├── _header.scss
+│   │   ├── _poweredby.scss
+│   │   ├── _promo.scss
+│   │   ├── _react_docs_nav.scss
+│   │   ├── _react_header_nav.scss
+│   │   ├── _reset.scss
+│   │   ├── _search.scss
+│   │   ├── _slideshow.scss
+│   │   ├── _syntax-highlighting.scss
+│   │   └── _tables.scss
+│   │       └── ... (10 more files)
+│   ├── blog/
+│   │   ├── all.html
+│   │   └── index.html
+│   ├── css/
+│   │   └── main.scss
+│   ├── docs/
+│   │   └── index.html
+│   ├── static/
+│   │   ├── additional_topics_files/
+│   │   │   ├── additional_topics_16_0.png
+│   │   │   ├── additional_topics_17_0.png
+│   │   │   ├── additional_topics_18_0.png
+│   │   │   ├── additional_topics_28_0.png
+│   │   │   └── additional_topics_29_0.png
+│   │   ├── diagnostics_files/
+│   │   │   ├── diagnostics_17_0.png
+│   │   │   ├── diagnostics_18_0.png
+│   │   │   └── diagnostics_4_0.png
+│   │   ├── fonts/
+│   │   │   ├── LatoLatin-Black.woff
+│   │   │   ├── LatoLatin-Black.woff2
+│   │   │   ├── LatoLatin-BlackItalic.woff
+│   │   │   ├── LatoLatin-BlackItalic.woff2
+│   │   │   ├── LatoLatin-Italic.woff
+│   │   │   ├── LatoLatin-Italic.woff2
+│   │   │   ├── LatoLatin-Light.woff
+│   │   │   ├── LatoLatin-Light.woff2
+│   │   │   ├── LatoLatin-Regular.woff
+│   │   │   └── LatoLatin-Regular.woff2
+│   │   │       └── ... (5 more files)
+│   │   ├── handling_shocks_files/
+│   │   │   ├── handling_shocks_15_0.png
+│   │   │   ├── handling_shocks_16_0.png
+│   │   │   ├── handling_shocks_18_0.png
+│   │   │   ├── handling_shocks_22_0.png
+│   │   │   ├── handling_shocks_34_0.png
+│   │   │   ├── handling_shocks_35_0.png
+│   │   │   ├── handling_shocks_4_0.png
+│   │   │   ├── handling_shocks_8_0.png
+│   │   │   └── handling_shocks_9_0.png
+│   │   │       └── ... (4 more files)
+│   │   ├── holiday_effects_files/
+│   │   │   ├── holiday_effects_12_0.png
+│   │   │   └── holiday_effects_13_0.png
+│   │   ├── images/
+│   │   │   ├── after-scrolling-down-example.png
+│   │   │   ├── android.svg
+│   │   │   ├── apple.svg
+│   │   │   ├── facebook.png
+│   │   │   ├── instagram.png
+│   │   │   └── landing-page-example.png
+│   │   │       └── ... (1 more files)
+│   │   ├── multiplicative_seasonality_files/
+│   │   │   ├── multiplicative_seasonality_10_0.png
+│   │   │   ├── multiplicative_seasonality_3_1.png
+│   │   │   ├── multiplicative_seasonality_4_0.png
+│   │   │   ├── multiplicative_seasonality_6_1.png
+│   │   │   ├── multiplicative_seasonality_7_0.png
+│   │   │   └── multiplicative_seasonality_9_0.png
+│   │   │       └── ... (1 more files)
+│   │   ├── non-daily_data_files/
+│   │   │   ├── non-daily_data_10_0.png
+│   │   │   ├── non-daily_data_12_0.png
+│   │   │   ├── non-daily_data_13_0.png
+│   │   │   ├── non-daily_data_15_1.png
+│   │   │   ├── non-daily_data_16_0.png
+│   │   │   ├── non-daily_data_18_2.png
+│   │   │   ├── non-daily_data_19_1.png
+│   │   │   ├── non-daily_data_21_0.png
+│   │   │   ├── non-daily_data_22_0.png
+│   │   │   ├── non-daily_data_3_1.png
+│   │   │   ├── non-daily_data_4_0.png
+│   │   │   ├── non-daily_data_6_0.png
+│   │   │   ├── non-daily_data_7_0.png
+│   │   │   └── non-daily_data_9_1.png
+│   │   │       └── ... (9 more files)
+│   │   ├── outliers_files/
+│   │   │   ├── outliers_10_0.png
+│   │   │   ├── outliers_12_1.png
+│   │   │   ├── outliers_13_0.png
+│   │   │   ├── outliers_3_1.png
+│   │   │   ├── outliers_4_0.png
+│   │   │   ├── outliers_6_1.png
+│   │   │   ├── outliers_7_0.png
+│   │   │   └── outliers_9_1.png
+│   │   │       └── ... (3 more files)
+│   │   ├── quick_start_files/
+│   │   │   ├── quick_start_12_0.png
+│   │   │   ├── quick_start_14_0.png
+│   │   │   ├── quick_start_30_0.png
+│   │   │   └── quick_start_32_0.png
+│   │   ├── saturating_forecasts_files/
+│   │   │   ├── saturating_forecasts_12_0.png
+│   │   │   ├── saturating_forecasts_13_0.png
+│   │   │   ├── saturating_forecasts_15_1.png
+│   │   │   └── saturating_forecasts_16_0.png
+│   │   ├── seasonality,_holiday_effects,_and_regressors_files/
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_13_0.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_14_0.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_23_0.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_24_0.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_29_1.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_30_0.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_32_1.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_33_0.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_35_1.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_36_0.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_41_1.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_42_0.png
+│   │   │   ├── seasonality,_holiday_effects,_and_regressors_51_1.png
+│   │   │   └── seasonality,_holiday_effects,_and_regressors_52_0.png
+│   │   │       └── ... (9 more files)
+│   │   ├── trend_changepoints_files/
+│   │   │   ├── trend_changepoints_12_1.png
+│   │   │   ├── trend_changepoints_13_0.png
+│   │   │   ├── trend_changepoints_15_1.png
+│   │   │   ├── trend_changepoints_16_0.png
+│   │   │   ├── trend_changepoints_20_1.png
+│   │   │   ├── trend_changepoints_21_0.png
+│   │   │   ├── trend_changepoints_4_0.png
+│   │   │   ├── trend_changepoints_6_0.png
+│   │   │   ├── trend_changepoints_8_0.png
+│   │   │   └── trend_changepoints_9_0.png
+│   │   │       └── ... (5 more files)
+│   │   ├── uncertainty_intervals_files/
+│   │   │   ├── uncertainty_intervals_10_0.png
+│   │   │   └── uncertainty_intervals_11_0.png
+│   │   ├── favicon.png
+│   │   ├── logo.svg
+│   │   ├── og_image.png
+│   │   ├── oss_logo.png
+│   │   ├── prophet_paper_20170113.pdf
+│   │   ├── prophet_paper_preprint.pdf
+│   │   └── wordmark.svg
+│   │       └── ... (2 more files)
+│   ├── .gitignore
+│   ├── _config.yml
+│   ├── CONTRIBUTING.md
+│   ├── feed.xml
+│   ├── Gemfile
+│   ├── Gemfile.lock
+│   ├── index.md
+│   ├── LICENSE
+│   ├── Makefile
+│   ├── nbconvert_template.tpl
+│   └── README.md
+│       └── ... (6 more files)
+├── examples/
+│   ├── example_air_passengers.csv
+│   ├── example_pedestrians_covid.csv
+│   ├── example_pedestrians_multivariate.csv
+│   ├── example_retail_sales.csv
+│   ├── example_wp_log_peyton_manning.csv
+│   ├── example_wp_log_R.csv
+│   ├── example_wp_log_R_outliers1.csv
+│   ├── example_wp_log_R_outliers2.csv
+│   └── example_yosemite_temps.csv
+│       └── ... (4 more files)
+├── notebooks/
+│   ├── additional_topics.ipynb
+│   ├── diagnostics.ipynb
+│   ├── handling_shocks.ipynb
+│   ├── multiplicative_seasonality.ipynb
+│   ├── non-daily_data.ipynb
+│   ├── outliers.ipynb
+│   ├── quick_start.ipynb
+│   ├── saturating_forecasts.ipynb
+│   ├── seasonality,_holiday_effects,_and_regressors.ipynb
+│   ├── trend_changepoints.ipynb
+│   └── uncertainty_intervals.ipynb
+│       └── ... (6 more files)
+├── python/
+│   ├── prophet/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── data.csv
+│   │   │   ├── data2.csv
+│   │   │   ├── data3.csv
+│   │   │   ├── serialized_model_v0.6.1.dev0.json
+│   │   │   ├── serialized_model_v0.7.1.json
+│   │   │   ├── serialized_model_v1.0.1.json
+│   │   │   ├── test_diagnostics.py
+│   │   │   ├── test_prophet.py
+│   │   │   ├── test_serialize.py
+│   │   │   └── test_utilities.py
+│   │   │       └── ... (7 more files)
+│   │   ├── __init__.py
+│   │   ├── __version__.py
+│   │   ├── diagnostics.py
+│   │   ├── forecaster.py
+│   │   ├── make_holidays.py
+│   │   ├── models.py
+│   │   ├── plot.py
+│   │   ├── serialize.py
+│   │   └── utilities.py
+│   │       └── ... (4 more files)
+│   ├── scripts/
+│   │   └── generate_holidays_file.py
+│   ├── stan/
+│   │   └── prophet.stan
+│   ├── LICENSE
+│   ├── MANIFEST.in
+│   ├── pyproject.toml
+│   ├── README.md
+│   └── setup.py
+├── python_shim/
+│   ├── fbprophet/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── data.csv
+│   │   │   └── test_package.py
+│   │   ├── __init__.py
+│   │   ├── diagnostics.py
+│   │   ├── forecaster.py
+│   │   ├── make_holidays.py
+│   │   ├── models.py
+│   │   ├── plot.py
+│   │   └── serialize.py
+│   │       └── ... (2 more files)
+│   ├── LICENSE
+│   ├── MANIFEST.in
+│   ├── README.md
+│   ├── requirements.txt
+│   └── setup.py
+├── R/
+│   ├── data-raw/
+│   │   ├── generated_holidays.csv
+│   │   └── generated_holidays.R
+│   ├── inst/
+│   │   ├── include/
+│   │   │   └── stan_meta_header.hpp
+│   │   └── stan/
+│   │       └── prophet.stan
+│   ├── man/
+│   │   ├── add_changepoints_to_plot.Rd
+│   │   ├── add_country_holidays.Rd
+│   │   ├── add_group_component.Rd
+│   │   ├── add_regressor.Rd
+│   │   ├── add_seasonality.Rd
+│   │   ├── check_cmdstanr.Rd
+│   │   ├── construct_holiday_dataframe.Rd
+│   │   ├── coverage.Rd
+│   │   ├── cross_validation.Rd
+│   │   ├── df_for_plotting.Rd
+│   │   ├── dot-fit.Rd
+│   │   ├── dot-load_model.Rd
+│   │   ├── dot-sampling.Rd
+│   │   ├── dot-stan_args.Rd
+│   │   ├── dyplot.prophet.Rd
+│   │   ├── fit.prophet.Rd
+│   │   ├── flat_growth_init.Rd
+│   │   ├── flat_trend.Rd
+│   │   ├── fourier_series.Rd
+│   │   ├── generate_cutoffs.Rd
+│   │   ├── generated_holidays.Rd
+│   │   ├── get_holiday_names.Rd
+│   │   ├── get_stan_backend.Rd
+│   │   ├── initialize_scales_fn.Rd
+│   │   ├── linear_growth_init.Rd
+│   │   ├── logistic_growth_init.Rd
+│   │   ├── mae.Rd
+│   │   ├── make_all_seasonality_features.Rd
+│   │   ├── make_future_dataframe.Rd
+│   │   ├── make_holiday_features.Rd
+│   │   ├── make_holidays_df.Rd
+│   │   ├── make_seasonality_features.Rd
+│   │   ├── mape.Rd
+│   │   ├── mdape.Rd
+│   │   ├── mse.Rd
+│   │   ├── parse_seasonality_args.Rd
+│   │   ├── performance_metrics.Rd
+│   │   ├── piecewise_linear.Rd
+│   │   ├── piecewise_logistic.Rd
+│   │   ├── plot.prophet.Rd
+│   │   ├── plot_cross_validation_metric.Rd
+│   │   ├── plot_forecast_component.Rd
+│   │   ├── plot_seasonality.Rd
+│   │   ├── plot_weekly.Rd
+│   │   ├── plot_yearly.Rd
+│   │   ├── predict.prophet.Rd
+│   │   ├── predict_seasonal_components.Rd
+│   │   ├── predict_trend.Rd
+│   │   ├── predict_uncertainty.Rd
+│   │   ├── predictive_samples.Rd
+│   │   ├── prophet.Rd
+│   │   ├── prophet_copy.Rd
+│   │   ├── prophet_plot_components.Rd
+│   │   ├── regressor_coefficients.Rd
+│   │   ├── regressor_column_matrix.Rd
+│   │   ├── rmse.Rd
+│   │   ├── rolling_mean_by_h.Rd
+│   │   ├── rolling_median_by_h.Rd
+│   │   ├── sample_model.Rd
+│   │   ├── sample_posterior_predictive.Rd
+│   │   ├── sample_predictive_trend.Rd
+│   │   ├── seasonality_plot_df.Rd
+│   │   ├── set_auto_seasonalities.Rd
+│   │   ├── set_changepoints.Rd
+│   │   ├── set_date.Rd
+│   │   ├── setup_dataframe.Rd
+│   │   ├── single_cutoff_forecast.Rd
+│   │   ├── smape.Rd
+│   │   ├── time_diff.Rd
+│   │   ├── validate_column_name.Rd
+│   │   └── validate_inputs.Rd
+│   │       └── ... (66 more files)
+│   ├── R/
+│   │   ├── data.R
+│   │   ├── diagnostics.R
+│   │   ├── make_holidays.R
+│   │   ├── plot.R
+│   │   ├── prophet.R
+│   │   ├── stan_backends.R
+│   │   ├── stanmodels.R
+│   │   ├── sysdata.rda
+│   │   ├── utilities.R
+│   │   └── zzz.R
+│   │       └── ... (5 more files)
+│   ├── src/
+│   │   ├── Makevars
+│   │   └── Makevars.win
+│   ├── tests/
+│   │   ├── testthat/
+│   │   │   ├── data.csv
+│   │   │   ├── data2.csv
+│   │   │   ├── test_diagnostics.R
+│   │   │   ├── test_prophet.R
+│   │   │   ├── test_stan_functions.R
+│   │   │   └── test_utilities.R
+│   │   │       └── ... (1 more files)
+│   │   └── testthat.R
+│   ├── vignettes/
+│   │   └── quick_start.Rmd
+│   ├── .gitignore
+│   ├── .Rbuildignore
+│   ├── configure
+│   ├── configure.win
+│   ├── DESCRIPTION
+│   ├── LICENSE
+│   ├── NAMESPACE
+│   └── prophet.Rproj
+│       └── ... (3 more files)
+├── .deepsource.toml
+├── .gitattributes
+├── .gitignore
+├── .travis.yml
+├── CODE_OF_CONDUCT.md
+├── docker-compose.yml
+├── Dockerfile
+├── LICENSE
+├── Makefile
+└── README.md
+    └── ... (5 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

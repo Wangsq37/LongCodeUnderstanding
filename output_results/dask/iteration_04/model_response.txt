@@ -1,0 +1,17 @@
+There was no missing dependency; instead, the error is:
+
+```
+ModuleNotFoundError: No module named 'dask.tests'
+ERROR: while parsing the following warning configuration:
+  ignore:.*:dask.tests.warning_aliases.RemovedIn20Warning
+```
+
+This is a warning filter that references `dask.tests.warning_aliases.RemovedIn20Warning`, but the import fails. This typically happens if the working directory isn't on `PYTHONPATH`.
+
+The fix is to ensure the source tree is discoverable. This can usually be done by setting the `PYTHONPATH` to the project root.
+
+```bash
+export PYTHONPATH=$PWD
+pytest
+```
+This should allow `pytest` to find `dask.tests` and run.

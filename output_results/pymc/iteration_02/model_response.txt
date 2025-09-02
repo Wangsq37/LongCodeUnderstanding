@@ -1,0 +1,12 @@
+The primary error reported by pytest is not a `ModuleNotFoundError` or `ImportError`, but a `pytensor.link.c.exceptions.CompileError` during compilation. The failing command is `/usr/bin/g++ ...`. This suggests that a C compiler (`g++`) or associated build tools (headers, etc.) may not be properly installed or configured in the environment. 
+
+To resolve typical compilation errors for packages like PyTensor/Theano, we need to make sure build-essential tools are present (most notably `g++`). In a Python/Docker context, the minimum required is likely `build-essential`. 
+
+Let me check for g++ and install it if not present.
+
+```bash
+which g++
+apt-get update
+apt-get install -y build-essential
+pytest
+```

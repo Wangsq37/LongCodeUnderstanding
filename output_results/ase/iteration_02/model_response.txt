@@ -1,0 +1,12 @@
+```bash
+# The error is: ModuleNotFoundError: No module named 'tkinter'
+# Solution: Install the tkinter package for Python 3.10.
+# On Debian/Ubuntu-based distros, this is usually python3-tk, but in many environments pip cannot install it
+# because it is a system package (not a pip package).
+
+# Try pip install first, but if it doesn't work, you must state in the next step that tkinter must be installed via OS tools.
+
+pip install tk
+# Then, retry pytest to check if the error resolves.
+pytest
+```

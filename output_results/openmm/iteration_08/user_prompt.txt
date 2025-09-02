@@ -1,0 +1,423 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .azure-pipelines/
+│   └── azure-pipelines-windows.yml
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug-report.md
+│   │   ├── feature-suggestion.md
+│   │   └── help-request.md
+│   └── workflows/
+│       └── CI.yml
+├── cmake_modules/
+│   ├── EncodeKernelFiles.cmake
+│   ├── FindOpenCL.cmake
+│   └── TargetArch.cmake
+├── devtools/
+│   ├── ci/
+│   │   ├── gh-actions/
+│   │   │   ├── conda-envs/
+│   │   │   ├── scripts/
+│   │   │   └── start_docker_locally.sh
+│   │   └── jenkins/
+│   │       ├── install.sh
+│   │       ├── install_and_test_cpu.sh
+│   │       └── test.sh
+│   ├── forcefield-scripts/
+│   │   ├── makeAmberGB.py
+│   │   ├── processAmberForceField.py
+│   │   ├── processCharmmForceField.py
+│   │   ├── processTinkerForceField.py
+│   │   └── residuesFinal.xml
+│   ├── hosted-envs/
+│   │   ├── openmm-8-beta-linux.yaml
+│   │   ├── openmm-8-beta-mac.yaml
+│   │   ├── openmm-8-rc1-linux.yaml
+│   │   └── openmm-8-rc1-mac.yaml
+│   ├── packaging/
+│   │   ├── manifests/
+│   │   │   ├── binary/
+│   │   │   ├── source/
+│   │   │   └── README.md
+│   │   ├── scripts/
+│   │   │   ├── linux/
+│   │   │   ├── osx/
+│   │   │   ├── source/
+│   │   │   └── windows/
+│   │   ├── install.sh
+│   │   └── README.md
+│   ├── CI-README.md
+│   ├── CONDA_FORGE_RELEASES.md
+│   ├── Jenkinsfile
+│   └── run-ctest.py
+├── docs-source/
+│   ├── api-c++/
+│   │   ├── _static/
+│   │   │   ├── custom.css
+│   │   │   └── logo.png
+│   │   ├── _templates/
+│   │   │   └── navigation.html
+│   │   ├── breathe-apidoc.py
+│   │   ├── CMakeLists.txt
+│   │   ├── conf.py
+│   │   ├── Doxyfile.in
+│   │   ├── extras.rst
+│   │   ├── forces.rst
+│   │   ├── index.rst
+│   │   └── integrators.rst
+│   │       └── ... (3 more files)
+│   ├── api-python/
+│   │   ├── _static/
+│   │   │   ├── custom.css
+│   │   │   └── logo.png
+│   │   ├── _templates/
+│   │   │   ├── class.rst
+│   │   │   └── navigation.html
+│   │   ├── app.rst.jinja2
+│   │   ├── CMakeLists.txt
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── library.rst.jinja2
+│   │   ├── process-docstring.py
+│   │   └── render.py
+│   │       └── ... (2 more files)
+│   ├── developerguide/
+│   │   ├── _static/
+│   │   │   ├── custom.css
+│   │   │   └── logo.png
+│   │   ├── _templates/
+│   │   │   └── navigation.html
+│   │   ├── 01_introduction.rst
+│   │   ├── 02_core_library.rst
+│   │   ├── 03_writing_plugins.rst
+│   │   ├── 04_reference_platform.rst
+│   │   ├── 05_cpu_platform.rst
+│   │   ├── 06_opencl_platform.rst
+│   │   ├── 07_cuda_platform.rst
+│   │   ├── 08_common_compute.rst
+│   │   ├── 09_customcppforceimpl.rst
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── license.rst
+│   │   ├── make.bat
+│   │   └── Makefile
+│   │       └── ... (9 more files)
+│   ├── images/
+│   │   ├── ArchitectureLayers.jpg
+│   │   ├── Argon.png
+│   │   ├── EnergyDrift.png
+│   │   ├── OpenMMSetup.png
+│   │   ├── SystemContextRelationships.jpg
+│   │   ├── VisualStudioLaunch.jpg
+│   │   └── VisualStudioSetConfiguration.jpg
+│   │       └── ... (2 more files)
+│   ├── licenses/
+│   │   ├── GPL.txt
+│   │   ├── LGPL.txt
+│   │   └── Licenses.txt
+│   ├── sphinx/
+│   │   ├── autonumber.py
+│   │   ├── caption.py
+│   │   ├── continuous.py
+│   │   └── samepage.py
+│   ├── usersguide/
+│   │   ├── _static/
+│   │   │   ├── custom.css
+│   │   │   └── logo.png
+│   │   ├── _templates/
+│   │   │   └── navigation.html
+│   │   ├── application/
+│   │   │   ├── 01_getting_started.rst
+│   │   │   ├── 02_running_sims.rst
+│   │   │   ├── 03_model_building_editing.rst
+│   │   │   ├── 04_advanced_sim_examples.rst
+│   │   │   ├── 05_add_on_packages.rst
+│   │   │   └── 06_creating_ffs.rst
+│   │   │       └── ... (1 more files)
+│   │   ├── library/
+│   │   │   ├── 01_introduction.rst
+│   │   │   ├── 02_compiling.rst
+│   │   │   ├── 03_tutorials.rst
+│   │   │   ├── 04_platform_specifics.rst
+│   │   │   ├── 05_languages_not_cpp.rst
+│   │   │   ├── 06_integration_examples.rst
+│   │   │   ├── 07_testing_validation.rst
+│   │   │   ├── 08_amoeba_plugin.rst
+│   │   │   ├── 09_rpmd_plugin.rst
+│   │   │   └── 10_drude_plugin.rst
+│   │   │       └── ... (5 more files)
+│   │   ├── theory/
+│   │   │   ├── 01_introduction.rst
+│   │   │   ├── 02_standard_forces.rst
+│   │   │   ├── 03_custom_forces.rst
+│   │   │   ├── 04_integrators.rst
+│   │   │   └── 05_other_features.rst
+│   │   ├── application.rst
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── introduction.rst
+│   │   ├── library.rst
+│   │   ├── license.rst
+│   │   ├── make.bat
+│   │   ├── Makefile
+│   │   ├── references.bib
+│   │   ├── theory.rst
+│   │   └── zbibliography.rst
+│   │       └── ... (6 more files)
+│   ├── C++ API Reference.html
+│   ├── CMakeLists.txt
+│   ├── DoxyfileC++.in
+│   ├── Lepton User's Manual.doc
+│   ├── Lepton User's Manual.pdf
+│   └── Python API Reference.html
+│       └── ... (1 more files)
+├── examples/
+│   ├── benchmarks/
+│   │   └── benchmark.py
+│   ├── cpp-examples/
+│   │   ├── VisualStudio/
+│   │   │   ├── HelloArgon.sln
+│   │   │   ├── HelloArgon.vcproj
+│   │   │   ├── HelloArgonInC.sln
+│   │   │   ├── HelloArgonInC.vcproj
+│   │   │   ├── HelloArgonInFortran.sln
+│   │   │   └── HelloArgonInFortran.vfproj
+│   │   │       └── ... (1 more files)
+│   │   ├── CMakeLists.txt
+│   │   ├── Empty.cpp
+│   │   ├── HelloArgon.cpp
+│   │   ├── HelloArgonInC.c
+│   │   ├── HelloArgonInFortran.f90
+│   │   ├── HelloEthane.cpp
+│   │   ├── HelloSodiumChloride.cpp
+│   │   ├── HelloSodiumChlorideInC.c
+│   │   ├── HelloSodiumChlorideInFortran.f90
+│   │   ├── HelloWaterBox.cpp
+│   │   ├── Makefile
+│   │   ├── NMakefile
+│   │   └── README.md
+│   │       └── ... (8 more files)
+│   ├── extras/
+│   │   ├── optimizepme.py
+│   │   ├── README.md
+│   │   └── rigid.py
+│   ├── python-examples/
+│   │   ├── ala_ala_ala.psf
+│   │   ├── argon-chemical-potential.py
+│   │   ├── charmm22.par
+│   │   ├── charmm22.rtf
+│   │   ├── CMakeLists.txt
+│   │   ├── input.gro
+│   │   ├── input.inpcrd
+│   │   ├── input.prmtop
+│   │   ├── input.top
+│   │   ├── simulateAmber.py
+│   │   ├── simulateCharmm.py
+│   │   ├── simulateGromacs.py
+│   │   └── simulatePdb.py
+│   │       └── ... (8 more files)
+│   ├── CMakeLists.txt
+│   └── README.md
+├── libraries/
+│   ├── asmjit/
+│   │   └── asmjit/
+│   │       ├── arm/
+│   │       ├── core/
+│   │       ├── x86/
+│   │       ├── a64.h
+│   │       ├── arm.h
+│   │       ├── asmjit-scope-begin.h
+│   │       ├── asmjit-scope-end.h
+│   │       ├── asmjit.h
+│   │       ├── core.h
+│   │       ├── LICENSE.md
+│   │       └── x86.h
+│   │           └── ... (3 more files)
+│   ├── csha1/
+│   │   ├── include/
+│   │   │   └── SHA1.h
+│   │   └── src/
+│   │       └── SHA1.cpp
+│   ├── hilbert/
+│   │   ├── include/
+│   │   │   └── hilbert.h
+│   │   └── src/
+│   │       └── hilbert.cpp
+│   ├── irrxml/
+│   │   ├── doc/
+│   │   │   ├── irrXML.chm
+│   │   │   └── readme.txt
+│   │   ├── example/
+│   │   │   ├── config.xml
+│   │   │   ├── irrXML.dev
+│   │   │   ├── irrXML.dsp
+│   │   │   ├── irrXML.dsw
+│   │   │   ├── irrxml.sln
+│   │   │   ├── irrxml.vcproj
+│   │   │   ├── Makefile
+│   │   │   └── test.cpp
+│   │   │       └── ... (3 more files)
+│   │   ├── include/
+│   │   │   ├── CXMLReaderImpl.h
+│   │   │   ├── fast_atof.h
+│   │   │   ├── heapsort.h
+│   │   │   ├── irrArray.h
+│   │   │   ├── irrString.h
+│   │   │   ├── irrTypes.h
+│   │   │   └── irrXML.h
+│   │   │       └── ... (2 more files)
+│   │   ├── src/
+│   │   │   └── irrXML.cpp
+│   │   ├── changes.txt
+│   │   └── readme.txt
+│   ├── jama/
+│   │   └── include/
+│   │       ├── jama_cholesky.h
+│   │       ├── jama_eig.h
+│   │       ├── jama_lu.h
+│   │       ├── jama_qr.h
+│   │       ├── jama_svd.h
+│   │       ├── tnt.h
+│   │       ├── tnt_array1d.h
+│   │       ├── tnt_array1d_utils.h
+│   │       ├── tnt_array2d.h
+│   │       ├── tnt_array2d_utils.h
+│   │       ├── tnt_array3d.h
+│   │       ├── tnt_array3d_utils.h
+│   │       ├── tnt_cmat.h
+│   │       ├── tnt_fortran_array1d.h
+│   │       ├── tnt_fortran_array1d_utils.h
+│   │       ├── tnt_fortran_array2d.h
+│   │       ├── tnt_fortran_array2d_utils.h
+│   │       ├── tnt_fortran_array3d.h
+│   │       ├── tnt_fortran_array3d_utils.h
+│   │       ├── tnt_i_refvec.h
+│   │       ├── tnt_math_utils.h
+│   │       ├── tnt_sparse_matrix_csr.h
+│   │       ├── tnt_stopwatch.h
+│   │       ├── tnt_subscript.h
+│   │       ├── tnt_vec.h
+│   │       └── tnt_version.h
+│   │           └── ... (21 more files)
+│   ├── lbfgs/
+│   │   ├── include/
+│   │   │   └── lbfgs.h
+│   │   └── src/
+│   │       ├── arithmetic_ansi.h
+│   │       ├── arithmetic_sse_double.h
+│   │       ├── arithmetic_sse_float.h
+│   │       └── lbfgs.cpp
+│   ├── lepton/
+│   │   ├── include/
+│   │   │   ├── lepton/
+│   │   │   └── Lepton.h
+│   │   └── src/
+│   │       ├── CompiledExpression.cpp
+│   │       ├── CompiledVectorExpression.cpp
+│   │       ├── ExpressionProgram.cpp
+│   │       ├── ExpressionTreeNode.cpp
+│   │       ├── MSVC_erfc.h
+│   │       ├── Operation.cpp
+│   │       ├── ParsedExpression.cpp
+│   │       └── Parser.cpp
+│   │           └── ... (3 more files)
+│   ├── pocketfft/
+│   │   └── include/
+│   │       └── pocketfft_hdronly.h
+│   ├── quern/
+│   │   ├── include/
+│   │   │   ├── quern.h
+│   │   │   └── quern_list.h
+│   │   ├── src/
+│   │   │   ├── quern.cpp
+│   │   │   ├── quern_factorization.cpp
+│   │   │   ├── quern_order.cpp
+│   │   │   └── quern_solver.cpp
+│   │   └── README
+│   ├── sfmt/
+│   │   ├── include/
+│   │   │   └── sfmt/
+│   │   ├── src/
+│   │   │   └── SFMT.cpp
+│   │   ├── CHANGE-LOG.txt
+│   │   ├── LICENSE.txt
+│   │   ├── README.txt
+│   │   └── test.c
+│   ├── vecmath/
+│   │   ├── include/
+│   │   │   ├── neon_mathfun.h
+│   │   │   └── sse_mathfun.h
+│   │   └── src/
+│   │       └── vecmath.cpp
+│   └── vkfft/
+│       └── include/
+│           └── vkFFT.h
+├── olla/
+│   ├── include/
+│   │   └── openmm/
+│   │       ├── Kernel.h
+│   │       ├── KernelFactory.h
+│   │       ├── KernelImpl.h
+│   │       ├── kernels.h
+│   │       ├── Platform.h
+│   │       └── PluginInitializer.h
+│   │           └── ... (1 more files)
+│   └── src/
+│       ├── Kernel.cpp
+│       ├── KernelImpl.cpp
+│       └── Platform.cpp
+├── openmmapi/
+│   ├── include/
+│   │   ├── openmm/
+│   │   │   ├── internal/
+│   │   │   ├── AndersenThermostat.h
+│   │   │   ├── ATMForce.h
+│   │   │   ├── BrownianIntegrator.h
+│   │   │   ├── CMAPTorsionForce.h
+│   │   │   ├── CMMotionRemover.h
+│   │   │   ├── CompoundIntegrator.h
+│   │   │   ├── Context.h
+│   │   │   ├── CustomAngleForce.h
+│   │   │   ├── CustomBondForce.h
+│   │   │   ├── CustomCentroidBondForce.h
+│   │   │   ├── CustomCompoundBondForce.h
+│   │   │   ├── CustomCVForce.h
+│   │   │   ├── CustomExternalForce.h
+│   │   │   ├── CustomGBForce.h
+
+... (927 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+✅ Created file: conftest.py
+### Command Execution:
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 0 items
+
+--- Call Chain Report ---
+No call chains were recorded. (Hint: Check SOURCE_DIRS_TO_TRACK in conftest.py)
+
+============================ no tests ran in 0.30s =============================
+
+
+
+## Your Task (Phase 2: Call Chain Tracing)
+`pytest` is now executable without collection errors. Your task is to set up call chain tracing.
+1.  **Identify the main source code directory/directories.** Based on the structure, this is likely `skimage`.
+2.  **Create a `conftest.py` file** in the project root to trace this directory.
+3.  **Run `pytest`** one last time to generate the reports.
+4.  If the reports are generated, declare success with ```status
+success
+```.
+
+**REMINDER:** When creating `conftest.py`, you only need to provide the line defining `SOURCE_DIRS_TO_TRACK`. For example:
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['skimage']
+```

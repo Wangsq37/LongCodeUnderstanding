@@ -1,0 +1,8 @@
+```bash
+# The error is "ModuleNotFoundError: No module named 'dolfinx'"
+# The python source and package is in ./python/dolfinx
+# Try pip install -e ./python to install the package in editable mode again.
+pip install -e ./python
+# Then run pytest again.
+pytest
+```

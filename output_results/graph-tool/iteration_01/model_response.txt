@@ -1,0 +1,7 @@
+```bash
+pip install -r doc/requirements.txt || true
+pip install -r requirements.txt || true
+pip install -r src/requirements.txt || true
+pip install -e .
+pytest
+```

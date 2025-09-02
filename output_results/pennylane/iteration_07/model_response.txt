@@ -1,0 +1,22 @@
+The errors shown are not generic `ModuleNotFoundError`, but mostly `ImportError` and `AttributeError` regarding the `pennylane` package (e.g., `cannot import name 'AutoGraphWarning' from 'pennylane.exceptions'`, `module 'pennylane.labs.resource_estimation' has no attribute 'ResourceTwoQubitComparator'`, etc).
+
+This usually happens when the installed Pennylane version does not match the expected codebase of the repo's tests: the tests expect a local version, but the installed Pennylane comes from PyPI (global site-packages). The repo's code has likely been updated, while the installed package is older or from a different branch.
+
+**The solution is to install the repo's version of Pennylane in "editable" mode (which will also install any dependencies).**
+
+I'll look for the main Pennylane directory and its install metadata. From the error path `/app/repo_to_process/pennylane/devices/tests/conftest.py`, it is clear that the main package in this repo is `pennylane`.
+
+**Next step:** Install the repo's `pennylane` in editable mode.  
+
+Also, install extra requirements if they're listed in `requirements.txt`, `setup.py`, or `pyproject.toml`.
+
+```bash
+pip install -e .[all]
+```
+
+If this fails due to extras, fall back to:
+
+```bash
+pip install -e .
+```
+and then try again.

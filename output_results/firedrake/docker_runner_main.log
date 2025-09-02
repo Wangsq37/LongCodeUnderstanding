@@ -1,0 +1,59 @@
+08/10/2025 22:24:29 - INFO - __main__ - --- Processing repository: firedrake ---
+08/10/2025 22:24:29 - INFO - __main__ - No existing container found. Creating new container 'agent-run-firedrake'...
+08/10/2025 22:24:30 - INFO - __main__ - Copying 'python_repos\firedrake' to new container 'agent-run-firedrake:/app/repo_to_process'...
+08/10/2025 22:24:38 - INFO - __main__ - Executing agent inside the container...
+08/10/2025 22:24:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:39 - INFO - __main__ - --- Starting Agent inside Container ---
+08/10/2025 22:24:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:39 - INFO - __main__ - Repository Name: firedrake
+08/10/2025 22:24:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:39 - INFO - __main__ - Repository: /app/repo_to_process
+08/10/2025 22:24:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:39 - INFO - __main__ - Language: Python
+08/10/2025 22:24:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:39 - INFO - __main__ - Model: gpt-4.1
+08/10/2025 22:24:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:39 - INFO - __main__ - Max Iterations: 15
+08/10/2025 22:24:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:39 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/10/2025 22:24:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:42 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/10/2025 22:24:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:42 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:24:42 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:42 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:24:45 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:45 - INFO - __main__ - Executing 4 command(s)...
+08/10/2025 22:24:45 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:24:45 - INFO - __main__ - Executing command in '/app/repo_to_process': if [ -f requirements-build.txt ]; then pip install -r requirements-build.txt; fi
+08/10/2025 22:25:05 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:05 - INFO - __main__ - Executing command in '/app/repo_to_process': if [ -f pyproject.toml ]; then pip install .; fi
+08/10/2025 22:25:18 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:18 - INFO - __main__ - Executing command in '/app/repo_to_process': if [ -f setup.py ]; then pip install -e .; fi
+08/10/2025 22:25:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:27 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:25:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:27 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:25:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:28 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:25:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:28 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/10/2025 22:25:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:28 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:25:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:28 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:25:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:33 - INFO - __main__ - Executing 2 command(s)...
+08/10/2025 22:25:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:33 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install ./firedrake
+08/10/2025 22:25:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:33 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:25:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:33 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:25:34 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:34 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:25:34 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:34 - INFO - __main__ - === Starting Iteration 3/15 [Phase: SETUP] ===
+08/10/2025 22:25:34 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:34 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:25:34 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:34 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:25:44 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:44 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:25:44 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:44 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:25:47 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:47 - INFO - __main__ - Executing 2 command(s)...
+08/10/2025 22:25:47 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:47 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pip install firedrake pyop2 pytest_mpi loopy petsc4py
+08/10/2025 22:25:47 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:25:47 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install firedrake pyop2 pytest_mpi loopy petsc4py
+08/10/2025 22:26:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:26:27 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:26:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:26:27 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:26:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:26:28 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:26:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:26:28 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:26:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:26:28 - INFO - __main__ - === Starting Iteration 4/15 [Phase: SETUP] ===
+08/10/2025 22:26:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:26:28 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:26:28 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:26:28 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:26:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:26:33 - INFO - __main__ - ❌ Model reported failure. Terminating.
+08/10/2025 22:26:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:26:33 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed
+08/10/2025 22:26:33 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:26:33 - INFO - __main__ - ❌ Agent finished with non-success status: failed
+08/10/2025 22:26:33 - INFO - __main__ - Agent finished with exit code: 1
+08/10/2025 22:26:33 - INFO - __main__ - Copying all generated files from container 'agent-run-firedrake:/app/new_test_detection_logs/firedrake'...
+08/10/2025 22:26:34 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\firedrake'.
+08/10/2025 22:26:34 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-firedrake:/app/repo_to_process'...
+08/10/2025 22:26:34 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/10/2025 22:26:34 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/10/2025 22:26:34 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/10/2025 22:26:34 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/10/2025 22:26:34 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/10/2025 22:26:34 - INFO - __main__ - Deleting container 'agent-run-firedrake' due to failure or missing required files.
+08/10/2025 22:26:45 - INFO - __main__ - --- Finished processing repository: firedrake ---
+

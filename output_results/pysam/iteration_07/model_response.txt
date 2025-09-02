@@ -1,0 +1,9 @@
+The main source code directory is still `pysam`. 
+However, your test run failed due to missing Cython extension modules (e.g., `libchtslib`). These must be built before tracing can occur.
+
+If you cannot build or install these compiled extension modules in this environment, tracing cannot proceed.
+
+Therefore, I must terminate:
+```status
+failed
+```

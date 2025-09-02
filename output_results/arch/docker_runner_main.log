@@ -1,0 +1,49 @@
+08/11/2025 15:47:51 - INFO - __main__ - --- Processing repository: arch ---
+08/11/2025 15:47:51 - INFO - __main__ - No existing container found. Creating new container 'agent-run-arch'...
+08/11/2025 15:47:52 - INFO - __main__ - Copying 'python_repos\arch' to new container 'agent-run-arch:/app/repo_to_process'...
+08/11/2025 15:47:58 - INFO - __main__ - Executing agent inside the container...
+08/11/2025 15:47:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:47:59 - INFO - __main__ - --- Starting Agent inside Container ---
+08/11/2025 15:47:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:47:59 - INFO - __main__ - Repository Name: arch
+08/11/2025 15:47:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:47:59 - INFO - __main__ - Repository: /app/repo_to_process
+08/11/2025 15:47:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:47:59 - INFO - __main__ - Language: Python
+08/11/2025 15:47:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:47:59 - INFO - __main__ - Model: gpt-4.1
+08/11/2025 15:47:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:47:59 - INFO - __main__ - Max Iterations: 15
+08/11/2025 15:47:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:47:59 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/11/2025 15:48:02 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:48:02 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/11/2025 15:48:02 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:48:02 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 15:48:02 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:48:02 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 15:48:04 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:48:04 - INFO - __main__ - Executing 3 command(s)...
+08/11/2025 15:48:04 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:48:04 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r requirements.txt
+08/11/2025 15:48:19 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:48:19 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r requirements-dev.txt
+08/11/2025 15:50:43 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:43 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 15:50:43 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:43 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 15:50:43 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:43 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 15:50:43 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:43 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/11/2025 15:50:43 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:43 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 15:50:43 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:43 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 15:50:47 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:47 - INFO - __main__ - Executing 3 command(s)...
+08/11/2025 15:50:47 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:47 - INFO - __main__ - Executing command in '/app/repo_to_process': python -m setuptools_scm
+08/11/2025 15:50:48 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:48 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e .
+08/11/2025 15:50:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:59 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 15:50:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 07:50:59 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 16:01:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:01:06 - INFO - __main__ - ✅ Phase 1 (SETUP) complete: `pytest` is now executable without collection errors.
+08/11/2025 16:01:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:01:06 - INFO - __main__ - === Starting Iteration 3/15 [Phase: TRACING] ===
+08/11/2025 16:01:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:01:06 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 16:01:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:01:06 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 16:01:14 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:01:14 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 16:01:14 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:01:14 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 16:01:21 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:01:21 - ERROR - __main__ - Failed to get response from model. Stopping.
+08/11/2025 16:01:21 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:01:21 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed_model_response
+08/11/2025 16:01:21 - INFO - __main__ - [AGENT-LOG] 08/11/2025 08:01:21 - INFO - __main__ - ❌ Agent finished with non-success status: failed_model_response
+08/11/2025 16:01:21 - INFO - __main__ - Agent finished with exit code: 1
+08/11/2025 16:01:21 - INFO - __main__ - Copying all generated files from container 'agent-run-arch:/app/new_test_detection_logs/arch'...
+08/11/2025 16:01:21 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\arch'.
+08/11/2025 16:01:21 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-arch:/app/repo_to_process'...
+08/11/2025 16:01:21 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 16:01:21 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 16:01:21 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/11/2025 16:01:21 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/11/2025 16:01:21 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/11/2025 16:01:21 - INFO - __main__ - Deleting container 'agent-run-arch' due to failure or missing required files.
+08/11/2025 16:01:33 - INFO - __main__ - --- Finished processing repository: arch ---
+

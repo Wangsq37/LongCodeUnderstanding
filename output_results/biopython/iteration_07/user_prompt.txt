@@ -1,0 +1,341 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .circleci/
+│   ├── config.yml
+│   └── requirements-sphinx.txt
+├── .github/
+│   ├── workflows/
+│   │   └── ci.yml
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CODEOWNERS
+│   ├── dependabot.yml
+│   ├── deploy_docs.sh
+│   ├── ISSUE_TEMPLATE.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── SECURITY.md
+│   └── ssh_via_deploy_key.sh
+│       └── ... (3 more files)
+├── Bio/
+│   ├── Affy/
+│   │   ├── __init__.py
+│   │   └── CelFile.py
+│   ├── Align/
+│   │   ├── substitution_matrices/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── _arraycore.c
+│   │   │   └── _arraycore.h
+│   │   ├── __init__.py
+│   │   ├── _aligncore.c
+│   │   ├── _alignmentcounts.c
+│   │   ├── _codonaligner.c
+│   │   ├── _pairwisealigner.c
+│   │   ├── _pairwisealigner.h
+│   │   ├── a2m.py
+│   │   ├── AlignInfo.py
+│   │   ├── analysis.py
+│   │   ├── bed.py
+│   │   ├── bigbed.py
+│   │   ├── bigmaf.py
+│   │   ├── bigpsl.py
+│   │   ├── chain.py
+│   │   ├── clustal.py
+│   │   ├── emboss.py
+│   │   ├── exonerate.py
+│   │   ├── fasta.py
+│   │   ├── hhr.py
+│   │   ├── interfaces.py
+│   │   ├── maf.py
+│   │   ├── mauve.py
+│   │   ├── msf.py
+│   │   ├── nexus.py
+│   │   ├── phylip.py
+│   │   ├── psl.py
+│   │   ├── sam.py
+│   │   ├── stockholm.py
+│   │   └── tabular.py
+│   │       └── ... (24 more files)
+│   ├── AlignIO/
+│   │   ├── __init__.py
+│   │   ├── ClustalIO.py
+│   │   ├── EmbossIO.py
+│   │   ├── FastaIO.py
+│   │   ├── Interfaces.py
+│   │   ├── MafIO.py
+│   │   ├── MauveIO.py
+│   │   ├── MsfIO.py
+│   │   ├── NexusIO.py
+│   │   ├── PhylipIO.py
+│   │   └── StockholmIO.py
+│   │       └── ... (6 more files)
+│   ├── Alphabet/
+│   │   └── __init__.py
+│   ├── Blast/
+│   │   ├── __init__.py
+│   │   ├── _parser.py
+│   │   ├── _writers.py
+│   │   ├── NCBIWWW.py
+│   │   └── NCBIXML.py
+│   ├── CAPS/
+│   │   └── __init__.py
+│   ├── Cluster/
+│   │   ├── __init__.py
+│   │   ├── cluster.c
+│   │   ├── cluster.h
+│   │   └── clustermodule.c
+│   ├── codonalign/
+│   │   ├── __init__.py
+│   │   ├── codonalignment.py
+│   │   └── codonseq.py
+│   ├── Compass/
+│   │   └── __init__.py
+│   ├── Data/
+│   │   ├── __init__.py
+│   │   ├── CodonTable.py
+│   │   ├── IUPACData.py
+│   │   └── PDBData.py
+│   ├── Emboss/
+│   │   ├── __init__.py
+│   │   ├── Primer3.py
+│   │   └── PrimerSearch.py
+│   ├── Entrez/
+│   │   ├── DTDs/
+│   │   │   ├── archivearticle.dtd
+│   │   │   ├── archivecustom-classes.ent
+│   │   │   ├── archivecustom-mixes.ent
+│   │   │   ├── archivecustom-models.ent
+│   │   │   ├── archivecustom-modules.ent
+│   │   │   ├── articlemeta.ent
+│   │   │   ├── backmatter.ent
+│   │   │   ├── BITS-embedded-index2.ent
+│   │   │   ├── BITS-question-answer2.ent
+│   │   │   ├── bookdoc_100301.dtd
+│   │   │   ├── bookdoc_110101.dtd
+│   │   │   ├── bookdoc_120101.dtd
+│   │   │   ├── bookdoc_130101.dtd
+│   │   │   ├── bookdoc_140101.dtd
+│   │   │   ├── bookdoc_150101.dtd
+│   │   │   ├── chars.ent
+│   │   │   ├── common.ent
+│   │   │   ├── default-classes.ent
+│   │   │   ├── default-mixes.ent
+│   │   │   ├── display.ent
+│   │   │   ├── Docsum_3_0.dtd
+│   │   │   ├── Docsum_3_0.mod.dtd
+│   │   │   ├── Docsum_3_1.dtd
+│   │   │   ├── Docsum_3_1.mod.dtd
+│   │   │   ├── Docsum_3_2.dtd
+│   │   │   ├── Docsum_3_2.mod.dtd
+│   │   │   ├── Docsum_3_3.dtd
+│   │   │   ├── Docsum_3_3.mod.dtd
+│   │   │   ├── Docsum_3_4.dtd
+│   │   │   ├── Docsum_3_4.mod.dtd
+│   │   │   ├── egquery.dtd
+│   │   │   ├── einfo.dtd
+│   │   │   ├── eInfo_020511.dtd
+│   │   │   ├── elink.dtd
+│   │   │   ├── elink_020122.dtd
+│   │   │   ├── eLink_090910.dtd
+│   │   │   ├── eLink_101123.dtd
+│   │   │   ├── EMBL_General.dtd
+│   │   │   ├── EMBL_General.mod.dtd
+│   │   │   ├── epost.dtd
+│   │   │   ├── ePost_020511.dtd
+│   │   │   ├── esearch.dtd
+│   │   │   ├── eSearch_020511.dtd
+│   │   │   ├── eSpell.dtd
+│   │   │   ├── esummary-v1.dtd
+│   │   │   ├── eSummary_041029.dtd
+│   │   │   ├── esummary_clinvar.dtd
+│   │   │   ├── esummary_gene.dtd
+│   │   │   ├── format.ent
+│   │   │   ├── GenBank_General.dtd
+│   │   │   ├── GenBank_General.mod.dtd
+│   │   │   ├── HomoloGene.dtd
+│   │   │   ├── HomoloGene.mod.dtd
+│   │   │   ├── htmltable.dtd
+│   │   │   ├── INSD_INSDSeq.dtd
+│   │   │   ├── INSD_INSDSeq.mod.dtd
+│   │   │   ├── isoamsa.ent
+│   │   │   ├── isoamsb.ent
+│   │   │   ├── isoamsc.ent
+│   │   │   ├── isoamsn.ent
+│   │   │   ├── isoamso.ent
+│   │   │   ├── isoamsr.ent
+│   │   │   ├── isobox.ent
+│   │   │   ├── isocyr1.ent
+│   │   │   ├── isocyr2.ent
+│   │   │   ├── isodia.ent
+│   │   │   ├── isogrk1.ent
+│   │   │   ├── isogrk2.ent
+│   │   │   ├── isogrk3.ent
+│   │   │   ├── isogrk4.ent
+│   │   │   ├── isolat1.ent
+│   │   │   ├── isolat2.ent
+│   │   │   ├── isomfrk.ent
+│   │   │   ├── isomopf.ent
+│   │   │   ├── isomscr.ent
+│   │   │   ├── isonum.ent
+│   │   │   ├── isopub.ent
+│   │   │   ├── isotech.ent
+│   │   │   ├── JATS-ali-namespace1-3.ent
+│   │   │   ├── JATS-archivearticle1-3-mathml3.dtd
+│   │   │   ├── JATS-archivecustom-classes1-3.ent
+│   │   │   ├── JATS-archivecustom-mixes1-3.ent
+│   │   │   ├── JATS-archivecustom-models1-3.ent
+│   │   │   ├── JATS-archivecustom-modules1-3.ent
+│   │   │   ├── JATS-articlemeta1-3.ent
+│   │   │   ├── JATS-backmatter1-3.ent
+│   │   │   ├── JATS-chars1-3.ent
+│   │   │   ├── JATS-common-atts1-3.ent
+│   │   │   ├── JATS-common1-3.ent
+│   │   │   ├── JATS-default-classes1-3.ent
+│   │   │   ├── JATS-default-mixes1-3.ent
+│   │   │   ├── JATS-display1-3.ent
+│   │   │   ├── JATS-format1-3.ent
+│   │   │   ├── JATS-funding1-3.ent
+│   │   │   ├── JATS-journalmeta1-3.ent
+│   │   │   ├── JATS-link1-3.ent
+│   │   │   ├── JATS-list1-3.ent
+│   │   │   ├── JATS-math1-3.ent
+│   │   │   ├── JATS-mathml3-mathmlsetup1-3.ent
+│   │   │   ├── JATS-mathml3-modules1-3.ent
+│   │   │   ├── JATS-modules1-3.ent
+│   │   │   ├── JATS-nlmcitation1-3.ent
+│   │   │   ├── JATS-notat1-3.ent
+│   │   │   ├── JATS-para1-3.ent
+│   │   │   ├── JATS-phrase1-3.ent
+│   │   │   ├── JATS-references1-3.ent
+│   │   │   ├── JATS-related-object1-3.ent
+│   │   │   ├── JATS-section1-3.ent
+│   │   │   ├── JATS-XHTMLtablesetup1-3.ent
+│   │   │   ├── JATS-xmlspecchars1-3.ent
+│   │   │   ├── journalmeta.ent
+│   │   │   ├── link.ent
+│   │   │   ├── list.ent
+│   │   │   ├── math.ent
+│   │   │   ├── mathml-in-pubmed.mod
+│   │   │   ├── mathml2-qname-1.mod
+│   │   │   ├── mathml2.dtd
+│   │   │   ├── mathml3-qname1.mod
+│   │   │   ├── mathml3.dtd
+│   │   │   ├── mathmlsetup.ent
+│   │   │   ├── MMDB.dtd
+│   │   │   ├── MMDB.mod.dtd
+│   │   │   ├── MMDB_Chemical_graph.dtd
+│   │   │   ├── MMDB_Chemical_graph.mod.dtd
+│   │   │   ├── MMDB_Features.dtd
+│   │   │   ├── MMDB_Features.mod.dtd
+│   │   │   ├── MMDB_Structural_model.dtd
+│   │   │   ├── MMDB_Structural_model.mod.dtd
+│   │   │   ├── mmlalias.ent
+│   │   │   ├── mmlextra.ent
+│   │   │   ├── modules.ent
+│   │   │   ├── NCBI_Access.dtd
+│   │   │   ├── NCBI_Access.mod.dtd
+│   │   │   ├── NCBI_all.dtd
+│   │   │   ├── NCBI_Biblio.dtd
+│   │   │   ├── NCBI_Biblio.mod.dtd
+│   │   │   ├── NCBI_BioSource.dtd
+│   │   │   ├── NCBI_BioSource.mod.dtd
+│   │   │   ├── NCBI_BioTree.dtd
+│   │   │   ├── NCBI_BioTree.mod.dtd
+│   │   │   ├── NCBI_Blast4.dtd
+│   │   │   ├── NCBI_Blast4.mod.dtd
+│   │   │   ├── NCBI_BlastDL.dtd
+│   │   │   ├── NCBI_BlastDL.mod.dtd
+│   │   │   ├── NCBI_BlastOutput.dtd
+│   │   │   ├── NCBI_BlastOutput.mod.dtd
+│   │   │   ├── NCBI_Cdd.dtd
+│   │   │   ├── NCBI_Cdd.mod.dtd
+│   │   │   ├── NCBI_Cn3d.dtd
+│   │   │   ├── NCBI_Cn3d.mod.dtd
+│   │   │   ├── NCBI_Entity.mod.dtd
+│   │   │   ├── NCBI_Entrez2.dtd
+│   │   │   ├── NCBI_Entrez2.mod.dtd
+│   │   │   ├── NCBI_Entrezgene.dtd
+│   │   │   ├── NCBI_Entrezgene.mod.dtd
+│   │   │   ├── NCBI_FeatDef.dtd
+│   │   │   ├── NCBI_FeatDef.mod.dtd
+│   │   │   ├── NCBI_GBSeq.dtd
+│   │   │   ├── NCBI_GBSeq.mod.dtd
+│   │   │   ├── NCBI_Gene.dtd
+│   │   │   ├── NCBI_Gene.mod.dtd
+│   │   │   ├── NCBI_General.dtd
+│   │   │   ├── NCBI_General.mod.dtd
+│   │   │   ├── NCBI_ID1Access.dtd
+│   │   │   ├── NCBI_ID1Access.mod.dtd
+│   │   │   ├── NCBI_ID2Access.dtd
+│   │   │   ├── NCBI_ID2Access.mod.dtd
+│   │   │   ├── NCBI_MedArchive.dtd
+│   │   │   ├── NCBI_MedArchive.mod.dtd
+│   │   │   ├── NCBI_Medlars.dtd
+│   │   │   ├── NCBI_Medlars.mod.dtd
+│   │   │   ├── NCBI_Medline.dtd
+│   │   │   ├── NCBI_Medline.mod.dtd
+│   │   │   ├── NCBI_Mim.dtd
+│   │   │   ├── NCBI_Mim.mod.dtd
+│   │   │   ├── NCBI_Mime.dtd
+│   │   │   ├── NCBI_Mime.mod.dtd
+│   │   │   ├── NCBI_ObjPrt.dtd
+│   │   │   ├── NCBI_ObjPrt.mod.dtd
+│   │   │   ├── NCBI_Organism.dtd
+│   │   │   ├── NCBI_Organism.mod.dtd
+│   │   │   ├── NCBI_PCAssay.dtd
+│   │   │   ├── NCBI_PCAssay.mod.dtd
+│   │   │   ├── NCBI_PCSubstance.dtd
+│   │   │   ├── NCBI_PCSubstance.mod.dtd
+│   │   │   ├── NCBI_Project.dtd
+│   │   │   ├── NCBI_Project.mod.dtd
+│   │   │   ├── NCBI_Protein.dtd
+│   │   │   ├── NCBI_Protein.mod.dtd
+│   │   │   ├── NCBI_Pub.dtd
+│   │   │   ├── NCBI_Pub.mod.dtd
+│   │   │   ├── NCBI_PubMed.dtd
+│   │   │   ├── NCBI_PubMed.mod.dtd
+│   │   │   ├── NCBI_Remap.dtd
+│   │   │   ├── NCBI_Remap.mod.dtd
+│   │   │   ├── NCBI_RNA.dtd
+│   │   │   ├── NCBI_RNA.mod.dtd
+│   │   │   ├── NCBI_Rsite.dtd
+│   │   │   ├── NCBI_Rsite.mod.dtd
+│   │   │   ├── NCBI_ScoreMat.dtd
+│   │   │   ├── NCBI_ScoreMat.mod.dtd
+│   │   │   ├── NCBI_Seq_split.dtd
+│   │   │   ├── NCBI_Seq_split.mod.dtd
+│   │   │   ├── NCBI_Seqalign.dtd
+│   │   │   ├── NCBI_Seqalign.mod.dtd
+│   │   │   ├── NCBI_SeqCode.dtd
+│   │   │   ├── NCBI_SeqCode.mod.dtd
+│   │   │   ├── NCBI_Seqfeat.dtd
+│   │   │   ├── NCBI_Seqfeat.mod.dtd
+│   │   │   ├── NCBI_Seqloc.dtd
+│   │   │   ├── NCBI_Seqloc.mod.dtd
+│   │   │   ├── NCBI_Seqres.dtd
+│   │   │   ├── NCBI_Seqres.mod.dtd
+│   │   │   ├── NCBI_Seqset.dtd
+│   │   │   ├── NCBI_Seqset.mod.dtd
+│   │   │   ├── NCBI_SeqTable.dtd
+│   │   │   ├── NCBI_SeqTable.mod.dtd
+│   │   │   ├── NCBI_Sequence.dtd
+│   │   │   ├── NCBI_Sequence.mod.dtd
+│   │   │   ├── NCBI_Submit.dtd
+│
+... (2047 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+No commands found in the response.
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

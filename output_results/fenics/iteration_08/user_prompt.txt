@@ -1,0 +1,453 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   ├── config.yml
+│   │   └── feature_request.yml
+│   ├── workflows/
+│   │   ├── spack-config/
+│   │   │   ├── gh-actions-env.yaml
+│   │   │   ├── gh-actions-env.yml
+│   │   │   └── gh-actions-rocky.yml
+│   │   ├── build-wheels.yml
+│   │   ├── ccpp.yml
+│   │   ├── ci-spack.yml
+│   │   ├── clang-tidy.yml
+│   │   ├── conda.yml
+│   │   ├── docker-dev-test-env.yml
+│   │   ├── docker-end-user.yml
+│   │   ├── docker-update-stable.yml
+│   │   ├── fenicsx-refs.env
+│   │   ├── macos.yml
+│   │   ├── sonarcloud.yml
+│   │   ├── spack.yml
+│   │   └── windows.yml
+│   │       └── ... (8 more files)
+│   ├── dependabot.yml
+│   └── FUNDING.yml
+├── cpp/
+│   ├── .vcpkg-overlay/
+│   │   ├── intel-mpi/
+│   │   │   ├── mpi-wrapper.cmake
+│   │   │   ├── portfile.cmake
+│   │   │   └── vcpkg.json
+│   │   ├── mpi/
+│   │   │   ├── portfile.cmake
+│   │   │   └── vcpkg.json
+│   │   └── README.md
+│   ├── cmake/
+│   │   ├── modules/
+│   │   │   ├── FindKaHIP.cmake
+│   │   │   ├── FindParMETIS.cmake
+│   │   │   └── FindUFCx.cmake
+│   │   ├── post-install/
+│   │   │   └── CMakeLists.txt
+│   │   ├── scripts/
+│   │   │   └── generate-cmakefiles.py
+│   │   └── templates/
+│   │       ├── cmake_uninstall.cmake.in
+│   │       ├── dolfinx.conf.in
+│   │       ├── dolfinx.pc.in
+│   │       └── DOLFINXConfig.cmake.in
+│   ├── demo/
+│   │   ├── biharmonic/
+│   │   │   ├── biharmonic.py
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── codim_0_assembly/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── main.cpp
+│   │   │   └── mixed_codim0.py
+│   │   ├── custom_kernel/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── hyperelasticity/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── hyperelasticity.py
+│   │   │   └── main.cpp
+│   │   ├── interpolation-io/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── interpolation_different_meshes/
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── mixed_poisson/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── main.cpp
+│   │   │   └── mixed_poisson.py
+│   │   ├── poisson/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── main.cpp
+│   │   │   └── poisson.py
+│   │   ├── poisson_matrix_free/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── main.cpp
+│   │   │   └── poisson.py
+│   │   ├── CMakeLists.txt
+│   │   └── README.md
+│   ├── doc/
+│   │   ├── source/
+│   │   │   ├── api.rst
+│   │   │   ├── common.rst
+│   │   │   ├── conf.py
+│   │   │   ├── demo.rst
+│   │   │   ├── fem.rst
+│   │   │   ├── geometry.rst
+│   │   │   ├── graph.rst
+│   │   │   ├── index.rst
+│   │   │   ├── io.rst
+│   │   │   ├── jupytext_process.py
+│   │   │   ├── la.rst
+│   │   │   ├── mesh.rst
+│   │   │   └── refinement.rst
+│   │   │       └── ... (8 more files)
+│   │   ├── Doxyfile
+│   │   ├── Makefile
+│   │   └── README.md
+│   ├── dolfinx/
+│   │   ├── common/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── defines.cpp
+│   │   │   ├── defines.h
+│   │   │   ├── dolfinx_common.h
+│   │   │   ├── dolfinx_doc.h
+│   │   │   ├── IndexMap.cpp
+│   │   │   ├── IndexMap.h
+│   │   │   ├── log.cpp
+│   │   │   ├── log.h
+│   │   │   ├── math.h
+│   │   │   ├── MPI.cpp
+│   │   │   ├── MPI.h
+│   │   │   ├── Scatterer.h
+│   │   │   ├── sort.h
+│   │   │   ├── Table.cpp
+│   │   │   ├── Table.h
+│   │   │   ├── TimeLogger.cpp
+│   │   │   ├── TimeLogger.h
+│   │   │   ├── Timer.h
+│   │   │   ├── timing.cpp
+│   │   │   ├── timing.h
+│   │   │   ├── types.h
+│   │   │   ├── utils.h
+│   │   │   └── version.h.in
+│   │   │       └── ... (19 more files)
+│   │   ├── fem/
+│   │   │   ├── assemble_expression_impl.h
+│   │   │   ├── assemble_matrix_impl.h
+│   │   │   ├── assemble_scalar_impl.h
+│   │   │   ├── assemble_vector_impl.h
+│   │   │   ├── assembler.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Constant.h
+│   │   │   ├── CoordinateElement.cpp
+│   │   │   ├── CoordinateElement.h
+│   │   │   ├── DirichletBC.cpp
+│   │   │   ├── DirichletBC.h
+│   │   │   ├── discreteoperators.h
+│   │   │   ├── DofMap.cpp
+│   │   │   ├── DofMap.h
+│   │   │   ├── dofmapbuilder.cpp
+│   │   │   ├── dofmapbuilder.h
+│   │   │   ├── dolfinx_fem.h
+│   │   │   ├── ElementDofLayout.cpp
+│   │   │   ├── ElementDofLayout.h
+│   │   │   ├── Expression.h
+│   │   │   ├── FiniteElement.cpp
+│   │   │   ├── FiniteElement.h
+│   │   │   ├── Form.h
+│   │   │   ├── Function.h
+│   │   │   ├── FunctionSpace.h
+│   │   │   ├── interpolate.h
+│   │   │   ├── pack.h
+│   │   │   ├── petsc.cpp
+│   │   │   ├── petsc.h
+│   │   │   ├── sparsitybuild.cpp
+│   │   │   ├── sparsitybuild.h
+│   │   │   ├── traits.h
+│   │   │   ├── utils.cpp
+│   │   │   └── utils.h
+│   │   │       └── ... (29 more files)
+│   │   ├── geometry/
+│   │   │   ├── BoundingBoxTree.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_geometry.h
+│   │   │   ├── gjk.h
+│   │   │   └── utils.h
+│   │   ├── graph/
+│   │   │   ├── AdjacencyList.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_graph.h
+│   │   │   ├── ordering.cpp
+│   │   │   ├── ordering.h
+│   │   │   ├── partition.cpp
+│   │   │   ├── partition.h
+│   │   │   ├── partitioners.cpp
+│   │   │   ├── partitioners.h
+│   │   │   ├── utils.cpp
+│   │   │   └── utils.h
+│   │   │       └── ... (6 more files)
+│   │   ├── io/
+│   │   │   ├── ADIOS2Writers.cpp
+│   │   │   ├── ADIOS2Writers.h
+│   │   │   ├── cells.cpp
+│   │   │   ├── cells.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_io.h
+│   │   │   ├── HDF5Interface.cpp
+│   │   │   ├── HDF5Interface.h
+│   │   │   ├── utils.h
+│   │   │   ├── vtk_utils.cpp
+│   │   │   ├── vtk_utils.h
+│   │   │   ├── VTKFile.cpp
+│   │   │   ├── VTKFile.h
+│   │   │   ├── VTKHDF.h
+│   │   │   ├── xdmf_function.cpp
+│   │   │   ├── xdmf_function.h
+│   │   │   ├── xdmf_mesh.cpp
+│   │   │   ├── xdmf_mesh.h
+│   │   │   ├── xdmf_utils.cpp
+│   │   │   ├── xdmf_utils.h
+│   │   │   ├── XDMFFile.cpp
+│   │   │   └── XDMFFile.h
+│   │   │       └── ... (17 more files)
+│   │   ├── la/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_la.h
+│   │   │   ├── matrix_csr_impl.h
+│   │   │   ├── MatrixCSR.h
+│   │   │   ├── petsc.cpp
+│   │   │   ├── petsc.h
+│   │   │   ├── slepc.cpp
+│   │   │   ├── slepc.h
+│   │   │   ├── SparsityPattern.cpp
+│   │   │   ├── SparsityPattern.h
+│   │   │   ├── utils.h
+│   │   │   └── Vector.h
+│   │   │       └── ... (7 more files)
+│   │   ├── mesh/
+│   │   │   ├── cell_types.cpp
+│   │   │   ├── cell_types.h
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_mesh.h
+│   │   │   ├── EntityMap.cpp
+│   │   │   ├── EntityMap.h
+│   │   │   ├── generation.h
+│   │   │   ├── Geometry.h
+│   │   │   ├── graphbuild.cpp
+│   │   │   ├── graphbuild.h
+│   │   │   ├── Mesh.h
+│   │   │   ├── MeshTags.h
+│   │   │   ├── permutationcomputation.cpp
+│   │   │   ├── permutationcomputation.h
+│   │   │   ├── Topology.cpp
+│   │   │   ├── Topology.h
+│   │   │   ├── topologycomputation.cpp
+│   │   │   ├── topologycomputation.h
+│   │   │   ├── utils.cpp
+│   │   │   └── utils.h
+│   │   │       └── ... (15 more files)
+│   │   ├── nls/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_nls.h
+│   │   │   ├── NewtonSolver.cpp
+│   │   │   └── NewtonSolver.h
+│   │   ├── refinement/
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── dolfinx_refinement.h
+│   │   │   ├── interval.h
+│   │   │   ├── option.h
+│   │   │   ├── plaza.cpp
+│   │   │   ├── plaza.h
+│   │   │   ├── refine.h
+│   │   │   ├── uniform.cpp
+│   │   │   ├── uniform.h
+│   │   │   ├── utils.cpp
+│   │   │   └── utils.h
+│   │   │       └── ... (6 more files)
+│   │   ├── CMakeLists.txt
+│   │   └── dolfinx.h
+│   ├── test/
+│   │   ├── common/
+│   │   │   ├── CIFailure.cpp
+│   │   │   ├── index_map.cpp
+│   │   │   ├── sort.cpp
+│   │   │   └── sub_systems_manager.cpp
+│   │   ├── fem/
+│   │   │   ├── expr.py
+│   │   │   ├── form.cpp
+│   │   │   └── functionspace.cpp
+│   │   ├── mesh/
+│   │   │   ├── refinement/
+│   │   │   ├── branching_manifold.cpp
+│   │   │   ├── distributed_mesh.cpp
+│   │   │   ├── generation.cpp
+│   │   │   └── read_named_meshtags.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── graph.cpp
+│   │   ├── io.cpp
+│   │   ├── main.cpp
+│   │   ├── matrix.cpp
+│   │   ├── poisson.py
+│   │   ├── vcpkg.json
+│   │   └── vector.cpp
+│   │       └── ... (3 more files)
+│   ├── CMakeLists.txt
+│   ├── ruff.toml
+│   └── vcpkg.json
+├── docker/
+│   ├── complex-kernel.json
+│   ├── Dockerfile.end-user
+│   ├── Dockerfile.test-env
+│   ├── dolfinx-complex-mode
+│   ├── dolfinx-real-mode
+│   ├── dolfinx_jit_options.json
+│   ├── ffcx_options.json
+│   └── README.md
+│       └── ... (3 more files)
+├── python/
+│   ├── demo/
+│   │   ├── data/
+│   │   │   └── cooks_tri_mesh.xdmf
+│   │   ├── conftest.py
+│   │   ├── demo_axis.py
+│   │   ├── demo_biharmonic.py
+│   │   ├── demo_cahn-hilliard.py
+│   │   ├── demo_comm-pattern.py
+│   │   ├── demo_elasticity.py
+│   │   ├── demo_gmsh.py
+│   │   ├── demo_half_loaded_waveguide.py
+│   │   ├── demo_hdg.py
+│   │   ├── demo_helmholtz.py
+│   │   ├── demo_interpolation-io.py
+│   │   ├── demo_lagrange_variants.py
+│   │   ├── demo_mixed-poisson.py
+│   │   ├── demo_mixed-topology.py
+│   │   ├── demo_navier-stokes.py
+│   │   ├── demo_pml.py
+│   │   ├── demo_poisson.py
+│   │   ├── demo_poisson_matrix_free.py
+│   │   ├── demo_pyamg.py
+│   │   ├── demo_pyvista.py
+│   │   ├── demo_scattering_boundary_conditions.py
+│   │   ├── demo_static-condensation.py
+│   │   ├── demo_stokes.py
+│   │   ├── demo_tnt-elements.py
+│   │   ├── demo_types.py
+│   │   ├── pyproject.toml
+│   │   ├── pytest.ini
+│   │   └── test.py
+│   │       └── ... (23 more files)
+│   ├── doc/
+│   │   ├── source/
+│   │   │   ├── api.rst
+│   │   │   ├── conf.py
+│   │   │   ├── contributing.rst
+│   │   │   ├── demos.rst
+│   │   │   ├── developer.rst
+│   │   │   ├── index.rst
+│   │   │   ├── installation.rst
+│   │   │   ├── jupytext_process.py
+│   │   │   └── styleguide_cpp.rst
+│   │   │       └── ... (4 more files)
+│   │   └── README.md
+│   ├── dolfinx/
+│   │   ├── fem/
+│   │   │   ├── __init__.py
+│   │   │   ├── assemble.py
+│   │   │   ├── bcs.py
+│   │   │   ├── dofmap.py
+│   │   │   ├── element.py
+│   │   │   ├── forms.py
+│   │   │   ├── function.py
+│   │   │   └── petsc.py
+│   │   │       └── ... (3 more files)
+│   │   ├── io/
+│   │   │   ├── __init__.py
+│   │   │   ├── gmshio.py
+│   │   │   ├── utils.py
+│   │   │   └── vtkhdf.py
+│   │   ├── la/
+│   │   │   ├── __init__.py
+│   │   │   └── petsc.py
+... (72 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install cmake ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting cmake
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/60/cb/1e4d8baab7c946f809d6c59914428c10acaf39d9f4b52e1dffff834a9f0a/cmake-4.0.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (27.9 MB)
+Installing collected packages: cmake
+Successfully installed cmake-4.0.3
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pip install --no-build-isolation -e ./python ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Obtaining file:///app/repo_to_process/python
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy>=1.21 in /usr/local/lib/python3.10/dist-packages (from fenics-dolfinx==0.10.0.dev0) (2.2.6)
+Collecting cffi (from fenics-dolfinx==0.10.0.dev0)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/8d/fb/4da72871d177d63649ac449aec2e8a29efe0274035880c7af59101ca2232/cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (446 kB)
+Requirement already satisfied: mpi4py in /usr/local/lib/python3.10/dist-packages (from fenics-dolfinx==0.10.0.dev0) (4.1.0)
+INFO: pip is looking at multiple versions of fenics-dolfinx to determine which version is compatible with other requirements. This could take a while.
+
+STDERR:
+ERROR: Could not find a version that satisfies the requirement fenics-basix>=0.10.0.dev0 (from fenics-dolfinx) (from versions: 0.4.0, 0.4.2.post1, 0.5.0, 0.6.0, 0.7.0.post0, 0.8.0, 0.9.0)
+ERROR: No matching distribution found for fenics-basix>=0.10.0.dev0
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_________________________ ERROR collecting python/test _________________________
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+/usr/local/lib/python3.10/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+python/test/conftest.py:13: in <module>
+    from dolfinx.la import vector as dolfinx_vector
+E   ModuleNotFoundError: No module named 'dolfinx'
+=========================== short test summary info ============================
+ERROR python/test - ModuleNotFoundError: No module named 'dolfinx'
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.52s ===============================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

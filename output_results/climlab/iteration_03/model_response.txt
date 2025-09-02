@@ -1,0 +1,18 @@
+The pytest output shows `ERROR collecting` for all tests. The error is:
+
+```
+importlib.metadata.PackageNotFoundError: No package metadata was found for climlab
+...
+pkg_resources.DistributionNotFound: The 'climlab' distribution was not found and is required by the application
+```
+
+This is because the package metadata for `climlab` is not available in the environment—meaning it is not installed as a distribution, but only present as source code. The code in `climlab/__init__.py` attempts to get the package version via `importlib.metadata.version(__name__)`, which fails unless `climlab` is installed as a package.
+
+**Solution:**  
+Install the package in editable mode so metadata is available AND the sources are used.
+
+```bash
+pip install -e .
+pytest
+```
+This should resolve the metadata issue and allow test collection. If more errors occur, I will debug as needed.

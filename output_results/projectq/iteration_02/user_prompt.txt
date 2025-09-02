@@ -1,0 +1,970 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   ├── draft_release.yml
+│   │   ├── format.yml
+│   │   ├── publish_release.yml
+│   │   └── pull_request.yml
+│   └── dependabot.yml
+├── docs/
+│   ├── images/
+│   │   ├── bellpair_circuit.png
+│   │   ├── braket_notation.svg
+│   │   └── teleport_circuit.png
+│   ├── conf.py
+│   ├── examples.rst
+│   ├── index.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── package_description.py
+│   ├── projectq.rst
+│   ├── README.rst
+│   └── tutorials.rst
+│       └── ... (4 more files)
+├── examples/
+│   ├── aqt.py
+│   ├── awsbraket.ipynb
+│   ├── azure-quantum.ipynb
+│   ├── bellpair_circuit.py
+│   ├── compiler_tutorial.ipynb
+│   ├── control_tester.py
+│   ├── gate_zoo.py
+│   ├── grover.py
+│   ├── hws4.py
+│   ├── hws6.py
+│   ├── ibm.py
+│   ├── ibm_entangle.ipynb
+│   ├── ibmq_tutorial.ipynb
+│   ├── ionq.ipynb
+│   ├── ionq.py
+│   ├── ionq_bv.py
+│   ├── ionq_half_adder.py
+│   ├── mapper_tutorial.ipynb
+│   ├── quantum_random_numbers.py
+│   ├── quantum_random_numbers_ibm.py
+│   ├── README.rst
+│   ├── shor.py
+│   ├── simulator_tutorial.ipynb
+│   ├── spectral_measurement.ipynb
+│   ├── teleport.py
+│   ├── teleport_circuit.py
+│   ├── unitary_simulator.py
+│   └── variational_quantum_eigensolver.ipynb
+│       └── ... (23 more files)
+├── projectq/
+│   ├── backends/
+│   │   ├── _aqt/
+│   │   │   ├── __init__.py
+│   │   │   ├── _aqt.py
+│   │   │   ├── _aqt_http_client.py
+│   │   │   ├── _aqt_http_client_test.py
+│   │   │   └── _aqt_test.py
+│   │   ├── _awsbraket/
+│   │   │   ├── __init__.py
+│   │   │   ├── _awsbraket.py
+│   │   │   ├── _awsbraket_boto3_client.py
+│   │   │   ├── _awsbraket_boto3_client_test.py
+│   │   │   ├── _awsbraket_boto3_client_test_fixtures.py
+│   │   │   ├── _awsbraket_test.py
+│   │   │   └── _awsbraket_test_fixtures.py
+│   │   │       └── ... (2 more files)
+│   │   ├── _azure/
+│   │   │   ├── __init__.py
+│   │   │   ├── _azure_quantum.py
+│   │   │   ├── _azure_quantum_client.py
+│   │   │   ├── _azure_quantum_client_test.py
+│   │   │   ├── _azure_quantum_test.py
+│   │   │   ├── _exceptions.py
+│   │   │   ├── _utils.py
+│   │   │   └── _utils_test.py
+│   │   │       └── ... (3 more files)
+│   │   ├── _circuits/
+│   │   │   ├── __init__.py
+│   │   │   ├── _drawer.py
+│   │   │   ├── _drawer_matplotlib.py
+│   │   │   ├── _drawer_matplotlib_test.py
+│   │   │   ├── _drawer_test.py
+│   │   │   ├── _plot.py
+│   │   │   ├── _plot_test.py
+│   │   │   ├── _to_latex.py
+│   │   │   └── _to_latex_test.py
+│   │   │       └── ... (4 more files)
+│   │   ├── _ibm/
+│   │   │   ├── __init__.py
+│   │   │   ├── _ibm.py
+│   │   │   ├── _ibm_http_client.py
+│   │   │   ├── _ibm_http_client_test.py
+│   │   │   └── _ibm_test.py
+│   │   ├── _ionq/
+│   │   │   ├── __init__.py
+│   │   │   ├── _ionq.py
+│   │   │   ├── _ionq_http_client.py
+│   │   │   ├── _ionq_http_client_test.py
+│   │   │   ├── _ionq_mapper.py
+│   │   │   ├── _ionq_mapper_test.py
+│   │   │   └── _ionq_test.py
+│   │   │       └── ... (2 more files)
+│   │   ├── _sim/
+│   │   │   ├── _cppkernels/
+│   │   │   ├── .gitignore
+│   │   │   ├── __init__.py
+│   │   │   ├── _classical_simulator.py
+│   │   │   ├── _classical_simulator_test.py
+│   │   │   ├── _cppsim.cpp
+│   │   │   ├── _pysim.py
+│   │   │   ├── _simulator.py
+│   │   │   ├── _simulator_test.py
+│   │   │   └── _simulator_test_fixtures.py
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── _exceptions.py
+│   │   ├── _printer.py
+│   │   ├── _printer_test.py
+│   │   ├── _resource.py
+│   │   ├── _resource_test.py
+│   │   ├── _unitary.py
+│   │   ├── _unitary_test.py
+│   │   ├── _utils.py
+│   │   └── _utils_test.py
+│   │       └── ... (5 more files)
+│   ├── cengines/
+│   │   ├── _replacer/
+│   │   │   ├── __init__.py
+│   │   │   ├── _decomposition_rule.py
+│   │   │   ├── _decomposition_rule_set.py
+│   │   │   ├── _decomposition_rule_test.py
+│   │   │   ├── _replacer.py
+│   │   │   └── _replacer_test.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── _basicmapper.py
+│   │   ├── _basicmapper_test.py
+│   │   ├── _basics.py
+│   │   ├── _basics_test.py
+│   │   ├── _cmdmodifier.py
+│   │   ├── _cmdmodifier_test.py
+│   │   ├── _ibm5qubitmapper.py
+│   │   ├── _ibm5qubitmapper_test.py
+│   │   ├── _linearmapper.py
+│   │   ├── _linearmapper_test.py
+│   │   ├── _main.py
+│   │   ├── _main_test.py
+│   │   ├── _manualmapper.py
+│   │   ├── _manualmapper_test.py
+│   │   ├── _optimize.py
+│   │   ├── _optimize_test.py
+│   │   ├── _swapandcnotflipper.py
+│   │   ├── _swapandcnotflipper_test.py
+│   │   ├── _tagremover.py
+│   │   ├── _tagremover_test.py
+│   │   ├── _testengine.py
+│   │   ├── _testengine_test.py
+│   │   ├── _twodmapper.py
+│   │   ├── _twodmapper_test.py
+│   │   └── _withflushing_test.py
+│   │       └── ... (21 more files)
+│   ├── libs/
+│   │   ├── hist/
+│   │   │   ├── __init__.py
+│   │   │   ├── _histogram.py
+│   │   │   └── _histogram_test.py
+│   │   ├── math/
+│   │   │   ├── __init__.py
+│   │   │   ├── _constantmath.py
+│   │   │   ├── _constantmath_test.py
+│   │   │   ├── _default_rules.py
+│   │   │   ├── _gates.py
+│   │   │   ├── _gates_math_test.py
+│   │   │   ├── _gates_test.py
+│   │   │   ├── _quantummath.py
+│   │   │   └── _quantummath_test.py
+│   │   │       └── ... (4 more files)
+│   │   ├── revkit/
+│   │   │   ├── __init__.py
+│   │   │   ├── _control_function.py
+│   │   │   ├── _control_function_test.py
+│   │   │   ├── _permutation.py
+│   │   │   ├── _permutation_test.py
+│   │   │   ├── _phase.py
+│   │   │   ├── _phase_test.py
+│   │   │   └── _utils.py
+│   │   │       └── ... (3 more files)
+│   │   └── __init__.py
+│   ├── meta/
+│   │   ├── __init__.py
+│   │   ├── _compute.py
+│   │   ├── _compute_test.py
+│   │   ├── _control.py
+│   │   ├── _control_test.py
+│   │   ├── _dagger.py
+│   │   ├── _dagger_test.py
+│   │   ├── _dirtyqubit.py
+│   │   ├── _dirtyqubit_test.py
+│   │   ├── _exceptions.py
+│   │   ├── _logicalqubit.py
+│   │   ├── _logicalqubit_test.py
+│   │   ├── _loop.py
+│   │   ├── _loop_test.py
+│   │   ├── _util.py
+│   │   └── _util_test.py
+│   │       └── ... (11 more files)
+│   ├── ops/
+│   │   ├── __init__.py
+│   │   ├── _basics.py
+│   │   ├── _basics_test.py
+│   │   ├── _command.py
+│   │   ├── _command_test.py
+│   │   ├── _gates.py
+│   │   ├── _gates_test.py
+│   │   ├── _metagates.py
+│   │   ├── _metagates_test.py
+│   │   ├── _qaagate.py
+│   │   ├── _qaagate_test.py
+│   │   ├── _qftgate.py
+│   │   ├── _qftgate_test.py
+│   │   ├── _qpegate.py
+│   │   ├── _qpegate_test.py
+│   │   ├── _qubit_operator.py
+│   │   ├── _qubit_operator_test.py
+│   │   ├── _shortcuts.py
+│   │   ├── _shortcuts_test.py
+│   │   ├── _state_prep.py
+│   │   ├── _state_prep_test.py
+│   │   ├── _time_evolution.py
+│   │   ├── _time_evolution_test.py
+│   │   ├── _uniformly_controlled_rotation.py
+│   │   └── _uniformly_controlled_rotation_test.py
+│   │       └── ... (20 more files)
+│   ├── setups/
+│   │   ├── decompositions/
+│   │   │   ├── __init__.py
+│   │   │   ├── _gates_test.py
+│   │   │   ├── amplitudeamplification.py
+│   │   │   ├── amplitudeamplification_test.py
+│   │   │   ├── arb1qubit2rzandry.py
+│   │   │   ├── arb1qubit2rzandry_test.py
+│   │   │   ├── barrier.py
+│   │   │   ├── barrier_test.py
+│   │   │   ├── carb1qubit2cnotrzandry.py
+│   │   │   ├── carb1qubit2cnotrzandry_test.py
+│   │   │   ├── cnot2cz.py
+│   │   │   ├── cnot2cz_test.py
+│   │   │   ├── cnot2rxx.py
+│   │   │   ├── cnot2rxx_test.py
+│   │   │   ├── cnu2toffoliandcu.py
+│   │   │   ├── cnu2toffoliandcu_test.py
+│   │   │   ├── controlstate.py
+│   │   │   ├── controlstate_test.py
+│   │   │   ├── crz2cxandrz.py
+│   │   │   ├── entangle.py
+│   │   │   ├── globalphase.py
+│   │   │   ├── h2rx.py
+│   │   │   ├── h2rx_test.py
+│   │   │   ├── ph2r.py
+│   │   │   ├── phaseestimation.py
+│   │   │   ├── phaseestimation_test.py
+│   │   │   ├── qft2crandhadamard.py
+│   │   │   ├── qubitop2onequbit.py
+│   │   │   ├── qubitop2onequbit_test.py
+│   │   │   ├── r2rzandph.py
+│   │   │   ├── rx2rz.py
+│   │   │   ├── rx2rz_test.py
+│   │   │   ├── ry2rz.py
+│   │   │   ├── ry2rz_test.py
+│   │   │   ├── rz2rx.py
+│   │   │   ├── rz2rx_test.py
+│   │   │   ├── sqrtswap2cnot.py
+│   │   │   ├── sqrtswap2cnot_test.py
+│   │   │   ├── stateprep2cnot.py
+│   │   │   ├── stateprep2cnot_test.py
+│   │   │   ├── swap2cnot.py
+│   │   │   ├── time_evolution.py
+│   │   │   ├── time_evolution_test.py
+│   │   │   ├── toffoli2cnotandtgate.py
+│   │   │   ├── uniformlycontrolledr2cnot.py
+│   │   │   └── uniformlycontrolledr2cnot_test.py
+│   │   │       └── ... (41 more files)
+│   │   ├── __init__.py
+│   │   ├── _utils.py
+│   │   ├── aqt.py
+│   │   ├── aqt_test.py
+│   │   ├── awsbraket.py
+│   │   ├── awsbraket_test.py
+│   │   ├── default.py
+│   │   ├── grid.py
+│   │   ├── grid_test.py
+│   │   ├── ibm.py
+│   │   ├── ibm_test.py
+│   │   ├── ionq.py
+│   │   ├── ionq_test.py
+│   │   ├── linear.py
+│   │   ├── linear_test.py
+│   │   ├── restrictedgateset.py
+│   │   ├── restrictedgateset_test.py
+│   │   ├── trapped_ion_decomposer.py
+│   │   └── trapped_ion_decomposer_test.py
+│   │       └── ... (14 more files)
+│   ├── tests/
+│   │   ├── __init__.py
+│   │   └── _factoring_test.py
+│   ├── types/
+│   │   ├── __init__.py
+│   │   ├── _qubit.py
+│   │   └── _qubit_test.py
+│   └── __init__.py
+├── tmp/
+├── .codespell.allow
+├── .coveralls.yml
+├── .editorconfig
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .readthedocs.yaml
+├── .yamllint
+├── CHANGELOG.md
+├── LICENSE
+├── MANIFEST.in
+├── NOTICE
+├── penmp
+├── pyproject.toml
+├── README.rst
+├── setup.cfg
+└── setup.py
+    └── ... (11 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: cat requirements.txt ---
+SUCCESS: False
+STDERR:
+cat: requirements.txt: No such file or directory
+
+
+--- Command: cat setup.py ---
+SUCCESS: True
+STDOUT:
+# Some of the setup.py code is inspired or copied from SQLAlchemy
+
+# SQLAlchemy was created by Michael Bayer.
+
+# Major contributing authors include:
+
+# - Michael Bayer <mike_mp@zzzcomputing.com>
+# - Jason Kirtland <jek@discorporate.us>
+# - Gaetan de Menten <gdementen@gmail.com>
+# - Diana Clarke <diana.joan.clarke@gmail.com>
+# - Michael Trier <mtrier@gmail.com>
+# - Philip Jenvey <pjenvey@underboss.org>
+# - Ants Aasma <ants.aasma@gmail.com>
+# - Paul Johnston <paj@pajhome.org.uk>
+# - Jonathan Ellis <jbellis@gmail.com>
+# - Damien Nguyen <damien1@huawei.com> (ProjectQ)
+
+# Copyright 2005-2020 SQLAlchemy and ProjectQ authors and contributors (see above)
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+"""Setup.py file."""
+
+# pylint: disable=deprecated-module,attribute-defined-outside-init
+
+import os
+import platform
+import subprocess
+import sys
+import tempfile
+from operator import itemgetter
+from pathlib import Path
+
+from setuptools import Command
+from setuptools import Distribution as _Distribution
+from setuptools import Extension, setup
+from setuptools.command.build_ext import build_ext
+
+try:
+    from setuptools._distutils.errors import (
+        CCompilerError,
+        CompileError,
+        DistutilsError,
+    )
+    from setuptools._distutils.spawn import DistutilsExecError, find_executable, spawn
+    from setuptools.errors import PlatformError
+
+    _SETUPTOOL_IMPORT_ERROR = None
+
+except ImportError as setuptools_import_error:
+    _SETUPTOOL_IMPORT_ERROR = setuptools_import_error
+
+
+try:
+    import setuptools_scm  # noqa: F401  # pylint: disable=unused-import
+
+    _HAS_SETUPTOOLS_SCM = True
+except ImportError:
+    _HAS_SETUPTOOLS_SCM = False
+
+try:
+    import tomllib
+
+    def parse_toml(filename):
+        """Parse a TOML file."""
+        with open(str(filename), 'rb') as toml_file:
+            return tomllib.load(toml_file)
+
+except ImportError:
+    try:
+        import toml
+
+        def parse_toml(filename):
+            """Parse a TOML file."""
+            return toml.load(filename)
+
+    except ImportError:
+
+        def _find_toml_section_end(lines, start):
+            """Find the index of the start of the next section."""
+            return (
+                next(filter(itemgetter(1), enumerate(line.startswith('[') for line in lines[start + 1 :])))[0]
+                + start
+                + 1
+            )
+
+        def _parse_list(lines):
+            """Parse a TOML list into a Python list."""
+            # NB: This function expects the TOML list to be formatted like so (ignoring leading and trailing spaces):
+            #     name = [
+            #          '...',
+            #     ]
+            #     Any other format is not supported.
+            name = None
+            elements = []
+
+            for idx, line in enumerate(lines):
+                if name is None and not line.startswith("'"):
+                    name = line.split('=')[0].strip()
+                    continue
+                if line.startswith("]"):
+                    return (name, elements, idx + 1)
+                elements.append(line.rstrip(',').strip("'").strip('"'))
+
+            raise RuntimeError(f'Failed to locate closing "]" for {name}')
+
+        def parse_toml(filename):
+            """Very simple parser routine for pyproject.toml."""
+            result = {'project': {'optional-dependencies': {}}}
+            with open(filename) as toml_file:
+                lines = [line.strip() for line in toml_file.readlines()]
+            lines = [line for line in lines if line and not line.startswith('#')]
+
+            start = lines.index('[project]')
+            project_data = lines[start : _find_toml_section_end(lines, start)]
+
+            start = lines.index('[project.optional-dependencies]')
+            optional_dependencies = lines[start + 1 : _find_toml_section_end(lines, start)]
+
+            idx = 0
+            N = len(project_data)
+            while idx < N:
+                line = project_data[idx]
+                shift = 1
+                if line.startswith('name'):
+                    result['project']['name'] = line.split('=')[1].strip().strip("'")
+                elif line.startswith('dependencies'):
+                    (name, pkgs, shift) = _parse_list(project_data[idx:])
+                    result['project'][name] = pkgs
+                idx += shift
+
+            idx = 0
+            N = len(optional_dependencies)
+            while idx < N:
+                (opt_name, opt_pkgs, shift) = _parse_list(optional_dependencies[idx:])
+                result['project']['optional-dependencies'][opt_name] = opt_pkgs
+                idx += shift
+
+            return result
+
+
+# ==============================================================================
+# Helper functions and classes
+
+
+class Pybind11Include:  # pylint: disable=too-few-public-methods
+    """
+    Helper class to determine the pybind11 include path.
+
+    The purpose of this class is to postpone importing pybind11 until it is actually installed, so that the
+    ``get_include()`` method can be invoked.
+    """
+
+    def __init__(self, user=False):
+        """Initialize a Pybind11Include object."""
+        self.user = user
+
+    def __str__(self):
+        """Conversion to string."""
+        import pybind11  # pylint: disable=import-outside-toplevel
+
+        return pybind11.get_include(self.user)
+
+
+def important_msgs(*msgs):
+    """Print an important message."""
+    print('*' * 75)
+    for msg in msgs:
+        print(msg)
+    print('*' * 75)
+
+
+def status_msgs(*msgs):
+    """Print a status message."""
+    print('-' * 75)
+    for msg in msgs:
+        print('# INFO: ', msg)
+    print('-' * 75)
+
+
+def compiler_test(
+    compiler,
+    flagname=None,
+    link_executable=False,
+    link_shared_lib=False,
+    include='',
+    body='',
+    compile_postargs=None,
+    link_postargs=None,
+):  # pylint: disable=too-many-arguments,too-many-branches
+    """Return a boolean indicating whether a flag name is supported on the specified compiler."""
+    fname = None
+    with tempfile.NamedTemporaryFile('w', suffix='.cpp', delete=False) as temp:
+        temp.write(f'{include}\nint main (int argc, char **argv) {{ {body} return 0; }}')
+        fname = temp.name
+
+    if compile_postargs is None:
+        compile_postargs = [flagname] if flagname is not None else None
+    elif flagname is not None:
+        compile_postargs.append(flagname)
+
+    try:
+        if compiler.compiler_type == 'msvc':
+            olderr = os.dup(sys.stderr.fileno())
+            err = open('err.txt', 'w')  # pylint: disable=consider-using-with
+            os.dup2(err.fileno(), sys.stderr.fileno())
+
+        obj_file = compiler.compile([fname], extra_postargs=compile_postargs)
+        if not os.path.exists(obj_file[0]):
+            raise RuntimeError('')
+        if link_executable:
+            compiler.link_executable(obj_file, os.path.join(tempfile.mkdtemp(), 'test'), extra_postargs=link_postargs)
+        elif link_shared_lib:
+            if sys.platform == 'win32':
+                lib_name = os.path.join(tempfile.mkdtemp(), 'test.dll')
+            else:
+                lib_name = os.path.join(tempfile.mkdtemp(), 'test.so')
+            compiler.link_shared_lib(obj_file, lib_name, extra_postargs=link_postargs)
+
+        if compiler.compiler_type == 'msvc':
+            err.close()
+            os.dup2(olderr, sys.stderr.fileno())
+            with open('err.txt') as err_file:
+                if err_file.readlines():
+                    raise RuntimeError('')
+    except Exception:  # pylint: disable=broad-except
+        return False
+    else:
+        return True
+    finally:
+        os.unlink(fname)
+
+
+def _fix_macosx_header_paths(*args):
+    # Fix path to SDK headers if necessary
+    _MACOSX_XCODE_REF_PATH = (  # pylint: disable=invalid-name
+        '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer'
+    )
+    _MACOSX_DEVTOOLS_REF_PATH = '/Library/Developer/CommandLineTools/'  # pylint: disable=invalid-name
+    _has_xcode = os.path
+... (554 lines omitted)
+
+--- Command: cat pyproject.toml ---
+SUCCESS: True
+STDOUT:
+[build-system]
+requires = [
+    'setuptools>=61',
+    'wheel',
+    'pybind11>=2',
+    'setuptools_scm[toml]>6'
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'projectq'
+authors = [
+     {name = 'ProjectQ', email = 'info@projectq.ch'}
+]
+description = 'ProjectQ - An open source software framework for quantum computing'
+requires-python = '>= 3.8'
+license = {text= 'Apache License Version 2.0'}
+readme = 'README.rst'
+classifiers = [
+    'License :: OSI Approved :: Apache Software License',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12'
+]
+dynamic = ["version"]
+
+dependencies = [
+    'matplotlib >= 2.2.3',
+    'networkx >= 2.4',
+    'numpy>=1.21.5',
+    'requests>=2.25.1',
+    'scipy>=1.8.0'
+]
+
+[project.urls]
+'Homepage' = 'http://www.projectq.ch'
+'Documentation' = 'https://projectq.readthedocs.io/en/latest/'
+'Issue Tracker' = 'https://github.com/ProjectQ-Framework/ProjectQ/'
+
+[project.optional-dependencies]
+
+azure-quantum = [
+      'azure-quantum'
+]
+
+braket = [
+      'boto3'
+]
+
+revkit = [
+     'revkit == 3.0a2.dev2',
+      'dormouse'
+]
+
+test = [
+     'flaky>=3.7.0',
+     'mock',
+     'pytest >= 6.0',
+     'pytest-cov',
+     'pytest-mock'
+]
+
+docs = [
+     'sphinx>=4.3.2',
+     'sphinx_rtd_theme'
+]
+
+# ==============================================================================
+
+[tool.black]
+
+    line-length = 120
+    target-version = ['py38','py39','py310','py311','py312']
+    skip-string-normalization = true
+
+
+[tool.check-manifest]
+ignore = [
+    'PKG-INFO',
+    '*.egg-info',
+    '*.egg-info/*',
+    'setup.cfg',
+    '.hgtags',
+    '.hgsigs',
+    '.hgignore',
+    '.gitignore',
+    '.bzrignore',
+    '.gitattributes',
+    '.github/*',
+    '.travis.yml',
+    'Jenkinsfile',
+    '*.mo',
+    '.clang-format',
+    '.gitmodules',
+    'requirements.txt',
+    'requirements_tests.txt',
+    'VERSION.txt',
+    '.editorconfig',
+    '*.yml',
+    '*.yaml',
+    'docs/*',
+    'docs/images/*',
+    'examples/*',
+    ]
+
+
+
+[tool.coverage]
+    [tool.coverage.run]
+        omit = [
+            '*_test.py',
+            '*_fixtures.py'
+        ]
+
+
+[tool.pylint]
+    [tool.pylint.master]
+    ignore-patterns = [
+        '__init__.py',
+        '.*_test.py',
+        '.*_fixtures.py',
+        '.*flycheck.*.py',
+    ]
+
+    extension-pkg-whitelist = [
+        'math',
+        'cmath',
+        'unicodedata',
+        'revkit'
+    ]
+    extension-pkg-allow-list = [
+        'math',
+        'cmath',
+        'unicodedata',
+        'revkit'
+    ]
+
+    [tool.pylint.basic]
+    good-names = ['qb', 'id', 'i', 'j', 'k', 'N', 'op', 'X', 'Y', 'Z', 'R', 'C', 'CRz', 'Zero', 'One']
+
+    [tool.pylint.format]
+    max-line-length = 120
+
+    [tool.pylint.reports]
+    msg-template = '{path}:{line}: [{msg_id}, {obj}] {msg} ({symbol})'
+
+    [tool.pylint.similarities]
+    min-similarity-lines = 20
+
+    [tool.pylint.messages_control]
+    disable = [
+         'expression-not-assigned',
+         'pointless-statement',
+         'fixme',
+         'unspecified-encoding',
+         'R0801',
+    ]
+
+    [tool.pylint.typecheck]
+    ignored-modules = ['boto3', 'botocore', 'sympy']
+
+
+[tool.pytest.ini_options]
+
+minversion = '6.0'
+addopts = '-pno:warnings'
+testpaths = ['projectq']
+ignore-glob = ['*flycheck*.py']
+mock_use_standalone_module = true
+
+[tool.doc8]
+
+verbose = 0
+max_line_length = 120
+
+[tool.isort]
+
+profile = "black"
+
+[tool.setuptools_scm]
+
+write_to = 'VERSION.txt'
+write_to_template = '{version}'
+local_scheme = 'no-local-version'
+
+[tool.cibuildwheel]
+
+archs = ['auto64']
+build-frontend = 'build'
+build-verbosity = 1
+skip = 'pp* *-musllinux*'
+environment = { PROJECTQ_DISABLE_ARCH_NATIVE='1', PROJECTQ_CI_BUILD='1', OMP_NUM_THREADS='1' }
+
+before-test = [
+    'cd {package}',
+    'python setup.py gen_reqfile',
+    'python -m pip install -r requirements.txt --only-binary :all:',
+]
+
+test-command = 'python {package}/examples/grover.py'
+
+# Normal options, etc.
+manylinux-x86_64-image = 'manylinux2014'
+
+
+--- Command: pip install . --no-build-isolation ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: UNKNOWN
+  Building wheel for UNKNOWN (pyproject.toml): started
+  Building wheel for UNKNOWN (pyproject.toml): finished with status 'error'
+Failed to build UNKNOWN
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Building wheel for UNKNOWN (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [337 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      creating build
+      creating build/lib.linux-x86_64-3.10
+      creating build/lib.linux-x86_64-3.10/projectq
+      copying projectq/__init__.py -> build/lib.linux-x86_64-3.10/projectq
+      creating build/lib.linux-x86_64-3.10/projectq/types
+      copying projectq/types/_qubit.py -> build/lib.linux-x86_64-3.10/projectq/types
+      copying projectq/types/__init__.py -> build/lib.linux-x86_64-3.10/projectq/types
+      copying projectq/types/_qubit_test.py -> build/lib.linux-x86_64-3.10/projectq/types
+      creating build/lib.linux-x86_64-3.10/projectq/backends
+      copying projectq/backends/_unitary.py -> build/lib.linux-x86_64-3.10/projectq/backends
+      copying projectq/backends/_utils_test.py -> build/lib.linux-x86_64-3.10/projectq/backends
+      copying projectq/backends/_unitary_test.py -> build/lib.linux-x86_64-3.10/projectq/backends
+      copying projectq/backends/__init__.py -> build/lib.linux-x86_64-3.10/projectq/backends
+      copying projectq/backends/_exceptions.py -> build/lib.linux-x86_64-3.10/projectq/backends
+      copying projectq/backends/_resource_test.py -> build/lib.linux-x86_64-3.10/projectq/backends
+      copying projectq/backends/_resource.py -> build/lib.linux-x86_64-3.10/projectq/backends
+      copying projectq/backends/_utils.py -> build/lib.linux-x86_64-3.10/projectq/backends
+      copying projectq/backends/_printer_test.py -> build/lib.linux-x86_64-3.10/projectq/backends
+      copying projectq/backends/_printer.py -> build/lib.linux-x86_64-3.10/projectq/backends
+      creating build/lib.linux-x86_64-3.10/projectq/tests
+      copying projectq/tests/_factoring_test.py -> build/lib.linux-x86_64-3.10/projectq/tests
+      copying projectq/tests/__init__.py -> build/lib.linux-x86_64-3.10/projectq/tests
+      creating build/lib.linux-x86_64-3.10/projectq/libs
+      copying projectq/libs/__init__.py -> build/lib.linux-x86_64-3.10/projectq/libs
+      creating build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_shortcuts_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_gates.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_qaagate_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_qpegate.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/__init__.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_qubit_operator_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_qaagate.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_shortcuts.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_qubit_operator.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_qpegate_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_qftgate_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_basics.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_state_prep_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_qftgate.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_uniformly_controlled_rotation_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_command.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_time_evolution.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_command_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_metagates_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_uniformly_controlled_rotation.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_basics_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_metagates.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_gates_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_time_evolution_test.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      copying projectq/ops/_state_prep.py -> build/lib.linux-x86_64-3.10/projectq/ops
+      creating build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_main_test.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_optimize_test.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/__init__.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_ibm5qubitmapper.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_swapandcnotflipper.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_main.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_cmdmodifier.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_testengine.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_basics.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_withflushing_test.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_basicmapper.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_optimize.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_ibm5qubitmapper_test.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_cmdmodifier_test.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_basicmapper_test.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_manualmapper.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_swapandcnotflipper_test.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_tagremover.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_basics_test.py -> build/lib.linux-x86_64-3.10/projectq/cengines
+      copying projectq/cengines/_testengine_test.py -> build/lib
+... (271 lines omitted)
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+testpaths: projectq
+collected 47 items / 83 errors
+
+==================================== ERRORS ====================================
+_______ ERROR collecting projectq/backends/_aqt/_aqt_http_client_test.py _______
+ImportError while importing test module '/app/repo_to_process/projectq/backends/_aqt/_aqt_http_client_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+projectq/__init__.py:27: in <module>
+    from projectq.cengines import MainEngine
+projectq/cengines/__init__.py:25: in <module>
+    from ._ibm5qubitmapper import IBM5QubitMapper
+projectq/cengines/_ibm5qubitmapper.py:19: in <module>
+    from projectq.backends import IBMBackend
+projectq/backends/__init__.py:34: in <module>
+    from ._circuits import CircuitDrawer, CircuitDrawerMatplotlib
+projectq/backends/_circuits/__init__.py:18: in <module>
+    from ._drawer_matplotlib import CircuitDrawerMatplotlib
+projectq/backends/_circuits/_drawer_matplotlib.py:24: in <module>
+    from ._plot import to_draw
+projectq/backends/_circuits/_plot.py:26: in <module>
+    import matplotlib.pyplot as plt
+E   ModuleNotFoundError: No module named 'matplotlib'
+_____________ ERROR collecting projectq/backends/_aqt/_aqt_test.py _____________
+ImportError while importing test module '/app/repo_to_process/projectq/backends/_aqt/_aqt_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+projectq/backends/_aqt/_aqt_test.py:20: in <module>
+    from projectq import MainEngine
+projectq/__init__.py:27: in <module>
+    from projectq.cengines import MainEngine
+projectq/cengines/__init__.py:25: in <module>
+    from ._ibm5qubitmapper import IBM5QubitMapper
+projectq/cengines/_ibm5qubitmapper.py:19: in <module>
+    from projectq
+... (101 lines omitted)
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

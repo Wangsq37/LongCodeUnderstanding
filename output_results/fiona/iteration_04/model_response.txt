@@ -1,0 +1,9 @@
+Based on the project structure, the main source code directory is clearly named `fiona`.
+
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['fiona']
+```
+
+```bash
+pytest
+```

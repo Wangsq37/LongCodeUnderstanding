@@ -1,0 +1,30 @@
+[
+  {
+    "command": "ls requirements.txt",
+    "success": false,
+    "stdout": "",
+    "stderr": "ls: cannot access 'requirements.txt': No such file or directory\n",
+    "execution_time": 0.0031664371490478516
+  },
+  {
+    "command": "ls setup.py",
+    "success": false,
+    "stdout": "",
+    "stderr": "ls: cannot access 'setup.py': No such file or directory\n",
+    "execution_time": 0.0013113021850585938
+  },
+  {
+    "command": "ls pyproject.toml",
+    "success": false,
+    "stdout": "",
+    "stderr": "ls: cannot access 'pyproject.toml': No such file or directory\n",
+    "execution_time": 0.001359701156616211
+  },
+  {
+    "command": "pytest || true",
+    "success": true,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\ncollected 0 items\n\n============================ no tests ran in 0.04s =============================\n",
+    "stderr": "",
+    "execution_time": 0.2270653247833252
+  }
+]

@@ -1,0 +1,8 @@
+```bash
+# The dolfinx Python source is at python/dolfinx, but this directory is not recognized as an installable package root by pip directly.
+# Instead, try to install the main python directory as a package using pip with the --no-build-isolation flag
+# to avoid the fenics-basix version constraints that previously caused problems.
+pip install --no-build-isolation -e ./python
+# Then try pytest again.
+pytest
+```

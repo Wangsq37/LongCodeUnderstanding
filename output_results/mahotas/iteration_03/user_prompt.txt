@@ -1,0 +1,614 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── test-python-package-with-conda.yml
+│       └── wheel.yml
+├── docs/
+│   ├── source/
+│   │   ├── _templates/
+│   │   │   └── sidebar.html
+│   │   ├── figures/
+│   │   │   └── distance.py
+│   │   ├── images/
+│   │   │   ├── zbest.jpg
+│   │   │   ├── zedf.jpg
+│   │   │   └── zmax.jpg
+│   │   ├── api.rst
+│   │   ├── classification.rst
+│   │   ├── color.rst
+│   │   ├── conf.py
+│   │   ├── contributing.rst
+│   │   ├── distance.rst
+│   │   ├── edf.rst
+│   │   ├── faq.rst
+│   │   ├── features.rst
+│   │   ├── history.rst
+│   │   ├── index.rst
+│   │   ├── install.rst
+│   │   ├── internals.rst
+│   │   ├── io.rst
+│   │   ├── labeled.rst
+│   │   ├── lbp.rst
+│   │   ├── LBP.svg
+│   │   ├── mahotas-features.rst
+│   │   ├── morphology.rst
+│   │   ├── polygon.rst
+│   │   ├── principles.rst
+│   │   ├── surf.rst
+│   │   ├── surfref.rst
+│   │   ├── tasks.rst
+│   │   ├── thresholding.rst
+│   │   ├── wally.rst
+│   │   └── wavelets.rst
+│   │       └── ... (22 more files)
+│   ├── .gitignore
+│   └── Makefile
+├── mahotas/
+│   ├── demos/
+│   │   ├── data/
+│   │   │   ├── DepartmentStore.jpg
+│   │   │   ├── lena.jpg
+│   │   │   ├── luispedro.jpg
+│   │   │   └── nuclear.png
+│   │   ├── __init__.py
+│   │   ├── distance.py
+│   │   ├── edge_demo.py
+│   │   ├── morphology.py
+│   │   ├── nuclear.py
+│   │   ├── nuclear_distance_watershed.py
+│   │   ├── superpixels.py
+│   │   ├── surf_gaussians.py
+│   │   ├── surf_luispedro.py
+│   │   ├── thresholding.py
+│   │   ├── wally.py
+│   │   └── wavelet_compress.py
+│   │       └── ... (7 more files)
+│   ├── features/
+│   │   ├── __init__.py
+│   │   ├── _lbp.cpp
+│   │   ├── _surf.cpp
+│   │   ├── _texture.cpp
+│   │   ├── _zernike.cpp
+│   │   ├── lbp.py
+│   │   ├── moments.py
+│   │   ├── shape.py
+│   │   ├── surf.py
+│   │   ├── tas.py
+│   │   ├── texture.py
+│   │   └── zernike.py
+│   │       └── ... (7 more files)
+│   ├── io/
+│   │   ├── __init__.py
+│   │   ├── freeimage.py
+│   │   └── pil.py
+│   ├── numpypp/
+│   │   ├── array.hpp
+│   │   ├── dispatch.hpp
+│   │   └── numpy.hpp
+│   ├── tests/
+│   │   ├── data/
+│   │   │   ├── 1bpp.bmp
+│   │   │   ├── determinant_zero.png
+│   │   │   ├── luispedro.npy
+│   │   │   └── rgba.png
+│   │   ├── __init__.py
+│   │   ├── pymorph_copy.py
+│   │   ├── test_bbox.py
+│   │   ├── test_bwperim.py
+│   │   ├── test_center_of_mass.py
+│   │   ├── test_citation.py
+│   │   ├── test_close_holes.py
+│   │   ├── test_colors.py
+│   │   ├── test_convolve.py
+│   │   ├── test_demos.py
+│   │   ├── test_dilate_erode.py
+│   │   ├── test_distance.py
+│   │   ├── test_edge.py
+│   │   ├── test_euler.py
+│   │   ├── test_features_shape.py
+│   │   ├── test_filters.py
+│   │   ├── test_find.py
+│   │   ├── test_freeimage.py
+│   │   ├── test_gvoronoi.py
+│   │   ├── test_histogram.py
+│   │   ├── test_hitmiss.py
+│   │   ├── test_imresize.py
+│   │   ├── test_internal.py
+│   │   ├── test_interpolate.py
+│   │   ├── test_io.py
+│   │   ├── test_label.py
+│   │   ├── test_labeled.py
+│   │   ├── test_lbp.py
+│   │   ├── test_mahotas.py
+│   │   ├── test_majority.py
+│   │   ├── test_mean_filter.py
+│   │   ├── test_median_filter.py
+│   │   ├── test_moments.py
+│   │   ├── test_morph.py
+│   │   ├── test_polygon.py
+│   │   ├── test_segmentation.py
+│   │   ├── test_stretch.py
+│   │   ├── test_surf.py
+│   │   ├── test_surf_regression.py
+│   │   ├── test_tas.py
+│   │   ├── test_template_match.py
+│   │   ├── test_texture.py
+│   │   ├── test_thin.py
+│   │   ├── test_thresholding.py
+│   │   ├── test_watershed.py
+│   │   ├── test_zernike.py
+│   │   └── utils.py
+│   │       └── ... (42 more files)
+│   ├── __init__.py
+│   ├── _bbox.cpp
+│   ├── _center_of_mass.cpp
+│   ├── _convex.cpp
+│   ├── _convolve.cpp
+│   ├── _distance.cpp
+│   ├── _filters.cpp
+│   ├── _filters.h
+│   ├── _filters.py
+│   ├── _histogram.cpp
+│   ├── _interpolate.cpp
+│   ├── _labeled.cpp
+│   ├── _morph.cpp
+│   ├── _thin.cpp
+│   ├── bbox.py
+│   ├── bwperim.py
+│   ├── center_of_mass.py
+│   ├── colors.py
+│   ├── convolve.py
+│   ├── debug.h
+│   ├── distance.py
+│   ├── edge.py
+│   ├── euler.py
+│   ├── features_cli.py
+│   ├── freeimage.py
+│   ├── histogram.py
+│   ├── internal.py
+│   ├── interpolate.py
+│   ├── labeled.py
+│   ├── lbp.py
+│   ├── mahotas_version.py
+│   ├── Makefile
+│   ├── moments.py
+│   ├── morph.py
+│   ├── polygon.py
+│   ├── resize.py
+│   ├── segmentation.py
+│   ├── stretch.py
+│   ├── surf.py
+│   ├── tas.py
+│   ├── texture.py
+│   ├── thin.py
+│   ├── thresholding.py
+│   ├── utils.hpp
+│   └── zernike.py
+│       └── ... (40 more files)
+├── .coveragerc
+├── .gitignore
+├── .readthedocs.yaml
+├── AUTHORS
+├── ChangeLog
+├── CITATION
+├── CITATION.cff
+├── COPYING
+├── INSTALL
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+├── readthedocs-requirements.txt
+├── requirements.txt
+├── setup.py
+└── tests-requirements.txt
+    └── ... (12 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from mahotas==1.4.18) (2.2.6)
+Building wheels for collected packages: mahotas
+  Building wheel for mahotas (pyproject.toml): started
+  Building wheel for mahotas (pyproject.toml): finished with status 'error'
+Failed to build mahotas
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Building wheel for mahotas (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [144 lines of output]
+      /tmp/pip-build-env-dpbfuzpk/overlay/local/lib/python3.10/dist-packages/setuptools/_distutils/dist.py:289: UserWarning: Unknown distribution option: 'tests_require'
+        warnings.warn(msg)
+      /tmp/pip-build-env-dpbfuzpk/overlay/local/lib/python3.10/dist-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: MIT License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        self._finalize_license_expression()
+      running bdist_wheel
+      running build
+      running build_py
+      creating build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/center_of_mass.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/bwperim.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/polygon.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/histogram.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/mahotas_version.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/stretch.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/labeled.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/tas.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/features_cli.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/__init__.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/freeimage.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/thin.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/distance.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/_filters.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/convolve.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/thresholding.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/edge.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/segmentation.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/resize.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/colors.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/interpolate.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/euler.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/texture.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/moments.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/lbp.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/surf.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/morph.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/internal.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/bbox.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      copying mahotas/zernike.py -> build/lib.linux-x86_64-cpython-310/mahotas
+      creating build/lib.linux-x86_64-cpython-310/mahotas/features
+      copying mahotas/features/tas.py -> build/lib.linux-x86_64-cpython-310/mahotas/features
+      copying mahotas/features/__init__.py -> build/lib.linux-x86_64-cpython-310/mahotas/features
+      copying mahotas/features/texture.py -> build/lib.linux-x86_64-cpython-310/mahotas/features
+      copying mahotas/features/moments.py -> build/lib.linux-x86_64-cpython-310/mahotas/features
+      copying mahotas/features/lbp.py -> build/lib.linux-x86_64-cpython-310/mahotas/features
+      copying mahotas/features/surf.py -> build/lib.linux-x86_64-cpython-310/mahotas/features
+      copying mahotas/features/shape.py -> build/lib.linux-x86_64-cpython-310/mahotas/features
+      copying mahotas/features/zernike.py -> build/lib.linux-x86_64-cpython-310/mahotas/features
+      creating build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_features_shape.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_freeimage.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_median_filter.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_lbp.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_colors.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_moments.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_thin.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_texture.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_internal.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/__init__.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_gvoronoi.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_citation.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_surf.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_stretch.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_histogram.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_tas.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_find.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_majority.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_hitmiss.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_dilate_erode.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_demos.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_thresholding.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_segmentation.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_bbox.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_euler.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_imresize.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_convolve.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/test_distance.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+      copying mahotas/tests/pymorph_copy.py -> build/lib.linux-x86_64-cpython-310/mahotas/tests
+
+... (64 lines omitted)
+
+--- Command: pip install -e . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Obtaining file:///app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from mahotas==1.4.18) (2.2.6)
+Building wheels for collected packages: mahotas
+  Building editable for mahotas (pyproject.toml): started
+  Building editable for mahotas (pyproject.toml): finished with status 'error'
+Failed to build mahotas
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Building editable for mahotas (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [42 lines of output]
+      /tmp/pip-build-env-5_0exlvz/overlay/local/lib/python3.10/dist-packages/setuptools/_distutils/dist.py:289: UserWarning: Unknown distribution option: 'tests_require'
+        warnings.warn(msg)
+      /tmp/pip-build-env-5_0exlvz/overlay/local/lib/python3.10/dist-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: MIT License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        self._finalize_license_expression()
+      running editable_wheel
+      creating /tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas.egg-info
+      writing /tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas.egg-info/PKG-INFO
+      writing dependency_links to /tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas.egg-info/dependency_links.txt
+      writing entry points to /tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas.egg-info/entry_points.txt
+      writing requirements to /tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas.egg-info/requires.txt
+      writing top-level names to /tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas.egg-info/top_level.txt
+      writing manifest file '/tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas.egg-info/SOURCES.txt'
+      reading manifest file '/tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas.egg-info/SOURCES.txt'
+      reading manifest template 'MANIFEST.in'
+      adding license file 'COPYING'
+      adding license file 'AUTHORS'
+      writing manifest file '/tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas.egg-info/SOURCES.txt'
+      creating '/tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas-1.4.18.dist-info'
+      creating /tmp/pip-wheel-s9pch5ls/.tmp-_t4ief8k/mahotas-1.4.18.dist-info/WHEEL
+      running build_py
+      running build_ext
+      building 'mahotas._bbox' extension
+      creating /tmp/tmpostxmmvb.build-temp/mahotas
+      x86_64-linux-gnu-g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -fPIC -DNPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION -DPY_ARRAY_UNIQUE_SYMBOL=Mahotas_PyArray_API_Symbol -I/tmp/pip-build-env-5_0exlvz/overlay/local/lib/python3.10/dist-packages/numpy/_core/include -I/usr/include/python3.10 -c mahotas/_bbox.cpp -o /tmp/tmpostxmmvb.build-temp/mahotas/_bbox.o
+      In file included from mahotas/numpypp/array.hpp:17,
+                       from mahotas/_bbox.cpp:11:
+      mahotas/numpypp/numpy.hpp:10:10: fatal error: Python.h: No such file or directory
+         10 | #include <Python.h>
+            |          ^~~~~~~~~~
+      compilation terminated.
+      error: command '/usr/bin/x86_64-linux-gnu-g++' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building editable for mahotas
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> mahotas
+
+
+--- Command: pip install . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from mahotas==1.4.18) (2.2.6)
+Building wheels for collected packages: mahotas
+  Building wheel for mahotas (pyproject.toml): started
+  Building wheel for mahotas (pyproject.toml): finished with status 'error'
+Failed to build mahotas
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × Building wheel for mahotas (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [28 lines of output]
+      /tmp/pip-build-env-_1nrc5dk/overlay/local/lib/python3.10/dist-packages/setuptools/_distutils/dist.py:289: UserWarning: Unknown distribution option: 'tests_require'
+        warnings.warn(msg)
+      /tmp/pip-build-env-_1nrc5dk/overlay/local/lib/python3.10/dist-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: MIT License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        self._finalize_license_expression()
+      running bdist_wheel
+      running build
+      running build_py
+      running build_ext
+      building 'mahotas._bbox' extension
+      x86_64-linux-gnu-g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -fPIC -DNPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION -DPY_ARRAY_UNIQUE_SYMBOL=Mahotas_PyArray_API_Symbol -I/tmp/pip-build-env-_1nrc5dk/overlay/local/lib/python3.10/dist-packages/numpy/_core/include -I/usr/include/python3.10 -c mahotas/_bbox.cpp -o build/temp.linux-x86_64-cpython-310/mahotas/_bbox.o
+      In file included from mahotas/numpypp/array.hpp:17,
+                       from mahotas/_bbox.cpp:11:
+      mahotas/numpypp/numpy.hpp:10:10: fatal error: Python.h: No such file or directory
+         10 | #include <Python.h>
+            |          ^~~~~~~~~~
+      compilation terminated.
+      error: command '/usr/bin/x86_64-linux-gnu-g++' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for mahotas
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> mahotas
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.1.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+collected 98 items / 29 errors
+
+==================================== ERRORS ====================================
+_________________ ERROR collecting mahotas/tests/test_bbox.py __________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_bbox.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_bbox.py:4: in <module>
+    from mahotas import bbox
+mahotas/bbox.py:8: in <module>
+    from . import _bbox
+E   ImportError: cannot import name '_bbox' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+------------------------------- Captured stderr --------------------------------
+Could not import submodules (exact error was: cannot import name '_bbox' from partially initialized module 'mahotas' (most likely due to a circular import) (/app/repo_to_process/mahotas/__init__.py)).
+
+There are many reasons for this error the most common one is that you have
+either not built the packages or have built (using `python setup.py build`) or
+installed them (using `python setup.py install`) and then proceeded to test
+mahotas **without changing the current directory**.
+
+Try installing and then changing to another directory before importing mahotas.
+________________ ERROR collecting mahotas/tests/test_bwperim.py ________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_bwperim.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_bwperim.py:1: in <module>
+    from mahotas import bwperim
+mahotas/bwperim.py:14: in <module>
+    from .labeled import bwperim
+mahotas/labeled.py:8: in <module>
+    from .morph import get_structuring_elem
+mahotas/morph.py:10: in <module>
+    from . import _morph
+E   ImportError: cannot import name '_morph' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+____________ ERROR collecting mahotas/tests/test_center_of_mass.py _____________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_center_of_mass.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_center_of_mass.py:3: in <module>
+    import mahotas.center_of_mass
+mahotas/center_of_mass.py:7: in <module>
+    from . import _center_of_mass
+E   ImportError: cannot import name '_center_of_mass' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+_______________ ERROR collecting mahotas/tests/test_convolve.py ________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_convolve.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_convolve.py:3: in <module>
+    import mahotas.convolve
+mahotas/convolve.py:8: in <module>
+    from . import _convolve
+E   ImportError: cannot import name '_convolve' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+_______________ ERROR collecting mahotas/tests/test_distance.py ________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_distance.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_distance.py:1: in <module>
+    from mahotas import distance
+mahotas/distance.py:6: in <module>
+    from . import _distance
+E   ImportError: cannot import name '_distance' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+_________________ ERROR collecting mahotas/tests/test_edge.py __________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_edge.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_edge.py:1: in <module>
+    from mahotas.edge import sobel
+mahotas/edge.py:9: in <module>
+    from . import convolve, gaussian_filter
+mahotas/convolve.py:8: in <module>
+    from . import _convolve
+E   ImportError: cannot import name '_convolve' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+_________________ ERROR collecting mahotas/tests/test_euler.py _________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_euler.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_euler.py:2: in <module>
+    from mahotas.euler import euler, _euler_lookup4, _euler_lookup8
+mahotas/euler.py:6: in <module>
+    from .convolve import convolve
+mahotas/convolve.py:8: in <module>
+    from . import _convolve
+E   ImportError: cannot import name '_convolve' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+____________ ERROR collecting mahotas/tests/test_features_shape.py _____________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_features_shape.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_features_shape.py:1: in <module>
+    import mahotas.features.shape
+mahotas/features/__init__.py:6: in <module>
+    from .texture import haralick
+mahotas/features/texture.py:8: in <module>
+    from . import _texture
+E   ImportError: cannot import name '_texture' from partially initialized module 'mahotas.features' (most likely due to a circular import) (/app/repo_to_process/mahotas/features/__init__.py)
+_______________ ERROR collecting mahotas/tests/test_gvoronoi.py ________________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_gvoronoi.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_gvoronoi.py:2: in <module>
+    from mahotas.segmentation import gvoronoi
+mahotas/segmentation.py:12: in <module>
+    from . import _distance
+E   ImportError: cannot import name '_distance' from 'mahotas' (/app/repo_to_process/mahotas/__init__.py)
+_______________ ERROR collecting mahotas/tests/test_histogram.py _______________
+ImportError while importing test module '/app/repo_to_process/mahotas/tests/test_histogram.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+mahotas/tests/test_histogram.py:2: in <module>
+    from mahotas.histogram import fullhistogram
+mahotas/histogram.py:34: in <module>
+    from . import _histogram
+E   ImportError: cannot import name '_histogram
+... (9 lines omitted)
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

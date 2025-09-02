@@ -1,0 +1,557 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── Bug_report.md
+│   │   ├── config.yml
+│   │   ├── Feature_request.md
+│   │   ├── first_rc_checklist.md
+│   │   └── sub_rc_checklist.md
+│   ├── workflows/
+│   │   ├── conda_workflow_matrix.json
+│   │   ├── numba_linux-64_conda_builder.yml
+│   │   ├── numba_linux-64_wheel_builder.yml
+│   │   ├── numba_linux-arm64_conda_builder.yml
+│   │   ├── numba_linux-arm64_wheel_builder.yml
+│   │   ├── numba_osx-64_conda_builder.yml
+│   │   ├── numba_osx-64_wheel_builder.yml
+│   │   ├── numba_osx-arm64_conda_builder.yml
+│   │   ├── numba_osx-arm64_wheel_builder.yml
+│   │   ├── numba_win-64_builder.yml
+│   │   ├── numba_win-64_wheel_builder.yml
+│   │   ├── stale.yml
+│   │   ├── towncrier.yml
+│   │   └── wheel_workflow_matrix.json
+│   │       └── ... (9 more files)
+│   ├── CODEOWNERS
+│   └── PULL_REQUEST_TEMPLATE.md
+├── bin/
+│   └── numba
+├── buildscripts/
+│   ├── azure/
+│   │   ├── azure-linux-macos.yml
+│   │   └── azure-windows.yml
+│   ├── condarecipe.local/
+│   │   ├── bld.bat
+│   │   ├── build.sh
+│   │   ├── conda_build_config.yaml
+│   │   ├── license.txt
+│   │   ├── meta.yaml
+│   │   ├── run_test.bat
+│   │   └── run_test.sh
+│   │       └── ... (2 more files)
+│   ├── github/
+│   │   ├── build_wheel_linux.sh
+│   │   ├── MacOSX10.10.sdk.checksum
+│   │   ├── patch_wheel_dylib.py
+│   │   ├── repair_wheel_linux.sh
+│   │   └── setup_platform.sh
+│   ├── gpuci/
+│   │   ├── axis.yaml
+│   │   └── build.sh
+│   └── incremental/
+│       ├── after_success.sh
+│       ├── build.cmd
+│       ├── build.sh
+│       ├── install_miniconda.sh
+│       ├── MacOSX10.10.sdk.checksum
+│       ├── setup_conda_environment.cmd
+│       ├── setup_conda_environment.sh
+│       └── test.sh
+│           └── ... (3 more files)
+├── contrib/
+│   └── valgrind-numba.supp
+├── docs/
+│   ├── _static/
+│   │   ├── js/
+│   │   │   └── modernizr.min.js
+│   │   ├── numba-blue-icon-rgb.svg
+│   │   ├── numba-white-icon-rgb.svg
+│   │   └── rtd-overrides.css
+│   ├── _templates/
+│   │   └── EMPTY
+│   ├── dagmap/
+│   │   ├── dagmap.yaml
+│   │   ├── jquery.graphviz.svg.js
+│   │   ├── README.md
+│   │   ├── render.py
+│   │   └── template.html
+│   ├── source/
+│   │   ├── _ext/
+│   │   │   └── ghfiles.py
+│   │   ├── cuda/
+│   │   │   ├── bindings.rst
+│   │   │   ├── caching.rst
+│   │   │   ├── cooperative_groups.rst
+│   │   │   ├── cuda_array_interface.rst
+│   │   │   ├── cuda_compilation.rst
+│   │   │   ├── cuda_ffi.rst
+│   │   │   ├── cudapysupported.rst
+│   │   │   ├── device-functions.rst
+│   │   │   ├── device-management.rst
+│   │   │   ├── examples.rst
+│   │   │   ├── external-memory.rst
+│   │   │   ├── faq.rst
+│   │   │   ├── fastmath.rst
+│   │   │   ├── index.rst
+│   │   │   ├── intrinsics.rst
+│   │   │   ├── ipc.rst
+│   │   │   ├── kernels.rst
+│   │   │   ├── laplace_final.svg
+│   │   │   ├── laplace_initial.svg
+│   │   │   ├── memory.rst
+│   │   │   ├── minor_version_compatibility.rst
+│   │   │   ├── overview.rst
+│   │   │   ├── random.rst
+│   │   │   ├── reduction.rst
+│   │   │   ├── simulator.rst
+│   │   │   └── ufunc.rst
+│   │   │       └── ... (21 more files)
+│   │   ├── cuda-reference/
+│   │   │   ├── host.rst
+│   │   │   ├── index.rst
+│   │   │   ├── kernel.rst
+│   │   │   ├── libdevice.rst
+│   │   │   ├── memory.rst
+│   │   │   └── types.rst
+│   │   │       └── ... (1 more files)
+│   │   ├── developer/
+│   │   │   ├── architecture.rst
+│   │   │   ├── bytecode.rst
+│   │   │   ├── caching.rst
+│   │   │   ├── compiler_pass_example.py
+│   │   │   ├── contributing.rst
+│   │   │   ├── custom_pipeline.rst
+│   │   │   ├── debugging.rst
+│   │   │   ├── dispatching.rst
+│   │   │   ├── environment.rst
+│   │   │   ├── event_api.rst
+│   │   │   ├── generators.rst
+│   │   │   ├── hashing.rst
+│   │   │   ├── index.rst
+│   │   │   ├── inline_example.py
+│   │   │   ├── inline_overload_example.py
+│   │   │   ├── inlining.rst
+│   │   │   ├── listings.rst
+│   │   │   ├── literal.rst
+│   │   │   ├── live_variable_analysis.rst
+│   │   │   ├── llvm_timings.rst
+│   │   │   ├── mission.rst
+│   │   │   ├── numba-runtime.rst
+│   │   │   ├── release.rst
+│   │   │   ├── repomap.rst
+│   │   │   ├── rewrites.rst
+│   │   │   ├── stencil.rst
+│   │   │   ├── sys_monitoring.rst
+│   │   │   ├── target_extension.rst
+│   │   │   └── threading_implementation.rst
+│   │   │       └── ... (24 more files)
+│   │   ├── extending/
+│   │   │   ├── entrypoints.rst
+│   │   │   ├── high-level.rst
+│   │   │   ├── index.rst
+│   │   │   ├── interval-example.rst
+│   │   │   ├── low-level.rst
+│   │   │   ├── mynorm.py
+│   │   │   ├── overloading-guide.rst
+│   │   │   └── template.py
+│   │   │       └── ... (3 more files)
+│   │   ├── proposals/
+│   │   │   ├── cfunc.rst
+│   │   │   ├── extension-points.rst
+│   │   │   ├── external-memory-management.rst
+│   │   │   ├── index.rst
+│   │   │   ├── integer-typing.rst
+│   │   │   ├── jit-classes.rst
+│   │   │   ├── np-where-override.py
+│   │   │   ├── recursion_callstack.svg
+│   │   │   ├── type-inference.rst
+│   │   │   └── typing_recursion.rst
+│   │   │       └── ... (5 more files)
+│   │   ├── reference/
+│   │   │   ├── aot-compilation.rst
+│   │   │   ├── deprecation.rst
+│   │   │   ├── envvars.rst
+│   │   │   ├── fpsemantics.rst
+│   │   │   ├── index.rst
+│   │   │   ├── jit-compilation.rst
+│   │   │   ├── numpysupported.rst
+│   │   │   ├── pysemantics.rst
+│   │   │   ├── pysupported.rst
+│   │   │   ├── types.rst
+│   │   │   └── utils.rst
+│   │   │       └── ... (6 more files)
+│   │   ├── release/
+│   │   │   ├── 0.58.0-notes.rst
+│   │   │   ├── 0.58.1-notes.rst
+│   │   │   ├── 0.59.0-notes.rst
+│   │   │   ├── 0.59.1-notes.rst
+│   │   │   ├── 0.60.0-notes.rst
+│   │   │   ├── 0.61.0-notes.rst
+│   │   │   ├── 0.61.1-notes.rst
+│   │   │   └── 0.61.2-notes.rst
+│   │   │       └── ... (3 more files)
+│   │   ├── user/
+│   │   │   ├── 5minguide.rst
+│   │   │   ├── cfunc.rst
+│   │   │   ├── cli.rst
+│   │   │   ├── code_coverage.rst
+│   │   │   ├── examples.rst
+│   │   │   ├── faq.rst
+│   │   │   ├── index.rst
+│   │   │   ├── installing.rst
+│   │   │   ├── jit-module.rst
+│   │   │   ├── jit.rst
+│   │   │   ├── jitclass.rst
+│   │   │   ├── overview.rst
+│   │   │   ├── parallel.rst
+│   │   │   ├── performance-tips.rst
+│   │   │   ├── pycc.rst
+│   │   │   ├── stencil.rst
+│   │   │   ├── talks.rst
+│   │   │   ├── threading-layer.rst
+│   │   │   ├── troubleshoot.rst
+│   │   │   ├── vectorize.rst
+│   │   │   └── withobjmode.rst
+│   │   │       └── ... (16 more files)
+│   │   ├── conf.py
+│   │   ├── glossary.rst
+│   │   ├── index.rst
+│   │   ├── release-notes-overview.rst
+│   │   └── release-notes.rst
+│   ├── upcoming_changes/
+│   │   ├── 10035.improvement.rst
+│   │   ├── 10044.improvement.rst
+│   │   ├── 10047.bug_fix.rst
+│   │   ├── 10050.bug_fix.rst
+│   │   ├── 10052.bug_fix.rst
+│   │   ├── 10079.improvement.rst
+│   │   ├── 10081.bug_fix.rst
+│   │   ├── 10088.bug_fix.rst
+│   │   ├── 10097.np_support.rst
+│   │   ├── 10102.bug_fix.rst
+│   │   ├── 10106.change.rst
+│   │   ├── 10109.highlight.rst
+│   │   ├── 10119.infrastructure.rst
+│   │   ├── 10122.new_feature.rst
+│   │   ├── 9259.bug_fix.rst
+│   │   ├── 9390.np_support.rst
+│   │   ├── 9676.improvement.rst
+│   │   ├── 9805.bug_fix.rst
+│   │   ├── 9861.improvement.rst
+│   │   ├── 9862.bug_fix.rst
+│   │   ├── 9876.bug_fix.rst
+│   │   ├── 9888.bug_fix.rst
+│   │   ├── 9892.improvement.rst
+│   │   ├── 9893.bug_fix.rst
+│   │   ├── 9916.improvement.rst
+│   │   ├── 9926.improvement.rst
+│   │   ├── 9973.bug_fix.rst
+│   │   ├── README.rst
+│   │   └── template.rst
+│   │       └── ... (24 more files)
+│   ├── environment.yml
+│   ├── make.bat
+│   └── Makefile
+├── maint/
+│   ├── git-copy.py
+│   ├── github_weekly_meeting.py
+│   ├── gitlog2changelog.py
+│   ├── towncrier_checker.py
+│   └── towncrier_rst_validator.py
+├── numba/
+│   ├── cext/
+│   │   ├── __init__.py
+│   │   ├── cext.h
+│   │   ├── dictobject.c
+│   │   ├── dictobject.h
+│   │   ├── listobject.c
+│   │   ├── listobject.h
+│   │   └── utils.c
+│   │       └── ... (2 more files)
+│   ├── cloudpickle/
+│   │   ├── __init__.py
+│   │   ├── cloudpickle.py
+│   │   └── cloudpickle_fast.py
+│   ├── core/
+│   │   ├── annotations/
+│   │   │   ├── __init__.py
+│   │   │   ├── pretty_annotate.py
+│   │   │   ├── template.html
+│   │   │   └── type_annotations.py
+│   │   ├── datamodel/
+│   │   │   ├── __init__.py
+│   │   │   ├── manager.py
+│   │   │   ├── models.py
+│   │   │   ├── packer.py
+│   │   │   ├── registry.py
+│   │   │   └── testing.py
+│   │   │       └── ... (1 more files)
+│   │   ├── rewrites/
+│   │   │   ├── __init__.py
+│   │   │   ├── ir_print.py
+│   │   │   ├── registry.py
+│   │   │   ├── static_binop.py
+│   │   │   ├── static_getitem.py
+│   │   │   └── static_raise.py
+│   │   │       └── ... (1 more files)
+│   │   ├── runtime/
+│   │   │   ├── __init__.py
+│   │   │   ├── _nrt_python.c
+│   │   │   ├── _nrt_pythonmod.c
+│   │   │   ├── context.py
+│   │   │   ├── nrt.cpp
+│   │   │   ├── nrt.h
+│   │   │   ├── nrt.py
+│   │   │   ├── nrt_external.h
+│   │   │   ├── nrtdynmod.py
+│   │   │   └── nrtopt.py
+│   │   │       └── ... (5 more files)
+│   │   ├── typeconv/
+│   │   │   ├── __init__.py
+│   │   │   ├── _typeconv.cpp
+│   │   │   ├── castgraph.py
+│   │   │   ├── rules.py
+│   │   │   ├── test.cpp
+│   │   │   ├── typeconv.cpp
+│   │   │   ├── typeconv.hpp
+│   │   │   └── typeconv.py
+│   │   │       └── ... (3 more files)
+│   │   ├── types/
+│   │   │   ├── __init__.py
+│   │   │   ├── __init__.pyi
+│   │   │   ├── abstract.py
+│   │   │   ├── common.py
+│   │   │   ├── containers.py
+│   │   │   ├── function_type.py
+│   │   │   ├── functions.py
+│   │   │   ├── iterators.py
+│   │   │   ├── misc.py
+│   │   │   ├── npytypes.py
+│   │   │   └── scalars.py
+│   │   │       └── ... (6 more files)
+│   │   ├── typing/
+│   │   │   ├── __init__.py
+│   │   │   ├── arraydecl.py
+│   │   │   ├── asnumbatype.py
+│   │   │   ├── bufproto.py
+│   │   │   ├── builtins.py
+│   │   │   ├── cffi_utils.py
+│   │   │   ├── cmathdecl.py
+│   │   │   ├── collections.py
+│   │   │   ├── context.py
+│   │   │   ├── ctypes_utils.py
+│   │   │   ├── dictdecl.py
+│   │   │   ├── enumdecl.py
+│   │   │   ├── listdecl.py
+│   │   │   ├── mathdecl.py
+│   │   │   ├── npdatetime.py
+│   │   │   ├── npydecl.py
+│   │   │   ├── setdecl.py
+│   │   │   ├── templates.py
+│   │   │   └── typeof.py
+│   │   │       └── ... (14 more files)
+│   │   ├── unsafe/
+│   │   │   ├── __init__.py
+│   │   │   ├── bytes.py
+│   │   │   ├── eh.py
+│   │   │
+... (635 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -r requirements.txt ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Obtaining file:///app/repo_to_process (from -r requirements.txt (line 1))
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+INFO: pip is looking at multiple versions of numba to determine which version is compatible with other requirements. This could take a while.
+
+STDERR:
+ERROR: Ignored the following versions that require a different python version: 0.36.0 Requires-Python >=3.6,<3.10; 0.37.0 Requires-Python >=3.7,<3.10
+ERROR: Could not find a version that satisfies the requirement llvmlite<0.46,>=0.45.0dev0 (from numba) (from versions: 0.2.0, 0.2.1, 0.2.2, 0.4.0, 0.5.0, 0.6.0, 0.7.0, 0.8.0, 0.9.0, 0.10.0, 0.11.0, 0.12.0.1, 0.12.1, 0.13.0, 0.14.0, 0.15.0, 0.16.0, 0.17.0, 0.17.1, 0.18.0, 0.19.0, 0.20.0, 0.21.0, 0.22.0, 0.23.0, 0.23.2, 0.24.0, 0.25.0, 0.26.0, 0.27.0, 0.27.1, 0.28.0, 0.29.0, 0.30.0, 0.31.0, 0.32.0, 0.32.1, 0.33.0, 0.34.0, 0.35.0, 0.38.0, 0.38.1, 0.39.0, 0.39.1, 0.40.0rc1, 0.40.0, 0.40.1rc1, 0.40.1, 0.41.0rc1, 0.41.0, 0.41.1, 0.42.0rc1, 0.42.0, 0.43.0rc1, 0.43.0, 0.44.0rc1, 0.44.0rc2, 0.44.0)
+ERROR: No matching distribution found for llvmlite<0.46,>=0.45.0dev0
+
+
+--- Command: pip install . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+INFO: pip is looking at multiple versions of numba to determine which version is compatible with other requirements. This could take a while.
+
+STDERR:
+ERROR: Ignored the following versions that require a different python version: 0.36.0 Requires-Python >=3.6,<3.10; 0.37.0 Requires-Python >=3.7,<3.10
+ERROR: Could not find a version that satisfies the requirement llvmlite<0.46,>=0.45.0dev0 (from numba) (from versions: 0.2.0, 0.2.1, 0.2.2, 0.4.0, 0.5.0, 0.6.0, 0.7.0, 0.8.0, 0.9.0, 0.10.0, 0.11.0, 0.12.0.1, 0.12.1, 0.13.0, 0.14.0, 0.15.0, 0.16.0, 0.17.0, 0.17.1, 0.18.0, 0.19.0, 0.20.0, 0.21.0, 0.22.0, 0.23.0, 0.23.2, 0.24.0, 0.25.0, 0.26.0, 0.27.0, 0.27.1, 0.28.0, 0.29.0, 0.30.0, 0.31.0, 0.32.0, 0.32.1, 0.33.0, 0.34.0, 0.35.0, 0.38.0, 0.38.1, 0.39.0, 0.39.1, 0.40.0rc1, 0.40.0, 0.40.1rc1, 0.40.1, 0.41.0rc1, 0.41.0, 0.41.1, 0.42.0rc1, 0.42.0, 0.43.0rc1, 0.43.0, 0.44.0rc1, 0.44.0rc2, 0.44.0)
+ERROR: No matching distribution found for llvmlite<0.46,>=0.45.0dev0
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 0 items / 352 errors
+
+==================================== ERRORS ====================================
+_________ ERROR collecting numba/cuda/tests/cudadrv/test_array_attr.py _________
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_array_attr.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+_______ ERROR collecting numba/cuda/tests/cudadrv/test_context_stack.py ________
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_context_stack.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+_____ ERROR collecting numba/cuda/tests/cudadrv/test_cuda_array_slicing.py _____
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_cuda_array_slicing.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+_____ ERROR collecting numba/cuda/tests/cudadrv/test_cuda_auto_context.py ______
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_cuda_auto_context.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+_____ ERROR collecting numba/cuda/tests/cudadrv/test_cuda_devicerecord.py ______
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_cuda_devicerecord.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+________ ERROR collecting numba/cuda/tests/cudadrv/test_cuda_driver.py _________
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_cuda_driver.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+_______ ERROR collecting numba/cuda/tests/cudadrv/test_cuda_libraries.py _______
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_cuda_libraries.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+________ ERROR collecting numba/cuda/tests/cudadrv/test_cuda_memory.py _________
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_cuda_memory.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+________ ERROR collecting numba/cuda/tests/cudadrv/test_cuda_ndarray.py ________
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_cuda_ndarray.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+_______ ERROR collecting numba/cuda/tests/cudadrv/test_deallocations.py ________
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_deallocations.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+___________ ERROR collecting numba/cuda/tests/cudadrv/test_detect.py ___________
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_detect.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+________ ERROR collecting numba/cuda/tests/cudadrv/test_emm_plugins.py _________
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_emm_plugins.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <module>
+    import llvmlite.binding as ll
+E   ModuleNotFoundError: No module named 'llvmlite'
+___________ ERROR collecting numba/cuda/tests/cudadrv/test_events.py ___________
+ImportError while importing test module '/app/repo_to_process/numba/cuda/tests/cudadrv/test_events.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+numba/__init__.py:68: in <module>
+    from numba.core import config
+numba/core/config.py:17: in <
+... (4086 lines omitted)
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

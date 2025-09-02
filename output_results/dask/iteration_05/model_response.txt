@@ -1,0 +1,26 @@
+The error is still:
+
+```
+ModuleNotFoundError: No module named 'dask.tests'
+ERROR: while parsing the following warning configuration:
+
+  ignore:.*:dask.tests.warning_aliases.RemovedIn20Warning
+```
+
+This is not a package missing from PyPI, but rather that `dask.tests` (directory: `dask/tests/`) is not importable in the context that the warning filter is being parsed. Two possible causes:
+
+1. The working directory is not on the module search path, or
+2. The import machinery cannot resolve relative to the repo root.
+
+**Attempts to fix:**
+- `PYTHONPATH` already set to repo root.
+- Still fails.
+
+#### Is `dask.tests` importable in this environment with Python?
+
+Let's check if `dask.tests` can be imported:
+
+```bash
+python -c "import dask.tests"
+```
+If this fails, the problem is import resolution. If it succeeds, something else is wrong.

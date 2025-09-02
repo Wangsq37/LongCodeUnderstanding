@@ -1,0 +1,347 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   ├── config.yml
+│   │   ├── documentation.yml
+│   │   └── feature_request.yml
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   ├── docs-ci.yml
+│   │   ├── docs.yml
+│   │   ├── lint_python.yml
+│   │   └── publish.yml
+│   ├── codecov.yml
+│   ├── environment-ci.yml
+│   ├── environment-docs.yml
+│   ├── environment-lint.yml
+│   ├── environment-minimal.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+│       └── ... (1 more files)
+├── docs/
+│   ├── _static/
+│   │   ├── css/
+│   │   │   └── custom.css
+│   │   └── playback-thumbnail.png
+│   ├── _templates/
+│   │   ├── page.html
+│   │   └── versions.html
+│   ├── examples/
+│   │   ├── audio/
+│   │   │   ├── README.md
+│   │   │   ├── sir_duke_fast.ogg
+│   │   │   ├── sir_duke_slow.ogg
+│   │   │   └── snare-accelerate.ogg
+│   │   ├── plot_audio_playback.py
+│   │   ├── plot_chroma.py
+│   │   ├── plot_display.py
+│   │   ├── plot_dynamic_beat.py
+│   │   ├── plot_hprss.py
+│   │   ├── plot_music_sync.py
+│   │   ├── plot_patch_generation.py
+│   │   ├── plot_pcen_stream.py
+│   │   ├── plot_presets.py
+│   │   ├── plot_rainbowgram.py
+│   │   ├── plot_segmentation.py
+│   │   ├── plot_spectral_harmonics.py
+│   │   ├── plot_superflux.py
+│   │   ├── plot_viterbi.py
+│   │   ├── plot_vocal_separation.py
+│   │   └── README.txt
+│   │       └── ... (11 more files)
+│   ├── img/
+│   │   ├── librosa_logo_text.png
+│   │   └── librosa_logo_text.svg
+│   ├── advanced.rst
+│   ├── beat.rst
+│   ├── BUILD.md
+│   ├── cache.rst
+│   ├── changelog.rst
+│   ├── conf.py
+│   ├── core.rst
+│   ├── decompose.rst
+│   ├── display.rst
+│   ├── docsite-index-redirect.html
+│   ├── effects.rst
+│   ├── feature.rst
+│   ├── filters.rst
+│   ├── genindex.rst
+│   ├── glossary.rst
+│   ├── index.rst
+│   ├── install.rst
+│   ├── ioformats.rst
+│   ├── Makefile
+│   ├── multichannel.rst
+│   ├── onset.rst
+│   ├── recordings.rst
+│   ├── segment.rst
+│   ├── sequence.rst
+│   ├── troubleshooting.rst
+│   ├── tutorial.rst
+│   └── util.rst
+│       └── ... (22 more files)
+├── librosa/
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── __init__.pyi
+│   │   ├── audio.py
+│   │   ├── constantq.py
+│   │   ├── convert.py
+│   │   ├── fft.py
+│   │   ├── harmonic.py
+│   │   ├── intervals.msgpack
+│   │   ├── intervals.py
+│   │   ├── notation.py
+│   │   ├── pitch.py
+│   │   └── spectrum.py
+│   │       └── ... (7 more files)
+│   ├── feature/
+│   │   ├── __init__.py
+│   │   ├── __init__.pyi
+│   │   ├── inverse.py
+│   │   ├── rhythm.py
+│   │   ├── spectral.py
+│   │   └── utils.py
+│   │       └── ... (1 more files)
+│   ├── util/
+│   │   ├── example_data/
+│   │   │   ├── __init__.py
+│   │   │   ├── index.json
+│   │   │   └── registry.txt
+│   │   ├── __init__.py
+│   │   ├── __init__.pyi
+│   │   ├── _nnls.py
+│   │   ├── decorators.py
+│   │   ├── deprecation.py
+│   │   ├── exceptions.py
+│   │   ├── files.py
+│   │   ├── matching.py
+│   │   └── utils.py
+│   │       └── ... (4 more files)
+│   ├── __init__.py
+│   ├── __init__.pyi
+│   ├── _cache.py
+│   ├── _typing.py
+│   ├── beat.py
+│   ├── decompose.py
+│   ├── display.py
+│   ├── effects.py
+│   ├── filters.py
+│   ├── onset.py
+│   ├── py.typed
+│   ├── segment.py
+│   ├── sequence.py
+│   └── version.py
+│       └── ... (9 more files)
+├── scripts/
+│   ├── audit_docstring_examples.py
+│   ├── create_author_list.py
+│   ├── create_intervals.py
+│   ├── get_latest_release.sh
+│   └── pull_dois.py
+├── tests/
+│   ├── baseline_images/
+│   │   └── test_display/
+│   │       ├── test_abs_input.png
+│   │       ├── test_chroma.png
+│   │       ├── test_chroma_svara.png
+│   │       ├── test_complex_input.png
+│   │       ├── test_coords.png
+│   │       ├── test_cqt_hz.png
+│   │       ├── test_cqt_note.png
+│   │       ├── test_display_cqt_svara.png
+│   │       ├── test_display_fft_odd.png
+│   │       ├── test_display_fft_svara.png
+│   │       ├── test_display_fourier_tempo_odd.png
+│   │       ├── test_double_chroma.png
+│   │       ├── test_fft_note.png
+│   │       ├── test_fourier_tempo.png
+│   │       ├── test_sharex_specshow_ms.png
+│   │       ├── test_sharex_waveplot_ms.png
+│   │       ├── test_specshow_chromafjs.png
+│   │       ├── test_specshow_ext_axes.png
+│   │       ├── test_specshow_unicode_false.png
+│   │       ├── test_specshow_unicode_true.png
+│   │       ├── test_specshow_vqt.png
+│   │       ├── test_tempo.png
+│   │       ├── test_time_scales_auto.png
+│   │       ├── test_time_unit.png
+│   │       ├── test_time_unit_lag.png
+│   │       ├── test_tonnetz.png
+│   │       ├── test_waveshow_ext_axes.png
+│   │       ├── test_waveshow_mono.png
+│   │       ├── test_waveshow_mono_trans.png
+│   │       ├── test_waveshow_mono_zoom.png
+│   │       ├── test_waveshow_mono_zoom_out.png
+│   │       ├── test_waveshow_mono_zoom_trans.png
+│   │       ├── test_waveshow_stereo.png
+│   │       ├── test_x_mel.png
+│   │       ├── test_xaxis_frames_yaxis_none.png
+│   │       ├── test_xaxis_lag_yaxis_none.png
+│   │       ├── test_xaxis_linear_yaxis_none.png
+│   │       ├── test_xaxis_log_yaxis_none.png
+│   │       ├── test_xaxis_none_yaxis_frames.png
+│   │       ├── test_xaxis_none_yaxis_linear.png
+│   │       ├── test_xaxis_none_yaxis_log.png
+│   │       ├── test_xaxis_none_yaxis_time.png
+│   │       ├── test_xaxis_time_yaxis_lag.png
+│   │       ├── test_xaxis_time_yaxis_none.png
+│   │       ├── test_y_mel.png
+│   │       └── test_y_mel_bounded.png
+│   │           └── ... (41 more files)
+│   ├── data/
+│   ├── .coveragerc
+│   ├── conftest.py
+│   ├── make_mel_norm_test_data.ipynb
+│   ├── makeCTData.m
+│   ├── makeMETdata.m
+│   ├── makeTestData.m
+│   ├── README.md
+│   ├── test_beat.py
+│   ├── test_cache.py
+│   ├── test_constantq.py
+│   ├── test_convert.py
+│   ├── test_core.py
+│   ├── test_decompose.py
+│   ├── test_display.py
+│   ├── test_dtw.py
+│   ├── test_effects.py
+│   ├── test_failures.py
+│   ├── test_features.py
+│   ├── test_filters.py
+│   ├── test_intervals.py
+│   ├── test_met_features.py
+│   ├── test_multichannel.py
+│   ├── test_notation.py
+│   ├── test_onset.py
+│   ├── test_segment.py
+│   ├── test_sequence.py
+│   └── test_util.py
+│       └── ... (22 more files)
+├── .coveragerc
+├── .gitattributes
+├── .gitignore
+├── .gitmodules
+├── .zenodo.json
+├── AUTHORS.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE.md
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+├── setup.cfg
+└── setup.py
+    └── ... (9 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: cat pyproject.toml ---
+SUCCESS: True
+STDOUT:
+[build-system]
+requires = [
+    "setuptools >= 48",
+    "wheel >= 0.29.0",
+]
+build-backend = 'setuptools.build_meta'
+
+
+--- Command: cat setup.py ---
+SUCCESS: True
+STDOUT:
+from setuptools import setup
+
+if __name__ == '__main__':
+    setup()
+
+
+--- Command: if [ -f requirements.txt ]; then cat requirements.txt; fi ---
+SUCCESS: True
+
+--- Command: ls .github | grep environment ---
+SUCCESS: True
+STDOUT:
+environment-ci.yml
+environment-docs.yml
+environment-lint.yml
+environment-minimal.yml
+
+
+--- Command: pip install . || pip install -e . || pip install -r requirements.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Processing /app/repo_to_process
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting audioread>=2.1.9 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/57/8d/30aa32745af16af0a9a650115fbe81bde7c610ed5c21b381fca0196f3a7f/audioread-3.0.1-py3-none-any.whl (23 kB)
+Collecting numba>=0.51.0 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e2/7d/bfb2805bcfbd479f04f835241ecf28519f6e3609912e3a985aed45e21370/numba-0.61.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 11.4 MB/s  0:00:00
+Requirement already satisfied: numpy>=1.22.3 in /usr/local/lib/python3.10/dist-packages (from librosa==0.11.0) (2.2.6)
+Collecting scipy>=1.6.0 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 14.0 MB/s  0:00:02
+Collecting scikit-learn>=1.1.0 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/fb/a4/e488acdece6d413f370a9589a7193dac79cd486b2e418d3276d6ea0b9305/scikit_learn-1.7.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 14.7 MB/s  0:00:00
+Collecting joblib>=1.0 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/7d/4f/1195bbac8e0c2acc5f740661631d8d750dc38d4a32b23ee5df3cde6f4e0d/joblib-1.5.1-py3-none-any.whl (307 kB)
+Collecting decorator>=4.3.0 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/4e/8c/f3147f5c4b73e7550fe5f9352eaa956ae838d5c51eb58e7a25b9f3e2643b/decorator-5.2.1-py3-none-any.whl (9.2 kB)
+Collecting soundfile>=0.12.1 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/57/5e/70bdd9579b35003a489fc850b5047beeda26328053ebadc1fb60f320f7db/soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 13.9 MB/s  0:00:00
+Collecting pooch>=1.1 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/a8/87/77cc11c7a9ea9fd05503def69e3d18605852cd0d4b0d3b8f15bbeb3ef1d1/pooch-1.8.2-py3-none-any.whl (64 kB)
+Collecting soxr>=0.3.2 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ba/e6/059070b4cdb7fdd8ffbb67c5087c1da9716577127fb0540cd11dbf77923b/soxr-0.5.0.post1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (252 kB)
+Requirement already satisfied: typing_extensions>=4.1.1 in /usr/local/lib/python3.10/dist-packages (from librosa==0.11.0) (4.14.1)
+Collecting lazy_loader>=0.1 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/83/60/d497a310bde3f01cb805196ac61b7ad6dc5dcf8dce66634dc34364b20b4f/lazy_loader-0.4-py3-none-any.whl (12 kB)
+Collecting msgpack>=1.0 (from librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/20/8e/0bb8c977efecfe6ea7116e2ed73a78a8d32a947f94d272586cf02a9757db/msgpack-1.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (408 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from lazy_loader>=0.1->librosa==0.11.0) (25.0)
+Collecting llvmlite<0.45,>=0.44.0dev0 (from numba>=0.51.0->librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/aa/46/8ffbc114def88cc698906bf5acab54ca9fdf9214fe04aed0e71731fb3688/llvmlite-0.44.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (42.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.4/42.4 MB 13.8 MB/s  0:00:03
+Collecting platformdirs>=2.5.0 (from pooch>=1.1->librosa==0.11.0)
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/fe/39/979e8e21520d4e47a0bbe349e2713c0aac6f3d853d0e5b34d76206c439aa/platformdirs-4.3.8-py3-none-any.whl (18 kB)
+Requirement already satisfied: requests>=2.19.0 in /usr/local/lib/python3.10/dist-packages (from pooch>=1.1->librosa==0.11.0) (2.32.4)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.19.0->pooch>=1.1->librosa==0.11.0) (3.4.2)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.19.0->pooch>=1.1
+... (17 lines omitted)
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDERR:
+ERROR: usage: pytest [options] [file_or_dir] [file_or_dir] [...]
+pytest: error: unrecognized arguments: --cov-report --cov librosa --cov-report=xml --mpl --mpl-baseline-path=tests/baseline_images/test_display
+  inifile: /app/repo_to_process/setup.cfg
+  rootdir: /app/repo_to_process
+
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

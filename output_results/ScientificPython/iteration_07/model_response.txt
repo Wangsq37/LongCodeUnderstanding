@@ -1,0 +1,7 @@
+The error `ModuleNotFoundError: No module named 'Scientific'` occurs because the `Scientific` code is present in the project itself, but it’s not installed as a package, nor is it on the `PYTHONPATH`. 
+
+A quick and direct solution (that works even before resolving the broken setup.py) is to add the project root to the `PYTHONPATH` so Python can import the `Scientific` package directly when running pytest.
+
+```bash
+PYTHONPATH=. pytest
+```

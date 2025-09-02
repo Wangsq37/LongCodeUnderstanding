@@ -1,0 +1,1009 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yaml
+│   │   └── feature_request.yaml
+│   ├── workflows/
+│   │   ├── _install_opt_unit_deps.sh
+│   │   ├── issue-metrics.yml
+│   │   ├── jekyll-gh-pages.yml
+│   │   ├── lint.yml
+│   │   ├── release.yml
+│   │   └── test.yml
+│   │       └── ... (1 more files)
+│   ├── code_of_conduct.md
+│   ├── CODEOWNERS
+│   └── release.yml
+├── dev_scripts/
+│   ├── chemenv/
+│   │   ├── strategies/
+│   │   │   ├── ce_pairs.json
+│   │   │   └── multi_weights_strategy_parameters.py
+│   │   ├── check_new_coordination_geometry.py
+│   │   ├── equivalent_indices.py
+│   │   ├── explicit_permutations.py
+│   │   ├── explicit_permutations_plane_algorithm.py
+│   │   ├── get_plane_permutations_optimized.py
+│   │   ├── plane_multiplicity.py
+│   │   ├── test_algos.py
+│   │   ├── test_algos_all_geoms.py
+│   │   └── view_environment.py
+│   │       └── ... (4 more files)
+│   ├── periodic_table_resources/
+│   │   ├── _electron_affinities.yaml
+│   │   ├── _ionization_energies_nist.html
+│   │   ├── _periodic_table.yaml
+│   │   ├── elemental_properties.yaml
+│   │   ├── ground_level_and_ionization_energies_nist.yaml
+│   │   ├── ionic_radii.csv
+│   │   ├── nmr_quadrupole_moment.yaml
+│   │   ├── oxidation_states.yaml
+│   │   ├── radii.csv
+│   │   └── Shannon_Radii.csv
+│   │       └── ... (5 more files)
+│   ├── bond_lengths.yaml
+│   ├── generate_periodic_table_yaml_json.py
+│   ├── physical_constants_nist.txt
+│   ├── potcar_scrambler.py
+│   ├── regen_libxcfunc.py
+│   └── update_spacegroup_data.py
+│       └── ... (1 more files)
+├── docs/
+│   ├── _includes/
+│   │   ├── footer_custom.html
+│   │   └── nav_footer_custom.html
+│   ├── _modules/
+│   │   ├── monty/
+│   │   │   └── dev.html
+│   │   ├── pymatgen/
+│   │   │   ├── alchemy/
+│   │   │   ├── analysis/
+│   │   │   ├── apps/
+│   │   │   ├── cli/
+│   │   │   ├── command_line/
+│   │   │   ├── core/
+│   │   │   ├── electronic_structure/
+│   │   │   ├── entries/
+│   │   │   ├── ext/
+│   │   │   ├── io/
+│   │   │   ├── optimization/
+│   │   │   ├── phonon/
+│   │   │   ├── symmetry/
+│   │   │   ├── transformations/
+│   │   │   ├── util/
+│   │   │   ├── vis/
+│   │   │   └── entries.html
+│   │   ├── abc.html
+│   │   ├── index.html
+│   │   ├── pathlib.html
+│   │   └── pymatgen.html
+│   ├── _sass/
+│   │   └── color_schemes/
+│   │       └── pmg.scss
+│   ├── _templates/
+│   │   └── layout.html
+│   ├── apidoc/
+│   │   └── conf.py
+│   ├── assets/
+│   │   ├── css/
+│   │   │   ├── badge_only.css
+│   │   │   ├── fontawesome-webfont.eot
+│   │   │   ├── fontawesome-webfont.svg
+│   │   │   ├── fontawesome-webfont.ttf
+│   │   │   ├── fontawesome-webfont.woff
+│   │   │   ├── fontawesome-webfont.woff2
+│   │   │   ├── lato-bold-italic.woff
+│   │   │   ├── lato-bold-italic.woff2
+│   │   │   ├── lato-bold.woff
+│   │   │   ├── lato-bold.woff2
+│   │   │   ├── lato-normal-italic.woff
+│   │   │   ├── lato-normal-italic.woff2
+│   │   │   ├── lato-normal.woff
+│   │   │   ├── lato-normal.woff2
+│   │   │   ├── Roboto-Slab-Bold.woff
+│   │   │   ├── Roboto-Slab-Bold.woff2
+│   │   │   ├── Roboto-Slab-Regular.woff
+│   │   │   ├── Roboto-Slab-Regular.woff2
+│   │   │   └── theme.css
+│   │   │       └── ... (14 more files)
+│   │   ├── js/
+│   │   │   ├── badge_only.js
+│   │   │   ├── html5shiv-printshiv.min.js
+│   │   │   ├── html5shiv.min.js
+│   │   │   └── theme.js
+│   │   ├── alabaster.css
+│   │   ├── basic.css
+│   │   ├── custom.css
+│   │   ├── doctools.js
+│   │   ├── documentation_options.js
+│   │   ├── examples.png
+│   │   ├── favicon.ico
+│   │   ├── file.png
+│   │   ├── language_data.js
+│   │   ├── metadata.yml
+│   │   ├── minus.png
+│   │   ├── orcid.svg
+│   │   ├── overview.jpg
+│   │   ├── phase_diagram.png
+│   │   ├── plus.png
+│   │   ├── pygments.css
+│   │   ├── pymatgen-white.svg
+│   │   ├── pymatgen.svg
+│   │   ├── searchtools.js
+│   │   ├── sphinx_highlight.js
+│   │   └── team-map.html
+│   │       └── ... (16 more files)
+│   ├── proBlue/
+│   │   ├── static/
+│   │   │   └── proBlue.css
+│   │   ├── LICENSE.txt
+│   │   ├── README.txt
+│   │   └── theme.conf
+│   ├── 2023-10-07-top-contributors.csv
+│   ├── _config.yml
+│   ├── addons.md
+│   ├── CHANGES.md
+│   ├── CNAME
+│   ├── compatibility.md
+│   ├── contributing.md
+│   ├── Gemfile
+│   ├── Gemfile.lock
+│   ├── index.md
+│   ├── installation.md
+│   ├── make.bat
+│   ├── Makefile
+│   ├── modules.html
+│   ├── objects.inv
+│   ├── pymatgen.alchemy.html
+│   ├── pymatgen.analysis.chemenv.connectivity.html
+│   ├── pymatgen.analysis.chemenv.coordination_environments.coordination_geometries_files.html
+│   ├── pymatgen.analysis.chemenv.coordination_environments.html
+│   ├── pymatgen.analysis.chemenv.html
+│   ├── pymatgen.analysis.chemenv.utils.html
+│   ├── pymatgen.analysis.diffraction.html
+│   ├── pymatgen.analysis.elasticity.html
+│   ├── pymatgen.analysis.ferroelectricity.html
+│   ├── pymatgen.analysis.gb.html
+│   ├── pymatgen.analysis.html
+│   ├── pymatgen.analysis.interfaces.html
+│   ├── pymatgen.analysis.magnetism.html
+│   ├── pymatgen.analysis.prototypes.html
+│   ├── pymatgen.analysis.solar.html
+│   ├── pymatgen.analysis.structure_prediction.html
+│   ├── pymatgen.analysis.topological.html
+│   ├── pymatgen.analysis.xas.html
+│   ├── pymatgen.apps.battery.html
+│   ├── pymatgen.apps.borg.html
+│   ├── pymatgen.apps.html
+│   ├── pymatgen.cli.html
+│   ├── pymatgen.command_line.html
+│   ├── pymatgen.core.html
+│   ├── pymatgen.electronic_structure.html
+│   ├── pymatgen.entries.html
+│   ├── pymatgen.ext.html
+│   ├── pymatgen.html
+│   ├── pymatgen.io.abinit.html
+│   ├── pymatgen.io.aims.html
+│   ├── pymatgen.io.aims.sets.html
+│   ├── pymatgen.io.cp2k.html
+│   ├── pymatgen.io.exciting.html
+│   ├── pymatgen.io.feff.html
+│   ├── pymatgen.io.html
+│   ├── pymatgen.io.jdftx.html
+│   ├── pymatgen.io.lammps.html
+│   ├── pymatgen.io.lobster.html
+│   ├── pymatgen.io.pwmat.html
+│   ├── pymatgen.io.qchem.html
+│   ├── pymatgen.io.vasp.html
+│   ├── pymatgen.io.xtb.html
+│   ├── pymatgen.md
+│   ├── pymatgen.optimization.html
+│   ├── pymatgen.phonon.html
+│   ├── pymatgen.symmetry.html
+│   ├── pymatgen.transformations.html
+│   ├── pymatgen.util.html
+│   ├── pymatgen.util.testing.html
+│   ├── pymatgen.vis.html
+│   ├── references.md
+│   ├── search.html
+│   ├── searchindex.js
+│   ├── SECURITY.md
+│   ├── team.md
+│   └── usage.md
+│       └── ... (66 more files)
+├── examples/
+│   └── README.md
+├── src/
+│   └── pymatgen/
+│       ├── alchemy/
+│       │   ├── __init__.py
+│       │   ├── filters.py
+│       │   ├── materials.py
+│       │   └── transmuters.py
+│       ├── analysis/
+│       │   ├── chemenv/
+│       │   ├── diffraction/
+│       │   ├── elasticity/
+│       │   ├── ferroelectricity/
+│       │   ├── interfaces/
+│       │   ├── magnetism/
+│       │   ├── prototypes/
+│       │   ├── solar/
+│       │   ├── structure_prediction/
+│       │   ├── topological/
+│       │   ├── xas/
+│       │   ├── adsorption.py
+│       │   ├── atomic_subshell_photoionization_cross_sections.csv
+│       │   ├── bond_dissociation.py
+│       │   ├── bond_valence.py
+│       │   ├── bonds_jmol_ob.yaml
+│       │   ├── bvparam_1991.yaml
+│       │   ├── chempot_diagram.py
+│       │   ├── cn_opt_params.yaml
+│       │   ├── cost.py
+│       │   ├── costdb_elements.csv
+│       │   ├── dimensionality.py
+│       │   ├── disorder.py
+│       │   ├── energy_models.py
+│       │   ├── eos.py
+│       │   ├── ewald.py
+│       │   ├── excitation.py
+│       │   ├── fragmenter.py
+│       │   ├── functional_groups.py
+│       │   ├── graphs.py
+│       │   ├── hhi.py
+│       │   ├── hhi_data.csv
+│       │   ├── icsd_bv.yaml
+│       │   ├── interface_reactions.py
+│       │   ├── ionic_radii.json
+│       │   ├── local_env.py
+│       │   ├── molecule_matcher.py
+│       │   ├── molecule_structure_comparator.py
+│       │   ├── nmr.py
+│       │   ├── op_params.yaml
+│       │   ├── optics.py
+│       │   ├── phase_diagram.py
+│       │   ├── piezo.py
+│       │   ├── piezo_sensitivity.py
+│       │   ├── pourbaix_diagram.py
+│       │   ├── quasiharmonic.py
+│       │   ├── quasirrho.py
+│       │   ├── reaction_calculator.py
+│       │   ├── structure_analyzer.py
+│       │   ├── structure_matcher.py
+│       │   ├── surface_analysis.py
+│       │   ├── thermochemistry.py
+│       │   ├── transition_state.py
+│       │   ├── vesta_cutoffs.yaml
+│       │   ├── wulff.py
+│       │   └── xps.py
+│       │       └── ... (40 more files)
+│       ├── apps/
+│       │   ├── battery/
+│       │   ├── borg/
+│       │   └── __init__.py
+│       ├── cli/
+│       │   ├── __init__.py
+│       │   ├── feff_plot_cross_section.py
+│       │   ├── feff_plot_dos.py
+│       │   ├── get_environment.py
+│       │   ├── pmg.py
+│       │   ├── pmg_analyze.py
+│       │   ├── pmg_config.py
+│       │   ├── pmg_plot.py
+│       │   ├── pmg_potcar.py
+│       │   └── pmg_structure.py
+│       │       └── ... (5 more files)
+│       ├── command_line/
+│       │   ├── __init__.py
+│       │   ├── bader_caller.py
+│       │   ├── chargemol_caller.py
+│       │   ├── critic2_caller.py
+│       │   ├── enumlib_caller.py
+│       │   ├── gulp_caller.py
+│       │   ├── mcsqs_caller.py
+│       │   └── vampire_caller.py
+│       │       └── ... (3 more files)
+│       ├── core/
+│       │   ├── __init__.py
+│       │   ├── bond_lengths.json
+│       │   ├── bonds.py
+│       │   ├── composition.py
+│       │   ├── func_groups.json
+│       │   ├── interface.py
+│       │   ├── ion.py
+│       │   ├── lattice.py
+│       │   ├── libxc_docs.json
+│       │   ├── libxcfunc.py
+│       │   ├── molecular_orbitals.py
+│       │   ├── operations.py
+│       │   ├── periodic_table.json.gz
+│       │   ├── periodic_table.py
+│       │   ├── quad_data.json
+│       │   ├── reconstructions_archive.json
+│       │   ├── sites.py
+│       │   ├── spectrum.py
+│       │   ├── structure.py
+│       │   ├── surface.py
+│       │   ├── tensors.py
+│       │   ├── trajectory.py
+│       │   ├── units.py
+│       │   └── xcfunc.py
+│       │       └── ... (19 more files)
+│       ├── electronic_structure/
+│       │   ├── __init__.py
+│       │   ├── bandstructure.py
+│       │   ├── boltztrap.py
+│       │   ├── boltztrap2.py
+│       │   ├── cohp.py
+│       │   ├── core.py
+│       │   ├── dos.py
+│       │   └── plotter.py
+│       │       └── ... (3 more files)
+│       ├── entries/
+│       │   ├── data/
+│       │   ├── __init__.py
+│       │   ├── calc_compounds.json.gz
+│       │   ├── compatibility.py
+│       │   ├── computed_entries.py
+│       │   ├── correction_calculator.py
+│       │   ├── entry_tools.py
+│       │   ├── exp_compounds.json.gz
+│       │   ├── exp_entries.py
+│       │   ├── MITCompatibility.yaml
+│       │   ├── mixing_scheme.py
+│       │   ├── MP2020Compatibility.yaml
+│       │   └── MPCompatibility.yaml
+│       │       └── ... (7 more files)
+│       ├── ext/
+│       │   ├── cod.py
+│       │   ├── matproj.py
+│       │   └── optimade.py
+│       ├── io/
+│       │   ├── abinit/
+│       │   ├── aims/
+│       │   ├── cp2k/
+│       │   ├── exciting/
+│       │   ├── feff/
+│       │   ├── jdftx/
+│       │   ├── lammps/
+│       │   ├── lobster/
+│       │   ├── pwmat/
+│       │   ├── qchem/
+│       │   ├── vasp/
+│       │   ├── xtb/
+│       │   ├── adf.py
+│       │   ├── ase.py
+│       │   ├── atat.py
+│       │   ├── babel.py
+│       │   ├── cif.py
+│       │   ├── common.py
+│       │   ├── core.py
+│       │   ├── cssr.py
+│       │   ├── fiesta.py
+│       │   ├── gaussian.py
+│       │   ├── icet.py
+│       │   ├── jarvis.py
+│       │   ├── lmto.py
+│       │   ├── multiwfn.py
+│       │   ├── nwchem.py
+│       │   ├── openff.py
+│       │   ├── optimade.py
+│       │   ├── packmol.py
+│       │   ├── phonopy.py
+│       │   ├── prismatic.py
+│       │   ├── pwscf.py
+│       │   ├── res.py
+│       │   ├── shengbte.py
+│       │   ├── template.py
+│       │   ├── wannier90.py
+│       │   ├── xcrysden.py
+│       │   ├── xr.py
+│       │   ├── xyz.py
+│       │   └── zeopp.py
+│       │       └── ... (24 more files)
+│       ├── optimization/
+│       │   ├── __init__.py
+│       │   ├── linear_assignment.pyx
+│       │   └── neighbors.pyx
+│       ├── phonon/
+│       │   ├── __init__.py
+│       │   ├── bandstructure.py
+│       │   ├── dos.py
+│       │   ├── gruneisen.py
+│       │   ├── ir_spectra.py
+│       │   ├── plotter.py
+│       │   └── thermal_displacements.py
+│       │       └── ... (2 more files)
+│       ├── symmetry/
+│       │   ├── __init__.py
+│       │   ├── analyzer.py
+│       │   ├── bandstructure.py
+│       │   ├── groups.py
+│       │   ├── kpath.py
+│       │   ├── maggroups.py
+│       │   ├── settings.py
+│       │   ├── site_symmetries.py
+│       │   ├── structure.py
+│       │   ├── symm_data.json
+│       │   ├── symm_data.yaml
+│       │   ├── symm_data_magnetic.sqlite
+│       │   ├── symm_ops.json
+│       │   └── symm_ops.yaml
+│       │       └── ... (9 more files)
+│       ├── transformations/
+│       │   ├── __init__.py
+│       │   ├── advanced_transformations.py
+│       │   ├── site_transformations.py
+│       │   ├── standard_transformations.py
+│       │   └── transformation_abc.py
+│       ├── util/
+│       │   ├── structures/
+│       │   ├── __init__.py
+│       │   ├── coord.py
+│       │   ├── coord_cython.pyx
+│       │   ├── due.py
+│       │   ├── graph_hashing.py
+│       │   ├── io_utils.py
+│       │   ├── joblib.py
+│       │   ├── misc.py
+│       │   ├── num.py
+│       │   ├── numba.py
+│       │   ├── plotly_chempot_layouts.json
+│       │   ├── plotly_interface_rxn_layouts.json
+│       │   ├── plotly_pd_layouts.json
+│       │   ├── plotting.py
+│       │   ├── provenance.py
+│       │   ├── string.py
+│       │   ├── testing.py
+│       │   └── typing.py
+│       │       └── ... (13 more files)
+│       ├── vis/
+│       │   ├── __init__.py
+│       │   ├── ElementColorSchemes.yaml
+│       │   ├── plotters.py
+│       │   ├── structure_chemview.py
+│       │   └── structure_vtk.py
+│       ├── dao.py
+│       └── py.typed
+├── tests/
+│   ├── alchemy/
+│   │   ├── __init__.py
+│   │   ├── test_filters.py
+│   │   ├── test_materials.py
+│   │   └── test_transmuters.py
+│   ├── analysis/
+│   │   ├── chemenv/
+│   │   │   ├── connectivity/
+│   │   │   ├── coordination_environments/
+│   │   │   ├── utils/
+│   │   │   └── __init__.py
+│   │   ├── diffraction/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_neutron.py
+│   │   │   ├── test_tem.py
+│   │   │   └── test_xrd.py
+│   │   ├── elasticity/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_elastic.py
+│   │   │   ├── test_strain.py
+│   │   │   └── test_stress.py
+│   │   ├── ferroelectricity/
+│   │   │   ├── __init__.py
+│   │   │   └── test_polarization.py
+│   │   ├── interfaces/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_coherent_interface.py
+│   │   │   ├── test_substrate_analyzer.py
+│   │   │   └── test_zsl.py
+│   │   ├── magnetism/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_analyzer.py
+│   │   │   ├── test_heisenberg.py
+│   │   │   └── test_jahnteller.py
+│   │   ├── solar/
+│   │   │   ├── __init__.py
+│   │   │   └── test_slme.py
+│   │   ├── structure_prediction/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_dopant_predictor.py
+│   │   │   ├── test_substitution_probability.py
+│   │   │   ├── test_substitutor.py
+│   │   │   └── test_volume_predictor.py
+│   │   ├── topological/
+│   │   │   ├── __init__.py
+│   │   │   └── test_spillage.py
+│   │   ├── xas/
+│   │   │   ├── __init__.py
+│   │   │   └── test_spectrum.py
+│   │   ├── __init__.py
+│   │   ├── test_adsorption.py
+│   │   ├── test_bond_dissociation.py
+│   │   ├── test_bond_valence.py
+│   │   ├── test_chempot_diagram.py
+│   │   ├── test_cost.py
+│   │   ├── test_dimensionality.py
+│   │   ├── test_disorder.py
+│   │   ├── test_energy_models.py
+│   │   ├── test_eos.py
+│   │   ├── test_ewald.py
+│   │   ├── test_fragmenter.py
+│   │   ├── test_functional_groups.py
+│   │   ├── test_graphs.py
+│   │   ├── test_hhi.py
+│   │   ├── test_interface_reactions.py
+│   │   ├── test_local_env.py
+│   │   ├── test_molecule_matcher.py
+│   │   ├── test_molecule_structure_comparator.py
+│   │   ├── test_nmr.py
+│   │   ├── test_optics.py
+│   │   ├── test_phase_diagram.py
+│   │   ├── test_piezo.py
+│   │   ├── test_piezo_sensitivity.py
+│   │   ├── test_pourbaix_diagram.py
+│   │   ├── test_prototypes.py
+│   │   ├── test_quasi_harmonic_debye_approx.py
+│   │   ├── test_quasirrho.py
+│   │   ├── test_reaction_calculator.py
+│   │   ├── test_structure_analyzer.py
+│   │   ├── test_structure_matcher.py
+│   │   ├── test_surface_analysis.py
+│   │   ├── test_transition_state.py
+│   │   ├── test_wulff.py
+│   │   └── test_xps.py
+│   │       └── ... (30 more files)
+│   ├── apps/
+│   │   ├── battery/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_analyzer.py
+│   │   │   ├── test_conversion_battery.py
+│   │   │   ├── test_insertion_battery.py
+│   │   │   └── test_plotter.py
+│   │   ├── borg/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_hive.py
+│   │   │   └── test_queen.py
+│   │   └── __init__.py
+│   ├── cli/
+│   │   ├── conftest.py
+│   │   ├── test_pmg_analyze.py
+│   │   ├── test_pmg_diff.py
+│   │   ├── test_pmg_plot.py
+│   │   └── test_pmg_structure.py
+│   ├── command_line/
+│   │   ├── __init__.py
+│   │   ├── test_bader_caller.py
+│   │   ├── test_chargemol_caller.py
+│   │   ├── test_critic2_caller.py
+│   │   ├── test_enumlib_caller.py
+│   │   ├── test_gulp_caller.py
+│   │   ├── test_mcsqs_caller.py
+│   │   └── test_vampire_caller.py
+│   │       └── ... (3 more files)
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── test_bonds.py
+│   │   ├── test_composition.py
+│   │   ├── test_interface.py
+│   │   ├── test_ion.py
+│   │   ├── test_lattice.py
+│   │   ├── test_libxcfunc.py
+│   │   ├── test_molecular_orbitals.py
+│   │   ├── test_operations.py
+│   │   ├── test_periodic_table.py
+│   │   ├── test_settings.py
+│   │   ├── test_sites.py
+│   │   ├── test_spectrum.py
+│   │   ├── test_structure.py
+│   │   ├── test_surface.py
+│   │   ├── test_tensors.py
+│   │   ├── test_trajectory.py
+│   │   ├── test_units.py
+│   │   └── test_xcfunc.py
+│   │       └── ... (14 more files)
+│   ├── electronic_structure/
+│   │   ├── __init__.py
+│   │   ├── test_bandstructure.py
+│   │   ├── test_boltztrap.py
+│   │   ├── test_boltztrap2.py
+│   │   ├── test_cohp.py
+│   │   ├── test_core.py
+│   │   ├── test_dos.py
+│   │   └── test_plotter.py
+│   │       └── ... (3 more files)
+│   ├── entries/
+│   │   ├── __init__.py
+│   │   ├── test_compatibility.py
+│   │   ├── test_computed_entries.py
+│   │   ├── test_correction_calculator.py
+│   │   ├── test_entry_tools.py
+│   │   ├── test_exp_entries.py
+│   │   └── test_mixing_scheme.py
+│   │       └── ... (2 more files)
+│   ├── ext/
+│   │   ├── __init__.py
+│   │   ├── test_cod.py
+│   │   ├── test_matproj.py
+│   │   └── test_optimade.py
+│   ├── files/
+│   │   ├── alchemy/
+│   │   │   └── transformations.json
+│   │   ├── analysis/
+│   │   │   ├── bond_dissociation/
+│   │   │   ├── bond_valence/
+│   │   │   ├── chemenv/
+│   │   │   ├── cost/
+│   │   │   ├── dimensionality/
+│   │   │   ├── elasticity/
+│   │   │   ├── functional_groups/
+│   │   │   ├── graphs/
+│   │   │   ├── local_env/
+│   │   │   ├── magnetic_orderings/
+│   │   │   ├── magnetism/
+│   │   │   ├── molecule_matcher/
+│   │   │   ├── phase_diagram/
+│   │   │   ├── piezo_sensitivity/
+│   │   │   ├── pourbaix_diagram/
+│   │   │   ├── prototypes/
+│   │   │   ├── quasirrho/
+│   │   │   ├── solar/
+│   │   │   ├── spectrum_test/
+│   │   │   ├── struct_predictor/
+│   │   │   ├── structural_change/
+│   │   │   ├── structure_matcher/
+│   │   │   ├── structure_prediction/
+│   │   │   ├── topological/
+│   │   │   ├── wulff/
+│   │   │   └── pd_entries_test.csv
+│   │   ├── apps/
+│   │   │   ├── battery/
+│   │   │   └── borg/
+│   │   ├── cif/
+│   │   │   ├── AgO_kpath_test.cif
+│   │   │   ├── bad_occu.cif
+│   │   │   ├── bad_superflat_inf_loop.cif.gz
+│   │   │   ├── bcc_1927.cif
+│   │   │   ├── btet_1915.cif
+│   │   │   ├── C26H16BeN2O2S2.cif
+│   │   │   ├── cif_finite_precision_frac_coord_error.cif
+│   │   │   ├── cif_implicit_hydrogens_cod_1011130.cif
+│   │   │   ├── Co8.cif
+│   │   │   ├── Cod_2100513.cif
+│   │   │   ├── Cod_4115344.cif
+│   │   │   ├── CoO19128.cif
+│   │   │   ├── CsI3Pb.cif
+│   │   │   ├── CsSnI3.cif
+│   │   │   ├── Cu7Te5.cif
+│   │   │   ├── CuCl.cif
+│   │   │   ├── Fe.cif
+│   │   │   ├── Fe3O4.cif
+│   │   │   ├── FePO4.cif
+│   │   │   ├── FePO4a.cif
+│   │   │   ├── garnet.cif
+│   │   │   ├── Graphite.cif
+│   │   │   ├── H6PbCI3N_mp-977013_symmetrized.cif
+│   │   │   ├── hex_1170.cif
+│   │   │   ├── ICSD59959.cif
+│   │   │   ├── La2CoO4.cif
+│   │   │   ├── La4Fe4O12.cif
+│   │   │   ├── Li.cif
+│   │   │   ├── Li10GeP2S12.cif
+│   │   │   ├── Li2O.cif
+│   │   │   ├── Li4Fe3Mn1(PO4)4.cif
+│   │   │   ├── Li8Fe2NiCoO8.cif
+│   │   │   ├── LiFePO4.cif
+│   │   │   ├── MgNiF6.cif
+│   │   │   ├── monoc_1028.cif
+│   │   │   ├── MultiStructure.cif
+│   │   │   ├── nosymm.cif
+│   │   │   ├── OneLineSymmP1.cif
+│   │   │   ├── orac_632475.cif
+│   │   │   ├── orcc_1003.cif
+│   │   │   ├── orci_1010.cif
+│   │   │   ├── P24Ru4H252C296S24N16.cif
+│   │   │   ├── PF_sd_1002871.cif
+│   │   │   ├── PF_sd_1011081.cif
+│   │   │   ├── PF_sd_1500382.cif
+│   │   │   ├── PF_sd_1601634.cif
+│   │   │   ├── PF_sd_1615854.cif
+│   │   │   ├── PF_sd_1622133.cif
+│   │   │   ├── PF_sd_1704003.cif
+│   │   │   ├── PF_sd_1811457.cif
+│   │   │   ├── PF_sd_1908491.cif
+│   │   │   ├── PF_sd_1928405.cif
+│   │   │   ├── rhomb_1170.cif
+│   │   │   ├── rhomb_3478.cif
+│   │   │   ├── rhomb_3478_conv.cif
+│   │   │   ├── Senegalite_implicit_hydrogen.cif
+│   │   │   ├── site_type_symbol_test.cif
+│   │   │   ├── srycoo.cif
+│   │   │   └── V2O3.cif
+│   │   │       └── ... (54 more files)
+│   │   ├── command_line/
+│   │   │   ├── bader/
+│   │   │   ├── chargemol/
+│   │   │   ├── critic2/
+│   │   │   ├── enumlib/
+│   │   │   └── gulp/
+│   │   ├── core/
+│   │   │   ├── grain_boundary/
+│   │   │   ├── structure/
+│   │   │   ├── tensors/
+│   │   │   └── trajectory/
+│   │   ├── electronic_structure/
+│   │   │   ├── bandstructure/
+│   │   │   ├── boltztrap/
+│   │   │   ├── boltztrap2/
+│   │   │   ├── cohp/
+│   │   │   ├── dos/
+│   │   │   └── plotter/
+│   │   ├── entries/
+│   │   │   ├── compatibility/
+│   │   │   ├── correction_calculator/
+│   │   │   ├── entries_thermo_type_GGA_GGA_U_R2SCAN.json
+│   │   │   ├── Fe2O3_exp.json
+│   │   │   ├── Li-Fe-P-O_entries.json
+│   │   │   ├── Mn-O_entries.json
+│   │   │   ├── structure_CO2.json
+│   │   │   └── TiO2_entries.json
+│   │   │       └── ... (1 more files)
+│   │   ├── io/
+│   │   │   ├── abinit/
+│   │   │   ├── adf/
+│   │   │   ├── aims/
+│   │   │   ├── atat/
+│   │   │   ├── babel/
+│   │   │   ├── cif/
+│   │   │   ├── cp2k/
+│   │   │   ├── cssr/
+│   │   │   ├── exciting/
+│   │   │   ├── feff/
+│   │   │   ├── fiesta/
+│   │   │   ├── gaussian/
+│   │   │   ├── jdftx/
+│   │   │   ├── lammps/
+│   │   │   ├── multiwfn/
+│   │   │   ├── nwchem/
+│   │   │   ├── openff/
+│   │   │   ├── packmol/
+│   │   │   ├── phonopy/
+│   │   │   ├── pwmat/
+│   │   │   ├── pwscf/
+│   │   │   ├── qchem/
+│   │   │   ├── res/
+│   │   │   ├── shengbte/
+│   │   │   ├── vasp/
+│   │   │   ├── wannier90/
+│   │   │   ├── xr/
+│   │   │   ├── xtb/
+│   │   │   ├── xyz/
+│   │   │   ├── zeopp/
+│   │   │   ├── cube-gh-2817.xyz
+│   │   │   └── template_input_file.txt
+│   │   ├── performance/
+│   │   │   ├── import_time_linux.json
+│   │   │   ├── import_time_macos.json
+│   │   │   └── import_time_windows.json
+│   │   ├── phonon/
+│   │   │   ├── dos/
+│   │   │   ├── gruneisen/
+│   │   │   └── thermal_displacement_matrices/
+│   │   ├── surfaces/
+│   │   │   ├── reconstructions/
+│   │   │   ├── Au_slab_init.cif
+│   │   │   ├── CONTCAR.relax1.gz
+│   │   │   ├── cs_entries_o_ads.json
+│   │   │   ├── cs_entries_slabs.json
+│   │   │   ├── Cu_entries.txt
+│   │   │   ├── Cu_slab_fin.cif
+│   │   │   ├── Cu_slab_init.cif
+│   │   │   ├── icsd_batio3.cif
+│   │   │   ├── icsd_LiCoO2.cif
+│   │   │   ├── icsd_TeI.cif
+│   │   │   ├── isolated_O_entry.txt
+│   │   │   ├── La_fcc_entries.txt
+│   │   │   ├── La_hcp_entries.txt
+│   │   │   ├── LOCPOT.gz
+│   │   │   ├── MgO_slab_entries.txt
+│   │   │   ├── OUTCAR.relax1.gz
+│   │   │   ├── ucell_entries.txt
+│   │   │   └── ZnO-wz.cif
+│   │   │       └── ... (13 more files)
+│   │   ├── symmetry/
+│   │   │   ├── analyzer/
+│   │   │   ├── site_symmetries/
+│   │   │   └── space_group_structs/
+│   │   ├── transformations/
+│   │   │   ├── icet-sqs-fcc-Mg_75-Al_25-scaling_8.json.gz
+│   │   │   └── TiO2_super.json
+│   │   └── .pytest-split-durations
+│   ├── io/
+│   │   ├── abinit/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_abiobjects.py
+│   │   │   ├── test_abitimer.py
+│   │   │   ├── test_inputs.py
+│   │   │   ├── test_netcdf.py
+│   │   │   └── test_pseudos.py
+│   │   │       └── ... (1 more files)
+│   │   ├── aims/
+│   │   │   ├── sets/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── test_inputs.py
+│   │   │   ├── test_outputs.py
+│   │   │   └── test_parsers.py
+│   │   ├── cp2k/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_inputs.py
+│   │   │   ├── test_outputs.py
+│   │   │   └── test_sets.py
+│   │   ├── exciting/
+│   │   │   ├── __init__.py
+│   │   │   └── test_inputs.py
+│   │   ├── feff/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_inputs.py
+│   │   │   ├── test_outputs.py
+│   │   │   └── test_sets.py
+│   │   ├── jdftx/
+│   │   │   ├── __init__.py
+│   │   │   ├── inputs_test_utils.py
+│   │   │   ├── outputs_test_utils.py
+│   │   │   ├── shared_test_utils.py
+│   │   │   ├── test_generic_tags.py
+│   │   │   ├── test_input_utils.py
+│   │   │   ├── test_jdftxinfile.py
+│   │   │   ├── test_jdftxoutfile.py
+│   │   │   ├── test_jdftxoutfileslice.py
+│   │   │   ├── test_jdftxoutput.py
+│   │   │   ├── test_jelsteps.py
+│   │   │   ├── test_joutstructure.py
+│   │   │   ├── test_joutstructures.py
+│   │   │   ├── test_output_utils.py
+│   │   │   └── test_repr_out.py
+│   │   │       └── ... (10 more files)
+│   │   ├── lammps/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_data.py
+│   │   │   ├── test_generators.py
+│   │   │   ├── test_inputs.py
+│   │   │   ├── test_outputs.py
+│   │   │   └── test_utils.py
+│   │   │       └── ... (1 more files)
+│   │   ├── lobster/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_inputs.py
+│   │   │   ├── test_lobsterenv.py
+│   │   │   └── test_outputs.py
+│   │   ├── pwmat/
+│   │   │   ├── test_inputs.py
+│   │   │   └── test_outputs.py
+│   │   ├── qchem/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_inputs.py
+│   │   │   ├── test_outputs.py
+│   │   │   ├── test_sets.py
+│   │   │   └── test_utils.py
+│   │   ├── vasp/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_help.py
+│   │   │   ├── test_inputs.py
+│   │   │   ├── test_optics.py
+│   │   │   ├── test_outputs.py
+│   │   │   └── test_sets.py
+│   │   │       └── ... (1 more files)
+│   │   ├── xtb/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_inputs.py
+│   │   │   └── test_outputs.py
+│   │   ├── test_adf.py
+│   │   ├── test_ase.py
+│   │   ├── test_atat.py
+│   │   ├── test_babel.py
+│   │   ├── test_cif.py
+│   │   ├── test_common.py
+│   │   ├── test_core.py
+│   │   ├── test_cssr.py
+│   │   ├── test_fiesta.py
+│   │   ├── test_gaussian.py
+│   │   ├── test_jarvis.py
+│   │   ├── test_lmto.py
+│   │   ├── test_multiwfn.py
+│   │   ├── test_nwchem.py
+│   │   ├── test_openff.py
+│   │   ├── test_optimade.py
+│   │   ├── test_packmol.py
+│   │   ├── test_phonopy.py
+│   │   ├── test_prismatic.py
+│   │   ├── test_pwscf.py
+│   │   ├── test_res.py
+│   │   ├── test_shengbte.py
+│   │   ├── test_template_input.py
+│   │   ├── test_wannier90.py
+│   │   ├── test_xcrysden.py
+│   │   ├── test_xr.py
+│   │   ├── test_xyz.py
+│   │   └── test_zeopp.py
+│   │       └── ... (23 more files)
+│   ├── optimization/
+│   │   ├── __init__.py
+│   │   ├── test_linear_assignment.py
+│   │   └── test_neighbors.py
+│   ├── performance/
+│   │   └── test_import_time.py
+│   ├── phonon/
+│   │   ├── test_bandstructure.py
+│   │   ├── test_dos.py
+│   │   ├── test_gruneisen.py
+│   │   ├── test_init.py
+│   │   ├── test_ir_spectra.py
+│   │   ├── test_plotter.py
+│   │   └── test_thermal_displacements.py
+│   │       └── ... (2 more files)
+│   ├── symmetry/
+│   │   ├── __init__.py
+│   │   ├── test_analyzer.py
+│   │   ├── test_groups.py
+│   │   ├── test_kpath_hin.py
+│   │   ├── test_kpath_lm.py
+│   │   ├── test_kpath_sc.py
+│   │   ├── test_kpaths.py
+│   │   ├── test_maggroups.py
+│   │   ├── test_settings.py
+│   │   ├── test_site_symmetries.py
+│   │   └── test_structure.py
+│   │       └── ... (6 more files)
+│   ├── transformations/
+│   │   ├── __init__.py
+│   │   ├── test_advanced_transformations.py
+│   │   ├── test_site_transformations.py
+│   │   └── test_standard_transformations.py
+│   ├── util/
+│   │   ├── __init__.py
+│   │   ├── test_coord.py
+│   │   ├── test_graph_hashing.py
+│   │   ├── test_io.py
+│   │   ├── test_misc.py
+│   │   ├── test_num.py
+│   │   ├── test_plotting.py
+│   │   ├── test_provenance.py
+│   │   ├── test_string.py
+│   │   ├── test_testing.py
+│   │   └── test_typing.py
+│   │       └── ... (6 more files)
+│   ├── vis/
+│   │   ├── __init__.py
+│   │   └── test_plotters.py
+│   └── conftest.py
+├── .editorconfig
+├── .gitattributes
+├── .gitignore
+├── .pre-commit-config.yaml
+├── ADMIN.md
+├── CITATION.cff
+├── CONTRIBUTING.md
+├── LICENSE
+├── pdm.lock
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+├── SECURITY.md
+├── setup.py
+├── tasks.py
+└── uv.lock
+    └── ... (11 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

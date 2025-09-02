@@ -1,0 +1,13 @@
+The critical error blocking test collection is:
+
+```
+ModuleNotFoundError: No module named 'Cython'
+```
+
+The pyFFTW build system requires Cython to compile the extension from the `.pyx` sources, but it is not installed.
+
+My next action is to install Cython using pip.
+
+```bash
+pip install Cython
+```

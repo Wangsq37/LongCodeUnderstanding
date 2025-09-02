@@ -1,0 +1,44 @@
+[
+  {
+    "command": "cat pyproject.toml",
+    "success": true,
+    "stdout": "[build-system]\nrequires = [\n    \"setuptools >= 48\",\n    \"wheel >= 0.29.0\",\n]\nbuild-backend = 'setuptools.build_meta'\n",
+    "stderr": "",
+    "execution_time": 0.001340627670288086
+  },
+  {
+    "command": "cat setup.py",
+    "success": true,
+    "stdout": "from setuptools import setup\n\nif __name__ == '__main__':\n    setup()\n",
+    "stderr": "",
+    "execution_time": 0.0011713504791259766
+  },
+  {
+    "command": "if [ -f requirements.txt ]; then cat requirements.txt; fi",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0006468296051025391
+  },
+  {
+    "command": "ls .github | grep environment",
+    "success": true,
+    "stdout": "environment-ci.yml\nenvironment-docs.yml\nenvironment-lint.yml\nenvironment-minimal.yml\n",
+    "stderr": "",
+    "execution_time": 0.0031135082244873047
+  },
+  {
+    "command": "pip install . || pip install -e . || pip install -r requirements.txt",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nProcessing /app/repo_to_process\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'done'\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nCollecting audioread>=2.1.9 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/57/8d/30aa32745af16af0a9a650115fbe81bde7c610ed5c21b381fca0196f3a7f/audioread-3.0.1-py3-none-any.whl (23 kB)\nCollecting numba>=0.51.0 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/e2/7d/bfb2805bcfbd479f04f835241ecf28519f6e3609912e3a985aed45e21370/numba-0.61.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.8 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 11.4 MB/s  0:00:00\nRequirement already satisfied: numpy>=1.22.3 in /usr/local/lib/python3.10/dist-packages (from librosa==0.11.0) (2.2.6)\nCollecting scipy>=1.6.0 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 14.0 MB/s  0:00:02\nCollecting scikit-learn>=1.1.0 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/fb/a4/e488acdece6d413f370a9589a7193dac79cd486b2e418d3276d6ea0b9305/scikit_learn-1.7.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.7 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 14.7 MB/s  0:00:00\nCollecting joblib>=1.0 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/7d/4f/1195bbac8e0c2acc5f740661631d8d750dc38d4a32b23ee5df3cde6f4e0d/joblib-1.5.1-py3-none-any.whl (307 kB)\nCollecting decorator>=4.3.0 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/4e/8c/f3147f5c4b73e7550fe5f9352eaa956ae838d5c51eb58e7a25b9f3e2643b/decorator-5.2.1-py3-none-any.whl (9.2 kB)\nCollecting soundfile>=0.12.1 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/57/5e/70bdd9579b35003a489fc850b5047beeda26328053ebadc1fb60f320f7db/soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 13.9 MB/s  0:00:00\nCollecting pooch>=1.1 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/a8/87/77cc11c7a9ea9fd05503def69e3d18605852cd0d4b0d3b8f15bbeb3ef1d1/pooch-1.8.2-py3-none-any.whl (64 kB)\nCollecting soxr>=0.3.2 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/ba/e6/059070b4cdb7fdd8ffbb67c5087c1da9716577127fb0540cd11dbf77923b/soxr-0.5.0.post1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (252 kB)\nRequirement already satisfied: typing_extensions>=4.1.1 in /usr/local/lib/python3.10/dist-packages (from librosa==0.11.0) (4.14.1)\nCollecting lazy_loader>=0.1 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/83/60/d497a310bde3f01cb805196ac61b7ad6dc5dcf8dce66634dc34364b20b4f/lazy_loader-0.4-py3-none-any.whl (12 kB)\nCollecting msgpack>=1.0 (from librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/20/8e/0bb8c977efecfe6ea7116e2ed73a78a8d32a947f94d272586cf02a9757db/msgpack-1.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (408 kB)\nRequirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from lazy_loader>=0.1->librosa==0.11.0) (25.0)\nCollecting llvmlite<0.45,>=0.44.0dev0 (from numba>=0.51.0->librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/aa/46/8ffbc114def88cc698906bf5acab54ca9fdf9214fe04aed0e71731fb3688/llvmlite-0.44.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (42.4 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.4/42.4 MB 13.8 MB/s  0:00:03\nCollecting platformdirs>=2.5.0 (from pooch>=1.1->librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/fe/39/979e8e21520d4e47a0bbe349e2713c0aac6f3d853d0e5b34d76206c439aa/platformdirs-4.3.8-py3-none-any.whl (18 kB)\nRequirement already satisfied: requests>=2.19.0 in /usr/local/lib/python3.10/dist-packages (from pooch>=1.1->librosa==0.11.0) (2.32.4)\nRequirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.19.0->pooch>=1.1->librosa==0.11.0) (3.4.2)\nRequirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.19.0->pooch>=1.1->librosa==0.11.0) (3.10)\nRequirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests>=2.19.0->pooch>=1.1->librosa==0.11.0) (2.5.0)\nRequirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests>=2.19.0->pooch>=1.1->librosa==0.11.0) (2025.8.3)\nCollecting threadpoolctl>=3.1.0 (from scikit-learn>=1.1.0->librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/32/d5/f9a850d79b0851d1d4ef6456097579a9005b31fea68726a4ae5f2d82ddd9/threadpoolctl-3.6.0-py3-none-any.whl (18 kB)\nCollecting cffi>=1.0 (from soundfile>=0.12.1->librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8d/fb/4da72871d177d63649ac449aec2e8a29efe0274035880c7af59101ca2232/cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (446 kB)\nCollecting pycparser (from cffi>=1.0->soundfile>=0.12.1->librosa==0.11.0)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/13/a3/a812df4e2dd5696d1f351d58b8fe16a405b234ad2886a0dab9183fb78109/pycparser-2.22-py3-none-any.whl (117 kB)\nBuilding wheels for collected packages: librosa\n  Building wheel for librosa (pyproject.toml): started\n  Building wheel for librosa (pyproject.toml): finished with status 'done'\n  Created wheel for librosa: filename=librosa-0.11.0-py3-none-any.whl size=262907 sha256=8d3ec4431ff5c618b3765b19644450578a972aea1d9c6069d772c19b251f2da5\n  Stored in directory: /tmp/pip-ephem-wheel-cache-1l9aq79o/wheels/a8/f2/cc/1e92c02a4656168a595624aed18c7a028fd983fe702bc050f2\nSuccessfully built librosa\nInstalling collected packages: threadpoolctl, soxr, scipy, pycparser, platformdirs, msgpack, llvmlite, lazy_loader, joblib, decorator, audioread, scikit-learn, pooch, numba, cffi, soundfile, librosa\n\nSuccessfully installed audioread-3.0.1 cffi-1.17.1 decorator-5.2.1 joblib-1.5.1 lazy_loader-0.4 librosa-0.11.0 llvmlite-0.44.0 msgpack-1.1.1 numba-0.61.2 platformdirs-4.3.8 pooch-1.8.2 pycparser-2.22 scikit-learn-1.7.1 scipy-1.15.3 soundfile-0.13.1 soxr-0.5.0.post1 threadpoolctl-3.6.0\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 21.722773551940918
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ERROR: usage: pytest [options] [file_or_dir] [file_or_dir] [...]\npytest: error: unrecognized arguments: --cov-report --cov librosa --cov-report=xml --mpl --mpl-baseline-path=tests/baseline_images/test_display\n  inifile: /app/repo_to_process/setup.cfg\n  rootdir: /app/repo_to_process\n\n",
+    "execution_time": 0.16106271743774414
+  }
+]

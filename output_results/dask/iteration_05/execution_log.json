@@ -1,0 +1,9 @@
+[
+  {
+    "command": "python -c \"import dask.tests\"",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.23504972457885742
+  }
+]

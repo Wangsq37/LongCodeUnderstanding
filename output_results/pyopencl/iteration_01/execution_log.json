@@ -1,0 +1,86 @@
+[
+  {
+    "command": "pip install -r requirements.txt || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'\n",
+    "execution_time": 0.6360833644866943
+  },
+  {
+    "command": "pip install .",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nProcessing /app/repo_to_process\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'done'\n  Installing backend dependencies: started\n  Installing backend dependencies: finished with status 'done'\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from pyopencl==2025.2.6) (2.2.6)\nCollecting platformdirs>=2.2 (from pyopencl==2025.2.6)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/fe/39/979e8e21520d4e47a0bbe349e2713c0aac6f3d853d0e5b34d76206c439aa/platformdirs-4.3.8-py3-none-any.whl (18 kB)\nCollecting pytools>=2025.1.6 (from pyopencl==2025.2.6)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/d4/ba/eec9ed3b8fa3437f18ee756eb1fe88a373628ba64a48890ca75921fe74c1/pytools-2025.2.2-py3-none-any.whl (98 kB)\nRequirement already satisfied: typing_extensions>=4.6 in /usr/local/lib/python3.10/dist-packages (from pyopencl==2025.2.6) (4.14.1)\nCollecting siphash24>=1.6 (from pytools>=2025.1.6->pyopencl==2025.2.6)\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/43/ee/b225619e0e6889ee3a71175a966ba5d1b84e4fe6cf7c85b5756fbbf3892a/siphash24-1.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (106 kB)\nBuilding wheels for collected packages: pyopencl\n  Building wheel for pyopencl (pyproject.toml): started\n  Building wheel for pyopencl (pyproject.toml): finished with status 'error'\nFailed to build pyopencl\n",
+    "stderr": "  error: subprocess-exited-with-error\n  \n  × Building wheel for pyopencl (pyproject.toml) did not run successfully.\n  │ exit code: 1\n  ╰─> [25 lines of output]\n      *** scikit-build-core 0.11.5 using CMake 4.0.3 (wheel)\n      *** Configuring CMake...\n      loading initial cache file /tmp/tmpj6qdjv9f/build/CMakeInit.txt\n      -- The CXX compiler identification is GNU 11.4.0\n      -- Detecting CXX compiler ABI info\n      -- Detecting CXX compiler ABI info - done\n      -- Check for working CXX compiler: /usr/bin/x86_64-linux-gnu-g++ - skipped\n      -- Detecting CXX compile features\n      -- Detecting CXX compile features - done\n      -- CL_INC_DIR not set, trying to guess it from environment variables.\n      -- CL_INC_DIR not set, trying to guess it from conda environment.\n      -- CL_INC_DIR\n      -- CL_LIB_DIR\n      -- CL_LIBNAME\n      CMake Error at /tmp/pip-build-env-y1w7p9oc/normal/local/lib/python3.10/dist-packages/cmake/data/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake:227 (message):\n        Could NOT find Python (missing: Interpreter Development.Module NumPy)\n      Call Stack (most recent call first):\n        /tmp/pip-build-env-y1w7p9oc/normal/local/lib/python3.10/dist-packages/cmake/data/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake:591 (_FPHSA_FAILURE_MESSAGE)\n        /tmp/pip-build-env-y1w7p9oc/normal/local/lib/python3.10/dist-packages/cmake/data/share/cmake-4.0/Modules/FindPython.cmake:712 (find_package_handle_standard_args)\n        CMakeLists.txt:133 (find_package)\n      \n      \n      -- Configuring incomplete, errors occurred!\n      \n      *** CMake configuration failed\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\n  ERROR: Failed building wheel for pyopencl\nerror: failed-wheel-build-for-install\n\n× Failed to build installable wheels for some pyproject.toml based projects\n╰─> pyopencl\n",
+    "execution_time": 11.365236520767212
+  },
+  {
+    "command": "pip install -e .",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nObtaining file:///app/repo_to_process\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Installing backend dependencies: started\n  Installing backend dependencies: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from pyopencl==2025.2.6) (2.2.6)\nCollecting platformdirs>=2.2 (from pyopencl==2025.2.6)\n  Using cached https://repo.huaweicloud.com/repository/pypi/packages/fe/39/979e8e21520d4e47a0bbe349e2713c0aac6f3d853d0e5b34d76206c439aa/platformdirs-4.3.8-py3-none-any.whl (18 kB)\nCollecting pytools>=2025.1.6 (from pyopencl==2025.2.6)\n  Using cached https://repo.huaweicloud.com/repository/pypi/packages/d4/ba/eec9ed3b8fa3437f18ee756eb1fe88a373628ba64a48890ca75921fe74c1/pytools-2025.2.2-py3-none-any.whl (98 kB)\nRequirement already satisfied: typing_extensions>=4.6 in /usr/local/lib/python3.10/dist-packages (from pyopencl==2025.2.6) (4.14.1)\nCollecting siphash24>=1.6 (from pytools>=2025.1.6->pyopencl==2025.2.6)\n  Using cached https://repo.huaweicloud.com/repository/pypi/packages/43/ee/b225619e0e6889ee3a71175a966ba5d1b84e4fe6cf7c85b5756fbbf3892a/siphash24-1.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (106 kB)\nBuilding wheels for collected packages: pyopencl\n  Building editable for pyopencl (pyproject.toml): started\n  Building editable for pyopencl (pyproject.toml): finished with status 'error'\nFailed to build pyopencl\n",
+    "stderr": "  error: subprocess-exited-with-error\n  \n  × Building editable for pyopencl (pyproject.toml) did not run successfully.\n  │ exit code: 1\n  ╰─> [25 lines of output]\n      *** scikit-build-core 0.11.5 using CMake 4.0.3 (editable)\n      *** Configuring CMake...\n      loading initial cache file /tmp/tmp5m8j9shn/build/CMakeInit.txt\n      -- The CXX compiler identification is GNU 11.4.0\n      -- Detecting CXX compiler ABI info\n      -- Detecting CXX compiler ABI info - done\n      -- Check for working CXX compiler: /usr/bin/x86_64-linux-gnu-g++ - skipped\n      -- Detecting CXX compile features\n      -- Detecting CXX compile features - done\n      -- CL_INC_DIR not set, trying to guess it from environment variables.\n      -- CL_INC_DIR not set, trying to guess it from conda environment.\n      -- CL_INC_DIR\n      -- CL_LIB_DIR\n      -- CL_LIBNAME\n      CMake Error at /tmp/pip-build-env-81gaihdi/normal/local/lib/python3.10/dist-packages/cmake/data/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake:227 (message):\n        Could NOT find Python (missing: Interpreter Development.Module NumPy)\n      Call Stack (most recent call first):\n        /tmp/pip-build-env-81gaihdi/normal/local/lib/python3.10/dist-packages/cmake/data/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake:591 (_FPHSA_FAILURE_MESSAGE)\n        /tmp/pip-build-env-81gaihdi/normal/local/lib/python3.10/dist-packages/cmake/data/share/cmake-4.0/Modules/FindPython.cmake:712 (find_package_handle_standard_args)\n        CMakeLists.txt:133 (find_package)\n      \n      \n      -- Configuring incomplete, errors occurred!\n      \n      *** CMake configuration failed\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\n  ERROR: Failed building editable for pyopencl\nerror: failed-wheel-build-for-install\n\n× Failed to build installable wheels for some pyproject.toml based projects\n╰─> pyopencl\n",
+    "execution_time": 7.724395275115967
+  },
+  {
+    "command": "pip install -r doc/conf.py || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Invalid requirement: 'from urllib.request import urlopen': Expected end or semicolon (after name and no valid version specifier)\n    from urllib.request import urlopen\n         ^ (from line 1 of doc/conf.py)\n",
+    "execution_time": 0.34372639656066895
+  },
+  {
+    "command": "pip install -r test/test_algorithm.py || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Invalid requirement: '__copyright__ = \"Copyright (C) 2013 Andreas Kloeckner\"': Expected package name at the start of dependency specifier\n    __copyright__ = \"Copyright (C) 2013 Andreas Kloeckner\"\n    ^ (from line 1 of test/test_algorithm.py)\nHint: = is not a valid operator. Did you mean == ?\n",
+    "execution_time": 0.34848880767822266
+  },
+  {
+    "command": "pip install -r test/test_array.py || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Invalid requirement: '__copyright__ = \"Copyright (C) 2009 Andreas Kloeckner\"': Expected package name at the start of dependency specifier\n    __copyright__ = \"Copyright (C) 2009 Andreas Kloeckner\"\n    ^ (from line 3 of test/test_array.py)\nHint: = is not a valid operator. Did you mean == ?\n",
+    "execution_time": 0.3329308032989502
+  },
+  {
+    "command": "pip install -r test/test_arrays_in_structs.py || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Invalid requirement: '__copyright__ = \"Copyright (C) 2020 Sotiris Niarchos\"': Expected package name at the start of dependency specifier\n    __copyright__ = \"Copyright (C) 2020 Sotiris Niarchos\"\n    ^ (from line 1 of test/test_arrays_in_structs.py)\nHint: = is not a valid operator. Did you mean == ?\n",
+    "execution_time": 0.3444051742553711
+  },
+  {
+    "command": "pip install -r test/test_clmath.py || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Invalid requirement: '__copyright__ = \"Copyright (C) 2009 Andreas Kloeckner\"': Expected package name at the start of dependency specifier\n    __copyright__ = \"Copyright (C) 2009 Andreas Kloeckner\"\n    ^ (from line 1 of test/test_clmath.py)\nHint: = is not a valid operator. Did you mean == ?\n",
+    "execution_time": 0.352461576461792
+  },
+  {
+    "command": "pip install -r test/test_clrandom.py || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Invalid requirement: '__copyright__ = \"Copyright (C) 2018 Matt Wala\"': Expected package name at the start of dependency specifier\n    __copyright__ = \"Copyright (C) 2018 Matt Wala\"\n    ^ (from line 1 of test/test_clrandom.py)\nHint: = is not a valid operator. Did you mean == ?\n",
+    "execution_time": 0.33897876739501953
+  },
+  {
+    "command": "pip install -r test/test_enqueue_copy.py || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Invalid requirement: '__copyright__ = \"Copyright (C) 2016 Shane J. Latham\"': Expected package name at the start of dependency specifier\n    __copyright__ = \"Copyright (C) 2016 Shane J. Latham\"\n    ^ (from line 3 of test/test_enqueue_copy.py)\nHint: = is not a valid operator. Did you mean == ?\n",
+    "execution_time": 0.3553013801574707
+  },
+  {
+    "command": "pip install -r test/test_wrapper.py || true",
+    "success": true,
+    "stdout": "",
+    "stderr": "ERROR: Invalid requirement: '__copyright__ = \"Copyright (C) 2009 Andreas Kloeckner\"': Expected package name at the start of dependency specifier\n    __copyright__ = \"Copyright (C) 2009 Andreas Kloeckner\"\n    ^ (from line 1 of test/test_wrapper.py)\nHint: = is not a valid operator. Did you mean == ?\n",
+    "execution_time": 0.35918664932250977
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\nconfigfile: pyproject.toml\ncollected 0 items / 7 errors\n\n==================================== ERRORS ====================================\n___________________ ERROR collecting test/test_algorithm.py ____________________\nImportError while importing test module '/app/repo_to_process/test/test_algorithm.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntest/test_algorithm.py:28: in <module>\n    from test_array import general_clrand\ntest/test_array.py:34: in <module>\n    import pyopencl as cl\nE   ModuleNotFoundError: No module named 'pyopencl'\n_____________________ ERROR collecting test/test_array.py ______________________\nImportError while importing test module '/app/repo_to_process/test/test_array.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntest/test_array.py:34: in <module>\n    import pyopencl as cl\nE   ModuleNotFoundError: No module named 'pyopencl'\n_______________ ERROR collecting test/test_arrays_in_structs.py ________________\nImportError while importing test module '/app/repo_to_process/test/test_arrays_in_structs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntest/test_arrays_in_structs.py:25: in <module>\n    import pyopencl as cl\nE   ModuleNotFoundError: No module named 'pyopencl'\n_____________________ ERROR collecting test/test_clmath.py _____________________\nImportError while importing test module '/app/repo_to_process/test/test_clmath.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntest/test_clmath.py:28: in <module>\n    import pyopencl as cl\nE   ModuleNotFoundError: No module named 'pyopencl'\n____________________ ERROR collecting test/test_clrandom.py ____________________\nImportError while importing test module '/app/repo_to_process/test/test_clrandom.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntest/test_clrandom.py:26: in <module>\n    import pyopencl as cl\nE   ModuleNotFoundError: No module named 'pyopencl'\n__________________ ERROR collecting test/test_enqueue_copy.py __________________\nImportError while importing test module '/app/repo_to_process/test/test_enqueue_copy.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntest/test_enqueue_copy.py:28: in <module>\n    import pyopencl as cl\nE   ModuleNotFoundError: No module named 'pyopencl'\n____________________ ERROR collecting test/test_wrapper.py _____________________\nImportError while importing test module '/app/repo_to_process/test/test_wrapper.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntest/test_wrapper.py:27: in <module>\n    import pyopencl as cl\nE   ModuleNotFoundError: No module named 'pyopencl'\n=========================== short test summary info ============================\nERROR test/test_algorithm.py\nERROR test/test_array.py\nERROR test/test_arrays_in_structs.py\nERROR test/test_clmath.py\nERROR test/test_clrandom.py\nERROR test/test_enqueue_copy.py\nERROR test/test_wrapper.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 7 errors in 0.60s ===============================\n",
+    "stderr": "",
+    "execution_time": 0.7994985580444336
+  }
+]

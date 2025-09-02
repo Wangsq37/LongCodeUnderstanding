@@ -1,0 +1,15 @@
+Pytest successfully collected 14882 items, but there were 4 errors due to "Unknown pytest.mark.flaky". This means the tests use a custom `flaky` mark, but the required plugin is not installed.
+
+You need to install the `pytest-rerunfailures` plugin, which provides the `flaky` mark.
+
+```bash
+pip install pytest-rerunfailures
+```
+
+Then, rerun:
+
+```bash
+PYTHONPATH=. pytest dask
+```
+
+If collection errors persist, share only the new error output. If collection is successful and errors disappear, Phase 1 is complete.

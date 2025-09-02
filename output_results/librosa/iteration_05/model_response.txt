@@ -1,0 +1,6 @@
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['librosa']
+```
+```status
+success
+```

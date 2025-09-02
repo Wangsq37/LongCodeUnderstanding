@@ -1,0 +1,11 @@
+The true main source code directory is most likely `src`, not `test-suite` (which is probably inputs for tests, not Python code).
+
+Let's update the tracing to use `src`, then rerun pytest:
+
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['src']
+```
+
+```bash
+pytest
+```

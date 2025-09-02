@@ -1,0 +1,550 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .buildkite/
+│   ├── hooks/
+│   │   └── pre-command
+│   ├── steps/
+│   │   ├── check-copyright-headers.sh
+│   │   ├── conda-build.sh
+│   │   ├── script.sh
+│   │   ├── test-demo-notebooks.sh
+│   │   ├── test-documentation.sh
+│   │   ├── test-neo4j-notebooks.sh
+│   │   └── test-single-notebook.sh
+│   │       └── ... (2 more files)
+│   ├── docker-compose.yml
+│   ├── notebook-parameters.yml
+│   └── pipeline.yml
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── new_feature.md
+│   ├── workflows/
+│   │   └── ci.yml
+│   └── issue_template.md
+├── demos/
+│   ├── basics/
+│   │   ├── loading-networkx.ipynb
+│   │   ├── loading-numpy.ipynb
+│   │   ├── loading-pandas.ipynb
+│   │   ├── loading-saving-neo4j.ipynb
+│   │   └── README.md
+│   ├── calibration/
+│   │   ├── calibration-link-prediction.ipynb
+│   │   ├── calibration-node-classification.ipynb
+│   │   └── README.md
+│   ├── community_detection/
+│   │   ├── attacks_clustering_analysis.ipynb
+│   │   ├── README.md
+│   │   └── utils.py
+│   ├── connector/
+│   │   └── neo4j/
+│   │       ├── cluster-gcn-on-cora-neo4j-example.ipynb
+│   │       ├── directed-graphsage-on-cora-neo4j-example.ipynb
+│   │       ├── load-cora-into-neo4j.ipynb
+│   │       ├── README.md
+│   │       └── undirected-graphsage-on-cora-neo4j-example.ipynb
+│   ├── embeddings/
+│   │   ├── attri2vec-embeddings.ipynb
+│   │   ├── attri2vec-illustration.png
+│   │   ├── deep-graph-infomax-embeddings.ipynb
+│   │   ├── gcn-unsupervised-graph-embeddings.ipynb
+│   │   ├── graphsage-unsupervised-sampler-embeddings.ipynb
+│   │   ├── graphwave-embeddings.ipynb
+│   │   ├── keras-node2vec-embeddings.ipynb
+│   │   ├── metapath2vec-embeddings.ipynb
+│   │   ├── node2vec-embeddings.ipynb
+│   │   ├── README.md
+│   │   ├── watch-your-step-embeddings.ipynb
+│   │   └── word2vec-illustration.png
+│   │       └── ... (7 more files)
+│   ├── ensembles/
+│   │   ├── ensemble-link-prediction-example.ipynb
+│   │   ├── ensemble-node-classification-example.ipynb
+│   │   └── README.md
+│   ├── graph-classification/
+│   │   ├── dgcnn-graph-classification.ipynb
+│   │   ├── dgcnn_architecture.png
+│   │   ├── gcn-supervised-graph-classification.ipynb
+│   │   ├── graph_classification_architecture.png
+│   │   └── README.md
+│   ├── interpretability/
+│   │   ├── gat-node-link-importance.ipynb
+│   │   ├── gcn-node-link-importance.ipynb
+│   │   ├── gcn-sparse-node-link-importance.ipynb
+│   │   ├── hateful-twitters-interpretability.ipynb
+│   │   └── README.md
+│   ├── link-prediction/
+│   │   ├── attri2vec-link-prediction.ipynb
+│   │   ├── complex-link-prediction.ipynb
+│   │   ├── ctdne-link-prediction.ipynb
+│   │   ├── distmult-link-prediction.ipynb
+│   │   ├── gcn-link-prediction.ipynb
+│   │   ├── graphsage-link-prediction.ipynb
+│   │   ├── hinsage-link-prediction.ipynb
+│   │   ├── homogeneous-comparison-link-prediction.ipynb
+│   │   ├── metapath2vec-link-prediction.ipynb
+│   │   ├── node2vec-link-prediction.ipynb
+│   │   └── README.md
+│   │       └── ... (6 more files)
+│   ├── node-classification/
+│   │   ├── gcn/
+│   │   │   └── gcn-cora-node-classification-example.ipynb
+│   │   ├── attri2vec-illustration.png
+│   │   ├── attri2vec-node-classification.ipynb
+│   │   ├── cluster-gcn-node-classification.ipynb
+│   │   ├── Cora-features.png
+│   │   ├── directed-graphsage-node-classification.ipynb
+│   │   ├── gat-node-classification.ipynb
+│   │   ├── gcn-deep-graph-infomax-fine-tuning-node-classification.ipynb
+│   │   ├── gcn-node-classification.ipynb
+│   │   ├── graphsage-inductive-node-classification.ipynb
+│   │   ├── graphsage-node-classification.ipynb
+│   │   ├── keras-node2vec-node-classification.ipynb
+│   │   ├── node2vec-node-classification.ipynb
+│   │   ├── node2vec-weighted-node-classification.ipynb
+│   │   ├── ppnp-node-classification.ipynb
+│   │   ├── README.md
+│   │   ├── rgcn-node-classification.ipynb
+│   │   ├── sgc-node-classification.ipynb
+│   │   └── word2vec-illustration.png
+│   │       └── ... (13 more files)
+│   ├── time-series/
+│   │   ├── gcn-lstm-time-series.ipynb
+│   │   └── README.md
+│   ├── use-cases/
+│   │   └── hateful-twitters.ipynb
+│   ├── zzz-internal-developers/
+│   │   ├── graph-resource-usage.ipynb
+│   │   └── README.md
+│   └── README.md
+├── docker/
+│   ├── stellargraph/
+│   │   ├── build.sh
+│   │   └── Dockerfile
+│   ├── stellargraph-ci-runner/
+│   │   ├── Dockerfile
+│   │   └── install-packages.sh
+│   ├── stellargraph-neo4j/
+│   │   ├── build.sh
+│   │   ├── Dockerfile
+│   │   ├── install-lib.sh
+│   │   └── README.md
+│   └── stellargraph-treon/
+│       ├── build.sh
+│       └── Dockerfile
+├── docs/
+│   ├── _static/
+│   │   └── custom.css
+│   ├── _templates/
+│   │   └── layout.html
+│   ├── demos/
+│   │   ├── basics/
+│   │   │   ├── index.rst
+│   │   │   ├── loading-networkx.nblink
+│   │   │   ├── loading-numpy.nblink
+│   │   │   ├── loading-pandas.nblink
+│   │   │   └── loading-saving-neo4j.nblink
+│   │   ├── calibration/
+│   │   │   ├── calibration-link-prediction.nblink
+│   │   │   ├── calibration-node-classification.nblink
+│   │   │   └── index.rst
+│   │   ├── community_detection/
+│   │   │   ├── attacks_clustering_analysis.nblink
+│   │   │   └── index.rst
+│   │   ├── connector/
+│   │   │   ├── neo4j/
+│   │   │   └── index.rst
+│   │   ├── embeddings/
+│   │   │   ├── attri2vec-embeddings.nblink
+│   │   │   ├── attri2vec-illustration.png
+│   │   │   ├── deep-graph-infomax-embeddings.nblink
+│   │   │   ├── gcn-unsupervised-graph-embeddings.nblink
+│   │   │   ├── graphsage-unsupervised-sampler-embeddings.nblink
+│   │   │   ├── graphwave-embeddings.nblink
+│   │   │   ├── index.rst
+│   │   │   ├── keras-node2vec-embeddings.nblink
+│   │   │   ├── metapath2vec-embeddings.nblink
+│   │   │   ├── node2vec-embeddings.nblink
+│   │   │   ├── watch-your-step-embeddings.nblink
+│   │   │   └── word2vec-illustration.png
+│   │   │       └── ... (7 more files)
+│   │   ├── ensembles/
+│   │   │   ├── ensemble-link-prediction-example.nblink
+│   │   │   ├── ensemble-node-classification-example.nblink
+│   │   │   └── index.rst
+│   │   ├── graph-classification/
+│   │   │   ├── dgcnn-graph-classification.nblink
+│   │   │   ├── dgcnn_architecture.png
+│   │   │   ├── gcn-supervised-graph-classification.nblink
+│   │   │   ├── graph_classification_architecture.png
+│   │   │   └── index.rst
+│   │   ├── interpretability/
+│   │   │   ├── gat-node-link-importance.nblink
+│   │   │   ├── gcn-node-link-importance.nblink
+│   │   │   ├── gcn-sparse-node-link-importance.nblink
+│   │   │   ├── hateful-twitters-interpretability.nblink
+│   │   │   └── index.rst
+│   │   ├── link-prediction/
+│   │   │   ├── attri2vec-link-prediction.nblink
+│   │   │   ├── complex-link-prediction.nblink
+│   │   │   ├── ctdne-link-prediction.nblink
+│   │   │   ├── distmult-link-prediction.nblink
+│   │   │   ├── gcn-link-prediction.nblink
+│   │   │   ├── graphsage-link-prediction.nblink
+│   │   │   ├── hinsage-link-prediction.nblink
+│   │   │   ├── homogeneous-comparison-link-prediction.nblink
+│   │   │   ├── index.rst
+│   │   │   ├── metapath2vec-link-prediction.nblink
+│   │   │   └── node2vec-link-prediction.nblink
+│   │   │       └── ... (6 more files)
+│   │   ├── node-classification/
+│   │   │   ├── attri2vec-illustration.png
+│   │   │   ├── attri2vec-node-classification.nblink
+│   │   │   ├── cluster-gcn-node-classification.nblink
+│   │   │   ├── Cora-features.png
+│   │   │   ├── directed-graphsage-node-classification.nblink
+│   │   │   ├── gat-node-classification.nblink
+│   │   │   ├── gcn-deep-graph-infomax-fine-tuning-node-classification.nblink
+│   │   │   ├── gcn-node-classification.nblink
+│   │   │   ├── graphsage-inductive-node-classification.nblink
+│   │   │   ├── graphsage-node-classification.nblink
+│   │   │   ├── index.rst
+│   │   │   ├── keras-node2vec-node-classification.nblink
+│   │   │   ├── node2vec-node-classification.nblink
+│   │   │   ├── node2vec-weighted-node-classification.nblink
+│   │   │   ├── ppnp-node-classification.nblink
+│   │   │   ├── rgcn-node-classification.nblink
+│   │   │   ├── sgc-node-classification.nblink
+│   │   │   └── word2vec-illustration.png
+│   │   │       └── ... (13 more files)
+│   │   ├── time-series/
+│   │   │   ├── gcn-lstm-time-series.nblink
+│   │   │   └── index.rst
+│   │   ├── use-cases/
+│   │   │   ├── hateful-twitters.nblink
+│   │   │   └── index.rst
+│   │   ├── zzz-internal-developers/
+│   │   │   ├── graph-resource-usage.nblink
+│   │   │   └── index.rst
+│   │   └── index.rst
+│   ├── images/
+│   │   └── hinsage-tree.png
+│   ├── 404.rst
+│   ├── api.rst
+│   ├── banner.png
+│   ├── conf.py
+│   ├── glossary.rst
+│   ├── hinsage.rst
+│   ├── index.rst
+│   ├── Makefile
+│   ├── README.md
+│   ├── requirements.txt
+│   └── spelling_wordlist.txt
+│       └── ... (6 more files)
+├── scripts/
+│   ├── ci/
+│   │   ├── actions-docker-compose.yml
+│   │   ├── check-copyright-headers.sh
+│   │   ├── format-dockerfiles.sh
+│   │   ├── junit_to_github_checks.py
+│   │   ├── run_notebook.sh
+│   │   └── validate_ci_workflow.py
+│   │       └── ... (1 more files)
+│   ├── create-nbsphinx-links.sh
+│   ├── demo_indexing.py
+│   ├── format_notebooks.py
+│   ├── notebook_text_checker.py
+│   ├── README.md
+│   ├── test_demos.py
+│   └── whitespace.sh
+│       └── ... (2 more files)
+├── stellargraph/
+│   ├── connector/
+│   │   ├── neo4j/
+│   │   │   ├── __init__.py
+│   │   │   ├── graph.py
+│   │   │   ├── mapper.py
+│   │   │   └── sampler.py
+│   │   └── __init__.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── convert.py
+│   │   ├── element_data.py
+│   │   ├── experimental.py
+│   │   ├── graph.py
+│   │   ├── indexed_array.py
+│   │   ├── schema.py
+│   │   ├── utils.py
+│   │   └── validation.py
+│   │       └── ... (4 more files)
+│   ├── data/
+│   │   ├── __init__.py
+│   │   ├── converter.py
+│   │   ├── edge_splitter.py
+│   │   ├── epgm.py
+│   │   ├── explorer.py
+│   │   ├── loader.py
+│   │   ├── node_splitter.py
+│   │   └── unsupervised_sampler.py
+│   │       └── ... (3 more files)
+│   ├── datasets/
+│   │   ├── __init__.py
+│   │   ├── dataset_loader.py
+│   │   └── datasets.py
+│   ├── interpretability/
+│   │   ├── saliency_maps/
+│   │   │   ├── __init__.py
+│   │   │   ├── integrated_gradients.py
+│   │   │   ├── integrated_gradients_gat.py
+│   │   │   └── saliency_gat.py
+│   │   └── __init__.py
+│   ├── layer/
+│   │   ├── __init__.py
+│   │   ├── appnp.py
+│   │   ├── attri2vec.py
+│   │   ├── cluster_gcn.py
+│   │   ├── deep_graph_infomax.py
+│   │   ├── gcn.py
+│   │   ├── gcn_lstm.py
+│   │   ├── graph_attention.py
+│   │   ├── graph_classification.py
+│   │   ├── graphsage.py
+│   │   ├── hinsage.py
+│   │   ├── knowledge_graph.py
+│   │   ├── link_inference.py
+│   │   ├── misc.py
+│   │   ├── node2vec.py
+│   │   ├── ppnp.py
+│   │   ├── preprocessing_layer.py
+│   │   ├── rgcn.py
+│   │   ├── sort_pooling.py
+│   │   └── watch_your_step.py
+│   │       └── ... (15 more files)
+│   ├── mapper/
+│   │   ├── __init__.py
+│   │   ├── adjacency_generators.py
+│   │   ├── base.py
+│   │   ├── corrupted.py
+│   │   ├── full_batch_generators.py
+│   │   ├── graphwave_generator.py
+│   │   ├── knowledge_graph.py
+│   │   ├── mini_batch_node_generators.py
+│   │   ├── padded_graph_generator.py
+│   │   ├── sampled_link_generators.py
+│   │   ├── sampled_node_generators.py
+│   │   ├── sequences.py
+│   │   └── sliding.py
+│   │       └── ... (8 more files)
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── history.py
+│   │   ├── hyperbolic.py
+│   │   └── version_validation.py
+│   ├── __init__.py
+│   ├── calibration.py
+│   ├── ensemble.py
+│   ├── globalvar.py
+│   ├── losses.py
+│   ├── random.py
+│  
+... (113 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install networkx scipy ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting networkx
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b9/54/dd730b32ea14ea797530a4479b2ed46a6fb250f682a9cfb997e968bf0261/networkx-3.4.2-py3-none-any.whl (1.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 4.2 MB/s  0:00:00
+Collecting scipy
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 6.0 MB/s  0:00:06
+Requirement already satisfied: numpy<2.5,>=1.23.5 in /usr/local/lib/python3.10/dist-packages (from scipy) (2.2.6)
+Installing collected packages: scipy, networkx
+
+Successfully installed networkx-3.4.2 scipy-1.15.3
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pytest.ini
+collected 34 items / 55 errors
+
+==================================== ERRORS ====================================
+_________________ ERROR collecting tests/core/test_convert.py __________________
+ImportError while importing test module '/app/repo_to_process/tests/core/test_convert.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/core/test_convert.py:22: in <module>
+    from stellargraph.core.convert import (
+stellargraph/__init__.py:39: in <module>
+    from stellargraph import (
+stellargraph/calibration.py:29: in <module>
+    import matplotlib.pyplot as plt
+E   ModuleNotFoundError: No module named 'matplotlib'
+__________________ ERROR collecting tests/core/test_graph.py ___________________
+ImportError while importing test module '/app/repo_to_process/tests/core/test_graph.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/core/test_graph.py:25: in <module>
+    from ..test_utils.alloc import snapshot, peak, allocation_benchmark
+tests/test_utils/__init__.py:19: in <module>
+    import tensorflow as tf
+E   ModuleNotFoundError: No module named 'tensorflow'
+______________ ERROR collecting tests/core/test_indexed_array.py _______________
+ImportError while importing test module '/app/repo_to_process/tests/core/test_indexed_array.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/core/test_indexed_array.py:20: in <module>
+    from stellargraph import IndexedArray
+stellargraph/__init__.py:39: in <module>
+    from stellargraph import (
+stellargraph/calibration.py:29: in <module>
+    import matplotlib.pyplot as plt
+E   ModuleNotFoundError: No module named 'matplotlib'
+__________________ ERROR collecting tests/core/test_utils.py ___________________
+ImportError while importing test module '/app/repo_to_process/tests/core/test_utils.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/core/test_utils.py:26: in <module>
+    from ..test_utils import flaky_xfail_mark
+tests/test_utils/__init__.py:19: in <module>
+    import tensorflow as tf
+E   ModuleNotFoundError: No module named 'tensorflow'
+___________ ERROR collecting tests/data/test_biased_random_walker.py ___________
+ImportError while importing test module '/app/repo_to_process/tests/data/test_biased_random_walker.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/data/test_biased_random_walker.py:23: in <module>
+    from ..test_utils.graphs import create_test_graph, example_graph_random
+tests/test_utils/__init__.py:19: in <module>
+    import tensorflow as tf
+E   ModuleNotFoundError: No module named 'tensorflow'
+___________ ERROR collecting tests/data/test_breadth_first_walker.py ___________
+ImportError while importing test module '/app/repo_to_process/tests/data/test_breadth_first_walker.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/data/test_breadth_first_walker.py:22: in <module>
+    from ..test_utils.graphs import (
+tests/test_utils/__init__.py:19: in <module>
+    import tensorflow as tf
+E   ModuleNotFoundError: No module named 'tensorflow'
+______ ERROR collecting tests/data/test_directed_breadth_first_sampler.py ______
+ImportError while importing test module '/app/repo_to_process/tests/data/test_directed_breadth_first_sampler.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/data/test_directed_breadth_first_sampler.py:23: in <module>
+    from ..test_utils.graphs import (
+tests/test_utils/__init__.py:19: in <module>
+    import tensorflow as tf
+E   ModuleNotFoundError: No module named 'tensorflow'
+______________ ERROR collecting tests/data/test_edge_splitter.py _______________
+ImportError while importing test module '/app/repo_to_process/tests/data/test_edge_splitter.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/data/test_edge_splitter.py:21: in <module>
+    from stellargraph import StellarGraph
+stellargraph/__init__.py:39: in <module>
+    from stellargraph import (
+stellargraph/calibration.py:29: in <module>
+    import matplotlib.pyplot as plt
+E   ModuleNotFoundError: No module named 'matplotlib'
+____ ERROR collecting tests/data/test_heterogeneous_breadth_first_walker.py ____
+ImportError while importing test module '/app/repo_to_process/tests/data/test_heterogeneous_breadth_first_walker.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/data/test_heterogeneous_breadth_first_walker.py:22: in <module>
+    from ..test_utils.graphs import example_graph_random
+tests/test_utils/__init__.py:19: in <module>
+    import tensorflow as tf
+E   ModuleNotFoundError: No module named 'tensorflow'
+_____________ ERROR collecting tests/data/test_metapath_walker.py ______________
+ImportError while importing test module '/app/repo_to_process/tests/data/test_metapath_walker.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/data/test_metapath_walker.py:22: in <module>
+    from ..test_utils.graphs import example_graph_random
+tests/test_utils/__init__.py:19: in <module>
+    import tensorflow as tf
+E   ModuleNotFoundError: No module named 'tensorflow'
+__________ ERROR collecting tests/data/test_uniform_random_walker.py ___________
+ImportError while importing test module '/app/repo_to_process/tests/data/test_uniform_random_walker.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/data/test_uniform_random_walker.py:20: in <module>
+    from ..test_utils.graphs import create_test_graph, example_graph_random
+tests/test_utils/__init__.py:19: in <module>
+    import tensorflow as tf
+E   ModuleNotFoundError: No module named 'tensorflow'
+___________ ERROR collecting tests/data/test_unsupervised_sampler.py ___________
+ImportError while importing test module '/app/repo_to_process/tests/data/test_unsupervised_sampler.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/data/test_unsupervised_sampler.py:23: in <module>
+    from ..test_utils.graphs import line_graph
+tests/test_utils/__init__.py:19: in <module>
+    import tensorflow as tf
+E   ModuleNotFoundError: No module named 'tensorflow'
+_______________ ERROR collecting tests/datasets/test_datasets.py _______________
+ImportError while importing test module '/app/repo_to_process/tests/datasets/test_datasets.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/datasets/test_datasets.py:22: in <module>
+    from stellargraph.datasets import *
+stellargraph/__init__.py:39: in <module>
+    from stellargraph import (
+stellargraph/calibration.py:29: in <module>
+    import matplotlib.pyplot as plt
+E   ModuleNotFoundError: No module named 'matplotlib'
+
+... (558 lines omitted)
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

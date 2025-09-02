@@ -1,0 +1,294 @@
+## Current Project Structure
+```
+repo_to_process/
+├── Doc/
+│   ├── BSP_Tutorial.pdf
+│   └── CHANGELOG
+├── epydoc/
+│   ├── make_html.conf
+│   └── make_pdf.conf
+├── Examples/
+│   ├── BSP/
+│   │   ├── example1.py
+│   │   ├── example1_array.py
+│   │   ├── example2.py
+│   │   ├── example3.py
+│   │   └── example4.py
+│   ├── demomodule.c
+│   ├── master.py
+│   ├── master_slave_demo.py
+│   ├── mpi.py
+│   ├── netcdf_demo.py
+│   ├── README
+│   └── slave.py
+│       └── ... (2 more files)
+├── Include/
+│   ├── Scientific/
+│   │   ├── arrayobject.h
+│   │   ├── bspmodule.h
+│   │   ├── mpimodule.h
+│   │   ├── netcdfmodule.h
+│   │   ├── PyBSP_API.h
+│   │   └── PyMPI_API.h
+│   │       └── ... (1 more files)
+│   └── scientific_netcdfmodule.h
+├── Scientific/
+│   ├── BSP/
+│   │   ├── __init__.py
+│   │   ├── Console.py
+│   │   ├── core.py
+│   │   ├── IO.py
+│   │   └── Tasks.py
+│   ├── Clustering/
+│   │   ├── __init__.py
+│   │   └── AffinityPropagation.py
+│   ├── DistributedComputing/
+│   │   ├── __init__.py
+│   │   ├── MasterSlave.py
+│   │   └── TaskManager.py
+│   ├── Functions/
+│   │   ├── __init__.py
+│   │   ├── Derivatives.py
+│   │   ├── FindRoot.py
+│   │   ├── FirstDerivatives.py
+│   │   ├── Interpolation.py
+│   │   ├── LeastSquares.py
+│   │   ├── Polynomial.py
+│   │   ├── Rational.py
+│   │   └── Romberg.py
+│   │       └── ... (4 more files)
+│   ├── Geometry/
+│   │   ├── __init__.py
+│   │   ├── Objects3D.py
+│   │   ├── Quaternion.py
+│   │   ├── TensorAnalysis.py
+│   │   ├── TensorModule.py
+│   │   ├── Transformation.py
+│   │   └── VectorModule.py
+│   │       └── ... (2 more files)
+│   ├── IO/
+│   │   ├── __init__.py
+│   │   ├── ArrayIO.py
+│   │   ├── FortranFormat.py
+│   │   ├── NetCDF.py
+│   │   ├── PDB.py
+│   │   ├── PDBExportFilters.py
+│   │   ├── PDBSpaceGroups.py
+│   │   └── TextFile.py
+│   │       └── ... (3 more files)
+│   ├── MPI/
+│   │   ├── __init__.py
+│   │   ├── core.py
+│   │   └── IO.py
+│   ├── Physics/
+│   │   ├── __init__.py
+│   │   ├── PhysicalQuantities.py
+│   │   └── Potential.py
+│   ├── QtWidgets/
+│   │   ├── __init__.py
+│   │   ├── qt_fake.py
+│   │   ├── QtPlotCanvas.py
+│   │   └── QtVisualizationCanvas.py
+│   ├── Signals/
+│   │   ├── __init__.py
+│   │   └── Models.py
+│   ├── Statistics/
+│   │   ├── __init__.py
+│   │   └── Histogram.py
+│   ├── Threading/
+│   │   ├── __init__.py
+│   │   └── TaskManager.py
+│   ├── TkWidgets/
+│   │   ├── __init__.py
+│   │   ├── TkPlotCanvas.py
+│   │   ├── TkVisualizationCanvas.py
+│   │   └── Utility.py
+│   ├── Visualization/
+│   │   ├── __init__.py
+│   │   ├── Chimera.py
+│   │   ├── Color.py
+│   │   ├── PyMOL.py
+│   │   ├── VMD.py
+│   │   ├── VPython.py
+│   │   ├── VRML.py
+│   │   └── VRML2.py
+│   │       └── ... (3 more files)
+│   ├── .gitignore
+│   ├── __init__.py
+│   ├── __pkginfo__.py
+│   ├── _affinitypropagation.pyx
+│   ├── _interpolation.pyx
+│   ├── _netcdf.c
+│   ├── _vector.pyx
+│   ├── DictWithDefault.py
+│   ├── FFT.py
+│   ├── indexing.py
+│   ├── LA.py
+│   ├── Mathematica.py
+│   ├── N.py
+│   ├── NRNG.py
+│   └── NumberDict.py
+│       └── ... (10 more files)
+├── Src/
+│   ├── BSPlib/
+│   │   ├── bsppython.c
+│   │   ├── compile_bsponmpi.py
+│   │   ├── compile_oxford_toolset.py
+│   │   ├── ibsppython
+│   │   ├── Scientific_bsplib.c
+│   │   └── Scientific_bsplib.export
+│   │       └── ... (1 more files)
+│   └── MPI/
+│       ├── compile.py
+│       ├── impipython
+│       ├── mpipython.c
+│       ├── Scientific_mpi.c
+│       └── Scientific_mpi.export
+├── tests/
+│   ├── test_clustering.py
+│   ├── test_intepolation.py
+│   ├── test_signal.py
+│   └── test_vector.py
+├── Tools/
+│   ├── makeheader.py
+│   └── makePDBSpaceGroups.py
+├── .gitignore
+├── .travis.yml
+├── bsp_virtual
+├── bsp_virtual_stackless
+├── LICENCE
+├── LICENSE
+├── MANIFEST.in
+├── README
+├── README.BSP
+├── README.BSPlib
+├── README.MPI
+├── requirements-build.txt
+├── scientific_win32_postinstall.py
+├── setup.cfg
+├── setup.py
+└── task_manager
+    └── ... (11 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -e . ---
+SUCCESS: False
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Obtaining file:///app/repo_to_process
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'error'
+
+STDERR:
+  error: subprocess-exited-with-error
+  
+  × python setup.py egg_info did not run successfully.
+  │ exit code: 1
+  ╰─> [6 lines of output]
+      Traceback (most recent call last):
+        File "<string>", line 2, in <module>
+        File "<pip-setuptools-caller>", line 35, in <module>
+        File "/app/repo_to_process/setup.py", line 6, in <module>
+          import pkginfo
+      ModuleNotFoundError: No module named 'pkginfo'
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+
+
+--- Command: pip install -r requirements-build.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting Cython (from -r requirements-build.txt (line 2))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b4/eb/8c47ba21177929f9122e7aceca9fe1f9f5a037e705226f8a5a9113fb53ba/cython-3.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 11.2 MB/s  0:00:00
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from -r requirements-build.txt (line 3)) (2.2.6)
+Collecting pkginfo (from -r requirements-build.txt (line 4))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/fa/3d/f4f2ba829efb54b6cd2d91349c7463316a9cc55a43fc980447416c88540f/pkginfo-1.12.1.2-py3-none-any.whl (32 kB)
+Collecting oldnumeric (from -r requirements-build.txt (line 5))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/9d/94/40d3bcfd8a14b516ef58ba3a202be2d0eef7b76d004c7d5445ccf1d61fbf/oldnumeric-1.0.4-py2.py3-none-any.whl (42 kB)
+Collecting py3c (from -r requirements-build.txt (line 6))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/84/da/02c19dec3be18e46fcef0c02d379429a3cbd6e91e7c048b5b1c63ce5127d/py3c-1.4-py2.py3-none-any.whl (9.4 kB)
+Installing collected packages: py3c, pkginfo, oldnumeric, Cython
+
+Successfully installed Cython-3.1.2 oldnumeric-1.0.4 pkginfo-1.12.1.2 py3c-1.4
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 0 items / 4 errors
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting tests/test_clustering.py ___________________
+ImportError while importing test module '/app/repo_to_process/tests/test_clustering.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_clustering.py:9: in <module>
+    from Scientific.Clustering.AffinityPropagation import DataSet
+E   ModuleNotFoundError: No module named 'Scientific'
+_________________ ERROR collecting tests/test_intepolation.py __________________
+ImportError while importing test module '/app/repo_to_process/tests/test_intepolation.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_intepolation.py:10: in <module>
+    from Scientific.Functions.Interpolation import InterpolatingFunction as IF
+E   ModuleNotFoundError: No module named 'Scientific'
+____________________ ERROR collecting tests/test_signal.py _____________________
+ImportError while importing test module '/app/repo_to_process/tests/test_signal.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_signal.py:9: in <module>
+    from Scientific.Signals.Models import AutoRegressiveModel, \
+E   ModuleNotFoundError: No module named 'Scientific'
+____________________ ERROR collecting tests/test_vector.py _____________________
+ImportError while importing test module '/app/repo_to_process/tests/test_vector.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_vector.py:10: in <module>
+    from Scientific import N
+E   ModuleNotFoundError: No module named 'Scientific'
+=========================== short test summary info ============================
+ERROR tests/test_clustering.py
+ERROR tests/test_intepolation.py
+ERROR tests/test_signal.py
+ERROR tests/test_vector.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!
+============================== 4 errors in 0.14s ===============================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

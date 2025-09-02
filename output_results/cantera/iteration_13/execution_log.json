@@ -1,0 +1,9 @@
+[
+  {
+    "command": "scons",
+    "success": false,
+    "stdout": "scons: Reading SConscript files ...\n",
+    "stderr": "ERROR: Missing command argument: type 'scons help' for information.\n",
+    "execution_time": 0.20706510543823242
+  }
+]

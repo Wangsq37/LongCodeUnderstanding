@@ -1,0 +1,35 @@
+The error persists:
+
+```
+ModuleNotFoundError: No module named 'pyfftw.pyfftw'
+```
+
+Despite successfully installing `libfftw3-dev`, the editable pip install still fails to build the Cython extension properly. This is confirmed by:
+
+```
+WARNING:root:file pyfftw.py (for module pyfftw) not found
+...
+error: Could not find the FFTW header 'fftw3.h'
+```
+
+However, checking your directory tree now, you have:
+
+  pyfftw/pyfftw.c
+  pyfftw/pyfftw.pyx
+  pyfftw/pyfftw.pxd
+
+These are the Cython sources required, but it appears the build may not have run or installed the extension correctly via pip.
+
+Let's attempt a direct build for the extensions, falling back to a legacy method:
+
+### Steps:
+1. Try to build the extension *in-place* using setuptools.
+2. Then, install the package (non-editable mode).
+3. Then retry `pytest`.
+
+```bash
+python setup.py build_ext --inplace
+pip install .
+pytest
+```
+If errors persist, I will attempt to debug further.

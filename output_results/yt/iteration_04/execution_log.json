@@ -1,0 +1,9 @@
+[
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/conftest.py'.\nconftest.py:13: in <module>\n    from yt.config import ytcfg\nyt/__init__.py:14: in <module>\n    from yt.data_objects.api import (\nyt/data_objects/api.py:1: in <module>\n    from . import construction_data_containers as __cdc, selection_objects as __sdc\nyt/data_objects/construction_data_containers.py:17: in <module>\n    from yt.data_objects.selection_objects.data_selection_objects import (\nyt/data_objects/selection_objects/__init__.py:1: in <module>\n    from .boolean_operations import (\nyt/data_objects/selection_objects/boolean_operations.py:5: in <module>\n    from yt.data_objects.selection_objects.data_selection_objects import (\nyt/data_objects/selection_objects/data_selection_objects.py:14: in <module>\n    from yt.data_objects.data_containers import YTDataContainer\nyt/data_objects/data_containers.py:13: in <module>\n    from yt.data_objects.profiles import create_profile\nyt/data_objects/profiles.py:5: in <module>\n    from yt.fields.derived_field import DerivedField\nyt/fields/derived_field.py:18: in <module>\n    from .field_detector import FieldDetector\nyt/fields/field_detector.py:6: in <module>\n    from yt.utilities.io_handler import io_registry\nyt/utilities/io_handler.py:10: in <module>\n    from yt.geometry.selection_routines import GridSelector\nE   ModuleNotFoundError: No module named 'yt.geometry.selection_routines'\n",
+    "execution_time": 1.1870357990264893
+  }
+]

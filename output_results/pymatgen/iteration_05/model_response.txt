@@ -1,0 +1,10 @@
+The error is still due to the missing Python C headers (specifically `Python.h` file), and the installation of `python3-dev` failed due to a "502  Bad Gateway" fetching one of the required `.deb` files. This is an apt repository temporary error, not an issue with the repo or the configuration.
+
+Let's try to fix this by using apt's `--fix-missing` option and retrying the installation:
+
+```bash
+apt-get update
+apt-get install -y --fix-missing python3-dev
+pip install -e .
+pytest
+```

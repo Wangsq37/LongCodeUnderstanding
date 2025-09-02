@@ -1,0 +1,19 @@
+The key error in your `pytest` output is:
+
+```
+ModuleNotFoundError: No module named 'mdtraj'
+```
+
+This is because the project requires Python >= 3.11, but you are running Python 3.10.12:
+
+```
+ERROR: Package 'mdtraj' requires a different Python: 3.10.12 not in '>=3.11'
+```
+
+As a result, installing the package (and hence making `mdtraj` available) is not possible with the current Python version.
+
+I cannot resolve this in the current environment.
+
+```status
+failed
+```

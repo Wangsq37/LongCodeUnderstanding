@@ -1,0 +1,9 @@
+The error is: `ModuleNotFoundError: No module named 'statsmodels'`.  
+This means the core package is not available for import. The previous `pip install -e .` failed due to build errors, so the package was not installed.
+
+Let's try installing the package in regular mode (non-editable) to see if that succeeds and if it resolves the import issue.
+
+```bash
+pip install .
+pytest
+```

@@ -1,0 +1,608 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .circleci/
+│   ├── config.yml
+│   └── requirements-sphinx.txt
+├── .github/
+│   ├── workflows/
+│   │   └── ci.yml
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CODEOWNERS
+│   ├── dependabot.yml
+│   ├── deploy_docs.sh
+│   ├── ISSUE_TEMPLATE.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── SECURITY.md
+│   └── ssh_via_deploy_key.sh
+│       └── ... (3 more files)
+├── Bio/
+│   ├── Affy/
+│   │   ├── __init__.py
+│   │   └── CelFile.py
+│   ├── Align/
+│   │   ├── substitution_matrices/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── _arraycore.c
+│   │   │   └── _arraycore.h
+│   │   ├── __init__.py
+│   │   ├── _aligncore.c
+│   │   ├── _alignmentcounts.c
+│   │   ├── _codonaligner.c
+│   │   ├── _pairwisealigner.c
+│   │   ├── _pairwisealigner.h
+│   │   ├── a2m.py
+│   │   ├── AlignInfo.py
+│   │   ├── analysis.py
+│   │   ├── bed.py
+│   │   ├── bigbed.py
+│   │   ├── bigmaf.py
+│   │   ├── bigpsl.py
+│   │   ├── chain.py
+│   │   ├── clustal.py
+│   │   ├── emboss.py
+│   │   ├── exonerate.py
+│   │   ├── fasta.py
+│   │   ├── hhr.py
+│   │   ├── interfaces.py
+│   │   ├── maf.py
+│   │   ├── mauve.py
+│   │   ├── msf.py
+│   │   ├── nexus.py
+│   │   ├── phylip.py
+│   │   ├── psl.py
+│   │   ├── sam.py
+│   │   ├── stockholm.py
+│   │   └── tabular.py
+│   │       └── ... (24 more files)
+│   ├── AlignIO/
+│   │   ├── __init__.py
+│   │   ├── ClustalIO.py
+│   │   ├── EmbossIO.py
+│   │   ├── FastaIO.py
+│   │   ├── Interfaces.py
+│   │   ├── MafIO.py
+│   │   ├── MauveIO.py
+│   │   ├── MsfIO.py
+│   │   ├── NexusIO.py
+│   │   ├── PhylipIO.py
+│   │   └── StockholmIO.py
+│   │       └── ... (6 more files)
+│   ├── Alphabet/
+│   │   └── __init__.py
+│   ├── Blast/
+│   │   ├── __init__.py
+│   │   ├── _parser.py
+│   │   ├── _writers.py
+│   │   ├── NCBIWWW.py
+│   │   └── NCBIXML.py
+│   ├── CAPS/
+│   │   └── __init__.py
+│   ├── Cluster/
+│   │   ├── __init__.py
+│   │   ├── cluster.c
+│   │   ├── cluster.h
+│   │   └── clustermodule.c
+│   ├── codonalign/
+│   │   ├── __init__.py
+│   │   ├── codonalignment.py
+│   │   └── codonseq.py
+│   ├── Compass/
+│   │   └── __init__.py
+│   ├── Data/
+│   │   ├── __init__.py
+│   │   ├── CodonTable.py
+│   │   ├── IUPACData.py
+│   │   └── PDBData.py
+│   ├── Emboss/
+│   │   ├── __init__.py
+│   │   ├── Primer3.py
+│   │   └── PrimerSearch.py
+│   ├── Entrez/
+│   │   ├── DTDs/
+│   │   │   ├── archivearticle.dtd
+│   │   │   ├── archivecustom-classes.ent
+│   │   │   ├── archivecustom-mixes.ent
+│   │   │   ├── archivecustom-models.ent
+│   │   │   ├── archivecustom-modules.ent
+│   │   │   ├── articlemeta.ent
+│   │   │   ├── backmatter.ent
+│   │   │   ├── BITS-embedded-index2.ent
+│   │   │   ├── BITS-question-answer2.ent
+│   │   │   ├── bookdoc_100301.dtd
+│   │   │   ├── bookdoc_110101.dtd
+│   │   │   ├── bookdoc_120101.dtd
+│   │   │   ├── bookdoc_130101.dtd
+│   │   │   ├── bookdoc_140101.dtd
+│   │   │   ├── bookdoc_150101.dtd
+│   │   │   ├── chars.ent
+│   │   │   ├── common.ent
+│   │   │   ├── default-classes.ent
+│   │   │   ├── default-mixes.ent
+│   │   │   ├── display.ent
+│   │   │   ├── Docsum_3_0.dtd
+│   │   │   ├── Docsum_3_0.mod.dtd
+│   │   │   ├── Docsum_3_1.dtd
+│   │   │   ├── Docsum_3_1.mod.dtd
+│   │   │   ├── Docsum_3_2.dtd
+│   │   │   ├── Docsum_3_2.mod.dtd
+│   │   │   ├── Docsum_3_3.dtd
+│   │   │   ├── Docsum_3_3.mod.dtd
+│   │   │   ├── Docsum_3_4.dtd
+│   │   │   ├── Docsum_3_4.mod.dtd
+│   │   │   ├── egquery.dtd
+│   │   │   ├── einfo.dtd
+│   │   │   ├── eInfo_020511.dtd
+│   │   │   ├── elink.dtd
+│   │   │   ├── elink_020122.dtd
+│   │   │   ├── eLink_090910.dtd
+│   │   │   ├── eLink_101123.dtd
+│   │   │   ├── EMBL_General.dtd
+│   │   │   ├── EMBL_General.mod.dtd
+│   │   │   ├── epost.dtd
+│   │   │   ├── ePost_020511.dtd
+│   │   │   ├── esearch.dtd
+│   │   │   ├── eSearch_020511.dtd
+│   │   │   ├── eSpell.dtd
+│   │   │   ├── esummary-v1.dtd
+│   │   │   ├── eSummary_041029.dtd
+│   │   │   ├── esummary_clinvar.dtd
+│   │   │   ├── esummary_gene.dtd
+│   │   │   ├── format.ent
+│   │   │   ├── GenBank_General.dtd
+│   │   │   ├── GenBank_General.mod.dtd
+│   │   │   ├── HomoloGene.dtd
+│   │   │   ├── HomoloGene.mod.dtd
+│   │   │   ├── htmltable.dtd
+│   │   │   ├── INSD_INSDSeq.dtd
+│   │   │   ├── INSD_INSDSeq.mod.dtd
+│   │   │   ├── isoamsa.ent
+│   │   │   ├── isoamsb.ent
+│   │   │   ├── isoamsc.ent
+│   │   │   ├── isoamsn.ent
+│   │   │   ├── isoamso.ent
+│   │   │   ├── isoamsr.ent
+│   │   │   ├── isobox.ent
+│   │   │   ├── isocyr1.ent
+│   │   │   ├── isocyr2.ent
+│   │   │   ├── isodia.ent
+│   │   │   ├── isogrk1.ent
+│   │   │   ├── isogrk2.ent
+│   │   │   ├── isogrk3.ent
+│   │   │   ├── isogrk4.ent
+│   │   │   ├── isolat1.ent
+│   │   │   ├── isolat2.ent
+│   │   │   ├── isomfrk.ent
+│   │   │   ├── isomopf.ent
+│   │   │   ├── isomscr.ent
+│   │   │   ├── isonum.ent
+│   │   │   ├── isopub.ent
+│   │   │   ├── isotech.ent
+│   │   │   ├── JATS-ali-namespace1-3.ent
+│   │   │   ├── JATS-archivearticle1-3-mathml3.dtd
+│   │   │   ├── JATS-archivecustom-classes1-3.ent
+│   │   │   ├── JATS-archivecustom-mixes1-3.ent
+│   │   │   ├── JATS-archivecustom-models1-3.ent
+│   │   │   ├── JATS-archivecustom-modules1-3.ent
+│   │   │   ├── JATS-articlemeta1-3.ent
+│   │   │   ├── JATS-backmatter1-3.ent
+│   │   │   ├── JATS-chars1-3.ent
+│   │   │   ├── JATS-common-atts1-3.ent
+│   │   │   ├── JATS-common1-3.ent
+│   │   │   ├── JATS-default-classes1-3.ent
+│   │   │   ├── JATS-default-mixes1-3.ent
+│   │   │   ├── JATS-display1-3.ent
+│   │   │   ├── JATS-format1-3.ent
+│   │   │   ├── JATS-funding1-3.ent
+│   │   │   ├── JATS-journalmeta1-3.ent
+│   │   │   ├── JATS-link1-3.ent
+│   │   │   ├── JATS-list1-3.ent
+│   │   │   ├── JATS-math1-3.ent
+│   │   │   ├── JATS-mathml3-mathmlsetup1-3.ent
+│   │   │   ├── JATS-mathml3-modules1-3.ent
+│   │   │   ├── JATS-modules1-3.ent
+│   │   │   ├── JATS-nlmcitation1-3.ent
+│   │   │   ├── JATS-notat1-3.ent
+│   │   │   ├── JATS-para1-3.ent
+│   │   │   ├── JATS-phrase1-3.ent
+│   │   │   ├── JATS-references1-3.ent
+│   │   │   ├── JATS-related-object1-3.ent
+│   │   │   ├── JATS-section1-3.ent
+│   │   │   ├── JATS-XHTMLtablesetup1-3.ent
+│   │   │   ├── JATS-xmlspecchars1-3.ent
+│   │   │   ├── journalmeta.ent
+│   │   │   ├── link.ent
+│   │   │   ├── list.ent
+│   │   │   ├── math.ent
+│   │   │   ├── mathml-in-pubmed.mod
+│   │   │   ├── mathml2-qname-1.mod
+│   │   │   ├── mathml2.dtd
+│   │   │   ├── mathml3-qname1.mod
+│   │   │   ├── mathml3.dtd
+│   │   │   ├── mathmlsetup.ent
+│   │   │   ├── MMDB.dtd
+│   │   │   ├── MMDB.mod.dtd
+│   │   │   ├── MMDB_Chemical_graph.dtd
+│   │   │   ├── MMDB_Chemical_graph.mod.dtd
+│   │   │   ├── MMDB_Features.dtd
+│   │   │   ├── MMDB_Features.mod.dtd
+│   │   │   ├── MMDB_Structural_model.dtd
+│   │   │   ├── MMDB_Structural_model.mod.dtd
+│   │   │   ├── mmlalias.ent
+│   │   │   ├── mmlextra.ent
+│   │   │   ├── modules.ent
+│   │   │   ├── NCBI_Access.dtd
+│   │   │   ├── NCBI_Access.mod.dtd
+│   │   │   ├── NCBI_all.dtd
+│   │   │   ├── NCBI_Biblio.dtd
+│   │   │   ├── NCBI_Biblio.mod.dtd
+│   │   │   ├── NCBI_BioSource.dtd
+│   │   │   ├── NCBI_BioSource.mod.dtd
+│   │   │   ├── NCBI_BioTree.dtd
+│   │   │   ├── NCBI_BioTree.mod.dtd
+│   │   │   ├── NCBI_Blast4.dtd
+│   │   │   ├── NCBI_Blast4.mod.dtd
+│   │   │   ├── NCBI_BlastDL.dtd
+│   │   │   ├── NCBI_BlastDL.mod.dtd
+│   │   │   ├── NCBI_BlastOutput.dtd
+│   │   │   ├── NCBI_BlastOutput.mod.dtd
+│   │   │   ├── NCBI_Cdd.dtd
+│   │   │   ├── NCBI_Cdd.mod.dtd
+│   │   │   ├── NCBI_Cn3d.dtd
+│   │   │   ├── NCBI_Cn3d.mod.dtd
+│   │   │   ├── NCBI_Entity.mod.dtd
+│   │   │   ├── NCBI_Entrez2.dtd
+│   │   │   ├── NCBI_Entrez2.mod.dtd
+│   │   │   ├── NCBI_Entrezgene.dtd
+│   │   │   ├── NCBI_Entrezgene.mod.dtd
+│   │   │   ├── NCBI_FeatDef.dtd
+│   │   │   ├── NCBI_FeatDef.mod.dtd
+│   │   │   ├── NCBI_GBSeq.dtd
+│   │   │   ├── NCBI_GBSeq.mod.dtd
+│   │   │   ├── NCBI_Gene.dtd
+│   │   │   ├── NCBI_Gene.mod.dtd
+│   │   │   ├── NCBI_General.dtd
+│   │   │   ├── NCBI_General.mod.dtd
+│   │   │   ├── NCBI_ID1Access.dtd
+│   │   │   ├── NCBI_ID1Access.mod.dtd
+│   │   │   ├── NCBI_ID2Access.dtd
+│   │   │   ├── NCBI_ID2Access.mod.dtd
+│   │   │   ├── NCBI_MedArchive.dtd
+│   │   │   ├── NCBI_MedArchive.mod.dtd
+│   │   │   ├── NCBI_Medlars.dtd
+│   │   │   ├── NCBI_Medlars.mod.dtd
+│   │   │   ├── NCBI_Medline.dtd
+│   │   │   ├── NCBI_Medline.mod.dtd
+│   │   │   ├── NCBI_Mim.dtd
+│   │   │   ├── NCBI_Mim.mod.dtd
+│   │   │   ├── NCBI_Mime.dtd
+│   │   │   ├── NCBI_Mime.mod.dtd
+│   │   │   ├── NCBI_ObjPrt.dtd
+│   │   │   ├── NCBI_ObjPrt.mod.dtd
+│   │   │   ├── NCBI_Organism.dtd
+│   │   │   ├── NCBI_Organism.mod.dtd
+│   │   │   ├── NCBI_PCAssay.dtd
+│   │   │   ├── NCBI_PCAssay.mod.dtd
+│   │   │   ├── NCBI_PCSubstance.dtd
+│   │   │   ├── NCBI_PCSubstance.mod.dtd
+│   │   │   ├── NCBI_Project.dtd
+│   │   │   ├── NCBI_Project.mod.dtd
+│   │   │   ├── NCBI_Protein.dtd
+│   │   │   ├── NCBI_Protein.mod.dtd
+│   │   │   ├── NCBI_Pub.dtd
+│   │   │   ├── NCBI_Pub.mod.dtd
+│   │   │   ├── NCBI_PubMed.dtd
+│   │   │   ├── NCBI_PubMed.mod.dtd
+│   │   │   ├── NCBI_Remap.dtd
+│   │   │   ├── NCBI_Remap.mod.dtd
+│   │   │   ├── NCBI_RNA.dtd
+│   │   │   ├── NCBI_RNA.mod.dtd
+│   │   │   ├── NCBI_Rsite.dtd
+│   │   │   ├── NCBI_Rsite.mod.dtd
+│   │   │   ├── NCBI_ScoreMat.dtd
+│   │   │   ├── NCBI_ScoreMat.mod.dtd
+│   │   │   ├── NCBI_Seq_split.dtd
+│   │   │   ├── NCBI_Seq_split.mod.dtd
+│   │   │   ├── NCBI_Seqalign.dtd
+│   │   │   ├── NCBI_Seqalign.mod.dtd
+│   │   │   ├── NCBI_SeqCode.dtd
+│   │   │   ├── NCBI_SeqCode.mod.dtd
+│   │   │   ├── NCBI_Seqfeat.dtd
+│   │   │   ├── NCBI_Seqfeat.mod.dtd
+│   │   │   ├── NCBI_Seqloc.dtd
+│   │   │   ├── NCBI_Seqloc.mod.dtd
+│   │   │   ├── NCBI_Seqres.dtd
+│   │   │   ├── NCBI_Seqres.mod.dtd
+│   │   │   ├── NCBI_Seqset.dtd
+│   │   │   ├── NCBI_Seqset.mod.dtd
+│   │   │   ├── NCBI_SeqTable.dtd
+│   │   │   ├── NCBI_SeqTable.mod.dtd
+│   │   │   ├── NCBI_Sequence.dtd
+│   │   │   ├── NCBI_Sequence.mod.dtd
+│   │   │   ├── NCBI_Submit.dtd
+│
+... (2047 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: apt-get update && apt-get install -y python3-dev ---
+SUCCESS: True
+STDOUT:
+Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Get:5 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+Fetched 20.0 MB in 14s (1414 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  javascript-common libexpat1-dev libjs-jquery libjs-sphinxdoc
+  libjs-underscore libpython3-dev libpython3.10 libpython3.10-dev
+  python3.10-dev zlib1g-dev
+Suggested packages:
+  apache2 | lighttpd | httpd
+The following NEW packages will be installed:
+  javascript-common libexpat1-dev libjs-jquery libjs-sphinxdoc
+  libjs-underscore libpython3-dev libpython3.10 libpython3.10-dev python3-dev
+  python3.10-dev zlib1g-dev
+0 upgraded, 11 newly installed, 0 to remove and 8 not upgraded.
+Need to get 8149 kB of archives.
+After this operation, 30.4 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 javascript-common all 11+nmu1 [5936 B]
+Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libexpat1-dev amd64 2.4.7-1ubuntu0.6 [148 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy/main amd64 libjs-jquery all 3.6.0+dfsg+~3.5.13-1 [321 kB]
+Get:4 http://archive.ubuntu.com/ubuntu jammy/main amd64 libjs-underscore all 1.13.2~dfsg-2 [118 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 libjs-sphinxdoc all 4.3.2-1 [139 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10 amd64 3.10.12-1~22.04.10 [1950 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 zlib1g-dev amd64 1:1.2.11.dfsg-2ubuntu9.2 [164 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-dev amd64 3.10.12-1~22.04.10 [4763 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3-dev amd64 3.10.6-1~22.04.1 [7064 B]
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10-dev amd64 3.10.12-1~22.04.10 [508 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-dev amd64 3.10.6-1~22.04.1 [26.0 kB]
+Fetched 8149 kB in 16s (503 kB/s)
+Selecting previously unselected package javascript-common.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 13507 files and directories currently installed.)
+Preparing to unpack .../00-javascript-common_11+nmu1_all.deb ...
+Unpacking javascript-common (11+nmu1) ...
+Selecting previously unselected package libexpat1-dev:amd64.
+Preparing to unpack .../01-libexpat1-dev_2.4.7-1ubuntu0.6_amd64.deb ...
+Unpacking libexpat1-dev:amd64 (2.4.7-1ubuntu0.6) ...
+Selecting previously unselected package libjs-jquery.
+Preparing to unpack .../02-libjs-jquery_3.6.0+dfsg+~3.5.13-1_all.deb ...
+Unpacking libjs-jquery (3.6.0+dfsg+~3.5.13-1) ...
+Selecting previously unselected package libjs-underscore.
+Preparing to unpack .../03-libjs-underscore_1.13.2~dfsg-2_all.deb ...
+Unpacking libjs-underscore (1.13.2~dfsg-2) ...
+Selecting previously unselected package libjs-sphinxdoc.
+Preparing to unpack .../04-libjs-sphinxdoc_4.3.2-1_all.deb ...
+Unpacking libjs-sphinxdoc (4.3.2-1) ...
+Selecting previously unselected package libpython3.10:amd64.
+Preparing to unpack .../05-libpython3.10_3.10.12-1~22.04.10_amd64.deb ...
+Unpacking libpython3.10:amd64 (3.10.12-1~22.04.10) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Preparing to unpack .../06-zlib1g-dev_1%3a1.2.11.dfsg-2ubuntu9.2_amd64.deb ...
+Unpacking zlib1g-dev:amd64 (1:1.2.11.dfsg-2ubuntu9.2) ...
+Selecting previously unselected package libpython3.10-dev:amd64.
+Preparing to unpack .../07-libpython3.10-dev_3.10.12-1~22.04.10_amd64.deb ...
+Unpacking libpython3.10-dev:amd64 (3.10.12-1~22.04.10) ...
+Selecting previously unselected package libpython3-dev:amd64.
+Preparing to unpack .../08-libpython3-dev_3.10.6-1~22.04.1_amd64.deb ...
+Unpacking libpython3-dev:amd64 (3.10.6-1~22.04.1) ...
+Selecting previously unselected package python3.10-dev.
+Preparing to unpack .../09-python3.10-dev_3.10.12-1~22.04.10_amd64.deb ...
+Unpacking python3.10-dev (3.10.12-1~22.04.10) ...
+Selecting previously unselected package python3-dev.
+Preparing to unpack .../10-python3-dev_3.10.6-1~22.04.1_amd64.deb ...
+Unpacking python3-dev (3.10.6-1~22.04.1) ...
+Setting up javascript-common (11+nmu1) ...
+Setting up libpython3.10:amd64 (3.10.12-1~22.04.10) ...
+Setting up libexpat1-dev:amd64 (2.4.7-1ubuntu0.6) ...
+Setting up zlib1g-dev:amd64 (1:1.2.11.dfsg-2ubuntu9.2) ...
+Setting up libjs-jquery (3.6.0+dfsg+~3.5.13-1) ...
+Setting up libjs-underscore (1.13.2~dfsg-2) ...
+Setting up libpython3.10-dev:amd64 (3.10.12-1~22.04.10) ...
+Setting up libjs-sphinxdoc (4.3.2-1) ...
+Setting up python3.10-dev (3.10.12-1~22.04.10) ...
+Setting up libpython3-dev:amd64 (3.10.6-1~22.04.1) ...
+Setting up python3-dev (3.10.6-1~22.04.1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.10) ...
+
+STDERR:
+debconf: delaying package configuration, since apt-utils is not installed
+
+
+--- Command: pip install --editable . ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Obtaining file:///app/repo_to_process
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from biopython==1.86.dev0) (2.2.6)
+Installing collected packages: biopython
+  Running setup.py develop for biopython
+Successfully installed biopython
+
+STDERR:
+  DEPRECATION: Legacy editable install of biopython==1.86.dev0 from file:///app/repo_to_process (setup.py develop) is deprecated. pip 25.3 will enforce this behaviour change. A possible replacement is to add a pyproject.toml or enable --use-pep517, and use setuptools >= 64. If the resulting installation is not behaving as expected, try using --config-settings editable_mode=compat. Please consult the setuptools documentation for more information. Discussion can be found at https://github.com/pypa/pip/issues/11457
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+collected 2938 items / 24 errors
+
+==================================== ERRORS ====================================
+_______________ ERROR collecting Tests/test_AlignIO_EmbossIO.py ________________
+Tests/test_AlignIO_EmbossIO.py:13: in <module>
+    with open("Emboss/alignret.txt") as handle:
+E   FileNotFoundError: [Errno 2] No such file or directory: 'Emboss/alignret.txt'
+_________________ ERROR collecting Tests/test_Align_bigpsl.py __________________
+Tests/test_Align_bigpsl.py:531: in <module>
+    class TestAlign_dna(unittest.TestCase):
+Tests/test_Align_bigpsl.py:533: in TestAlign_dna
+    record.id: record.seq for record in SeqIO.parse("Blat/fasta_34.fa", "fasta")
+Bio/SeqIO/__init__.py:674: in parse
+    return iterator_generator(handle)
+Bio/SeqIO/FastaIO.py:196: in __init__
+    super().__init__(source, fmt="Fasta")
+Bio/SeqIO/Interfaces.py:82: in __init__
+    self.stream = open(source, "r" + mode)
+E   FileNotFoundError: [Errno 2] No such file or directory: 'Blat/fasta_34.fa'
+__________________ ERROR collecting Tests/test_Align_chain.py __________________
+Tests/test_Align_chain.py:1475: in <module>
+    class TestAlign_dna(unittest.TestCase):
+Tests/test_Align_chain.py:1478: in TestAlign_dna
+    for record in SeqIO.parse("Blat/fasta_34.fa", "fasta")
+Bio/SeqIO/__init__.py:674: in parse
+    return iterator_generator(handle)
+Bio/SeqIO/FastaIO.py:196: in __init__
+    super().__init__(source, fmt="Fasta")
+Bio/SeqIO/Interfaces.py:82: in __init__
+    self.stream = open(source, "r" + mode)
+E   FileNotFoundError: [Errno 2] No such file or directory: 'Blat/fasta_34.fa'
+__________________ ERROR collecting Tests/test_Align_mauve.py __________________
+Tests/test_Align_mauve.py:26: in <module>
+    class TestCombinedFile(unittest.TestCase):
+Tests/test_Align_mauve.py:32: in TestCombinedFile
+    records = SeqIO.parse(path, "fasta")
+Bio/SeqIO/__init__.py:674: in parse
+    return iterator_generator(handle)
+Bio/SeqIO/FastaIO.py:196: in __init__
+    super().__init__(source, fmt="Fasta")
+Bio/SeqIO/Interfaces.py:82: in __init__
+    self.stream = open(source, "r" + mode)
+E   FileNotFoundError: [Errno 2] No such file or directory: 'Mauve/combined.fa'
+___________________ ERROR collecting Tests/test_Align_psl.py ___________________
+Tests/test_Align_psl.py:1539: in <module>
+    class TestAlign_dna(unittest.TestCase):
+Tests/test_Align_psl.py:1542: in TestAlign_dna
+    for record in SeqIO.parse("Blat/fasta_34.fa", "fasta")
+Bio/SeqIO/__init__.py:674: in parse
+    return iterator_generator(handle)
+Bio/SeqIO/FastaIO.py:196: in __init__
+    super().__init__(source, fmt="Fasta")
+Bio/SeqIO/Interfaces.py:82: in __init__
+    self.stream = open(source, "r" + mode)
+E   FileNotFoundError: [Errno 2] No such file or directory: 'Blat/fasta_34.fa'
+_________________ ERROR collecting Tests/test_Align_tabular.py _________________
+Tests/test_Align_tabular.py:28: in <module>
+    class TestFastaProtein(unittest.TestCase):
+Tests/test_Align_tabular.py:34: in TestFastaProtein
+    records = SeqIO.parse(filename, "fasta")
+Bio/SeqIO/__init__.py:674: in parse
+    return iterator_generator(handle)
+Bio/SeqIO/FastaIO.py:196: in __init__
+    super().__init__(source, fmt="Fasta")
+Bio/SeqIO/Interfaces.py:82: in __init__
+    self.stream = open(source, "r" + mode)
+E   FileNotFoundError: [Errno 2] No such file or directory: 'Fasta/protein_lib.fa'
+________________ ERROR collecting Tests/test_BioSQL_MySQLdb.py _________________
+Tests/test_BioSQL_MySQLdb.py:19: in <module>
+    DBHOST, DBUSER, DBPASSWD, TESTDB = load_biosql_ini(DBTYPE)
+Tests/common_BioSQL.py:47: in load_biosql_ini
+    raise MissingExternalDependencyError(
+E   Bio.MissingExternalDependencyError: BioSQL test configuration file biosql.ini missing (see biosql.ini.sample)
+_____________ ERROR collecting Tests/test_BioSQL_MySQLdb_online.py _____________
+Tests/test_BioSQL_MySQLdb_online.py:25: in <module>
+    DBHOST, DBUSER, DBPASSWD, TESTDB = load_biosql_ini(DBTYPE)
+Tests/common_BioSQL.py:47: in load_biosql_ini
+    raise MissingExternalDependencyError(
+E   Bio.MissingExternalDependencyError: BioSQL test configuration file biosql.ini missing (see biosql.ini.sample)
+____________ ERROR collecting Tests/test_BioSQL_mysql_connector.py _____________
+Tests/test_BioSQL_mysql_connector.py:19: in <module>
+    DBHOST, DBUSER, DBPASSWD, TESTDB = load_biosql_ini(DBTYPE)
+Tests/common_BioSQL.py:47: in load_biosql_ini
+    raise MissingExternalDependencyError(
+E   Bio.MissingExternalDependencyError: BioSQL test configuration file biosql.ini missing (see biosql.ini.sample)
+_________ ERROR collecting Tests/test_BioSQL_mysql_connector_online.py _________
+Tests/test_BioSQL_mysql_connector_online.py:25: in <module>
+    DBHOST, DBUSER, DBPASSWD, TESTDB = load_biosql_ini(DBTYPE)
+Tests/common_BioSQL.py:47: in load_biosql_ini
+    raise MissingExternalDependencyError(
+E   Bio.MissingExternalDependencyError: BioSQL test configuration file biosql.ini missing (see biosql.ini.sample)
+________________ ERROR collecting Tests/test_BioSQL_psycopg2.py ________________
+Tests/test_BioSQL_psycopg2.py:18: in <module>
+    DBHOST, DBUSER, DBPASSWD, TESTDB = load_biosql_ini(DBTYPE)
+Tests/common_BioSQL.py:47: in load_biosql_ini
+    raise MissingExternalDependencyError(
+E   Bio.MissingExternalDependencyError: BioSQL test configuration file biosql.ini missing (see biosql.ini.sample)
+____________ ERROR collecting Tests/test_BioSQL_psycopg2_online.py _____________
+Tests/test_BioSQL_psycopg2_online.py:24: in <module>
+    DBHOST, DBUSER, DBPASSWD, TESTDB = load_biosql_ini(DBTYPE)
+Tests/common_BioSQL.py:47: in load_biosql_ini
+    raise MissingExternalDependencyError(
+E   Bio.MissingExternalDependencyError: BioSQL test configuration file biosql.ini missing (see biosql.ini.sample)
+________________ ERROR collecting Tests/test_BioSQL_sqlite3.py _________________
+Tests/test_BioSQL_sqlite3.py:31: in <module>
+    check_config(DBDRIVER, DBTYPE, DBHOST, DBUSER, DBPASSWD, TESTDB)
+Tests/common_BioSQL.py:131: in check_config
+    raise MissingExternalDependencyError(message)
+E   Bio.MissingExternalDependencyError: Missing SQL schema file: /app/repo_to_process/BioSQL/biosqldb-sqlite.sql
+_____________ ERROR collecting Tests/test_BioSQL_sqlite3_online.py _____________
+Tests/test_BioSQL_sqlite3_online.py:32: in <module>
+    check_config(DBDRIVER, DBTYPE, DBHOST, DBUSER, DBPASSWD, TESTDB)
+Tests/common_BioSQL.py:131: in check_config
+    raise MissingExternalDependencyError(message)
+E   Bio.MissingExternalDependencyError: Missing SQL schema file: /app/repo_to_process/BioSQL/biosqldb-sqlite.sql
+________________ ERROR collecting Tests/test_GraphicsBitmaps.py ________________
+Tests/test_GraphicsBitmaps.py:124: in <module>
+    real_test()
+Tests/test_GraphicsBitmaps.py:115: in real_test
+    raise MissingExternalDependencyError(
+E   Bio.MissingExternalDependencyError: Reportlab module rlPyCairo unavailable
+E   cannot import desired renderPM backend rlPyCairo
+E   Seek advice at the users list see
+E   https://pairlist2.pair.net/mailman/listinfo/reportlab-users
+__________________ ERROR collecting Tests/test_PAML_tools.py ___________________
+Tests/test_PAML_tools.py:59: in <module>
+    raise MissingExternalDependencyError(
+E   Bio.MissingExternalDependencyError: Install PAML if you want to use the Bio.Phylo.PAML wrapper.
+___________________ ERROR collecting Tests/test_PDB_PSEA.py ____________________
+Tests/test
+... (93 lines omitted)
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

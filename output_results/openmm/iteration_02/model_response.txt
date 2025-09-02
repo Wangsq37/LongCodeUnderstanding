@@ -1,0 +1,8 @@
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['wrappers/python/openmm', 'wrappers/python/simtk']
+```
+
+```bash
+cd /
+pytest
+```

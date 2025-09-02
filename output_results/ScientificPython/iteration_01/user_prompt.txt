@@ -1,0 +1,183 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── Doc/
+│   ├── BSP_Tutorial.pdf
+│   └── CHANGELOG
+├── epydoc/
+│   ├── make_html.conf
+│   └── make_pdf.conf
+├── Examples/
+│   ├── BSP/
+│   │   ├── example1.py
+│   │   ├── example1_array.py
+│   │   ├── example2.py
+│   │   ├── example3.py
+│   │   └── example4.py
+│   ├── demomodule.c
+│   ├── master.py
+│   ├── master_slave_demo.py
+│   ├── mpi.py
+│   ├── netcdf_demo.py
+│   ├── README
+│   └── slave.py
+│       └── ... (2 more files)
+├── Include/
+│   ├── Scientific/
+│   │   ├── arrayobject.h
+│   │   ├── bspmodule.h
+│   │   ├── mpimodule.h
+│   │   ├── netcdfmodule.h
+│   │   ├── PyBSP_API.h
+│   │   └── PyMPI_API.h
+│   │       └── ... (1 more files)
+│   └── scientific_netcdfmodule.h
+├── Scientific/
+│   ├── BSP/
+│   │   ├── __init__.py
+│   │   ├── Console.py
+│   │   ├── core.py
+│   │   ├── IO.py
+│   │   └── Tasks.py
+│   ├── Clustering/
+│   │   ├── __init__.py
+│   │   └── AffinityPropagation.py
+│   ├── DistributedComputing/
+│   │   ├── __init__.py
+│   │   ├── MasterSlave.py
+│   │   └── TaskManager.py
+│   ├── Functions/
+│   │   ├── __init__.py
+│   │   ├── Derivatives.py
+│   │   ├── FindRoot.py
+│   │   ├── FirstDerivatives.py
+│   │   ├── Interpolation.py
+│   │   ├── LeastSquares.py
+│   │   ├── Polynomial.py
+│   │   ├── Rational.py
+│   │   └── Romberg.py
+│   │       └── ... (4 more files)
+│   ├── Geometry/
+│   │   ├── __init__.py
+│   │   ├── Objects3D.py
+│   │   ├── Quaternion.py
+│   │   ├── TensorAnalysis.py
+│   │   ├── TensorModule.py
+│   │   ├── Transformation.py
+│   │   └── VectorModule.py
+│   │       └── ... (2 more files)
+│   ├── IO/
+│   │   ├── __init__.py
+│   │   ├── ArrayIO.py
+│   │   ├── FortranFormat.py
+│   │   ├── NetCDF.py
+│   │   ├── PDB.py
+│   │   ├── PDBExportFilters.py
+│   │   ├── PDBSpaceGroups.py
+│   │   └── TextFile.py
+│   │       └── ... (3 more files)
+│   ├── MPI/
+│   │   ├── __init__.py
+│   │   ├── core.py
+│   │   └── IO.py
+│   ├── Physics/
+│   │   ├── __init__.py
+│   │   ├── PhysicalQuantities.py
+│   │   └── Potential.py
+│   ├── QtWidgets/
+│   │   ├── __init__.py
+│   │   ├── qt_fake.py
+│   │   ├── QtPlotCanvas.py
+│   │   └── QtVisualizationCanvas.py
+│   ├── Signals/
+│   │   ├── __init__.py
+│   │   └── Models.py
+│   ├── Statistics/
+│   │   ├── __init__.py
+│   │   └── Histogram.py
+│   ├── Threading/
+│   │   ├── __init__.py
+│   │   └── TaskManager.py
+│   ├── TkWidgets/
+│   │   ├── __init__.py
+│   │   ├── TkPlotCanvas.py
+│   │   ├── TkVisualizationCanvas.py
+│   │   └── Utility.py
+│   ├── Visualization/
+│   │   ├── __init__.py
+│   │   ├── Chimera.py
+│   │   ├── Color.py
+│   │   ├── PyMOL.py
+│   │   ├── VMD.py
+│   │   ├── VPython.py
+│   │   ├── VRML.py
+│   │   └── VRML2.py
+│   │       └── ... (3 more files)
+│   ├── .gitignore
+│   ├── __init__.py
+│   ├── __pkginfo__.py
+│   ├── _affinitypropagation.pyx
+│   ├── _interpolation.pyx
+│   ├── _netcdf.c
+│   ├── _vector.pyx
+│   ├── DictWithDefault.py
+│   ├── FFT.py
+│   ├── indexing.py
+│   ├── LA.py
+│   ├── Mathematica.py
+│   ├── N.py
+│   ├── NRNG.py
+│   └── NumberDict.py
+│       └── ... (10 more files)
+├── Src/
+│   ├── BSPlib/
+│   │   ├── bsppython.c
+│   │   ├── compile_bsponmpi.py
+│   │   ├── compile_oxford_toolset.py
+│   │   ├── ibsppython
+│   │   ├── Scientific_bsplib.c
+│   │   └── Scientific_bsplib.export
+│   │       └── ... (1 more files)
+│   └── MPI/
+│       ├── compile.py
+│       ├── impipython
+│       ├── mpipython.c
+│       ├── Scientific_mpi.c
+│       └── Scientific_mpi.export
+├── tests/
+│   ├── test_clustering.py
+│   ├── test_intepolation.py
+│   ├── test_signal.py
+│   └── test_vector.py
+├── Tools/
+│   ├── makeheader.py
+│   └── makePDBSpaceGroups.py
+├── .gitignore
+├── .travis.yml
+├── bsp_virtual
+├── bsp_virtual_stackless
+├── LICENCE
+├── LICENSE
+├── MANIFEST.in
+├── README
+├── README.BSP
+├── README.BSPlib
+├── README.MPI
+├── requirements-build.txt
+├── scientific_win32_postinstall.py
+├── setup.cfg
+├── setup.py
+└── task_manager
+    └── ... (11 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

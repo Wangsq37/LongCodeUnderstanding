@@ -1,0 +1,16 @@
+[
+  {
+    "command": "export PYTHONPATH=$PWD",
+    "success": true,
+    "stdout": "",
+    "stderr": "",
+    "execution_time": 0.0007882118225097656
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ERROR: while parsing the following warning configuration:\n\n  ignore:.*:dask.tests.warning_aliases.RemovedIn20Warning\n\nThis error occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py\", line 1967, in parse_warning_filter\n    category: type[Warning] = _resolve_warning_category(category_)\n  File \"/usr/local/lib/python3.10/dist-packages/_pytest/config/__init__.py\", line 2012, in _resolve_warning_category\n    m = __import__(module, None, None, [klass])\nModuleNotFoundError: No module named 'dask.tests'\n\n\n",
+    "execution_time": 0.20258140563964844
+  }
+]

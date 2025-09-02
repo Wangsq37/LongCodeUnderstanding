@@ -1,0 +1,24 @@
+The error output shows pip is failing to build the packages in editable mode due to a version check in the Cirq source code:
+```
+SystemError: You installed the latest version of Cirq but aren't on Python 3.11+.
+To fix this error, you need to either:
+
+A) Update to Python 3.11 or later.
+- OR -
+B) Explicitly install an older deprecated-but-compatible version of Cirq (e.g. "python -m pip install cirq==1.5.0")
+```
+This means **Cirq now requires Python 3.11+ for its main/HEAD version**.
+
+You are running **Python 3.10**, so the `setup.py` and `_version.py` scripts in every Cirq package (core, google, etc) refuse to install.
+
+At this stage, **it is not possible to run or collect tests for this repository with Python 3.10**, due to hardcoded upstream version checks.
+
+If you want to test this HEAD version of Cirq, you MUST upgrade to Python 3.11 or later.
+
+Otherwise, you would have to "pin" to older Cirq releases for each subpackage (not viable for this monorepo HEAD/development environment).
+
+Therefore:
+
+```status
+failed
+```

@@ -1,0 +1,9 @@
+The project contains both a `setup.py` and a `pyproject.toml`, suggesting it uses standard setuptools/Cython build processes.  
+Given the presence of `.pyx` files and that test collection fails, a build step is required to compile extension modules (so that `import ...` works and pytest can run).
+
+The correct next step is to install the package in development mode, which builds Cython extensions and enables in-place testing:
+
+```bash
+pip install -e .
+```
+After this, I will rerun `pytest` to check if test collection completes successfully.

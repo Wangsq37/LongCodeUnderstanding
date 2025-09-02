@@ -1,0 +1,9 @@
+[
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/conftest.py'.\nconftest.py:10: in <module>\n    import yaml\nE   ModuleNotFoundError: No module named 'yaml'\n",
+    "execution_time": 0.19065403938293457
+  }
+]

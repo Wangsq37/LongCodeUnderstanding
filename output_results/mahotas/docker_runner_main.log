@@ -1,0 +1,104 @@
+08/11/2025 09:41:10 - INFO - __main__ - --- Processing repository: mahotas ---
+08/11/2025 09:41:10 - INFO - __main__ - No existing container found. Creating new container 'agent-run-mahotas'...
+08/11/2025 09:41:10 - INFO - __main__ - Copying 'python_repos\mahotas' to new container 'agent-run-mahotas:/app/repo_to_process'...
+08/11/2025 09:41:11 - INFO - __main__ - Executing agent inside the container...
+08/11/2025 09:41:12 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:12 - INFO - __main__ - --- Starting Agent inside Container ---
+08/11/2025 09:41:12 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:12 - INFO - __main__ - Repository Name: mahotas
+08/11/2025 09:41:12 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:12 - INFO - __main__ - Repository: /app/repo_to_process
+08/11/2025 09:41:12 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:12 - INFO - __main__ - Language: Python
+08/11/2025 09:41:12 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:12 - INFO - __main__ - Model: gpt-4.1
+08/11/2025 09:41:12 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:12 - INFO - __main__ - Max Iterations: 15
+08/11/2025 09:41:12 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:12 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/11/2025 09:41:15 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:15 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/11/2025 09:41:15 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:15 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 09:41:15 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:15 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 09:41:18 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:18 - INFO - __main__ - Executing 4 command(s)...
+08/11/2025 09:41:18 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:18 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r requirements.txt
+08/11/2025 09:41:18 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:18 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r tests-requirements.txt
+08/11/2025 09:41:34 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:34 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r readthedocs-requirements.txt
+08/11/2025 09:41:45 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:45 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 09:41:45 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:45 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 09:41:46 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:46 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 09:41:46 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:46 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/11/2025 09:41:46 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:46 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 09:41:46 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:46 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 09:41:50 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:50 - INFO - __main__ - Executing 4 command(s)...
+08/11/2025 09:41:50 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:50 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install .
+08/11/2025 09:41:55 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:55 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -e .
+08/11/2025 09:41:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:41:59 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install .
+08/11/2025 09:42:02 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:42:02 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 09:42:02 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:42:02 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 09:42:03 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:42:03 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 09:42:03 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:42:03 - INFO - __main__ - === Starting Iteration 3/15 [Phase: SETUP] ===
+08/11/2025 09:42:03 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:42:03 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 09:42:03 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:42:03 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 09:42:09 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:42:09 - INFO - __main__ - Executing 4 command(s)...
+08/11/2025 09:42:09 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:42:09 - INFO - __main__ - Executing command in '/app/repo_to_process': apt-get update
+08/11/2025 09:42:33 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:42:33 - INFO - __main__ - Executing command in '/app/repo_to_process': apt-get install -y python3.10-dev
+08/11/2025 09:42:44 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:42:44 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install .
+08/11/2025 09:43:28 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:28 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 09:43:28 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:28 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 09:43:29 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:29 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 09:43:29 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:29 - INFO - __main__ - === Starting Iteration 4/15 [Phase: SETUP] ===
+08/11/2025 09:43:29 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:29 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 09:43:29 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:29 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 09:43:39 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:39 - INFO - __main__ - Executing 2 command(s)...
+08/11/2025 09:43:39 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:39 - INFO - __main__ - Executing command in '/app/repo_to_process': cd /tmp
+08/11/2025 09:43:39 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:39 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest --pyargs mahotas.tests
+08/11/2025 09:43:39 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:39 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest --pyargs mahotas.tests
+08/11/2025 09:43:48 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:48 - INFO - __main__ - ✅ Phase 1 (SETUP) complete: `pytest` is now executable without collection errors.
+08/11/2025 09:43:48 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:48 - INFO - __main__ - === Starting Iteration 5/15 [Phase: TRACING] ===
+08/11/2025 09:43:48 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:48 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 09:43:48 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:48 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 09:43:50 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:50 - INFO - __main__ - Found file block: conftest.py
+08/11/2025 09:43:50 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:50 - INFO - __main__ - Model provided a shorthand for conftest.py. Expanding to full content.
+08/11/2025 09:43:50 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:50 - INFO - __main__ - Created file: /app/repo_to_process/conftest.py
+08/11/2025 09:43:50 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:50 - INFO - __main__ - Executing 2 command(s)...
+08/11/2025 09:43:50 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:50 - INFO - __main__ - Executing command in '/app/repo_to_process': cd /tmp
+08/11/2025 09:43:50 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:50 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest --pyargs mahotas.tests
+08/11/2025 09:43:50 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:50 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest --pyargs mahotas.tests
+08/11/2025 09:43:51 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:51 - INFO - __main__ - === Starting Iteration 6/15 [Phase: TRACING] ===
+08/11/2025 09:43:51 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:51 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 09:43:51 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:51 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 09:43:58 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:58 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 09:43:58 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:58 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 09:43:58 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:58 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 09:43:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:59 - INFO - __main__ - === Starting Iteration 7/15 [Phase: TRACING] ===
+08/11/2025 09:43:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:59 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 09:43:59 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:43:59 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 09:44:03 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:03 - INFO - __main__ - Found file block: conftest.py
+08/11/2025 09:44:03 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:03 - INFO - __main__ - Model provided a shorthand for conftest.py. Expanding to full content.
+08/11/2025 09:44:03 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:03 - INFO - __main__ - Created file: /app/repo_to_process/conftest.py
+08/11/2025 09:44:03 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:03 - INFO - __main__ - === Starting Iteration 8/15 [Phase: TRACING] ===
+08/11/2025 09:44:03 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:03 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 09:44:03 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:03 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 09:44:05 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:05 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 09:44:05 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:05 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 09:44:05 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:05 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 09:44:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:06 - INFO - __main__ - === Starting Iteration 9/15 [Phase: TRACING] ===
+08/11/2025 09:44:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:06 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 09:44:06 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:06 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 09:44:09 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:09 - INFO - __main__ - Found file block: conftest.py
+08/11/2025 09:44:09 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:09 - INFO - __main__ - Model provided a shorthand for conftest.py. Expanding to full content.
+08/11/2025 09:44:09 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:09 - INFO - __main__ - Created file: /app/repo_to_process/conftest.py
+08/11/2025 09:44:09 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:09 - INFO - __main__ - Executing 1 command(s)...
+08/11/2025 09:44:09 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:09 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 09:44:09 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:09 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 09:44:10 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:10 - INFO - __main__ - === Starting Iteration 10/15 [Phase: TRACING] ===
+08/11/2025 09:44:10 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:10 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 09:44:10 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:10 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 09:44:11 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:11 - INFO - __main__ - ❌ Model reported failure. Terminating.
+08/11/2025 09:44:11 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:11 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed
+08/11/2025 09:44:11 - INFO - __main__ - [AGENT-LOG] 08/11/2025 01:44:11 - INFO - __main__ - ❌ Agent finished with non-success status: failed
+08/11/2025 09:44:11 - INFO - __main__ - Agent finished with exit code: 1
+08/11/2025 09:44:11 - INFO - __main__ - Copying all generated files from container 'agent-run-mahotas:/app/new_test_detection_logs/mahotas'...
+08/11/2025 09:44:12 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\mahotas'.
+08/11/2025 09:44:12 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-mahotas:/app/repo_to_process'...
+08/11/2025 09:44:12 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 09:44:12 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 09:44:12 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/11/2025 09:44:12 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/11/2025 09:44:12 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/11/2025 09:44:12 - INFO - __main__ - Deleting container 'agent-run-mahotas' due to failure or missing required files.
+08/11/2025 09:44:23 - INFO - __main__ - --- Finished processing repository: mahotas ---
+

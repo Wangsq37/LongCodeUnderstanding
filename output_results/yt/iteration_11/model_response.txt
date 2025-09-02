@@ -1,0 +1,7 @@
+The errors shown are related to missing Python development headers (missing `Python.h` during C/Cython extension compilation). This is **not** something that can be fixed with `pip install`; instead, it requires a system package like `python3-dev` or `python3-devel`, but in this container, you cannot use `apt-get` or similar tools (as you are limited to `pip`). 
+
+This means you will not be able to build C/Cython extensions, so the environment cannot be set up properly for testing.
+
+```status
+failed
+```

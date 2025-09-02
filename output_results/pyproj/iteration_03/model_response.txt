@@ -1,0 +1,17 @@
+The core issue is that the build requires the PROJ system dependency, which cannot be installed due to missing apt packages and upstream repository issues in this container.
+
+Attempts to build the package fail with:
+```
+proj executable not found. Please set the PROJ_DIR variable.
+```
+Attempts to run tests fail with:
+```
+ModuleNotFoundError: No module named 'pyproj._context'
+```
+This means the C extensions are not built, as the build system's requirements are not being satisfied due to the missing system libraries and binaries.
+
+**Since the system packages cannot be installed and the repo cannot build/cannot proceed**, this situation is not resolvable under the current environment. There's no more pip-only step that would help.
+
+```status
+failed
+```

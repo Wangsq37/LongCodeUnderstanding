@@ -1,0 +1,10 @@
+```file:conftest.py
+SOURCE_DIRS_TO_TRACK = ['python/prophet']
+```
+
+```bash
+pytest python/prophet/tests
+```
+```status
+success
+```

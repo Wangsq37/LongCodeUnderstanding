@@ -1,0 +1,199 @@
+08/28/2025 02:43:35 - INFO - [pykalman] - 正在为仓库 'pykalman' 启动并准备容器 'agent-run-pykalman'...
+08/28/2025 02:43:36 - INFO - [pykalman] - 容器 'agent-run-pykalman' 已就绪。
+08/28/2025 02:43:36 - INFO - [pykalman] - --- 开始评估组合: ORIGINAL / ORACLE for repo pykalman ---
+08/28/2025 02:43:36 - INFO - [pykalman] - --- 正在处理任务 1/8: pykalman_0 ---
+08/28/2025 02:43:38 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:39 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:41 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:42 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:44 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:44 - INFO - [pykalman] - --- 正在处理任务 2/8: pykalman_1 ---
+08/28/2025 02:43:46 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:47 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:49 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:51 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:52 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:53 - INFO - [pykalman] - --- 正在处理任务 3/8: pykalman_3 ---
+08/28/2025 02:43:54 - WARNING - [pykalman] -   [失败] 任务 pykalman_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:56 - WARNING - [pykalman] -   [失败] 任务 pykalman_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:43:58 - WARNING - [pykalman] -   [失败] 任务 pykalman_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:00 - WARNING - [pykalman] -   [失败] 任务 pykalman_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:02 - WARNING - [pykalman] -   [失败] 任务 pykalman_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:02 - INFO - [pykalman] - --- 正在处理任务 4/8: pykalman_4 ---
+08/28/2025 02:44:02 - WARNING - [pykalman] -   任务 pykalman_4 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/28/2025 02:44:04 - WARNING - [pykalman] -   [失败] 任务 pykalman_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:06 - WARNING - [pykalman] -   [失败] 任务 pykalman_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:08 - WARNING - [pykalman] -   [失败] 任务 pykalman_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:10 - WARNING - [pykalman] -   [失败] 任务 pykalman_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:10 - INFO - [pykalman] - --- 正在处理任务 5/8: pykalman_5 ---
+08/28/2025 02:44:13 - WARNING - [pykalman] -   [失败] 任务 pykalman_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:15 - WARNING - [pykalman] -   [失败] 任务 pykalman_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:17 - WARNING - [pykalman] -   [失败] 任务 pykalman_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:19 - WARNING - [pykalman] -   [失败] 任务 pykalman_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:22 - WARNING - [pykalman] -   [失败] 任务 pykalman_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:22 - INFO - [pykalman] - --- 正在处理任务 6/8: pykalman_6 ---
+08/28/2025 02:44:24 - WARNING - [pykalman] -   [失败] 任务 pykalman_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:26 - WARNING - [pykalman] -   [失败] 任务 pykalman_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:29 - WARNING - [pykalman] -   [失败] 任务 pykalman_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:31 - WARNING - [pykalman] -   [失败] 任务 pykalman_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:33 - WARNING - [pykalman] -   [失败] 任务 pykalman_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:33 - INFO - [pykalman] - --- 正在处理任务 7/8: pykalman_7 ---
+08/28/2025 02:44:33 - WARNING - [pykalman] -   任务 pykalman_7 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/28/2025 02:44:35 - WARNING - [pykalman] -   [失败] 任务 pykalman_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:37 - WARNING - [pykalman] -   [失败] 任务 pykalman_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:40 - WARNING - [pykalman] -   [失败] 任务 pykalman_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:42 - WARNING - [pykalman] -   [失败] 任务 pykalman_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:42 - INFO - [pykalman] - --- 正在处理任务 8/8: pykalman_8 ---
+08/28/2025 02:44:44 - WARNING - [pykalman] -   [失败] 任务 pykalman_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:46 - WARNING - [pykalman] -   [失败] 任务 pykalman_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:48 - WARNING - [pykalman] -   [失败] 任务 pykalman_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:50 - WARNING - [pykalman] -   [失败] 任务 pykalman_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:52 - WARNING - [pykalman] -   [失败] 任务 pykalman_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:52 - INFO - [pykalman] - --- 开始评估组合: ORIGINAL / RETRIEVAL for repo pykalman ---
+08/28/2025 02:44:52 - INFO - [pykalman] - --- 正在处理任务 1/8: pykalman_0 ---
+08/28/2025 02:44:54 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:55 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:57 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:44:59 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:00 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:01 - INFO - [pykalman] - --- 正在处理任务 2/8: pykalman_1 ---
+08/28/2025 02:45:01 - WARNING - [pykalman] -   任务 pykalman_1 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/28/2025 02:45:02 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:04 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:04 - WARNING - [pykalman] -   任务 pykalman_1 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/28/2025 02:45:06 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:06 - INFO - [pykalman] - --- 正在处理任务 3/8: pykalman_3 ---
+08/28/2025 02:45:08 - WARNING - [pykalman] -   [失败] 任务 pykalman_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:10 - WARNING - [pykalman] -   [失败] 任务 pykalman_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:12 - WARNING - [pykalman] -   [失败] 任务 pykalman_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:14 - WARNING - [pykalman] -   [失败] 任务 pykalman_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:16 - WARNING - [pykalman] -   [失败] 任务 pykalman_3 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:16 - INFO - [pykalman] - --- 正在处理任务 4/8: pykalman_4 ---
+08/28/2025 02:45:16 - WARNING - [pykalman] -   任务 pykalman_4 的一个预测未能提取到有效代码或代码为空，计为失败。
+08/28/2025 02:45:18 - WARNING - [pykalman] -   [失败] 任务 pykalman_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:20 - WARNING - [pykalman] -   [失败] 任务 pykalman_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:22 - WARNING - [pykalman] -   [失败] 任务 pykalman_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:24 - WARNING - [pykalman] -   [失败] 任务 pykalman_4 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:24 - INFO - [pykalman] - --- 正在处理任务 5/8: pykalman_5 ---
+08/28/2025 02:45:27 - WARNING - [pykalman] -   [失败] 任务 pykalman_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:29 - WARNING - [pykalman] -   [失败] 任务 pykalman_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:31 - WARNING - [pykalman] -   [失败] 任务 pykalman_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:33 - WARNING - [pykalman] -   [失败] 任务 pykalman_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:36 - WARNING - [pykalman] -   [失败] 任务 pykalman_5 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:36 - INFO - [pykalman] - --- 正在处理任务 6/8: pykalman_6 ---
+08/28/2025 02:45:38 - WARNING - [pykalman] -   [失败] 任务 pykalman_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:41 - WARNING - [pykalman] -   [失败] 任务 pykalman_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:43 - WARNING - [pykalman] -   [失败] 任务 pykalman_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:45 - WARNING - [pykalman] -   [失败] 任务 pykalman_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:48 - WARNING - [pykalman] -   [失败] 任务 pykalman_6 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:48 - INFO - [pykalman] - --- 正在处理任务 7/8: pykalman_7 ---
+08/28/2025 02:45:50 - WARNING - [pykalman] -   [失败] 任务 pykalman_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:52 - WARNING - [pykalman] -   [失败] 任务 pykalman_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:54 - WARNING - [pykalman] -   [失败] 任务 pykalman_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:56 - WARNING - [pykalman] -   [失败] 任务 pykalman_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:58 - WARNING - [pykalman] -   [失败] 任务 pykalman_7 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:45:59 - INFO - [pykalman] - --- 正在处理任务 8/8: pykalman_8 ---
+08/28/2025 02:46:00 - WARNING - [pykalman] -   [失败] 任务 pykalman_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:46:02 - WARNING - [pykalman] -   [失败] 任务 pykalman_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:46:05 - WARNING - [pykalman] -   [失败] 任务 pykalman_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:46:07 - WARNING - [pykalman] -   [失败] 任务 pykalman_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:46:09 - WARNING - [pykalman] -   [失败] 任务 pykalman_8 测试失败 (测试断言失败 (FAILED))，返回码: 1。
+08/28/2025 02:46:09 - INFO - [pykalman] - --- 开始评估组合: REWRITE / ORACLE for repo pykalman ---
+08/28/2025 02:46:09 - INFO - [pykalman] - --- 正在处理任务 1/8: pykalman_0 ---
+08/28/2025 02:46:10 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:46:11 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:46:13 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:46:14 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:46:15 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:46:15 - INFO - [pykalman] - --- 正在处理任务 2/8: pykalman_1 ---
+08/28/2025 02:46:17 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:46:18 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:46:19 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:46:21 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:46:22 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:46:22 - INFO - [pykalman] - --- 正在处理任务 3/8: pykalman_3 ---
+08/28/2025 02:46:41 - INFO - [pykalman] -   [成功] 任务 pykalman_3 测试通过。
+08/28/2025 02:47:01 - INFO - [pykalman] -   [成功] 任务 pykalman_3 测试通过。
+08/28/2025 02:47:21 - INFO - [pykalman] -   [成功] 任务 pykalman_3 测试通过。
+08/28/2025 02:47:40 - INFO - [pykalman] -   [成功] 任务 pykalman_3 测试通过。
+08/28/2025 02:48:00 - INFO - [pykalman] -   [成功] 任务 pykalman_3 测试通过。
+08/28/2025 02:48:00 - INFO - [pykalman] - --- 正在处理任务 4/8: pykalman_4 ---
+08/28/2025 02:48:19 - INFO - [pykalman] -   [成功] 任务 pykalman_4 测试通过。
+08/28/2025 02:48:39 - INFO - [pykalman] -   [成功] 任务 pykalman_4 测试通过。
+08/28/2025 02:48:59 - INFO - [pykalman] -   [成功] 任务 pykalman_4 测试通过。
+08/28/2025 02:49:19 - INFO - [pykalman] -   [成功] 任务 pykalman_4 测试通过。
+08/28/2025 02:49:40 - INFO - [pykalman] -   [成功] 任务 pykalman_4 测试通过。
+08/28/2025 02:49:40 - INFO - [pykalman] - --- 正在处理任务 5/8: pykalman_5 ---
+08/28/2025 02:49:42 - INFO - [pykalman] -   [成功] 任务 pykalman_5 测试通过。
+08/28/2025 02:49:43 - INFO - [pykalman] -   [成功] 任务 pykalman_5 测试通过。
+08/28/2025 02:49:45 - INFO - [pykalman] -   [成功] 任务 pykalman_5 测试通过。
+08/28/2025 02:49:47 - INFO - [pykalman] -   [成功] 任务 pykalman_5 测试通过。
+08/28/2025 02:49:49 - INFO - [pykalman] -   [成功] 任务 pykalman_5 测试通过。
+08/28/2025 02:49:50 - INFO - [pykalman] - --- 正在处理任务 6/8: pykalman_6 ---
+08/28/2025 02:49:51 - INFO - [pykalman] -   [成功] 任务 pykalman_6 测试通过。
+08/28/2025 02:49:53 - INFO - [pykalman] -   [成功] 任务 pykalman_6 测试通过。
+08/28/2025 02:49:55 - INFO - [pykalman] -   [成功] 任务 pykalman_6 测试通过。
+08/28/2025 02:49:57 - INFO - [pykalman] -   [成功] 任务 pykalman_6 测试通过。
+08/28/2025 02:49:59 - INFO - [pykalman] -   [成功] 任务 pykalman_6 测试通过。
+08/28/2025 02:49:59 - INFO - [pykalman] - --- 正在处理任务 7/8: pykalman_7 ---
+08/28/2025 02:50:01 - INFO - [pykalman] -   [成功] 任务 pykalman_7 测试通过。
+08/28/2025 02:50:03 - INFO - [pykalman] -   [成功] 任务 pykalman_7 测试通过。
+08/28/2025 02:50:04 - INFO - [pykalman] -   [成功] 任务 pykalman_7 测试通过。
+08/28/2025 02:50:06 - INFO - [pykalman] -   [成功] 任务 pykalman_7 测试通过。
+08/28/2025 02:50:08 - INFO - [pykalman] -   [成功] 任务 pykalman_7 测试通过。
+08/28/2025 02:50:09 - INFO - [pykalman] - --- 正在处理任务 8/8: pykalman_8 ---
+08/28/2025 02:50:10 - INFO - [pykalman] -   [成功] 任务 pykalman_8 测试通过。
+08/28/2025 02:50:12 - INFO - [pykalman] -   [成功] 任务 pykalman_8 测试通过。
+08/28/2025 02:50:14 - INFO - [pykalman] -   [成功] 任务 pykalman_8 测试通过。
+08/28/2025 02:50:16 - INFO - [pykalman] -   [成功] 任务 pykalman_8 测试通过。
+08/28/2025 02:50:18 - INFO - [pykalman] -   [成功] 任务 pykalman_8 测试通过。
+08/28/2025 02:50:18 - INFO - [pykalman] - --- 开始评估组合: REWRITE / RETRIEVAL for repo pykalman ---
+08/28/2025 02:50:18 - INFO - [pykalman] - --- 正在处理任务 1/8: pykalman_0 ---
+08/28/2025 02:50:19 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:50:21 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:50:22 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:50:23 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:50:25 - WARNING - [pykalman] -   [失败] 任务 pykalman_0 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:50:25 - INFO - [pykalman] - --- 正在处理任务 2/8: pykalman_1 ---
+08/28/2025 02:50:26 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:50:28 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:50:29 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:50:30 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:50:32 - WARNING - [pykalman] -   [失败] 任务 pykalman_1 测试失败 (测试执行出错 (ERROR))，返回码: 4。
+08/28/2025 02:50:32 - INFO - [pykalman] - --- 正在处理任务 3/8: pykalman_3 ---
+08/28/2025 02:50:52 - INFO - [pykalman] -   [成功] 任务 pykalman_3 测试通过。
+08/28/2025 02:51:12 - INFO - [pykalman] -   [成功] 任务 pykalman_3 测试通过。
+08/28/2025 02:51:32 - INFO - [pykalman] -   [成功] 任务 pykalman_3 测试通过。
+08/28/2025 02:51:51 - INFO - [pykalman] -   [成功] 任务 pykalman_3 测试通过。
+08/28/2025 02:52:11 - INFO - [pykalman] -   [成功] 任务 pykalman_3 测试通过。
+08/28/2025 02:52:11 - INFO - [pykalman] - --- 正在处理任务 4/8: pykalman_4 ---
+08/28/2025 02:52:31 - INFO - [pykalman] -   [成功] 任务 pykalman_4 测试通过。
+08/28/2025 02:52:51 - INFO - [pykalman] -   [成功] 任务 pykalman_4 测试通过。
+08/28/2025 02:53:11 - INFO - [pykalman] -   [成功] 任务 pykalman_4 测试通过。
+08/28/2025 02:53:32 - INFO - [pykalman] -   [成功] 任务 pykalman_4 测试通过。
+08/28/2025 02:53:52 - INFO - [pykalman] -   [成功] 任务 pykalman_4 测试通过。
+08/28/2025 02:53:52 - INFO - [pykalman] - --- 正在处理任务 5/8: pykalman_5 ---
+08/28/2025 02:53:54 - INFO - [pykalman] -   [成功] 任务 pykalman_5 测试通过。
+08/28/2025 02:53:56 - INFO - [pykalman] -   [成功] 任务 pykalman_5 测试通过。
+08/28/2025 02:53:58 - INFO - [pykalman] -   [成功] 任务 pykalman_5 测试通过。
+08/28/2025 02:54:00 - INFO - [pykalman] -   [成功] 任务 pykalman_5 测试通过。
+08/28/2025 02:54:01 - INFO - [pykalman] -   [成功] 任务 pykalman_5 测试通过。
+08/28/2025 02:54:02 - INFO - [pykalman] - --- 正在处理任务 6/8: pykalman_6 ---
+08/28/2025 02:54:03 - INFO - [pykalman] -   [成功] 任务 pykalman_6 测试通过。
+08/28/2025 02:54:05 - INFO - [pykalman] -   [成功] 任务 pykalman_6 测试通过。
+08/28/2025 02:54:07 - INFO - [pykalman] -   [成功] 任务 pykalman_6 测试通过。
+08/28/2025 02:54:09 - INFO - [pykalman] -   [成功] 任务 pykalman_6 测试通过。
+08/28/2025 02:54:11 - INFO - [pykalman] -   [成功] 任务 pykalman_6 测试通过。
+08/28/2025 02:54:11 - INFO - [pykalman] - --- 正在处理任务 7/8: pykalman_7 ---
+08/28/2025 02:54:12 - INFO - [pykalman] -   [成功] 任务 pykalman_7 测试通过。
+08/28/2025 02:54:14 - INFO - [pykalman] -   [成功] 任务 pykalman_7 测试通过。
+08/28/2025 02:54:16 - INFO - [pykalman] -   [成功] 任务 pykalman_7 测试通过。
+08/28/2025 02:54:17 - INFO - [pykalman] -   [成功] 任务 pykalman_7 测试通过。
+08/28/2025 02:54:19 - INFO - [pykalman] -   [成功] 任务 pykalman_7 测试通过。
+08/28/2025 02:54:19 - INFO - [pykalman] - --- 正在处理任务 8/8: pykalman_8 ---
+08/28/2025 02:54:21 - INFO - [pykalman] -   [成功] 任务 pykalman_8 测试通过。
+08/28/2025 02:54:22 - INFO - [pykalman] -   [成功] 任务 pykalman_8 测试通过。
+08/28/2025 02:54:24 - INFO - [pykalman] -   [成功] 任务 pykalman_8 测试通过。
+08/28/2025 02:54:25 - INFO - [pykalman] -   [成功] 任务 pykalman_8 测试通过。
+08/28/2025 02:54:27 - INFO - [pykalman] -   [成功] 任务 pykalman_8 测试通过。
+08/28/2025 02:54:27 - INFO - [pykalman] - 仓库 'pykalman' 处理完毕，正在停止容器 'agent-run-pykalman'...

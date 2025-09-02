@@ -1,0 +1,320 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .basedpyright/
+│   └── baseline.json
+├── .ci/
+│   └── hack-intel-cl-into-conda-env.sh
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── config.yml
+│   │   └── feature_request.md
+│   ├── workflows/
+│   │   ├── autopush.yml
+│   │   ├── ci.yml
+│   │   └── wheels.yml
+│   └── dependabot.yml
+├── contrib/
+│   ├── fortran-to-opencl/
+│   │   ├── README
+│   │   └── translate.py
+│   ├── cldis.py
+│   └── pyopencl.vim
+├── doc/
+│   ├── .gitignore
+│   ├── algorithm.rst
+│   ├── array.rst
+│   ├── conf.py
+│   ├── howto.rst
+│   ├── index.rst
+│   ├── make_constants.py
+│   ├── Makefile
+│   ├── misc.rst
+│   ├── runtime.rst
+│   ├── runtime_const.rst
+│   ├── runtime_gl.rst
+│   ├── runtime_memory.rst
+│   ├── runtime_platform.rst
+│   ├── runtime_program.rst
+│   ├── runtime_queue.rst
+│   ├── subst.rst
+│   ├── tools.rst
+│   ├── types.rst
+│   └── upload-docs.sh
+│       └── ... (15 more files)
+├── examples/
+│   ├── .gitignore
+│   ├── black-hole-accretion.py
+│   ├── demo-struct-reduce.py
+│   ├── demo.py
+│   ├── demo_array.py
+│   ├── demo_array_svm.py
+│   ├── demo_elementwise.py
+│   ├── demo_elementwise_complex.py
+│   ├── demo_mandelbrot.py
+│   ├── demo_meta_codepy.py
+│   ├── demo_meta_template.py
+│   ├── dump-performance.py
+│   ├── dump-properties.py
+│   ├── gl_interop_demo.py
+│   ├── gl_particle_animation.py
+│   ├── image_filters_using_image2d_t.py
+│   ├── ipython-demo.ipynb
+│   ├── median-filter.py
+│   ├── n-body.py
+│   ├── narray.py
+│   ├── noisyImage.jpg
+│   ├── pi-monte-carlo.py
+│   ├── svm.py
+│   └── transpose.py
+│       └── ... (19 more files)
+├── pyopencl/
+│   ├── characterize/
+│   │   ├── __init__.py
+│   │   └── performance.py
+│   ├── cl/
+│   │   ├── pyopencl-random123/
+│   │   │   ├── array.h
+│   │   │   ├── openclfeatures.h
+│   │   │   ├── philox.cl
+│   │   │   └── threefry.cl
+│   │   ├── pyopencl-airy.cl
+│   │   ├── pyopencl-bessel-j-complex.cl
+│   │   ├── pyopencl-bessel-j.cl
+│   │   ├── pyopencl-bessel-y.cl
+│   │   ├── pyopencl-complex.h
+│   │   ├── pyopencl-eval-tbl.cl
+│   │   └── pyopencl-hankel-complex.cl
+│   │       └── ... (2 more files)
+│   ├── compyte/
+│   ├── __init__.py
+│   ├── _cl.pyi
+│   ├── _cluda.py
+│   ├── _monkeypatch.py
+│   ├── _mymako.py
+│   ├── algorithm.py
+│   ├── array.py
+│   ├── bitonic_sort.py
+│   ├── bitonic_sort_templates.py
+│   ├── cache.py
+│   ├── capture_call.py
+│   ├── clmath.py
+│   ├── clrandom.py
+│   ├── cltypes.py
+│   ├── elementwise.py
+│   ├── invoker.py
+│   ├── ipython_ext.py
+│   ├── py.typed
+│   ├── reduction.py
+│   ├── scan.py
+│   ├── tools.py
+│   ├── typing.py
+│   └── version.py
+│       └── ... (18 more files)
+├── scripts/
+│   ├── build-ocl-macos.sh
+│   ├── build-ocl-windows.sh
+│   └── build-ocl.sh
+├── src/
+│   ├── bitlog.cpp
+│   ├── bitlog.hpp
+│   ├── clinfo_ext.h
+│   ├── mempool.hpp
+│   ├── pyopencl_ext.h
+│   ├── tools.hpp
+│   ├── wrap_cl.cpp
+│   ├── wrap_cl.hpp
+│   ├── wrap_cl_part_1.cpp
+│   ├── wrap_cl_part_2.cpp
+│   ├── wrap_constants.cpp
+│   ├── wrap_helpers.hpp
+│   └── wrap_mempool.cpp
+│       └── ... (8 more files)
+├── stubgen/
+│   └── stubgen.py
+├── test/
+│   ├── add-vectors-32.spv
+│   ├── add-vectors-64.spv
+│   ├── empty-header.h
+│   ├── test_algorithm.py
+│   ├── test_array.py
+│   ├── test_arrays_in_structs.py
+│   ├── test_clmath.py
+│   ├── test_clrandom.py
+│   ├── test_enqueue_copy.py
+│   └── test_wrapper.py
+│       └── ... (5 more files)
+├── .conda-ci-build-configure.sh
+├── .editorconfig
+├── .gitignore
+├── .gitlab-ci.yml
+├── .gitmodules
+├── .test-conda-env-py3.yml
+├── CITATION.cff
+├── CMakeLists.txt
+├── LICENSE
+├── pyproject.toml
+└── README.rst
+    └── ... (6 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install pyopencl ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting pyopencl
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/eb/57/ab1e5f8345549ba85391145563b43c300af4458621f09afaa07a790500ab/pyopencl-2025.2.6-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (734 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 734.4/734.4 kB 6.6 MB/s  0:00:00
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from pyopencl) (2.2.6)
+Collecting platformdirs>=2.2 (from pyopencl)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/fe/39/979e8e21520d4e47a0bbe349e2713c0aac6f3d853d0e5b34d76206c439aa/platformdirs-4.3.8-py3-none-any.whl (18 kB)
+Collecting pytools>=2025.1.6 (from pyopencl)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/d4/ba/eec9ed3b8fa3437f18ee756eb1fe88a373628ba64a48890ca75921fe74c1/pytools-2025.2.2-py3-none-any.whl (98 kB)
+Requirement already satisfied: typing_extensions>=4.6 in /usr/local/lib/python3.10/dist-packages (from pyopencl) (4.14.1)
+Collecting siphash24>=1.6 (from pytools>=2025.1.6->pyopencl)
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/43/ee/b225619e0e6889ee3a71175a966ba5d1b84e4fe6cf7c85b5756fbbf3892a/siphash24-1.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (106 kB)
+Installing collected packages: siphash24, platformdirs, pytools, pyopencl
+
+Successfully installed platformdirs-4.3.8 pyopencl-2025.2.6 pytools-2025.2.2 siphash24-1.7
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /app/repo_to_process
+configfile: pyproject.toml
+collected 0 items / 7 errors
+
+==================================== ERRORS ====================================
+___________________ ERROR collecting test/test_algorithm.py ____________________
+ImportError while importing test module '/app/repo_to_process/test/test_algorithm.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/local/lib/python3.10/dist-packages/pyopencl/_mymako.py:5: in <module>
+    import mako.template  # noqa: F401
+E   ModuleNotFoundError: No module named 'mako'
+
+The above exception was the direct cause of the following exception:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+test/test_algorithm.py:39: in <module>
+    from pyopencl.scan import (
+/usr/local/lib/python3.10/dist-packages/pyopencl/scan.py:36: in <module>
+    import pyopencl._mymako as mako
+/usr/local/lib/python3.10/dist-packages/pyopencl/_mymako.py:7: in <module>
+    raise ImportError(
+E   ImportError: Some of PyOpenCL's facilities require the Mako templating engine.
+E   You or a piece of software you have used has tried to call such a
+E   part of PyOpenCL, but there was a problem importing Mako.
+E   
+E   You may install mako now by typing one of:
+E   - easy_install Mako
+E   - pip install Mako
+E   - aptitude install python-mako
+E   
+E   or whatever else is appropriate for your system.
+_____________________ ERROR collecting test/test_array.py ______________________
+/usr/local/lib/python3.10/dist-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/_pytest/python.py:240: in pytest_pycollect_makeitem
+    return list(collector._genfunctions(name, obj))
+/usr/local/lib/python3.10/dist-packages/_pytest/python.py:466: in _genfunctions
+    self.ihook.pytest_generate_tests.call_extra(methods, dict(metafunc=metafunc))
+/usr/local/lib/python3.10/dist-packages/pluggy/_hooks.py:573: in call_extra
+    return self._hookexec(self.name, hookimpls, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:785: in pytest_generate_tests_for_pyopencl
+    arg_values, ids = get_pyopencl_fixture_arg_values()
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:744: in get_pyopencl_fixture_arg_values
+    for platform, devices in get_test_platforms_and_devices():
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:708: in get_test_platforms_and_devices
+    for platform in cl.get_platforms()]
+E   pyopencl._cl.LogicError: clGetPlatformIDs failed: PLATFORM_NOT_FOUND_KHR
+_______________ ERROR collecting test/test_arrays_in_structs.py ________________
+/usr/local/lib/python3.10/dist-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/_pytest/python.py:240: in pytest_pycollect_makeitem
+    return list(collector._genfunctions(name, obj))
+/usr/local/lib/python3.10/dist-packages/_pytest/python.py:466: in _genfunctions
+    self.ihook.pytest_generate_tests.call_extra(methods, dict(metafunc=metafunc))
+/usr/local/lib/python3.10/dist-packages/pluggy/_hooks.py:573: in call_extra
+    return self._hookexec(self.name, hookimpls, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:785: in pytest_generate_tests_for_pyopencl
+    arg_values, ids = get_pyopencl_fixture_arg_values()
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:744: in get_pyopencl_fixture_arg_values
+    for platform, devices in get_test_platforms_and_devices():
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:708: in get_test_platforms_and_devices
+    for platform in cl.get_platforms()]
+E   pyopencl._cl.LogicError: clGetPlatformIDs failed: PLATFORM_NOT_FOUND_KHR
+_____________________ ERROR collecting test/test_clmath.py _____________________
+/usr/local/lib/python3.10/dist-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/_pytest/python.py:240: in pytest_pycollect_makeitem
+    return list(collector._genfunctions(name, obj))
+/usr/local/lib/python3.10/dist-packages/_pytest/python.py:466: in _genfunctions
+    self.ihook.pytest_generate_tests.call_extra(methods, dict(metafunc=metafunc))
+/usr/local/lib/python3.10/dist-packages/pluggy/_hooks.py:573: in call_extra
+    return self._hookexec(self.name, hookimpls, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:785: in pytest_generate_tests_for_pyopencl
+    arg_values, ids = get_pyopencl_fixture_arg_values()
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:744: in get_pyopencl_fixture_arg_values
+    for platform, devices in get_test_platforms_and_devices():
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:708: in get_test_platforms_and_devices
+    for platform in cl.get_platforms()]
+E   pyopencl._cl.LogicError: clGetPlatformIDs failed: PLATFORM_NOT_FOUND_KHR
+____________________ ERROR collecting test/test_clrandom.py ____________________
+/usr/local/lib/python3.10/dist-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/_pytest/python.py:240: in pytest_pycollect_makeitem
+    return list(collector._genfunctions(name, obj))
+/usr/local/lib/python3.10/dist-packages/_pytest/python.py:466: in _genfunctions
+    self.ihook.pytest_generate_tests.call_extra(methods, dict(metafunc=metafunc))
+/usr/local/lib/python3.10/dist-packages/pluggy/_hooks.py:573: in call_extra
+    return self._hookexec(self.name, hookimpls, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:785: in pytest_generate_tests_for_pyopencl
+    arg_values, ids = get_pyopencl_fixture_arg_values()
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:744: in get_pyopencl_fixture_arg_values
+    for platform, devices in get_test_platforms_and_devices():
+/usr/local/lib/python3.10/dist-packages/pyopencl/tools.py:708: in get_test_platforms_and_devices
+    for platform in cl.get_platforms()]
+E   pyopencl._cl.LogicError: clGetPlatformIDs failed: PLATFORM_NOT_FOUND_KHR
+__________________ ERROR collecting test/test_enqueue_copy.py __________________
+/usr/local/lib/python3.10/dist-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/usr/local/lib/python3.10/dist-packages/pluggy/_manager.py:120
+... (46 lines omitted)
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

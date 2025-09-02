@@ -1,0 +1,12 @@
+The situation is as follows:
+
+- The `dolfinx` Python package must be built from source (it's in `python/dolfinx/`). The editable install of `fenics-dolfinx` fails, because the required dependencies in `pyproject.toml` (`fenics-basix>=0.10.0.dev0`, `fenics-ffcx>=0.10.0.dev0`, `fenics-ufl>=2025.2.0.dev0`) do not exist on PyPI.
+- There is no released version of `fenics-dolfinx` available for `pip install fenics-dolfinx`.
+- There is no `requirements.txt` (no easy way to patch just the dependencies).
+- Because the source depends on unreleased versions of critical packages, there is no simple way forward.
+
+Therefore, it is NOT possible to get `pytest` to collect tests due to the unresolvable dependency issues in this environment.
+
+```status
+failed
+```

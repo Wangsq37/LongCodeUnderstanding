@@ -1,0 +1,415 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       └── build_and_test_matrix.yml
+├── _skbuild/
+│   └── linux-x86_64-3.10/
+│       ├── cmake-build/
+│       │   ├── CMakeFiles/
+│       │   ├── sfepy/
+│       │   ├── .ninja_log
+│       │   ├── build.ninja
+│       │   ├── cmake_install.cmake
+│       │   ├── CMakeCache.txt
+│       │   └── CMakeSpec.json
+│       ├── cmake-install/
+│       └── setuptools/
+├── doc/
+│   ├── _static/
+│   │   ├── sfepy.css
+│   │   ├── sfepy_logo.png
+│   │   ├── sfepy_sphinx2_fix.css
+│   │   └── uwb_logo.png
+│   ├── _templates/
+│   │   └── layout.html
+│   ├── images/
+│   │   ├── mat_optim/
+│   │   │   ├── iterations.png
+│   │   │   ├── macro_micro.png
+│   │   │   ├── microstruct_rve.png
+│   │   │   └── tensile_test.png
+│   │   ├── preprocessing/
+│   │   │   ├── circle_in_square.png
+│   │   │   ├── sdf_gmsh1.png
+│   │   │   ├── sdf_gmsh2.png
+│   │   │   ├── sdf_mesh.png
+│   │   │   ├── sdh_freecad.png
+│   │   │   ├── sdh_mesh.png
+│   │   │   ├── sdh_openscad.png
+│   │   │   ├── workflow.png
+│   │   │   └── workflow.svg
+│   │   │       └── ... (4 more files)
+│   │   ├── primer/
+│   │   │   ├── ITS.png
+│   │   │   ├── ITS2D.png
+│   │   │   ├── its2D_0.png
+│   │   │   ├── its2D_01.png
+│   │   │   ├── its2D_1.png
+│   │   │   ├── its2D_2.png
+│   │   │   ├── its2D_3.png
+│   │   │   ├── its2D_4.png
+│   │   │   ├── mesh1.png
+│   │   │   ├── mesh2.png
+│   │   │   ├── mesh3.png
+│   │   │   ├── mesh4.png
+│   │   │   ├── probe_its2D_line0.png
+│   │   │   └── probe_its2D_line1.png
+│   │   │       └── ... (9 more files)
+│   │   ├── resview/
+│   │   │   ├── resview_shot1.png
+│   │   │   ├── resview_shot2.png
+│   │   │   └── resview_shot3.png
+│   │   ├── splinebox/
+│   │   │   ├── spbox.png
+│   │   │   ├── spbox_cp.png
+│   │   │   ├── spregion2d.png
+│   │   │   └── spregion2d_def.png
+│   │   ├── using_salome/
+│   │   │   └── EDF1_screen10.png
+│   │   ├── elements.png
+│   │   ├── linear_elasticity_regions.png
+│   │   ├── linear_elasticity_solution1.png
+│   │   └── linear_elasticity_solution2.png
+│   ├── mat_optim/
+│   │   ├── homogenization_opt_src.rst
+│   │   ├── linear_elasticity_opt_src.rst
+│   │   └── material_opt_src.rst
+│   ├── preprocessing/
+│   │   ├── circle_in_square.geo
+│   │   ├── screwdriver_full.geo
+│   │   ├── screwdriver_full.py
+│   │   ├── screwdriver_full.scad
+│   │   ├── screwdriver_handle.geo
+│   │   ├── screwdriver_handle.py
+│   │   └── screwdriver_handle.scad
+│   │       └── ... (2 more files)
+│   ├── src/
+│   │   ├── sfepy/
+│   │   │   ├── applications/
+│   │   │   ├── base/
+│   │   │   ├── discrete/
+│   │   │   ├── homogenization/
+│   │   │   ├── linalg/
+│   │   │   ├── mechanics/
+│   │   │   ├── mesh/
+│   │   │   ├── parallel/
+│   │   │   ├── postprocess/
+│   │   │   ├── scripts/
+│   │   │   ├── solvers/
+│   │   │   ├── terms/
+│   │   │   ├── tests/
+│   │   │   ├── config.rst
+│   │   │   └── version.rst
+│   │   └── tools/
+│   │       ├── build_helpers.rst
+│   │       ├── gen_field_table.rst
+│   │       ├── gen_gallery.rst
+│   │       ├── gen_legendre_simplex_base.rst
+│   │       ├── gen_lobatto1d_c.rst
+│   │       ├── gen_release_notes.rst
+│   │       ├── gen_serendipity_basis.rst
+│   │       ├── gen_solver_table.rst
+│   │       ├── gen_term_table.rst
+│   │       ├── install_data.rst
+│   │       ├── show_authors.rst
+│   │       ├── show_terms_use.rst
+│   │       └── sync_module_docs.rst
+│   │           └── ... (8 more files)
+│   ├── archived_news.rst
+│   ├── archived_support.rst
+│   ├── conf.py
+│   ├── dev_info.rst
+│   ├── dev_topics.rst
+│   ├── developer_guide.rst
+│   ├── development.rst
+│   ├── documentation.rst
+│   ├── downloads.rst
+│   ├── doxygen.config
+│   ├── ebcs_implementation.rst
+│   ├── examples.rst
+│   ├── faq.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── introduction.rst
+│   ├── license.rst
+│   ├── linear_combination_bc.rst
+│   ├── links.inc
+│   ├── make.bat
+│   ├── Makefile
+│   ├── man-sfepy-run.rst
+│   ├── man-sfepy-view.rst
+│   ├── mat_optim.rst
+│   ├── news.rst
+│   ├── preprocessing.rst
+│   ├── primer.rst
+│   ├── problem_desc_file_long.rst
+│   ├── release_notes.rst
+│   ├── release_tasks.rst
+│   ├── solving_pdes_by_fem.rst
+│   ├── splinebox.rst
+│   ├── terms_overview.rst
+│   ├── theory.rst
+│   ├── tutorial.rst
+│   ├── users_guide.rst
+│   └── using_salome.rst
+│       └── ... (32 more files)
+├── meshes/
+│   ├── 2d/
+│   │   ├── special/
+│   │   │   ├── channels_symm944t.mesh
+│   │   │   ├── circle_in_square.geo
+│   │   │   ├── circle_in_square.mesh
+│   │   │   ├── circle_in_square_small.mesh
+│   │   │   ├── circles_in_square.vtk
+│   │   │   ├── hanging_nodes.mesh
+│   │   │   ├── osteonT1_11.mesh
+│   │   │   ├── square_triquad.mesh
+│   │   │   └── two_rectangles.mesh
+│   │   │       └── ... (4 more files)
+│   │   ├── acoustic_wg_mid.vtk
+│   │   ├── big.mesh
+│   │   ├── bridge.vtk
+│   │   ├── circle_sym.mesh
+│   │   ├── citroen.geo
+│   │   ├── citroen.h5
+│   │   ├── cross-51-0.34.mesh
+│   │   ├── helmholtz_apartment.geo
+│   │   ├── helmholtz_apartment.vtk
+│   │   ├── its2D.mesh
+│   │   ├── rectangle_tri.mesh
+│   │   ├── square_1m.mesh
+│   │   ├── square_2m.mesh
+│   │   ├── square_quad.mesh
+│   │   ├── square_tri1.mesh
+│   │   ├── square_tri2.mesh
+│   │   └── square_unit_tri.mesh
+│   │       └── ... (12 more files)
+│   ├── 3d/
+│   │   ├── special/
+│   │   │   ├── cross3d.mesh
+│   │   │   ├── cube_cylinder.mesh
+│   │   │   └── cube_sphere.mesh
+│   │   ├── acoustic_wg.vtk
+│   │   ├── acoustics_mesh3d.mesh
+│   │   ├── beam_h5t12.mesh
+│   │   ├── beam_h7.mesh
+│   │   ├── beam_t42.mesh
+│   │   ├── beam_w14.vtk
+│   │   ├── block.mesh
+│   │   ├── bridge3d.vtk
+│   │   ├── cube_big_tetra.mesh
+│   │   ├── cube_medium_hexa.mesh
+│   │   ├── cube_medium_tetra.mesh
+│   │   ├── cylinder.mesh
+│   │   ├── cylinder.vtk
+│   │   ├── cylinder_in_box.geo
+│   │   ├── cylinder_in_box.mesh
+│   │   ├── elbow.mesh
+│   │   ├── elbow2.mesh
+│   │   ├── hsphere8.vtk
+│   │   ├── matrix_fiber.mesh
+│   │   ├── matrix_fiber_rand.vtk
+│   │   ├── multi_material_cylinder_plate.geo
+│   │   ├── multi_material_cylinder_plate.vtk
+│   │   ├── perfusion_micro3d.mesh
+│   │   ├── piezo_mesh_micro.vtk
+│   │   ├── unit_ball.mesh
+│   │   └── wheelset.vtk
+│   │       └── ... (21 more files)
+│   ├── elements/
+│   │   ├── 1_2_1.mesh
+│   │   ├── 1_2_2.mesh
+│   │   ├── 2_1_2_2.mesh
+│   │   ├── 2_3_1.mesh
+│   │   ├── 2_3_2.mesh
+│   │   ├── 2_3_2z.mesh
+│   │   ├── 2_4_1.mesh
+│   │   ├── 2_4_2.mesh
+│   │   ├── 3_1_2_2.mesh
+│   │   ├── 3_2_4_2.mesh
+│   │   ├── 3_4_1.mesh
+│   │   ├── 3_4_2.mesh
+│   │   ├── 3_4_2z.mesh
+│   │   ├── 3_8_1.mesh
+│   │   └── 3_8_2.mesh
+│   │       └── ... (10 more files)
+│   ├── iga/
+│   │   ├── block2d.iga
+│   │   ├── block3d.iga
+│   │   └── patch2d.iga
+│   ├── quantum/
+│   │   ├── square.geo
+│   │   └── square.mesh
+│   └── various_formats/
+│       ├── abaqus_hex.inp
+│       ├── abaqus_quad.inp
+│       ├── abaqus_quad_tri.inp
+│       ├── abaqus_tet.inp
+│       ├── abaqus_tri.inp
+│       ├── comsol_tri.txt
+│       ├── cube.bdf
+│       ├── hex4.mesh3d
+│       ├── msh_tetra.msh
+│       ├── msh_tri.msh
+│       ├── octahedron.ele
+│       ├── octahedron.node
+│       ├── small2d.mesh
+│       ├── small2d.vtk
+│       ├── small3d.mesh
+│       ├── tetra8.mesh3d
+│       ├── xyz_quad.ien
+│       ├── xyz_quad.xyz
+│       ├── xyz_tet.ien
+│       └── xyz_tet.xyz
+│           └── ... (15 more files)
+├── sfepy/
+│   ├── applications/
+│   │   ├── __init__.py
+│   │   ├── application.py
+│   │   ├── evp_solver_app.py
+│   │   └── pde_solver_app.py
+│   ├── base/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── compat.py
+│   │   ├── conf.py
+│   │   ├── getch.py
+│   │   ├── goptions.py
+│   │   ├── ioutils.py
+│   │   ├── log.py
+│   │   ├── log_plotter.py
+│   │   ├── mem_usage.py
+│   │   ├── multiproc.py
+│   │   ├── multiproc_mpi.py
+│   │   ├── multiproc_proc.py
+│   │   ├── parse_conf.py
+│   │   ├── plotutils.py
+│   │   ├── reader.py
+│   │   ├── resolve_deps.py
+│   │   ├── testing.py
+│   │   └── timing.py
+│   │       └── ... (14 more files)
+│   ├── discrete/
+│   │   ├── common/
+│   │   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── dof_info.py
+│   │   │   ├── domain.py
+│   │   │   ├── fields.py
+│   │   │   ├── global_interp.py
+│   │   │   ├── mappings.py
+│   │   │   ├── poly_spaces.py
+│   │   │   └── region.py
+│   │   │       └── ... (3 more files)
+│   │   ├── dg/
+│   │   │   ├── __init__.py
+│   │   │   ├── dg_1D_vizualizer.py
+│   │   │   ├── fields.py
+│   │   │   ├── limiters.py
+│   │   │   └── poly_spaces.py
+│   │   ├── fem/
+│   │   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── _serendipity.py
+│   │   │   ├── domain.py
+│   │   │   ├── facets.py
+│   │   │   ├── fe_surface.py
+│   │   │   ├── fields_base.py
+│   │   │   ├── fields_hierarchic.py
+│   │   │   ├── fields_l2.py
+│   │   │   ├── fields_nodal.py
+│   │   │   ├── fields_positive.py
+│   │   │   ├── geometry_element.py
+│   │   │   ├── history.py
+│   │   │   ├── lcbc_operators.py
+│   │   │   ├── linearizer.py
+│   │   │   ├── mappings.py
+│   │   │   ├── mesh.py
+│   │   │   ├── meshio.py
+│   │   │   ├── periodic.py
+│   │   │   ├── poly_spaces.py
+│   │   │   ├── refine.py
+│   │   │   ├── refine_hanging.py
+│   │   │   └── utils.py
+│   │   │       └── ... (17 more files)
+│   │   ├── iga/
+│   │   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── domain.py
+│   │   │   ├── domain_generators.py
+│   │   │   ├── fields.py
+│   │   │   ├── iga.py
+│   │   │   ├── io.py
+│   │   │   ├── mappings.py
+│   │   │   ├── plot_nurbs.py
+│   │   │   └── utils.py
+│   │   │       └── ... (4 more files)
+│   │   ├── structural/
+│   │   │   ├── __init__.py
+│   │   │   ├── fields.py
+│   │   │   └── mappings.py
+│   │   ├── __init__.py
+│   │   ├── conditions.py
+│   │   ├── equations.py
+│   │   ├── evaluate.py
+│   │   ├── evaluate_variable.py
+│   │   ├── functions.py
+│   │   ├── integrals.py
+│   │   ├── materials.py
+│   │   ├── parse_equations.py
+│   │   ├── parse_regions.py
+│   │   ├── probes.py
+│   │   ├── problem.py
+│   │   ├── projections.py
+│   │   ├── quadratures.py
+│   │   ├── simplex_cubature.py
+│   │   └── variables.py
+│   │       └── ... (11 more files)
+│   ├── examples/
+│   │   ├── acoustics/
+│   │   │   ├── __init__.py
+│   │   │   ├── acoustics.py
+│   │   │   ├── acoustics3d.py
+│   │   │   ├── helmholtz_apartment.py
+│   │   │   └── vibro_acoustic3d.py
+│   │   ├── dg/
+│   │   │   ├── __init__.py
+│   │   │   ├── advection_1D.py
+│   │   │   ├── advection_2D.py
+│   │   │   ├── advection_diffusion_2D.py
+│   │   │   ├── burgers_2D.py
+│   │   │   ├── dg_plot_1D.py
+│   │   │   ├── example_dg_common.py
+│   │   │   ├── imperative_burgers_1D.py
+│   │   │
+... (390 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install pyparsing ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting pyparsing
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/05/e7/df2285f3d08fee213f2d041540fa4fc9ca6c2d44cf36d3a035bf2a8d2bcc/pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Installing collected packages: pyparsing
+Successfully installed pyparsing-3.2.3
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

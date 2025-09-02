@@ -1,0 +1,113 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── doc.yml
+│       ├── test_ubuntu.yml
+│       └── wheel_tests_and_release.yml
+├── bin/
+│   └── ci/
+│       └── linux_install_libfftw.sh
+├── docs/
+│   ├── release/
+│   │   ├── 0.11.0.rst
+│   │   ├── 0.12.0.rst
+│   │   ├── 0.13.0.rst
+│   │   ├── 0.14.0.rst
+│   │   ├── 0.15.0.rst
+│   │   └── releases.rst
+│   │       └── ... (1 more files)
+│   ├── source/
+│   │   ├── pyfftw/
+│   │   │   ├── builders/
+│   │   │   ├── interfaces/
+│   │   │   └── pyfftw.rst
+│   │   ├── api.rst
+│   │   ├── license.rst
+│   │   └── tutorial.rst
+│   ├── conf.py
+│   ├── index.rst
+│   ├── make.bat
+│   └── Makefile
+├── include/
+│   ├── msvc_2008/
+│   │   └── stdint.h
+│   ├── msvc_2010/
+│   │   └── stdint.h
+│   ├── win/
+│   │   └── fftw3.h
+│   └── cpu.h
+├── pyfftw/
+│   ├── builders/
+│   │   ├── __init__.py
+│   │   ├── _utils.py
+│   │   └── builders.py
+│   ├── interfaces/
+│   │   ├── __init__.py
+│   │   ├── _utils.py
+│   │   ├── cache.py
+│   │   ├── dask_fft.py
+│   │   ├── numpy_fft.py
+│   │   ├── scipy_fft.py
+│   │   └── scipy_fftpack.py
+│   │       └── ... (2 more files)
+│   ├── __init__.pxd
+│   ├── __init__.py
+│   ├── _version.py
+│   ├── config.py
+│   ├── cpu.pxd
+│   ├── pyfftw.pxd
+│   ├── pyfftw.pyx
+│   └── utils.pxi
+│       └── ... (3 more files)
+├── tests/
+│   ├── __init__.py
+│   ├── _cook_nd_args.py
+│   ├── _get_default_args.py
+│   ├── test_pyfftw_base.py
+│   ├── test_pyfftw_builders.py
+│   ├── test_pyfftw_call.py
+│   ├── test_pyfftw_class_misc.py
+│   ├── test_pyfftw_complex.py
+│   ├── test_pyfftw_config.py
+│   ├── test_pyfftw_dask_interface.py
+│   ├── test_pyfftw_interfaces_cache.py
+│   ├── test_pyfftw_multithreaded.py
+│   ├── test_pyfftw_nbyte_align.py
+│   ├── test_pyfftw_numpy_interface.py
+│   ├── test_pyfftw_partial.py
+│   ├── test_pyfftw_real_backward.py
+│   ├── test_pyfftw_real_forward.py
+│   ├── test_pyfftw_scipy_fft.py
+│   ├── test_pyfftw_scipy_interface.py
+│   ├── test_pyfftw_utils.py
+│   ├── test_pyfftw_version.py
+│   ├── test_pyfftw_wisdom.py
+│   └── test_r2r.py
+│       └── ... (18 more files)
+├── .gitattributes
+├── .gitignore
+├── LICENSE.txt
+├── MANIFEST.in
+├── noxfile.py
+├── pdm.lock
+├── pyproject.toml
+├── README.md
+├── readthedocs.yml
+├── setup.cfg
+├── setup.py
+└── versioneer.py
+    └── ... (7 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

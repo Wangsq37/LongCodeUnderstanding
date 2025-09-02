@@ -1,0 +1,259 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── rstcheck.yml
+│   │   ├── scorecard.yml
+│   │   ├── test_gdal_latest.yml
+│   │   └── tests.yml
+│   └── dependabot.yml
+├── appveyor/
+│   ├── install.ps1
+│   └── run_with_env.cmd
+├── ci/
+│   ├── rstcheck/
+│   │   ├── requirements.in
+│   │   └── requirements.txt
+│   └── gdal-compile.sh
+├── docs/
+│   ├── img/
+│   │   ├── concave.png
+│   │   ├── convex.png
+│   │   ├── simplified-buffer.png
+│   │   └── zones.png
+│   ├── cli.rst
+│   ├── conf.py
+│   ├── encoding.txt
+│   ├── fiona.fio.rst
+│   ├── fiona.rst
+│   ├── index.rst
+│   ├── install.rst
+│   ├── Makefile
+│   ├── manual.rst
+│   ├── modules.rst
+│   └── README.rst
+│       └── ... (6 more files)
+├── examples/
+│   ├── open.py
+│   ├── orient-ccw.py
+│   ├── with-descartes-functional.py
+│   ├── with-descartes.py
+│   ├── with-pyproj.py
+│   └── with-shapely.py
+│       └── ... (1 more files)
+├── fiona/
+│   ├── _vendor/
+│   │   ├── munch/
+│   │   │   ├── __init__.py
+│   │   │   └── LICENSE.txt
+│   │   └── snuggs.py
+│   ├── fio/
+│   │   ├── __init__.py
+│   │   ├── bounds.py
+│   │   ├── calc.py
+│   │   ├── cat.py
+│   │   ├── collect.py
+│   │   ├── distrib.py
+│   │   ├── dump.py
+│   │   ├── env.py
+│   │   ├── features.py
+│   │   ├── helpers.py
+│   │   ├── info.py
+│   │   ├── insp.py
+│   │   ├── load.py
+│   │   ├── ls.py
+│   │   ├── main.py
+│   │   ├── options.py
+│   │   └── rm.py
+│   │       └── ... (12 more files)
+│   ├── __init__.py
+│   ├── _cpl.pxd
+│   ├── _crs.pyx
+│   ├── _csl.pxd
+│   ├── _env.pxd
+│   ├── _env.pyx
+│   ├── _err.pxd
+│   ├── _err.pyx
+│   ├── _geometry.pxd
+│   ├── _geometry.pyx
+│   ├── _path.py
+│   ├── _show_versions.py
+│   ├── _transform.pyx
+│   ├── _vsiopener.pxd
+│   ├── _vsiopener.pyx
+│   ├── abc.py
+│   ├── collection.py
+│   ├── compat.py
+│   ├── crs.pxd
+│   ├── crs.pyx
+│   ├── drvsupport.py
+│   ├── enums.py
+│   ├── env.py
+│   ├── errors.py
+│   ├── features.py
+│   ├── gdal.pxi
+│   ├── inspector.py
+│   ├── io.py
+│   ├── logutils.py
+│   ├── meta.py
+│   ├── model.py
+│   ├── ogrext.pyx
+│   ├── ogrext1.pxd
+│   ├── ogrext2.pxd
+│   ├── ogrext3.pxd
+│   ├── path.py
+│   ├── rfc3339.py
+│   ├── schema.pyx
+│   ├── session.py
+│   ├── transform.py
+│   └── vfs.py
+│       └── ... (36 more files)
+├── scripts/
+│   ├── check_deprecated.py
+│   └── check_urls.py
+├── tests/
+│   ├── data/
+│   │   ├── !test.geojson
+│   │   ├── collection-pp.txt
+│   │   ├── collection.txt
+│   │   ├── coutwildrnp.cpg
+│   │   ├── coutwildrnp.dbf
+│   │   ├── coutwildrnp.prj
+│   │   ├── coutwildrnp.shp
+│   │   ├── coutwildrnp.shx
+│   │   ├── coutwildrnp.zip
+│   │   ├── curves_line.csv
+│   │   ├── example.topojson
+│   │   ├── gre.cpg
+│   │   ├── gre.dbf
+│   │   ├── gre.prj
+│   │   ├── gre.shp
+│   │   ├── gre.shx
+│   │   ├── grenada.geojson
+│   │   ├── issue627.geojson
+│   │   ├── LICENSE.txt
+│   │   ├── multicurve.gml
+│   │   ├── multicurve.xsd
+│   │   ├── rmnp.geojson
+│   │   ├── sequence-pp.txt
+│   │   ├── sequence.txt
+│   │   ├── test_gpx.gpx
+│   │   ├── test_tin.csv
+│   │   ├── test_tin.dbf
+│   │   ├── test_tin.shp
+│   │   ├── test_tin.shx
+│   │   ├── test_tz.geojson
+│   │   ├── testopenfilegdb.gdb.zip
+│   │   ├── trio.geojson
+│   │   └── trio.seq
+│   │       └── ... (28 more files)
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── test__env.py
+│   ├── test__path.py
+│   ├── test_bigint.py
+│   ├── test_binary_field.py
+│   ├── test_bounds.py
+│   ├── test_bytescollection.py
+│   ├── test_collection.py
+│   ├── test_collection_crs.py
+│   ├── test_collection_legacy.py
+│   ├── test_compound_crs.py
+│   ├── test_crs.py
+│   ├── test_cursor_interruptions.py
+│   ├── test_curve_geometries.py
+│   ├── test_data_paths.py
+│   ├── test_datetime.py
+│   ├── test_driver_options.py
+│   ├── test_drivers.py
+│   ├── test_drvsupport.py
+│   ├── test_encoding.py
+│   ├── test_env.py
+│   ├── test_feature.py
+│   ├── test_features.py
+│   ├── test_fio_bounds.py
+│   ├── test_fio_calc.py
+│   ├── test_fio_cat.py
+│   ├── test_fio_collect.py
+│   ├── test_fio_distrib.py
+│   ├── test_fio_dump.py
+│   ├── test_fio_features.py
+│   ├── test_fio_filter.py
+│   ├── test_fio_info.py
+│   ├── test_fio_load.py
+│   ├── test_fio_ls.py
+│   ├── test_fio_rm.py
+│   ├── test_geojson.py
+│   ├── test_geometry.py
+│   ├── test_geopackage.py
+│   ├── test_http_session.py
+│   ├── test_integration.py
+│   ├── test_layer.py
+│   ├── test_listing.py
+│   ├── test_logutils.py
+│   ├── test_memoryfile.py
+│   ├── test_meta.py
+│   ├── test_model.py
+│   ├── test_multiconxn.py
+│   ├── test_non_counting_layer.py
+│   ├── test_open.py
+│   ├── test_profile.py
+│   ├── test_props.py
+│   ├── test_pyopener.py
+│   ├── test_read_drivers.py
+│   ├── test_remove.py
+│   ├── test_revolvingdoor.py
+│   ├── test_rfc3339.py
+│   ├── test_rfc64_tin.py
+│   ├── test_schema.py
+│   ├── test_schema_geom.py
+│   ├── test_session.py
+│   ├── test_slice.py
+│   ├── test_snuggs.py
+│   ├── test_subtypes.py
+│   ├── test_topojson.py
+│   ├── test_transactions.py
+│   ├── test_transform.py
+│   ├── test_unicode.py
+│   ├── test_version.py
+│   ├── test_vfs.py
+│   └── test_write.py
+│       └── ... (66 more files)
+├── .coveragerc
+├── .gitignore
+├── .mailmap
+├── .readthedocs.yaml
+├── appveyor.yml
+├── CHANGES.txt
+├── CITATION.cff
+├── CODE_OF_CONDUCT.md
+├── CREDITS.txt
+├── Dockerfile
+├── environment.yml
+├── FAQ.rst
+├── ISSUE_TEMPLATE.md
+├── LICENSE.txt
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── pytest.ini
+├── README.rst
+├── requirements-ci.txt
+├── requirements-dev.txt
+├── requirements.txt
+├── SECURITY.md
+└── setup.py
+    └── ... (19 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip install .[all]",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nProcessing /app/repo_to_process\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'done'\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nINFO: pip is looking at multiple versions of astropy to determine which version is compatible with other requirements. This could take a while.\n",
+    "stderr": "ERROR: Package 'astropy' requires a different Python: 3.10.12 not in '>=3.11'\n",
+    "execution_time": 11.847877025604248
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/conftest.py'.\nconftest.py:10: in <module>\n    import hypothesis\nE   ModuleNotFoundError: No module named 'hypothesis'\n",
+    "execution_time": 0.24863958358764648
+  }
+]

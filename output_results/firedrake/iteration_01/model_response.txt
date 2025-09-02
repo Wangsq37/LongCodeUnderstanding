@@ -1,0 +1,13 @@
+```bash
+# First, install dependencies listed in requirements-build.txt if present.
+if [ -f requirements-build.txt ]; then pip install -r requirements-build.txt; fi
+
+# Next, check for pyproject.toml, which may contain more dependencies.
+if [ -f pyproject.toml ]; then pip install .; fi
+
+# Also check for setup.py (for editable install)
+if [ -f setup.py ]; then pip install -e .; fi
+
+# Now run pytest to test collection.
+pytest
+```

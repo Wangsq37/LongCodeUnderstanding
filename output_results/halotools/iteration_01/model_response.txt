@@ -1,0 +1,15 @@
+```bash
+# Step 1: Inspect dependency specification files.
+cat requirements.txt
+cat setup.py
+cat pyproject.toml
+
+# Step 2: Install Python dependencies from requirements.txt (if it exists).
+pip install -r requirements.txt
+
+# Step 3: Install extra/test dependencies if defined in setup.py or pyproject.toml.
+# (Assume requirements.txt covers core dependencies; if errors later, address them then.)
+
+# Step 4: Initial pytest run to check for import/collection errors.
+pytest
+```

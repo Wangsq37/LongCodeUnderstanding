@@ -1,0 +1,130 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── doc.yml
+│       ├── test_ubuntu.yml
+│       └── wheel_tests_and_release.yml
+├── bin/
+│   └── ci/
+│       └── linux_install_libfftw.sh
+├── docs/
+│   ├── release/
+│   │   ├── 0.11.0.rst
+│   │   ├── 0.12.0.rst
+│   │   ├── 0.13.0.rst
+│   │   ├── 0.14.0.rst
+│   │   ├── 0.15.0.rst
+│   │   └── releases.rst
+│   │       └── ... (1 more files)
+│   ├── source/
+│   │   ├── pyfftw/
+│   │   │   ├── builders/
+│   │   │   ├── interfaces/
+│   │   │   └── pyfftw.rst
+│   │   ├── api.rst
+│   │   ├── license.rst
+│   │   └── tutorial.rst
+│   ├── conf.py
+│   ├── index.rst
+│   ├── make.bat
+│   └── Makefile
+├── include/
+│   ├── msvc_2008/
+│   │   └── stdint.h
+│   ├── msvc_2010/
+│   │   └── stdint.h
+│   ├── win/
+│   │   └── fftw3.h
+│   └── cpu.h
+├── pyfftw/
+│   ├── builders/
+│   │   ├── __init__.py
+│   │   ├── _utils.py
+│   │   └── builders.py
+│   ├── interfaces/
+│   │   ├── __init__.py
+│   │   ├── _utils.py
+│   │   ├── cache.py
+│   │   ├── dask_fft.py
+│   │   ├── numpy_fft.py
+│   │   ├── scipy_fft.py
+│   │   └── scipy_fftpack.py
+│   │       └── ... (2 more files)
+│   ├── __init__.pxd
+│   ├── __init__.py
+│   ├── _version.py
+│   ├── config.py
+│   ├── cpu.pxd
+│   ├── pyfftw.c
+│   ├── pyfftw.pxd
+│   ├── pyfftw.pyx
+│   └── utils.pxi
+│       └── ... (4 more files)
+├── tests/
+│   ├── __init__.py
+│   ├── _cook_nd_args.py
+│   ├── _get_default_args.py
+│   ├── test_pyfftw_base.py
+│   ├── test_pyfftw_builders.py
+│   ├── test_pyfftw_call.py
+│   ├── test_pyfftw_class_misc.py
+│   ├── test_pyfftw_complex.py
+│   ├── test_pyfftw_config.py
+│   ├── test_pyfftw_dask_interface.py
+│   ├── test_pyfftw_interfaces_cache.py
+│   ├── test_pyfftw_multithreaded.py
+│   ├── test_pyfftw_nbyte_align.py
+│   ├── test_pyfftw_numpy_interface.py
+│   ├── test_pyfftw_partial.py
+│   ├── test_pyfftw_real_backward.py
+│   ├── test_pyfftw_real_forward.py
+│   ├── test_pyfftw_scipy_fft.py
+│   ├── test_pyfftw_scipy_interface.py
+│   ├── test_pyfftw_utils.py
+│   ├── test_pyfftw_version.py
+│   ├── test_pyfftw_wisdom.py
+│   └── test_r2r.py
+│       └── ... (18 more files)
+├── .gitattributes
+├── .gitignore
+├── LICENSE.txt
+├── MANIFEST.in
+├── noxfile.py
+├── pdm.lock
+├── pyproject.toml
+├── README.md
+├── readthedocs.yml
+├── setup.cfg
+├── setup.py
+└── versioneer.py
+    └── ... (7 more files)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install Cython ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting Cython
+  Using cached https://repo.huaweicloud.com/repository/pypi/packages/b4/eb/8c47ba21177929f9122e7aceca9fe1f9f5a037e705226f8a5a9113fb53ba/cython-3.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+Installing collected packages: Cython
+Successfully installed Cython-3.1.2
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

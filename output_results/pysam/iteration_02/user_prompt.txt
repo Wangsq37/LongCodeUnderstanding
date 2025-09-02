@@ -1,0 +1,641 @@
+## Current Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── ci.yaml
+│       └── release.yaml
+├── bcftools/
+│   ├── abuf.c
+│   ├── abuf.c.pysam.c
+│   ├── abuf.h
+│   ├── bam2bcf.c
+│   ├── bam2bcf.c.pysam.c
+│   ├── bam2bcf.h
+│   ├── bam2bcf_edlib.c
+│   ├── bam2bcf_edlib.c.pysam.c
+│   ├── bam2bcf_iaux.c
+│   ├── bam2bcf_iaux.c.pysam.c
+│   ├── bam2bcf_indel.c
+│   ├── bam2bcf_indel.c.pysam.c
+│   ├── bam_sample.c
+│   ├── bam_sample.c.pysam.c
+│   ├── bam_sample.h
+│   ├── bcftools.h
+│   ├── bcftools.pysam.c
+│   ├── bcftools.pysam.h
+│   ├── bin.c
+│   ├── bin.c.pysam.c
+│   ├── bin.h
+│   ├── call.h
+│   ├── ccall.c
+│   ├── ccall.c.pysam.c
+│   ├── cigar_state.h
+│   ├── cols.c
+│   ├── cols.c.pysam.c
+│   ├── cols.h
+│   ├── consensus.c
+│   ├── consensus.c.pysam.c
+│   ├── convert.c
+│   ├── convert.c.pysam.c
+│   ├── convert.h
+│   ├── csq.c
+│   ├── csq.c.pysam.c
+│   ├── dbuf.h
+│   ├── dist.c
+│   ├── dist.c.pysam.c
+│   ├── dist.h
+│   ├── edlib.c
+│   ├── edlib.c.pysam.c
+│   ├── edlib.h
+│   ├── em.c
+│   ├── em.c.pysam.c
+│   ├── extsort.c
+│   ├── extsort.c.pysam.c
+│   ├── extsort.h
+│   ├── filter.c
+│   ├── filter.c.pysam.c
+│   ├── filter.h
+│   ├── gff.c
+│   ├── gff.c.pysam.c
+│   ├── gff.h
+│   ├── gvcf.c
+│   ├── gvcf.c.pysam.c
+│   ├── gvcf.h
+│   ├── hclust.c
+│   ├── hclust.c.pysam.c
+│   ├── hclust.h
+│   ├── hex.h
+│   ├── HMM.c
+│   ├── HMM.c.pysam.c
+│   ├── HMM.h
+│   ├── khash_str2str.h
+│   ├── kheap.h
+│   ├── kmin.c
+│   ├── kmin.c.pysam.c
+│   ├── kmin.h
+│   ├── LICENSE
+│   ├── main.c
+│   ├── main.c.pysam.c
+│   ├── mcall.c
+│   ├── mcall.c.pysam.c
+│   ├── mpileup.c
+│   ├── mpileup.c.pysam.c
+│   ├── mw.h
+│   ├── ploidy.c
+│   ├── ploidy.c.pysam.c
+│   ├── ploidy.h
+│   ├── prob1.c
+│   ├── prob1.c.pysam.c
+│   ├── prob1.h
+│   ├── rbuf.h
+│   ├── read_consensus.c
+│   ├── read_consensus.c.pysam.c
+│   ├── read_consensus.h
+│   ├── README
+│   ├── regidx.c
+│   ├── regidx.c.pysam.c
+│   ├── regidx.h
+│   ├── reheader.c
+│   ├── reheader.c.pysam.c
+│   ├── smpl_ilist.c
+│   ├── smpl_ilist.c.pysam.c
+│   ├── smpl_ilist.h
+│   ├── str_finder.c
+│   ├── str_finder.c.pysam.c
+│   ├── str_finder.h
+│   ├── tabix.c
+│   ├── tabix.c.pysam.c
+│   ├── tsv2vcf.c
+│   ├── tsv2vcf.c.pysam.c
+│   ├── tsv2vcf.h
+│   ├── utlist.h
+│   ├── variantkey.h
+│   ├── vcfannotate.c
+│   ├── vcfannotate.c.pysam.c
+│   ├── vcfbuf.c
+│   ├── vcfbuf.c.pysam.c
+│   ├── vcfbuf.h
+│   ├── vcfcall.c
+│   ├── vcfcall.c.pysam.c
+│   ├── vcfcnv.c
+│   ├── vcfcnv.c.pysam.c
+│   ├── vcfconcat.c
+│   ├── vcfconcat.c.pysam.c
+│   ├── vcfconvert.c
+│   ├── vcfconvert.c.pysam.c
+│   ├── vcffilter.c
+│   ├── vcffilter.c.pysam.c
+│   ├── vcfgtcheck.c
+│   ├── vcfgtcheck.c.pysam.c
+│   ├── vcfhead.c
+│   ├── vcfhead.c.pysam.c
+│   ├── vcfindex.c
+│   ├── vcfindex.c.pysam.c
+│   ├── vcfisec.c
+│   ├── vcfisec.c.pysam.c
+│   ├── vcfmerge.c
+│   ├── vcfmerge.c.pysam.c
+│   ├── vcfnorm.c
+│   ├── vcfnorm.c.pysam.c
+│   ├── vcfplugin.c
+│   ├── vcfplugin.c.pysam.c
+│   ├── vcfquery.c
+│   ├── vcfquery.c.pysam.c
+│   ├── vcfroh.c
+│   ├── vcfroh.c.pysam.c
+│   ├── vcfsom.c
+│   ├── vcfsom.c.pysam.c
+│   ├── vcfsort.c
+│   ├── vcfsort.c.pysam.c
+│   ├── vcfstats.c
+│   ├── vcfstats.c.pysam.c
+│   ├── vcfview.c
+│   ├── vcfview.c.pysam.c
+│   ├── vcmp.c
+│   ├── vcmp.c.pysam.c
+│   ├── vcmp.h
+│   ├── version.c
+│   ├── version.c.pysam.c
+│   └── version.sh
+│       └── ... (147 more files)
+├── devtools/
+│   ├── artifactname.py
+│   ├── check-platform.sh
+│   ├── emulate-tools.py
+│   ├── environment-dev.yaml
+│   ├── import.py
+│   └── install-prerequisites.sh
+│       └── ... (1 more files)
+├── doc/
+│   ├── api.rst
+│   ├── benchmarking.rst
+│   ├── conf.py
+│   ├── developer.rst
+│   ├── faq.rst
+│   ├── glossary.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── release.rst
+│   ├── requirements-rtd.txt
+│   └── usage.rst
+│       └── ... (8 more files)
+├── htslib/
+│   ├── cram/
+│   │   ├── cram.h
+│   │   ├── cram_codecs.c
+│   │   ├── cram_codecs.h
+│   │   ├── cram_decode.c
+│   │   ├── cram_decode.h
+│   │   ├── cram_encode.c
+│   │   ├── cram_encode.h
+│   │   ├── cram_external.c
+│   │   ├── cram_index.c
+│   │   ├── cram_index.h
+│   │   ├── cram_io.c
+│   │   ├── cram_io.h
+│   │   ├── cram_samtools.h
+│   │   ├── cram_stats.c
+│   │   ├── cram_stats.h
+│   │   ├── cram_structs.h
+│   │   ├── mFILE.c
+│   │   ├── mFILE.h
+│   │   ├── misc.h
+│   │   ├── open_trace_file.c
+│   │   ├── open_trace_file.h
+│   │   ├── os.h
+│   │   ├── pooled_alloc.c
+│   │   ├── pooled_alloc.h
+│   │   ├── README
+│   │   ├── string_alloc.c
+│   │   └── string_alloc.h
+│   │       └── ... (22 more files)
+│   ├── htscodecs/
+│   │   └── htscodecs/
+│   │       ├── arith_dynamic.c
+│   │       ├── arith_dynamic.h
+│   │       ├── c_range_coder.h
+│   │       ├── c_simple_model.h
+│   │       ├── fqzcomp_qual.c
+│   │       ├── fqzcomp_qual.h
+│   │       ├── htscodecs.c
+│   │       ├── htscodecs.h
+│   │       ├── htscodecs_endian.h
+│   │       ├── pack.c
+│   │       ├── pack.h
+│   │       ├── permute.h
+│   │       ├── pooled_alloc.h
+│   │       ├── rANS_byte.h
+│   │       ├── rANS_static.c
+│   │       ├── rANS_static.h
+│   │       ├── rANS_static16_int.h
+│   │       ├── rANS_static32x16pr.c
+│   │       ├── rANS_static32x16pr.h
+│   │       ├── rANS_static32x16pr_avx2.c
+│   │       ├── rANS_static32x16pr_avx512.c
+│   │       ├── rANS_static32x16pr_neon.c
+│   │       ├── rANS_static32x16pr_sse4.c
+│   │       ├── rANS_static4x16.h
+│   │       ├── rANS_static4x16pr.c
+│   │       ├── rANS_word.h
+│   │       ├── rle.c
+│   │       ├── rle.h
+│   │       ├── tokenise_name3.c
+│   │       ├── tokenise_name3.h
+│   │       ├── utils.c
+│   │       ├── utils.h
+│   │       ├── varint.h
+│   │       ├── varint2.h
+│   │       └── version.h
+│   │           └── ... (30 more files)
+│   ├── htslib/
+│   │   ├── bgzf.h
+│   │   ├── cram.h
+│   │   ├── faidx.h
+│   │   ├── hfile.h
+│   │   ├── hts.h
+│   │   ├── hts_defs.h
+│   │   ├── hts_endian.h
+│   │   ├── hts_expr.h
+│   │   ├── hts_log.h
+│   │   ├── hts_os.h
+│   │   ├── kbitset.h
+│   │   ├── kfunc.h
+│   │   ├── khash.h
+│   │   ├── khash_str2int.h
+│   │   ├── klist.h
+│   │   ├── knetfile.h
+│   │   ├── kroundup.h
+│   │   ├── kseq.h
+│   │   ├── ksort.h
+│   │   ├── kstring.h
+│   │   ├── regidx.h
+│   │   ├── sam.h
+│   │   ├── synced_bcf_reader.h
+│   │   ├── tbx.h
+│   │   ├── thread_pool.h
+│   │   ├── vcf.h
+│   │   ├── vcf_sweep.h
+│   │   └── vcfutils.h
+│   │       └── ... (23 more files)
+│   ├── m4/
+│   │   ├── hts_check_compile_flags_needed.m4
+│   │   ├── hts_hide_dynamic_syms.m4
+│   │   ├── hts_prog_cc_warnings.m4
+│   │   └── pkg.m4
+│   ├── os/
+│   │   ├── lzma_stub.h
+│   │   └── rand.c
+│   ├── bcf_sr_sort.c
+│   ├── bcf_sr_sort.h
+│   ├── bgzf.c
+│   ├── builddir_vars.mk.in
+│   ├── config.guess
+│   ├── config.h.in
+│   ├── config.mk.in
+│   ├── config.sub
+│   ├── configure
+│   ├── configure.ac
+│   ├── errmod.c
+│   ├── faidx.c
+│   ├── fuzz_settings.h
+│   ├── header.c
+│   ├── header.h
+│   ├── hfile.c
+│   ├── hfile_gcs.c
+│   ├── hfile_internal.h
+│   ├── hfile_libcurl.c
+│   ├── hfile_s3.c
+│   ├── hfile_s3_write.c
+│   ├── hts.c
+│   ├── hts_expr.c
+│   ├── hts_internal.h
+│   ├── hts_os.c
+│   ├── hts_time_funcs.h
+│   ├── htscodecs_bundled.mk
+│   ├── htscodecs_external.mk
+│   ├── htslib.mk
+│   ├── htslib.pc.in
+│   ├── htslib_vars.mk
+│   ├── kfunc.c
+│   ├── kstring.c
+│   ├── LICENSE
+│   ├── Makefile
+│   ├── md5.c
+│   ├── multipart.c
+│   ├── plugin.c
+│   ├── probaln.c
+│   ├── README
+│   ├── realn.c
+│   ├── regidx.c
+│   ├── region.c
+│   ├── sam.c
+│   ├── sam_internal.h
+│   ├── sam_mods.c
+│   ├── simd.c
+│   ├── synced_bcf_reader.c
+│   ├── tbx.c
+│   ├── textutils.c
+│   ├── textutils_internal.h
+│   ├── thread_pool.c
+│   ├── thread_pool_internal.h
+│   ├── vcf.c
+│   ├── vcf_sweep.c
+│   ├── vcfutils.c
+│   └── version.sh
+│       └── ... (52 more files)
+├── import/
+│   ├── pysam.c
+│   └── pysam.h
+├── linker_tests/
+│   ├── link_pre_489/
+│   │   ├── PysamTestModule_link_pre_489/
+│   │   │   ├── __init__.py
+│   │   │   └── BuildRead.pyx
+│   │   ├── tests/
+│   │   │   └── test_module.py
+│   │   ├── cy_build.py
+│   │   └── setup.py
+│   ├── link_with_rpath/
+│   │   ├── PysamTestModule_link_with_rpath/
+│   │   │   ├── __init__.py
+│   │   │   └── BuildRead.pyx
+│   │   ├── tests/
+│   │   │   └── test_module.py
+│   │   └── setup.py
+│   └── link_without_rpath/
+│       ├── PysamTestModule_link_without_rpath/
+│       │   ├── __init__.py
+│       │   └── BuildRead.pyx
+│       ├── tests/
+│       │   └── test_module.py
+│       └── setup.py
+├── pysam/
+│   ├── include/
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── alternatives.py.obsolete
+│   ├── bcftools.py
+│   ├── conftest_cstd.c
+│   ├── htslib_util.c
+│   ├── htslib_util.h
+│   ├── libcalignedsegment.pxd
+│   ├── libcalignedsegment.pyi
+│   ├── libcalignedsegment.pyx
+│   ├── libcalignmentfile.pxd
+│   ├── libcalignmentfile.pyi
+│   ├── libcalignmentfile.pyx
+│   ├── libcbcf.pxd
+│   ├── libcbcf.pyi
+│   ├── libcbcf.pyx
+│   ├── libcbcftools.pxd
+│   ├── libcbcftools.pyi
+│   ├── libcbcftools.pyx
+│   ├── libcbgzf.pxd
+│   ├── libcbgzf.pyi
+│   ├── libcbgzf.pyx
+│   ├── libcfaidx.pxd
+│   ├── libcfaidx.pyi
+│   ├── libcfaidx.pyx
+│   ├── libchtslib.pxd
+│   ├── libchtslib.pyi
+│   ├── libchtslib.pyx
+│   ├── libcsamfile.pxd
+│   ├── libcsamfile.pyi
+│   ├── libcsamfile.pyx
+│   ├── libcsamtools.pxd
+│   ├── libcsamtools.pyi
+│   ├── libcsamtools.pyx
+│   ├── libctabix.pxd
+│   ├── libctabix.pyi
+│   ├── libctabix.pyx
+│   ├── libctabixproxies.pxd
+│   ├── libctabixproxies.pyi
+│   ├── libctabixproxies.pyx
+│   ├── libcutils.pxd
+│   ├── libcutils.pyi
+│   ├── libcutils.pyx
+│   ├── libcvcf.pxd
+│   ├── libcvcf.pyi
+│   ├── libcvcf.pyx
+│   ├── Pileup.py
+│   ├── py.typed
+│   ├── samtools.py
+│   ├── utils.py
+│   ├── VCF.py.obsolete
+│   ├── version.h
+│   ├── version.py
+│   └── version.pyi
+│       └── ... (48 more files)
+├── samtools/
+│   ├── lz4/
+│   │   ├── LICENSE
+│   │   ├── lz4.c
+│   │   ├── lz4.c.pysam.c
+│   │   └── lz4.h
+│   ├── amplicon_stats.c
+│   ├── amplicon_stats.c.pysam.c
+│   ├── bam.c
+│   ├── bam.c.pysam.c
+│   ├── bam.h
+│   ├── bam2depth.c
+│   ├── bam2depth.c.pys
+... (279 lines omitted)
+```
+
+## Previous Operation Results:
+### File Operations:
+No files to create
+### Command Execution:
+--- Command: pip install -r requirements-dev.txt ---
+SUCCESS: True
+STDOUT:
+Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/
+Collecting Cython<4,>=0.29.12 (from -r requirements-dev.txt (line 1))
+  Downloading https://repo.huaweicloud.com/repository/pypi/packages/b4/eb/8c47ba21177929f9122e7aceca9fe1f9f5a037e705226f8a5a9113fb53ba/cython-3.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 10.1 MB/s  0:00:00
+Installing collected packages: Cython
+Successfully installed Cython-3.1.2
+
+STDERR:
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+
+--- Command: pytest ---
+SUCCESS: False
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /app/repo_to_process
+configfile: setup.cfg
+testpaths: pysam, tests
+collecting ... collected 0 items / 15 errors
+
+==================================== ERRORS ====================================
+________________ ERROR collecting tests/AlignedSegment_test.py _________________
+ImportError while importing test module '/app/repo_to_process/tests/AlignedSegment_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/AlignedSegment_test.py:2: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+______________ ERROR collecting tests/AlignmentFileHeader_test.py ______________
+ImportError while importing test module '/app/repo_to_process/tests/AlignmentFileHeader_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/AlignmentFileHeader_test.py:13: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+______________ ERROR collecting tests/AlignmentFilePileup_test.py ______________
+ImportError while importing test module '/app/repo_to_process/tests/AlignmentFilePileup_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/AlignmentFilePileup_test.py:3: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+_________________ ERROR collecting tests/AlignmentFile_test.py _________________
+ImportError while importing test module '/app/repo_to_process/tests/AlignmentFile_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/AlignmentFile_test.py:20: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+_____________ ERROR collecting tests/StreamFiledescriptors_test.py _____________
+ImportError while importing test module '/app/repo_to_process/tests/StreamFiledescriptors_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/StreamFiledescriptors_test.py:6: in <module>
+    from pysam import AlignmentFile
+E   ModuleNotFoundError: No module named 'pysam'
+__________________ ERROR collecting tests/VariantFile_test.py __________________
+ImportError while importing test module '/app/repo_to_process/tests/VariantFile_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/VariantFile_test.py:6: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+_________________ ERROR collecting tests/VariantRecord_test.py _________________
+ImportError while importing test module '/app/repo_to_process/tests/VariantRecord_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/VariantRecord_test.py:1: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+____________________ ERROR collecting tests/compile_test.py ____________________
+ImportError while importing test module '/app/repo_to_process/tests/compile_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/compile_test.py:12: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+_____________________ ERROR collecting tests/faidx_test.py _____________________
+ImportError while importing test module '/app/repo_to_process/tests/faidx_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/faidx_test.py:1: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+____________________ ERROR collecting tests/linking_test.py ____________________
+ImportError while importing test module '/app/repo_to_process/tests/linking_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/linking_test.py:7: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+___________________ ERROR collecting tests/samtools_test.py ____________________
+ImportError while importing test module '/app/repo_to_process/tests/samtools_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/samtools_test.py:16: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+_____________________ ERROR collecting tests/tabix_test.py _____________________
+ImportError while importing test module '/app/repo_to_process/tests/tabix_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/tabix_test.py:11: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+_________________ ERROR collecting tests/tabixproxies_test.py __________________
+ImportError while importing test module '/app/repo_to_process/tests/tabixproxies_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/tabixproxies_test.py:2: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+________________ ERROR collecting tests/test_samtools_python.py ________________
+ImportError while importing test module '/app/repo_to_process/tests/test_samtools_python.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_samtools_python.py:1: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+_________________ ERROR collecting tests/typechecking_test.py __________________
+ImportError while importing test module '/app/repo_to_process/tests/typechecking_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/typechecking_test.py:7: in <module>
+    import pysam
+E   ModuleNotFoundError: No module named 'pysam'
+=========================== short test summary info ============================
+ERROR tests/AlignedSegment_test.py
+ERROR tests/AlignmentFileHeader_test.py
+ERROR tests/AlignmentFilePileup_test.py
+ERROR tests/AlignmentFile_test.py
+ERROR tests/StreamFiledescriptors_test.py
+ERROR tests/VariantFile_test.py
+ERROR tests/VariantRecord_test.py
+ERROR tests/compile_test.py
+ERROR tests/faidx_test.py
+ERROR tests/linking_test.py
+ERROR tests/samtools_test.py
+ERROR tests/tabix_test.py
+ERROR tests/tabixproxies_test.py
+ERROR tests/test_samtools_python.py
+ERROR tests/typechecking_test.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 15 errors during collection !!!!!!!!!!!!!!!!!!!
+============================== 15 errors in 0.44s ==============================
+
+
+
+## Your Task (Phase 1: Environment Setup)
+**Analyze the `pytest` output above.**
+- Did `pytest` report `ModuleNotFoundError` or `ImportError`? If so, you have found a missing dependency. Your next action MUST be to install it using `pip`. For example, if you see `ModuleNotFoundError: No module named 'tifffile'`, respond with `pip install tifffile`.
+- Did `pytest` report `ERROR collecting test`? This indicates a problem with the test files themselves or the environment setup. Continue to debug.
+- You are still in Phase 1. Do NOT proceed to Phase 2 until these errors are resolved and `pytest` can collect tests without crashing.
+- If you are truly stuck after several attempts, declare failure with ```status
+failed
+```.

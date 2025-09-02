@@ -1,0 +1,251 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── config.yml
+│   │   └── feature_request.md
+│   ├── workflows/
+│   │   ├── release_to_pypi.yml
+│   │   ├── tests.yaml
+│   │   └── versioneer.yml
+│   └── dependabot.yml
+├── benchmarks/
+│   ├── __init__.py
+│   ├── clip.py
+│   ├── geom_methods.py
+│   ├── io.py
+│   ├── overlay.py
+│   ├── plotting.py
+│   ├── sindex.py
+│   ├── sjoin.py
+│   └── transform.py
+│       └── ... (4 more files)
+├── ci/
+│   ├── envs/
+│   │   ├── 310-latest-no-pyogrio.yaml
+│   │   ├── 310-minimal.yaml
+│   │   ├── 310-no-optional-deps.yaml
+│   │   ├── 310-pd21.yaml
+│   │   ├── 311-latest.yaml
+│   │   ├── 311-pd22.yaml
+│   │   ├── 312-dev.yaml
+│   │   ├── 312-latest-no-pyproj.yaml
+│   │   ├── 312-latest.yaml
+│   │   └── 313-latest.yaml
+│   │       └── ... (5 more files)
+│   └── scripts/
+│       └── setup_postgres.sh
+├── doc/
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── code/
+│   │   │   ├── logo/
+│   │   │   ├── binary_geo-difference.svg
+│   │   │   ├── binary_geo-intersection.svg
+│   │   │   ├── binary_geo-symm_diff.svg
+│   │   │   ├── binary_geo-union.svg
+│   │   │   ├── binary_op-01.svg
+│   │   │   ├── binary_op-02.svg
+│   │   │   ├── binary_op-03.svg
+│   │   │   ├── boros_with_holes.png
+│   │   │   ├── custom.css
+│   │   │   ├── dataframe.svg
+│   │   │   ├── holes.png
+│   │   │   ├── nyc.png
+│   │   │   ├── nyc_hull.png
+│   │   │   ├── overlay_operations.png
+│   │   │   ├── SponsoredProject.svg
+│   │   │   ├── test.png
+│   │   │   └── test_buffer.png
+│   │   │       └── ... (12 more files)
+│   │   ├── _templates/
+│   │   │   ├── accessor_callable.rst
+│   │   │   ├── autosummary.rst
+│   │   │   └── redirect.html
+│   │   ├── about/
+│   │   │   ├── citing.md
+│   │   │   ├── logo.md
+│   │   │   ├── roadmap.md
+│   │   │   └── team.md
+│   │   ├── community/
+│   │   │   ├── code_of_conduct.rst
+│   │   │   ├── contributing.rst
+│   │   │   └── ecosystem.md
+│   │   ├── docs/
+│   │   │   ├── reference/
+│   │   │   ├── user_guide/
+│   │   │   ├── advanced_guide.rst
+│   │   │   ├── changelog.md
+│   │   │   ├── reference.rst
+│   │   │   └── user_guide.rst
+│   │   ├── gallery/
+│   │   │   ├── cartopy_convert.ipynb
+│   │   │   ├── choro_legends.ipynb
+│   │   │   ├── choropleths.ipynb
+│   │   │   ├── create_geopandas_from_pandas.ipynb
+│   │   │   ├── geopandas_rasterio_sample.ipynb
+│   │   │   ├── index.rst
+│   │   │   ├── inset_map.ipynb
+│   │   │   ├── matplotlib_scalebar.ipynb
+│   │   │   ├── nyc.png
+│   │   │   ├── nyc_hull.png
+│   │   │   ├── overlays.ipynb
+│   │   │   ├── pandas_accessor.ipynb
+│   │   │   ├── plot_clip.ipynb
+│   │   │   ├── plotting_basemap_background.ipynb
+│   │   │   ├── plotting_with_folium.ipynb
+│   │   │   ├── polygon_plotting_with_folium.ipynb
+│   │   │   ├── s2a_l2a_fishbourne.tif
+│   │   │   ├── spatial_joins.ipynb
+│   │   │   ├── test.png
+│   │   │   ├── test_buffer.png
+│   │   │   └── volcano_data_2010.csv
+│   │   │       └── ... (16 more files)
+│   │   ├── getting_started/
+│   │   │   ├── install.rst
+│   │   │   └── introduction.ipynb
+│   │   ├── about.md
+│   │   ├── community.rst
+│   │   ├── conf.py
+│   │   ├── docs.rst
+│   │   ├── getting_started.md
+│   │   └── index.rst
+│   │       └── ... (1 more files)
+│   ├── environment.yml
+│   ├── make.bat
+│   ├── Makefile
+│   └── nyc_boros.py
+├── examples/
+│   └── README.md
+├── geopandas/
+│   ├── datasets/
+│   │   └── __init__.py
+│   ├── io/
+│   │   ├── tests/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── generate_legacy_storage_files.py
+│   │   │   ├── test_arrow.py
+│   │   │   ├── test_file.py
+│   │   │   ├── test_file_geom_types_drivers.py
+│   │   │   ├── test_geoarrow.py
+│   │   │   ├── test_infer_schema.py
+│   │   │   ├── test_pickle.py
+│   │   │   └── test_sql.py
+│   │   │       └── ... (4 more files)
+│   │   ├── __init__.py
+│   │   ├── _geoarrow.py
+│   │   ├── _pyarrow_hotfix.py
+│   │   ├── arrow.py
+│   │   ├── file.py
+│   │   ├── sql.py
+│   │   └── util.py
+│   │       └── ... (2 more files)
+│   ├── tests/
+│   │   ├── baseline_images/
+│   │   │   └── test_plotting/
+│   │   ├── data/
+│   │   │   ├── naturalearth_cities/
+│   │   │   ├── naturalearth_lowres/
+│   │   │   ├── overlay/
+│   │   │   ├── null_geom.geojson
+│   │   │   ├── nybb_16a.zip
+│   │   │   └── README.md
+│   │   ├── __init__.py
+│   │   ├── test_api.py
+│   │   ├── test_array.py
+│   │   ├── test_compat.py
+│   │   ├── test_config.py
+│   │   ├── test_crs.py
+│   │   ├── test_datasets.py
+│   │   ├── test_decorator.py
+│   │   ├── test_dissolve.py
+│   │   ├── test_explore.py
+│   │   ├── test_extension_array.py
+│   │   ├── test_geocode.py
+│   │   ├── test_geodataframe.py
+│   │   ├── test_geom_methods.py
+│   │   ├── test_geoseries.py
+│   │   ├── test_merge.py
+│   │   ├── test_op_output_types.py
+│   │   ├── test_overlay.py
+│   │   ├── test_pandas_accessor.py
+│   │   ├── test_pandas_methods.py
+│   │   ├── test_plotting.py
+│   │   ├── test_show_versions.py
+│   │   ├── test_sindex.py
+│   │   ├── test_testing.py
+│   │   ├── test_types.py
+│   │   └── util.py
+│   │       └── ... (21 more files)
+│   ├── tools/
+│   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_clip.py
+│   │   │   ├── test_hilbert_curve.py
+│   │   │   ├── test_random.py
+│   │   │   ├── test_sjoin.py
+│   │   │   └── test_tools.py
+│   │   │       └── ... (1 more files)
+│   │   ├── __init__.py
+│   │   ├── _random.py
+│   │   ├── _show_versions.py
+│   │   ├── clip.py
+│   │   ├── geocoding.py
+│   │   ├── hilbert_curve.py
+│   │   ├── overlay.py
+│   │   ├── sjoin.py
+│   │   └── util.py
+│   │       └── ... (4 more files)
+│   ├── __init__.py
+│   ├── _compat.py
+│   ├── _config.py
+│   ├── _decorator.py
+│   ├── _version.py
+│   ├── accessors.py
+│   ├── array.py
+│   ├── base.py
+│   ├── conftest.py
+│   ├── explore.py
+│   ├── geodataframe.py
+│   ├── geoseries.py
+│   ├── plotting.py
+│   ├── sindex.py
+│   └── testing.py
+│       └── ... (10 more files)
+├── .coveragerc
+├── .git-blame-ignore-revs
+├── .gitattributes
+├── .gitignore
+├── .pre-commit-config.yaml
+├── asv.conf.json
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── codecov.yml
+├── CONTRIBUTING.md
+├── environment-dev.yml
+├── environment.yml
+├── LICENSE.txt
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+├── readthedocs.yml
+├── requirements-dev.txt
+├── setup.cfg
+├── setup.py
+└── versioneer.py
+    └── ... (16 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

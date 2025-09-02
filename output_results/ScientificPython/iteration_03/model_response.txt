@@ -1,0 +1,8 @@
+The error is `ModuleNotFoundError: No module named 'Scientific'` for all test files. This means that `Scientific` (the main source directory in this repo, not a pip package) is not present on the Python path.
+
+Since `pip install -e .` fails due to a missing dependency (`wheel`), and since there is a `Scientific/` directory at the project root, I will add the directory to the `PYTHONPATH` and rerun `pytest`.
+
+```bash
+export PYTHONPATH=$PYTHONPATH:/app/repo_to_process
+pytest
+```

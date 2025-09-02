@@ -1,0 +1,9 @@
+[
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/tests/conftest.py'.\ntests/conftest.py:25: in <module>\n    import pennylane as qml\nE   ModuleNotFoundError: No module named 'pennylane'\n",
+    "execution_time": 0.480863094329834
+  }
+]

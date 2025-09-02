@@ -1,0 +1,8 @@
+```bash
+# The error is not a missing Python module, but that no MPI library ('libmpi.so', etc.) can be loaded.
+# This must be resolved at the system (shared libraries) level, not Python. Install OpenMPI to provide these libs.
+apt-get update
+apt-get install -y libopenmpi-dev openmpi-bin
+# Try pytest again
+pytest
+```

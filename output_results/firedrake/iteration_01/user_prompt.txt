@@ -1,0 +1,1080 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── documentation.md
+│   │   ├── feature_request.md
+│   │   ├── installation.md
+│   │   ├── question.md
+│   │   └── zenodo_release.md
+│   │       └── ... (1 more files)
+│   ├── workflows/
+│   │   ├── core.yml
+│   │   ├── docker.yml
+│   │   ├── docker_build.yml
+│   │   ├── docker_merge.yml
+│   │   ├── pr.yml
+│   │   ├── push.yml
+│   │   └── release.yml
+│   │       └── ... (2 more files)
+│   └── pull_request_template.md
+├── demos/
+│   ├── benney_luke/
+│   │   └── benney_luke.py.rst
+│   ├── boussinesq/
+│   │   ├── boussinesq.py.rst
+│   │   ├── T0_1.png
+│   │   └── T0_10000.png
+│   ├── burgers/
+│   │   └── burgers.py.rst
+│   ├── camassa-holm/
+│   │   ├── camassaholm.py.rst
+│   │   ├── ch0.png
+│   │   ├── ch25.png
+│   │   └── ch53.png
+│   ├── DG_advection/
+│   │   └── DG_advection.py.rst
+│   ├── eigenvalues_QG_basinmodes/
+│   │   ├── eigenmode_imag.png
+│   │   ├── eigenmode_real.png
+│   │   └── qgbasinmodes.py.rst
+│   ├── extruded_continuity/
+│   │   └── extruded_continuity.py.rst
+│   ├── extruded_shallow_water/
+│   │   └── test_extrusion_lsw.py
+│   ├── fast_diagonalisation/
+│   │   └── fast_diagonalisation_poisson.py.rst
+│   ├── full_waveform_inversion/
+│   │   ├── c_initial.png
+│   │   ├── c_predicted.png
+│   │   ├── c_true.png
+│   │   ├── full_waveform_inversion.py.rst
+│   │   └── sources_receivers.png
+│   ├── helmholtz/
+│   │   └── helmholtz.py.rst
+│   ├── higher_order_mass_lumping/
+│   │   └── higher_order_mass_lumping.py.rst
+│   ├── immersed_fem/
+│   │   ├── gmsh_demo.png
+│   │   ├── immersed_domain.geo
+│   │   ├── immersed_fem.py.rst
+│   │   └── immerseddomain.png
+│   ├── linear-wave-equation/
+│   │   ├── linear_wave_equation.py.rst
+│   │   └── wave_tank.geo
+│   ├── linear_fluid_structure_interaction/
+│   │   ├── geometry.png
+│   │   ├── L_domain.geo
+│   │   ├── L_domain.msh
+│   │   └── linear_fluid_structure_interaction.py.rst
+│   ├── ma-demo/
+│   │   ├── ma-demo.py.rst
+│   │   └── ma.png
+│   ├── matrix_free/
+│   │   ├── navier_stokes.py.rst
+│   │   ├── opts.benard.fs.txt
+│   │   ├── opts.benard.fs_recursive.txt
+│   │   ├── opts.nse.direct.txt
+│   │   ├── opts.nse.fs.fpassembled.txt
+│   │   ├── opts.nse.fs.txt
+│   │   ├── opts.poisson.cg.assembledpc.txt
+│   │   ├── opts.poisson.cg.txt
+│   │   ├── opts.poisson.direct.txt
+│   │   ├── opts.stokes.direct.txt
+│   │   ├── opts.stokes.fs.matfreeMp.txt
+│   │   ├── opts.stokes.fs.txt
+│   │   ├── poisson.py.rst
+│   │   ├── rayleigh-benard.py.rst
+│   │   └── stokes.py.rst
+│   │       └── ... (10 more files)
+│   ├── multicomponent/
+│   │   ├── benzene_0.png
+│   │   ├── benzene_4.png
+│   │   ├── microfluidic_container.png
+│   │   └── multicomponent.py.rst
+│   ├── multigrid/
+│   │   └── geometric_multigrid.py.rst
+│   ├── netgen/
+│   │   ├── Adaptive.png
+│   │   ├── Bottle.png
+│   │   ├── Example1.png
+│   │   ├── Example2.png
+│   │   ├── Example5.png
+│   │   ├── Example6.png
+│   │   ├── Example7.png
+│   │   └── netgen_mesh.py.rst
+│   │       └── ... (3 more files)
+│   ├── nonlinear_QG_winddrivengyre/
+│   │   ├── fig_diff.png
+│   │   ├── fig_gyre.png
+│   │   └── qg_winddrivengyre.py.rst
+│   ├── parallel-printing/
+│   │   └── parprint.py.rst
+│   ├── patch/
+│   │   ├── hcurl_riesz_star.py.rst
+│   │   ├── hdiv_riesz_star.py.rst
+│   │   ├── poisson_mg_patches.py.rst
+│   │   ├── star.svg
+│   │   ├── stokes_vanka_patches.py.rst
+│   │   └── vanka.svg
+│   │       └── ... (1 more files)
+│   ├── poisson/
+│   │   └── poisson_mixed.py.rst
+│   ├── quasigeostrophy_1layer/
+│   │   └── qg_1layer_wave.py.rst
+│   ├── saddle_point_pc/
+│   │   └── saddle_point_systems.py.rst
+│   ├── shape_optimization/
+│   │   └── shape_optimization.py.rst
+│   ├── vlasov_poisson_1d/
+│   │   ├── vlasov_0s_HR.png
+│   │   ├── vlasov_0s_LR.png
+│   │   ├── vlasov_15_HR.png
+│   │   ├── vlasov_15_LR.png
+│   │   └── vp1d.py.rst
+│   ├── demo_references.bib
+│   └── Makefile
+├── docker/
+│   ├── Dockerfile.firedrake
+│   ├── Dockerfile.jupyter
+│   └── Dockerfile.vanilla
+├── docs/
+│   ├── notebooks/
+│   │   ├── image/
+│   │   │   ├── global_hybridized_sparsity.png
+│   │   │   ├── global_mixed_sparsity.png
+│   │   │   ├── hpc_single.png
+│   │   │   ├── hpc_strong.png
+│   │   │   ├── hpc_weak.png
+│   │   │   ├── Q3_hexahedron.png
+│   │   │   ├── rtcf2_dg1.png
+│   │   │   ├── skylake-simd.png
+│   │   │   ├── w2.png
+│   │   │   ├── w2b.png
+│   │   │   └── w2t.png
+│   │   │       └── ... (6 more files)
+│   │   ├── 01-spd-helmholtz.ipynb
+│   │   ├── 02-poisson.ipynb
+│   │   ├── 03-elasticity.ipynb
+│   │   ├── 04-burgers.ipynb
+│   │   ├── 05-mixed-poisson.ipynb
+│   │   ├── 06-pde-constrained-optimisation.ipynb
+│   │   ├── 07-geometric-multigrid.ipynb
+│   │   ├── 08-composable-solvers.ipynb
+│   │   ├── 09-hybridisation.ipynb
+│   │   ├── 10-sum-factorisation.ipynb
+│   │   ├── 11-extract-adjoint-solutions.ipynb
+│   │   ├── 12-HPC_demo.ipynb
+│   │   ├── stokes-control.geo
+│   │   └── stokes-control.msh
+│   │       └── ... (9 more files)
+│   ├── source/
+│   │   ├── _static/
+│   │   │   ├── firedrake19-slides/
+│   │   │   ├── bibliography.bib
+│   │   │   ├── contactless-symbol.jpg
+│   │   │   ├── dmplex.png
+│   │   │   ├── doggetts_terrace.jpg
+│   │   │   ├── firedrake-apps.bib
+│   │   │   ├── GitHub_Logo.png
+│   │   │   ├── queens_tower.jpg
+│   │   │   ├── queens_tower_narrow.jpg
+│   │   │   ├── references.bib
+│   │   │   ├── sphinxpoptitle.sty
+│   │   │   ├── zenodo-gradient-1000.png
+│   │   │   └── zenodo-gradient-200.png
+│   │   │       └── ... (7 more files)
+│   │   ├── _themes/
+│   │   │   └── firedrake/
+│   │   ├── images/
+│   │   │   ├── alastairgregory.jpg
+│   │   │   ├── andrewt.t.mcrae.jpg
+│   │   │   ├── baylor.jpg
+│   │   │   ├── cg1_int.svg
+│   │   │   ├── cg1_tri.svg
+│   │   │   ├── cg1cg1_prism.svg
+│   │   │   ├── cg2_int.svg
+│   │   │   ├── CircleMM20.png
+│   │   │   ├── colinj.cotter.jpg
+│   │   │   ├── connorj.ward.jpg
+│   │   │   ├── corpusdininghall.jpg
+│   │   │   ├── daianei.dolci.jpg
+│   │   │   ├── danielr.shapero.jpg
+│   │   │   ├── dartington.jpg
+│   │   │   ├── david_talking.jpg
+│   │   │   ├── davida.ham.jpg
+│   │   │   ├── dg0_tri.svg
+│   │   │   ├── dg0cg2_prism.svg
+│   │   │   ├── durham_cathedral.jpg
+│   │   │   ├── ensemble.svg
+│   │   │   ├── epsrc.jpg
+│   │   │   ├── external_operators_DAG_Jacobian.png
+│   │   │   ├── fabioluporini.png
+│   │   │   ├── figure_fexact_fopt.png
+│   │   │   ├── figure_uexact_uobs.png
+│   │   │   ├── firedrake24_dinner.jpg
+│   │   │   ├── firedrake24_grouphoto.jpg
+│   │   │   ├── flame_graph_demo.svg
+│   │   │   ├── florianrathgeber.jpg
+│   │   │   ├── gathertown.jpg
+│   │   │   ├── gheorghe-teodorbercea.jpg
+│   │   │   ├── grahamr.markall.jpg
+│   │   │   ├── grantham.jpg
+│   │   │   ├── HedgeExt2D.png
+│   │   │   ├── HedgeExt3D.png
+│   │   │   ├── Icos3.png
+│   │   │   ├── imperial.jpg
+│   │   │   ├── imperial_night.jpg
+│   │   │   ├── indiamarsden.jpg
+│   │   │   ├── jackbetteridge.jpg
+│   │   │   ├── joshuahope-collins.jpg
+│   │   │   ├── kokisagiyama.jpg
+│   │   │   ├── lawrencemitchell.jpg
+│   │   │   ├── leeds_som.png
+│   │   │   ├── maths_oxford.jpg
+│   │   │   ├── michaellange.jpg
+│   │   │   ├── miklshomolya-3hb.jpg
+│   │   │   ├── mini_prism.svg
+│   │   │   ├── missenden_abbey.jpg
+│   │   │   ├── morphed_bathymetry.png
+│   │   │   ├── nacimebouziani.jpg
+│   │   │   ├── ned_prism.svg
+│   │   │   ├── ned_tri.svg
+│   │   │   ├── nerc.png
+│   │   │   ├── nicolas.png
+│   │   │   ├── pablod.brubeck.jpg
+│   │   │   ├── paraview-field-error.png
+│   │   │   ├── patricke.farrell.jpg
+│   │   │   ├── paulh.j.kelly.jpg
+│   │   │   ├── RadExt2D.png
+│   │   │   ├── RadExt3D.png
+│   │   │   ├── rainier-vista.jpg
+│   │   │   ├── real_distribution.png
+│   │   │   ├── real_distribution.py
+│   │   │   ├── reubenw.nixon-hill.jpg
+│   │   │   ├── robertc.kirby.jpg
+│   │   │   ├── rsm.jpg
+│   │   │   ├── rt_quad_post.svg
+│   │   │   ├── rt_quad_pre.svg
+│   │   │   ├── simonw.funke.jpg
+│   │   │   ├── sin_mesh.png
+│   │   │   ├── sophiavorderwuelbecke.jpg
+│   │   │   ├── table_external_operators.png
+│   │   │   ├── tape.svg
+│   │   │   ├── thomash.gibson.jpg
+│   │   │   ├── thomasj.gregory.jpg
+│   │   │   ├── tianjiaosun.jpg
+│   │   │   ├── umbertozerbinati.jpg
+│   │   │   ├── UnifExt.png
+│   │   │   ├── UnitSquare44.png
+│   │   │   └── university_house_leeds.jpg
+│   │   │       └── ... (76 more files)
+│   │   ├── old_pyop2/
+│   │   │   ├── sphinx/
+│   │   │   ├── Makefile
+│   │   │   └── pyop2.tex
+│   │   ├── adjoint.rst
+│   │   ├── advanced_tut.rst
+│   │   ├── aims_25.rst
+│   │   ├── authors.rst_t
+│   │   ├── book.rst
+│   │   ├── book_intro.rst
+│   │   ├── boundary_conditions.rst
+│   │   ├── checkpointing.rst
+│   │   ├── citing.rst
+│   │   ├── conf.py
+│   │   ├── contact.rst
+│   │   ├── documentation.rst
+│   │   ├── duals.rst
+│   │   ├── element_list.py
+│   │   ├── events.rst
+│   │   ├── external_operators.rst
+│   │   ├── extruded-meshes.rst
+│   │   ├── fenics_15.rst
+│   │   ├── fenics_15_directions.rst
+│   │   ├── firedrake_17.rst
+│   │   ├── firedrake_18.rst
+│   │   ├── firedrake_19.rst
+│   │   ├── firedrake_21.rst
+│   │   ├── firedrake_22.rst
+│   │   ├── firedrake_23.rst
+│   │   ├── firedrake_24.rst
+│   │   ├── firedrake_25.rst
+│   │   ├── firedrake_26.rst
+│   │   ├── firedrake_citations.rst
+│   │   ├── firedrake_usa_20.rst
+│   │   ├── firedrake_usa_25.rst
+│   │   ├── funding.rst
+│   │   ├── index.rst
+│   │   ├── install.rst
+│   │   ├── interpolation.rst
+│   │   ├── intro_tut.rst
+│   │   ├── manual.rst
+│   │   ├── matrix-free.rst
+│   │   ├── mesh-coordinates.rst
+│   │   ├── notebooks.rst
+│   │   ├── optimising.rst
+│   │   ├── parallelism.rst
+│   │   ├── petsc-interface.rst
+│   │   ├── point-evaluation.rst
+│   │   ├── preconditioning.rst
+│   │   ├── publications.rst
+│   │   ├── r-space.rst
+│   │   ├── solving-interface.rst
+│   │   ├── sysgenx_23.rst
+│   │   ├── team.ini
+│   │   ├── team.rst_t
+│   │   ├── team2.py
+│   │   ├── tutorial_jan_18.rst
+│   │   ├── tutorial_jan_19.rst
+│   │   ├── tutorial_may_22.rst
+│   │   ├── variational-problems.rst
+│   │   ├── visualisation.rst
+│   │   └── zenodo.rst
+│   │       └── ... (53 more files)
+│   ├── Makefile
+│   └── server.py
+├── firedrake/
+│   ├── _check/
+│   │   └── __init__.py
+│   ├── adjoint/
+│   │   ├── __init__.py
+│   │   ├── ensemble_reduced_functional.py
+│   │   └── ufl_constraints.py
+│   ├── adjoint_utils/
+│   │   ├── blocks/
+│   │   │   ├── __init__.py
+│   │   │   ├── assembly.py
+│   │   │   ├── block_utils.py
+│   │   │   ├── constant.py
+│   │   │   ├── dirichlet_bc.py
+│   │   │   ├── function.py
+│   │   │   ├── mesh.py
+│   │   │   └── solving.py
+│   │   │       └── ... (3 more files)
+│   │   ├── __init__.py
+│   │   ├── assembly.py
+│   │   ├── checkpointing.py
+│   │   ├── constant.py
+│   │   ├── dirichletbc.py
+│   │   ├── function.py
+│   │   ├── mesh.py
+│   │   ├── projection.py
+│   │   ├── solving.py
+│   │   └── variational_solver.py
+│   │       └── ... (5 more files)
+│   ├── cython/
+│   │   ├── __init__.py
+│   │   ├── dmcommon.pyx
+│   │   ├── extrusion_numbering.pyx
+│   │   ├── hdf5interface.pyx
+│   │   ├── mgimpl.pyx
+│   │   ├── mpi-compat.h
+│   │   ├── patchimpl.pyx
+│   │   ├── petschdr.pxi
+│   │   ├── spatialindex.pyx
+│   │   ├── spatialindexinc.pxi
+│   │   └── supermeshimpl.pyx
+│   │       └── ... (6 more files)
+│   ├── external_operators/
+│   │   ├── __init__.py
+│   │   ├── abstract_external_operators.py
+│   │   ├── ml_operator.py
+│   │   └── point_expr_operator.py
+│   ├── fml/
+│   │   ├── __init__.py
+│   │   ├── form_manipulation_language.py
+│   │   └── replacement.py
+│   ├── icons/
+│   │   ├── minus.png
+│   │   ├── play.png
+│   │   └── plus.png
+│   ├── matrix_free/
+│   │   ├── __init__.py
+│   │   └── operators.py
+│   ├── mg/
+│   │   ├── __init__.py
+│   │   ├── embedded.py
+│   │   ├── interface.py
+│   │   ├── kernels.py
+│   │   ├── mesh.py
+│   │   ├── opencascade_mh.py
+│   │   ├── ufl_utils.py
+│   │   └── utils.py
+│   │       └── ... (3 more files)
+│   ├── ml/
+│   │   ├── jax/
+│   │   │   ├── __init__.py
+│   │   │   ├── fem_operator.py
+│   │   │   └── ml_operator.py
+│   │   ├── pytorch/
+│   │   │   ├── __init__.py
+│   │   │   ├── fem_operator.py
+│   │   │   └── ml_operator.py
+│   │   └── __init__.py
+│   ├── output/
+│   │   ├── __init__.py
+│   │   ├── paraview_reordering.py
+│   │   ├── vtk_output.py
+│   │   └── vtk_unavailable.py
+│   ├── preconditioners/
+│   │   ├── __init__.py
+│   │   ├── asm.py
+│   │   ├── assembled.py
+│   │   ├── base.py
+│   │   ├── bddc.py
+│   │   ├── facet_split.py
+│   │   ├── fdm.py
+│   │   ├── gtmg.py
+│   │   ├── hiptmair.py
+│   │   ├── hypre_ads.py
+│   │   ├── hypre_ams.py
+│   │   ├── low_order.py
+│   │   ├── massinv.py
+│   │   ├── patch.py
+│   │   ├── pcd.py
+│   │   └── pmg.py
+│   │       └── ... (11 more files)
+│   ├── pyplot/
+│   │   ├── __init__.py
+│   │   ├── mpl.py
+│   │   └── pgf.py
+│   ├── scripts/
+│   │   ├── __init__.py
+│   │   ├── firedrake-zenodo
+│   │   ├── firedrake_clean.py
+│   │   └── firedrake_preprocess_bibtex.py
+│   ├── slate/
+│   │   ├── slac/
+│   │   │   ├── __init__.py
+│   │   │   ├── compiler.py
+│   │   │   ├── kernel_builder.py
+│   │   │   ├── optimise.py
+│   │   │   ├── tsfc_driver.py
+│   │   │   └── utils.py
+│   │   │       └── ... (1 more files)
+│   │   ├── static_condensation/
+│   │   │   ├── __init__.py
+│   │   │   ├── hybridization.py
+│   │   │   ├── la_utils.py
+│   │   │   ├── sc_base.py
+│   │   │   └── scpc.py
+│   │   ├── __init__.py
+│   │   └── slate.py
+│   ├── slope_limiter/
+│   │   ├── __init__.py
+│   │   ├── limiter.py
+│   │   └── vertex_based_limiter.py
+│   ├── __future__.py
+│   ├── __init__.py
+│   ├── _deprecation.py
+│   ├── assemble.py
+│   ├── assign.py
+│   ├── bcs.py
+│   ├── checkpointing.py
+│   ├── cofunction.py
+│   ├── configuration.py
+│   ├── constant.py
+│   ├── dmhooks.py
+│   ├── eigensolver.py
+│   ├── embedding.py
+│   ├── ensemble.py
+│   ├── evaluate.h
+│   ├── exceptions.py
+│   ├── extrusion_utils.py
+│   ├── formmanipulation.py
+│   ├── function.py
+│   ├── functionspace.py
+│   ├── functionspacedata.py
+│   ├── functionspaceimpl.py
+│   ├── halo.py
+│   ├── interpolation.py
+│   ├── linear_solver.py
+│   ├── locate.c
+│   ├── logging.py
+│   ├── matrix.py
+│   ├── mesh.py
+│   ├── norms.py
+│   ├── nullspace.py
+│   ├── parameters.py
+│   ├── parloops.py
+│   ├── petsc.py
+│   ├── pointeval_utils.py
+│   ├── pointquery_utils.py
+│   ├── progress_bar.py
+│   ├── projection.py
+│   ├── randomfunctiongen.py
+│   ├── solving.py
+│   ├── solving_utils.py
+│   ├── supermeshing.py
+│   ├── tsfc_interface.py
+│   ├── ufl_expr.py
+│   ├── utility_meshes.py
+│   ├── utils.py
+│   ├── variational_solver.py
+│   └── vector.py
+│       └── ... (43 more files)
+├── firedrake_citations/
+│   └── __init__.py
+├── pyop2/
+│   ├── codegen/
+│   │   ├── c/
+│   │   │   ├── inverse.c
+│   │   │   └── solve.c
+│   │   ├── __init__.py
+│   │   ├── builder.py
+│   │   ├── loopycompat.py
+│   │   ├── node.py
+│   │   ├── optimise.py
+│   │   ├── rep2loopy.py
+│   │   └── representation.py
+│   │       └── ... (2 more files)
+│   ├── scripts/
+│   │   └── spydump
+│   ├── types/
+│   │   ├── __init__.py
+│   │   ├── access.py
+│   │   ├── dat.py
+│   │   ├── data_carrier.py
+│   │   ├── dataset.py
+│   │   ├── glob.py
+│   │   ├── halo.py
+│   │   ├── map.py
+│   │   ├── mat.py
+│   │   └── set.py
+│   │       └── ... (5 more files)
+│   ├── __init__.py
+│   ├── caching.py
+│   ├── compilation.py
+│   ├── configuration.py
+│   ├── datatypes.py
+│   ├── exceptions.py
+│   ├── global_kernel.py
+│   ├── local_kernel.py
+│   ├── logger.py
+│   ├── mpi-compat.h
+│   ├── mpi.py
+│   ├── op2.py
+│   ├── parloop.py
+│   ├── profiling.py
+│   ├── sparsity.pyx
+│   └── utils.py
+│       └── ... (11 more files)
+├── scripts/
+│   ├── check-config
+│   ├── firedrake-check
+│   ├── firedrake-configure
+│   └── firedrake-run-split-tests
+├── tests/
+│   ├── firedrake/
+│   │   ├── adjoint/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_assemble.py
+│   │   │   ├── test_assignment.py
+│   │   │   ├── test_burgers_newton.py
+│   │   │   ├── test_checkpointing_multistep.py
+│   │   │   ├── test_disk_checkpointing.py
+│   │   │   ├── test_dynamic_meshes.py
+│   │   │   ├── test_ensemble_reduced_functional.py
+│   │   │   ├── test_external_modification.py
+│   │   │   ├── test_hessian.py
+│   │   │   ├── test_optimisation.py
+│   │   │   ├── test_projection.py
+│   │   │   ├── test_reduced_functional.py
+│   │   │   ├── test_shape_derivatives.py
+│   │   │   ├── test_solving.py
+│   │   │   ├── test_split_and_subfunctions.py
+│   │   │   ├── test_tag.py
+│   │   │   └── test_tlm.py
+│   │   │       └── ... (13 more files)
+│   │   ├── demos/
+│   │   │   ├── test_demos_run.py
+│   │   │   └── test_notebooks_run.py
+│   │   ├── equation_bcs/
+│   │   │   ├── test_bcs_reconstruct.py
+│   │   │   ├── test_equation_bcs.py
+│   │   │   └── test_equation_bcs_assemble.py
+│   │   ├── external_operators/
+│   │   │   ├── test_abstract_external_operator.py
+│   │   │   ├── test_external_operators.py
+│   │   │   ├── test_external_operators_adjoint.py
+│   │   │   ├── test_jax_operator.py
+│   │   │   └── test_pytorch_operator.py
+│   │   ├── extrusion/
+│   │   │   ├── conftest.py
+│   │   │   ├── test_2d_cohomology.py
+│   │   │   ├── test_annulus.py
+│   │   │   ├── test_assembly.py
+│   │   │   ├── test_bcs_interior_facet.py
+│   │   │   ├── test_bdmc_extr.py
+│   │   │   ├── test_cellvolume_extrusion.py
+│   │   │   ├── test_change_coordinates_extrusion.py
+│   │   │   ├── test_cylinder.py
+│   │   │   ├── test_dg_coords.py
+│   │   │   ├── test_embedded_sphere_extrusion.py
+│   │   │   ├── test_enrichment_1_feec.py
+│   │   │   ├── test_extruded_cell_subdomains.py
+│   │   │   ├── test_extruded_periodic.py
+│   │   │   ├── test_facet_avg_extruded.py
+│   │   │   ├── test_facet_integrals_2D.py
+│   │   │   ├── test_facet_integrals_3D.py
+│   │   │   ├── test_facet_support_dofs.py
+│   │   │   ├── test_fs_abbreviations.py
+│   │   │   ├── test_galerkinproj.py
+│   │   │   ├── test_helmholtz_scalar.py
+│   │   │   ├── test_helmholtz_serendipity_2d.py
+│   │   │   ├── test_helmholtz_serendipity_3d.py
+│   │   │   ├── test_helmholtz_vector.py
+│   │   │   ├── test_identity_extrusion.py
+│   │   │   ├── test_interior_facets_extr.py
+│   │   │   ├── test_interval.py
+│   │   │   ├── test_kernel_int_cube.py
+│   │   │   ├── test_kernel_int_p0.py
+│   │   │   ├── test_kernel_intas_p0.py
+│   │   │   ├── test_kernel_intrhs.py
+│   │   │   ├── test_kernel_intvar_p0.py
+│   │   │   ├── test_laplace_neumann.py
+│   │   │   ├── test_layer_height_mesh_volume.py
+│   │   │   ├── test_meshes.py
+│   │   │   ├── test_mixed_bcs.py
+│   │   │   ├── test_mixed_mats_extrusion.py
+│   │   │   ├── test_mixed_periodic.py
+│   │   │   ├── test_offset_computation.py
+│   │   │   ├── test_point_eval_cells_extrusion.py
+│   │   │   ├── test_point_eval_fs_extrusion.py
+│   │   │   ├── test_poisson_neumann.py
+│   │   │   ├── test_poisson_strong_bcs_extrusion.py
+│   │   │   ├── test_real_tensorproduct.py
+│   │   │   ├── test_rhs_bcs.py
+│   │   │   ├── test_rhs_side_bcs.py
+│   │   │   ├── test_serendipity_3d_polys.py
+│   │   │   ├── test_side_strong_bcs.py
+│   │   │   ├── test_steady_advection_2D_extr.py
+│   │   │   ├── test_steady_advection_3D_extr.py
+│   │   │   ├── test_strong_bcs_caching.py
+│   │   │   ├── test_subdomain_extruded.py
+│   │   │   ├── test_trace_extr.py
+│   │   │   ├── test_two_step.py
+│   │   │   ├── test_unit_square.py
+│   │   │   ├── test_variable_layers_bcs.py
+│   │   │   ├── test_variable_layers_mesh_volume.py
+│   │   │   ├── test_variable_layers_numbering.py
+│   │   │   ├── test_variable_layers_poisson.py
+│   │   │   ├── test_variable_layers_steady_advection.py
+│   │   │   ├── test_wedge_analytic.py
+│   │   │   ├── test_zero_forms_extrusion.py
+│   │   │   └── test_zero_integrand_extrusion.py
+│   │   │       └── ... (58 more files)
+│   │   ├── macro/
+│   │   │   ├── test_macro_interp_project.py
+│   │   │   ├── test_macro_low_order_refined.py
+│   │   │   ├── test_macro_multigrid.py
+│   │   │   ├── test_macro_quadrature.py
+│   │   │   ├── test_macro_solve.py
+│   │   │   └── test_stokes_macroelements.py
+│   │   │       └── ... (1 more files)
+│   │   ├── meshes/
+│   │   │   ├── annulus.geo
+│   │   │   ├── annulus.msh
+│   │   │   ├── brick.e
+│   │   │   ├── broken_rogue_point.geo
+│   │   │   ├── broken_rogue_point.msh
+│   │   │   ├── cell-sets.geo
+│   │   │   ├── cell-sets.msh
+│   │   │   ├── circle_in_square.geo
+│   │   │   ├── circle_in_square.msh
+│   │   │   ├── cube_hex.geo
+│   │   │   ├── cube_hex.msh
+│   │   │   ├── cylinder.step
+│   │   │   ├── disk.step
+│   │   │   ├── möbius_solid.geo
+│   │   │   ├── möbius_solid.msh
+│   │   │   ├── sphere.geo
+│   │   │   ├── square.geo
+│   │   │   ├── square.msh
+│   │   │   ├── square_binary.msh
+│   │   │   ├── square_with_embedded_line.geo
+│   │   │   ├── square_with_embedded_line.msh
+│   │   │   ├── t11_quad.msh
+│   │   │   ├── t11_tria.msh
+│   │   │   ├── t_twist.step
+│   │   │   ├── test_meshes_volume.py
+│   │   │   └── unitsquare_unstructured_quadrilaterals.msh
+│   │   │       └── ... (21 more files)
+│   │   ├── multigrid/
+│   │   │   ├── test_basics.py
+│   │   │   ├── test_custom_transfer.py
+│   │   │   ├── test_embedded_transfer.py
+│   │   │   ├── test_equation_bc.py
+│   │   │   ├── test_extruded_semicoarsen.py
+│   │   │   ├── test_grid_transfer.py
+│   │   │   ├── test_hiptmair.py
+│   │   │   ├── test_inject_refined_extruded.py
+│   │   │   ├── test_invalid_transfers.py
+│   │   │   ├── test_multi_space_transfer.py
+│   │   │   ├── test_nested_split.py
+│   │   │   ├── test_netgen_gmg.py
+│   │   │   ├── test_non_nested.py
+│   │   │   ├── test_opencascade_poisson.py
+│   │   │   ├── test_opencascade_volume.py
+│   │   │   ├── test_p_multigrid.py
+│   │   │   ├── test_poisson_gmg.py
+│   │   │   ├── test_poisson_gmg_extruded.py
+│   │   │   ├── test_poisson_gmg_extruded_serendipity.py
+│   │   │   ├── test_poisson_gtmg.py
+│   │   │   ├── test_poisson_p1pcmg_extruded_serendipity.py
+│   │   │   ├── test_refine_then_solve.py
+│   │   │   ├── test_transfer_manager.py
+│   │   │   └── test_two_poisson_gmg.py
+│   │   │       └── ... (19 more files)
+│   │   ├── output/
+│   │   │   ├── test_io_backward_compat_files/
+│   │   │   ├── conftest.py
+│   │   │   ├── test_dumb_checkpoint.py
+│   │   │   ├── test_function_plotter.py
+│   │   │   ├── test_hdf5file_checkpoint.py
+│   │   │   ├── test_io_backward_compat.py
+│   │   │   ├── test_io_freeze_distribution_permutation.py
+│   │   │   ├── test_io_function.py
+│   │   │   ├── test_io_mesh.py
+│   │   │   ├── test_io_solve.py
+│   │   │   ├── test_io_timestepping.py
+│   │   │   ├── test_plotting.py
+│   │   │   └── test_pvd_output.py
+│   │   │       └── ... (7 more files)
+│   │   ├── randomfunctiongen/
+│   │   │   ├── test_randomfunction.py
+│   │   │   └── test_randomgen_compatibility.py
+│   │   ├── regression/
+│   │   │   ├── test_2dcohomology.py
+│   │   │   ├── test_adjoint_bc.py
+│   │   │   ├── test_adjoint_operators.py
+│   │   │   ├── test_adv_diff.py
+│   │   │   ├── test_adv_diff_nonsplit.py
+│   │   │   ├── test_appctx_cleanup.py
+│   │   │   ├── test_assemble.py
+│   │   │   ├── test_assemble_baseform.py
+│   │   │   ├── test_auxiliary_dm.py
+│   │   │   ├── test_bcs.py
+│   │   │   ├── test_bddc.py
+│   │   │   ├── test_bdmc.py
+│   │   │   ├── test_bdmc_riesz_map.py
+│   │   │   ├── test_bessel_functions.py
+│   │   │   ├── test_bubble.py
+│   │   │   ├── test_cell_subdomains.py
+│   │   │   ├── test_cellcoordinate.py
+│   │   │   ├── test_cellorigin.py
+│   │   │   ├── test_cellvolume.py
+│   │   │   ├── test_change_coordinates.py
+│   │   │   ├── test_circle_manifold.py
+│   │   │   ├── test_coarse_nullspace.py
+│   │   │   ├── test_coefficient_derivatives.py
+│   │   │   ├── test_cofunction.py
+│   │   │   ├── test_conditional.py
+│   │   │   ├── test_constant.py
+│   │   │   ├── test_coordinatederivative.py
+│   │   │   ├── test_custom_callbacks.py
+│   │   │   ├── test_custom_pc_python_pmat.py
+│   │   │   ├── test_dg_advection.py
+│   │   │   ├── test_eigensolver.py
+│   │   │   ├── test_element_mapping.py
+│   │   │   ├── test_embedded_sphere.py
+│   │   │   ├── test_ensembleparallelism.py
+│   │   │   ├── test_exodus_mesh.py
+│   │   │   ├── test_expressions.py
+│   │   │   ├── test_facet_avg.py
+│   │   │   ├── test_facet_elements.py
+│   │   │   ├── test_facet_normal.py
+│   │   │   ├── test_facet_orientation.py
+│   │   │   ├── test_facet_split.py
+│   │   │   ├── test_facets.py
+│   │   │   ├── test_fas_snespatch.py
+│   │   │   ├── test_fdm.py
+│   │   │   ├── test_fieldsplit_breadcrumbs.py
+│   │   │   ├── test_fieldsplit_fieldsplit_aux_multigrid.py
+│   │   │   ├── test_fieldsplit_split_reorder_bcs.py
+│   │   │   ├── test_fml.py
+│   │   │   ├── test_fs_caching.py
+│   │   │   ├── test_function.py
+│   │   │   ├── test_function_spaces.py
+│   │   │   ├── test_garbage.py
+│   │   │   ├── test_helmholtz.py
+│   │   │   ├── test_helmholtz_bernstein.py
+│   │   │   ├── test_helmholtz_complex.py
+│   │   │   ├── test_helmholtz_crouzeix_raviart.py
+│   │   │   ├── test_helmholtz_mixed.py
+│   │   │   ├── test_helmholtz_nonlinear_diffusion.py
+│   │   │   ├── test_helmholtz_serendipity.py
+│   │   │   ├── test_helmholtz_sphere.py
+│   │   │   ├── test_helmholtz_zany.py
+│   │   │   ├── test_hypre_ads.py
+│   │   │   ├── test_hypre_ams.py
+│   │   │   ├── test_identity.py
+│   │   │   ├── test_info.py
+│   │   │   ├── test_integral_hex.py
+│   │   │   ├── test_interior_bcs.py
+│   │   │   ├── test_interior_elements.py
+│   │   │   ├── test_interior_facets.py
+│   │   │   ├── test_interp_dual.py
+│   │   │   ├── test_interpolate.py
+│   │   │   ├── test_interpolate_cross_mesh.py
+│   │   │   ├── test_interpolate_p3intmoments.py
+│   │   │   ├── test_interpolate_vs_project.py
+│   │   │   ├── test_interpolate_zany.py
+│   │   │   ├── test_interpolation_manual.py
+│   │   │   ├── test_interpolation_nodes.py
+│   │   │   ├── test_ip_viscosity.py
+│   │   │   ├── test_jacobian_invalidation.py
+│   │   │   ├── test_jax_coupling.py
+│   │   │   ├── test_l2pullbacks.py
+│   │   │   ├── test_line_smoother_periodic.py
+│   │   │   ├── test_linear_solver_change_bc.py
+│   │   │   ├── test_linesmoother.py
+│   │   │   ├── test_linesmoother_vfs.py
+│   │   │   ├── test_load_mesh.py
+│   │   │   ├── test_locate_cell.py
+│   │   │   ├── test_manifolds.py
+│   │   │   ├── test_manual_quadrature.py
+│   │   │   ├── test_mark_entities.py
+│   │   │   ├── test_mass_lumping.py
+│   │   │   ├── test_mat_type_dense.py
+│   │   │   ├── test_matrix.py
+│   │   │   ├── test_matrix_free.py
+│   │   │   ├── test_matrix_prefix.py
+│   │   │   ├── test_mesh_from_plex.py
+│   │   │   ├── test_mesh_generation.py
+│   │   │   ├── test_mesh_overlaps.py
+│   │   │   ├── test_mixed_interior_facets.py
+│   │   │   ├── test_mixed_mats.py
+│   │   │   ├── test_mixed_tensor.py
+│   │   │   ├── test_moore_spence.py
+│   │   │   ├── test_mtw.py
+│   │   │   ├── test_multiple_domains.py
+│   │   │   ├── test_nested_fieldsplit_solves.py
+│   │   │   ├── test_netgen.py
+│   │   │   ├── test_nonlinear_helmholtz.py
+│   │   │   ├── test_nonlinear_stokes_hdiv.py
+│   │   │   ├── test_norm.py
+│   │   │   ├── test_nullspace.py
+│   │   │   ├── test_octahedral_hemisphere.py
+│   │   │   ├── test_p1pc.py
+│   │   │   ├── test_par_loops.py
+│   │   │   ├── test_parallel_cr.py
+│   │   │   ├── test_parallel_kernel.py
+│   │   │   ├── test_parameters.py
+│   │   │   ├── test_partially_mixed_mat.py
+│   │   │   ├── test_patch_pc.py
+│   │   │   ├── test_patch_precompute_element_tensors.py
+│   │   │   ├── test_periodic_2d.py
+│   │   │   ├── test_periodic_interval_advection.py
+│   │   │   ├── test_periodic_rectangle_advection.py
+│   │   │   ├── test_piola_mixed_fn.py
+│   │   │   ├── test_planesmoother.py
+│   │   │   ├── test_point_eval_api.py
+│   │   │   ├── test_point_eval_cells.py
+│   │   │   ├── test_point_eval_fs.py
+│   │   │   ├── test_poisson_mixed_no_bcs.py
+│   │   │   ├── test_poisson_mixed_strong_bcs.py
+│   │   │   ├── test_poisson_sphere.py
+│   │   │   ├── test_poisson_strong_bcs.py
+│   │   │   ├── test_poisson_strong_bcs_nitsche.py
+│   │   │   ├── test_project_interp_KMV.py
+│   │   │   ├── test_projection.py
+│   │   │   ├── test_projection_direct_serendipity.py
+│   │   │   ├── test_projection_symmetric_tensor.py
+│   │   │   ├── test_projection_zany.py
+│   │   │   ├── test_prolong_ncf_cube.py
+│   │   │   ├── test_pytorch_coupling.py
+│   │   │   ├── test_quadrature.py
+│   │   │   ├── test_real_space.py
+│   │   │   ├── test_restricted_function_space.py
+│   │   │   ├── test_scaled_mass.py
+│   │   │   ├── test_serendipity_biharmonic.py
+│   │   │   ├── test_slepc.py
+│   │   │   ├── test_solver_error_checking.py
+│   │   │   ├── test_solvers_options_prefix.py
+│   │   │   ├── test_solving_interface.py
+│   │   │   ├── test_split.py
+│   │   │   ├── test_split_communicators.py
+│   │   │   ├── test_star_pc.py
+│   │   │   ├── test_steady_advection_2D.py
+│   │   │   ├── test_steady_advection_3D.py
+│   │   │   ├── test_stokes_hdiv_parallel.py
+│   │   │   ├── test_stokes_mini.py
+│   │   │   ├── test_stress_elements.py
+│   │   │   ├── test_subdomain.py
+│   │   │   ├── test_subdomain_integrals.py
+│   │   │   ├── test_taylor.py
+│   │   │   ├── test_tensor_algebra.py
+│   │   │   ├── test_tensor_elements.py
+│   │   │   ├── test_trace_galerkin_projection.py
+│   │   │   ├── test_ufl.py
+│   │   │   ├── test_upwind_flux.py
+│   │   │   ├── test_variable_layers.py
+│   │   │   ├── test_variants.py
+│   │   │   ├── test_vector.py
+│   │   │   ├── test_vector_laplace_on_quadrilaterals.py
+│   │   │   ├── test_vertex_based_limiter.py
+│   │   │   ├── test_vfs_component_bcs.py
+│   │   │   ├── test_work_functions.py
+│   │   │   ├── test_zero_forms.py
+│   │   │   └── test_zero_integrand.py
+│   │   │       └── ... (168 more files)
+│   │   ├── slate/
+│   │   │   ├── conftest.py
+│   │   │   ├── script_logging.py
+│   │   │   ├── test_assemble_tensors.py
+│   │   │   ├── test_cg_poisson.py
+│   │   │   ├── test_darcy_hybridized_mixed.py
+│   │   │   ├── test_facet_tensors.py
+│   │   │   ├── test_facet_tensors_extr.py
+│   │   │   ├── test_hdg_poisson.py
+│   │   │   ├── test_hybrid_poisson_sphere.py
+│   │   │   ├── test_linear_algebra.py
+│   │   │   ├── test_local_logging.py
+│   │   │   ├── test_matrix_free_hybridization.py
+│   │   │   ├── test_mimetic.py
+│   │   │   ├── test_optimise.py
+│   │   │   ├── test_orientations.py
+│   │   │   ├── test_scalar_tensors.py
+│   │   │   ├── test_scalar_tensors_extr.py
+│   │   │   ├── test_slac.py
+│   │   │   ├── test_slac_parallel.py
+│   │   │   ├── test_slate_hybridization.py
+│   │   │   ├── test_slate_hybridization_extr.py
+│   │   │   ├── test_slate_hybridized_mixed_bcs.py
+│   │   │   ├── test_slate_infrastructure.py
+│   │   │   ├── test_slate_mixed_direct.py
+│   │   │   ├── test_subdomains.py
+│   │   │   ├── test_unaryop_precedence.py
+│   │   │   ├── test_variational_prb.py
+│   │   │   └── test_zany_element_tensors.py
+│   │   │       └── ... (23 more files)
+│   │   ├── submesh/
+│   │   │   ├── test_submesh_basics.py
+│   │   │   ├── test_submesh_facet.py
+│   │   │   └── test_submesh_interpolate.py
+│   │   ├── supermesh/
+│   │   │   ├── test_assemble_mixed_mass_matrix.py
+│   │   │   ├── test_galerkin_projection.py
+│   │   │   ├── test_intersection_finder_nested.py
+│   │   │   ├── test_nonnested_project.py
+│   │   │   ├── test_nonnested_project_no_hierarchy.py
+│   │   │   └── test_periodic.py
+│   │   │       └── ... (1 more files)
+│   │   ├── unit/
+│   │   │   ├── test_fml/
+│   │   │   └── test_utils/
+│   │   ├── vertexonly/
+│   │   │   ├── test_different_comms.py
+│   │   │   ├── test_interpolation_from_parent.py
+│   │   │   ├── test_point_eval_immersed_manifold.py
+│   │   │   ├── test_poisson_inverse_conductivity.py
+│   │   │   ├── test_swarm.py
+│   │   │   ├── test_vertex_only_fs.py
+│   │   │   ├── test_vertex_only_manual.py
+│   │   │   └── test_vertex_only_mesh_generation.py
+│   │   │       └── ... (3 more files)
+│   │   ├── conftest.py
+│   │   ├── test_0init.py
+│   │   └── test_tsfc_interface.py
+│   ├── pyop2/
+│   │   ├── test_api.py
+│   │   ├── test_caching.py
+│   │   ├── test_callables.py
+│   │   ├── test_configuration.py
+│   │   ├── test_dats.py
+│   │   ├── test_direct_loop.py
+│   │   ├── test_extrusion.py
+│   │   ├── test_global_reduction.py
+│   │   ├── test_globals.py
+│   │   ├── test_indirect_loop.py
+│   │   ├── test_iteration_space_dats.py
+│   │   ├── test_linalg.py
+│   │   ├── test_linalg_complex.py
+│   │   ├── test_matrices.py
+│   │   ├── test_petsc.py
+│   │   ├── test_subset.py
+│   │   └── test_vector_map.py
+│   │       └── ... (12 more files)
+│   ├── tsfc/
+│   │   ├── test_codegen.py
+│   │   ├── test_coffee_optimise.py
+│   │   ├── test_delta_elimination.py
+│   │   ├── test_dual_evaluation.py
+│   │   ├── test_estimated_degree.py
+│   │   ├── test_firedrake_972.py
+│   │   ├── test_flexibly_indexed.py
+│   │   ├── test_flop_count.py
+│   │   ├── test_gem_failure.py
+│   │   ├── test_geometry.py
+│   │   ├── test_idempotency.py
+│   │   ├── test_impero_loopy_flop_counts.py
+│   │   ├── test_interpolation_factorisation.py
+│   │   ├── test_pickle_gem.py
+│   │   ├── test_refactorise.py
+│   │   ├── test_simplification.py
+│   │   ├── test_sum_factorisation.py
+│   │   ├── test_syntax_sugar.py
+│   │   ├── test_tensor.py
+│   │   ├── test_tsfc_182.py
+│   │   ├── test_tsfc_204.py
+│   │   ├── test_tsfc_274.py
+│   │   └── test_underintegration.py
+│   │       └── ... (18 more files)
+│   └── test_durations.json
+├── tinyasm/
+│   ├── __init__.py
+│   ├── matinvert.cpp
+│   ├── readme.md
+│   └── tinyasm.cpp
+├── tsfc/
+│   ├── kernel_interface/
+│   │   ├── __init__.py
+│   │   ├── common.py
+│   │   └── firedrake_loopy.py
+│   ├── __init__.py
+│   ├── coffee_mode.py
+│   ├── driver.py
+│   ├── fem.py
+│   ├── kernel_args.py
+│   ├── logging.py
+│   ├── loopy.py
+│   ├── modified_terminals.py
+│   ├── parameters.py
+│   ├── spectral.py
+│   ├── tensor.py
+│   ├── ufl2gem.py
+│   ├── ufl_utils.py
+│   └── vanilla.py
+│       └── ... (9 more files)
+├── .codecov.yml
+├── .coveragerc
+├── .gitattributes
+├── .gitignore
+├── .mailmap
+├── AUTHORS.rst
+├── CITATION.rst
+├── LICENSE
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── README.rst
+├── requirements-build.txt
+├── setup.cfg
+└── setup.py
+    └── ... (10 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

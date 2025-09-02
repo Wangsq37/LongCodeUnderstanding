@@ -1,0 +1,75 @@
+08/10/2025 22:16:12 - INFO - __main__ - --- Processing repository: biopython ---
+08/10/2025 22:16:12 - INFO - __main__ - No existing container found. Creating new container 'agent-run-biopython'...
+08/10/2025 22:16:13 - INFO - __main__ - Copying 'python_repos\biopython' to new container 'agent-run-biopython:/app/repo_to_process'...
+08/10/2025 22:16:19 - INFO - __main__ - Executing agent inside the container...
+08/10/2025 22:16:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:19 - INFO - __main__ - --- Starting Agent inside Container ---
+08/10/2025 22:16:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:19 - INFO - __main__ - Repository Name: biopython
+08/10/2025 22:16:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:19 - INFO - __main__ - Repository: /app/repo_to_process
+08/10/2025 22:16:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:19 - INFO - __main__ - Language: Python
+08/10/2025 22:16:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:19 - INFO - __main__ - Model: gpt-4.1
+08/10/2025 22:16:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:19 - INFO - __main__ - Max Iterations: 15
+08/10/2025 22:16:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:19 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/10/2025 22:16:22 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:22 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/10/2025 22:16:22 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:22 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:16:22 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:22 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:16:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:29 - INFO - __main__ - Executing 4 command(s)...
+08/10/2025 22:16:29 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:29 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install --upgrade pip
+08/10/2025 22:16:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:30 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install .
+08/10/2025 22:16:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:16:32 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r ci-dependencies.txt
+08/10/2025 22:17:07 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:07 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:17:07 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:07 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:17:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:19 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:17:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:19 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/10/2025 22:17:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:19 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:17:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:19 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:17:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:30 - INFO - __main__ - Executing 2 command(s)...
+08/10/2025 22:17:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:30 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install --editable .
+08/10/2025 22:17:31 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:31 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:17:31 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:31 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:17:38 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:38 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:17:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:39 - INFO - __main__ - === Starting Iteration 3/15 [Phase: SETUP] ===
+08/10/2025 22:17:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:39 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:17:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:39 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:17:43 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:43 - INFO - __main__ - Executing 4 command(s)...
+08/10/2025 22:17:43 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:43 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install Cython
+08/10/2025 22:17:46 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:17:46 - INFO - __main__ - Executing command in '/app/repo_to_process': apt-get update && apt-get install -y python3.10-dev
+08/10/2025 22:18:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:18:23 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install --editable .
+08/10/2025 22:18:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:18:24 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:18:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:18:24 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:18:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:18:32 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:18:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:18:32 - INFO - __main__ - === Starting Iteration 4/15 [Phase: SETUP] ===
+08/10/2025 22:18:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:18:32 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:18:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:18:32 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:18:40 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:18:40 - INFO - __main__ - Executing 3 command(s)...
+08/10/2025 22:18:40 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:18:40 - INFO - __main__ - Executing command in '/app/repo_to_process': apt-get update && apt-get install -y python3-dev
+08/10/2025 22:19:13 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:13 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install --editable .
+08/10/2025 22:19:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:23 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/10/2025 22:19:23 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:23 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/10/2025 22:19:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:30 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/10/2025 22:19:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:30 - INFO - __main__ - === Starting Iteration 5/15 [Phase: SETUP] ===
+08/10/2025 22:19:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:30 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:19:30 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:30 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:19:35 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:35 - INFO - __main__ - === Starting Iteration 6/15 [Phase: SETUP] ===
+08/10/2025 22:19:35 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:35 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:19:35 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:35 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:19:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:39 - INFO - __main__ - === Starting Iteration 7/15 [Phase: SETUP] ===
+08/10/2025 22:19:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:39 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:19:39 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:39 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:19:43 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:43 - INFO - __main__ - === Starting Iteration 8/15 [Phase: SETUP] ===
+08/10/2025 22:19:43 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:43 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/10/2025 22:19:43 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:43 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/10/2025 22:19:46 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:46 - INFO - __main__ - ❌ Model reported failure. Terminating.
+08/10/2025 22:19:46 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:46 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed
+08/10/2025 22:19:46 - INFO - __main__ - [AGENT-LOG] 08/10/2025 14:19:46 - INFO - __main__ - ❌ Agent finished with non-success status: failed
+08/10/2025 22:19:47 - INFO - __main__ - Agent finished with exit code: 1
+08/10/2025 22:19:47 - INFO - __main__ - Copying all generated files from container 'agent-run-biopython:/app/new_test_detection_logs/biopython'...
+08/10/2025 22:19:47 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\biopython'.
+08/10/2025 22:19:47 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-biopython:/app/repo_to_process'...
+08/10/2025 22:19:47 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/10/2025 22:19:47 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/10/2025 22:19:47 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/10/2025 22:19:47 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/10/2025 22:19:47 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/10/2025 22:19:47 - INFO - __main__ - Deleting container 'agent-run-biopython' due to failure or missing required files.
+08/10/2025 22:19:58 - INFO - __main__ - --- Finished processing repository: biopython ---
+

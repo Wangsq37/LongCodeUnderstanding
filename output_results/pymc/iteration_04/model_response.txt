@@ -1,0 +1,12 @@
+The error is:
+
+```
+ModuleNotFoundError: No module named 'jax'
+```
+
+The next step is to install `jax` and rerun pytest.
+
+```bash
+pip install jax
+pytest
+```

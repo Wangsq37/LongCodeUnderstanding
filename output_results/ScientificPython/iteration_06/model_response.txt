@@ -1,0 +1,9 @@
+The setup.py expects the `wheel` package to be present, and tries to import `wheel.paths`. This caused `ModuleNotFoundError: No module named 'wheel.paths'` and failed the editable install.
+
+The next step is to install the `wheel` package using pip and re-run the editable install.
+
+```bash
+pip install wheel
+pip install -e .
+pytest
+```

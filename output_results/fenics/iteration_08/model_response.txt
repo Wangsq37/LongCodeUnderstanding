@@ -1,0 +1,9 @@
+```bash
+# The error says fenics-basix>=0.10.0.dev0 is missing, and dolfinx still can't be imported.
+# Try to install fenics-basix, even if pip can't find the requested .dev0 version, we will try the latest available (0.9.0).
+pip install fenics-basix
+# Then retry the dolfinx install
+pip install --no-build-isolation -e ./python
+# Then retry pytest
+pytest
+```

@@ -1,0 +1,150 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── workflows/
+│   │   ├── python_tests.yml
+│   │   └── ruff.yml
+│   └── FUNDING.yml
+├── binder/
+│   └── requirements.txt
+├── docs/
+│   ├── _static/
+│   │   └── css/
+│   │       └── custom.css
+│   ├── pictures/
+│   │   ├── flowchart/
+│   │   │   ├── flowchart_correlations.svg
+│   │   │   ├── flowchart_nonparametric.svg
+│   │   │   └── flowchart_one_way_ANOVA.svg
+│   │   ├── github_build_artifacts.png
+│   │   ├── github_checks.png
+│   │   ├── github_watch_release.png
+│   │   ├── logo_pingouin.png
+│   │   ├── pingouin.png
+│   │   ├── pingouin.svg
+│   │   └── pingouin_blue.svg
+│   │       └── ... (2 more files)
+│   ├── .nojekyll
+│   ├── api.rst
+│   ├── changelog.rst
+│   ├── citing.rst
+│   ├── conf.py
+│   ├── contributing.rst
+│   ├── faq.rst
+│   ├── guidelines.rst
+│   ├── index.html
+│   ├── index.rst
+│   ├── make.bat
+│   └── Makefile
+│       └── ... (7 more files)
+├── JOSS/
+│   ├── paper.bib
+│   └── paper.md
+├── notebooks/
+│   ├── 00_QuickStart.ipynb
+│   ├── 01_ANOVA.ipynb
+│   ├── 02_BayesianTTests.ipynb
+│   ├── 03_EffectSizes.ipynb
+│   ├── 04_Correlations.ipynb
+│   ├── 05_CircularStatistics.ipynb
+│   └── 06_Rounding.ipynb
+│       └── ... (2 more files)
+├── src/
+│   └── pingouin/
+│       ├── datasets/
+│       │   ├── __init__.py
+│       │   ├── ancova.csv
+│       │   ├── anova.csv
+│       │   ├── anova2.csv
+│       │   ├── anova2_unbalanced.csv
+│       │   ├── anova3.csv
+│       │   ├── anova3_unbalanced.csv
+│       │   ├── blandaltman.csv
+│       │   ├── chi2_independence.csv
+│       │   ├── chi2_mcnemar.csv
+│       │   ├── circular.csv
+│       │   ├── cochran.csv
+│       │   ├── cronbach_alpha.csv
+│       │   ├── cronbach_wide_missing.csv
+│       │   ├── datasets.csv
+│       │   ├── icc.csv
+│       │   ├── mediation.csv
+│       │   ├── mixed_anova.csv
+│       │   ├── mixed_anova_unbalanced.csv
+│       │   ├── multivariate.csv
+│       │   ├── pairwise_corr.csv
+│       │   ├── pairwise_tests.csv
+│       │   ├── pairwise_tests_missing.csv
+│       │   ├── partial_corr.csv
+│       │   ├── penguins.csv
+│       │   ├── rm_anova.csv
+│       │   ├── rm_anova2.csv
+│       │   ├── rm_anova_wide.csv
+│       │   ├── rm_corr.csv
+│       │   ├── rm_missing.csv
+│       │   └── tips.csv
+│       │       └── ... (26 more files)
+│       ├── __init__.py
+│       ├── bayesian.py
+│       ├── circular.py
+│       ├── config.py
+│       ├── contingency.py
+│       ├── correlation.py
+│       ├── distribution.py
+│       ├── effsize.py
+│       ├── equivalence.py
+│       ├── multicomp.py
+│       ├── multivariate.py
+│       ├── nonparametric.py
+│       ├── pairwise.py
+│       ├── parametric.py
+│       ├── plotting.py
+│       ├── power.py
+│       ├── regression.py
+│       ├── reliability.py
+│       └── utils.py
+│           └── ... (14 more files)
+├── tests/
+│   ├── __init__.py
+│   ├── test_bayesian.py
+│   ├── test_circular.py
+│   ├── test_config.py
+│   ├── test_contingency.py
+│   ├── test_correlation.py
+│   ├── test_correlation.R
+│   ├── test_distribution.py
+│   ├── test_effsize.py
+│   ├── test_equivalence.py
+│   ├── test_multicomp.py
+│   ├── test_multivariate.py
+│   ├── test_nonparametric.py
+│   ├── test_pairwise.py
+│   ├── test_pandas.py
+│   ├── test_parametric.py
+│   ├── test_plotting.py
+│   ├── test_power.py
+│   ├── test_regression.py
+│   ├── test_reliability.py
+│   └── test_utils.py
+│       └── ... (16 more files)
+├── .gitattributes
+├── .gitignore
+├── CODE_OF_CONDUCT.md
+├── LICENSE
+├── MANIFEST.in
+├── pyproject.toml
+└── README.rst
+    └── ... (2 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

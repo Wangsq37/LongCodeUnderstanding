@@ -1,0 +1,21 @@
+The errors show that many tests cannot resolve imports from `ci`, e.g., `from ci.ray_ci.utils import logger, ci_init`, resulting in `ModuleNotFoundError: No module named 'ci'`.
+
+This is because `ci` is not in the Python module search path (`sys.path`). In this project structure, `ci` is a subdirectory at the project root.  
+This type of mono-repo layout (tests living inside `ci`) often requires the project root (`.`) to be added to `PYTHONPATH`.
+
+The error for `runfiles` still persists, but `runfiles` is most often implemented via the `python-build-standalone` (not a pip package). We're likely supposed to use the Bazel-provided package, especially as there are `bazel/` helpers. But to progress, let's try Google's `python-runfiles`, which is the closest substitute, and enable PYTHONPATH accordingly.
+
+Actions:
+
+- Try installing `python-runfiles`.
+- Set `PYTHONPATH` to include the project root (`.`) when running pytest.
+
+If `python-runfiles` does not solve the `runfiles` import, I may need to mock/stub it or see if there's a helper in the repo.
+
+Let's proceed:
+
+```bash
+pip install python-runfiles
+PYTHONPATH=. pytest
+```
+If `python-runfiles` fails, I'll inspect for local runfiles in the repo.

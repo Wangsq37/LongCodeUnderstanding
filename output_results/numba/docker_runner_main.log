@@ -1,0 +1,80 @@
+08/11/2025 03:40:12 - INFO - __main__ - --- Processing repository: numba ---
+08/11/2025 03:40:13 - INFO - __main__ - No existing container found. Creating new container 'agent-run-numba'...
+08/11/2025 03:40:13 - INFO - __main__ - Copying 'python_repos\numba' to new container 'agent-run-numba:/app/repo_to_process'...
+08/11/2025 03:40:17 - INFO - __main__ - Executing agent inside the container...
+08/11/2025 03:40:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:17 - INFO - __main__ - --- Starting Agent inside Container ---
+08/11/2025 03:40:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:17 - INFO - __main__ - Repository Name: numba
+08/11/2025 03:40:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:17 - INFO - __main__ - Repository: /app/repo_to_process
+08/11/2025 03:40:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:17 - INFO - __main__ - Language: Python
+08/11/2025 03:40:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:17 - INFO - __main__ - Model: gpt-4.1
+08/11/2025 03:40:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:17 - INFO - __main__ - Max Iterations: 15
+08/11/2025 03:40:17 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:17 - INFO - __main__ - Command Timeouts (Default/Pytest): 600s / 3600s
+08/11/2025 03:40:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:20 - INFO - __main__ - === Starting Iteration 1/15 [Phase: SETUP] ===
+08/11/2025 03:40:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:20 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:40:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:20 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:40:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:24 - INFO - __main__ - Executing 3 command(s)...
+08/11/2025 03:40:24 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:24 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install -r requirements.txt
+08/11/2025 03:40:26 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:26 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install .
+08/11/2025 03:40:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:27 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:40:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:40:27 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:41:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:41:11 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:41:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:41:11 - INFO - __main__ - === Starting Iteration 2/15 [Phase: SETUP] ===
+08/11/2025 03:41:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:41:11 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:41:11 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:41:11 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:41:14 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:41:14 - INFO - __main__ - Executing 2 command(s)...
+08/11/2025 03:41:14 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:41:14 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install llvmlite
+08/11/2025 03:41:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:41:19 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:41:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:41:19 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:42:05 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:05 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:42:05 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:05 - INFO - __main__ - === Starting Iteration 3/15 [Phase: SETUP] ===
+08/11/2025 03:42:05 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:05 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:42:05 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:05 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:42:09 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:09 - INFO - __main__ - Executing 2 command(s)...
+08/11/2025 03:42:09 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:09 - INFO - __main__ - Executing command in '/app/repo_to_process': python setup.py build_ext --inplace
+08/11/2025 03:42:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:10 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:42:10 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:10 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:42:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:55 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:42:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:55 - INFO - __main__ - === Starting Iteration 4/15 [Phase: SETUP] ===
+08/11/2025 03:42:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:55 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:42:55 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:55 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:42:59 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:59 - INFO - __main__ - Executing 4 command(s)...
+08/11/2025 03:42:59 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:42:59 - INFO - __main__ - Executing command in '/app/repo_to_process': apt-get update
+08/11/2025 03:43:25 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:43:25 - INFO - __main__ - Executing command in '/app/repo_to_process': apt-get install -y python3.10-dev
+08/11/2025 03:43:37 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:43:37 - INFO - __main__ - Executing command in '/app/repo_to_process': python setup.py build_ext --inplace
+08/11/2025 03:43:46 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:43:46 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:43:46 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:43:46 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:44:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:44:27 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:44:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:44:27 - INFO - __main__ - === Starting Iteration 5/15 [Phase: SETUP] ===
+08/11/2025 03:44:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:44:27 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:44:27 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:44:27 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:44:31 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:44:31 - INFO - __main__ - Executing 2 command(s)...
+08/11/2025 03:44:31 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:44:31 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install --upgrade 'llvmlite>=0.45.0'
+08/11/2025 03:44:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:44:32 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:44:32 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:44:32 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:45:12 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:45:12 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:45:12 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:45:12 - INFO - __main__ - === Starting Iteration 6/15 [Phase: SETUP] ===
+08/11/2025 03:45:12 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:45:12 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:45:12 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:45:12 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:45:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:45:19 - INFO - __main__ - Executing 2 command(s)...
+08/11/2025 03:45:19 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:45:19 - INFO - __main__ - Executing command in '/app/repo_to_process': pip install --upgrade --index-url https://pypi.org/simple llvmlite
+08/11/2025 03:45:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:45:20 - INFO - __main__ - Using PYTEST timeout (3600s) for command: pytest
+08/11/2025 03:45:20 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:45:20 - INFO - __main__ - Executing command in '/app/repo_to_process': pytest
+08/11/2025 03:46:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:46:01 - WARNING - __main__ - Phase 1 (SETUP) not yet complete. Pytest reported collection errors or did not run successfully.
+08/11/2025 03:46:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:46:01 - INFO - __main__ - === Starting Iteration 7/15 [Phase: SETUP] ===
+08/11/2025 03:46:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:46:01 - INFO - __main__ - Using key: sk-9KuY6Wmpjx3hB0CgZ8MXkV5BhGsnrrecz7GWA2YkNGe6HCbm
+08/11/2025 03:46:01 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:46:01 - INFO - __main__ - Using base url: https://api.gptoai.top
+08/11/2025 03:46:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:46:08 - INFO - __main__ - ❌ Model reported failure. Terminating.
+08/11/2025 03:46:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:46:08 - INFO - __main__ - 🏁 Pipeline finished for repo_to_process with status: failed
+08/11/2025 03:46:08 - INFO - __main__ - [AGENT-LOG] 08/10/2025 19:46:08 - INFO - __main__ - ❌ Agent finished with non-success status: failed
+08/11/2025 03:46:08 - INFO - __main__ - Agent finished with exit code: 1
+08/11/2025 03:46:08 - INFO - __main__ - Copying all generated files from container 'agent-run-numba:/app/new_test_detection_logs/numba'...
+08/11/2025 03:46:09 - INFO - __main__ - Successfully copied agent-generated files to 'output_results\numba'.
+08/11/2025 03:46:09 - INFO - __main__ - Copying pytest reports from container repo root 'agent-run-numba:/app/repo_to_process'...
+08/11/2025 03:46:09 - WARNING - __main__ - Could not copy report file 'report_files.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 03:46:09 - WARNING - __main__ - Could not copy report file 'report_functions.jsonl'. This might be expected if pytest did not complete successfully.
+08/11/2025 03:46:09 - WARNING - __main__ - Required report file 'report_files.jsonl' was not generated successfully.
+08/11/2025 03:46:09 - WARNING - __main__ - Required report file 'report_functions.jsonl' was not generated successfully.
+08/11/2025 03:46:09 - WARNING - __main__ - Agent failed with exit code 1. Container will be deleted.
+08/11/2025 03:46:09 - INFO - __main__ - Deleting container 'agent-run-numba' due to failure or missing required files.
+08/11/2025 03:46:20 - INFO - __main__ - --- Finished processing repository: numba ---
+

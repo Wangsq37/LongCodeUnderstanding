@@ -1,0 +1,12 @@
+The error is clear: `scons` is not installed. You must install it in order to build the Cantera core and Python extension modules.
+
+```bash
+pip install scons
+```
+
+Once `scons` is installed, repeat the build command:
+
+```bash
+scons build python
+```
+After a successful build, you should proceed with running `pytest` again to check for collection errors.

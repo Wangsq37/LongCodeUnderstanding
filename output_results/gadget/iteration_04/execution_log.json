@@ -1,0 +1,9 @@
+[
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\ncollected 0 items\n\n--- Call Chain Report ---\nNo call chains were recorded. (Hint: Check SOURCE_DIRS_TO_TRACK in conftest.py)\n\n============================ no tests ran in 0.04s =============================\n",
+    "stderr": "",
+    "execution_time": 0.23629498481750488
+  }
+]

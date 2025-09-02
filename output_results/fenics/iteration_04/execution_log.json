@@ -1,0 +1,23 @@
+[
+  {
+    "command": "pip install fenics-basix",
+    "success": true,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nCollecting fenics-basix\n  Downloading https://repo.huaweicloud.com/repository/pypi/packages/16/c6/feedd1acaf31cd188adbee7533244dc50e7d096229462a44f9069401d05b/fenics_basix-0.9.0-cp310-cp310-manylinux_2_28_x86_64.whl (13.0 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 5.8 MB/s  0:00:02\nRequirement already satisfied: numpy>=1.21 in /usr/local/lib/python3.10/dist-packages (from fenics-basix) (2.2.6)\nInstalling collected packages: fenics-basix\nSuccessfully installed fenics-basix-0.9.0\n",
+    "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n",
+    "execution_time": 3.3607773780822754
+  },
+  {
+    "command": "pip install -e ./python",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nObtaining file:///app/repo_to_process/python\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Installing backend dependencies: started\n  Installing backend dependencies: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: numpy>=1.21 in /usr/local/lib/python3.10/dist-packages (from fenics-dolfinx==0.10.0.dev0) (2.2.6)\nCollecting cffi (from fenics-dolfinx==0.10.0.dev0)\n  Using cached https://repo.huaweicloud.com/repository/pypi/packages/8d/fb/4da72871d177d63649ac449aec2e8a29efe0274035880c7af59101ca2232/cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (446 kB)\nRequirement already satisfied: mpi4py in /usr/local/lib/python3.10/dist-packages (from fenics-dolfinx==0.10.0.dev0) (4.1.0)\nINFO: pip is looking at multiple versions of fenics-dolfinx to determine which version is compatible with other requirements. This could take a while.\n",
+    "stderr": "ERROR: Could not find a version that satisfies the requirement fenics-basix>=0.10.0.dev0 (from fenics-dolfinx) (from versions: 0.4.0, 0.4.2.post1, 0.5.0, 0.6.0, 0.7.0.post0, 0.8.0, 0.9.0)\nERROR: No matching distribution found for fenics-basix>=0.10.0.dev0\n",
+    "execution_time": 6.020498275756836
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0\nrootdir: /app/repo_to_process\ncollected 0 items / 1 error\n\n==================================== ERRORS ====================================\n_________________________ ERROR collecting python/test _________________________\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n<frozen importlib._bootstrap>:1050: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1027: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:688: in _load_unlocked\n    ???\n/usr/local/lib/python3.10/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\npython/test/conftest.py:13: in <module>\n    from dolfinx.la import vector as dolfinx_vector\nE   ModuleNotFoundError: No module named 'dolfinx'\n=========================== short test summary info ============================\nERROR python/test - ModuleNotFoundError: No module named 'dolfinx'\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n=============================== 1 error in 0.51s ===============================\n",
+    "stderr": "",
+    "execution_time": 0.7532730102539062
+  }
+]

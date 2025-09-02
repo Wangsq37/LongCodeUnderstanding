@@ -1,0 +1,774 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       └── build_and_test_matrix.yml
+├── doc/
+│   ├── _static/
+│   │   ├── sfepy.css
+│   │   ├── sfepy_logo.png
+│   │   ├── sfepy_sphinx2_fix.css
+│   │   └── uwb_logo.png
+│   ├── _templates/
+│   │   └── layout.html
+│   ├── images/
+│   │   ├── mat_optim/
+│   │   │   ├── iterations.png
+│   │   │   ├── macro_micro.png
+│   │   │   ├── microstruct_rve.png
+│   │   │   └── tensile_test.png
+│   │   ├── preprocessing/
+│   │   │   ├── circle_in_square.png
+│   │   │   ├── sdf_gmsh1.png
+│   │   │   ├── sdf_gmsh2.png
+│   │   │   ├── sdf_mesh.png
+│   │   │   ├── sdh_freecad.png
+│   │   │   ├── sdh_mesh.png
+│   │   │   ├── sdh_openscad.png
+│   │   │   ├── workflow.png
+│   │   │   └── workflow.svg
+│   │   │       └── ... (4 more files)
+│   │   ├── primer/
+│   │   │   ├── ITS.png
+│   │   │   ├── ITS2D.png
+│   │   │   ├── its2D_0.png
+│   │   │   ├── its2D_01.png
+│   │   │   ├── its2D_1.png
+│   │   │   ├── its2D_2.png
+│   │   │   ├── its2D_3.png
+│   │   │   ├── its2D_4.png
+│   │   │   ├── mesh1.png
+│   │   │   ├── mesh2.png
+│   │   │   ├── mesh3.png
+│   │   │   ├── mesh4.png
+│   │   │   ├── probe_its2D_line0.png
+│   │   │   └── probe_its2D_line1.png
+│   │   │       └── ... (9 more files)
+│   │   ├── resview/
+│   │   │   ├── resview_shot1.png
+│   │   │   ├── resview_shot2.png
+│   │   │   └── resview_shot3.png
+│   │   ├── splinebox/
+│   │   │   ├── spbox.png
+│   │   │   ├── spbox_cp.png
+│   │   │   ├── spregion2d.png
+│   │   │   └── spregion2d_def.png
+│   │   ├── using_salome/
+│   │   │   └── EDF1_screen10.png
+│   │   ├── elements.png
+│   │   ├── linear_elasticity_regions.png
+│   │   ├── linear_elasticity_solution1.png
+│   │   └── linear_elasticity_solution2.png
+│   ├── mat_optim/
+│   │   ├── homogenization_opt_src.rst
+│   │   ├── linear_elasticity_opt_src.rst
+│   │   └── material_opt_src.rst
+│   ├── preprocessing/
+│   │   ├── circle_in_square.geo
+│   │   ├── screwdriver_full.geo
+│   │   ├── screwdriver_full.py
+│   │   ├── screwdriver_full.scad
+│   │   ├── screwdriver_handle.geo
+│   │   ├── screwdriver_handle.py
+│   │   └── screwdriver_handle.scad
+│   │       └── ... (2 more files)
+│   ├── src/
+│   │   ├── sfepy/
+│   │   │   ├── applications/
+│   │   │   ├── base/
+│   │   │   ├── discrete/
+│   │   │   ├── homogenization/
+│   │   │   ├── linalg/
+│   │   │   ├── mechanics/
+│   │   │   ├── mesh/
+│   │   │   ├── parallel/
+│   │   │   ├── postprocess/
+│   │   │   ├── scripts/
+│   │   │   ├── solvers/
+│   │   │   ├── terms/
+│   │   │   ├── tests/
+│   │   │   ├── config.rst
+│   │   │   └── version.rst
+│   │   └── tools/
+│   │       ├── build_helpers.rst
+│   │       ├── gen_field_table.rst
+│   │       ├── gen_gallery.rst
+│   │       ├── gen_legendre_simplex_base.rst
+│   │       ├── gen_lobatto1d_c.rst
+│   │       ├── gen_release_notes.rst
+│   │       ├── gen_serendipity_basis.rst
+│   │       ├── gen_solver_table.rst
+│   │       ├── gen_term_table.rst
+│   │       ├── install_data.rst
+│   │       ├── show_authors.rst
+│   │       ├── show_terms_use.rst
+│   │       └── sync_module_docs.rst
+│   │           └── ... (8 more files)
+│   ├── archived_news.rst
+│   ├── archived_support.rst
+│   ├── conf.py
+│   ├── dev_info.rst
+│   ├── dev_topics.rst
+│   ├── developer_guide.rst
+│   ├── development.rst
+│   ├── documentation.rst
+│   ├── downloads.rst
+│   ├── doxygen.config
+│   ├── ebcs_implementation.rst
+│   ├── examples.rst
+│   ├── faq.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── introduction.rst
+│   ├── license.rst
+│   ├── linear_combination_bc.rst
+│   ├── links.inc
+│   ├── make.bat
+│   ├── Makefile
+│   ├── man-sfepy-run.rst
+│   ├── man-sfepy-view.rst
+│   ├── mat_optim.rst
+│   ├── news.rst
+│   ├── preprocessing.rst
+│   ├── primer.rst
+│   ├── problem_desc_file_long.rst
+│   ├── release_notes.rst
+│   ├── release_tasks.rst
+│   ├── solving_pdes_by_fem.rst
+│   ├── splinebox.rst
+│   ├── terms_overview.rst
+│   ├── theory.rst
+│   ├── tutorial.rst
+│   ├── users_guide.rst
+│   └── using_salome.rst
+│       └── ... (32 more files)
+├── meshes/
+│   ├── 2d/
+│   │   ├── special/
+│   │   │   ├── channels_symm944t.mesh
+│   │   │   ├── circle_in_square.geo
+│   │   │   ├── circle_in_square.mesh
+│   │   │   ├── circle_in_square_small.mesh
+│   │   │   ├── circles_in_square.vtk
+│   │   │   ├── hanging_nodes.mesh
+│   │   │   ├── osteonT1_11.mesh
+│   │   │   ├── square_triquad.mesh
+│   │   │   └── two_rectangles.mesh
+│   │   │       └── ... (4 more files)
+│   │   ├── acoustic_wg_mid.vtk
+│   │   ├── big.mesh
+│   │   ├── bridge.vtk
+│   │   ├── circle_sym.mesh
+│   │   ├── citroen.geo
+│   │   ├── citroen.h5
+│   │   ├── cross-51-0.34.mesh
+│   │   ├── helmholtz_apartment.geo
+│   │   ├── helmholtz_apartment.vtk
+│   │   ├── its2D.mesh
+│   │   ├── rectangle_tri.mesh
+│   │   ├── square_1m.mesh
+│   │   ├── square_2m.mesh
+│   │   ├── square_quad.mesh
+│   │   ├── square_tri1.mesh
+│   │   ├── square_tri2.mesh
+│   │   └── square_unit_tri.mesh
+│   │       └── ... (12 more files)
+│   ├── 3d/
+│   │   ├── special/
+│   │   │   ├── cross3d.mesh
+│   │   │   ├── cube_cylinder.mesh
+│   │   │   └── cube_sphere.mesh
+│   │   ├── acoustic_wg.vtk
+│   │   ├── acoustics_mesh3d.mesh
+│   │   ├── beam_h5t12.mesh
+│   │   ├── beam_h7.mesh
+│   │   ├── beam_t42.mesh
+│   │   ├── beam_w14.vtk
+│   │   ├── block.mesh
+│   │   ├── bridge3d.vtk
+│   │   ├── cube_big_tetra.mesh
+│   │   ├── cube_medium_hexa.mesh
+│   │   ├── cube_medium_tetra.mesh
+│   │   ├── cylinder.mesh
+│   │   ├── cylinder.vtk
+│   │   ├── cylinder_in_box.geo
+│   │   ├── cylinder_in_box.mesh
+│   │   ├── elbow.mesh
+│   │   ├── elbow2.mesh
+│   │   ├── hsphere8.vtk
+│   │   ├── matrix_fiber.mesh
+│   │   ├── matrix_fiber_rand.vtk
+│   │   ├── multi_material_cylinder_plate.geo
+│   │   ├── multi_material_cylinder_plate.vtk
+│   │   ├── perfusion_micro3d.mesh
+│   │   ├── piezo_mesh_micro.vtk
+│   │   ├── unit_ball.mesh
+│   │   └── wheelset.vtk
+│   │       └── ... (21 more files)
+│   ├── elements/
+│   │   ├── 1_2_1.mesh
+│   │   ├── 1_2_2.mesh
+│   │   ├── 2_1_2_2.mesh
+│   │   ├── 2_3_1.mesh
+│   │   ├── 2_3_2.mesh
+│   │   ├── 2_3_2z.mesh
+│   │   ├── 2_4_1.mesh
+│   │   ├── 2_4_2.mesh
+│   │   ├── 3_1_2_2.mesh
+│   │   ├── 3_2_4_2.mesh
+│   │   ├── 3_4_1.mesh
+│   │   ├── 3_4_2.mesh
+│   │   ├── 3_4_2z.mesh
+│   │   ├── 3_8_1.mesh
+│   │   └── 3_8_2.mesh
+│   │       └── ... (10 more files)
+│   ├── iga/
+│   │   ├── block2d.iga
+│   │   ├── block3d.iga
+│   │   └── patch2d.iga
+│   ├── quantum/
+│   │   ├── square.geo
+│   │   └── square.mesh
+│   └── various_formats/
+│       ├── abaqus_hex.inp
+│       ├── abaqus_quad.inp
+│       ├── abaqus_quad_tri.inp
+│       ├── abaqus_tet.inp
+│       ├── abaqus_tri.inp
+│       ├── comsol_tri.txt
+│       ├── cube.bdf
+│       ├── hex4.mesh3d
+│       ├── msh_tetra.msh
+│       ├── msh_tri.msh
+│       ├── octahedron.ele
+│       ├── octahedron.node
+│       ├── small2d.mesh
+│       ├── small2d.vtk
+│       ├── small3d.mesh
+│       ├── tetra8.mesh3d
+│       ├── xyz_quad.ien
+│       ├── xyz_quad.xyz
+│       ├── xyz_tet.ien
+│       └── xyz_tet.xyz
+│           └── ... (15 more files)
+├── sfepy/
+│   ├── applications/
+│   │   ├── __init__.py
+│   │   ├── application.py
+│   │   ├── evp_solver_app.py
+│   │   └── pde_solver_app.py
+│   ├── base/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── compat.py
+│   │   ├── conf.py
+│   │   ├── getch.py
+│   │   ├── goptions.py
+│   │   ├── ioutils.py
+│   │   ├── log.py
+│   │   ├── log_plotter.py
+│   │   ├── mem_usage.py
+│   │   ├── multiproc.py
+│   │   ├── multiproc_mpi.py
+│   │   ├── multiproc_proc.py
+│   │   ├── parse_conf.py
+│   │   ├── plotutils.py
+│   │   ├── reader.py
+│   │   ├── resolve_deps.py
+│   │   ├── testing.py
+│   │   └── timing.py
+│   │       └── ... (14 more files)
+│   ├── discrete/
+│   │   ├── common/
+│   │   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── dof_info.py
+│   │   │   ├── domain.py
+│   │   │   ├── fields.py
+│   │   │   ├── global_interp.py
+│   │   │   ├── mappings.py
+│   │   │   ├── poly_spaces.py
+│   │   │   └── region.py
+│   │   │       └── ... (3 more files)
+│   │   ├── dg/
+│   │   │   ├── __init__.py
+│   │   │   ├── dg_1D_vizualizer.py
+│   │   │   ├── fields.py
+│   │   │   ├── limiters.py
+│   │   │   └── poly_spaces.py
+│   │   ├── fem/
+│   │   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── _serendipity.py
+│   │   │   ├── domain.py
+│   │   │   ├── facets.py
+│   │   │   ├── fe_surface.py
+│   │   │   ├── fields_base.py
+│   │   │   ├── fields_hierarchic.py
+│   │   │   ├── fields_l2.py
+│   │   │   ├── fields_nodal.py
+│   │   │   ├── fields_positive.py
+│   │   │   ├── geometry_element.py
+│   │   │   ├── history.py
+│   │   │   ├── lcbc_operators.py
+│   │   │   ├── linearizer.py
+│   │   │   ├── mappings.py
+│   │   │   ├── mesh.py
+│   │   │   ├── meshio.py
+│   │   │   ├── periodic.py
+│   │   │   ├── poly_spaces.py
+│   │   │   ├── refine.py
+│   │   │   ├── refine_hanging.py
+│   │   │   └── utils.py
+│   │   │       └── ... (17 more files)
+│   │   ├── iga/
+│   │   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── domain.py
+│   │   │   ├── domain_generators.py
+│   │   │   ├── fields.py
+│   │   │   ├── iga.py
+│   │   │   ├── io.py
+│   │   │   ├── mappings.py
+│   │   │   ├── plot_nurbs.py
+│   │   │   └── utils.py
+│   │   │       └── ... (4 more files)
+│   │   ├── structural/
+│   │   │   ├── __init__.py
+│   │   │   ├── fields.py
+│   │   │   └── mappings.py
+│   │   ├── __init__.py
+│   │   ├── conditions.py
+│   │   ├── equations.py
+│   │   ├── evaluate.py
+│   │   ├── evaluate_variable.py
+│   │   ├── functions.py
+│   │   ├── integrals.py
+│   │   ├── materials.py
+│   │   ├── parse_equations.py
+│   │   ├── parse_regions.py
+│   │   ├── probes.py
+│   │   ├── problem.py
+│   │   ├── projections.py
+│   │   ├── quadratures.py
+│   │   ├── simplex_cubature.py
+│   │   └── variables.py
+│   │       └── ... (11 more files)
+│   ├── examples/
+│   │   ├── acoustics/
+│   │   │   ├── __init__.py
+│   │   │   ├── acoustics.py
+│   │   │   ├── acoustics3d.py
+│   │   │   ├── helmholtz_apartment.py
+│   │   │   └── vibro_acoustic3d.py
+│   │   ├── dg/
+│   │   │   ├── __init__.py
+│   │   │   ├── advection_1D.py
+│   │   │   ├── advection_2D.py
+│   │   │   ├── advection_diffusion_2D.py
+│   │   │   ├── burgers_2D.py
+│   │   │   ├── dg_plot_1D.py
+│   │   │   ├── example_dg_common.py
+│   │   │   ├── imperative_burgers_1D.py
+│   │   │   └── laplace_2D.py
+│   │   │       └── ... (4 more files)
+│   │   ├── diffusion/
+│   │   │   ├── __init__.py
+│   │   │   ├── cube.py
+│   │   │   ├── darcy_flow_multicomp.py
+│   │   │   ├── laplace_1d.py
+│   │   │   ├── laplace_coupling_lcbcs.py
+│   │   │   ├── laplace_fluid_2d.py
+│   │   │   ├── laplace_iga_interactive.py
+│   │   │   ├── laplace_refine_interactive.py
+│   │   │   ├── laplace_shifted_periodic.py
+│   │   │   ├── laplace_time_ebcs.py
+│   │   │   ├── poisson.py
+│   │   │   ├── poisson_field_dependent_material.py
+│   │   │   ├── poisson_functions.py
+│   │   │   ├── poisson_iga.py
+│   │   │   ├── poisson_neumann.py
+│   │   │   ├── poisson_nonlinear_material.py
+│   │   │   ├── poisson_parallel_interactive.py
+│   │   │   ├── poisson_parametric_study.py
+│   │   │   ├── poisson_periodic_boundary_condition.py
+│   │   │   ├── poisson_short_syntax.py
+│   │   │   ├── sinbc.py
+│   │   │   ├── time_advection_diffusion.py
+│   │   │   ├── time_heat_equation_multi_material.py
+│   │   │   ├── time_poisson.py
+│   │   │   ├── time_poisson_explicit.py
+│   │   │   └── time_poisson_interactive.py
+│   │   │       └── ... (21 more files)
+│   │   ├── homogenization/
+│   │   │   ├── __init__.py
+│   │   │   ├── homogenization_opt.py
+│   │   │   ├── linear_elastic_mM.py
+│   │   │   ├── linear_elasticity_opt.py
+│   │   │   ├── linear_homogenization.py
+│   │   │   ├── linear_homogenization_postproc.py
+│   │   │   ├── linear_homogenization_up.py
+│   │   │   ├── material_opt.py
+│   │   │   ├── nonlinear_homogenization.py
+│   │   │   ├── nonlinear_hyperelastic_mM.py
+│   │   │   ├── perfusion_micro.py
+│   │   │   └── rs_correctors.py
+│   │   │       └── ... (7 more files)
+│   │   ├── large_deformation/
+│   │   │   ├── __init__.py
+│   │   │   ├── active_fibres.py
+│   │   │   ├── balloon.py
+│   │   │   ├── compare_elastic_materials.py
+│   │   │   ├── gen_yeoh_tl_up_interactive.py
+│   │   │   ├── hyperelastic.py
+│   │   │   ├── hyperelastic_tl_up_interactive.py
+│   │   │   ├── hyperelastic_ul.py
+│   │   │   ├── hyperelastic_ul_by_fun.py
+│   │   │   ├── hyperelastic_ul_up.py
+│   │   │   └── perfusion_tl.py
+│   │   │       └── ... (6 more files)
+│   │   ├── linear_elasticity/
+│   │   │   ├── __init__.py
+│   │   │   ├── dispersion_analysis.py
+│   │   │   ├── elastic_contact_planes.py
+│   │   │   ├── elastic_contact_sphere.py
+│   │   │   ├── elastic_shifted_periodic.py
+│   │   │   ├── elastodynamic.py
+│   │   │   ├── elastodynamic_identification.py
+│   │   │   ├── its2D_1.py
+│   │   │   ├── its2D_2.py
+│   │   │   ├── its2D_3.py
+│   │   │   ├── its2D_4.py
+│   │   │   ├── its2D_5.py
+│   │   │   ├── its2D_interactive.py
+│   │   │   ├── linear_elastic.py
+│   │   │   ├── linear_elastic_damping.py
+│   │   │   ├── linear_elastic_iga.py
+│   │   │   ├── linear_elastic_interactive.py
+│   │   │   ├── linear_elastic_probes.py
+│   │   │   ├── linear_elastic_tractions.py
+│   │   │   ├── linear_elastic_up.py
+│   │   │   ├── linear_viscoelastic.py
+│   │   │   ├── material_nonlinearity.py
+│   │   │   ├── mixed_mesh.py
+│   │   │   ├── modal_analysis.py
+│   │   │   ├── modal_analysis_declarative.py
+│   │   │   ├── multi_node_lcbcs.py
+│   │   │   ├── multi_point_constraints.py
+│   │   │   ├── nodal_lcbcs.py
+│   │   │   ├── prestress_fibres.py
+│   │   │   ├── seismic_load.py
+│   │   │   ├── shell10x_cantilever.py
+│   │   │   ├── shell10x_cantilever_interactive.py
+│   │   │   ├── truss_bridge.py
+│   │   │   ├── truss_bridge3d.py
+│   │   │   ├── two_bodies_contact.py
+│   │   │   └── wedge_mesh.py
+│   │   │       └── ... (31 more files)
+│   │   ├── miscellaneous/
+│   │   │   ├── __init__.py
+│   │   │   ├── live_plot.py
+│   │   │   └── refine_evp.py
+│   │   ├── multi_physics/
+│   │   │   ├── __init__.py
+│   │   │   ├── biot.py
+│   │   │   ├── biot_npbc.py
+│   │   │   ├── biot_npbc_lagrange.py
+│   │   │   ├── biot_parallel_interactive.py
+│   │   │   ├── biot_short_syntax.py
+│   │   │   ├── piezo_elasticity.py
+│   │   │   ├── piezo_elasticity_macro.py
+│   │   │   ├── piezo_elasticity_micro.py
+│   │   │   ├── piezo_elastodynamic.py
+│   │   │   ├── thermal_electric.py
+│   │   │   ├── thermo_elasticity.py
+│   │   │   └── thermo_elasticity_ess.py
+│   │   │       └── ... (8 more files)
+│   │   ├── navier_stokes/
+│   │   │   ├── __init__.py
+│   │   │   ├── navier_stokes.py
+│   │   │   ├── navier_stokes2d.py
+│   │   │   ├── navier_stokes2d_iga.py
+│   │   │   ├── stabilized_navier_stokes.py
+│   │   │   ├── stokes.py
+│   │   │   ├── stokes_slip_bc.py
+│   │   │   └── utils.py
+│   │   │       └── ... (3 more files)
+│   │   ├── phononic/
+│   │   │   ├── __init__.py
+│   │   │   ├── band_gaps.py
+│   │   │   ├── band_gaps_conf.py
+│   │   │   └── band_gaps_rigid.py
+│   │   ├── quantum/
+│   │   │   ├── __init__.py
+│   │   │   ├── boron.py
+│   │   │   ├── hydrogen.py
+│   │   │   ├── oscillator.py
+│   │   │   ├── quantum_common.py
+│   │   │   └── well.py
+│   │   │       └── ... (1 more files)
+│   │   └── __init__.py
+│   ├── homogenization/
+│   │   ├── __init__.py
+│   │   ├── band_gaps_app.py
+│   │   ├── coefficients.py
+│   │   ├── coefs_base.py
+│   │   ├── coefs_phononic.py
+│   │   ├── convolutions.py
+│   │   ├── engine.py
+│   │   ├── homogen_app.py
+│   │   ├── micmac.py
+│   │   ├── recovery.py
+│   │   └── utils.py
+│   │       └── ... (6 more files)
+│   ├── linalg/
+│   │   ├── __init__.py
+│   │   ├── check_derivatives.py
+│   │   ├── eigen.py
+│   │   ├── geometry.py
+│   │   ├── sparse.py
+│   │   ├── sympy_operators.py
+│   │   └── utils.py
+│   │       └── ... (2 more files)
+│   ├── mechanics/
+│   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── ccontres.pyx
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── contres.c
+│   │   │   └── contres.h
+│   │   ├── __init__.py
+│   │   ├── contact_bodies.py
+│   │   ├── elastic_constants.py
+│   │   ├── matcoefs.py
+│   │   ├── membranes.py
+│   │   ├── shell10x.py
+│   │   ├── tensors.py
+│   │   └── units.py
+│   │       └── ... (3 more files)
+│   ├── mesh/
+│   │   ├── __init__.py
+│   │   ├── bspline.py
+│   │   ├── geom_tools.py
+│   │   ├── mesh_generators.py
+│   │   ├── mesh_tools.py
+│   │   └── splinebox.py
+│   │       └── ... (1 more files)
+│   ├── parallel/
+│   │   ├── __init__.py
+│   │   ├── evaluate.py
+│   │   ├── parallel.py
+│   │   └── plot_parallel_dofs.py
+│   ├── postprocess/
+│   │   ├── __init__.py
+│   │   ├── plot_cmesh.py
+│   │   ├── plot_dofs.py
+│   │   ├── plot_facets.py
+│   │   ├── plot_quadrature.py
+│   │   ├── probes_vtk.py
+│   │   ├── time_history.py
+│   │   └── utils_vtk.py
+│   │       └── ... (3 more files)
+│   ├── scripts/
+│   │   ├── __init__.py
+│   │   ├── blockgen.py
+│   │   ├── convert_mesh.py
+│   │   ├── cylindergen.py
+│   │   ├── extractor.py
+│   │   ├── gen_iga_patch.py
+│   │   ├── gen_mesh.py
+│   │   ├── gen_mesh_prev.py
+│   │   ├── plot_condition_numbers.py
+│   │   ├── plot_logs.py
+│   │   ├── plot_mesh.py
+│   │   ├── plot_quadratures.py
+│   │   ├── plot_times.py
+│   │   ├── probe.py
+│   │   ├── resview.py
+│   │   ├── run_tests.py
+│   │   ├── save_basis.py
+│   │   ├── show_mesh_info.py
+│   │   ├── simple.py
+│   │   └── test_install.py
+│   │       └── ... (15 more files)
+│   ├── solvers/
+│   │   ├── __init__.py
+│   │   ├── auto_fallback.py
+│   │   ├── eigen.py
+│   │   ├── ls.py
+│   │   ├── matlab_eig.m
+│   │   ├── nls.py
+│   │   ├── optimize.py
+│   │   ├── oseen.py
+│   │   ├── qeigen.py
+│   │   ├── semismooth_newton.py
+│   │   ├── solvers.py
+│   │   ├── ts.py
+│   │   ├── ts_controllers.py
+│   │   ├── ts_dg_solvers.py
+│   │   └── ts_solvers.py
+│   │       └── ... (10 more files)
+│   ├── terms/
+│   │   ├── extmods/
+│   │   │   ├── __init__.py
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── form_sdcc.c
+│   │   │   ├── form_sdcc.h
+│   │   │   ├── terms.h
+│   │   │   ├── terms.pyx
+│   │   │   ├── terms_adj_navier_stokes.c
+│   │   │   ├── terms_adj_navier_stokes.h
+│   │   │   ├── terms_basic.c
+│   │   │   ├── terms_basic.h
+│   │   │   ├── terms_biot.c
+│   │   │   ├── terms_biot.h
+│   │   │   ├── terms_diffusion.c
+│   │   │   ├── terms_diffusion.h
+│   │   │   ├── terms_dot.c
+│   │   │   ├── terms_dot.h
+│   │   │   ├── terms_elastic.c
+│   │   │   ├── terms_elastic.h
+│   │   │   ├── terms_electric.c
+│   │   │   ├── terms_electric.h
+│   │   │   ├── terms_hyperelastic.c
+│   │   │   ├── terms_hyperelastic.h
+│   │   │   ├── terms_navier_stokes.c
+│   │   │   ├── terms_navier_stokes.h
+│   │   │   ├── terms_op.c
+│   │   │   ├── terms_op.h
+│   │   │   ├── terms_piezo.c
+│   │   │   ├── terms_piezo.h
+│   │   │   ├── terms_surface.c
+│   │   │   ├── terms_surface.h
+│   │   │   ├── terms_volume.c
+│   │   │   └── terms_volume.h
+│   │   │       └── ... (27 more files)
+│   │   ├── __init__.py
+│   │   ├── terms.py
+│   │   ├── terms_adj_navier_stokes.py
+│   │   ├── terms_basic.py
+│   │   ├── terms_biot.py
+│   │   ├── terms_compat.py
+│   │   ├── terms_constraints.py
+│   │   ├── terms_contact.py
+│   │   ├── terms_dg.py
+│   │   ├── terms_diffusion.py
+│   │   ├── terms_dot.py
+│   │   ├── terms_elastic.py
+│   │   ├── terms_electric.py
+│   │   ├── terms_fibres.py
+│   │   ├── terms_flexo.py
+│   │   ├── terms_hyperelastic_base.py
+│   │   ├── terms_hyperelastic_tl.py
+│   │   ├── terms_hyperelastic_ul.py
+│   │   ├── terms_jax.py
+│   │   ├── terms_mass.py
+│   │   ├── terms_membrane.py
+│   │   ├── terms_multilinear.py
+│   │   ├── terms_navier_stokes.py
+│   │   ├── terms_piezo.py
+│   │   ├── terms_point.py
+│   │   ├── terms_sensitivity.py
+│   │   ├── terms_shells.py
+│   │   ├── terms_surface.py
+│   │   ├── terms_th.py
+│   │   ├── terms_volume.py
+│   │   └── utils.py
+│   │       └── ... (26 more files)
+│   ├── tests/
+│   │   ├── conftest.py
+│   │   ├── test_assembling.py
+│   │   ├── test_base.py
+│   │   ├── test_cmesh.py
+│   │   ├── test_conditions.py
+│   │   ├── test_declarative_examples.py
+│   │   ├── test_dg_field.py
+│   │   ├── test_dg_terms_calls.py
+│   │   ├── test_domain.py
+│   │   ├── test_ed_solvers.py
+│   │   ├── test_eigenvalue_solvers.py
+│   │   ├── test_elasticity_small_strain.py
+│   │   ├── test_fem.py
+│   │   ├── test_functions.py
+│   │   ├── test_high_level.py
+│   │   ├── test_homogenization_engine.py
+│   │   ├── test_homogenization_perfusion.py
+│   │   ├── test_hyperelastic_tlul.py
+│   │   ├── test_io.py
+│   │   ├── test_laplace_unit_disk.py
+│   │   ├── test_laplace_unit_square.py
+│   │   ├── test_lcbcs.py
+│   │   ├── test_linalg.py
+│   │   ├── test_linear_solvers.py
+│   │   ├── test_linearization.py
+│   │   ├── test_log.py
+│   │   ├── test_matcoefs.py
+│   │   ├── test_mesh_expand.py
+│   │   ├── test_mesh_generators.py
+│   │   ├── test_mesh_interp.py
+│   │   ├── test_mesh_smoothing.py
+│   │   ├── test_meshio.py
+│   │   ├── test_msm_laplace.py
+│   │   ├── test_msm_symbolic.py
+│   │   ├── test_normals.py
+│   │   ├── test_parsing.py
+│   │   ├── test_poly_spaces.py
+│   │   ├── test_projections.py
+│   │   ├── test_quadratures.py
+│   │   ├── test_ref_coors.py
+│   │   ├── test_refine_hanging.py
+│   │   ├── test_regions.py
+│   │   ├── test_semismooth_newton.py
+│   │   ├── test_sparse.py
+│   │   ├── test_splinebox.py
+│   │   ├── test_tensors.py
+│   │   ├── test_term_call_modes.py
+│   │   ├── test_term_consistency.py
+│   │   ├── test_term_sensitivity.py
+│   │   ├── test_units.py
+│   │   └── test_volume.py
+│   │       └── ... (46 more files)
+│   ├── __init__.py
+│   ├── config.py
+│   └── version.py
+├── tools/
+│   ├── build_helpers.py
+│   ├── gen_field_table.py
+│   ├── gen_gallery.py
+│   ├── gen_legendre_simplex_base.py
+│   ├── gen_lobatto1d_c.py
+│   ├── gen_release_notes.py
+│   ├── gen_serendipity_basis.py
+│   ├── gen_solver_table.py
+│   ├── gen_term_table.py
+│   ├── install_data.py
+│   ├── show_authors.py
+│   ├── show_terms_use.py
+│   └── sync_module_docs.py
+│       └── ... (8 more files)
+├── .gitignore
+├── AUTHORS
+├── CMakeLists.txt
+├── INSTALL
+├── LICENSE
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── pytest.ini
+├── README.rst
+├── setup.py
+└── site_cfg_template.py
+    └── ... (7 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

@@ -1,0 +1,15 @@
+The core problem persists:
+
+- Numba requires at least version 0.45.0 of `llvmlite`.
+- The installed version is 0.44.0.
+- Even when using the default `--index-url https://pypi.org/simple`, `pip` cannot upgrade past 0.44.0 (Python 3.10 is installed).
+
+This means:
+- There is no wheel or source distribution for `llvmlite>=0.45.0` for Python 3.10 on this system/PyPI.
+- The Numba project will not function on this Python version with this base image and mirror combination.
+
+**No further progress is possible without a compatible llvmlite version, which is a hard requirement.**
+
+```status
+failed
+```

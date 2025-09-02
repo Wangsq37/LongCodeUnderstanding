@@ -1,0 +1,10 @@
+The build process failed because the required Python development headers are missing (`fatal error: Python.h: No such file or directory`). This is required to build C extensions in Numba.
+
+You need to install the Python development headers. For Python 3.10, the package name is usually `python3.10-dev`.
+
+```bash
+apt-get update
+apt-get install -y python3.10-dev
+python setup.py build_ext --inplace
+pytest
+```

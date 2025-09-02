@@ -1,0 +1,7 @@
+```bash
+# 1. Inspect setup.py for dependencies.
+cat setup.py
+
+# 2. Install dependencies (if any found in setup.py).
+# (Will read and decide next steps after seeing setup.py contents.)
+```

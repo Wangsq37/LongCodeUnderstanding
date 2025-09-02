@@ -1,0 +1,15 @@
+The majority of the errors are not simple missing dependencies, but rather import file mismatches (due to multiple `rough_test.py` files with the same name in different locations) and an impossible-to-resolve missing package (`freewilson`), which is not available on PyPI or in well-known channels.
+
+Other errors:
+- `ImportPathMismatchError` related to a local `rdkit/conftest.py` clashing with the globally installed RDKit.
+- IndexError in `test_rdkit_draw.py` due to `sys.argv[1]` usage in the test code, which is poor test design not resolvable with dependencies.
+- `AttributeError` in `test_rdshapealign.py` due to outdated usage of `RDConfig.RDBaseDir`.
+
+The project cannot collect tests successfully due to:
+- Irrecoverable code-level issues with duplicate module names (`rough_test.py`), not resolvable by installing packages.
+- A missing dependency (`freewilson`) that cannot be installed by any known means.
+- Upstream test code errors.
+
+```status
+failed
+```

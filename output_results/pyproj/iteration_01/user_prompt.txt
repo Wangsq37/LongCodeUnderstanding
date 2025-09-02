@@ -1,0 +1,188 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── config.yml
+│   │   ├── feature_request.md
+│   │   └── installation_issues.md
+│   ├── workflows/
+│   │   ├── build_docs.yaml
+│   │   ├── release.yaml
+│   │   ├── test_proj_latest.yaml
+│   │   └── tests.yaml
+│   ├── dependabot.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── ci/
+│   ├── proj-compile-wheels.sh
+│   ├── proj-compile.sh
+│   └── vcpkg.json
+├── docs/
+│   ├── api/
+│   │   ├── crs/
+│   │   │   ├── coordinate_operation.rst
+│   │   │   ├── coordinate_system.rst
+│   │   │   ├── crs.rst
+│   │   │   ├── datum.rst
+│   │   │   ├── enums.rst
+│   │   │   └── index.rst
+│   │   │       └── ... (1 more files)
+│   │   ├── aoi.rst
+│   │   ├── database.rst
+│   │   ├── datadir.rst
+│   │   ├── enums.rst
+│   │   ├── exceptions.rst
+│   │   ├── geod.rst
+│   │   ├── global_context.rst
+│   │   ├── index.rst
+│   │   ├── list.rst
+│   │   ├── network.rst
+│   │   ├── proj.rst
+│   │   ├── show_versions.rst
+│   │   ├── sync.rst
+│   │   └── transformer.rst
+│   │       └── ... (9 more files)
+│   ├── media/
+│   │   ├── icon.png
+│   │   ├── icon.svg
+│   │   ├── logo.png
+│   │   └── logo.svg
+│   ├── advanced_examples.rst
+│   ├── build_crs.rst
+│   ├── build_crs_cf.rst
+│   ├── cli.rst
+│   ├── conf.py
+│   ├── crs_compatibility.rst
+│   ├── examples.rst
+│   ├── gotchas.rst
+│   ├── history.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── optimize_transformations.rst
+│   ├── past_versions.rst
+│   └── transformation_grids.rst
+│       └── ... (11 more files)
+├── flake8/
+│   └── cython.cfg
+├── pyproj/
+│   ├── crs/
+│   │   ├── __init__.py
+│   │   ├── _cf1x8.py
+│   │   ├── coordinate_operation.py
+│   │   ├── coordinate_system.py
+│   │   ├── crs.py
+│   │   ├── datum.py
+│   │   └── enums.py
+│   │       └── ... (2 more files)
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── _compat.pxd
+│   ├── _compat.pyi
+│   ├── _compat.pyx
+│   ├── _context.pxd
+│   ├── _context.pyi
+│   ├── _context.pyx
+│   ├── _crs.pxd
+│   ├── _crs.pyi
+│   ├── _crs.pyx
+│   ├── _geod.pxd
+│   ├── _geod.pyi
+│   ├── _geod.pyx
+│   ├── _network.pyi
+│   ├── _network.pyx
+│   ├── _show_versions.py
+│   ├── _sync.pyi
+│   ├── _sync.pyx
+│   ├── _transformer.pxd
+│   ├── _transformer.pyi
+│   ├── _transformer.pyx
+│   ├── _version.pyi
+│   ├── _version.pyx
+│   ├── aoi.py
+│   ├── base.pxi
+│   ├── database.pyi
+│   ├── database.pyx
+│   ├── datadir.py
+│   ├── enums.py
+│   ├── exceptions.py
+│   ├── geod.py
+│   ├── list.pyi
+│   ├── list.pyx
+│   ├── network.py
+│   ├── proj.pxi
+│   ├── proj.py
+│   ├── py.typed
+│   ├── sync.py
+│   ├── transformer.py
+│   └── utils.py
+│       └── ... (36 more files)
+├── test/
+│   ├── crs/
+│   │   ├── test_crs.py
+│   │   ├── test_crs_cf.py
+│   │   ├── test_crs_coordinate_operation.py
+│   │   ├── test_crs_coordinate_system.py
+│   │   ├── test_crs_datum.py
+│   │   ├── test_crs_json.py
+│   │   └── test_crs_maker.py
+│   │       └── ... (2 more files)
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── sample.out
+│   ├── test_aoi.py
+│   ├── test_awips221.py
+│   ├── test_cli.py
+│   ├── test_database.py
+│   ├── test_datadir.py
+│   ├── test_datum.py
+│   ├── test_datum_shift.py
+│   ├── test_doctest_wrapper.py
+│   ├── test_exception_logging.py
+│   ├── test_geod.py
+│   ├── test_list.py
+│   ├── test_network.py
+│   ├── test_pickle.py
+│   ├── test_proj.py
+│   ├── test_show_versions.py
+│   ├── test_sync.py
+│   ├── test_transform.py
+│   ├── test_transformer.py
+│   └── test_utils.py
+│       └── ... (17 more files)
+├── .all-contributorsrc
+├── .coveragerc
+├── .flake8
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .pylintrc
+├── CODE_OF_CONDUCT.md
+├── codecov.yml
+├── CONTRIBUTING.md
+├── HOW_TO_RELEASE.md
+├── LICENSE
+├── LICENSE_proj
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── pytest.ini
+├── README.md
+├── requirements-dev.txt
+├── requirements-docs.txt
+├── requirements-test.txt
+└── setup.py
+    └── ... (16 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

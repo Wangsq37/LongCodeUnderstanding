@@ -1,0 +1,914 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── phonopy-pytest-conda.yml
+│       ├── phonopy-pytest-pip-windows-macos.yml
+│       ├── publish-gh-pages.yml
+│       ├── publish-to-test-pypi.yml
+│       └── wheels.yml
+├── c/
+│   ├── _phonopy.cpp
+│   ├── derivative_dynmat.c
+│   ├── derivative_dynmat.h
+│   ├── dynmat.c
+│   ├── dynmat.h
+│   ├── phonopy.c
+│   ├── phonopy.h
+│   ├── rgrid.c
+│   ├── rgrid.h
+│   ├── tetrahedron_method.c
+│   └── tetrahedron_method.h
+│       └── ... (6 more files)
+├── doc/
+│   ├── _static/
+│   │   └── procedure.dot
+│   ├── abacus.rst
+│   ├── abinit.rst
+│   ├── aims.rst
+│   ├── Al-QHA.png
+│   ├── animation.md
+│   ├── auxiliary-tools.md
+│   ├── band-connection.png
+│   ├── band-labels.png
+│   ├── band.png
+│   ├── castep.rst
+│   ├── changelog.md
+│   ├── citation.md
+│   ├── command-options.md
+│   ├── conf.py
+│   ├── cp2k.rst
+│   ├── crystal.rst
+│   ├── Cu-QHA.png
+│   ├── dftb+.rst
+│   ├── documentation.md
+│   ├── dynamic-structure-factor.md
+│   ├── elk.rst
+│   ├── examples.md
+│   ├── external-tools.md
+│   ├── Fleur.rst
+│   ├── formulation.md
+│   ├── gruneisen.md
+│   ├── index.md
+│   ├── input-files.md
+│   ├── install.md
+│   ├── interfaces.md
+│   ├── lammps.md
+│   ├── Makefile
+│   ├── mlp-sscha.md
+│   ├── NaCl-band-NAC.png
+│   ├── NaCl-band-PDOS-NAC.png
+│   ├── NaCl-band.png
+│   ├── NaCl-crystal-band-NAC.png
+│   ├── NaCl-disp-dist.png
+│   ├── NaCl-PDOS-nac.png
+│   ├── NaCl-PDOS.png
+│   ├── NaCl-pwscf-band-NAC.png
+│   ├── NaCl-pwscf-band.png
+│   ├── NaCl-q2r-band-NAC.png
+│   ├── NaCl-VASPdfpt.png
+│   ├── output-files.md
+│   ├── pdos.png
+│   ├── phonondb-mp-661.png
+│   ├── phonopy-load.md
+│   ├── phonopy-logo.png
+│   ├── phonopy-module.md
+│   ├── phonopy-slide-top.png
+│   ├── phonopy-yaml.md
+│   ├── procedure.png
+│   ├── qe.md
+│   ├── qha.md
+│   ├── QHA.png
+│   ├── qlm.md
+│   ├── random-displacements.md
+│   ├── README.md
+│   ├── reference.md
+│   ├── rotation-C4.png
+│   ├── setting-tags.md
+│   ├── Si-crystal-band.png
+│   ├── Si-DOS.png
+│   ├── Si-gruneisen-band.png
+│   ├── Si-gruneisen-mesh.png
+│   ├── Si-props.png
+│   ├── Si-QHA.png
+│   ├── Si-TURBOMOLE-band.png
+│   ├── siesta.rst
+│   ├── SnO2-GZG-offset.png
+│   ├── SnO2-GZG.png
+│   ├── symmetry.md
+│   ├── thermalprop.png
+│   ├── turbomole.rst
+│   ├── Ubuntu-install.png
+│   ├── vasp-dfpt.md
+│   ├── vasp.md
+│   ├── vitualbox-fromimage.png
+│   ├── wien2k.rst
+│   └── workflow.md
+│       └── ... (76 more files)
+├── example/
+│   ├── Al-ABACUS/
+│   │   ├── abacus-lcao/
+│   │   │   ├── disp-001/
+│   │   │   ├── band.conf
+│   │   │   ├── band.yaml
+│   │   │   ├── FORCE_SETS
+│   │   │   ├── mesh.yaml
+│   │   │   ├── phonopy.yaml
+│   │   │   ├── phonopy_disp.yaml
+│   │   │   ├── setting.conf
+│   │   │   ├── STRU
+│   │   │   └── STRU.in
+│   │   │       └── ... (4 more files)
+│   │   └── abacus-pw/
+│   │       ├── disp-001/
+│   │       ├── band.conf
+│   │       ├── band.yaml
+│   │       ├── FORCE_SETS
+│   │       ├── mesh.yaml
+│   │       ├── phonopy.yaml
+│   │       ├── phonopy_disp.yaml
+│   │       ├── setting.conf
+│   │       ├── STRU
+│   │       └── STRU.in
+│   │           └── ... (4 more files)
+│   ├── Al-Fleur/
+│   │   ├── IO/
+│   │   │   ├── inp.xml
+│   │   │   ├── kpts.xml
+│   │   │   └── sym.xml
+│   │   ├── band.pdf
+│   │   ├── fleur_inpgen
+│   │   ├── FORCES
+│   │   ├── phonopy_disp.yaml
+│   │   ├── README
+│   │   └── supercell-001.in
+│   │       └── ... (1 more files)
+│   ├── Al-QHA/
+│   │   ├── Al-QHA.py
+│   │   ├── e-v.dat
+│   │   ├── POSCAR--1
+│   │   ├── POSCAR--2
+│   │   ├── POSCAR--3
+│   │   ├── POSCAR--4
+│   │   ├── POSCAR--5
+│   │   ├── POSCAR-0
+│   │   ├── POSCAR-1
+│   │   ├── POSCAR-2
+│   │   ├── POSCAR-3
+│   │   ├── POSCAR-4
+│   │   ├── POSCAR-5
+│   │   ├── README
+│   │   ├── thermal_properties.yaml--1
+│   │   ├── thermal_properties.yaml--2
+│   │   ├── thermal_properties.yaml--3
+│   │   ├── thermal_properties.yaml--4
+│   │   ├── thermal_properties.yaml--5
+│   │   ├── thermal_properties.yaml-0
+│   │   ├── thermal_properties.yaml-1
+│   │   ├── thermal_properties.yaml-2
+│   │   ├── thermal_properties.yaml-3
+│   │   ├── thermal_properties.yaml-4
+│   │   └── thermal_properties.yaml-5
+│   │       └── ... (20 more files)
+│   ├── Al2O3/
+│   │   ├── Al2O3.py
+│   │   ├── BORN
+│   │   ├── FORCE_SETS
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   ├── README.md
+│   │   └── vaspruns.tar.lzma
+│   │       └── ... (2 more files)
+│   ├── CaTiO3/
+│   │   ├── FORCE_SETS
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   └── vaspruns.tar.lzma
+│   ├── Cr/
+│   │   ├── FORCE_SETS
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   ├── README.md
+│   │   └── vasprun.xml.xz
+│   ├── Cr-castep/
+│   │   ├── band.pdf
+│   │   ├── FORCE_SETS
+│   │   ├── make_displ_dirs.sh
+│   │   ├── README
+│   │   ├── tail.cell
+│   │   └── unitcell.cell
+│   │       └── ... (1 more files)
+│   ├── Cu-QHA/
+│   │   ├── e-v.dat
+│   │   ├── fe-v.dat
+│   │   ├── POSCAR-00
+│   │   ├── POSCAR-01
+│   │   ├── POSCAR-02
+│   │   ├── POSCAR-03
+│   │   ├── POSCAR-04
+│   │   ├── POSCAR-05
+│   │   ├── POSCAR-06
+│   │   ├── POSCAR-07
+│   │   ├── POSCAR-08
+│   │   ├── POSCAR-09
+│   │   ├── POSCAR-10
+│   │   ├── README
+│   │   ├── thermal_properties.yaml-00
+│   │   ├── thermal_properties.yaml-01
+│   │   ├── thermal_properties.yaml-02
+│   │   ├── thermal_properties.yaml-03
+│   │   ├── thermal_properties.yaml-04
+│   │   ├── thermal_properties.yaml-05
+│   │   ├── thermal_properties.yaml-06
+│   │   ├── thermal_properties.yaml-07
+│   │   ├── thermal_properties.yaml-08
+│   │   ├── thermal_properties.yaml-09
+│   │   ├── thermal_properties.yaml-10
+│   │   └── vasprun.xmls.tar.lzma
+│   │       └── ... (21 more files)
+│   ├── diamond-dftb/
+│   │   ├── band.conf
+│   │   ├── dftb_in.hsd
+│   │   ├── geo.gen
+│   │   ├── README
+│   │   └── results.tag
+│   ├── diamond-FHI-aims/
+│   │   ├── disp-001/
+│   │   │   ├── aims.out
+│   │   │   ├── control.in
+│   │   │   └── geometry.in
+│   │   ├── band.conf
+│   │   ├── geometry.in
+│   │   └── README.md
+│   ├── Graphene-siesta/
+│   │   ├── disp-001/
+│   │   │   └── Gr.FA
+│   │   ├── Gr.fdf
+│   │   ├── README
+│   │   └── run_example.sh
+│   ├── KCl-SSCHA/
+│   │   ├── embed_sscha_fc.py
+│   │   ├── phonopy_fc222_JPCM2022.yaml.xz
+│   │   ├── phonopy_fc444_JPCM2022.yaml.xz
+│   │   ├── phonopy_mlpsscha_params_KCl-120.yaml.xz
+│   │   ├── phonopy_sscha_fc_JPCM2022.yaml.xz
+│   │   └── README.md
+│   │       └── ... (1 more files)
+│   ├── LiF-nosym/
+│   │   ├── BORN
+│   │   ├── FORCE_SETS
+│   │   ├── POSCAR-unitcell
+│   │   └── README.md
+│   ├── MgB2/
+│   │   ├── FORCE_SETS
+│   │   ├── MgB2.py
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   ├── README.md
+│   │   └── vaspruns.tar.lzma
+│   │       └── ... (1 more files)
+│   ├── MgO/
+│   │   ├── BORN
+│   │   ├── FORCE_SETS
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   ├── README.md
+│   │   └── vaspruns.tar.lzma
+│   │       └── ... (1 more files)
+│   ├── NaCl/
+│   │   ├── BORN
+│   │   ├── FORCE_SETS
+│   │   ├── NaCl-band-gv.py
+│   │   ├── NaCl-band.py
+│   │   ├── NaCl-dynmat.py
+│   │   ├── NaCl-gv.py
+│   │   ├── NaCl-read_write_fc.py
+│   │   ├── NaCl-yaml.py
+│   │   ├── NaCl.py
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   ├── README.md
+│   │   ├── vasprun.xml-001
+│   │   └── vasprun.xml-002
+│   │       └── ... (9 more files)
+│   ├── NaCl-abinit/
+│   │   ├── band.conf
+│   │   ├── disp.yaml
+│   │   ├── NaCl.in
+│   │   ├── README
+│   │   ├── supercell-001.out
+│   │   └── supercell-002.out
+│   │       └── ... (1 more files)
+│   ├── NaCl-castep/
+│   │   ├── band.conf
+│   │   ├── BORN
+│   │   ├── FORCE_SETS
+│   │   ├── make_displ_dirs.sh
+│   │   ├── README
+│   │   ├── supercell.param
+│   │   ├── tail.cell
+│   │   └── unitcell.cell
+│   │       └── ... (3 more files)
+│   ├── NaCl-CP2K/
+│   │   ├── .gitignore
+│   │   ├── band.conf
+│   │   ├── NaCl-supercell-001-forces-1_0.xyz
+│   │   ├── NaCl-supercell-002-forces-1_0.xyz
+│   │   ├── NaCl.inp
+│   │   ├── phonopy_disp.yaml
+│   │   └── README.md
+│   │       └── ... (2 more files)
+│   ├── NaCl-CRYSTAL/
+│   │   ├── band.conf
+│   │   ├── README
+│   │   └── TEMPLATE
+│   ├── NaCl-gruneisen/
+│   │   ├── NaCl-0.995/
+│   │   │   ├── BORN
+│   │   │   ├── FORCE_SETS
+│   │   │   └── POSCAR-unitcell
+│   │   ├── NaCl-1.00/
+│   │   │   ├── BORN
+│   │   │   ├── FORCE_SETS
+│   │   │   └── POSCAR-unitcell
+│   │   ├── NaCl-1.005/
+│   │   │   ├── BORN
+│   │   │   ├── FORCE_SETS
+│   │   │   └── POSCAR-unitcell
+│   │   └── README
+│   ├── NaCl-PWmat/
+│   │   ├── force-001/
+│   │   │   ├── etot.input
+│   │   │   ├── OUT.FORCE
+│   │   │   └── supercell-001.config
+│   │   ├── force-002/
+│   │   │   ├── etot.input
+│   │   │   ├── OUT.FORCE
+│   │   │   └── supercell-002.config
+│   │   ├── atom.config
+│   │   ├── band.conf
+│   │   ├── etot.input
+│   │   ├── README
+│   │   ├── supercell-001.config
+│   │   ├── supercell-002.config
+│   │   └── supercell.config
+│   │       └── ... (2 more files)
+│   ├── NaCl-QE/
+│   │   ├── band.conf
+│   │   ├── BORN
+│   │   ├── header.in
+│   │   ├── NaCl-001.in
+│   │   ├── NaCl-001.out
+│   │   ├── NaCl-002.in
+│   │   ├── NaCl-002.out
+│   │   ├── NaCl.in
+│   │   ├── NaCl.ph.in
+│   │   ├── NaCl.ph.out
+│   │   ├── phonopy_disp.yaml
+│   │   └── README.md
+│   │       └── ... (7 more files)
+│   ├── NaCl-QE-q2r/
+│   │   ├── make_born_q2r.py
+│   │   ├── make_fc_q2r.py
+│   │   ├── NaCl.fc.xz
+│   │   ├── NaCl.in
+│   │   ├── NaCl.ph-gamma.in
+│   │   ├── NaCl.ph.in
+│   │   ├── output888.tar.lzma
+│   │   ├── q2r.in
+│   │   └── README
+│   │       └── ... (4 more files)
+│   ├── NaCl-rd/
+│   │   ├── BORN
+│   │   ├── force-calcs.tar.xz
+│   │   ├── FORCE_SETS
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   └── README.md
+│   │       └── ... (1 more files)
+│   ├── NaCl-VASPdfpt/
+│   │   ├── FORCE_CONSTANTS
+│   │   ├── OUTCAR
+│   │   ├── POSCAR
+│   │   ├── POSCAR-unitcell
+│   │   ├── README.md
+│   │   └── vasprun.xml
+│   │       └── ... (1 more files)
+│   ├── NaCl-wien2k/
+│   │   ├── NaCl-001.scf
+│   │   ├── NaCl-002.scf
+│   │   ├── NaCl.struct
+│   │   ├── phonopy_disp.yaml
+│   │   └── README.md
+│   ├── NaCl-wien2k-P1/
+│   │   ├── NaCl-001.scf
+│   │   ├── NaCl-002.scf
+│   │   ├── NaCl.struct
+│   │   ├── phonopy_disp.yaml
+│   │   └── README.md
+│   ├── Si/
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   ├── README.md
+│   │   └── vasprun.xml
+│   ├── Si-abinit/
+│   │   ├── disp.yaml
+│   │   ├── README
+│   │   ├── Si.in
+│   │   └── supercell-001.out
+│   ├── Si-CP2K/
+│   │   ├── README.md
+│   │   ├── Si-supercell-001-forces-1_0.xyz
+│   │   └── Si.inp
+│   ├── Si-CRYSTAL/
+│   │   ├── band.conf
+│   │   ├── README
+│   │   └── TEMPLATE
+│   ├── Si-elk/
+│   │   ├── disp.yaml
+│   │   ├── elk-unitcell.in
+│   │   ├── elk.in
+│   │   ├── INFO.OUT
+│   │   └── README
+│   ├── Si-gruneisen/
+│   │   ├── minus/
+│   │   │   ├── disp.yaml
+│   │   │   ├── FORCE_SETS
+│   │   │   ├── POSCAR-unitcell
+│   │   │   └── vasprun.xml
+│   │   ├── orig/
+│   │   │   ├── disp.yaml
+│   │   │   ├── FORCE_SETS
+│   │   │   ├── POSCAR-unitcell
+│   │   │   └── vasprun.xml
+│   │   ├── plus/
+│   │   │   ├── disp.yaml
+│   │   │   ├── FORCE_SETS
+│   │   │   ├── POSCAR-unitcell
+│   │   │   └── vasprun.xml
+│   │   ├── README
+│   │   └── Si-gruneisen.py
+│   ├── Si-lammps/
+│   │   ├── generate_displacements.py
+│   │   ├── in.polymlp
+│   │   ├── lammps_forces_Si.0
+│   │   ├── phonopy_disp.yaml
+│   │   ├── phonopy_unitcell.yaml
+│   │   └── README.md
+│   │       └── ... (1 more files)
+│   ├── Si-nosym/
+│   │   ├── disp.yaml
+│   │   ├── mesh.conf
+│   │   ├── POSCAR
+│   │   ├── README
+│   │   └── vasprun_xmls.tar.lzma
+│   ├── Si-PWmat/
+│   │   ├── atom.config
+│   │   ├── band.conf
+│   │   ├── etot.input
+│   │   ├── mesh.conf
+│   │   ├── mesh.yaml
+│   │   ├── OUT.FORCE-001
+│   │   ├── README.md
+│   │   ├── supercell-001.config
+│   │   └── supercell.config
+│   │       └── ... (4 more files)
+│   ├── Si-QE/
+│   │   ├── phonopy_disp.yaml
+│   │   ├── README.md
+│   │   ├── Si.in
+│   │   └── supercell-001.out
+│   ├── Si-QHA/
+│   │   ├── disp.yaml
+│   │   ├── e-v.dat
+│   │   ├── POSCAR--1
+│   │   ├── POSCAR--2
+│   │   ├── POSCAR--3
+│   │   ├── POSCAR--4
+│   │   ├── POSCAR--5
+│   │   ├── POSCAR-0
+│   │   ├── POSCAR-1
+│   │   ├── POSCAR-2
+│   │   ├── POSCAR-3
+│   │   ├── POSCAR-4
+│   │   ├── POSCAR-5
+│   │   ├── README
+│   │   ├── Si.py
+│   │   ├── thermal_properties.yaml--1
+│   │   ├── thermal_properties.yaml--2
+│   │   ├── thermal_properties.yaml--3
+│   │   ├── thermal_properties.yaml--4
+│   │   ├── thermal_properties.yaml--5
+│   │   ├── thermal_properties.yaml-0
+│   │   ├── thermal_properties.yaml-1
+│   │   ├── thermal_properties.yaml-2
+│   │   ├── thermal_properties.yaml-3
+│   │   ├── thermal_properties.yaml-4
+│   │   ├── thermal_properties.yaml-5
+│   │   └── vasprun_xmls.tar.lzma
+│   │       └── ... (22 more files)
+│   ├── Si-siesta/
+│   │   ├── disp-001/
+│   │   │   └── Si.FA
+│   │   ├── README
+│   │   ├── run_example.sh
+│   │   └── Si.fdf
+│   ├── Si-TURBOMOLE/
+│   │   ├── example-001/
+│   │   │   ├── auxbasis
+│   │   │   ├── basis
+│   │   │   ├── control
+│   │   │   ├── coord
+│   │   │   ├── energy
+│   │   │   ├── gradient
+│   │   │   └── supercell-001.out
+│   │   │       └── ... (2 more files)
+│   │   ├── band.conf
+│   │   ├── control
+│   │   ├── coord
+│   │   └── README
+│   ├── SiO2-CP2K-xyz/
+│   │   ├── BORN
+│   │   ├── force.inp
+│   │   ├── FORCE_SETS.xz
+│   │   ├── gen_supercell_xyz.py
+│   │   ├── get_born_cp2k.py
+│   │   ├── make_displ_dirs.sh
+│   │   ├── polar.inp
+│   │   ├── Punitcell.inp
+│   │   └── README.md
+│   │       └── ... (4 more files)
+│   ├── SiO2-HP/
+│   │   ├── BORN
+│   │   ├── FORCE_SETS
+│   │   ├── INCAR
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   ├── README.md
+│   │   └── vaspruns.tar.lzma
+│   │       └── ... (2 more files)
+│   ├── SnO2/
+│   │   ├── BORN
+│   │   ├── FORCE_SETS
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   ├── README.md
+│   │   └── vaspruns.tar.lzma
+│   │       └── ... (1 more files)
+│   ├── Ti-lammps/
+│   │   ├── in.polymlp
+│   │   ├── lammps_forces_Ti.0
+│   │   ├── lammps_structure_Ti
+│   │   ├── phonopy_disp.yaml
+│   │   └── README.md
+│   ├── TiO2-anatase/
+│   │   ├── BORN
+│   │   ├── FORCE_SETS
+│   │   ├── phonopy_disp.yaml
+│   │   ├── POSCAR-unitcell
+│   │   ├── README.md
+│   │   └── vaspruns.tar.lzma
+│   │       └── ... (1 more files)
+│   └── ZnO/
+│       ├── BORN
+│       ├── FORCE_SETS
+│       ├── phonopy_disp.yaml
+│       ├── POSCAR-unitcell
+│       ├── README.md
+│       └── vaspruns.tar.lzma
+│           └── ... (1 more files)
+├── phonopy/
+│   ├── cui/
+│   │   ├── collect_cell_info.py
+│   │   ├── create_force_sets.py
+│   │   ├── load.py
+│   │   ├── load_helper.py
+│   │   ├── phonopy_argparse.py
+│   │   ├── phonopy_script.py
+│   │   ├── settings.py
+│   │   └── show_symmetry.py
+│   │       └── ... (3 more files)
+│   ├── gruneisen/
+│   │   ├── band_structure.py
+│   │   ├── core.py
+│   │   └── mesh.py
+│   ├── harmonic/
+│   │   ├── derivative_dynmat.py
+│   │   ├── displacement.py
+│   │   ├── dynamical_matrix.py
+│   │   ├── dynmat_to_fc.py
+│   │   └── force_constants.py
+│   ├── interface/
+│   │   ├── abacus.py
+│   │   ├── abinit.py
+│   │   ├── aims.py
+│   │   ├── alm.py
+│   │   ├── calculator.py
+│   │   ├── castep.py
+│   │   ├── cif.py
+│   │   ├── cp2k.py
+│   │   ├── crystal.py
+│   │   ├── dftbp.py
+│   │   ├── elk.py
+│   │   ├── fc_calculator.py
+│   │   ├── fleur.py
+│   │   ├── lammps.py
+│   │   ├── mlp.py
+│   │   ├── phonopy_yaml.py
+│   │   ├── pwmat.py
+│   │   ├── pypolymlp.py
+│   │   ├── qe.py
+│   │   ├── qlm.py
+│   │   ├── siesta.py
+│   │   ├── symfc.py
+│   │   ├── turbomole.py
+│   │   ├── vasp.py
+│   │   └── wien2k.py
+│   │       └── ... (20 more files)
+│   ├── phonon/
+│   │   ├── animation.py
+│   │   ├── band_structure.py
+│   │   ├── character_table.py
+│   │   ├── degeneracy.py
+│   │   ├── dos.py
+│   │   ├── group_velocity.py
+│   │   ├── irreps.py
+│   │   ├── mesh.py
+│   │   ├── modulation.py
+│   │   ├── moment.py
+│   │   ├── qpoints.py
+│   │   ├── random_displacements.py
+│   │   ├── tetrahedron_mesh.py
+│   │   ├── thermal_displacement.py
+│   │   └── thermal_properties.py
+│   │       └── ... (10 more files)
+│   ├── qha/
+│   │   ├── core.py
+│   │   ├── electron.py
+│   │   └── eos.py
+│   ├── scripts/
+│   │   ├── phonopy.py
+│   │   ├── phonopy_bandplot.py
+│   │   ├── phonopy_calc_convert.py
+│   │   ├── phonopy_crystal_born.py
+│   │   ├── phonopy_gruneisen.py
+│   │   ├── phonopy_gruneisenplot.py
+│   │   ├── phonopy_load.py
+│   │   ├── phonopy_pdosplot.py
+│   │   ├── phonopy_propplot.py
+│   │   ├── phonopy_qe_born.py
+│   │   ├── phonopy_qha.py
+│   │   ├── phonopy_tdplot.py
+│   │   ├── phonopy_vasp_born.py
+│   │   └── phonopy_vasp_efe.py
+│   │       └── ... (9 more files)
+│   ├── spectrum/
+│   │   ├── dynamic_structure_factor.py
+│   │   └── velocity.py
+│   ├── sscha/
+│   │   └── core.py
+│   ├── structure/
+│   │   ├── atoms.py
+│   │   ├── brillouin_zone.py
+│   │   ├── cells.py
+│   │   ├── dataset.py
+│   │   ├── grid_points.py
+│   │   ├── snf.py
+│   │   ├── symmetry.py
+│   │   └── tetrahedron_method.py
+│   │       └── ... (3 more files)
+│   ├── unfolding/
+│   │   └── core.py
+│   ├── __init__.py
+│   ├── api_gruneisen.py
+│   ├── api_phonopy.py
+│   ├── api_qha.py
+│   ├── exception.py
+│   ├── file_IO.py
+│   ├── physical_units.py
+│   ├── py.typed
+│   ├── units.py
+│   ├── utils.py
+│   └── version.py
+│       └── ... (6 more files)
+├── test/
+│   ├── api/
+│   │   └── test_api_phonopy.py
+│   ├── cui/
+│   │   ├── NaCl/
+│   │   │   ├── phonopy_disp.yaml.xz
+│   │   │   ├── vasprun.xml-001.xz
+│   │   │   └── vasprun.xml-002.xz
+│   │   ├── dim.conf
+│   │   ├── mesh.conf
+│   │   ├── POSCAR-unitcell_Cr
+│   │   └── test_phonopy_cui.py
+│   ├── gruneisen/
+│   │   └── test_gruneisen.py
+│   ├── harmonic/
+│   │   ├── test_derivative_dynmat.py
+│   │   ├── test_displacements.py
+│   │   ├── test_dynamical_matrix.py
+│   │   ├── test_dynmat_to_fc.py
+│   │   └── test_force_constants.py
+│   ├── interface/
+│   │   ├── BaGa2-wien2k.yaml
+│   │   ├── BaGa2.struct
+│   │   ├── lammps_forces_Ti.0
+│   │   ├── lammps_structure_H
+│   │   ├── lammps_structure_Ti
+│   │   ├── lammps_structure_Ti_id
+│   │   ├── nac.yaml
+│   │   ├── NaCl-abacus-mag-noncolin.stru
+│   │   ├── NaCl-abacus-mag-noncolin.yaml
+│   │   ├── NaCl-abacus-mag.stru
+│   │   ├── NaCl-abacus-mag.yaml
+│   │   ├── NaCl-abacus.out
+│   │   ├── NaCl-abacus.stru
+│   │   ├── NaCl-abinit-pwscf.yaml
+│   │   ├── NaCl-abinit.in
+│   │   ├── NaCl-castep.cell
+│   │   ├── NaCl-castep.yaml
+│   │   ├── NaCl-pwscf-2.in
+│   │   ├── NaCl-pwscf-angstrom.in
+│   │   ├── NaCl-pwscf-bohr.in
+│   │   ├── NaCl-pwscf-Xn.in
+│   │   ├── NaCl-pwscf.in
+│   │   ├── NaCl-vasp.yaml
+│   │   ├── phonopy.yaml
+│   │   ├── phonopy_symcells_NaCl.yaml
+│   │   ├── Si-CP2K.inp
+│   │   ├── Si-CP2K.yaml
+│   │   ├── Si-CRYSTAL.yaml
+│   │   ├── Si-pwmat.config
+│   │   ├── Si-pwmat.yaml
+│   │   ├── Si-TURBOMOLE-control
+│   │   ├── Si-TURBOMOLE.yaml
+│   │   ├── test_abacus.py
+│   │   ├── test_abinit.py
+│   │   ├── test_castep.py
+│   │   ├── test_conversion.py
+│   │   ├── test_CP2K.py
+│   │   ├── test_CRYSTAL.py
+│   │   ├── test_lammps.py
+│   │   ├── test_phonopy_yaml.py
+│   │   ├── test_pwmat.py
+│   │   ├── test_pwscf.py
+│   │   ├── test_pypolymlp.py
+│   │   ├── test_qlm.py
+│   │   ├── test_symfc.py
+│   │   ├── test_TURBOMOLE.py
+│   │   ├── test_vasp.py
+│   │   ├── test_wien2k.py
+│   │   ├── vasprun.xml.tar.bz2
+│   │   └── XDATCAR-NaCl
+│   │       └── ... (45 more files)
+│   ├── phonon/
+│   │   ├── eigvecs_ii_TiPN3.txt
+│   │   ├── eigvecs_ij_TiPN3.txt
+│   │   ├── FORCE_SETS_Amm2
+│   │   ├── FORCE_SETS_I4_1a
+│   │   ├── FORCE_SETS_P-3m1
+│   │   ├── FORCE_SETS_P-4
+│   │   ├── FORCE_SETS_P-42_1m
+│   │   ├── FORCE_SETS_P-43m
+│   │   ├── FORCE_SETS_P-6
+│   │   ├── FORCE_SETS_P-62m
+│   │   ├── FORCE_SETS_P-6m2
+│   │   ├── FORCE_SETS_P2
+│   │   ├── FORCE_SETS_P222_1
+│   │   ├── FORCE_SETS_P2_13
+│   │   ├── FORCE_SETS_P31m
+│   │   ├── FORCE_SETS_P3m1
+│   │   ├── FORCE_SETS_P4_1
+│   │   ├── FORCE_SETS_P4_332
+│   │   ├── FORCE_SETS_P4mm
+│   │   ├── FORCE_SETS_P6
+│   │   ├── FORCE_SETS_P6_222
+│   │   ├── FORCE_SETS_Pa-3
+│   │   ├── FORCE_SETS_Pc
+│   │   ├── POSCAR_Amm2
+│   │   ├── POSCAR_I4_1a
+│   │   ├── POSCAR_P-3m1
+│   │   ├── POSCAR_P-4
+│   │   ├── POSCAR_P-42_1m
+│   │   ├── POSCAR_P-43m
+│   │   ├── POSCAR_P-6
+│   │   ├── POSCAR_P-62m
+│   │   ├── POSCAR_P-6m2
+│   │   ├── POSCAR_P2
+│   │   ├── POSCAR_P222_1
+│   │   ├── POSCAR_P2_13
+│   │   ├── POSCAR_P31m
+│   │   ├── POSCAR_P3m1
+│   │   ├── POSCAR_P4_1
+│   │   ├── POSCAR_P4_332
+│   │   ├── POSCAR_P4mm
+│   │   ├── POSCAR_P6
+│   │   ├── POSCAR_P6_222
+│   │   ├── POSCAR_Pa-3
+│   │   ├── POSCAR_Pc
+│   │   ├── test_band_structure.py
+│   │   ├── test_dos.py
+│   │   ├── test_group_velocity.py
+│   │   ├── test_irreps.py
+│   │   ├── test_mesh.py
+│   │   ├── test_modulation.py
+│   │   ├── test_moment.py
+│   │   ├── test_qpoints.py
+│   │   ├── test_random_displacements.py
+│   │   ├── test_tetrahedron_mesh.py
+│   │   ├── test_thermal_displacement.py
+│   │   ├── test_thermal_properties.py
+│   │   └── test_thermal_properties_classical.py
+│   │       └── ... (52 more files)
+│   ├── phonopy_load/
+│   │   └── test_phonopy_load.py
+│   ├── qha/
+│   │   ├── fe-v-Cu.dat
+│   │   ├── test_electron.py
+│   │   ├── test_QHA.py
+│   │   ├── test_QHA_efe.py
+│   │   ├── tprop-Cu.dat
+│   │   └── tprop-Si.dat
+│   │       └── ... (1 more files)
+│   ├── spectrum/
+│   │   ├── test_dynamic_structure_factor.py
+│   │   ├── test_velocity.py
+│   │   ├── velocities.dat
+│   │   └── XDATCAR
+│   ├── sscha/
+│   │   └── test_core.py
+│   ├── structure/
+│   │   ├── Si-conv.yaml
+│   │   ├── SiO2-123.yaml
+│   │   ├── test_atoms.py
+│   │   ├── test_brillouin_zone.py
+│   │   ├── test_cells.py
+│   │   ├── test_grid_points.py
+│   │   ├── test_symmetry.py
+│   │   ├── test_tetrahedron_method.py
+│   │   └── tio2_qpoints.yaml
+│   │       └── ... (4 more files)
+│   ├── unfolding/
+│   │   ├── bin-unfolding.dat
+│   │   ├── bin-unfolding_to_atoms.dat
+│   │   ├── FORCE_SETS
+│   │   ├── plot_band.py
+│   │   └── test_unfolding.py
+│   ├── BORN_NaCl
+│   ├── BORN_SnO2
+│   ├── BORN_TiO2
+│   ├── conftest.py
+│   ├── FORCE_SETS_NaCl
+│   ├── FORCE_SETS_SnO2
+│   ├── FORCE_SETS_TiO2
+│   ├── mlpsscha_KCl-120.pmlp
+│   ├── phonopy_disp_NaCl.yaml
+│   ├── phonopy_disp_SnO2.yaml
+│   ├── phonopy_disp_TiO2.yaml
+│   ├── phonopy_KCl.yaml
+│   ├── phonopy_NaCl_unitcell1.yaml
+│   ├── phonopy_NaCl_unitcell2.yaml
+│   ├── phonopy_params_NaCl-0.995.yaml.xz
+│   ├── phonopy_params_NaCl-1.00.yaml.xz
+│   ├── phonopy_params_NaCl-1.005.yaml.xz
+│   ├── phonopy_params_NaCl-fd.yaml.xz
+│   ├── phonopy_params_NaCl-QE.yaml.xz
+│   ├── phonopy_params_NaCl-rd.yaml.xz
+│   ├── phonopy_params_Si.yaml
+│   ├── phonopy_params_TiPN3.yaml.xz
+│   ├── phonopy_params_Zr3N4.yaml
+│   ├── phonopy_SrTiO3.yaml.xz
+│   ├── polymlp_KCL-120.yaml
+│   ├── polymlp_KCL-120.yaml.xz
+│   ├── POSCAR_NaCl
+│   ├── test_exception.py
+│   └── test_file_IO.py
+│       └── ... (24 more files)
+├── .gitignore
+├── .pre-commit-config.yaml
+├── build-wheels.sh
+├── cmake-format.py
+├── CMakeLists.txt
+├── dev-requirements.txt
+├── get_nanoversion.sh
+├── LICENSE
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+└── requirements.txt
+    └── ... (7 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

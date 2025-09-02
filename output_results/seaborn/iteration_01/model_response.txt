@@ -1,0 +1,11 @@
+```bash
+# 1. Install dependencies from common files if present
+if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+if [ -f pyproject.toml ]; then pip install .; fi
+if [ -f setup.cfg ] && [ ! -f pyproject.toml ]; then pip install .; fi
+# Additional, project-specific requirements file found in ci/deps_pinned.txt, for CI reproducibility:
+if [ -f ci/deps_pinned.txt ]; then pip install -r ci/deps_pinned.txt; fi
+
+# 2. Run pytest to check if test collection works
+pytest
+```

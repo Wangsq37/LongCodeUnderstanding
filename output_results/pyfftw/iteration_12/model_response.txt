@@ -1,0 +1,14 @@
+The errors are still `ModuleNotFoundError: No module named 'pyfftw.pyfftw'`. This is a C-extension/import issue—meaning the `.so` extension module `pyfftw/pyfftw*.so` is not present after building, even though the C file exists and build logs claim to build the extension.
+
+**Most likely cause:** The build is not succeeding due to a missing system library: `libfftw3-dev` (the FFTW library). The test build reaches for FFTW headers/libs, which are NOT installed by pip, and must be provided at the OS level!
+
+Let’s install the FFTW system development libraries (header and shared lib):
+
+```bash
+apt-get update
+apt-get install -y libfftw3-dev libfftw3-3
+python setup.py build_ext --inplace
+ls pyfftw/ | grep pyfftw
+pytest
+```
+This should produce the required `.so` extension, allowing Python to import `pyfftw.pyfftw` and pytest to collect tests.

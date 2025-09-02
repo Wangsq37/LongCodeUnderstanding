@@ -1,0 +1,9 @@
+[
+  {
+    "command": "scons build python",
+    "success": false,
+    "stdout": "",
+    "stderr": "/bin/sh: 1: scons: not found\n",
+    "execution_time": 0.0010404586791992188
+  }
+]

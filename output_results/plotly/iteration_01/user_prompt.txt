@@ -1,0 +1,1518 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .circleci/
+│   └── config.yml
+├── .github/
+│   ├── workflows/
+│   │   ├── check-js-build.yml
+│   │   └── test-release.yml
+│   ├── FUNDING.yml
+│   ├── ISSUE_TEMPLATE.md
+│   └── pull_request_template.md
+├── _plotly_utils/
+│   ├── colors/
+│   │   ├── __init__.py
+│   │   ├── _swatches.py
+│   │   ├── carto.py
+│   │   ├── cmocean.py
+│   │   ├── colorbrewer.py
+│   │   ├── cyclical.py
+│   │   ├── diverging.py
+│   │   ├── plotlyjs.py
+│   │   ├── qualitative.py
+│   │   └── sequential.py
+│   │       └── ... (5 more files)
+│   ├── __init__.py
+│   ├── basevalidators.py
+│   ├── data_utils.py
+│   ├── exceptions.py
+│   ├── files.py
+│   ├── importers.py
+│   ├── optional_imports.py
+│   ├── png.py
+│   ├── README.md
+│   └── utils.py
+│       └── ... (5 more files)
+├── codegen/
+│   ├── resources/
+│   │   └── plot-schema.json
+│   ├── __init__.py
+│   ├── compatibility.py
+│   ├── datatypes.py
+│   ├── figure.py
+│   ├── utils.py
+│   └── validators.py
+│       └── ... (1 more files)
+├── doc/
+│   ├── apidoc/
+│   │   ├── _static/
+│   │   │   ├── favicon.ico
+│   │   │   ├── logo.png
+│   │   │   └── plotly-style.css
+│   │   ├── _templates/
+│   │   │   ├── class_figure.rst
+│   │   │   ├── function.rst
+│   │   │   ├── layout.html
+│   │   │   └── trace.rst
+│   │   ├── basefigure.rst
+│   │   ├── conf.py
+│   │   ├── helper_go_names.py
+│   │   ├── index.rst
+│   │   ├── Makefile
+│   │   ├── plotly.express.rst
+│   │   ├── plotly.figure_factory.rst
+│   │   ├── plotly.graph_objects.rst
+│   │   ├── plotly.io.rst
+│   │   ├── plotly.subplots.rst
+│   │   └── README.rst
+│   │       └── ... (6 more files)
+│   ├── python/
+│   │   ├── 2d-histogram-contour.md
+│   │   ├── 2D-Histogram.md
+│   │   ├── 3d-axes.md
+│   │   ├── 3d-bubble-charts.md
+│   │   ├── 3d-camera-controls.md
+│   │   ├── 3d-isosurface-plots.md
+│   │   ├── 3d-line-plots.md
+│   │   ├── 3d-mesh.md
+│   │   ├── 3d-scatter-plots.md
+│   │   ├── 3d-subplots.md
+│   │   ├── 3d-surface-plots.md
+│   │   ├── 3d-volume.md
+│   │   ├── animations.md
+│   │   ├── annotated-heatmap.md
+│   │   ├── axes.md
+│   │   ├── bar-charts.md
+│   │   ├── bio-alignment-chart.md
+│   │   ├── bio-clustergram.md
+│   │   ├── bio-manhattanplot.md
+│   │   ├── bio-volcano-plot.md
+│   │   ├── box-plots.md
+│   │   ├── bubble-charts.md
+│   │   ├── bubble-maps.md
+│   │   ├── builtin-colorscales.md
+│   │   ├── bullet-charts.md
+│   │   ├── candlestick-charts.md
+│   │   ├── carpet-contour.md
+│   │   ├── carpet-plot.md
+│   │   ├── carpet-scatter.md
+│   │   ├── categorical-axes.md
+│   │   ├── choropleth-maps.md
+│   │   ├── click-events.md
+│   │   ├── colorscales.md
+│   │   ├── cone-plot.md
+│   │   ├── configuration-options.md
+│   │   ├── continuous-error-bars.md
+│   │   ├── contour-plots.md
+│   │   ├── county-choropleth.md
+│   │   ├── creating-and-updating-figures.md
+│   │   ├── custom-buttons.md
+│   │   ├── dash.md
+│   │   ├── dendrogram.md
+│   │   ├── density-heatmaps.md
+│   │   ├── discrete-color.md
+│   │   ├── distplot.md
+│   │   ├── dot-plots.md
+│   │   ├── dropdowns.md
+│   │   ├── dumbbell-plots.md
+│   │   ├── ecdf-plots.md
+│   │   ├── error-bars.md
+│   │   ├── facet-plots.md
+│   │   ├── figure-factories.md
+│   │   ├── figure-factory-subplots.md
+│   │   ├── figure-factory-table.md
+│   │   ├── figure-introspection.md
+│   │   ├── figure-labels.md
+│   │   ├── figure-structure.md
+│   │   ├── figurewidget-app.md
+│   │   ├── figurewidget.md
+│   │   ├── filled-area-plots.md
+│   │   ├── filled-area-tile-maps.md
+│   │   ├── funnel-charts.md
+│   │   ├── gantt.md
+│   │   ├── gauge-charts.md
+│   │   ├── getting-started.md
+│   │   ├── graph-objects.md
+│   │   ├── graphing-multiple-chart-types.md
+│   │   ├── heatmaps.md
+│   │   ├── hexbin-mapbox.md
+│   │   ├── histograms.md
+│   │   ├── horizontal-bar-charts.md
+│   │   ├── horizontal-vertical-shapes.md
+│   │   ├── hover-text-and-formatting.md
+│   │   ├── icicle-charts.md
+│   │   ├── images.md
+│   │   ├── imshow.md
+│   │   ├── indicator.md
+│   │   ├── interactive-html-export.md
+│   │   ├── ipython-vs-python.md
+│   │   ├── jupyter-lab-tools.md
+│   │   ├── LaTeX.md
+│   │   ├── legend.md
+│   │   ├── line-and-scatter.md
+│   │   ├── line-charts.md
+│   │   ├── linear-fits.md
+│   │   ├── lines-on-maps.md
+│   │   ├── lines-on-tile-maps.md
+│   │   ├── log-plot.md
+│   │   ├── map-configuration.md
+│   │   ├── map-subplots-and-small-multiples.md
+│   │   ├── marginal-plots.md
+│   │   ├── marker-style.md
+│   │   ├── migrate-to-maplibre.md
+│   │   ├── mixed-subplots.md
+│   │   ├── ml-knn.md
+│   │   ├── ml-pca.md
+│   │   ├── ml-regression.md
+│   │   ├── ml-roc-pr.md
+│   │   ├── ml-tsne-umap-projections.md
+│   │   ├── ml_apps.md
+│   │   ├── multiple-axes.md
+│   │   ├── network-graphs.md
+│   │   ├── ohlc-charts.md
+│   │   ├── orca-management.md
+│   │   ├── pandas-backend.md
+│   │   ├── parallel-categories-diagram.md
+│   │   ├── parallel-coordinates-plot.md
+│   │   ├── pattern-hatching-texture.md
+│   │   ├── peak-finding.md
+│   │   ├── performance.md
+│   │   ├── pie-charts.md
+│   │   ├── plot-data-from-csv.md
+│   │   ├── plotly-express.md
+│   │   ├── polar-chart.md
+│   │   ├── px-arguments.md
+│   │   ├── quiver-plots.md
+│   │   ├── radar-chart.md
+│   │   ├── random-walk.md
+│   │   ├── range-slider.md
+│   │   ├── renderers.md
+│   │   ├── sankey-diagram.md
+│   │   ├── scatter-plots-on-maps.md
+│   │   ├── selections.md
+│   │   ├── setting-graph-size.md
+│   │   ├── shapes.md
+│   │   ├── sliders.md
+│   │   ├── smith-charts.md
+│   │   ├── smoothing.md
+│   │   ├── splom.md
+│   │   ├── static-image-export.md
+│   │   ├── static-image-generation-migration.md
+│   │   ├── streamline-plots.md
+│   │   ├── streamtube-plot.md
+│   │   ├── strip-charts.md
+│   │   ├── styling-plotly-express.md
+│   │   ├── subplots.md
+│   │   ├── sunburst-charts.md
+│   │   ├── supported-colors.md
+│   │   ├── table-subplots.md
+│   │   ├── table.md
+│   │   ├── templates.md
+│   │   ├── ternary-contour.md
+│   │   ├── ternary-plots.md
+│   │   ├── ternary-scatter-contour.md
+│   │   ├── text-and-annotations.md
+│   │   ├── tick-formatting.md
+│   │   ├── tile-county-choropleth.md
+│   │   ├── tile-map-layers.md
+│   │   ├── tile-scatter-maps.md
+│   │   ├── time-series.md
+│   │   ├── tree-plots.md
+│   │   ├── treemaps.md
+│   │   ├── trisurf.md
+│   │   ├── troubleshooting.md
+│   │   ├── v4-migration.md
+│   │   ├── v6-changes.md
+│   │   ├── violin.md
+│   │   ├── waterfall-charts.md
+│   │   ├── wide-form.md
+│   │   └── wind-rose-charts.md
+│   │       └── ... (155 more files)
+│   ├── unconverted/
+│   │   └── python/
+│   │       ├── 1d-correlation.md
+│   │       ├── 2d-projection-of-3d-surface.md
+│   │       ├── 3d-filled-line-plots.md
+│   │       ├── 3d-network-graph.md
+│   │       ├── 3d-parametric-plots.md
+│   │       ├── 3d-point-clustering.md
+│   │       ├── 3d-wireframe-plots.md
+│   │       ├── amazon-redshift.md
+│   │       ├── anova.md
+│   │       ├── apache-spark.md
+│   │       ├── average_multiple_curves.md
+│   │       ├── baseline-detection.md
+│   │       ├── baseline-subtraction.md
+│   │       ├── basic-statistics.md
+│   │       ├── big-data-analytics-with-pandas-and-sqlite.md
+│   │       ├── cars-exploration.md
+│   │       ├── change-callbacks-datashader.md
+│   │       ├── chord-diagram.md
+│   │       ├── cmocean-colorscales.md
+│   │       ├── convolution.md
+│   │       ├── create-online-dashboard-legacy.md
+│   │       ├── density-plots.md
+│   │       ├── discrete-frequency.md
+│   │       ├── exponential-fits.md
+│   │       ├── fft-filters.md
+│   │       ├── filled-area-animation.md
+│   │       ├── filled-chord-diagram.md
+│   │       ├── frequency-counts.md
+│   │       ├── gapminder-example.md
+│   │       ├── google_big_query.md
+│   │       ├── graph-data-from-mysql-database-in-python.md
+│   │       ├── heatmap-animation.md
+│   │       ├── html-reports.md
+│   │       ├── igraph-networkx-comparison.md
+│   │       ├── insets.md
+│   │       ├── interact-decorator.md
+│   │       ├── interpolation-and-extrapolation-in-1d.md
+│   │       ├── interpolation-and-extrapolation-in-2d.md
+│   │       ├── legacy-polar-chart.md
+│   │       ├── linear-algebra.md
+│   │       ├── linear-gauge-chart.md
+│   │       ├── logos.md
+│   │       ├── matplotlib-colorscales.md
+│   │       ├── normality-test.md
+│   │       ├── normalization.md
+│   │       ├── numerical-differentiation.md
+│   │       ├── numerical-integration.md
+│   │       ├── outlier-test.md
+│   │       ├── pdf-reports.md
+│   │       ├── peak-fitting.md
+│   │       ├── peak-integration.md
+│   │       ├── polygon-area.md
+│   │       ├── polynomial-fits.md
+│   │       ├── population-pyramid-charts.md
+│   │       ├── ribbon-plots.md
+│   │       ├── salesforce.md
+│   │       ├── simple-mathematics-operations.md
+│   │       ├── statistics-charts.md
+│   │       ├── streaming-tutorial.md
+│   │       ├── surface-triangulation.md
+│   │       ├── t-test.md
+│   │       ├── tesla-supercharging-stations.md
+│   │       ├── triangulation.md
+│   │       ├── userguide.md
+│   │       └── webgl-text-and-annotations.md
+│   │           └── ... (60 more files)
+│   ├── Makefile
+│   ├── nb.tpl
+│   ├── next_redirect.tpl
+│   ├── README.md
+│   ├── requirements.txt
+│   └── what_about_dash.md
+│       └── ... (1 more files)
+├── js/
+│   ├── lib/
+│   │   └── mimeExtension.js
+│   ├── src/
+│   │   ├── mimeExtension.ts
+│   │   └── widget.ts
+│   ├── install.json
+│   ├── package-lock.json
+│   ├── package.json
+│   └── tsconfig.json
+├── plotly/
+│   ├── api/
+│   │   └── __init__.py
+│   ├── colors/
+│   │   └── __init__.py
+│   ├── data/
+│   │   └── __init__.py
+│   ├── express/
+│   │   ├── colors/
+│   │   │   └── __init__.py
+│   │   ├── data/
+│   │   │   └── __init__.py
+│   │   ├── trendline_functions/
+│   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── _chart_types.py
+│   │   ├── _core.py
+│   │   ├── _doc.py
+│   │   ├── _imshow.py
+│   │   ├── _special_inputs.py
+│   │   └── imshow_utils.py
+│   │       └── ... (2 more files)
+│   ├── figure_factory/
+│   │   ├── _2d_density.py
+│   │   ├── __init__.py
+│   │   ├── _annotated_heatmap.py
+│   │   ├── _bullet.py
+│   │   ├── _candlestick.py
+│   │   ├── _county_choropleth.py
+│   │   ├── _dendrogram.py
+│   │   ├── _distplot.py
+│   │   ├── _facet_grid.py
+│   │   ├── _gantt.py
+│   │   ├── _hexbin_mapbox.py
+│   │   ├── _ohlc.py
+│   │   ├── _quiver.py
+│   │   ├── _scatterplot.py
+│   │   ├── _streamline.py
+│   │   ├── _table.py
+│   │   ├── _ternary_contour.py
+│   │   ├── _trisurf.py
+│   │   ├── _violin.py
+│   │   ├── README.md
+│   │   └── utils.py
+│   │       └── ... (16 more files)
+│   ├── graph_objects/
+│   │   └── __init__.py
+│   ├── graph_objs/
+│   │   ├── bar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _error_x.py
+│   │   │   ├── _error_y.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _outsidetextfont.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (7 more files)
+│   │   ├── barpolar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (2 more files)
+│   │   ├── box/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (3 more files)
+│   │   ├── candlestick/
+│   │   │   ├── decreasing/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── increasing/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _decreasing.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _increasing.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   └── _stream.py
+│   │   │       └── ... (2 more files)
+│   │   ├── carpet/
+│   │   │   ├── aaxis/
+│   │   │   ├── baxis/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _aaxis.py
+│   │   │   ├── _baxis.py
+│   │   │   ├── _font.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   └── _stream.py
+│   │   │       └── ... (1 more files)
+│   │   ├── choropleth/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (3 more files)
+│   │   ├── choroplethmap/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (3 more files)
+│   │   ├── choroplethmapbox/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (3 more files)
+│   │   ├── cone/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _lighting.py
+│   │   │   ├── _lightposition.py
+│   │   │   └── _stream.py
+│   │   │       └── ... (2 more files)
+│   │   ├── contour/
+│   │   │   ├── colorbar/
+│   │   │   ├── contours/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _contours.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _stream.py
+│   │   │   └── _textfont.py
+│   │   │       └── ... (3 more files)
+│   │   ├── contourcarpet/
+│   │   │   ├── colorbar/
+│   │   │   ├── contours/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _contours.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   └── _stream.py
+│   │   │       └── ... (1 more files)
+│   │   ├── densitymap/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   └── _stream.py
+│   │   ├── densitymapbox/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   └── _stream.py
+│   │   ├── funnel/
+│   │   │   ├── connector/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── __init__.py
+│   │   │   ├── _connector.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _outsidetextfont.py
+│   │   │   ├── _stream.py
+│   │   │   └── _textfont.py
+│   │   │       └── ... (4 more files)
+│   │   ├── funnelarea/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── title/
+│   │   │   ├── __init__.py
+│   │   │   ├── _domain.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _title.py
+│   │   │       └── ... (4 more files)
+│   │   ├── heatmap/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _stream.py
+│   │   │   └── _textfont.py
+│   │   │       └── ... (1 more files)
+│   │   ├── histogram/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _cumulative.py
+│   │   │   ├── _error_x.py
+│   │   │   ├── _error_y.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _outsidetextfont.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   ├── _unselected.py
+│   │   │   ├── _xbins.py
+│   │   │   └── _ybins.py
+│   │   │       └── ... (10 more files)
+│   │   ├── histogram2d/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   ├── _xbins.py
+│   │   │   └── _ybins.py
+│   │   │       └── ... (4 more files)
+│   │   ├── histogram2dcontour/
+│   │   │   ├── colorbar/
+│   │   │   ├── contours/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _contours.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   ├── _xbins.py
+│   │   │   └── _ybins.py
+│   │   │       └── ... (6 more files)
+│   │   ├── icicle/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── pathbar/
+│   │   │   ├── __init__.py
+│   │   │   ├── _domain.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _leaf.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _outsidetextfont.py
+│   │   │   ├── _pathbar.py
+│   │   │   ├── _root.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _tiling.py
+│   │   │       └── ... (8 more files)
+│   │   ├── image/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   └── _stream.py
+│   │   ├── indicator/
+│   │   │   ├── delta/
+│   │   │   ├── gauge/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── number/
+│   │   │   ├── title/
+│   │   │   ├── __init__.py
+│   │   │   ├── _delta.py
+│   │   │   ├── _domain.py
+│   │   │   ├── _gauge.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _number.py
+│   │   │   ├── _stream.py
+│   │   │   └── _title.py
+│   │   │       └── ... (3 more files)
+│   │   ├── isosurface/
+│   │   │   ├── caps/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── slices/
+│   │   │   ├── __init__.py
+│   │   │   ├── _caps.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _contour.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _lighting.py
+│   │   │   ├── _lightposition.py
+│   │   │   ├── _slices.py
+│   │   │   ├── _spaceframe.py
+│   │   │   ├── _stream.py
+│   │   │   └── _surface.py
+│   │   │       └── ... (7 more files)
+│   │   ├── layout/
+│   │   │   ├── annotation/
+│   │   │   ├── coloraxis/
+│   │   │   ├── geo/
+│   │   │   ├── grid/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legend/
+│   │   │   ├── map/
+│   │   │   ├── mapbox/
+│   │   │   ├── newselection/
+│   │   │   ├── newshape/
+│   │   │   ├── polar/
+│   │   │   ├── scene/
+│   │   │   ├── selection/
+│   │   │   ├── shape/
+│   │   │   ├── slider/
+│   │   │   ├── smith/
+│   │   │   ├── template/
+│   │   │   ├── ternary/
+│   │   │   ├── title/
+│   │   │   ├── updatemenu/
+│   │   │   ├── xaxis/
+│   │   │   ├── yaxis/
+│   │   │   ├── __init__.py
+│   │   │   ├── _activeselection.py
+│   │   │   ├── _activeshape.py
+│   │   │   ├── _annotation.py
+│   │   │   ├── _coloraxis.py
+│   │   │   ├── _colorscale.py
+│   │   │   ├── _font.py
+│   │   │   ├── _geo.py
+│   │   │   ├── _grid.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _image.py
+│   │   │   ├── _legend.py
+│   │   │   ├── _map.py
+│   │   │   ├── _mapbox.py
+│   │   │   ├── _margin.py
+│   │   │   ├── _modebar.py
+│   │   │   ├── _newselection.py
+│   │   │   ├── _newshape.py
+│   │   │   ├── _polar.py
+│   │   │   ├── _scene.py
+│   │   │   ├── _selection.py
+│   │   │   ├── _shape.py
+│   │   │   ├── _slider.py
+│   │   │   ├── _smith.py
+│   │   │   ├── _template.py
+│   │   │   ├── _ternary.py
+│   │   │   ├── _title.py
+│   │   │   ├── _transition.py
+│   │   │   ├── _uniformtext.py
+│   │   │   ├── _updatemenu.py
+│   │   │   ├── _xaxis.py
+│   │   │   └── _yaxis.py
+│   │   │       └── ... (27 more files)
+│   │   ├── mesh3d/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _contour.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _lighting.py
+│   │   │   ├── _lightposition.py
+│   │   │   └── _stream.py
+│   │   │       └── ... (3 more files)
+│   │   ├── ohlc/
+│   │   │   ├── decreasing/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── increasing/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _decreasing.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _increasing.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   └── _stream.py
+│   │   │       └── ... (2 more files)
+│   │   ├── parcats/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── line/
+│   │   │   ├── __init__.py
+│   │   │   ├── _dimension.py
+│   │   │   ├── _domain.py
+│   │   │   ├── _labelfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _stream.py
+│   │   │   └── _tickfont.py
+│   │   │       └── ... (3 more files)
+│   │   ├── parcoords/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── line/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _dimension.py
+│   │   │   ├── _domain.py
+│   │   │   ├── _labelfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _rangefont.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _tickfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (5 more files)
+│   │   ├── pie/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── title/
+│   │   │   ├── __init__.py
+│   │   │   ├── _domain.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _outsidetextfont.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _title.py
+│   │   │       └── ... (5 more files)
+│   │   ├── sankey/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── link/
+│   │   │   ├── node/
+│   │   │   ├── __init__.py
+│   │   │   ├── _domain.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _link.py
+│   │   │   ├── _node.py
+│   │   │   ├── _stream.py
+│   │   │   └── _textfont.py
+│   │   │       └── ... (3 more files)
+│   │   ├── scatter/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _error_x.py
+│   │   │   ├── _error_y.py
+│   │   │   ├── _fillgradient.py
+│   │   │   ├── _fillpattern.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (8 more files)
+│   │   ├── scatter3d/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── line/
+│   │   │   ├── marker/
+│   │   │   ├── projection/
+│   │   │   ├── __init__.py
+│   │   │   ├── _error_x.py
+│   │   │   ├── _error_y.py
+│   │   │   ├── _error_z.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _projection.py
+│   │   │   ├── _stream.py
+│   │   │   └── _textfont.py
+│   │   │       └── ... (6 more files)
+│   │   ├── scattercarpet/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (4 more files)
+│   │   ├── scattergeo/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (4 more files)
+│   │   ├── scattergl/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _error_x.py
+│   │   │   ├── _error_y.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (6 more files)
+│   │   ├── scattermap/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _cluster.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (5 more files)
+│   │   ├── scattermapbox/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _cluster.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (5 more files)
+│   │   ├── scatterpolar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (4 more files)
+│   │   ├── scatterpolargl/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (4 more files)
+│   │   ├── scattersmith/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (4 more files)
+│   │   ├── scatterternary/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (4 more files)
+│   │   ├── splom/
+│   │   │   ├── dimension/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _diagonal.py
+│   │   │   ├── _dimension.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (4 more files)
+│   │   ├── streamtube/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _lighting.py
+│   │   │   ├── _lightposition.py
+│   │   │   ├── _starts.py
+│   │   │   └── _stream.py
+│   │   │       └── ... (3 more files)
+│   │   ├── sunburst/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── __init__.py
+│   │   │   ├── _domain.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _leaf.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _outsidetextfont.py
+│   │   │   ├── _root.py
+│   │   │   ├── _stream.py
+│   │   │   └── _textfont.py
+│   │   │       └── ... (6 more files)
+│   │   ├── surface/
+│   │   │   ├── colorbar/
+│   │   │   ├── contours/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _contours.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _lighting.py
+│   │   │   ├── _lightposition.py
+│   │   │   └── _stream.py
+│   │   │       └── ... (3 more files)
+│   │   ├── table/
+│   │   │   ├── cells/
+│   │   │   ├── header/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── __init__.py
+│   │   │   ├── _cells.py
+│   │   │   ├── _domain.py
+│   │   │   ├── _header.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   └── _stream.py
+│   │   │       └── ... (2 more files)
+│   │   ├── treemap/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── pathbar/
+│   │   │   ├── __init__.py
+│   │   │   ├── _domain.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _outsidetextfont.py
+│   │   │   ├── _pathbar.py
+│   │   │   ├── _root.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _tiling.py
+│   │   │       └── ... (7 more files)
+│   │   ├── violin/
+│   │   │   ├── box/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── marker/
+│   │   │   ├── selected/
+│   │   │   ├── unselected/
+│   │   │   ├── __init__.py
+│   │   │   ├── _box.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _line.py
+│   │   │   ├── _marker.py
+│   │   │   ├── _meanline.py
+│   │   │   ├── _selected.py
+│   │   │   ├── _stream.py
+│   │   │   └── _unselected.py
+│   │   │       └── ... (5 more files)
+│   │   ├── volume/
+│   │   │   ├── caps/
+│   │   │   ├── colorbar/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── slices/
+│   │   │   ├── __init__.py
+│   │   │   ├── _caps.py
+│   │   │   ├── _colorbar.py
+│   │   │   ├── _contour.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _lighting.py
+│   │   │   ├── _lightposition.py
+│   │   │   ├── _slices.py
+│   │   │   ├── _spaceframe.py
+│   │   │   ├── _stream.py
+│   │   │   └── _surface.py
+│   │   │       └── ... (7 more files)
+│   │   ├── waterfall/
+│   │   │   ├── connector/
+│   │   │   ├── decreasing/
+│   │   │   ├── hoverlabel/
+│   │   │   ├── increasing/
+│   │   │   ├── legendgrouptitle/
+│   │   │   ├── totals/
+│   │   │   ├── __init__.py
+│   │   │   ├── _connector.py
+│   │   │   ├── _decreasing.py
+│   │   │   ├── _hoverlabel.py
+│   │   │   ├── _increasing.py
+│   │   │   ├── _insidetextfont.py
+│   │   │   ├── _legendgrouptitle.py
+│   │   │   ├── _outsidetextfont.py
+│   │   │   ├── _stream.py
+│   │   │   ├── _textfont.py
+│   │   │   └── _totals.py
+│   │   │       └── ... (6 more files)
+│   │   ├── __init__.py
+│   │   ├── _bar.py
+│   │   ├── _barpolar.py
+│   │   ├── _box.py
+│   │   ├── _candlestick.py
+│   │   ├── _carpet.py
+│   │   ├── _choropleth.py
+│   │   ├── _choroplethmap.py
+│   │   ├── _choroplethmapbox.py
+│   │   ├── _cone.py
+│   │   ├── _contour.py
+│   │   ├── _contourcarpet.py
+│   │   ├── _densitymap.py
+│   │   ├── _densitymapbox.py
+│   │   ├── _deprecations.py
+│   │   ├── _figure.py
+│   │   ├── _figurewidget.py
+│   │   ├── _frame.py
+│   │   ├── _funnel.py
+│   │   ├── _funnelarea.py
+│   │   ├── _heatmap.py
+│   │   ├── _histogram.py
+│   │   ├── _histogram2d.py
+│   │   ├── _histogram2dcontour.py
+│   │   ├── _icicle.py
+│   │   ├── _image.py
+│   │   ├── _indicator.py
+│   │   ├── _isosurface.py
+│   │   ├── _layout.py
+│   │   ├── _mesh3d.py
+│   │   ├── _ohlc.py
+│   │   ├── _parcats.py
+│   │   ├── _parcoords.py
+│   │   ├── _pie.py
+│   │   ├── _sankey.py
+│   │   ├── _scatter.py
+│   │   ├── _scatter3d.py
+│   │   ├── _scattercarpet.py
+│   │   ├── _scattergeo.py
+│   │   ├── _scattergl.py
+│   │   ├── _scattermap.py
+│   │   ├── _scattermapbox.py
+│   │   ├── _scatterpolar.py
+│   │   ├── _scatterpolargl.py
+│   │   ├── _scattersmith.py
+│   │   ├── _scatterternary.py
+│   │   ├── _splom.py
+│   │   ├── _streamtube.py
+│   │   ├── _sunburst.py
+│   │   ├── _surface.py
+│   │   ├── _table.py
+│   │   ├── _treemap.py
+│   │   ├── _violin.py
+│   │   ├── _volume.py
+│   │   ├── _waterfall.py
+│   │   └── graph_objs.py
+│   │       └── ... (51 more files)
+│   ├── io/
+│   │   ├── __init__.py
+│   │   ├── _base_renderers.py
+│   │   ├── _defaults.py
+│   │   ├── _html.py
+│   │   ├── _json.py
+│   │   ├── _kaleido.py
+│   │   ├── _orca.py
+│   │   ├── _renderers.py
+│   │   ├── _sg_scraper.py
+│   │   ├── _templates.py
+│   │   ├── _utils.py
+│   │   ├── base_renderers.py
+│   │   ├── json.py
+│   │   ├── kaleido.py
+│   │   └── orca.py
+│   │       └── ... (10 more files)
+│   ├── labextension/
+│   │   ├── static/
+│   │   │   ├── 340.e13d674598350634d78a.js
+│   │   │   ├── 340.e13d674598350634d78a.js.LICENSE.txt
+│   │   │   ├── remoteEntry.fafc1a00b6eac93ead89.js
+│   │   │   ├── style.js
+│   │   │   └── third-party-licenses.json
+│   │   └── package.json
+│   ├── matplotlylib/
+│   │   ├── mplexporter/
+│   │   │   ├── renderers/
+│   │   │   ├── tests/
+│   │   │   ├── __init__.py
+│   │   │   ├── exporter.py
+│   │   │   ├── tools.py
+│   │   │   └── utils.py
+│   │   ├── __init__.py
+│   │   ├── mpltools.py
+│   │   └── renderer.py
+│   ├── offline/
+│   │   ├── __init__.py
+│   │   ├── _plotlyjs_version.py
+│   │   └── offline.py
+│   ├── package_data/
+│   │   ├── datasets/
+│   │   │   ├── carshare.csv.gz
+│   │   │   ├── election.csv.gz
+│   │   │   ├── election.geojson.gz
+│   │   │   ├── experiment.csv.gz
+│   │   │   ├── gapminder.csv.gz
+│   │   │   ├── iris.csv.gz
+│   │   │   ├── medals.csv.gz
+│   │   │   ├── stocks.csv.gz
+│   │   │   ├── tips.csv.gz
+│   │   │   └── wind.csv.gz
+│   │   │       └── ... (5 more files)
+│   │   ├── templates/
+│   │   │   ├── ggplot2.json
+│   │   │   ├── gridon.json
+│   │   │   ├── plotly.json
+│   │   │   ├── plotly_dark.json
+│   │   │   ├── plotly_white.json
+│   │   │   ├── presentation.json
+│   │   │   ├── seaborn.json
+│   │   │   ├── simple_white.json
+│   │   │   ├── xgridoff.json
+│   │   │   └── ygridoff.json
+│   │   │       └── ... (5 more files)
+│   │   ├── plotly.min.js
+│   │   └── widgetbundle.js
+│   ├── validators/
+│   │   └── _validators.json
+│   ├── __init__.py
+│   ├── _subplots.py
+│   ├── animation.py
+│   ├── basedatatypes.py
+│   ├── basewidget.py
+│   ├── callbacks.py
+│   ├── conftest.py
+│   ├── exceptions.py
+│   ├── files.py
+│   ├── missing_anywidget.py
+│   ├── optional_imports.py
+│   ├── serializers.py
+│   ├── shapeannotation.py
+│   ├── subplots.py
+│   ├── tools.py
+│   ├── utils.py
+│   └── validator_cache.py
+│       └── ... (12 more files)
+├── templategen/
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── colors.py
+│   ├── __init__.py
+│   ├── __main__.py
+│   └── definitions.py
+├── test_init/
+│   ├── __init__.py
+│   ├── README.md
+│   ├── test_dependencies_not_imported.py
+│   └── test_lazy_imports.py
+├── tests/
+│   ├── percy/
+│   │   ├── compare-pandas.py
+│   │   ├── plotly-express.py
+│   │   └── snapshots.yml
+│   ├── test_core/
+│   │   ├── test_colors/
+│   │   │   ├── __init__.py
+│   │   │   └── test_colors.py
+│   │   ├── test_errors/
+│   │   │   └── test_dict_path_errors.py
+│   │   ├── test_figure_messages/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_add_traces.py
+│   │   │   ├── test_batch_animate.py
+│   │   │   ├── test_move_delete_traces.py
+│   │   │   ├── test_on_change.py
+│   │   │   ├── test_plotly_relayout.py
+│   │   │   ├── test_plotly_restyle.py
+│   │   │   └── test_plotly_update.py
+│   │   │       └── ... (3 more files)
+│   │   ├── test_figure_widget_backend/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_missing_anywidget.py
+│   │   │   ├── test_validate_initialization.py
+│   │   │   └── test_validate_no_frames.py
+│   │   ├── test_graph_objs/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_annotations.py
+│   │   │   ├── test_append_trace.py
+│   │   │   ├── test_constructor.py
+│   │   │   ├── test_data.py
+│   │   │   ├── test_error_bars.py
+│   │   │   ├── test_figure.py
+│   │   │   ├── test_figure_properties.py
+│   │   │   ├── test_frames.py
+│   │   │   ├── test_graph_objs.py
+│   │   │   ├── test_instantiate_hierarchy.py
+│   │   │   ├── test_layout_subplots.py
+│   │   │   ├── test_properties_validated.py
+│   │   │   ├── test_property_assignment.py
+│   │   │   ├── test_repr.py
+│   │   │   ├── test_scatter.py
+│   │   │   ├── test_template.py
+│   │   │   ├── test_to_ordered_dict.py
+│   │   │   ├── test_update.py
+│   │   │   └── test_validate.py
+│   │   │       └── ... (15 more files)
+│   │   ├── test_offline/
+│   │   │   └── test_offline.py
+│   │   ├── test_optional_imports/
+│   │   │   ├── __init__.py
+│   │   │   ├── exploding_module.py
+│   │   │   └── test_optional_imports.py
+│   │   ├── test_subplots/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_find_nonempty_subplots.py
+│   │   │   ├── test_get_subplot.py
+│   │   │   └── test_make_subplots.py
+│   │   ├── test_update_objects/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_row_col_subplot_addressing.py
+│   │   │   ├── test_selector_matches.py
+│   │   │   ├── test_update_annotations.py
+│   │   │   ├── test_update_layout.py
+│   │   │   ├── test_update_subplots.py
+│   │   │   └── test_update_traces.py
+│   │   │       └── ... (2 more files)
+│   │   ├── test_utils/
+│   │   │   ├── __init__.py
+│   │   │   └── test_utils.py
+│   │   └── __init__.py
+│   ├── test_io/
+│   │   ├── test_deepcopy_pickle.py
+│   │   ├── test_html.py
+│   │   ├── test_pathlib.py
+│   │   ├── test_renderers.py
+│   │   ├── test_to_from_json.py
+│   │   └── test_to_from_plotly_json.py
+│   │       └── ... (1 more files)
+│   ├── test_optional/
+│   │   ├── test_autoshapes/
+│   │   │   ├── __init__.py
+│   │   │   ├── common.py
+│   │   │   ├── test_annotated_shapes.py
+│   │   │   ├── test_annotated_shapes_annotations.json
+│   │   │   └── test_axis_span_shapes.py
+│   │   ├── test_figure_factory/
+│   │   │   ├── __init__.py
+│   │   │   └── test_figure_factory.py
+│   │   ├── test_graph_objs/
+│   │   │   ├── __init__.py
+│   │   │   └── test_skipped_b64_keys.py
+│   │   ├── test_kaleido/
+│   │   │   ├── __init__.py
+│   │   │   └── test_kaleido.py
+│   │   ├── test_matplotlylib/
+│   │   │   ├── data/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_annotations.py
+│   │   │   ├── test_axis_scales.py
+│   │   │   ├── test_bars.py
+│   │   │   ├── test_data.py
+│   │   │   ├── test_date_times.py
+│   │   │   ├── test_lines.py
+│   │   │   ├── test_scatter.py
+│   │   │   └── test_subplots.py
+│   │   │       └── ... (4 more files)
+│   │   ├── test_offline/
+│   │   │   ├── __init__.py
+│   │   │   └── test_offline.py
+│   │   ├── test_px/
+│   │   │   ├── __init__.py
+│   │   │   ├── conftest.py
+│   │   │   ├── test_colors.py
+│   │   │   ├── test_facets.py
+│   │   │   ├── test_imshow.py
+│   │   │   ├── test_marginals.py
+│   │   │   ├── test_pandas_backend.py
+│   │   │   ├── test_px.py
+│   │   │   ├── test_px_functions.py
+│   │   │   ├── test_px_hover.py
+│   │   │   ├── test_px_input.py
+│   │   │   ├── test_px_wide.py
+│   │   │   └── test_trendline.py
+│   │   │       └── ... (8 more files)
+│   │   ├── test_subplots/
+│   │   │   ├── __init__.py
+│   │   │   └── test_make_subplots.py
+│   │   ├── test_tools/
+│   │   │   ├── __init__.py
+│   │   │   └── test_figure_factory.py
+│   │   ├── test_utils/
+│   │   │   ├── __init__.py
+│   │   │   └── test_utils.py
+│   │   ├── __init__.py
+│   │   └── optional_utils.py
+│   ├── test_plotly_utils/
+│   │   ├── resources/
+│   │   │   └── 1x1-black.png
+│   │   ├── validators/
+│   │   │   ├── __init__.py
+│   │   │   ├── test_angle_validator.py
+│   │   │   ├── test_any_validator.py
+│   │   │   ├── test_basetraces_validator.py
+│   │   │   ├── test_boolean_validator.py
+│   │   │   ├── test_color_validator.py
+│   │   │   ├── test_colorlist_validator.py
+│   │   │   ├── test_colorscale_validator.py
+│   │   │   ├── test_compound_validator.py
+│   │   │   ├── test_compoundarray_validator.py
+│   │   │   ├── test_dash_validator.py
+│   │   │   ├── test_dataarray_validator.py
+│   │   │   ├── test_enumerated_validator.py
+│   │   │   ├── test_fig_deepcopy.py
+│   │   │   ├── test_flaglist_validator.py
+│   │   │   ├── test_imageuri_validator.py
+│   │   │   ├── test_infoarray_validator.py
+│   │   │   ├── test_integer_validator.py
+│   │   │   ├── test_literal_validator.py
+│   │   │   ├── test_number_validator.py
+│   │   │   ├── test_pandas_series_input.py
+│   │   │   ├── test_string_validator.py
+│   │   │   ├── test_subplotid_validator.py
+│   │   │   └── test_xarray_input.py
+│   │   │       └── ... (19 more files)
+│   │   └── __init__.py
+│   ├── __init__.py
+│   └── utils.py
+├── .gitignore
+├── CHANGELOG.md
+├── CITATION.cff
+├── CODE_OF_CONDUCT.md
+├── commands.py
+├── CONTRIBUTING.md
+├── environment.yml
+├── LICENSE.txt
+├── MANIFEST.in
+├── MIGRATION_GUIDE.md
+├── pyproject.toml
+├── README.md
+├── RELEASE.md
+├── SECURITY.md
+└── uv.lock
+    └── ... (10 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

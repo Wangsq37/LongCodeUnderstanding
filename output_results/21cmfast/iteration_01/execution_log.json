@@ -1,0 +1,16 @@
+[
+  {
+    "command": "pip install -e .",
+    "success": false,
+    "stdout": "Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple/\nObtaining file:///app/repo_to_process\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Installing backend dependencies: started\n  Installing backend dependencies: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nINFO: pip is looking at multiple versions of 21cmfast to determine which version is compatible with other requirements. This could take a while.\n",
+    "stderr": "ERROR: Package '21cmfast' requires a different Python: 3.10.12 not in '>=3.11'\n",
+    "execution_time": 6.329927444458008
+  },
+  {
+    "command": "pytest",
+    "success": false,
+    "stdout": "",
+    "stderr": "ImportError while loading conftest '/app/repo_to_process/tests/conftest.py'.\ntests/conftest.py:9: in <module>\n    from py21cmfast import (\nE   ModuleNotFoundError: No module named 'py21cmfast'\n",
+    "execution_time": 0.19712448120117188
+  }
+]

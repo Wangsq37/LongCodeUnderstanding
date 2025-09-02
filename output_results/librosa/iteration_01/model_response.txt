@@ -1,0 +1,24 @@
+```bash
+# Step 1: Prefer modern builds: use pyproject.toml if complete, otherwise setup.py/setup.cfg.
+# Let's review possible dependency sources in priority:
+
+# Review pyproject.toml for [build-system], [project], [tool.poetry], or [tool.pdm]
+cat pyproject.toml
+
+# If no clear dependencies in pyproject.toml, review setup.py for install_requires
+cat setup.py
+
+# If still unclear, check for requirements.txt
+if [ -f requirements.txt ]; then cat requirements.txt; fi
+
+# See if there are any environment files in .github/ that cover main dependencies
+ls .github | grep environment
+
+# Now proceed with the practical install, pip prefers build-system > setup.py > requirements.txt
+
+# Install with pip and fallback options:
+pip install . || pip install -e . || pip install -r requirements.txt
+
+# Step 2: Try to run pytest (it may already have its own tests/conftest.py)
+pytest
+```

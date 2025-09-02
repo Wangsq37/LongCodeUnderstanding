@@ -1,0 +1,5 @@
+```bash
+pip install scipy
+pip install flaky
+pytest
+```

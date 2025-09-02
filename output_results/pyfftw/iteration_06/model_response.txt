@@ -1,0 +1,7 @@
+The build output does not show any fatal error yet, but the full log is truncated. The next step is to check if the `pyfftw` extension module was successfully built, and then try running `pytest` to see if test collection succeeds, or if further dependencies are missing.
+
+I'll run `pytest` now:
+
+```bash
+pytest
+```

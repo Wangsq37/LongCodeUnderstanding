@@ -1,0 +1,735 @@
+## Project Information
+Project Name: repo_to_process
+Language: Python
+
+## Project Structure
+```
+repo_to_process/
+├── .github/
+│   └── workflows/
+│       ├── ci.yaml
+│       └── release.yaml
+├── bcftools/
+│   ├── abuf.c
+│   ├── abuf.c.pysam.c
+│   ├── abuf.h
+│   ├── bam2bcf.c
+│   ├── bam2bcf.c.pysam.c
+│   ├── bam2bcf.h
+│   ├── bam2bcf_edlib.c
+│   ├── bam2bcf_edlib.c.pysam.c
+│   ├── bam2bcf_iaux.c
+│   ├── bam2bcf_iaux.c.pysam.c
+│   ├── bam2bcf_indel.c
+│   ├── bam2bcf_indel.c.pysam.c
+│   ├── bam_sample.c
+│   ├── bam_sample.c.pysam.c
+│   ├── bam_sample.h
+│   ├── bcftools.h
+│   ├── bcftools.pysam.c
+│   ├── bcftools.pysam.h
+│   ├── bin.c
+│   ├── bin.c.pysam.c
+│   ├── bin.h
+│   ├── call.h
+│   ├── ccall.c
+│   ├── ccall.c.pysam.c
+│   ├── cigar_state.h
+│   ├── cols.c
+│   ├── cols.c.pysam.c
+│   ├── cols.h
+│   ├── consensus.c
+│   ├── consensus.c.pysam.c
+│   ├── convert.c
+│   ├── convert.c.pysam.c
+│   ├── convert.h
+│   ├── csq.c
+│   ├── csq.c.pysam.c
+│   ├── dbuf.h
+│   ├── dist.c
+│   ├── dist.c.pysam.c
+│   ├── dist.h
+│   ├── edlib.c
+│   ├── edlib.c.pysam.c
+│   ├── edlib.h
+│   ├── em.c
+│   ├── em.c.pysam.c
+│   ├── extsort.c
+│   ├── extsort.c.pysam.c
+│   ├── extsort.h
+│   ├── filter.c
+│   ├── filter.c.pysam.c
+│   ├── filter.h
+│   ├── gff.c
+│   ├── gff.c.pysam.c
+│   ├── gff.h
+│   ├── gvcf.c
+│   ├── gvcf.c.pysam.c
+│   ├── gvcf.h
+│   ├── hclust.c
+│   ├── hclust.c.pysam.c
+│   ├── hclust.h
+│   ├── hex.h
+│   ├── HMM.c
+│   ├── HMM.c.pysam.c
+│   ├── HMM.h
+│   ├── khash_str2str.h
+│   ├── kheap.h
+│   ├── kmin.c
+│   ├── kmin.c.pysam.c
+│   ├── kmin.h
+│   ├── LICENSE
+│   ├── main.c
+│   ├── main.c.pysam.c
+│   ├── mcall.c
+│   ├── mcall.c.pysam.c
+│   ├── mpileup.c
+│   ├── mpileup.c.pysam.c
+│   ├── mw.h
+│   ├── ploidy.c
+│   ├── ploidy.c.pysam.c
+│   ├── ploidy.h
+│   ├── prob1.c
+│   ├── prob1.c.pysam.c
+│   ├── prob1.h
+│   ├── rbuf.h
+│   ├── read_consensus.c
+│   ├── read_consensus.c.pysam.c
+│   ├── read_consensus.h
+│   ├── README
+│   ├── regidx.c
+│   ├── regidx.c.pysam.c
+│   ├── regidx.h
+│   ├── reheader.c
+│   ├── reheader.c.pysam.c
+│   ├── smpl_ilist.c
+│   ├── smpl_ilist.c.pysam.c
+│   ├── smpl_ilist.h
+│   ├── str_finder.c
+│   ├── str_finder.c.pysam.c
+│   ├── str_finder.h
+│   ├── tabix.c
+│   ├── tabix.c.pysam.c
+│   ├── tsv2vcf.c
+│   ├── tsv2vcf.c.pysam.c
+│   ├── tsv2vcf.h
+│   ├── utlist.h
+│   ├── variantkey.h
+│   ├── vcfannotate.c
+│   ├── vcfannotate.c.pysam.c
+│   ├── vcfbuf.c
+│   ├── vcfbuf.c.pysam.c
+│   ├── vcfbuf.h
+│   ├── vcfcall.c
+│   ├── vcfcall.c.pysam.c
+│   ├── vcfcnv.c
+│   ├── vcfcnv.c.pysam.c
+│   ├── vcfconcat.c
+│   ├── vcfconcat.c.pysam.c
+│   ├── vcfconvert.c
+│   ├── vcfconvert.c.pysam.c
+│   ├── vcffilter.c
+│   ├── vcffilter.c.pysam.c
+│   ├── vcfgtcheck.c
+│   ├── vcfgtcheck.c.pysam.c
+│   ├── vcfhead.c
+│   ├── vcfhead.c.pysam.c
+│   ├── vcfindex.c
+│   ├── vcfindex.c.pysam.c
+│   ├── vcfisec.c
+│   ├── vcfisec.c.pysam.c
+│   ├── vcfmerge.c
+│   ├── vcfmerge.c.pysam.c
+│   ├── vcfnorm.c
+│   ├── vcfnorm.c.pysam.c
+│   ├── vcfplugin.c
+│   ├── vcfplugin.c.pysam.c
+│   ├── vcfquery.c
+│   ├── vcfquery.c.pysam.c
+│   ├── vcfroh.c
+│   ├── vcfroh.c.pysam.c
+│   ├── vcfsom.c
+│   ├── vcfsom.c.pysam.c
+│   ├── vcfsort.c
+│   ├── vcfsort.c.pysam.c
+│   ├── vcfstats.c
+│   ├── vcfstats.c.pysam.c
+│   ├── vcfview.c
+│   ├── vcfview.c.pysam.c
+│   ├── vcmp.c
+│   ├── vcmp.c.pysam.c
+│   ├── vcmp.h
+│   ├── version.c
+│   ├── version.c.pysam.c
+│   └── version.sh
+│       └── ... (147 more files)
+├── devtools/
+│   ├── artifactname.py
+│   ├── check-platform.sh
+│   ├── emulate-tools.py
+│   ├── environment-dev.yaml
+│   ├── import.py
+│   └── install-prerequisites.sh
+│       └── ... (1 more files)
+├── doc/
+│   ├── api.rst
+│   ├── benchmarking.rst
+│   ├── conf.py
+│   ├── developer.rst
+│   ├── faq.rst
+│   ├── glossary.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── release.rst
+│   ├── requirements-rtd.txt
+│   └── usage.rst
+│       └── ... (8 more files)
+├── htslib/
+│   ├── cram/
+│   │   ├── cram.h
+│   │   ├── cram_codecs.c
+│   │   ├── cram_codecs.h
+│   │   ├── cram_decode.c
+│   │   ├── cram_decode.h
+│   │   ├── cram_encode.c
+│   │   ├── cram_encode.h
+│   │   ├── cram_external.c
+│   │   ├── cram_index.c
+│   │   ├── cram_index.h
+│   │   ├── cram_io.c
+│   │   ├── cram_io.h
+│   │   ├── cram_samtools.h
+│   │   ├── cram_stats.c
+│   │   ├── cram_stats.h
+│   │   ├── cram_structs.h
+│   │   ├── mFILE.c
+│   │   ├── mFILE.h
+│   │   ├── misc.h
+│   │   ├── open_trace_file.c
+│   │   ├── open_trace_file.h
+│   │   ├── os.h
+│   │   ├── pooled_alloc.c
+│   │   ├── pooled_alloc.h
+│   │   ├── README
+│   │   ├── string_alloc.c
+│   │   └── string_alloc.h
+│   │       └── ... (22 more files)
+│   ├── htscodecs/
+│   │   └── htscodecs/
+│   │       ├── arith_dynamic.c
+│   │       ├── arith_dynamic.h
+│   │       ├── c_range_coder.h
+│   │       ├── c_simple_model.h
+│   │       ├── fqzcomp_qual.c
+│   │       ├── fqzcomp_qual.h
+│   │       ├── htscodecs.c
+│   │       ├── htscodecs.h
+│   │       ├── htscodecs_endian.h
+│   │       ├── pack.c
+│   │       ├── pack.h
+│   │       ├── permute.h
+│   │       ├── pooled_alloc.h
+│   │       ├── rANS_byte.h
+│   │       ├── rANS_static.c
+│   │       ├── rANS_static.h
+│   │       ├── rANS_static16_int.h
+│   │       ├── rANS_static32x16pr.c
+│   │       ├── rANS_static32x16pr.h
+│   │       ├── rANS_static32x16pr_avx2.c
+│   │       ├── rANS_static32x16pr_avx512.c
+│   │       ├── rANS_static32x16pr_neon.c
+│   │       ├── rANS_static32x16pr_sse4.c
+│   │       ├── rANS_static4x16.h
+│   │       ├── rANS_static4x16pr.c
+│   │       ├── rANS_word.h
+│   │       ├── rle.c
+│   │       ├── rle.h
+│   │       ├── tokenise_name3.c
+│   │       ├── tokenise_name3.h
+│   │       ├── utils.c
+│   │       ├── utils.h
+│   │       ├── varint.h
+│   │       ├── varint2.h
+│   │       └── version.h
+│   │           └── ... (30 more files)
+│   ├── htslib/
+│   │   ├── bgzf.h
+│   │   ├── cram.h
+│   │   ├── faidx.h
+│   │   ├── hfile.h
+│   │   ├── hts.h
+│   │   ├── hts_defs.h
+│   │   ├── hts_endian.h
+│   │   ├── hts_expr.h
+│   │   ├── hts_log.h
+│   │   ├── hts_os.h
+│   │   ├── kbitset.h
+│   │   ├── kfunc.h
+│   │   ├── khash.h
+│   │   ├── khash_str2int.h
+│   │   ├── klist.h
+│   │   ├── knetfile.h
+│   │   ├── kroundup.h
+│   │   ├── kseq.h
+│   │   ├── ksort.h
+│   │   ├── kstring.h
+│   │   ├── regidx.h
+│   │   ├── sam.h
+│   │   ├── synced_bcf_reader.h
+│   │   ├── tbx.h
+│   │   ├── thread_pool.h
+│   │   ├── vcf.h
+│   │   ├── vcf_sweep.h
+│   │   └── vcfutils.h
+│   │       └── ... (23 more files)
+│   ├── m4/
+│   │   ├── hts_check_compile_flags_needed.m4
+│   │   ├── hts_hide_dynamic_syms.m4
+│   │   ├── hts_prog_cc_warnings.m4
+│   │   └── pkg.m4
+│   ├── os/
+│   │   ├── lzma_stub.h
+│   │   └── rand.c
+│   ├── bcf_sr_sort.c
+│   ├── bcf_sr_sort.h
+│   ├── bgzf.c
+│   ├── builddir_vars.mk.in
+│   ├── config.guess
+│   ├── config.h.in
+│   ├── config.mk.in
+│   ├── config.sub
+│   ├── configure
+│   ├── configure.ac
+│   ├── errmod.c
+│   ├── faidx.c
+│   ├── fuzz_settings.h
+│   ├── header.c
+│   ├── header.h
+│   ├── hfile.c
+│   ├── hfile_gcs.c
+│   ├── hfile_internal.h
+│   ├── hfile_libcurl.c
+│   ├── hfile_s3.c
+│   ├── hfile_s3_write.c
+│   ├── hts.c
+│   ├── hts_expr.c
+│   ├── hts_internal.h
+│   ├── hts_os.c
+│   ├── hts_time_funcs.h
+│   ├── htscodecs_bundled.mk
+│   ├── htscodecs_external.mk
+│   ├── htslib.mk
+│   ├── htslib.pc.in
+│   ├── htslib_vars.mk
+│   ├── kfunc.c
+│   ├── kstring.c
+│   ├── LICENSE
+│   ├── Makefile
+│   ├── md5.c
+│   ├── multipart.c
+│   ├── plugin.c
+│   ├── probaln.c
+│   ├── README
+│   ├── realn.c
+│   ├── regidx.c
+│   ├── region.c
+│   ├── sam.c
+│   ├── sam_internal.h
+│   ├── sam_mods.c
+│   ├── simd.c
+│   ├── synced_bcf_reader.c
+│   ├── tbx.c
+│   ├── textutils.c
+│   ├── textutils_internal.h
+│   ├── thread_pool.c
+│   ├── thread_pool_internal.h
+│   ├── vcf.c
+│   ├── vcf_sweep.c
+│   ├── vcfutils.c
+│   └── version.sh
+│       └── ... (52 more files)
+├── import/
+│   ├── pysam.c
+│   └── pysam.h
+├── linker_tests/
+│   ├── link_pre_489/
+│   │   ├── PysamTestModule_link_pre_489/
+│   │   │   ├── __init__.py
+│   │   │   └── BuildRead.pyx
+│   │   ├── tests/
+│   │   │   └── test_module.py
+│   │   ├── cy_build.py
+│   │   └── setup.py
+│   ├── link_with_rpath/
+│   │   ├── PysamTestModule_link_with_rpath/
+│   │   │   ├── __init__.py
+│   │   │   └── BuildRead.pyx
+│   │   ├── tests/
+│   │   │   └── test_module.py
+│   │   └── setup.py
+│   └── link_without_rpath/
+│       ├── PysamTestModule_link_without_rpath/
+│       │   ├── __init__.py
+│       │   └── BuildRead.pyx
+│       ├── tests/
+│       │   └── test_module.py
+│       └── setup.py
+├── pysam/
+│   ├── include/
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── alternatives.py.obsolete
+│   ├── bcftools.py
+│   ├── conftest_cstd.c
+│   ├── htslib_util.c
+│   ├── htslib_util.h
+│   ├── libcalignedsegment.pxd
+│   ├── libcalignedsegment.pyi
+│   ├── libcalignedsegment.pyx
+│   ├── libcalignmentfile.pxd
+│   ├── libcalignmentfile.pyi
+│   ├── libcalignmentfile.pyx
+│   ├── libcbcf.pxd
+│   ├── libcbcf.pyi
+│   ├── libcbcf.pyx
+│   ├── libcbcftools.pxd
+│   ├── libcbcftools.pyi
+│   ├── libcbcftools.pyx
+│   ├── libcbgzf.pxd
+│   ├── libcbgzf.pyi
+│   ├── libcbgzf.pyx
+│   ├── libcfaidx.pxd
+│   ├── libcfaidx.pyi
+│   ├── libcfaidx.pyx
+│   ├── libchtslib.pxd
+│   ├── libchtslib.pyi
+│   ├── libchtslib.pyx
+│   ├── libcsamfile.pxd
+│   ├── libcsamfile.pyi
+│   ├── libcsamfile.pyx
+│   ├── libcsamtools.pxd
+│   ├── libcsamtools.pyi
+│   ├── libcsamtools.pyx
+│   ├── libctabix.pxd
+│   ├── libctabix.pyi
+│   ├── libctabix.pyx
+│   ├── libctabixproxies.pxd
+│   ├── libctabixproxies.pyi
+│   ├── libctabixproxies.pyx
+│   ├── libcutils.pxd
+│   ├── libcutils.pyi
+│   ├── libcutils.pyx
+│   ├── libcvcf.pxd
+│   ├── libcvcf.pyi
+│   ├── libcvcf.pyx
+│   ├── Pileup.py
+│   ├── py.typed
+│   ├── samtools.py
+│   ├── utils.py
+│   ├── VCF.py.obsolete
+│   ├── version.h
+│   ├── version.py
+│   └── version.pyi
+│       └── ... (48 more files)
+├── samtools/
+│   ├── lz4/
+│   │   ├── LICENSE
+│   │   ├── lz4.c
+│   │   ├── lz4.c.pysam.c
+│   │   └── lz4.h
+│   ├── amplicon_stats.c
+│   ├── amplicon_stats.c.pysam.c
+│   ├── bam.c
+│   ├── bam.c.pysam.c
+│   ├── bam.h
+│   ├── bam2depth.c
+│   ├── bam2depth.c.pysam.c
+│   ├── bam_addrprg.c
+│   ├── bam_addrprg.c.pysam.c
+│   ├── bam_ampliconclip.c
+│   ├── bam_ampliconclip.c.pysam.c
+│   ├── bam_ampliconclip.h
+│   ├── bam_aux.c
+│   ├── bam_aux.c.pysam.c
+│   ├── bam_cat.c
+│   ├── bam_cat.c.pysam.c
+│   ├── bam_color.c
+│   ├── bam_color.c.pysam.c
+│   ├── bam_consensus.c
+│   ├── bam_consensus.c.pysam.c
+│   ├── bam_fastq.c
+│   ├── bam_fastq.c.pysam.c
+│   ├── bam_flags.c
+│   ├── bam_flags.c.pysam.c
+│   ├── bam_import.c
+│   ├── bam_import.c.pysam.c
+│   ├── bam_index.c
+│   ├── bam_index.c.pysam.c
+│   ├── bam_lpileup.c
+│   ├── bam_lpileup.c.pysam.c
+│   ├── bam_lpileup.h
+│   ├── bam_markdup.c
+│   ├── bam_markdup.c.pysam.c
+│   ├── bam_mate.c
+│   ├── bam_mate.c.pysam.c
+│   ├── bam_md.c
+│   ├── bam_md.c.pysam.c
+│   ├── bam_plbuf.c
+│   ├── bam_plbuf.c.pysam.c
+│   ├── bam_plbuf.h
+│   ├── bam_plcmd.c
+│   ├── bam_plcmd.c.pysam.c
+│   ├── bam_quickcheck.c
+│   ├── bam_quickcheck.c.pysam.c
+│   ├── bam_reheader.c
+│   ├── bam_reheader.c.pysam.c
+│   ├── bam_rmdup.c
+│   ├── bam_rmdup.c.pysam.c
+│   ├── bam_rmdupse.c
+│   ├── bam_rmdupse.c.pysam.c
+│   ├── bam_samples.c
+│   ├── bam_samples.c.pysam.c
+│   ├── bam_sort.c
+│   ├── bam_sort.c.pysam.c
+│   ├── bam_split.c
+│   ├── bam_split.c.pysam.c
+│   ├── bam_stat.c
+│   ├── bam_stat.c.pysam.c
+│   ├── bamshuf.c
+│   ├── bamshuf.c.pysam.c
+│   ├── bamtk.c
+│   ├── bamtk.c.pysam.c
+│   ├── bedcov.c
+│   ├── bedcov.c.pysam.c
+│   ├── bedidx.c
+│   ├── bedidx.c.pysam.c
+│   ├── bedidx.h
+│   ├── consensus_pileup.c
+│   ├── consensus_pileup.c.pysam.c
+│   ├── consensus_pileup.h
+│   ├── coverage.c
+│   ├── coverage.c.pysam.c
+│   ├── cram_size.c
+│   ├── cram_size.c.pysam.c
+│   ├── cut_target.c
+│   ├── cut_target.c.pysam.c
+│   ├── dict.c
+│   ├── dict.c.pysam.c
+│   ├── faidx.c
+│   ├── faidx.c.pysam.c
+│   ├── LICENSE
+│   ├── padding.c
+│   ├── padding.c.pysam.c
+│   ├── phase.c
+│   ├── phase.c.pysam.c
+│   ├── README
+│   ├── reference.c
+│   ├── reference.c.pysam.c
+│   ├── reset.c
+│   ├── reset.c.pysam.c
+│   ├── sam_opts.c
+│   ├── sam_opts.c.pysam.c
+│   ├── sam_opts.h
+│   ├── sam_utils.c
+│   ├── sam_utils.c.pysam.c
+│   ├── sam_utils.h
+│   ├── sam_view.c
+│   ├── sam_view.c.pysam.c
+│   ├── sample.c
+│   ├── sample.c.pysam.c
+│   ├── sample.h
+│   ├── samtools.h
+│   ├── samtools.pysam.c
+│   ├── samtools.pysam.h
+│   ├── splaysort.h
+│   ├── stats.c
+│   ├── stats.c.pysam.c
+│   ├── stats_isize.c
+│   ├── stats_isize.c.pysam.c
+│   ├── stats_isize.h
+│   ├── tmp_file.c
+│   ├── tmp_file.c.pysam.c
+│   ├── tmp_file.h
+│   └── version.sh
+│       └── ... (109 more files)
+├── tests/
+│   ├── cbcf_data/
+│   │   ├── example_empty.vcf
+│   │   ├── example_vcf40.vcf
+│   │   ├── example_vcf42.vcf
+│   │   ├── example_vcf42_only_header.vcf
+│   │   ├── example_vcf42_withcontigs.vcf
+│   │   ├── example_vcf43.vcf
+│   │   ├── example_vcf43_with_utf8.vcf
+│   │   ├── gnomad.vcf
+│   │   ├── gnomad_fixed.vcf
+│   │   ├── Makefile
+│   │   └── missing_genotypes.vcf
+│   │       └── ... (6 more files)
+│   ├── pysam_data/
+│   │   ├── 0example_no_seq_in_header.bam
+│   │   ├── 0example_no_seq_in_header_null_bytes.bam
+│   │   ├── ex1.bed
+│   │   ├── ex1.fa
+│   │   ├── ex1.sam.gz
+│   │   ├── ex1.vcf.gz
+│   │   ├── ex1.vcf.gz.tbi
+│   │   ├── ex10.sam
+│   │   ├── ex3.sam
+│   │   ├── ex4.sam
+│   │   ├── ex5.sam
+│   │   ├── ex6.sam
+│   │   ├── ex7.sam.donottest
+│   │   ├── ex8.sam
+│   │   ├── ex9_fail.sam
+│   │   ├── ex9_nofail.sam
+│   │   ├── ex_spliced.sam
+│   │   ├── example_aligned_pairs.sam
+│   │   ├── example_btag.sam
+│   │   ├── example_dash_in_chr.sam
+│   │   ├── example_empty_header.sam
+│   │   ├── example_empty_with_header.sam
+│   │   ├── example_reverse_complement.sam
+│   │   ├── example_unmapped_reads_no_sq.sam
+│   │   ├── faidx_empty_seq.fq
+│   │   ├── faidx_ex1.fa
+│   │   ├── faidx_ex1.fq
+│   │   ├── issue100.sam
+│   │   ├── Makefile
+│   │   ├── MM-chebi.sam
+│   │   ├── MM-double.sam
+│   │   ├── MM-explicit.sam
+│   │   ├── MM-multi.sam
+│   │   ├── MM-orient.sam
+│   │   ├── rg_with_tab.sam
+│   │   ├── softclip.sam
+│   │   ├── tag_bug.sam
+│   │   ├── test.gtf
+│   │   ├── test.gtf.gz
+│   │   ├── test_mapped_unmapped.sam
+│   │   ├── test_query_position.sam
+│   │   └── test_unaligned.sam
+│   │       └── ... (37 more files)
+│   ├── tabix_data/
+│   │   ├── vcf/
+│   │   │   ├── 10.vcf
+│   │   │   ├── 11.vcf
+│   │   │   ├── 12.vcf
+│   │   │   ├── 13.vcf
+│   │   │   ├── 15.vcf
+│   │   │   ├── 16.vcf
+│   │   │   ├── 18.vcf
+│   │   │   ├── 2.vcf
+│   │   │   ├── 20.vcf
+│   │   │   ├── 21.vcf
+│   │   │   ├── 22.vcf
+│   │   │   ├── 23.vcf
+│   │   │   ├── 24.vcf
+│   │   │   ├── 3.vcf
+│   │   │   ├── 4.vcf
+│   │   │   ├── 5.vcf
+│   │   │   ├── 6.vcf
+│   │   │   ├── 7.vcf
+│   │   │   ├── 8.vcf
+│   │   │   ├── 9.vcf
+│   │   │   ├── issue85.vcf
+│   │   │   ├── README.txt
+│   │   │   └── vcf_v42.vcf
+│   │   │       └── ... (18 more files)
+│   │   ├── empty.bed.gz
+│   │   ├── example.bed
+│   │   ├── example.gff2.gz
+│   │   ├── example.gff3.gz
+│   │   ├── example.gtf.gz
+│   │   ├── example.gtf.gz.tbi
+│   │   ├── example.sam.gz
+│   │   ├── example.vcf.gz
+│   │   ├── example.vcf40
+│   │   ├── example_0v23.bed.gz
+│   │   ├── example_0v23.bed.gz.tbi
+│   │   ├── example_0v23.vcf.gz
+│   │   ├── example_0v23.vcf.gz.tbi
+│   │   ├── example_0v26.bed.gz
+│   │   ├── example_0v26.bed.gz.tbi
+│   │   ├── example_0v26.vcf.gz
+│   │   ├── example_0v26.vcf.gz.tbi
+│   │   ├── example_badcomments.bed.gz
+│   │   ├── example_badcomments.gtf.gz
+│   │   ├── example_badcomments.sam.gz
+│   │   ├── example_badcomments.vcf.gz
+│   │   ├── example_comments.bed.gz
+│   │   ├── example_comments.gtf.gz
+│   │   ├── example_comments.sam.gz
+│   │   ├── example_comments.vcf.gz
+│   │   ├── example_large.bed
+│   │   ├── example_large.bed.gz
+│   │   ├── example_unicode.vcf
+│   │   ├── fivecolumns.bed
+│   │   ├── gtf_toofew_fields.gtf.gz
+│   │   ├── gtf_toomany_fields.gtf.gz
+│   │   ├── gtf_wrong_fields.gtf.gz
+│   │   └── Makefile
+│   │       └── ... (28 more files)
+│   ├── 00README.txt
+│   ├── _compile_test.pyx
+│   ├── _compile_test.pyxbld
+│   ├── _cython_flagstat.pyx
+│   ├── _cython_flagstat.pyxbld
+│   ├── AlignedSegment_bench.py
+│   ├── AlignedSegment_test.py
+│   ├── AlignmentFile_bench.py
+│   ├── AlignmentFile_test.py
+│   ├── AlignmentFileFetch_bench.py
+│   ├── AlignmentFileFetchTestUtils.py
+│   ├── AlignmentFileHeader_test.py
+│   ├── AlignmentFilePileup_bench.py
+│   ├── AlignmentFilePileup_test.py
+│   ├── compile_test.py
+│   ├── faidx_bench.py
+│   ├── faidx_test.py
+│   ├── linking_test.py
+│   ├── PileupTestUtils.py
+│   ├── refactoring.txt
+│   ├── samtools_test.py
+│   ├── StreamFiledescriptors_test.py
+│   ├── tabix_bench.py
+│   ├── tabix_test.py
+│   ├── tabixproxies_test.py
+│   ├── test_samtools_python.py
+│   ├── TestUtils.py
+│   ├── typechecking_test.py
+│   ├── VariantFile_bench.py
+│   ├── VariantFile_test.py
+│   ├── VariantFileFetchTestUtils.py
+│   └── VariantRecord_test.py
+│       └── ... (27 more files)
+├── win32/
+│   ├── getopt.c
+│   ├── getopt.h
+│   ├── stdint.h
+│   └── unistd.h
+├── .cirrus.yml
+├── .gitattributes
+├── .gitignore
+├── .readthedocs.yaml
+├── AUTHORS
+├── COPYING
+├── INSTALL
+├── MANIFEST.in
+├── NEWS
+├── pyproject.toml
+├── README.rst
+├── requirements-dev.txt
+├── setup.cfg
+└── setup.py
+    └── ... (9 more files)
+```
+
+## Your Task (Phase 1: Environment Setup)
+Your first task is to set up the environment and make `pytest` runnable.
+1.  Find and install dependencies.
+2.  Run `pytest`.
+
+If `pytest` runs and collects tests (even with test failures), the next step will be to trace call chains. If you cannot make it run, declare failure.

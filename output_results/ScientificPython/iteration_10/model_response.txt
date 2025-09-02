@@ -1,0 +1,74 @@
+### Analysis:
+
+#### Errors Breakdown:
+1. **NameError in AffinityPropagation.py and Models.py**
+   - You changed legacy print statements near the top of the file, but the variable `c` (and `model`) are not defined at the module level. These print statements shouldn't be at the top; they likely were under a function or conditional in the original code.
+
+2. **Exception SyntaxError in Interpolation.py**
+   - You changed a line near the top, but `except` cannot be at the module/file top-level; it must be inside a `try` block. This points to where the automated patching went wrong.
+
+3. **NameError in oldnumeric/DeprecationWarning**
+   - This is a third-party issue, and appears unresolved.
+
+---
+
+### Fix Plan
+
+#### 1. Revert Unnecessary Top-Level Print Patches
+Restore the original files and only patch valid intra-function print statements. (If you see a print/c inside a function, use print(c); if at the top, delete it.)
+
+#### 2. Patch Interpolation.py Exception Style Only Inside Functions
+Restore top-level changes; only update inside function scope.
+
+#### 3. Patch Scientific/N.py to use DeprecationWarning if ModuleDeprecationWarning is missing
+
+#### 4. Patch oldnumeric in the site-packages if possible; if not, Scientific/N.py patch.
+
+---
+
+### Actions
+
+#### 1. Scientific/Clustering/AffinityPropagation.py
+Remove or comment top-level `print c` (should not run at import). Check for prints inside functions only.
+```file:Scientific/Clustering/AffinityPropagation.py
+# Remove or comment out any print statements at the top-level of the file.
+# Only convert `print` statements inside functions or classes, not at the file top.
+```
+
+#### 2. Scientific/Signals/Models.py
+Remove or comment top-level `print model.coeff`.
+```file:Scientific/Signals/Models.py
+# Remove, comment, or properly scope print statements so that they only occur inside functions/classes.
+```
+
+#### 3. Scientific/Functions/Interpolation.py
+Ensure `except` is inside `try` blocks in functions or methods, not at module level.
+```file:Scientific/Functions/Interpolation.py
+# Revert any changes to the top-level code.
+# Only update exception syntax inside functions/methods: replace
+# 'except ValueError, text:' with 'except ValueError as text:' IN try/except blocks.
+```
+
+#### 4. Patch Scientific/N.py so that DeprecationWarning gets used:
+```file:Scientific/N.py
+import warnings
+try:
+    from oldnumeric import *
+except ImportError:
+    pass
+
+# Patch: define ModuleDeprecationWarning if missing (for Python3 compatibility)
+try:
+    ModuleDeprecationWarning
+except NameError:
+    ModuleDeprecationWarning = DeprecationWarning
+```
+
+#### 5. Rerun pytest
+```bash
+PYTHONPATH=. pytest
+```
+
+---
+
+If these steps still lead to errors, I may need to intervene directly in `/usr/local/lib/python3.10/dist-packages/oldnumeric/__init__.py`. For now, attempt the above and see if collection passes.

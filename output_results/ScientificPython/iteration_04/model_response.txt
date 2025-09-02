@@ -1,0 +1,10 @@
+The error `ModuleNotFoundError: No module named 'Scientific'` persists, indicating that Python still cannot find the `Scientific` directory as a module.
+
+Since `Scientific/` is located at the project root, I should set the `PYTHONPATH` to include the project root itself (`/app/repo_to_process`), not just rely on a subdirectory.
+
+Let's explicitly set the current directory as the `PYTHONPATH` and rerun pytest.
+
+```bash
+export PYTHONPATH=/app/repo_to_process
+pytest
+```
